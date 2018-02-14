@@ -15,7 +15,7 @@ public class HelloController {
 	
 	@RequestMapping("/api/hello/insert")
 	public HelloObject insertHelloObject() {
-		HelloObject obj = new HelloObject("Hello Alec Li!");
+		HelloObject obj = new HelloObject("Hello Team 47!");
 		helloRepository.save(obj);
 		return obj;
 	}
@@ -36,12 +36,12 @@ public class HelloController {
 	
 	@RequestMapping("/api/hello/string")
 	public String sayHello() {
-		return "Hello_Alec!";
+		return "Hello_Team47!";
 	}
 	
 	@RequestMapping("api/hello/object")
 	public HelloObject sayHelloObject() {
-		HelloObject obj = new HelloObject("Hello_Alec!");
+		HelloObject obj = new HelloObject("Hello_Team47!");
 		return obj;
 	}
 	
