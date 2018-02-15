@@ -9,7 +9,7 @@ Project repository for team 47
 - Longsheng Lin
 
 ## AWS Hello World Endpoints
-[Link to the index page](cs4500spring2018team47.us-east-2.elasticbeanstalk.com)
+[Link to the index page](http://cs4500spring2018team47.us-east-2.elasticbeanstalk.com)
 
 [Link to the string REST endpoint](http://cs4500spring2018team47.us-east-2.elasticbeanstalk.com/api/hello/string)
 
