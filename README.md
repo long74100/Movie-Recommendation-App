@@ -23,7 +23,8 @@ Project repository for team 47
 [Retrieve all hello messages](http://cs4500spring2018team47.us-east-2.elasticbeanstalk.com/api/hello/select/all)
 
 ## Jenkins Endpoint
-[Jenkins Instance]()
+[Jenkins Instance](http://ec2-18-219-23-209.us-east-2.compute.amazonaws.com:8080/)
 
-[Spring Boot Application]()
+[Spring Boot Application](http://ec2-52-15-245-45.us-east-2.compute.amazonaws.com:8080/)
 
+[Spring Boot Application Dev](http://ec2-52-14-202-188.us-east-2.compute.amazonaws.com:8080/)
