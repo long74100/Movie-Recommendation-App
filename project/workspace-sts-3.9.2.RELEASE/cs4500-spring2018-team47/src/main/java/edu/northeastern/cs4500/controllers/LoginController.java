@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import edu.northeastern.cs4500.model.User;
-import edu.northeastern.cs4500.model.UserService;
+import edu.northeastern.cs4500.model.user.User;
+import edu.northeastern.cs4500.model.user.UserService;
 
 @Controller
 public class LoginController {
