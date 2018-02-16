@@ -1,0 +1,69 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Rotten Tomatillos Register Form</title>
+  </head>
+  <body>
+	<div class="container">
+		<div class="row">
+			<div>
+				<form autocomplete="off" action="#" th:action="@{/registration}"
+					th:object="${user}" method="post" class="form-horizontal"
+					role="form">
+					<h2>Registration Form</h2>
+					<div>
+					 <div>
+						<label th:if="${#fields.hasErrors('name')}" th:errors="*{name}"
+								class="validation-message"></label>
+						<input type="text" th:field="*{name}" placeholder="Name"
+								class="form-control" /> 
+						</div>
+					</div>
+					<div>
+						<div>
+						<label  th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"
+								class="validation-message"></label>
+							<input type="text" th:field="*{lastName}"
+								placeholder="Last Name" class="form-control" /> 
+						</div>
+					</div>
+					<div>
+						<div>
+							<input type="text" th:field="*{email}" placeholder="Email"
+								class="form-control" /> <label
+								th:if="${#fields.hasErrors('email')}" th:errors="*{email}"
+								class="validation-message"></label>
+						</div>
+					</div>
+					<div>
+						<div>
+							<input type="password" th:field="*{password}"
+								placeholder="Password" class="form-control" /> <label
+								th:if="${#fields.hasErrors('password')}" th:errors="*{password}"
+								class="validation-message"></label>
+						</div>
+					</div>
+
+					<div>
+						<div>
+							<button type="submit">Register User</button>
+						</div>
+					</div>
+					
+					<span th:utext="${successMessage}"></span>
+					
+					
+				</form>
+				<form th:action="@{/}" method="get">
+				    <button type="Submit">Login here</button>
+				</form>	
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>
