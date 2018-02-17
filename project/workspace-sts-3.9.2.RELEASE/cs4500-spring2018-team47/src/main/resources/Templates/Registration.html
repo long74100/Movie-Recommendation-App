@@ -12,39 +12,34 @@
 		<div class="row">
 			<div>
 				<form autocomplete="off" action="#" th:action="@{/registration}"
-					th:object="${user}" method="post" class="form-horizontal"
-					role="form">
+					th:object="${user}" method="post" role="form">
 					<h2>Registration Form</h2>
+					
 					<div>
 					 <div>
-						<label th:if="${#fields.hasErrors('name')}" th:errors="*{name}"
-								class="validation-message"></label>
-						<input type="text" th:field="*{name}" placeholder="Name"
-								class="form-control" /> 
+						<label th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></label>
+						<input type="text" th:field="*{name}" placeholder="Name"/> 
 						</div>
 					</div>
 					<div>
 						<div>
-						<label  th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"
-								class="validation-message"></label>
+						<label th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"></label>
 							<input type="text" th:field="*{lastName}"
-								placeholder="Last Name" class="form-control" /> 
+								placeholder="Last Name"/> 
 						</div>
 					</div>
 					<div>
 						<div>
-							<input type="text" th:field="*{email}" placeholder="Email"
-								class="form-control" /> <label
-								th:if="${#fields.hasErrors('email')}" th:errors="*{email}"
-								class="validation-message"></label>
+							<input type="text" th:field="*{email}" placeholder="Email"/> <label
+								th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></label>
 						</div>
 					</div>
 					<div>
 						<div>
 							<input type="password" th:field="*{password}"
-								placeholder="Password" class="form-control" /> <label
-								th:if="${#fields.hasErrors('password')}" th:errors="*{password}"
-								class="validation-message"></label>
+								placeholder="Password" class="form-control" />
+								
+							  <label th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></label>
 						</div>
 					</div>
 
@@ -55,7 +50,6 @@
 					</div>
 					
 					<span th:utext="${successMessage}"></span>
-					
 					
 				</form>
 				<form th:action="@{/login}" method="get">
