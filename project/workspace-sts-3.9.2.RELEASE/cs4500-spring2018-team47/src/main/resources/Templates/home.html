@@ -3,10 +3,14 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Rotten Tomatillos Landing</title>
+	<title>Rotten Tomatillos Home</title>
 </head>
 <body> 
 	<h1>Rotten Tomatillos</h1>
 	<h2>Welcome to rotten tomatillos!</h2>
+	
+	<form th:action="@{/logout}" method="get">
+			<button name="registration" type="Submit">Logout</button>
+	</form>    
 </body>
 </html>
