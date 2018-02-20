@@ -1,6 +1,7 @@
 package edu.northeastern.cs4500.model.user;
 
 import java.util.Set;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,6 +12,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.Length;
@@ -19,7 +21,7 @@ import org.springframework.data.annotation.Transient;
 
 @Entity
 @Table(name = "user")
-public class User {
+public final class User {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -28,6 +30,10 @@ public class User {
 	@Column(name = "email")
 	@Email(message = "*Please provide a valid Email")
 	@NotEmpty(message = "*Please provide an email")
+	@Pattern(regexp="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\."
+		        +"[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@"
+		        +"(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?",
+		             message="Please provide a valid email")
 	private String email;
 	@Column(name = "password")
 	@Length(min = 5, message = "*Your password must have at least 5 characters")
