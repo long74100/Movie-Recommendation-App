@@ -1,4 +1,7 @@
-package edu.northeastern.cs4500.model;
+package edu.northeastern.cs4500.model.user;
+
+import java.util.Arrays;
+import java.util.HashSet;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -26,7 +29,11 @@ public class UserServiceImpl implements UserService{
 	@Override
 	public void saveUser(User user) {
 		user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
-		userRepository.save(user);
+		user.setActive(1);
+	    Role userRole = roleRepository.findByRole("USER");
+	    user.setRoles(new HashSet<Role>(Arrays.asList(userRole)));
+	    userRepository.save(user);
+		
 	}
 
 }
