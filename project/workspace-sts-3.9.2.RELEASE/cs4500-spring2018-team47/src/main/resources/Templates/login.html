@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,22 +8,22 @@
 	<body>	
 		<div class="container">
 			<form th:action="@{/login}" method="POST">
-				<h3>Login</h3>				 
+				<h1>Login</h1>				
+				
 				<input type="text" id="email" name="email"  th:placeholder="Email"/>
-				
-				<input type="password"  th:placeholder="Password"
-					id="password" name="password"/> <br /> 
+				<input type="password"  th:placeholder="Password" id="password" name="password"/>
 					
-				<div align="center" th:if="${param.error}">
-					<p>Email or Password invalid, please verify</p>
-				</div>
-				
-				<button name="Submit" value="Login" type="Submit">Login</button>
+				<button name="Submit" value="Login" type="submit">Login</button>
 			</form>
 			
 			<form th:action="@{/registration}" method="get">
 				<button type="Submit">Register here!</button>
 			</form>	
+			
+			<div th:if="${param.error}">
+				<p>Invalid email or password</p>
+			</div>
+				
 		</div>
 	</body>
 </html>
