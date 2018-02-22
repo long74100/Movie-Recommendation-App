@@ -1,5 +1,10 @@
 package edu.northeastern.cs4500.model.services;
 
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.net.MalformedURLException;
+
+import org.json.JSONException;
 import org.json.JSONObject;
 
 //Connects with the OMDB api
@@ -9,7 +14,8 @@ public interface IOmdbService {
 	 * Searches a movie by title
 	 * @param title A string input of the title
 	 * @return A jsonObject of the movie that matches the title
-	 * @exception exception if the connection failed to connect
+	 * @IOException thrown if there was an error to connect to the API
+	 * @JSONException if creation of json object fails
 	 */
-	JSONObject searchMovieByTitle(String title) throws Exception;
+	JSONObject searchMovieByTitle(String title) throws IOException, JSONException;
 }
