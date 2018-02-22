@@ -4,17 +4,19 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	
-	<script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
-	<script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
-	
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+	<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 	
 	<title>Rotten Tomatillos Landing</title>
 </head>
-<body> 
-	<h1>Rotten Tomatillos</h1>
-	<div id="root"></div>
-	<script src="build/app.bundle.js"></script>
-
+<body>
+	<div class="container">
 	
+		<div th:replace="fragments/header/navBar :: header"></div>
+	
+		<div>Hello!</div>
+		<div id="root"></div>
+	</div> 
 </body>
 </html>
