@@ -2,6 +2,7 @@ package edu.northeastern.cs4500.model.user;
 
 import java.util.Set;
 
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -37,6 +38,8 @@ public final class User {
 	private String email;
 	@Column(name= "username")
 	@NotEmpty(message = "*Please provide a username")
+	@Pattern(regexp="^[A-Za-z0-9]*$",
+				message="Please provide an alphanumeric username")
 	@Length(min = 5, message = "Your username must have at least 5 characters")
 	private String username;
 	@Column(name = "password")
