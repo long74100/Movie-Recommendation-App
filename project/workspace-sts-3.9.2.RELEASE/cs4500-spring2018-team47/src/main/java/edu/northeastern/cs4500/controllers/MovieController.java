@@ -15,6 +15,7 @@ public class MovieController {
 	
 	@RequestMapping(value={"/movie/searchByTitle"}, method = RequestMethod.GET)
 	public ModelAndView searchResult(){
+		//only prints out the json for now
 		try {
 			System.out.println(omdbService.searchMovieByTitle("batman"));
 		} catch (Exception e) {

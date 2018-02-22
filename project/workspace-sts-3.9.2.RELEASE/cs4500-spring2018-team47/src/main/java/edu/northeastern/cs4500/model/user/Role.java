@@ -1,4 +1,4 @@
-package edu.northeastern.cs4500.model;
+package edu.northeastern.cs4500.model.user;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,7 +9,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "role")
-public class Role {
+public final class Role {
 	@Id
     @GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name="role_id")

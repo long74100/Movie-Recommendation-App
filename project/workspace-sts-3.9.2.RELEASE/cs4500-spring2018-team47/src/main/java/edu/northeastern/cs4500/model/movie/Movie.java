@@ -1,4 +1,4 @@
-package edu.northeastern.cs4500.model;
+package edu.northeastern.cs4500.model.movie;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

@@ -1,6 +1,4 @@
-package edu.northeastern.cs4500.model.services;
-
-import edu.northeastern.cs4500.model.User;
+package edu.northeastern.cs4500.model.user;
 
 public interface UserService {
 	public User findUserByEmail(String email);
