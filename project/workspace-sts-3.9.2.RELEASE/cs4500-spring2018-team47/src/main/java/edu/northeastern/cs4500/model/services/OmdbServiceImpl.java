@@ -9,6 +9,8 @@ import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.json.JSONObject;
+
 public class OmdbServiceImpl implements IOmdbService{
 	
 	private static final String apiKey = "a15fa266";
@@ -18,7 +20,7 @@ public class OmdbServiceImpl implements IOmdbService{
 	public OmdbServiceImpl() {
 	}
 
-	public String searchMovieByTitle(String title) throws Exception {
+	public JSONObject searchMovieByTitle(String title) throws Exception {
 		Map<String, String> params = new HashMap<>();
 		params.put("t", title);
 		
@@ -43,9 +45,12 @@ public class OmdbServiceImpl implements IOmdbService{
 			content.append(inputLine);
 		}
 		in.close();
-		return content.toString();
+		return new JSONObject(content.toString());
 	}
 	
+	
+	//Helper method that adds the parameters to the url correctly
+	//Encodes the paramaters for security
 	private String addParamsToUrl(String url, Map<String, String> params) throws UnsupportedEncodingException {
 		 for (Map.Entry<String, String> entry : params.entrySet()) {
 			  String searchType = URLEncoder.encode(entry.getKey(), "UTF-8");
