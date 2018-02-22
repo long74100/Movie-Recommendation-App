@@ -35,6 +35,10 @@ public final class User {
 		        +"(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?",
 		             message="Please provide a valid email")
 	private String email;
+	@Column(name= "username")
+	@NotEmpty(message = "*Please provide a username")
+	@Length(min = 5, message = "Your username must have at least 5 characters")
+	private String username;
 	@Column(name = "password")
 	@Length(min = 5, message = "*Your password must have at least 5 characters")
 	@NotEmpty(message = "*Please provide your password")
@@ -105,6 +109,14 @@ public final class User {
 
 	public void setActive(int active) {
 		this.active = active;
+	}
+	
+	public String getUsername() {
+		return username;
+	}
+	
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
 }
