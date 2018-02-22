@@ -13,7 +13,7 @@
 <body> 
 	<div class="container">
 		<div th:replace="fragments/header/navBar :: header"></div>
-		<p th:text="${Welcome}">Test</p>
+		<p th:text="${username}">Test</p>
 		
 		<form th:action="@{/logout}" method="post">
 		    <div>

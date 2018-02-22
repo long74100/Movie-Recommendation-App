@@ -13,7 +13,7 @@ public class MovieController {
 	
 	IOmdbService omdbService = new OmdbServiceImpl();
 	
-	@RequestMapping(value={"/movie/searchByTitle"}, method = RequestMethod.GET)
+	@RequestMapping(value={"/search"}, method = RequestMethod.GET)
 	public ModelAndView searchResult(){
 		//only prints out the json for now
 		try {
