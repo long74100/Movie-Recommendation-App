@@ -3,17 +3,25 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+	<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+	
 	<title>Rotten Tomatillos Home</title>
 </head>
 <body> 
-	<h1>Rotten Tomatillos</h1>
-	<h2>Welcome to rotten tomatillos!</h2>
+	<div class="container">
+		<div th:replace="fragments/header/navBar :: header"></div>
+		<p th:text="${Welcome}">Test</p>
+		
+		<form th:action="@{/logout}" method="post">
+		    <div>
+				<button type="submit">Logout</button>
+		    </div> 	
+		</form>
+	</div>
 	
-	<form th:action="@{/logout}" method="post">
-	    <div>
-			<button type="submit">Logout</button>
-	    </div> 	
-	</form>   
 	
 	 
 	
