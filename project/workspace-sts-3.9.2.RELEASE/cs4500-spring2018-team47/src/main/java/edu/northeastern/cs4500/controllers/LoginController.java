@@ -15,6 +15,10 @@ import org.springframework.web.servlet.ModelAndView;
 import edu.northeastern.cs4500.model.user.User;
 import edu.northeastern.cs4500.model.user.UserService;
 
+/**
+ * Spring MVC Controller to handle mappings for login and registration.
+ *
+ */
 @Controller
 public class LoginController {
 	
@@ -41,12 +45,22 @@ public class LoginController {
 	@RequestMapping(value = "/registration", method = RequestMethod.POST)
 	public ModelAndView createNewUser(@Valid User newUser, BindingResult bindingResult) {
 		ModelAndView modelAndView = new ModelAndView();
-		User user = userService.findUserByEmail(newUser.getEmail());
-		if (user != null) {
+		boolean emailExists = userService.existsByEmail(newUser.getEmail()) ;
+		boolean usernameExists = userService.existsByUsername(newUser.getUsername());
+
+		
+		if (emailExists) {
 			bindingResult
 					.rejectValue("email", "error.user",
 							"There is already a user registered with provided email. Please try a new email.");
 		}
+		
+		if (usernameExists) {
+			bindingResult
+					.rejectValue("username", "error.user",
+							"Username already exists. Please choose a new one.");
+		}
+		
 		if (bindingResult.hasErrors()) {
 			modelAndView.setViewName("registration");
 		} else {

@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:th="http://www.thymeleaf.org">
@@ -39,6 +38,12 @@
 						<div>
 							<input type="text" th:field="*{email}" placeholder="Email"/> 
 							<label th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></label>
+						</div>
+					</div>
+						<div>
+						<div>
+							<input type="text" th:field="*{username}" placeholder="Username"/> 
+							<label th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></label>
 						</div>
 					</div>
 					<div>
