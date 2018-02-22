@@ -3,11 +3,20 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		
+		
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+		<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+		
 		<title>Rotten Tomatillos Login Form</title>
 	</head>
-	<body>	
+	<body>
+		<div th:replace="fragments/header/navBar :: header"></div>
 		<div class="container">
-			<form th:action="@{/login}" method="POST">
+			
+			<form th:action="@{/login}" method="POST" class="form-group">
 				<h1>Login</h1>				
 				
 				<input type="text" id="email" name="email"  th:placeholder="Email"/>
