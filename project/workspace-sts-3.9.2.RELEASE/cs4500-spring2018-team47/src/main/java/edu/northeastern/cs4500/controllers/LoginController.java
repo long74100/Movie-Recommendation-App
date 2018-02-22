@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import edu.northeastern.cs4500.model.User;
-import edu.northeastern.cs4500.model.UserService;
+import edu.northeastern.cs4500.model.services.UserService;
 
 @Controller
 public class LoginController {
