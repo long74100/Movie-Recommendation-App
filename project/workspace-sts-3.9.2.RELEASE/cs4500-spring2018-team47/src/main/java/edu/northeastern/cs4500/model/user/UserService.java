@@ -4,4 +4,5 @@ public interface UserService {
 	public User findUserByEmail(String email);
 	public User findUserByUsername(String username);
 	public void saveUser(User user);
+	public boolean existsByEmail(String email);
 }
