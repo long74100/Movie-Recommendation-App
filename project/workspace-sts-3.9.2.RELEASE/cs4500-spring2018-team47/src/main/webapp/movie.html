@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+	<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+	
+	<title th:text="${movie.name}"></title>
+</head>
+<body>
+	<div th:replace="fragments/header/navBar :: header"></div>
+	<div class="container">
+
+		<div class="col-sm-6 col-md-4 movie-mobile">
+			<div>
+				<div class="square"></div>
+				<span>Movie Rating: 5.0</span>
+			</div>
+			<div>
+				Your vote:
+				<div id="score" class="score" style="cursor: pointer; width: 130px;">
+					<img src="images/rate/star-on.svg" alt="1" title="bad">&nbsp;<img
+						src="images/rate/star-on.svg" alt="2" title="poor">&nbsp;<img
+						src="images/rate/star-on.svg" alt="3" title="regular">&nbsp;<img
+						src="images/rate/star-on.svg" alt="4" title="good">&nbsp;<img
+						src="images/rate/star-on.svg" alt="5" title="gorgeous"><input
+						type="hidden" name="score" value="5">
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-6 col-md-8">
+			<p>Length: th:text="${movie.length}" </p>
+			<p>Country: th:text="${movie.country}"</p>
+			<p>Genre: th:text="${movie.genre}"</p>
+			<p>Release Date: th:text="${movie.releaseDate}"</p>
+			<p>Director: th:text="${movie.director.name}"</p>
+			<p>Actors: th:text="${movie.list.actorsName} = list"</p>
+			<h2>Plot: </h2>
+			<p>th:text="${movie.description}"</p>
+		</div>
+		
+		<div id="root"></div>
+	</div>
+</body>
+</html>

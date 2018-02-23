@@ -7,9 +7,8 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
 	<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-	
+
 	<title th:text="${movie.Title}"></title>
-	
 	<style>
 .square {
 	height: 500px;
@@ -55,7 +54,12 @@
 			<div class="col-sm-3 col-md-4" style="border:3px solid black;padding:5px;margin:5px">
 				<h2>Plot:</h2>
 				<p>th:text="${movie.description}" Lorem ipsum dolor sit amet, vocent iisque sea id, ei eos alii ipsum. Has aeque conceptam accommodare id. No vis novum torquatos persequeris. Vim agam assum democritum ad, ut mei natum oblique, nobis dolor utamur vel id. Maluisset euripidis his ex, eam nobis verterem constituto in. Esse alienum detraxit id eam, ne eam idque fabulas.</p>
+		<h1 th:text="${movie}"></h1>
 
+		<div class="col-sm-6 col-md-4 movie-mobile">
+			<div>
+				<div class="square"></div>
+				<span>Movie Rating: 5.0</span>
 			</div>
 			<div class="col-sm-3 col-md-3">
 				<div style="border:3px solid black;padding:5px;">
@@ -89,6 +93,7 @@
 		<div class="container-fluid" style="border:3px solid black;padding:5px;margin:5px">
 			<h1>REVIEWS</h1>
 			<textarea placeholder="Write your own review..."></textarea>
+
 		</div>
 
 		<div id="root"></div>
