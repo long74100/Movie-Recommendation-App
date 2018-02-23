@@ -18,6 +18,89 @@ public class Movie {
 	
 	String title;
 	String plot;
+	String genre;
+	String released;
+	String director;
+	String actors;
+	String imdbRating;
+	String country;
+	String runtime;
+	
+	public String getGenre() {
+		return genre;
+	}
+
+	public String getCountry() {
+		return country;
+	}
+
+	public void setCountry(String country) {
+		this.country = country;
+	}
+
+	public String getRuntime() {
+		return runtime;
+	}
+
+	public void setRuntime(String runtime) {
+		this.runtime = runtime;
+	}
+
+	public void setGenre(String genre) {
+		this.genre = genre;
+	}
+
+	public String getReleased() {
+		return released;
+	}
+
+	public void setReleased(String released) {
+		this.released = released;
+	}
+
+	public String getDirector() {
+		return director;
+	}
+
+	public void setDirector(String director) {
+		this.director = director;
+	}
+
+	public String getActors() {
+		return actors;
+	}
+
+	public void setActors(String actors) {
+		this.actors = actors;
+	}
+
+	public String getImdbRating() {
+		return imdbRating;
+	}
+
+	public void setImdbRating(String imdbRating) {
+		this.imdbRating = imdbRating;
+	}
+
+	public String getMetascore() {
+		return metascore;
+	}
+
+	public void setMetascore(String metascore) {
+		this.metascore = metascore;
+	}
+
+	public String getImdbID() {
+		return imdbID;
+	}
+
+	public void setImdbID(String imdbID) {
+		this.imdbID = imdbID;
+	}
+
+	String metascore;
+	String imdbID;
+	
 
 	public String getTitle() {
 		return title;
