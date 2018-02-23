@@ -1,8 +1,6 @@
 package edu.northeastern.cs4500.model.services;
 
 import java.io.IOException;
-import java.io.UnsupportedEncodingException;
-import java.net.MalformedURLException;
 
 import org.json.JSONException;
 import org.json.JSONObject;
