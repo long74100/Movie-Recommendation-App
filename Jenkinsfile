@@ -23,8 +23,8 @@ pipeline {
        stage('SonarQube') {
             steps {
                 withSonarQubeEnv('SonarQube') {
-                        sh 'mvn clean install'
-                        sh 'mvn sonar:sonar'
+                        sh 'mvn -f project/workspace-sts-3.9.2.RELEASE/cs4500-spring2018-team47/pom.xml clean install'
+                        sh 'mvn -f project/workspace-sts-3.9.2.RELEASE/cs4500-spring2018-team47/pom.xml sonar:sonar'
                 }
             }
         }
