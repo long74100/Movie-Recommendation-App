@@ -1,6 +1,8 @@
 package edu.northeastern.cs4500.controllers;
 
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -21,19 +23,29 @@ public class MovieController {
 	
 	@RequestMapping(value={"/search"}, method = RequestMethod.GET)
 	public ModelAndView searchResult(String searchString) {
-		String plot = "";
-		JSONObject movie = new JSONObject();
+		JSONObject movieJSON = new JSONObject();
+		Map<String, String> movie = new HashMap<String, String>();
+		
 		try {
-			movie = omdbService.searchMovieByTitle("Tropic Thunder");
-			plot = movie.getString("Plot");
+			movieJSON = omdbService.searchMovieByTitle("Tropic Thunder");
+			
+			movie.put("title", movieJSON.getString("Title"));
+			movie.put("plot", movieJSON.getString("Plot"));
+			movie.put("genre", movieJSON.getString("Genre"));
+			movie.put("released", movieJSON.getString("Released"));
+			movie.put("director", movieJSON.getString("Director"));
+			movie.put("actors", movieJSON.getString("Actors"));
+			movie.put("runtime", movieJSON.getString("Runtime"));
+			movie.put("country", movieJSON.getString("Country"));
+			movie.put("imdbRating", movieJSON.getString("imdbRating"));
 		} catch (IOException | JSONException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 //		
 		ModelAndView modelAndView = new ModelAndView();
-
-		modelAndView.addObject("movie", plot.toString() );
+		
+		modelAndView.addObject("movie", movie);
 		modelAndView.setViewName("/movie");
 		return modelAndView;
 	}

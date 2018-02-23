@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script
+	src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+<title th:text="${movie.title}"></title>
+<style>
+.square {
+	height: 500px;
+	width: 350px;
+	background-color: #555;
+}
+
+.center {
+	margin: auto;
+	width: 80%;
+	padding: 10px;
+}
+</style>
+</head>
+<body>
+	<div th:replace="fragments/header/navBar :: header"></div>
+	<div class="center">
+
+		<div class="container">
+			<div>
+				<h1 th:text="${movie.title}"></h1>
+			</div>
+
+			<div class="container">
+				<div class="col-sm-2 col-md-3"
+					style="border: 3px solid black; padding: 5px; margin: 5px">
+					<div>
+						<img
+							src="http://www.joblo.com/posters/images/full/the-martian-poster.jpg"
+							style="width: 100%; height: 100%;">
+						<div>Imdb Rating: <p th:text="${movie.imdbRating}"><p> </div>
+						
+						<div>
+							Your vote:
+							<div id="score" class="score"
+								style="cursor: pointer; width: 130px;">
+								<img src="images/rate/star-on.svg" alt="1" title="bad">&nbsp;<img
+									src="images/rate/star-on.svg" alt="2" title="poor">&nbsp;<img
+									src="images/rate/star-on.svg" alt="3" title="regular">&nbsp;<img
+									src="images/rate/star-on.svg" alt="4" title="good">&nbsp;<img
+									src="images/rate/star-on.svg" alt="5" title="gorgeous"><input
+									type="hidden" name="score" value="5">
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-sm-3 col-md-4"
+					style="border: 3px solid black; padding: 5px; margin: 5px">
+					<h2>Plot:</h2>
+					<p th:text="${movie.plot}"></p>
+				</div>
+
+				<div class="col-sm-2 col-md-3">
+					<div style="border: 3px solid black; padding: 5px;">
+						<b>Runtime: </b>
+						<p th:text="${movie.runtime}"></p>
+						<b>Country: </b>
+						<p th:text="${movie.country}"></p>
+						<b>Genre: </b>
+						<p th:text="${movie.genre}"></p>
+						<b>Release Date:</b>
+						<p th:text="${movie.released}"></p>
+						<b>Director(s): </b>
+						<p th:text="${movie.director}"></p>
+						<b>Actor(s): </b>
+						<p th:text="${movie.actors}"></p>
+					</div>
+
+					<button class="btn">Find in Theatres</button>
+					<button class="btn">Share with a Friend</button>
+
+					<select>
+						<option>Favorites</option>
+						<option>Adventure</option>
+					</select>
+				</div>
+			</div>
+
+			<div class="container-fluid"
+				style="border: 3px solid black; padding: 5px; margin: 5px">
+				<h2>Viewers also liked</h2>
+				<div style="border: 3px solid black; padding: 5px; margin: 5px">
+					<img
+						src="https://i.pinimg.com/736x/fd/5e/66/fd5e662dce1a3a8cd192a5952fa64f02--classic-poster-classic-movies-posters.jpg"
+						style="width: 15%; height: 15%; padding: 5px;"> <img
+						src="http://www.joblo.com/posters/images/full/Spiderman-poster-7-large.jpg"
+						style="width: 15%; height: 15%; padding: 5px;"> <img
+						src="http://img.moviepostershop.com/ghostbusters-movie-poster-2016-1020775586.jpg"
+						style="width: 15%; height: 15%; padding: 5px;"> <img
+						src="https://cdn.trendhunterstatic.com/thumbs/movie-poster-art.jpeg"
+						style="width: 15%; height: 15%; padding: 5px;">
+				</div>
+			</div>
+			<div class="container-fluid"
+				style="border: 3px solid black; padding: 5px; margin: 5px">
+				<h1>REVIEWS</h1>
+				<textarea placeholder="Write your own review..."></textarea>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

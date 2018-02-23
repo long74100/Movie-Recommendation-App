@@ -3,6 +3,7 @@ package edu.northeastern.cs4500.controllers;
 import javax.validation.Valid;
 
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -14,6 +15,9 @@ import org.springframework.web.servlet.ModelAndView;
 
 import edu.northeastern.cs4500.model.user.User;
 import edu.northeastern.cs4500.model.user.UserService;
+import session.SessionService;
+import session.SessionServiceImpl;
+
 
 /**
  * Spring MVC Controller to handle mappings for login and registration.
