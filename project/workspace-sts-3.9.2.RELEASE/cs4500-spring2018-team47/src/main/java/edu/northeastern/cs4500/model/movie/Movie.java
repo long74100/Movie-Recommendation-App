@@ -8,6 +8,7 @@ import javax.persistence.Id;
 
 @Entity(name = "movie")
 
+//Represents a movie
 public class Movie {
 	
 	@Id
@@ -16,13 +17,22 @@ public class Movie {
 	private int id;
 	
 	String title;
+	String plot;
 
 	public String getTitle() {
 		return title;
 	}
+	
+	public String getPlot() {
+		return plot;
+	}
 
 	public void setTitle(String title) {
 		this.title = title;
+	}
+	
+	public void setPlot(String plot) {
+		this.plot = plot;
 	}
 	
 }
