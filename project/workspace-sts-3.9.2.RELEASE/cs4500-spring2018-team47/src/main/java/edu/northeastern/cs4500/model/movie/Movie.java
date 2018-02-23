@@ -23,10 +23,27 @@ public class Movie {
 	String director;
 	String actors;
 	String imdbRating;
-	
+	String country;
+	String runtime;
 	
 	public String getGenre() {
 		return genre;
+	}
+
+	public String getCountry() {
+		return country;
+	}
+
+	public void setCountry(String country) {
+		this.country = country;
+	}
+
+	public String getRuntime() {
+		return runtime;
+	}
+
+	public void setRuntime(String runtime) {
+		this.runtime = runtime;
 	}
 
 	public void setGenre(String genre) {
