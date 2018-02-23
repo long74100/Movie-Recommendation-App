@@ -29,7 +29,10 @@ public class Movie implements Serializable{
 	String imdbRating;
 	String country;
 	String runtime;
+	String metascore;
+	String imdbID;
 	
+
 	public String getGenre() {
 		return genre;
 	}
@@ -101,10 +104,6 @@ public class Movie implements Serializable{
 	public void setImdbID(String imdbID) {
 		this.imdbID = imdbID;
 	}
-
-	String metascore;
-	String imdbID;
-	
 
 	public String getTitle() {
 		return title;
