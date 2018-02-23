@@ -1,5 +1,6 @@
 package edu.northeastern.cs4500.model.user;
 
+import java.io.Serializable;
 import java.util.Set;
 
 
@@ -22,7 +23,7 @@ import org.springframework.data.annotation.Transient;
 
 @Entity
 @Table(name = "user")
-public final class User {
+public final class User implements Serializable{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
