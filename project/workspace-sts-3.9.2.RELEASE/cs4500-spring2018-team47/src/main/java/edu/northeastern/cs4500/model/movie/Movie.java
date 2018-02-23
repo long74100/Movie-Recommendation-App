@@ -1,15 +1,19 @@
 package edu.northeastern.cs4500.model.movie;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
-@Entity(name = "movie")
+@Entity
+@Table(name = "movie")
 
 //Represents a movie
-public class Movie {
+public class Movie implements Serializable{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
