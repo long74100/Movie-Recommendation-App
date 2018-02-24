@@ -3,8 +3,8 @@ Project repository for team 47
 
 # Team Members
 - Alec Li
-- Guojing Li 
-- Edward Wang 
+- Guojing Li
+- Edward Wang
 - Ruairi Maclennan-Smillie
 - Longsheng Lin
 
@@ -23,7 +23,7 @@ Project repository for team 47
 [Retrieve all hello messages](http://cs4500spring2018team47.us-east-2.elasticbeanstalk.com/api/hello/select/all)
 
 ## Jenkins Endpoint
-[Jenkins Instance](http://ec2-18-219-23-209.us-east-2.compute.amazonaws.com:8080/)
+[Jenkins Instance](http://ec2-18-222-47-36.us-east-2.compute.amazonaws.com:8080/)
 
 [Spring Boot Application](http://ec2-52-15-245-45.us-east-2.compute.amazonaws.com:8080/)
 
