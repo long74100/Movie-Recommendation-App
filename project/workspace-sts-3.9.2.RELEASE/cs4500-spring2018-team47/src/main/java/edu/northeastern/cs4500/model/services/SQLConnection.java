@@ -37,7 +37,6 @@ public class SQLConnection {
 	 */
 	public void catchMovie(JSONObject movieJSON) {
 		try {
-			//JSONObject jobj = new JSONObject(movieJSON);
 			for(int i = 0; i < oldbfields.size(); i++) {
 				String olField = oldbfields.get(i);
 				String lcfields = lcdbfields.get(i);
@@ -81,9 +80,8 @@ public class SQLConnection {
 							expression += "\"" + fieldToValue.get(lcdbfields.get(i)) + "\", ";
 						}
 					}
-					String result = "(" + expression + ")";
+					String result = "(" + expression + ", ratings" + ", votes" + ")";
 					this.insertToLocalDatabase(result, "Movie");
-					
 				}
 			}
 			catch (NullPointerException nl) {

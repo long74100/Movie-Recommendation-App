@@ -43,7 +43,7 @@ public class SQLConnector {
      */
     public boolean containMovie(String movieId) {
     	try {
-    		String sqlcmd = "select * from Movie where movie_id = \"" + movieId + "\"";
+    		String sqlcmd = "select * from Movie where movie_id = '" + movieId + "'";
     		myResult = connectStatement.executeQuery(sqlcmd);
     		if(myResult.next()) {
     			return true;
