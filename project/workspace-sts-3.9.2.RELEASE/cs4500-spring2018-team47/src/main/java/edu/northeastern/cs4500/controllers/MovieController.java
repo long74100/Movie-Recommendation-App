@@ -15,11 +15,13 @@ import org.springframework.web.servlet.ModelAndView;
 
 import edu.northeastern.cs4500.model.services.IOmdbService;
 import edu.northeastern.cs4500.model.services.OmdbServiceImpl;
+import edu.northeastern.cs4500.model.services.SQLConnection;
 
 @Controller
 public class MovieController {
 	
 	private IOmdbService omdbService = new OmdbServiceImpl();
+	private SQLConnection sqlConnector = new SQLConnection();
 	
 	@RequestMapping(value={"/search"}, method = RequestMethod.GET)
 	public ModelAndView searchResult(String searchString) {
@@ -28,6 +30,8 @@ public class MovieController {
 		
 		try {
 			movieJSON = omdbService.searchMovieByTitle("Tropic Thunder");
+			sqlConnector.catchMovie(movieJSON);
+			sqlConnector.loadMovieToLocalDB();
 			
 			movie.put("title", movieJSON.getString("Title"));
 			movie.put("plot", movieJSON.getString("Plot"));

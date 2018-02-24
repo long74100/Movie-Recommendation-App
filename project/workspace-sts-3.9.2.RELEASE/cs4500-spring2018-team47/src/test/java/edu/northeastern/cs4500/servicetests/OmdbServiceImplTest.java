@@ -2,6 +2,8 @@ package edu.northeastern.cs4500.servicetests;
 
 import static org.junit.Assert.assertEquals;
 
+import java.io.IOException;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.junit.Before;
@@ -10,6 +12,8 @@ import org.skyscreamer.jsonassert.JSONAssert;
 
 import edu.northeastern.cs4500.model.services.IOmdbService;
 import edu.northeastern.cs4500.model.services.OmdbServiceImpl;
+import edu.northeastern.cs4500.model.services.SQLConnection;
+import edu.northeastern.cs4500.model.services.SQLConnector;
 
 public class OmdbServiceImplTest {
 	
@@ -46,49 +50,72 @@ public class OmdbServiceImplTest {
 			+ "\"Website\":\"N/A\","
 			+ "\"Response\":\"True\"}";
 	
-	@Test
-	public void testSearchMovieByTitle() {
-		init();
-		//title of existing movie
-		JSONObject expectedSearchResult = null;
-		JSONObject actualSearchResult = null;
-		try {
-			expectedSearchResult = new JSONObject(expectedSuccessfulSearchResultString);
-			actualSearchResult = omdbServiceImpl.searchMovieByTitle("batman");
-			JSONAssert.assertEquals(expectedSearchResult, actualSearchResult, true);
-
-		} catch (JSONException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+//	@Test
+//	public void testSearchMovieByTitle() {
+//		init();
+//		//title of existing movie
+//		JSONObject expectedSearchResult = null;
+//		JSONObject actualSearchResult = null;
+//		try {
+//			expectedSearchResult = new JSONObject(expectedSuccessfulSearchResultString);
+//			actualSearchResult = omdbServiceImpl.searchMovieByTitle("batman");
+//			JSONAssert.assertEquals(expectedSearchResult, actualSearchResult, true);
+//
+//		} catch (JSONException e1) {
+//			// TODO Auto-generated catch block
+//			e1.printStackTrace();
+//		} catch (Exception e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//	
+//		//title of non existing movie
+//		try {
+//			expectedSearchResult = new JSONObject(expectedFailedSearchResultString);
+//			actualSearchResult = omdbServiceImpl.searchMovieByTitle("a@@$!@.asd");
+//			JSONAssert.assertEquals(expectedSearchResult, actualSearchResult, true);
+//		} catch (JSONException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		} catch (Exception e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//		
+//		//no title in search
+//		try {
+//			expectedSearchResult = new JSONObject(expectedErrorSearchResultString);
+//			actualSearchResult = omdbServiceImpl.searchMovieByTitle("");
+//			JSONAssert.assertEquals(expectedSearchResult, actualSearchResult, true);
+//		} catch (JSONException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		} catch (Exception e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//	}
 	
-		//title of non existing movie
+	
+	@Test
+	public void testAddMovieToDatabase() {
 		try {
-			expectedSearchResult = new JSONObject(expectedFailedSearchResultString);
-			actualSearchResult = omdbServiceImpl.searchMovieByTitle("a@@$!@.asd");
-			JSONAssert.assertEquals(expectedSearchResult, actualSearchResult, true);
-		} catch (JSONException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			try {
+				IOmdbService ob = new OmdbServiceImpl();
+				SQLConnection sqlConnector = new SQLConnection();
+				assertEquals(sqlConnector.testPurpose("tt0096895"), false);
+				JSONObject job = ob.searchMovieByTitle("Batman");
+				sqlConnector.catchMovie(job);
+				sqlConnector.loadMovieToLocalDB();
+				assertEquals(sqlConnector.testPurpose("tt0096895"), true);
+
+			}
+			catch(Exception e) {
+				e.printStackTrace();
+			}
 		}
-		
-		//no title in search
-		try {
-			expectedSearchResult = new JSONObject(expectedErrorSearchResultString);
-			actualSearchResult = omdbServiceImpl.searchMovieByTitle("");
-			JSONAssert.assertEquals(expectedSearchResult, actualSearchResult, true);
-		} catch (JSONException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		catch (Exception io) {
+			io.printStackTrace();
 		}
 	}
 	

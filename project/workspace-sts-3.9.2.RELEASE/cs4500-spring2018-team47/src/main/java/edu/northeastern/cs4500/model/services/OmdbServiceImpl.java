@@ -20,6 +20,7 @@ public class OmdbServiceImpl implements IOmdbService{
 	private static final String apiURL = "http://www.omdbapi.com/?apikey="+apiKey+"&";
 	private URL url;
 	
+	
 	public OmdbServiceImpl() {
 	}
 
@@ -63,5 +64,25 @@ public class OmdbServiceImpl implements IOmdbService{
 	          url = url + searchType + "=" + searchValue + "&";
 	        }
 		 return url;
+	}
+	
+	
+	public static void main(String[] args) {
+		try {
+			try {
+				IOmdbService ob = new OmdbServiceImpl();
+				SQLConnection sqlConnector = new SQLConnection();
+				JSONObject job = ob.searchMovieByTitle("Batman");
+				sqlConnector.catchMovie(job);
+				sqlConnector.loadMovieToLocalDB();
+			}
+			catch(JSONException e) {
+				e.printStackTrace();
+			}
+		}
+		catch (IOException io) {
+			io.printStackTrace();
+		}
+		
 	}
 }
