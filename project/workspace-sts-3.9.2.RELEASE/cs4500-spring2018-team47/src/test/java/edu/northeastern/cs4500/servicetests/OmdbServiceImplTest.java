@@ -50,51 +50,51 @@ public class OmdbServiceImplTest {
 			+ "\"Website\":\"N/A\","
 			+ "\"Response\":\"True\"}";
 	
-//	@Test
-//	public void testSearchMovieByTitle() {
-//		init();
-//		//title of existing movie
-//		JSONObject expectedSearchResult = null;
-//		JSONObject actualSearchResult = null;
-//		try {
-//			expectedSearchResult = new JSONObject(expectedSuccessfulSearchResultString);
-//			actualSearchResult = omdbServiceImpl.searchMovieByTitle("batman");
-//			JSONAssert.assertEquals(expectedSearchResult, actualSearchResult, true);
-//
-//		} catch (JSONException e1) {
-//			// TODO Auto-generated catch block
-//			e1.printStackTrace();
-//		} catch (Exception e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-//	
-//		//title of non existing movie
-//		try {
-//			expectedSearchResult = new JSONObject(expectedFailedSearchResultString);
-//			actualSearchResult = omdbServiceImpl.searchMovieByTitle("a@@$!@.asd");
-//			JSONAssert.assertEquals(expectedSearchResult, actualSearchResult, true);
-//		} catch (JSONException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		} catch (Exception e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-//		
-//		//no title in search
-//		try {
-//			expectedSearchResult = new JSONObject(expectedErrorSearchResultString);
-//			actualSearchResult = omdbServiceImpl.searchMovieByTitle("");
-//			JSONAssert.assertEquals(expectedSearchResult, actualSearchResult, true);
-//		} catch (JSONException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		} catch (Exception e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-//	}
+	@Test
+	public void testSearchMovieByTitle() {
+		init();
+		//title of existing movie
+		JSONObject expectedSearchResult = null;
+		JSONObject actualSearchResult = null;
+		try {
+			expectedSearchResult = new JSONObject(expectedSuccessfulSearchResultString);
+			actualSearchResult = omdbServiceImpl.searchMovieByTitle("batman");
+			JSONAssert.assertEquals(expectedSearchResult, actualSearchResult, true);
+
+		} catch (JSONException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	
+		//title of non existing movie
+		try {
+			expectedSearchResult = new JSONObject(expectedFailedSearchResultString);
+			actualSearchResult = omdbServiceImpl.searchMovieByTitle("a@@$!@.asd");
+			JSONAssert.assertEquals(expectedSearchResult, actualSearchResult, true);
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		//no title in search
+		try {
+			expectedSearchResult = new JSONObject(expectedErrorSearchResultString);
+			actualSearchResult = omdbServiceImpl.searchMovieByTitle("");
+			JSONAssert.assertEquals(expectedSearchResult, actualSearchResult, true);
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 	
 	
 	@Test

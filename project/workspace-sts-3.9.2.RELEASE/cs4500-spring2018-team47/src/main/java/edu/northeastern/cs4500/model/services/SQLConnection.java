@@ -106,7 +106,14 @@ public class SQLConnection {
 	 * @return true if local database already contains the given movie
 	 */
 	public boolean testPurpose(String movieId) {
-		return this.connector.containMovie(movieId);
+		if(this.connector.containMovie(movieId)) {
+			JOptionPane.showMessageDialog(null, "The movie is already in the local database");
+			return true;
+		}
+		else {
+			return false;
+		}
+		//return this.connector.containMovie(movieId);
 	}
 	
 	/**
@@ -116,6 +123,8 @@ public class SQLConnection {
 	 */
 	private void insertToLocalDatabase(String data, String tableName) {
 		this.connector.insertData(data, tableName);
+		JOptionPane.showMessageDialog(null, "add movie successfully");
+		
 	}
 	
 	
