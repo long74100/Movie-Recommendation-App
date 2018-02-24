@@ -2,8 +2,6 @@ package edu.northeastern.cs4500.servicetests;
 
 import static org.junit.Assert.assertEquals;
 
-import java.io.IOException;
-
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.junit.Before;
@@ -13,7 +11,6 @@ import org.skyscreamer.jsonassert.JSONAssert;
 import edu.northeastern.cs4500.model.services.IOmdbService;
 import edu.northeastern.cs4500.model.services.OmdbServiceImpl;
 import edu.northeastern.cs4500.model.services.SQLConnection;
-import edu.northeastern.cs4500.model.services.SQLConnector;
 
 public class OmdbServiceImplTest {
 	
@@ -118,6 +115,10 @@ public class OmdbServiceImplTest {
 			io.printStackTrace();
 		}
 	}
+	
+	
+	
+
 	
 	
 }
