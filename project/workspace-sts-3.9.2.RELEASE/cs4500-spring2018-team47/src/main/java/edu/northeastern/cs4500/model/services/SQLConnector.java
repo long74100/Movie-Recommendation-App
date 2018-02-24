@@ -11,10 +11,15 @@ import org.springframework.jdbc.core.JdbcTemplate;
 
 
 public class SQLConnector {
+	// the local database URL
 	private static String url = "jdbc:mysql://cs4500-spring2018-team47-dev.cmtcd3hyzi5a.us-east-2.rds.amazonaws.com/SpoiledTomatillos";
+	// database username
 	private static String username = "RuairiMSmillie";
+	// database password
 	private static String password = "TbthaGCmiimWrtayxr4MBEcD3tVB3sY";
+	// this will be used to contain the Query command
 	private static String command = "";
+	// this is the operation status on database
 	private enum Status {get, insert, delete, update};
 	private static Status status = null;
 	private static Connection connector = null;
@@ -23,6 +28,7 @@ public class SQLConnector {
 	
 	/**
 	 * The constructor
+	 * The constructor will automatically create connection to local database
 	 */
 	public SQLConnector() {
 		try {
