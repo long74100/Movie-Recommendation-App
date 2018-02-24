@@ -20,7 +20,7 @@ import edu.northeastern.cs4500.model.services.OmdbServiceImpl;
 public class MovieController {
 	
 	private IOmdbService omdbService = new OmdbServiceImpl();
-	private SQLConnection sqlConnector = new SQLConnection();
+	
 	
 	@RequestMapping(value={"/search"}, method = RequestMethod.GET)
 	public ModelAndView searchResult(String searchString) {
