@@ -10,7 +10,7 @@ import java.sql.Statement;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 
-public class SQLConnector {
+public class LocalSQLConnectService {
 	// the local database URL
 	private static String url = "jdbc:mysql://cs4500-spring2018-team47-dev.cmtcd3hyzi5a.us-east-2.rds.amazonaws.com/SpoiledTomatillos";
 	// database username
@@ -30,7 +30,7 @@ public class SQLConnector {
 	 * The constructor
 	 * The constructor will automatically create connection to local database
 	 */
-	public SQLConnector() {
+	public LocalSQLConnectService() {
 		try {
 			connector = DriverManager.getConnection(url, username, password);
 			connectStatement = connector.createStatement();

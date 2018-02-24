@@ -49,7 +49,6 @@ public class OmdbServiceImpl implements IOmdbService{
 			content.append(inputLine);
 		}
 		in.close();
-		System.out.println(content.toString());
 		return new JSONObject(content.toString());
 	}
 	

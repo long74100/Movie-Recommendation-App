@@ -9,7 +9,7 @@ import javax.swing.JOptionPane;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class SQLConnection {
+public class OmdbSQLconnectService {
 	// this is the movie information fields for online movie database
 	private final ArrayList<String> oldbfields = new ArrayList<>(Arrays.asList(
 			"imdbID", "Title", "Rated", "Runtime", "Year", "Released", "Genre", "Director", "Actors", "Plot", 
@@ -23,14 +23,14 @@ public class SQLConnection {
 	// container for matching <local movie field> -> <online movie information>
 	private HashMap<String, String> fieldToValue;
 	
-	private final SQLConnector connector = new SQLConnector();
+	private final LocalSQLConnectService connector = new LocalSQLConnectService();
 	
 	
 	
 	/**
 	 * The constructor
 	 */
-	public SQLConnection() {
+	public OmdbSQLconnectService() {
 		this.fieldToValue = new HashMap<>();
 	}
 	
@@ -110,13 +110,12 @@ public class SQLConnection {
 	 */
 	public boolean testPurpose(String movieId) {
 		if(this.connector.containMovie(movieId)) {
-			//JOptionPane.showMessageDialog(null, "The movie is already in the local database");
+			JOptionPane.showMessageDialog(null, "The movie is already in the local database");
 			return true;
 		}
 		else {
 			return false;
 		}
-		//return this.connector.containMovie(movieId);
 	}
 	
 	/**
@@ -126,8 +125,7 @@ public class SQLConnection {
 	 */
 	private void insertToLocalDatabase(String data, String tableName) {
 		this.connector.insertData(data, tableName);
-		//JOptionPane.showMessageDialog(null, "add movie successfully");
-		
+		JOptionPane.showMessageDialog(null, "add movie successfully");
 	}
 	
 	

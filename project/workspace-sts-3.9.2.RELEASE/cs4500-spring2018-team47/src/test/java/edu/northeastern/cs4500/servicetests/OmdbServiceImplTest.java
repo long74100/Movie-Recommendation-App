@@ -10,7 +10,7 @@ import org.skyscreamer.jsonassert.JSONAssert;
 
 import edu.northeastern.cs4500.model.services.IOmdbService;
 import edu.northeastern.cs4500.model.services.OmdbServiceImpl;
-import edu.northeastern.cs4500.model.services.SQLConnection;
+import edu.northeastern.cs4500.model.services.OmdbSQLconnectService;
 
 public class OmdbServiceImplTest {
 	
@@ -92,33 +92,5 @@ public class OmdbServiceImplTest {
 			e.printStackTrace();
 		}
 	}
-	
-	
-	@Test
-	public void testAddMovieToDatabase() {
-		try {
-			try {
-				IOmdbService ob = new OmdbServiceImpl();
-				SQLConnection sqlConnector = new SQLConnection();
-				assertEquals(sqlConnector.testPurpose("tt0096895"), false);
-				JSONObject job = ob.searchMovieByTitle("Batman");
-				sqlConnector.catchMovie(job);
-				sqlConnector.loadMovieToLocalDB();
-				assertEquals(sqlConnector.testPurpose("tt0096895"), true);
-
-			}
-			catch(Exception e) {
-				e.printStackTrace();
-			}
-		}
-		catch (Exception io) {
-			io.printStackTrace();
-		}
-	}
-	
-	
-	
-
-	
 	
 }
