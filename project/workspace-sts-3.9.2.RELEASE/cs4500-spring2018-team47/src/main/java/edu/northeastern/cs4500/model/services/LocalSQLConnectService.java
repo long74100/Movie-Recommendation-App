@@ -9,7 +9,14 @@ import java.sql.Statement;
 
 import org.springframework.jdbc.core.JdbcTemplate;
 
-
+/**
+ * This class is used to connect to the local database. This tool builds a connection between front end 
+ * operation and back end database. Also, it will get the online movie information to the local database. 
+ * When user search a movie online which already exists in local database, local database will provide information 
+ * without doing any API Call. Otherwise, local database will store the movie which it does not contain but user search online.
+ * 
+ * @author lgj81
+ */
 public class LocalSQLConnectService {
 	// the local database URL
 	private static String url = "jdbc:mysql://cs4500-spring2018-team47-dev.cmtcd3hyzi5a.us-east-2.rds.amazonaws.com/SpoiledTomatillos";
@@ -76,48 +83,18 @@ public class LocalSQLConnectService {
     	}
     }
     
-    
-    
-    
     /**
-	 * To execute the interaction with backend database
-	 * @param args
-	 */
-	
-	/**
-    public static void main(String[] args) {
+     * To delete the given movie from the local database
+     * @param id the given movie id
+     */
+    public void deleteFromMovieTable(String id) {
     	try {
-    		// 1. get connection to database
-    		connector = DriverManager.getConnection(url, username, password);
-    		// 2. create statement
-    		connectStatement = connector.createStatement();
-    		// 3. Execute SQL Query
-    		myResult = connectStatement.executeQuery("select * from SpoiledTomatillos.Actor");
-    		// 4. Process the result set
-    		while(myResult.next()) {
-    			System.out.println(myResult.getString("actor_id") + "--->" + myResult.getString("actor_name"));
-    		}
-    		
-    		//insert data
-    		String sql = "insert into User values (000005, \"tester\", 'admin', 'admin');";
-    		connectStatement.executeUpdate(sql);
-    		
-    		
-    		
-    		//Update data
-    		String sql2 = "update User set userpass='setSample' where id=000005";
-    		connectStatement.executeUpdate(sql2);
-    	
-    		
-    		
-    		//delete data
-    		String sql3 = "delete from User where username=\"tester\"";
-    		int deletedRow = connectStatement.executeUpdate(sql3);
-    		System.out.println("deleted row is: " + deletedRow);
+    		String query = "delete from Movie where movie_id = \"" + id + "\"";
+    		int row = connectStatement.executeUpdate(query);
+    		System.out.println("delete row " + row + " id: " + id);
     	}
-    	catch(Exception e) {
-    		e.printStackTrace();
+    	catch(SQLException ep) {
+    		ep.printStackTrace();
     	}
     }
-   */
 }

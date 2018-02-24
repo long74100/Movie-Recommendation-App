@@ -1,5 +1,6 @@
 package edu.northeastern.cs4500.model.services;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -9,6 +10,11 @@ import javax.swing.JOptionPane;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+/**
+ * This class is used to connect to the online OMDB, extract movie information from it and store in
+ * the local database.
+ * @author lgj81
+ */
 public class OmdbSQLconnectService {
 	// this is the movie information fields for online movie database
 	private final ArrayList<String> oldbfields = new ArrayList<>(Arrays.asList(
@@ -23,9 +29,9 @@ public class OmdbSQLconnectService {
 	// container for matching <local movie field> -> <online movie information>
 	private HashMap<String, String> fieldToValue;
 	
+	// The connector to local database
 	private final LocalSQLConnectService connector = new LocalSQLConnectService();
-	
-	
+	// TODO: need to distribute the actors, directors,etc, to different tables.	
 	
 	/**
 	 * The constructor
@@ -35,7 +41,7 @@ public class OmdbSQLconnectService {
 	}
 	
 	/**
-	 * To catch the movie information and store into the local container.
+	 * To catch the movie information from online Movie JSON Object.
 	 * @param movieJsonString
 	 */
 	public void catchMovie(JSONObject movieJSON) {
@@ -56,6 +62,8 @@ public class OmdbSQLconnectService {
 			e.printStackTrace();
 		}
 	}
+	
+	
 	
 	/**
 	 * To load the new movie into the local database
@@ -94,6 +102,7 @@ public class OmdbSQLconnectService {
 		}
 	}
 	
+	
 	/**
 	 * Check if the movie is already in the local database
 	 * @param movieId the movieId of given movie that will be added
@@ -103,14 +112,15 @@ public class OmdbSQLconnectService {
 		return this.connector.containMovie(movieId);
 	}
 	
+	
 	/**
 	 * This is for test
 	 * @param movieId the movieId of given movie that will be added
 	 * @return true if local database already contains the given movie
 	 */
-	public boolean testPurpose(String movieId) {
+	public boolean hasMovie(String movieId) {
 		if(this.connector.containMovie(movieId)) {
-			JOptionPane.showMessageDialog(null, "The movie is already in the local database");
+			System.out.println("Movie already exists in local database");
 			return true;
 		}
 		else {
@@ -125,7 +135,41 @@ public class OmdbSQLconnectService {
 	 */
 	private void insertToLocalDatabase(String data, String tableName) {
 		this.connector.insertData(data, tableName);
-		JOptionPane.showMessageDialog(null, "add movie successfully");
+		System.out.println("add movie successfully");
+	}
+	
+	/**
+	 * To delete information from local database， this will only allow admin user to operate.
+	 * @param data the data(object id) stored in local database
+	 * @param tableName the destination table that the given data is stored
+	 */
+	private void deleteFromLocalDatabase(String data, String tableName) {
+		// TODO: this might be in different class for Admin user.
+	}
+	
+	/**
+	 * To add multiple movies into the local database instead letting system load one by one
+	 * Note: (For admin user only) Might be in different class.
+	 * @param movieNames the names for list of movie that would be added to local database.
+	 */
+	public void addMultiMovies(ArrayList<String> movieNames) {
+		OmdbServiceImpl obj = new OmdbServiceImpl();
+		for(int i = 0; i < movieNames.size(); i++) {
+			String item = movieNames.get(i);
+			try {
+				try {
+					JSONObject current = obj.searchMovieByTitle(item);
+					catchMovie(current);
+					loadMovieToLocalDB();
+				}
+				catch(JSONException je) {
+					je.printStackTrace();
+				}
+			}
+			catch(IOException io) {
+				io.printStackTrace();
+			}
+		}
 	}
 	
 	
