@@ -65,24 +65,4 @@ public class OmdbServiceImpl implements IOmdbService{
 	        }
 		 return url;
 	}
-	
-	
-	public static void main(String[] args) {
-		try {
-			try {
-				IOmdbService ob = new OmdbServiceImpl();
-				SQLConnection sqlConnector = new SQLConnection();
-				JSONObject job = ob.searchMovieByTitle("Batman");
-				sqlConnector.catchMovie(job);
-				sqlConnector.loadMovieToLocalDB();
-			}
-			catch(JSONException e) {
-				e.printStackTrace();
-			}
-		}
-		catch (IOException io) {
-			io.printStackTrace();
-		}
-		
-	}
 }
