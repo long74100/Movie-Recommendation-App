@@ -15,7 +15,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import edu.northeastern.cs4500.model.services.IOmdbService;
 import edu.northeastern.cs4500.model.services.OmdbServiceImpl;
-import edu.northeastern.cs4500.model.services.SQLConnection;
 
 @Controller
 public class MovieController {
@@ -30,8 +29,7 @@ public class MovieController {
 		
 		try {
 			movieJSON = omdbService.searchMovieByTitle("Tropic Thunder");
-			sqlConnector.catchMovie(movieJSON);
-			sqlConnector.loadMovieToLocalDB();
+			
 			
 			movie.put("title", movieJSON.getString("Title"));
 			movie.put("plot", movieJSON.getString("Plot"));
