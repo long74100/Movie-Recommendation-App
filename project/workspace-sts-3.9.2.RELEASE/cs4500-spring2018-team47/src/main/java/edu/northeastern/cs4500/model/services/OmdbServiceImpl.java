@@ -20,7 +20,6 @@ public class OmdbServiceImpl implements IOmdbService{
 	private static final String apiURL = "http://www.omdbapi.com/?apikey="+apiKey+"&";
 	private URL url;
 	
-	
 	public OmdbServiceImpl() {
 	}
 
