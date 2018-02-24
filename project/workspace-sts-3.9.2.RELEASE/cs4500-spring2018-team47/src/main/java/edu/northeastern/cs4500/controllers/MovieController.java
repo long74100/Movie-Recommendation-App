@@ -21,7 +21,6 @@ public class MovieController {
 	
 	private IOmdbService omdbService = new OmdbServiceImpl();
 	
-	
 	@RequestMapping(value={"/search"}, method = RequestMethod.GET)
 	public ModelAndView searchResult(String searchString) {
 		JSONObject movieJSON = new JSONObject();
@@ -29,7 +28,6 @@ public class MovieController {
 		
 		try {
 			movieJSON = omdbService.searchMovieByTitle("Tropic Thunder");
-			
 			
 			movie.put("title", movieJSON.getString("Title"));
 			movie.put("plot", movieJSON.getString("Plot"));
