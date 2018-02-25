@@ -36,6 +36,9 @@ public class LocalDBServiceTest {
 		this.init();
 		try {
 			try {
+				/** first to clear the table, for test purpose only, don't use this function casually in regular action*/
+				//sqlConnector.clearTable("Movie");
+				
 				// check if the local database already has the given movie by searching movie id, 
 				assertEquals(sqlConnector.hasMovie("tt0096895"), false);
 				JSONObject job = omdbService.searchMovieByTitle("Batman");
@@ -73,6 +76,9 @@ public class LocalDBServiceTest {
 				"Coach Carter", "2012", "Time", "8 Miles", "17 Again"));
 		try {
 			try {
+				/** first to clear the table, for test purpose only, don't use this function casually in regular action*/
+				//sqlConnector.clearTable("Movie");
+				
 				// to add the list of movie into local database.
 				sqlConnector.addMultiMovies(movieList);
 			}

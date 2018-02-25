@@ -31,6 +31,7 @@ public class OmdbSQLconnectService {
 	
 	// The connector to local database
 	private final LocalSQLConnectService connector = new LocalSQLConnectService();
+	
 	// TODO: need to distribute the actors, directors,etc, to different tables.	
 	
 	/**
@@ -145,6 +146,14 @@ public class OmdbSQLconnectService {
 	 */
 	private void deleteFromLocalDatabase(String data, String tableName) {
 		// TODO: this might be in different class for Admin user.
+	}
+	
+	/**
+	 * To clear the table with given table name
+	 * @param tableName the name of table that will be clear all data from
+	 */
+	public void clearTable(String tableName) {
+		this.connector.clearTable(tableName);
 	}
 	
 	/**
