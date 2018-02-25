@@ -10,6 +10,7 @@ import org.skyscreamer.jsonassert.JSONAssert;
 
 import edu.northeastern.cs4500.model.services.IOmdbService;
 import edu.northeastern.cs4500.model.services.OmdbServiceImpl;
+import edu.northeastern.cs4500.model.services.OmdbSQLconnectService;
 
 public class OmdbServiceImplTest {
 	
@@ -91,6 +92,5 @@ public class OmdbServiceImplTest {
 			e.printStackTrace();
 		}
 	}
-	
 	
 }
