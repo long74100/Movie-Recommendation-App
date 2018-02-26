@@ -22,22 +22,20 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
 	@Autowired
 	private DataSource dataSource;
+	private final String userQuery = "select email, password, active from user where email=?";
+	private final String roleQuery = "select email, role.role from user join role on user.role = role.role_id  where email=?";
 	
-	@Value("${spring.queries.users-query}")
-	private String usersQuery;
-	
-	@Value("${spring.queries.roles-query}")
-	private String rolesQuery;
-
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth)
 			throws Exception {
 		auth.
 			jdbcAuthentication()
-				.usersByUsernameQuery(usersQuery)
-				.authoritiesByUsernameQuery(rolesQuery)
+				.usersByUsernameQuery(userQuery)
+				.authoritiesByUsernameQuery(roleQuery)
 				.dataSource(dataSource)
 				.passwordEncoder(bCryptPasswordEncoder);
+
+		System.out.println(auth.jdbcAuthentication().usersByUsernameQuery(userQuery));
 	}
 
 	@Override
@@ -62,8 +60,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 			.logout()
 				.invalidateHttpSession(true)
 				.clearAuthentication(true)
-//				.logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-//				.logoutSuccessUrl("/")
 				.and()
 			.exceptionHandling()
 				.accessDeniedPage("/access-denied");

@@ -9,13 +9,10 @@ import edu.northeastern.cs4500.model.user.UserService;
 
 public class SessionServiceImpl implements SessionService {
 
-	@Autowired
-	private UserService userService;
-	
 	@Override
 	public boolean isAuthenticated() {
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-		return auth.getName() != "anonymousUser";
+		return !auth.getName().equals("anonymousUser");
 	}
 	
 	
