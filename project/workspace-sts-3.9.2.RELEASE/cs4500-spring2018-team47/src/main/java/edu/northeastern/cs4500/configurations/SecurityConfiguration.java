@@ -35,7 +35,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 				.dataSource(dataSource)
 				.passwordEncoder(bCryptPasswordEncoder);
 
-		System.out.println(auth.jdbcAuthentication().usersByUsernameQuery(userQuery));
 	}
 
 	@Override
