@@ -22,16 +22,20 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
 	@Autowired
 	private DataSource dataSource;
-
+	private final String userQuery = "select email, password, active from user where email=?";
+	private final String roleQuery = "select email, role.role from user join role on user.role = role.role_id  where email=?";
+	
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth)
 			throws Exception {
 		auth.
 			jdbcAuthentication()
-				.usersByUsernameQuery("select email, password, active from user where email=?")
-				.authoritiesByUsernameQuery("select email, role from user join user_role on user.user_id = user_role.user_id join role on role.role_id = user_role.role_id where email=?")
+				.usersByUsernameQuery(userQuery)
+				.authoritiesByUsernameQuery(roleQuery)
 				.dataSource(dataSource)
 				.passwordEncoder(bCryptPasswordEncoder);
+
+		System.out.println(auth.jdbcAuthentication().usersByUsernameQuery(userQuery));
 	}
 
 	@Override

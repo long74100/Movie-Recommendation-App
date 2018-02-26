@@ -17,7 +17,7 @@ public final class Role implements Serializable{
 	@Column(name="role_id")
 	private int id;
 	@Column(name="role")
-	private String role;
+	private String roleType;
 	
 	public int getId() {
 		return id;
@@ -26,10 +26,10 @@ public final class Role implements Serializable{
 		this.id = id;
 	}
 	public String getRole() {
-		return role;
+		return roleType;
 	}
 	public void setRole(String role) {
-		this.role = role;
+		this.roleType = role;
 	}
 	
 	

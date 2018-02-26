@@ -9,10 +9,6 @@ v
 Fsrc/main/java/edu/northeastern/cs4500/configurations/WebMvcConfig.java,c/1/c1b09f2613964c6070a230dc0bc4a567b9c7ea83
 q
 Asrc/main/java/edu/northeastern/cs4500/model/user/UserService.java,e/b/ebaacb8e722df2f7752010961f1b76f534f4243c
-n
->src/main/java/edu/northeastern/cs4500/model/user/UserType.java,d/b/db1579ee7a87a7d00b4c89c3e5ac504df3420622
-v
-Fsrc/main/java/edu/northeastern/cs4500/repositories/RoleRepository.java,b/2/b2053c6a270cb0a5eb1fa3a549e9eabd9aada7ea
 v
 Fsrc/main/java/edu/northeastern/cs4500/repositories/UserRepository.java,a/0/a06caa8fa679d3de9be82ebae8f65718cd6382ad
 u
