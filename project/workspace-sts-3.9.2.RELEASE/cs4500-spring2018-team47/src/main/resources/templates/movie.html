@@ -42,8 +42,17 @@
 						<img
 							src="http://www.joblo.com/posters/images/full/the-martian-poster.jpg"
 							style="width: 100%; height: 100%;">
+<<<<<<< Updated upstream
 						<div>Imdb Rating: <p th:text="${movie.imdbRating}"><p> </div>
 						
+=======
+						<div>
+							Imdb Rating:
+							<p th:text="${movie.imdbRating}">
+							<p>
+						</div>
+
+>>>>>>> Stashed changes
 						<div>
 							Your vote:
 							<div id="score" class="score"
@@ -106,10 +115,16 @@
 						style="width: 15%; height: 15%; padding: 5px;">
 				</div>
 			</div>
-			<div class="container-fluid"
+
+			<div class="form-group"
 				style="border: 3px solid black; padding: 5px; margin: 5px">
 				<h1>REVIEWS</h1>
-				<textarea placeholder="Write your own review..."></textarea>
+				<label for="review">Write Your Review:</label>
+				<form th:action="@{/writeReview}" method="post" name="writeReview">
+					<textarea class="form-control" rows="5" id="review"></textarea>
+					<input type="submit" class="submitButton">
+				</form>
+
 			</div>
 		</div>
 	</div>

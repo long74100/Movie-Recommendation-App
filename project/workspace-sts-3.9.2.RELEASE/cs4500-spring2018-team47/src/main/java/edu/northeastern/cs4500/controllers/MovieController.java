@@ -49,5 +49,11 @@ public class MovieController {
 		return modelAndView;
 	}
 	
+	@RequestMapping(value={"/writeReview"}, method = RequestMethod.POST)
+	public String writeReview(@RequestParam("searchQuery") String review) {
+		System.out.println("wrote review");
+		return null;
+	}
+	
 	
 }
