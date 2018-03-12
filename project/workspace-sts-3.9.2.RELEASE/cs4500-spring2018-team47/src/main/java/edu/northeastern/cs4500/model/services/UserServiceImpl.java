@@ -13,8 +13,8 @@ public class UserServiceImpl implements UserService{
 
 	@Autowired
 	private UserRepository userRepository;
-    @Autowired
-    private BCryptPasswordEncoder bCryptPasswordEncoder;
+	@Autowired
+    	private BCryptPasswordEncoder bCryptPasswordEncoder;
 	
 	@Override
 	public User findUserByEmail(String email) {
@@ -23,8 +23,8 @@ public class UserServiceImpl implements UserService{
 
 	@Override
 	public void saveUser(User user) {
-		user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
-		user.setActive(1);
+	    user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+	    user.setActive(1);
 	    user.setRole(1);
 	    userRepository.save(user);
 		

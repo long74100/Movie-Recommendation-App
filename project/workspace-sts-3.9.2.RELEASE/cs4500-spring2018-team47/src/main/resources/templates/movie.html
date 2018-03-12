@@ -1,18 +1,19 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+	
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="css/movie.css">
 
-<script
-	src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="js/movie.js"></script>
 <title th:text="${movie.title}"></title>
 
 </head>
@@ -20,7 +21,7 @@
 	<div th:replace="fragments/header/navBar :: header"></div>
 	<div class="p-3">
 		<div class="container mt-3 showcase">
-			<h1 th:text="${movie.title}"></h1>
+			<h1 th:text="${movie.title}" th:class="movie-title"></h1>
 			<hr class="bg-danger p-2">
 			<div class="row">
 				<div class="col-sm-3 col-md-4">
