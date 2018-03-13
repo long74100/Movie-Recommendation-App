@@ -1,4 +1,6 @@
-package edu.northeastern.cs4500.model.user;
+package edu.northeastern.cs4500.model.services;
+
+import edu.northeastern.cs4500.model.user.User;
 
 public interface UserService {
 	/**

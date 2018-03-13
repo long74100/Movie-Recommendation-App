@@ -13,7 +13,7 @@ import javax.persistence.Table;
 @Table(name = "role")
 public final class Role implements Serializable{
 	@Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name="role_id")
 	private int id;
 	@Column(name="role")
