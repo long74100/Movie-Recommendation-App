@@ -55,7 +55,7 @@ public class OmdbServiceImplTest {
 		JSONObject actualSearchResult = null;
 		try {
 			expectedSearchResult = new JSONObject(expectedSuccessfulSearchResultString);
-			actualSearchResult = omdbServiceImpl.searchMovieByTitle("batman");
+			actualSearchResult = omdbServiceImpl.searchMovieByTitle("batman", "t");
 			JSONAssert.assertEquals(expectedSearchResult, actualSearchResult, true);
 
 		} catch (JSONException e1) {
@@ -69,7 +69,7 @@ public class OmdbServiceImplTest {
 		//title of non existing movie
 		try {
 			expectedSearchResult = new JSONObject(expectedFailedSearchResultString);
-			actualSearchResult = omdbServiceImpl.searchMovieByTitle("a@@$!@.asd");
+			actualSearchResult = omdbServiceImpl.searchMovieByTitle("a@@$!@.asd", "t");
 			JSONAssert.assertEquals(expectedSearchResult, actualSearchResult, true);
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block
@@ -82,7 +82,7 @@ public class OmdbServiceImplTest {
 		//no title in search
 		try {
 			expectedSearchResult = new JSONObject(expectedErrorSearchResultString);
-			actualSearchResult = omdbServiceImpl.searchMovieByTitle("");
+			actualSearchResult = omdbServiceImpl.searchMovieByTitle("", "t");
 			JSONAssert.assertEquals(expectedSearchResult, actualSearchResult, true);
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block
