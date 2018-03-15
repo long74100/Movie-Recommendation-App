@@ -22,11 +22,11 @@ public class OmdbServiceImpl implements IOmdbService{
 	public OmdbServiceImpl() {
 	}
 
-	public JSONObject searchMovieByTitle(String title) 
+	public JSONObject searchMovieByTitle(String title, String searchParam) 
 			throws IOException, JSONException {
 		Map<String, String> params = new HashMap<>();
-		params.put("t", title);
-		
+		params.put(searchParam, title);
+	
 		String urlString = addParamsToUrl(apiURL, params);
 		url = new URL(urlString);
 		

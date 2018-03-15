@@ -9,12 +9,30 @@
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="css/movie.css">
+<link rel="stylesheet" href="../css/movie.css">
 
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<script src="js/movie.js"></script>
+<script src="../js/movie.js"></script>
 <title th:text="${movie.title}"></title>
+
+
+<style>
+.flex-container {
+  display: flex;
+  flex-wrap: nowrap;
+  background-color: DodgerBlue;
+}
+
+.flex-container > div {
+  background-color: #f1f1f1;
+  width: 100px;
+  margin: 10px;
+  text-align: center;
+  line-height: 75px;
+  font-size: 30px;
+}
+</style>
 
 </head>
 <body>
@@ -31,6 +49,8 @@
 					<div class="rating mt-1 m-0">
 						<p class="m-0">Imdb Rating:
 						<span th:text="${movie.imdbRating}"></span>
+						<p class="m-0">Community Rating:
+						
 						<p class="m-0">Your vote:</p>
 						<fieldset class="rating m-0">
 							<input type="radio" id="star5" value="5" /><label class="full" for="star5"></label>
@@ -72,9 +92,12 @@
 					<button class="btn btn-secondary">Share with a Friend</button>
 
 					<select class="mt-3">
+						<option>Watch List</option>
 						<option>Favorites</option>
 						<option>Adventure</option>
 					</select>
+					<button class="btn btn-primary">Add</button>
+					<button type="button" class="btn btn-danger">Remove</button>
 				</div>
 			</div>
 			<hr class="bg-danger p-2">
@@ -97,6 +120,46 @@
 		<div class="container mt-3">
 			<h1>REVIEWS</h1>
 			<textarea class="w-100 p-3 review" placeholder="Write your own review..."></textarea>
+			<hr class="bg-danger p-2">
+		</div>
+		<div class="container mt-3 wishList">
+			<h2>Your Wish list</h2>
+			<div class="rec row" >
+				<div>
+					<a th:href="@{/login}">
+					<img
+					src="https://i.pinimg.com/736x/fd/5e/66/fd5e662dce1a3a8cd192a5952fa64f02--classic-poster-classic-movies-posters.jpg"
+					style="width: 12vmax; height: 18vmax; padding: 5px;">
+					<div class="mx-auto">Title1</div>
+				</a>
+				</div>
+				
+				<div class="col-md-2">
+					<a th:href="@{/login}">
+					<img
+					src="http://www.joblo.com/posters/images/full/Spiderman-poster-7-large.jpg"
+					style="width: 12vmax; height: 18vmax; padding: 5px;"> 
+					<p class="mx-auto">Title2</p>
+				</a>
+				</div>
+				<div class="col-md-2">
+					<a th:href="@{/login}">
+					<img
+					src="http://img.moviepostershop.com/ghostbusters-movie-poster-2016-1020775586.jpg"
+					style="width: 12vmax; height: 18vmax; padding: 5px;">
+					<div class="mx-auto">Title3</div>
+				</a>
+				</div>
+				<div class="col-md-2 row-md-5">
+					<a th:href="@{/login}">
+					 <img
+					src="https://cdn.trendhunterstatic.com/thumbs/movie-poster-art.jpeg"
+					style="width: 12vmax; height: 18vmax;padding: 5px;">
+					<div class="mx-auto">Title4</div>
+				</a>
+				</div>
+			</div>
+			<hr class="bg-danger p-2">
 		</div>
 	</div>
 </body>
