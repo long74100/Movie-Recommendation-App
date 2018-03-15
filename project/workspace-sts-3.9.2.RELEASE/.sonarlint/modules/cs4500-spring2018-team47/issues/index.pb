@@ -7,12 +7,8 @@ y
 Isrc/main/java/edu/northeastern/cs4500/configurations/ThymeleafConfig.java,9/d/9d907a9b616ad00b223cb1d6f034ab6f964883ca
 v
 Fsrc/main/java/edu/northeastern/cs4500/configurations/WebMvcConfig.java,c/1/c1b09f2613964c6070a230dc0bc4a567b9c7ea83
-q
-Asrc/main/java/edu/northeastern/cs4500/model/user/UserService.java,e/b/ebaacb8e722df2f7752010961f1b76f534f4243c
 v
 Fsrc/main/java/edu/northeastern/cs4500/repositories/UserRepository.java,a/0/a06caa8fa679d3de9be82ebae8f65718cd6382ad
-u
-Esrc/main/java/edu/northeastern/cs4500/model/user/UserServiceImpl.java,d/6/d6baa63176c2f262c9b7d47b7be889160b3500e0
 u
 Esrc/main/java/edu/northeastern/cs4500/controllers/PageController.java,7/0/70cc94e050db23ff69b21179bad041b46d8615fa
 v

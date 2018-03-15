@@ -1,34 +1,32 @@
 package edu.northeastern.cs4500.controllers;
 
 import java.io.IOException;
-
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Random;
 
 import javax.servlet.http.HttpServletRequest;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.servlet.ModelAndView;
 
+import edu.northeastern.cs4500.model.movie.MovieReview;
 import edu.northeastern.cs4500.model.movieRating.MovieRating;
 import edu.northeastern.cs4500.model.services.IOmdbService;
 import edu.northeastern.cs4500.model.services.MovieRatingService;
 import edu.northeastern.cs4500.model.services.OmdbServiceImpl;
 import edu.northeastern.cs4500.model.session.SessionService;
 import edu.northeastern.cs4500.model.session.SessionServiceImpl;
-import edu.northeastern.cs4500.model.services.UserService;
-import edu.northeastern.cs4500.model.user.User;
-import java.util.Random;
 
 @Controller
 public class MovieController {
@@ -82,6 +80,14 @@ public class MovieController {
 	    // use logger
 	}
 	return new MovieRating();
+    }
+    
+    @RequestMapping(value="/writeReview", method=RequestMethod.POST)
+    @ResponseStatus(value = HttpStatus.OK)
+    public void writeReview(@RequestBody String review, HttpServletRequest httpServletRequest) {
+    	MovieReview movieReview = new MovieReview();
+    	movieReview.setReview(httpServletRequest.getParameter("review"));
+    	movieReview.setReview(httpServletRequest.getParameter("movieTitle"));
     }
 
 }
