@@ -167,7 +167,7 @@ public class OmdbSQLconnectService {
 			String item = movieNames.get(i);
 			try {
 				try {
-					JSONObject current = obj.searchMovieByTitle(item);
+					JSONObject current = obj.searchMovieByTitle(item, "t");
 					catchMovie(current);
 					loadMovieToLocalDB();
 				}

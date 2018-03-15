@@ -41,7 +41,7 @@ public class LocalDBServiceTest {
 				
 				// check if the local database already has the given movie by searching movie id, 
 				assertEquals(sqlConnector.hasMovie("tt0096895"), false);
-				JSONObject job = omdbService.searchMovieByTitle("Batman");
+				JSONObject job = omdbService.searchMovieByTitle("Batman", "t");
 				// to catch movie information(JSON File)
 				sqlConnector.catchMovie(job);
 				// import movie into local database
