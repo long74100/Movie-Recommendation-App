@@ -182,6 +182,37 @@ public class OmdbSQLconnectService {
 	}
 	
 	
+	public ArrayList<String> searchMovieByActors(String actorName) {
+		this.connector.searchKeyWordActorsName(actorName);
+		return this.connector.getSearchMovieResult();
+	}
+	
+	public ArrayList<String> searchMovieByGenre(String genre) {
+		this.connector.searchKeyWordGenre(genre);
+		return this.connector.getSearchMovieResult();
+	}
+	
+	public ArrayList<String> searchMovieByDirector(String director) {
+		this.connector.searchKeyWordDirectorName(director);
+		return this.connector.getSearchMovieResult();
+	}
+	
+	public ArrayList<String> searchMovieByTitleKeyWord(String mvTitle) {
+		this.connector.searchKeyWordMovieTitle(mvTitle);
+		return this.connector.getSearchMovieResult();
+	}
+	
+	public ArrayList<String> searchMovieByTime(String time) {
+		this.connector.searchKeyWordTime(time);
+		return this.connector.getSearchMovieResult();
+	}
+	
+	public ArrayList<String> searchMovieByAll(String keyword) {
+		this.connector.searchByKeyWordInOne(keyword);
+		return this.connector.getSearchMovieResult();
+	}
+	
+	
 	
 	
 	
