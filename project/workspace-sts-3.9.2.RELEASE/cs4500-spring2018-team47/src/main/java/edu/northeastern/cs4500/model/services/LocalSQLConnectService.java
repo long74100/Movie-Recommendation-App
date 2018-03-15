@@ -72,6 +72,28 @@ public class LocalSQLConnectService {
     }
     
     /**
+     * To check if two users have made the friend request to each other
+     * @param senderId id for the user who might send the friend request
+     * @param receiverId id for the user who might receive the friend request
+     * @return true if they sent request to each other.
+     */
+    private boolean hasMadeRequest(int senderId, int receiverId) {
+    	try {
+    		String query = "select * from userRelation where (senderId = " + senderId + 
+    				" and receiverId = " + receiverId + ") or (senderId = " 
+    				+ receiverId + " and receiverId = " + senderId + ")";
+    		myResult = connectStatement.executeQuery(query);
+    		if(myResult.next()) {
+    			return true;
+    		}
+    	}
+    	catch(SQLException ep) {
+    		ep.printStackTrace();
+    	}
+    	return false;
+    }
+    
+    /**
      * To insert the data into the given table
      * @param data the data will be inserted
      * @param tableName the destination table that the data will be inserted to
@@ -265,4 +287,58 @@ public class LocalSQLConnectService {
     public ArrayList<String> getSearchMovieResult() {
     	return this.movie;
     }
+    
+    /**
+     * To send friend request to receiver if there is non shown in relation list.
+     * @param senderId the id for sender
+     * @param receiverId the id for receiver
+     */
+    public void sendFriendRequest(int senderId, int receiverId) {
+    	if(!this.hasMadeRequest(senderId, receiverId)) {
+    		try {
+    			String query = "insert into userRelation values (" + senderId + ", " + receiverId + ", " 
+    						+ "\"onHold\", " + 0 + ", " + 0 + ")";
+    			connectStatement.executeUpdate(query);
+    		}
+    		catch(SQLException se) {
+    			se.printStackTrace();
+    		}
+    	}
+    	else {
+    		System.out.println("friend request has made.");
+    	}
+    }
+    
+    /**
+     * To accept the friend request from sender to receiver
+     * @param senderId sender who sent out the friend request
+     * @param receiverId receiver who received the friend request
+     */
+    public void acceptRequest(int senderId, int receiverId) {
+    	try {
+    		String query = "update userRelation set relationStatus = \"" + "friend\"" + " where senderId = " + senderId + 
+    				" and receiverId = " + receiverId;
+    		connectStatement.executeUpdate(query);
+    	}
+    	catch(SQLException ep) {
+    		ep.printStackTrace();
+    	}
+    }
+    
+    /**
+     * The receiver to reject the sender's friend request
+     * @param senderId the user to send friend request
+     * @param receiverId the user to receive friend request
+     */
+    public void rejectRequest(int senderId, int receiverId) {
+    	try {
+    		String query = "delete from userRelation where senderId = " + senderId + " and receiverId = " + receiverId;
+    		connectStatement.executeUpdate(query);
+    	}
+    	catch(SQLException ep) {
+    		ep.printStackTrace();
+    	}
+    }
+    
+    
 }

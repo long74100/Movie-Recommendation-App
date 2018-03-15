@@ -266,6 +266,33 @@ public class OmdbSQLconnectService {
     		String relationStatus, boolean isSenderBlocked, boolean isReceiverBlocked) {
     	String query = "";
     }
+    
+    /**
+     * To send friend request from sender to receiver
+     * @param senderId id for sender
+     * @param receiverId id for receiver
+     */
+    public void sendFriendRequest(int senderId, int receiverId) {
+    	this.connector.sendFriendRequest(senderId, receiverId);
+    }
+    
+    /**
+     * To accept the request from sender
+     * @param senderId id for sender
+     * @param receiverId id for receiver
+     */
+    public void acceptFriendRequest(int senderId, int receiverId) {
+    	this.connector.acceptRequest(senderId, receiverId);
+    }
+    
+    /**
+     * receiver to reject the sender's friend request 
+     * @param senderId user to send out friend request
+     * @param receiverId user to receive friend request
+     */
+    public void rejectFriendRequest(int senderId, int receiverId) {
+    	this.connector.rejectRequest(senderId, receiverId);
+    }
 	
 	
 	
