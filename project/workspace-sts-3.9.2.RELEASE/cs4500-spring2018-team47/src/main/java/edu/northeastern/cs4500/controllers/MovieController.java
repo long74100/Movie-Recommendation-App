@@ -90,7 +90,6 @@ public class MovieController {
 	    // use logger
 	    e.printStackTrace();
 	}
-
 	ModelAndView modelAndView = new ModelAndView();
 	modelAndView.addObject("movie", movie);
 	modelAndView.setViewName("movie");
