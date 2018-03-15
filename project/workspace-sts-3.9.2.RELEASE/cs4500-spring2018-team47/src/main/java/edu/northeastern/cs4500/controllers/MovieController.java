@@ -21,6 +21,7 @@ import org.springframework.web.servlet.ModelAndView;
 import edu.northeastern.cs4500.model.movieRating.MovieRating;
 import edu.northeastern.cs4500.model.services.IOmdbService;
 import edu.northeastern.cs4500.model.services.MovieRatingService;
+import edu.northeastern.cs4500.model.services.OmdbSQLconnectService;
 import edu.northeastern.cs4500.model.services.OmdbServiceImpl;
 import edu.northeastern.cs4500.model.session.SessionService;
 import edu.northeastern.cs4500.model.session.SessionServiceImpl;
@@ -30,6 +31,7 @@ public class MovieController {
 
     private IOmdbService omdbService = new OmdbServiceImpl();
     private SessionService sessionService = new SessionServiceImpl();
+    private OmdbSQLconnectService localDbConnector = new OmdbSQLconnectService();
     
     @Autowired
     private MovieRatingService movieRatingService;
@@ -50,6 +52,11 @@ public class MovieController {
 	    movie.put("runtime", movieJSON.getString("Runtime"));
 	    movie.put("country", movieJSON.getString("Country"));
 	    movie.put("imdbRating", movieJSON.getString("imdbRating"));
+	    
+	    // to add seached movie into local database
+	    localDbConnector.catchMovie(movieJSON);
+	    localDbConnector.loadMovieToLocalDB();
+	    
 	} catch (IOException | JSONException e) {
 	    // use logger
 	    e.printStackTrace();
@@ -75,6 +82,10 @@ public class MovieController {
 	    // use logger
 	}
 	return new MovieRating();
+    }
+    
+    private void addMovieIntoLocalDB() {
+    	
     }
 
 }

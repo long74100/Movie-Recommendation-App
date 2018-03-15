@@ -19,7 +19,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
  */
 public class LocalSQLConnectService {
 	// the local database URL
-	private static String url = "jdbc:mysql://cs4500-spring2018-team47-dev.cmtcd3hyzi5a.us-east-2.rds.amazonaws.com/"
+	private static String url = "jdbc:mysql://team-47-dev-db.cllrg7hgpqkh.us-east-2.rds.amazonaws.com/"
 			+ "cs4500_spring2018_team47_dev";
 	// database username
 	private static String username = "RuairiMSmillie";
@@ -114,48 +114,5 @@ public class LocalSQLConnectService {
     		ep.printStackTrace();
     	}
     }
-    
-    
-    /**
-	 * To execute the interaction with backend database
-	 * @param args
-	 */
-	
-	/**
-    public static void main(String[] args) {
-    	try {
-    		// 1. get connection to database
-    		connector = DriverManager.getConnection(url, username, password);
-    		// 2. create statement
-    		connectStatement = connector.createStatement();
-    		// 3. Execute SQL Query
-    		myResult = connectStatement.executeQuery("select * from SpoiledTomatillos.Actor");
-    		// 4. Process the result set
-    		while(myResult.next()) {
-    			System.out.println(myResult.getString("actor_id") + "--->" + myResult.getString("actor_name"));
-    		}
-    		
-    		//insert data
-    		String sql = "insert into User values (000005, \"tester\", 'admin', 'admin');";
-    		connectStatement.executeUpdate(sql);
-    		
-    		
-    		
-    		//Update data
-    		String sql2 = "update User set userpass='setSample' where id=000005";
-    		connectStatement.executeUpdate(sql2);
-    	
-    		
-    		
-    		//delete data
-    		String sql3 = "delete from User where username=\"tester\"";
-    		int deletedRow = connectStatement.executeUpdate(sql3);
-    		System.out.println("deleted row is: " + deletedRow);
-    	}
-    	catch(Exception e) {
-    		e.printStackTrace();
-    	}
-    }
-   */
 
 }
