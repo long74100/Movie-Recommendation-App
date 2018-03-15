@@ -68,8 +68,10 @@ public class MovieController {
 	    	movieList.add(movie);
 	    	
 	    	User user = new User();
-	    	user = userService.findUserByUsername(searchParam);
-	    	userList.add(user);
+	    	if(userService.findUserByUsername(searchParam) != null) {
+		    	user = userService.findUserByUsername(searchParam);
+		    	userList.add(user);
+	    	}
 	    	x++;
 	    }
 	    
