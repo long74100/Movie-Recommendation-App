@@ -77,6 +77,7 @@ public class MovieController {
 	try {
 	    movieJSON = omdbService.searchMovieByTitle(title, "t");
 	   
+	  
 	    movie.put("title", movieJSON.getString("Title"));
 	    movie.put("plot", movieJSON.getString("Plot"));
 	    movie.put("genre", movieJSON.getString("Genre"));
