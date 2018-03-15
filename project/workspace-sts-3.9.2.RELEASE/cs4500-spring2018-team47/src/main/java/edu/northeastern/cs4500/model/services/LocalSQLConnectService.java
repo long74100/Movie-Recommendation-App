@@ -6,6 +6,8 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 import org.springframework.jdbc.core.JdbcTemplate;
 
@@ -33,7 +35,7 @@ public class LocalSQLConnectService {
 	private static Connection connector = null;
 	private static Statement connectStatement = null;
 	private static ResultSet myResult = null;
-	
+	private ArrayList<String> movie = new ArrayList<>();
 	/**
 	 * The constructor
 	 * The constructor will automatically create connection to local database
@@ -70,6 +72,28 @@ public class LocalSQLConnectService {
     }
     
     /**
+     * To check if two users have made the friend request to each other
+     * @param senderId id for the user who might send the friend request
+     * @param receiverId id for the user who might receive the friend request
+     * @return true if they sent request to each other.
+     */
+    private boolean hasMadeRequest(int senderId, int receiverId) {
+    	try {
+    		String query = "select * from userRelation where (senderId = " + senderId + 
+    				" and receiverId = " + receiverId + ") or (senderId = " 
+    				+ receiverId + " and receiverId = " + senderId + ")";
+    		myResult = connectStatement.executeQuery(query);
+    		if(myResult.next()) {
+    			return true;
+    		}
+    	}
+    	catch(SQLException ep) {
+    		ep.printStackTrace();
+    	}
+    	return false;
+    }
+    
+    /**
      * To insert the data into the given table
      * @param data the data will be inserted
      * @param tableName the destination table that the data will be inserted to
@@ -83,6 +107,8 @@ public class LocalSQLConnectService {
     		ep.printStackTrace();
     	}
     }
+    
+    // -----------------MOVIE OPERATOR---------------------------------
     
     /**
      * To delete the given movie from the local database
@@ -115,47 +141,241 @@ public class LocalSQLConnectService {
     	}
     }
     
+    /**
+     * To search movie based on given keyword -- first start with the movie title
+     * @param input the given searched string used for movie title
+     */
+    public void searchKeyWordMovieTitle(String input) {
+    	try {
+    		String query = "select from Movie where movie_name like \"%" + input + "%\"";
+    		myResult = connectStatement.executeQuery(query);
+    		execute();
+    	}
+    	catch(SQLException ep) {
+    		ep.printStackTrace();
+    	}
+    }
     
     /**
-	 * To execute the interaction with backend database
-	 * @param args
-	 */
-	
-	/**
-    public static void main(String[] args) {
+     * To search movies which the actor with given name act on
+     * @param actorsName the name of actors
+     */
+    public void searchKeyWordActorsName(String actorsName) {
     	try {
-    		// 1. get connection to database
-    		connector = DriverManager.getConnection(url, username, password);
-    		// 2. create statement
-    		connectStatement = connector.createStatement();
-    		// 3. Execute SQL Query
-    		myResult = connectStatement.executeQuery("select * from SpoiledTomatillos.Actor");
-    		// 4. Process the result set
+    		String query = "SELECT * from Movie where actor like \"%" + actorsName + "%\"";
+    		myResult = connectStatement.executeQuery(query);
+    		execute();
+    	}
+    	catch(SQLException ep) {
+    		ep.printStackTrace();
+    	}
+    }
+    
+    /**
+     * To search movies which the director with given name direct
+     * @param directorName the name of director
+     */
+    public void searchKeyWordDirectorName(String directorName) {
+    	try {
+    		String query = "select * from Movie where director like \"%" + directorName + "%\"";
+    		myResult = connectStatement.executeQuery(query);
+    		execute();
+    	}
+    	catch(SQLException ec) {
+    		ec.printStackTrace();
+    	}
+    }
+    
+    /**
+     * To search movies with given genre
+     * @param genre the movie genre
+     */
+    public void searchKeyWordGenre(String genre) {
+    	try {
+    		String query = "select * from Movie where genre like \"%" + genre + "%\"";
+    		myResult = connectStatement.executeQuery(query);
+    		execute();
+    	}
+    	catch(SQLException ec) {
+    		ec.printStackTrace();
+    	}
+    }
+    
+    /**
+     * To search movies with given year of publication
+     * @param year the publication year period
+     */
+    public void searchKeyWordTime(String year) {
+    	try {
+    		String query = "select * from Movie where runtime like \"%" + year + "%\"";
+    		myResult = connectStatement.executeQuery(query);
+    		execute();
+    	}
+    	catch(SQLException ec) {
+    		ec.printStackTrace();
+    	}
+    }
+    
+    /**
+     * Search movie by keyword
+     * @param keyword only 
+     */
+    public void searchByKeyWordInOne(String keyword) {
+    	try {
+    		String query = 
+    				"select * from Movie where movie_id like \"%" + keyword + "%\""
+    						+ " or movie_name like \"%" + keyword + "%\"" 
+    						+ " or movie_rated like \"%" + keyword + "%\""
+    						+ " or runtime like \"%" + keyword + "%\"" 
+    						+ " or movie_year like \"%" + keyword + "%\""
+    						+ " or release_date like \"%" + keyword + "%\""
+    						+ " or genre like \"%" + keyword + "%\""
+    						+ " or director like \"%" + keyword + "%\""
+    						+ " or actor like \"%" + keyword + "%\""
+    						+ " or plot like \"%" + keyword + "%\""
+    						+ " or movie_language like \"%" + keyword + "%\""
+    						+ " or country like \"%" + keyword + "%\""
+    						+ " or metascore like \"%" + keyword + "%\""
+    						+ " or imdbRating like \"%" + keyword + "%\""
+    						+ " or ratings like \"%" + keyword + "%\""
+    						+ " or production like \"%" + keyword + "%\"";
+    		myResult = connectStatement.executeQuery(query);
+    		execute();
+    	}
+    	catch(SQLException ec) {
+    		ec.printStackTrace();
+    	}
+    }
+    
+    /**
+     * To execute the get movie from local database command
+     */
+    private void execute() {
+    	try {
     		while(myResult.next()) {
-    			System.out.println(myResult.getString("actor_id") + "--->" + myResult.getString("actor_name"));
+    			String movieId = myResult.getString("movie_id");
+    			String movieName = myResult.getString("movie_name");
+    			String movieRated = myResult.getString("movie_rated");
+    			String runtime = myResult.getString("runtime");
+    			String genre = myResult.getString("genre");
+    			String released_date = myResult.getString("released_date");
+    			String director = myResult.getString("director");
+    			String actors = myResult.getString("actor");
+    			String plot = myResult.getString("plot");
+    			String language = myResult.getString("movie_language");
+    			String country = myResult.getString("country");
+    			String poster = myResult.getString("poster");
+    			String imdbRating = myResult.getString("imdbRating");
+    			String ratings = myResult.getString("ratings");
+    			StringBuilder output = new StringBuilder();
+    			output.append(movieId + "| " + movieName + "| " + movieRated + "| " 
+    					+ runtime + "| " + genre + "| " + released_date + "| " + director + "| " + 
+    					actors + "| " + plot + "| " + language + "| " + country + "| " + poster + "| "
+    					+ imdbRating + "| " + ratings);
+    			movie.add(output.toString());
     		}
-    		
-    		//insert data
-    		String sql = "insert into User values (000005, \"tester\", 'admin', 'admin');";
-    		connectStatement.executeUpdate(sql);
-    		
-    		
-    		
-    		//Update data
-    		String sql2 = "update User set userpass='setSample' where id=000005";
-    		connectStatement.executeUpdate(sql2);
-    	
-    		
-    		
-    		//delete data
-    		String sql3 = "delete from User where username=\"tester\"";
-    		int deletedRow = connectStatement.executeUpdate(sql3);
-    		System.out.println("deleted row is: " + deletedRow);
     	}
     	catch(Exception e) {
     		e.printStackTrace();
     	}
     }
-   */
-
+    
+    
+    /**
+     * To return the search result from local database
+     * @return list of movies relevant to the search keyword.
+     */
+    public ArrayList<String> getSearchMovieResult() {
+    	return this.movie;
+    }
+    
+    
+    // ----------------------------USER OPERATOR-----------------------------------
+    
+    
+    /**
+     * To send friend request to receiver if there is non shown in relation list.
+     * @param senderId the id for sender
+     * @param receiverId the id for receiver
+     */
+    public void sendFriendRequest(int senderId, int receiverId) {
+    	if(!this.hasMadeRequest(senderId, receiverId)) {
+    		try {
+    			String query = "insert into userRelation values (" + senderId + ", " + receiverId + ", " 
+    						+ "\"onHold\", " + 0 + ", " + 0 + ")";
+    			connectStatement.executeUpdate(query);
+    		}
+    		catch(SQLException se) {
+    			se.printStackTrace();
+    		}
+    	}
+    	else {
+    		System.out.println("friend request has made.");
+    	}
+    }
+    
+    /**
+     * To accept the friend request from sender to receiver
+     * @param senderId sender who sent out the friend request
+     * @param receiverId receiver who received the friend request
+     */
+    public void acceptRequest(int senderId, int receiverId) {
+    	try {
+    		String query = "update userRelation set relationStatus = \"" + "friend\"" + " where senderId = " + senderId + 
+    				" and receiverId = " + receiverId;
+    		connectStatement.executeUpdate(query);
+    	}
+    	catch(SQLException ep) {
+    		ep.printStackTrace();
+    	}
+    }
+    
+    /**
+     * The receiver to reject the sender's friend request
+     * @param senderId the user to send friend request
+     * @param receiverId the user to receive friend request
+     */
+    public void rejectRequest(int senderId, int receiverId) {
+    	try {
+    		String query = "delete from userRelation where senderId = " + senderId + " and receiverId = " + receiverId;
+    		connectStatement.executeUpdate(query);
+    	}
+    	catch(SQLException ep) {
+    		ep.printStackTrace();
+    	}
+    }
+    
+    /**
+     * receiver to block the sender 
+     * @param senderId user who sent the friend request
+     * @param receiverId user who receives the friend request
+     */
+    public void blockSender(int senderId, int receiverId) {
+    	try {
+    		String value = "update userRelation set isSenderBlocked = " + 1 + " where senderId = " + senderId + " and "
+    				+ "receiverId = " + receiverId;
+    		connectStatement.executeUpdate(value);
+    	}
+    	catch(SQLException ep) {
+    		ep.printStackTrace();
+    	}
+	}
+    
+    /**
+     * receiver to block the sender 
+     * @param senderId user who sent the friend request
+     * @param receiverId user who receives the friend request
+     */
+    public void blockReceiver(int senderId, int receiverId) {
+    	try {
+    		String value = "update userRelation set isReceiverBlocked = " + 1 + " where senderId = " + senderId + " and "
+    				+ "receiverId = " + receiverId;
+    		connectStatement.executeUpdate(value);
+    	}
+    	catch(SQLException ep) {
+    		ep.printStackTrace();
+    	}
+	}
+    
+    
 }

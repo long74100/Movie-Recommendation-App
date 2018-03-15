@@ -15,5 +15,5 @@ public interface IOmdbService {
 	 * @IOException thrown if there was an error to connect to the API
 	 * @JSONException if creation of json object fails
 	 */
-	JSONObject searchMovieByTitle(String title) throws IOException, JSONException;
+	JSONObject searchMovieByTitle(String title, String searchParam) throws IOException, JSONException;
 }
