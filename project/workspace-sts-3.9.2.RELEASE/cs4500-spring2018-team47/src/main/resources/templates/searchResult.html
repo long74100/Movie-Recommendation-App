@@ -47,8 +47,8 @@
 				</div>
 				</a>
 			</div>
-			
-			<h1>Users</h1>
+		</div>
+		<h1>Users</h1>
 			<div th:each="user : ${user}">
 					<div class="container movieRow row">
 					<img class="col-md-4"
@@ -67,7 +67,6 @@
 					</div>
 				</div>
 			</div>
-		</div>
 		<!-- else no movies are found  -->
 		<div th:unless="${not #lists.isEmpty(user)}">
 			<div>No users match this title. Please try again.</div>
