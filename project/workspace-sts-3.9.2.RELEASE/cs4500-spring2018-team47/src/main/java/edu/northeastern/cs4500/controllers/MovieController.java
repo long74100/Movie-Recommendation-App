@@ -110,6 +110,9 @@ public class MovieController {
 	} catch (JSONException e) {
 		
 		
+		
+		
+		
 	    // use logger
 	}
 	return new MovieRating();
