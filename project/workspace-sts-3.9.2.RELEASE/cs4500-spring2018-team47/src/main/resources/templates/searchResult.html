@@ -28,10 +28,17 @@
 					src="http://www.joblo.com/posters/images/full/the-martian-poster.jpg"
 					class="poster">
 					<div class="col-md-4">
+			
 						<div th:text="${movie.title}" class="movieTitle"></div>
 						<div th:text="${movie.actors}"></div>
 					</div>
-					<div class="col-md-4">
+					<div class="col-md-2">
+						<b>Runtime: </b>
+						<div th:text="${movie.Released}"></div>
+						<b>IMDB Rating: </b>
+						<div th:text="${movie.ImdbRating}"></div>
+					</div>
+					<div class="col-md-2">
 						<div style="margin: 2px;">
 							<button class="btn btn-primary">Add to Watchlist</button>
 						</div>

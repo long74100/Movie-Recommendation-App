@@ -61,7 +61,7 @@ public class MovieController {
 	    	movie.setTitle(movieJSON.getString("Title"));
 	    	movie.setActors(movieJSON.getString("Actors"));
 	    	movie.setReleased(movieJSON.getString("Released"));
-	    	movie.setImdbRating(movieJSON.getString("Rating"));
+	    	movie.setImdbRating(movieJSON.getString("imdbRating"));
 	    	movieList.add(movie);
 	    	x++;
 	    }
