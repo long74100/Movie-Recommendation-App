@@ -46,7 +46,7 @@ public class MovieController {
     @RequestMapping(value = { "/search" }, method = RequestMethod.GET)
     public ModelAndView searchResult(@RequestParam("q") String searchParam) {
 	JSONObject movieJSON = new JSONObject();
-	List<Movie> movie1 = new ArrayList<Movie>();
+	List<Movie> movieList = new ArrayList<Movie>();
 
 	try {
 	    movieJSON = omdbService.searchMovieByTitle(searchParam, "s");
@@ -56,11 +56,13 @@ public class MovieController {
 	    int x = 0;
 	    while (x < 5) {
 	    	Movie movie = new Movie();
-	    	movie.setTitle(movieJSONList.getJSONObject(x).getString("Title"));
-	    	movie.setActors("Actors: " + x);
-	    	movie.setReleased("Released: " + x);
-	    	movie.setImdbRating("Rating: " + x);
-	    	movie1.add(movie);
+		    movieJSON = omdbService.searchMovieByTitle(movieJSONList.getJSONObject(x).getString("Title"), "t");
+		    
+	    	movie.setTitle(movieJSON.getString("Title"));
+	    	movie.setActors(movieJSON.getString("Actors"));
+	    	movie.setReleased(movieJSON.getString("Released"));
+	    	movie.setImdbRating(movieJSON.getString("Rating"));
+	    	movieList.add(movie);
 	    	x++;
 	    }
 	    
@@ -70,7 +72,7 @@ public class MovieController {
 	}
 
 	ModelAndView modelAndView = new ModelAndView();
-	modelAndView.addObject("movie", movie1);
+	modelAndView.addObject("movie", movieList);
 	modelAndView.setViewName("searchResult");
 	return modelAndView;
     }
