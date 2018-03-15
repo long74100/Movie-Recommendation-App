@@ -53,6 +53,7 @@ public class MovieController {
 	JSONObject movieJSON = new JSONObject();
 	List<Movie> movieList = new ArrayList<Movie>();
 	List<User> userList = new ArrayList<User>();
+	ArrayList<String> movieNames = new ArrayList<>();
 
 	try {
 	    movieJSON = omdbService.searchMovieByTitle(searchParam, "s");
@@ -68,6 +69,7 @@ public class MovieController {
 	    	movie.setReleased(movieJSON.getString("Released"));
 	    	movie.setImdbRating(movieJSON.getString("imdbRating"));
 	    	movieList.add(movie);
+	    	movieNames.add(movie.getTitle());
 	    	
 	    	User user = new User();
 	    	if(userService.findUserByUsername(searchParam) != null) {
@@ -76,6 +78,9 @@ public class MovieController {
 	    	}
 	    	x++;
 	    }
+	    
+	    // to add multiple movies from search results.
+	    localDbConnector.addMultiMovies(movieNames);
 	    
 
 	    

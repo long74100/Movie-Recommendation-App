@@ -290,8 +290,7 @@ public class LocalSQLConnectService {
     }
     
     
-    // ----------------------------USER OPERATOR-----------------------------------
-    
+    // ----- user interaction in local database-----
     
     /**
      * To send friend request to receiver if there is non shown in relation list.
@@ -376,6 +375,4 @@ public class LocalSQLConnectService {
     		ep.printStackTrace();
     	}
 	}
-    
-    
 }
