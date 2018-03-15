@@ -1,7 +1,7 @@
 .movieRow {
-	border-left: 6px solid #ff0000;
-	border-bottom: 6px solid #ff0000;
-    background-color: #000000;
+	border-left: 6px solid #000000;
+	border-bottom: 6px solid #000000;
+    background-color: #e7e7e7;
     margin: 2px;
 }
 
@@ -16,8 +16,4 @@ img {
 .movieTitle {
 	font-size: 175%;
 	font-weight: bold;
-}
-
-a {
-	font-color: white;
 }

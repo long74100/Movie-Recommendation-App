@@ -19,8 +19,8 @@
 	<div th:replace="fragments/header/navBar :: header"></div>
 	<div class="container mt-3 showcase">
 		<!-- If movie title found -->
+		<h1>Movies</h1>
 		<div th:if="${not #lists.isEmpty(movie)}">
-			<h1>Movies</h1>
 			<div th:each="movie : ${movie}">
 				<a th:href="@{/movie/{title}(title=${movie.title})}">
 					<div class="container movieRow row">
@@ -48,9 +48,28 @@
 				</a>
 			</div>
 		</div>
+		<h1>Users</h1>
+			<div th:each="user : ${user}">
+					<div class="container movieRow row">
+					<img class="col-md-4"
+					src="http://www.joblo.com/posters/images/full/the-martian-poster.jpg"
+					class="poster">
+					<div class="col-md-4">
+			
+						<div th:text="${user.getFirstName}" class="movieTitle"></div>
+						<div th:text="${user.getUsername}"></div>
+					</div>
+					<div class="col-md-2">
+						<div style="margin: 2px;">
+							<button class="btn btn-primary">Add to Watchlist</button>
+						</div>
+						<button class="btn btn-primary">Prod to a Friend</button>
+					</div>
+				</div>
+			</div>
 		<!-- else no movies are found  -->
-		<div th:unless="${not #lists.isEmpty(movie)}">
-			<div>No movies match this title. Please try again.</div>
+		<div th:unless="${not #lists.isEmpty(user)}">
+			<div>No users match this title. Please try again.</div>
 		</div>
 	</div>
 </body>
