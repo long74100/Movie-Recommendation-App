@@ -31,6 +31,8 @@
 					<div class="rating mt-1 m-0">
 						<p class="m-0">Imdb Rating:
 						<span th:text="${movie.imdbRating}"></span>
+						<p class="m-0">Community Rating:
+						
 						<p class="m-0">Your vote:</p>
 						<fieldset class="rating m-0">
 							<input type="radio" id="star5" value="5" /><label class="full" for="star5"></label>
@@ -100,6 +102,16 @@
 		<div class="container mt-3">
 			<h1>REVIEWS</h1>
 			<textarea class="w-100 p-3 review" placeholder="Write your own review..."></textarea>
+			<hr class="bg-danger p-2">
+		</div>
+		<div class="container mt-3 wishList">
+			<h2>Your Wish list</h2>
+			<div>
+				<p th:text="${movie.title}">
+				<p th:text="${movie.title}">
+				<p th:text="${movie.title}"></p>
+			</div>
+			<hr class="bg-danger p-2">
 		</div>
 	</div>
 </body>
