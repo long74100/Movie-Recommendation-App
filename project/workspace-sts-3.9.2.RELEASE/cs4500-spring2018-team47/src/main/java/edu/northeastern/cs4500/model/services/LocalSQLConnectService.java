@@ -108,6 +108,8 @@ public class LocalSQLConnectService {
     	}
     }
     
+    // -----------------MOVIE OPERATOR---------------------------------
+    
     /**
      * To delete the given movie from the local database
      * @param id the given movie id
@@ -271,7 +273,6 @@ public class LocalSQLConnectService {
     					actors + "| " + plot + "| " + language + "| " + country + "| " + poster + "| "
     					+ imdbRating + "| " + ratings);
     			movie.add(output.toString());
-    			//System.out.println(movieName + " --> " + actors); 
     		}
     	}
     	catch(Exception e) {
@@ -287,6 +288,10 @@ public class LocalSQLConnectService {
     public ArrayList<String> getSearchMovieResult() {
     	return this.movie;
     }
+    
+    
+    // ----------------------------USER OPERATOR-----------------------------------
+    
     
     /**
      * To send friend request to receiver if there is non shown in relation list.
@@ -339,6 +344,38 @@ public class LocalSQLConnectService {
     		ep.printStackTrace();
     	}
     }
+    
+    /**
+     * receiver to block the sender 
+     * @param senderId user who sent the friend request
+     * @param receiverId user who receives the friend request
+     */
+    public void blockSender(int senderId, int receiverId) {
+    	try {
+    		String value = "update userRelation set isSenderBlocked = " + 1 + " where senderId = " + senderId + " and "
+    				+ "receiverId = " + receiverId;
+    		connectStatement.executeUpdate(value);
+    	}
+    	catch(SQLException ep) {
+    		ep.printStackTrace();
+    	}
+	}
+    
+    /**
+     * receiver to block the sender 
+     * @param senderId user who sent the friend request
+     * @param receiverId user who receives the friend request
+     */
+    public void blockReceiver(int senderId, int receiverId) {
+    	try {
+    		String value = "update userRelation set isReceiverBlocked = " + 1 + " where senderId = " + senderId + " and "
+    				+ "receiverId = " + receiverId;
+    		connectStatement.executeUpdate(value);
+    	}
+    	catch(SQLException ep) {
+    		ep.printStackTrace();
+    	}
+	}
     
     
 }
