@@ -42,11 +42,15 @@ public class MovieController {
     
     @Autowired
     private MovieRatingService movieRatingService;
+    
+    @Autowired
+    private UserService userService;
 
     @RequestMapping(value = { "/search" }, method = RequestMethod.GET)
     public ModelAndView searchResult(@RequestParam("q") String searchParam) {
 	JSONObject movieJSON = new JSONObject();
 	List<Movie> movieList = new ArrayList<Movie>();
+	List<User> userList = new ArrayList<User>();
 
 	try {
 	    movieJSON = omdbService.searchMovieByTitle(searchParam, "s");
@@ -57,14 +61,19 @@ public class MovieController {
 	    while (x < 5) {
 	    	Movie movie = new Movie();
 		    movieJSON = omdbService.searchMovieByTitle(movieJSONList.getJSONObject(x).getString("Title"), "t");
-		    
 	    	movie.setTitle(movieJSON.getString("Title"));
 	    	movie.setActors(movieJSON.getString("Actors"));
 	    	movie.setReleased(movieJSON.getString("Released"));
 	    	movie.setImdbRating(movieJSON.getString("imdbRating"));
 	    	movieList.add(movie);
+	    	
+	    	User user = new User();
+	    	user = userService.findUserByUsername(searchParam);
+	    	userList.add(user);
 	    	x++;
 	    }
+	    
+
 	    
 	} catch (IOException | JSONException e) {
 	    // use logger
@@ -73,6 +82,7 @@ public class MovieController {
 
 	ModelAndView modelAndView = new ModelAndView();
 	modelAndView.addObject("movie", movieList);
+	modelAndView.addObject("user", userList);
 	modelAndView.setViewName("searchResult");
 	return modelAndView;
     }
