@@ -1,0 +1,19 @@
+.movieRow {
+	border-left: 6px solid #000000;
+	border-bottom: 6px solid #000000;
+    background-color: #e7e7e7;
+    margin: 2px;
+}
+
+/** Images **/
+img {
+    width: 8%;
+    height: 8%;
+    transition: all .2s ease-in-out;
+    padding: 2px;
+}
+
+.movieTitle {
+	font-size: 175%;
+	font-weight: bold;
+}

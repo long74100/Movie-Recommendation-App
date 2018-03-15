@@ -51,6 +51,9 @@ public class MovieController {
 	    while (x < 5) {
 	    	Movie movie = new Movie();
 	    	movie.setTitle(movieJSONList.getJSONObject(x).getString("Title"));
+	    	movie.setActors("Actors: " + x);
+	    	movie.setReleased("Released: " + x);
+	    	movie.setImdbRating("Rating: " + x);
 	    	movie1.add(movie);
 	    	x++;
 	    }
