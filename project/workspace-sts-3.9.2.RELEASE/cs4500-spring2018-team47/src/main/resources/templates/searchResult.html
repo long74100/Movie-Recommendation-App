@@ -19,8 +19,8 @@
 	<div th:replace="fragments/header/navBar :: header"></div>
 	<div class="container mt-3 showcase">
 		<!-- If movie title found -->
+		<h1>Movies</h1>
 		<div th:if="${not #lists.isEmpty(movie)}">
-			<h1>Movies</h1>
 			<div th:each="movie : ${movie}">
 				<a th:href="@{/movie/{title}(title=${movie.title})}">
 					<div class="container movieRow row">
