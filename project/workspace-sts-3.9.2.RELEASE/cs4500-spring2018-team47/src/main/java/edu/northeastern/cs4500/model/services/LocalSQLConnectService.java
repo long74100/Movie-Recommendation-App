@@ -244,12 +244,12 @@ public class LocalSQLConnectService {
     			String imdbRating = myResult.getString("imdbRating");
     			String ratings = myResult.getString("ratings");
     			StringBuilder output = new StringBuilder();
-    			output.append(movieId + ", " + movieName + ", " + movieRated + ", " 
-    					+ runtime + ", " + genre + ", " + released_date + ", " + director + ", " + 
-    					actors + ", " + plot + ", " + language + ", " + country + ", " + poster + ", "
-    					+ imdbRating + ", " + ratings);
+    			output.append(movieId + "| " + movieName + "| " + movieRated + "| " 
+    					+ runtime + "| " + genre + "| " + released_date + "| " + director + "| " + 
+    					actors + "| " + plot + "| " + language + "| " + country + "| " + poster + "| "
+    					+ imdbRating + "| " + ratings);
     			movie.add(output.toString());
-    			System.out.println(movieName + " --> " + actors); 
+    			//System.out.println(movieName + " --> " + actors); 
     		}
     	}
     	catch(Exception e) {

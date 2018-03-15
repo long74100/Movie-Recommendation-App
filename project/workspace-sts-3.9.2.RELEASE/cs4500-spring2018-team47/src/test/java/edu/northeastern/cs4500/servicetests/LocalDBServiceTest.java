@@ -92,16 +92,16 @@ public class LocalDBServiceTest {
 //	}
 	
 	
-//	@Test
-//	public void testSearchKeyWord() {
-//		this.init();
-//		try {
-//			assertEquals(sqlConnector.searchMovieByActors("Robert Downey Jr"), new ArrayList<>());
-//		}
-//		catch(Exception e) {
-//			e.printStackTrace();
-//		}
-//	}
+	@Test
+	public void testSearchKeyWord() {
+		this.init();
+		try {
+			assertEquals(sqlConnector.searchMovieByActors("Robert Downey Jr"), new ArrayList<>());
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
 	
 	
 	
