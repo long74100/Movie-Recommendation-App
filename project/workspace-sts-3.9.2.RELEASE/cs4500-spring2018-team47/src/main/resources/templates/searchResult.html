@@ -22,7 +22,7 @@
 		<div th:if="${not #lists.isEmpty(movie)}">
 			<h1>Movies</h1>
 			<div th:each="movie : ${movie}">
-				<a href="#" th:href="@{'/movie/'${movie.title}}">
+				<a th:href="@{/movie/{title}(title=${movie.title})}">
 					<div class="container movieRow row">
 					<img class="col-md-4"
 					src="http://www.joblo.com/posters/images/full/the-martian-poster.jpg"
@@ -39,7 +39,6 @@
 					</div>
 				</div>
 				</a>
-				
 			</div>
 		</div>
 		<!-- else no movies are found  -->

@@ -13,6 +13,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -69,15 +70,13 @@ public class MovieController {
 	return modelAndView;
     }
     
-    /*@RequestMapping(value = { "/search" }, method = RequestMethod.GET)
-    public ModelAndView movieResult(@RequestParam("q") String title) {
+    @RequestMapping(value="/movie/{title}", method = RequestMethod.GET)
+    public ModelAndView movieResult(@PathVariable String title) {
 	JSONObject movieJSON = new JSONObject();
 	Map<String, String> movie = new HashMap<String, String>();
 
 	try {
 	    movieJSON = omdbService.searchMovieByTitle(title, "t");
-	   
-	  
 	    movie.put("title", movieJSON.getString("Title"));
 	    movie.put("plot", movieJSON.getString("Plot"));
 	    movie.put("genre", movieJSON.getString("Genre"));
@@ -96,7 +95,7 @@ public class MovieController {
 	modelAndView.addObject("movie", movie);
 	modelAndView.setViewName("movie");
 	return modelAndView;
-    }*/
+    }
 
     @RequestMapping(value= "/movie/rating",method=RequestMethod.POST)
     public @ResponseBody MovieRating getRating(@RequestBody String rating, HttpServletRequest httpServletRequest) {
@@ -108,10 +107,6 @@ public class MovieController {
 		movieRating.setUsername("");
 		movieRatingService.saveMovieRating(movieRating);
 	} catch (JSONException e) {
-		
-		
-		
-		
 		
 	    // use logger
 	}
