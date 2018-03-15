@@ -19,7 +19,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
  */
 public class LocalSQLConnectService {
 	// the local database URL
-	private static String url = "jdbc:mysql://cs4500-spring2018-team47-dev.cmtcd3hyzi5a.us-east-2.rds.amazonaws.com/"
+	private static String url = "jdbc:mysql://team-47-dev-db.cllrg7hgpqkh.us-east-2.rds.amazonaws.com/"
 			+ "cs4500_spring2018_team47_dev";
 	// database username
 	private static String username = "RuairiMSmillie";

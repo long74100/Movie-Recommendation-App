@@ -8,6 +8,7 @@ import org.springframework.web.servlet.ModelAndView;
 /**
  * Spring MVC Controller to handle mappings for default pages.
  *
+ * Adding a comment for smart commits
  */
 @Controller
 public class PageController {

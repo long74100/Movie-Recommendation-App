@@ -20,8 +20,8 @@ public final class MovieRating {
     private String movieName;
     @Column(name="rating")
     private double rating;
-    @Column(name="username")
-    private String username;
+    @Column(name="user_id")
+    private int userID;
 
 
     //getter setters
@@ -33,8 +33,8 @@ public final class MovieRating {
 	this.rating = double1;
     }
 
-    public void setUsername(String username) {
-	this.username = username;
+    public void setUserID(int userID) {
+	this.userID = userID;
     }
 
     public String getMovieName() {
@@ -46,8 +46,8 @@ public final class MovieRating {
 	return this.rating;
     }
     
-    public String getUsername() {
-	return username;
+    public int getUserID() {
+	return userID;
     }
     
 }
