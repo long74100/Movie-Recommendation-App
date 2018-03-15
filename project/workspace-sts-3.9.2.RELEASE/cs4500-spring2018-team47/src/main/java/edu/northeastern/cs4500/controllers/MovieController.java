@@ -40,7 +40,7 @@ public class MovieController {
     private MovieRatingService movieRatingService;
 
     @RequestMapping(value = { "/search" }, method = RequestMethod.GET)
-    public ModelAndView searchResult(@RequestParam("q") String searchParam) {
+    public ModelAndView searchResult(@RequestParam("title") String searchParam) {
 	JSONObject movieJSON = new JSONObject();
 	Map<String, String> movie = new HashMap<String, String>();
 
