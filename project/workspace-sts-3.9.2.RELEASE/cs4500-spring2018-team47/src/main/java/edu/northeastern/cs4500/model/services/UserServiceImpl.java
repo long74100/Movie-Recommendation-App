@@ -1,9 +1,10 @@
-package edu.northeastern.cs4500.model.user;
+package edu.northeastern.cs4500.model.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import edu.northeastern.cs4500.model.user.User;
 import edu.northeastern.cs4500.repositories.UserRepository;
 
 
@@ -12,8 +13,8 @@ public class UserServiceImpl implements UserService{
 
 	@Autowired
 	private UserRepository userRepository;
-    @Autowired
-    private BCryptPasswordEncoder bCryptPasswordEncoder;
+	@Autowired
+    	private BCryptPasswordEncoder bCryptPasswordEncoder;
 	
 	@Override
 	public User findUserByEmail(String email) {
@@ -22,8 +23,8 @@ public class UserServiceImpl implements UserService{
 
 	@Override
 	public void saveUser(User user) {
-		user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
-		user.setActive(1);
+	    user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+	    user.setActive(1);
 	    user.setRole(1);
 	    userRepository.save(user);
 		

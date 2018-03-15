@@ -1,81 +1,61 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+	
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<script
-	src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="css/movie.css">
+
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="js/movie.js"></script>
 <title th:text="${movie.title}"></title>
-<style>
-.square {
-	height: 500px;
-	width: 350px;
-	background-color: #555;
-}
 
-.center {
-	margin: auto;
-	width: 80%;
-	padding: 10px;
-}
-</style>
 </head>
 <body>
 	<div th:replace="fragments/header/navBar :: header"></div>
-	<div class="center">
-
-		<div class="container">
-			<div>
-				<h1 th:text="${movie.title}"></h1>
-			</div>
-
-			<div class="container">
-				<div class="col-sm-2 col-md-3"
-					style="border: 3px solid black; padding: 5px; margin: 5px">
-					<div>
-						<img
-							src="http://www.joblo.com/posters/images/full/the-martian-poster.jpg"
-							style="width: 100%; height: 100%;">
-<<<<<<< Updated upstream
-						<div>Imdb Rating: <p th:text="${movie.imdbRating}"><p> </div>
+	<div class="p-3">
+		<div class="container mt-3 showcase">
+			<h1 th:text="${movie.title}" th:class="movie-title"></h1>
+			<hr class="bg-danger p-2">
+			<div class="row">
+				<div class="col-sm-3 col-md-4">
+					<img
+						src="http://www.joblo.com/posters/images/full/the-martian-poster.jpg"
+						class="poster">
+					<div class="rating mt-1 m-0">
+						<p class="m-0">Imdb Rating:
+						<span th:text="${movie.imdbRating}"></span>
+						<p class="m-0">Community Rating:
 						
-=======
-						<div>
-							Imdb Rating:
-							<p th:text="${movie.imdbRating}">
-							<p>
-						</div>
-
->>>>>>> Stashed changes
-						<div>
-							Your vote:
-							<div id="score" class="score"
-								style="cursor: pointer; width: 130px;">
-								<img src="images/rate/star-on.svg" alt="1" title="bad">&nbsp;<img
-									src="images/rate/star-on.svg" alt="2" title="poor">&nbsp;<img
-									src="images/rate/star-on.svg" alt="3" title="regular">&nbsp;<img
-									src="images/rate/star-on.svg" alt="4" title="good">&nbsp;<img
-									src="images/rate/star-on.svg" alt="5" title="gorgeous"><input
-									type="hidden" name="score" value="5">
-							</div>
-						</div>
+						<p class="m-0">Your vote:</p>
+						<fieldset class="rating m-0">
+							<input type="radio" id="star5" value="5" /><label class="full" for="star5"></label>
+    							<input type="radio" id="star4half" value="4.5" /><label class="half" for="star4half"></label>
+						    <input type="radio" id="star4" value="4" /><label class="full" for="star4"></label>
+						    <input type="radio" id="star3half" value="3.5" /><label class="half" for="star3half" ></label>
+						    <input type="radio" id="star3" value="3" /><label class="full" for="star3"></label>
+						    <input type="radio" id="star2half" value="2.5" /><label class="half" for="star2half"></label>
+						    <input type="radio" id="star2" value="2" /><label class="full" for="star2"></label>
+						    <input type="radio" id="star1half" value="1.5" /><label class="half" for="star1half"></label>							    
+						    <input type="radio" id="star1" value="1" /><label class="full" for="star1"></label>
+						   	<input type="radio" id="starhalf" value="0.5" /><label class="half" for="starhalf"></label>
+						</fieldset>
 					</div>
 				</div>
 
-				<div class="col-sm-3 col-md-4"
-					style="border: 3px solid black; padding: 5px; margin: 5px">
+				<div class="col-sm-3 col-md-4">
 					<h2>Plot:</h2>
 					<p th:text="${movie.plot}"></p>
 				</div>
 
-				<div class="col-sm-2 col-md-3">
-					<div style="border: 3px solid black; padding: 5px;">
+				<div class="col-sm-3 col-md-4">
+					<div>
 						<b>Runtime: </b>
 						<p th:text="${movie.runtime}"></p>
 						<b>Country: </b>
@@ -90,31 +70,34 @@
 						<p th:text="${movie.actors}"></p>
 					</div>
 
-					<button class="btn">Find in Theaters</button>
-					<button class="btn">Share with a Friend</button>
+					<button class="btn btn-primary">Find in Theaters</button>
+					<button class="btn btn-secondary">Share with a Friend</button>
 
-					<select>
+					<select class="mt-3">
+						<option>Watch List</option>
 						<option>Favorites</option>
 						<option>Adventure</option>
 					</select>
+					<button class="btn btn-primary">Add</button>
+					<button type="button" class="btn btn-danger">Remove</button>
 				</div>
 			</div>
-
-			<div class="container-fluid"
-				style="border: 3px solid black; padding: 5px; margin: 5px">
-				<h2>Viewers also liked</h2>
-				<div style="border: 3px solid black; padding: 5px; margin: 5px">
-					<img
-						src="https://i.pinimg.com/736x/fd/5e/66/fd5e662dce1a3a8cd192a5952fa64f02--classic-poster-classic-movies-posters.jpg"
-						style="width: 15%; height: 15%; padding: 5px;"> <img
-						src="http://www.joblo.com/posters/images/full/Spiderman-poster-7-large.jpg"
-						style="width: 15%; height: 15%; padding: 5px;"> <img
-						src="http://img.moviepostershop.com/ghostbusters-movie-poster-2016-1020775586.jpg"
-						style="width: 15%; height: 15%; padding: 5px;"> <img
-						src="https://cdn.trendhunterstatic.com/thumbs/movie-poster-art.jpeg"
-						style="width: 15%; height: 15%; padding: 5px;">
-				</div>
+			<hr class="bg-danger p-2">
+		</div>
+		<div class="container mt-3 rec">
+			<h2>Viewers also liked</h2>
+			<div>
+				<img
+					src="https://i.pinimg.com/736x/fd/5e/66/fd5e662dce1a3a8cd192a5952fa64f02--classic-poster-classic-movies-posters.jpg"
+					style="width: 15%; height: 15%; padding: 5px;"> <img
+					src="http://www.joblo.com/posters/images/full/Spiderman-poster-7-large.jpg"
+					style="width: 15%; height: 15%; padding: 5px;"> <img
+					src="http://img.moviepostershop.com/ghostbusters-movie-poster-2016-1020775586.jpg"
+					style="width: 15%; height: 15%; padding: 5px;"> <img
+					src="https://cdn.trendhunterstatic.com/thumbs/movie-poster-art.jpeg"
+					style="width: 15%; height: 15%; padding: 5px;">
 			</div>
+<<<<<<< HEAD
 
 			<div class="form-group"
 				style="border: 3px solid black; padding: 5px; margin: 5px">
@@ -125,7 +108,23 @@
 					<input type="submit" class="submitButton">
 				</form>
 
+=======
+			<hr class="bg-danger p-2">
+		</div>
+		<div class="container mt-3">
+			<h1>REVIEWS</h1>
+			<textarea class="w-100 p-3 review" placeholder="Write your own review..."></textarea>
+			<hr class="bg-danger p-2">
+		</div>
+		<div class="container mt-3 wishList">
+			<h2>Your Wish list</h2>
+			<div>
+				<p th:text="${movie.title}">
+				<p th:text="${movie.title}">
+				<p th:text="${movie.title}"></p>
+>>>>>>> d30f7a40def521d1d8de82c8a0ce33265a687fc7
 			</div>
+			<hr class="bg-danger p-2">
 		</div>
 	</div>
 </body>

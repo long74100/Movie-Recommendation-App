@@ -1,0 +1,60 @@
+/** Global **/
+* {
+	padding: 0;
+	margin: 0;
+}
+
+/** Images **/
+img {
+    width: 80%;
+    transition: all .2s ease-in-out;
+}
+
+.rec img:hover {
+	transform: scale(1.1);
+}
+
+/** Body **/
+.showcase {
+}
+
+.review {
+	border-radius: 10px;
+	outline: none;
+}
+
+
+/** Star Rating Widget **/
+.rating { 
+ 	float: left;
+}
+
+.rating input {
+	display: none; 
+} 
+
+.rating label:before { 
+  margin-right: 0.3em;
+  font-size: 1.5em;
+  font-family: FontAwesome;
+  content: "\f005";
+}
+
+.rating .half:before { 
+  position: absolute;
+  content: "\f089"; 
+}
+
+.rating label { 
+  color: #D3D3D3	; 
+  float: right; 
+}
+
+.rating input:checked ~ label, .rating:not(:checked) label:hover, .rating:not(:checked) label:hover ~ label {
+	color: #FFD700;  
+} 
+
+.rating input:checked + label:hover, .rating input:checked ~ label:hover,
+ .rating label:hover ~ input:checked ~ label,  .rating input:checked ~ label:hover ~ label {
+	color: #FFED85;  
+} 
