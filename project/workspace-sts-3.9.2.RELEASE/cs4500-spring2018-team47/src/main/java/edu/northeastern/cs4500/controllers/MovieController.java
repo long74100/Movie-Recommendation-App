@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,6 +26,9 @@ import edu.northeastern.cs4500.model.services.MovieRatingService;
 import edu.northeastern.cs4500.model.services.OmdbServiceImpl;
 import edu.northeastern.cs4500.model.session.SessionService;
 import edu.northeastern.cs4500.model.session.SessionServiceImpl;
+import edu.northeastern.cs4500.model.services.UserService;
+import edu.northeastern.cs4500.model.user.User;
+import java.util.Random;
 
 @Controller
 public class MovieController {
@@ -63,13 +68,15 @@ public class MovieController {
     }
 
     @RequestMapping(value= "/movie/rating",method=RequestMethod.POST)
-    public @ResponseBody MovieRating getRating(@RequestBody String rating, HttpServletRequest httpServletRequest) {
+    public @ResponseBody MovieRating setRating(@RequestBody String rating, HttpServletRequest httpServletRequest) {
 	try {
 	    JSONObject json = new JSONObject(rating);
 		MovieRating movieRating = new MovieRating();
 		movieRating.setMovieName(json.getString("movie"));
 		movieRating.setRating(Double.valueOf(json.getString("rating")));
-		movieRating.setUsername("");
+		Random rand = new Random();
+		int  n = rand.nextInt(10) + 1;
+		movieRating.setUserID(n);
 		movieRatingService.saveMovieRating(movieRating);
 	} catch (JSONException e) {
 	    // use logger
