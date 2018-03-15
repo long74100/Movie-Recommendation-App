@@ -108,6 +108,8 @@ public class MovieController {
 		movieRating.setUsername("");
 		movieRatingService.saveMovieRating(movieRating);
 	} catch (JSONException e) {
+		
+		
 	    // use logger
 	}
 	return new MovieRating();
