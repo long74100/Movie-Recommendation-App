@@ -9,6 +9,7 @@
 		<link rel="stylesheet"
 		href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 		<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 		
 		<title>Rotten Tomatillos Login Form</title>
 	</head>
@@ -19,7 +20,6 @@
 			<form th:action="@{/login}" method="POST" class="form-group">
 				<h1>Login</h1>				
 				
-				<div th:replace="fragments/loginRegister"></div>
 				
 				<input type="text" id="email" name="email"  th:placeholder="Email"/>
 				<input type="password"  th:placeholder="Password" id="password" name="password"/>

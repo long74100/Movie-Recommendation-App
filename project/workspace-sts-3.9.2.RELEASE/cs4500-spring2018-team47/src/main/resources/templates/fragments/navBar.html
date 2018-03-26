@@ -31,12 +31,21 @@
 						
 					</div>
 				</form>
-				<ul class="navbar-nav my-2 my-lg-0">
+				
+				
+				<div th:replace="fragments/loginRegister :: loginRegister"></div>
+				<button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#loginRegisterModal">
+  					Login
+				</button>
+				<button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#loginRegisterModal">
+  					Register
+				</button>
+				<!-- <ul class="navbar-nav my-2 my-lg-0">
 					<li class="nav-item"><a class="nav-link text-danger" href="#"
 						th:href="@{/login}">Login</a></li>
 					<li class="nav-item"><a class="nav-link text-danger" href="#"
 						th:href="@{/registration}">Register</a></li>
-				</ul>
+				</ul> -->
 			</div>
 		</nav>
 		
