@@ -11,6 +11,8 @@ import java.util.HashMap;
 
 import org.springframework.jdbc.core.JdbcTemplate;
 
+import edu.northeastern.cs4500.model.movie.MovieReview;
+
 /**
  * This class is used to connect to the local database. This tool builds a connection between front end 
  * operation and back end database. Also, it will get the online movie information to the local database. 
@@ -375,6 +377,12 @@ public class LocalSQLConnectService {
     	catch(SQLException ep) {
     		ep.printStackTrace();
     	}
+	}
+
+
+	public void uploadReview(MovieReview movieReview) {
+		// TODO Auto-generated method stub
+		
 	}
     
     

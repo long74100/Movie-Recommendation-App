@@ -2,6 +2,7 @@ package edu.northeastern.cs4500.controllers;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -25,9 +26,10 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.servlet.ModelAndView;
 
 import edu.northeastern.cs4500.model.movie.Movie;
+import edu.northeastern.cs4500.model.movie.MovieRating;
 import edu.northeastern.cs4500.model.movie.MovieReview;
-import edu.northeastern.cs4500.model.movieRating.MovieRating;
 import edu.northeastern.cs4500.model.services.IOmdbService;
+import edu.northeastern.cs4500.model.services.LocalSQLConnectService;
 import edu.northeastern.cs4500.model.services.MovieRatingService;
 import edu.northeastern.cs4500.model.services.OmdbSQLconnectService;
 import edu.northeastern.cs4500.model.services.OmdbServiceImpl;
@@ -108,6 +110,7 @@ public class MovieController {
 	    movie.put("runtime", movieJSON.getString("Runtime"));
 	    movie.put("country", movieJSON.getString("Country"));
 	    movie.put("imdbRating", movieJSON.getString("imdbRating"));
+	    movie.put("imdbId", movieJSON.getString("imdbID"));
 	    
 	    // to add seached movie into local database
 	    localDbConnector.catchMovie(movieJSON);
@@ -140,13 +143,21 @@ public class MovieController {
 	}
 	return new MovieRating();
     }
+    
+    
     @RequestMapping(value="/writeReview", method=RequestMethod.POST)
     @ResponseStatus(value = HttpStatus.OK)
     public void writeReview(@RequestBody String review, HttpServletRequest httpServletRequest) {
     	MovieReview movieReview = new MovieReview();
+    	movieReview.setMovie_id(httpServletRequest.getParameter("imdbID"));
     	movieReview.setReview(httpServletRequest.getParameter("review"));
-    	movieReview.setReview(httpServletRequest.getParameter("movieTitle"));
+    	movieReview.setDate(new Date());
+    	//grab userid somehow
+    	movieReview.setUser_id(-1);
+    	LocalSQLConnectService db = new LocalSQLConnectService();
+    	db.uploadReview(movieReview);
     }
+    
     private void addMovieIntoLocalDB() {
     	
     }
