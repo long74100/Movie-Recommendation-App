@@ -10,6 +10,7 @@
 	background-color: #fff;
 	border-color: #fff;
 	text-align:center;
+	vertical-align: middle;
 }
 .panel-login>.panel-heading a{
 	text-decoration: none;
