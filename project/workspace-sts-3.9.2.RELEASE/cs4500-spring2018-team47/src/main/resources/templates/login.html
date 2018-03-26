@@ -14,12 +14,12 @@
 	</head>
 	<body>
 		<div th:replace="fragments/navBar :: header"></div>
-		
-		
 		<div class="container">
 			
 			<form th:action="@{/login}" method="POST" class="form-group">
 				<h1>Login</h1>				
+				
+				<div th:replace="fragments/loginRegister"></div>
 				
 				<input type="text" id="email" name="email"  th:placeholder="Email"/>
 				<input type="password"  th:placeholder="Password" id="password" name="password"/>
