@@ -23,7 +23,7 @@
 		<div th:if="${not #lists.isEmpty(movie)}">
 			<div th:each="movie : ${movie}">
 				<a th:href="@{/movie/{title}(title=${movie.title})}">
-					<div class="container movieRow row">
+					<div class="container shadow row">
 					<img class="col-md-4"
 					src="http://www.joblo.com/posters/images/full/the-martian-poster.jpg"
 					class="poster">
@@ -40,7 +40,7 @@
 					</div>
 					<div class="col-md-2">
 						<div style="margin: 2px;">
-							<button class="btn btn-primary">Add to Watchlist</button>
+							<button class="btn">Add to Watchlist</button>
 						</div>
 						<button class="btn btn-primary">Prod to a Friend</button>
 					</div>
