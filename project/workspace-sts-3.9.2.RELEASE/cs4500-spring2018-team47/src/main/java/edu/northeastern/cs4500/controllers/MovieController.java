@@ -41,6 +41,7 @@ public class MovieController {
     private IOmdbService omdbService = new OmdbServiceImpl();
     private SessionService sessionService = new SessionServiceImpl();
     private OmdbSQLconnectService localDbConnector = new OmdbSQLconnectService();
+    private ArrayList<String> movieNames = new ArrayList<>();
     
     @Autowired
     private MovieRatingService movieRatingService;
@@ -68,6 +69,7 @@ public class MovieController {
 	    	movie.setReleased(movieJSON.getString("Released"));
 	    	movie.setImdbRating(movieJSON.getString("imdbRating"));
 	    	movieList.add(movie);
+	    	movieNames.add(movie.getTitle());
 	    	
 	    	User user = new User();
 	    	if(userService.findUserByUsername(searchParam) != null) {
@@ -76,6 +78,9 @@ public class MovieController {
 	    	}
 	    	x++;
 	    }
+	    
+	    // to add multiple movies from search results.
+	    this.addMoviesIntoLocalDB();
 	    
 
 	    
@@ -140,8 +145,13 @@ public class MovieController {
 	return new MovieRating();
     }
     
-    private void addMovieIntoLocalDB() {
-    	
+    
+    
+    /**
+     * To add movie from searched result to local database
+     */
+    private void addMoviesIntoLocalDB() {
+    	localDbConnector.addMultiMovies(movieNames);
     }
 
 }

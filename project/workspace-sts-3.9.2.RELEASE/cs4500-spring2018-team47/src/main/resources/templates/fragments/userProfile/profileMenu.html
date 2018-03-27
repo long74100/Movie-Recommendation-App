@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+	
+</head>
+<body>
+	<div th:fragment="userProfileMenu">
+		<script type="text/javascript" src="js/sideBarFunctions.js"></script>
+		<div th:replace="fragments/navBar :: header"></div>
+		<div id="container" th:action="@{/userProfile}" method="GET">
+        <div id="leftside" class="menuHolder">
+            <div class="headset">
+               <img src="http://api.hdwallpapers5k.com/resource/fileuploads/photos/albums/1426/7d825902-ab1b-4338-aa2d-14201a68071d.jpg?quality=100&w=1000"
+                class="headPortrait"/><br>
+               <p th:text="${username}" 
+               	style="color: wheat; font-size: 15px; margin-bottom: 0px;">loginUser</p>
+            </div>
+            <ul class="leftMenu">
+                <p></p>
+                <p class="useful">General</p>
+                <p class="useful">Privacy</p>
+                <p class="useful">Friends</p>
+                <p class="useful">Prods</p>
+                <p class="useful" onClick="getMovieList">Movie List</p>
+                <p class="useful">Watch History</p>
+                <p class="useful">System Prods</p>
+                <p class="useful">Settings</p>
+                <p class="useful">Contact us</p>
+            </ul>
+        </div>
+        </div>
+	</div>
+
+
+
+</body>
+</html>

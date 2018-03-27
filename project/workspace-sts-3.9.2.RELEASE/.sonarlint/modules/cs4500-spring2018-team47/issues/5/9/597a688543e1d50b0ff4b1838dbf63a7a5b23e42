@@ -1,0 +1,13 @@
+
+¡squid:S1319)"mThe return type of this method should be an interface such as "Map" rather than the implementation "HashMap".(â°Øæ8†Ä©¦¥,HµRMINORZ
+CODE_SMELL
+Zsquid:S1148@"#Use a logger to log this exception.(á×¬8†Ä©¦¥,H¹RMINORZVULNERABILITY
+fsquid:S1068"2Remove this unused "friendRequests" private field.(çŞŸÆ8†Ä©¦¥,H´RMAJORZ
+CODE_SMELL
+¤squid:S13191"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(¼òì‚8†Ä©¦¥,H¶RMINORZ
+CODE_SMELL
+©squid:S1319:"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(¬¹•¤ıÿÿÿÿ8†Ä©¦¥,H·RMINORZ
+CODE_SMELL
+csquid:S1068
+"*Remove this unused "userId" private field.(±­Ú§ÿÿÿÿÿ8˜ªî§¥,H½RMAJORZ
+CODE_SMELL
