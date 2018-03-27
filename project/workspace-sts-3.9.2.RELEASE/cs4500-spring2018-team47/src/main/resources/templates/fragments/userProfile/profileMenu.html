@@ -4,7 +4,9 @@
 	
 </head>
 <body>
-	<div th:fragment="sideBar">
+	<div th:fragment="userProfileMenu">
+		<script type="text/javascript" src="js/sideBarFunctions.js"></script>
+		<div th:replace="fragments/header/navBar :: header"></div>
 		<div id="container" th:action="@{/userProfile}" method="GET">
         <div id="leftside" class="menuHolder">
             <div class="headset">
@@ -19,7 +21,7 @@
                 <p class="useful">Privacy</p>
                 <p class="useful">Friends</p>
                 <p class="useful">Prods</p>
-                <p class="useful">Movie List</p>
+                <p class="useful" onClick="getMovieList">Movie List</p>
                 <p class="useful">Watch History</p>
                 <p class="useful">System Prods</p>
                 <p class="useful">Settings</p>
@@ -28,5 +30,8 @@
         </div>
         </div>
 	</div>
+
+
+
 </body>
 </html>
