@@ -1,15 +1,12 @@
 package edu.northeastern.cs4500.model.services;
 
 import java.sql.Connection;
-import java.sql.DatabaseMetaData;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.HashMap;
-
-import org.springframework.jdbc.core.JdbcTemplate;
+import java.util.Date;
 
 import edu.northeastern.cs4500.model.movie.MovieReview;
 
@@ -380,9 +377,23 @@ public class LocalSQLConnectService {
 	}
 
 
-	public void uploadReview(MovieReview movieReview) {
-		// TODO Auto-generated method stub
-		
+    public void addReviewToLocalDB(MovieReview mr) {
+		try {
+			int reviewId = mr.getId();
+			String reviewContent = mr.getReview();
+			String movieId = mr.getMovie_id();
+			String reviewer_id = mr.getUser_id();
+			String date = mr.getDate();
+			String query = 
+			"insert into Review values (" + reviewId + ", \"" + movieId + "\", " + reviewer_id + ", \"" +  date + "\", \"" + reviewContent + "\")";
+			
+			connectStatement.executeUpdate(query);
+			
+		}
+		catch(SQLException se){
+			se.printStackTrace();
+		}
+
 	}
     
     

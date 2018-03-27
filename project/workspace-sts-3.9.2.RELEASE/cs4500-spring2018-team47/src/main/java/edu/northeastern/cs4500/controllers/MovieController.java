@@ -1,6 +1,7 @@
 package edu.northeastern.cs4500.controllers;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -110,7 +111,7 @@ public class MovieController {
 	    movie.put("runtime", movieJSON.getString("Runtime"));
 	    movie.put("country", movieJSON.getString("Country"));
 	    movie.put("imdbRating", movieJSON.getString("imdbRating"));
-	    movie.put("imdbId", movieJSON.getString("imdbID"));
+	    movie.put("imdbID", movieJSON.getString("imdbID"));
 	    
 	    // to add seached movie into local database
 	    localDbConnector.catchMovie(movieJSON);
@@ -151,11 +152,12 @@ public class MovieController {
     	MovieReview movieReview = new MovieReview();
     	movieReview.setMovie_id(httpServletRequest.getParameter("imdbID"));
     	movieReview.setReview(httpServletRequest.getParameter("review"));
-    	movieReview.setDate(new Date());
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+    	movieReview.setDate(formatter.format(new Date()));
     	//grab userid somehow
-    	movieReview.setUser_id(-1);
+    	movieReview.setUser_id("-1");
     	LocalSQLConnectService db = new LocalSQLConnectService();
-    	db.uploadReview(movieReview);
+    	db.addReviewToLocalDB(movieReview);
     }
     
     private void addMovieIntoLocalDB() {

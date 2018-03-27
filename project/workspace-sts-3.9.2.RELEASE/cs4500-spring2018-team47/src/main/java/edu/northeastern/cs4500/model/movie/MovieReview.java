@@ -20,7 +20,7 @@ public class MovieReview implements Serializable {
 	@Column(name = "movie_id")
 	private String movie_id;
 	@Column(name = "review_date")
-	private Date date;
+	private String date;
 	@Column(name = "reviewer_id")
 	private String user_id;
 	
@@ -39,10 +39,10 @@ public class MovieReview implements Serializable {
 	public void setMovie_id(String movie_id) {
 		this.movie_id = movie_id;
 	}
-	public Date getDate() {
+	public String getDate() {
 		return date;
 	}
-	public void setDate(Date date) {
+	public void setDate(String date) {
 		this.date = date;
 	}
 	public String getUser_id() {
