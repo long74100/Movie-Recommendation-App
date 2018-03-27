@@ -9,16 +9,14 @@
 	<link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+	<link rel="stylesheet" href="css/profile.css">
+	<link rel="stylesheet" href="css/movieListMng.css">
 	
 	
-	<title>User Movie List</title>
+	<title>Movie List</title>
 </head>
 <body> 
-	<div id="container" th:action="@{/movielist}" method="GET">
-		<div id="movielistContent" class="movielistContext">
-			<p th:text="${Owner}"></p>
-		</div>
-		
-	</div>
+    <div th:replace="fragments/userProfile/userMovieListNavBar :: movieListNavBar"></div>
+    
 </body>
 </html>

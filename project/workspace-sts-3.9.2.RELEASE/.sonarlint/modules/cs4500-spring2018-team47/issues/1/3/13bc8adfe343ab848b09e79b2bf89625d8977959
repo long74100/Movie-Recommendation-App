@@ -1,23 +1,23 @@
 
-}squid:S1192B"FDefine a constant instead of duplicating this literal "Title" 3 times.(²ÏÌô8 ¿óÛ¢,H³RCRITICALZ
+lsquid:S1854J"8Remove this useless assignment to local variable "user".(Ç­‚û8 ¿óÛ¢,Hè"RMAJORZ
 CODE_SMELL
-Xsquid:S1148Y"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿH²RMINORZVULNERABILITY
-squid:UselessImportCheck"MRemove this unused import 'org.springframework.security.core.Authentication'.(ñıÓ“8 ¿óÛ¢,HªRMINORZ
+’squid:S22937"YReplace the type specification in this constructor call with the diamond operator ("<>").(ıÀñùÿÿÿÿ8 ¿óÛ¢,Hñ"RMINORZ
 CODE_SMELL
-‹squid:S2293f"YReplace the type specification in this constructor call with the diamond operator ("<>").(Ù³ôşÿÿÿÿH©RMINORZ
+ksquid:S1068*"2Remove this unused "sessionService" private field.(ÎŠµßøÿÿÿÿ8Î‘º¢,Hí"RMAJORZ
 CODE_SMELL
-}squid:S1192]"FDefine a constant instead of duplicating this literal "movie" 4 times.(ŸóÖˆ8Î‘º¢,H¯RCRITICALZ
+squid:UselessImportCheck"\Remove this unused import 'org.springframework.security.core.context.SecurityContextHolder'.(ŒÄæë8 ¿óÛ¢,Hê"RMINORZ
 CODE_SMELL
-squid:UselessImportCheck"\Remove this unused import 'org.springframework.security.core.context.SecurityContextHolder'.(ŒÄæë8 ¿óÛ¢,H°RMINORZ
+}squid:S1192B"FDefine a constant instead of duplicating this literal "Title" 3 times.(²ÏÌô8 ¿óÛ¢,Hë"RCRITICALZ
 CODE_SMELL
-_squid:S1148z"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8 ¿óÛ¢,H¬RMINORZVULNERABILITY
-‚squid:S1192F"KDefine a constant instead of duplicating this literal "imdbRating" 3 times.(¼Ô‰Ò8 ¿óÛ¢,H­RCRITICALZ
+_squid:S1148z"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8 ¿óÛ¢,Hğ"RMINORZVULNERABILITY
+}squid:S1192]"FDefine a constant instead of duplicating this literal "movie" 4 times.(ŸóÖˆ8Î‘º¢,Hì"RCRITICALZ
 CODE_SMELL
-lsquid:S1854J"8Remove this useless assignment to local variable "user".(Ç­‚û8 ¿óÛ¢,H±RMAJORZ
+squid:UselessImportCheck"MRemove this unused import 'org.springframework.security.core.Authentication'.(ñıÓ“8 ¿óÛ¢,Hï"RMINORZ
 CODE_SMELL
-ksquid:S1068*"2Remove this unused "sessionService" private field.(ÎŠµßøÿÿÿÿ8Î‘º¢,H®RMAJORZ
+‚squid:S1192F"KDefine a constant instead of duplicating this literal "imdbRating" 3 times.(¼Ô‰Ò8 ¿óÛ¢,Hç"RCRITICALZ
 CODE_SMELL
-’squid:S22938"YReplace the type specification in this constructor call with the diamond operator ("<>").(ì¯–úÿÿÿÿ8 ¿óÛ¢,H«RMINORZ
+‹squid:S2293f"YReplace the type specification in this constructor call with the diamond operator ("<>").(Ù³ôşÿÿÿÿHò"RMINORZ
 CODE_SMELL
-’squid:S22937"YReplace the type specification in this constructor call with the diamond operator ("<>").(ıÀñùÿÿÿÿ8 ¿óÛ¢,H¨RMINORZ
+Xsquid:S1148Y"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿHî"RMINORZVULNERABILITY
+’squid:S22938"YReplace the type specification in this constructor call with the diamond operator ("<>").(ì¯–úÿÿÿÿ8 ¿óÛ¢,Hé"RMINORZ
 CODE_SMELL

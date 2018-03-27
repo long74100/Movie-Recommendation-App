@@ -5,14 +5,14 @@
 </head>
 <body>
 	<div th:fragment="userProfileMenu">
-		<script type="text/javascript" src="js/sideBarFunctions.js"></script>
+		<script type="text/javascript" src="../js/sideBarFunctions.js"></script>
 		<div th:replace="fragments/navBar :: header"></div>
 		<div id="container" th:action="@{/userProfile}" method="GET">
         <div id="leftside" class="menuHolder">
             <div class="headset">
                <img src="http://api.hdwallpapers5k.com/resource/fileuploads/photos/albums/1426/7d825902-ab1b-4338-aa2d-14201a68071d.jpg?quality=100&w=1000"
                 class="headPortrait"/><br>
-               <p th:text="${username}" 
+               <p th:text="${userInfo}" 
                	style="color: wheat; font-size: 15px; margin-bottom: 0px;">loginUser</p>
             </div>
             <ul class="leftMenu">
