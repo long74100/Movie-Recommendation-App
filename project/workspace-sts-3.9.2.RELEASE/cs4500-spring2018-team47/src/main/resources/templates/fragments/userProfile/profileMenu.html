@@ -6,7 +6,7 @@
 <body>
 	<div th:fragment="userProfileMenu">
 		<script type="text/javascript" src="js/sideBarFunctions.js"></script>
-		<div th:replace="fragments/header/navBar :: header"></div>
+		<div th:replace="fragments/navBar :: header"></div>
 		<div id="container" th:action="@{/userProfile}" method="GET">
         <div id="leftside" class="menuHolder">
             <div class="headset">
