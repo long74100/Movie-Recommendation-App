@@ -91,8 +91,23 @@
         color:black;
         font-size: 20px;
     }
+    
+    .movieRepoList li {
+    	margin-top: 5px;
+        margin-bottom: 5px;
+        margin-right: 1px;
+        margin-left: 1px;
+        cursor: pointer;
+    }
+    
+    .movieRepoList li:hover {
+    	background: wheat;
+        color:black;
+        font-size: 20px;
+    }
 
     ul {
+      margin-top: 15px;
       list-style-type: none;
       padding-left: 0pt;
       height: 450px;

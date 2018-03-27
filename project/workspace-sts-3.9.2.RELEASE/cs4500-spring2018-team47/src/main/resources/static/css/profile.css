@@ -53,6 +53,15 @@
         background-position: right bottom;
         transition: all 0.25s ease;
     }
+    
+    .movielistbtn {
+    	background-color: Transparent;
+    	border: none;
+    	outline: none;
+    	cursor: pointer;
+    	color: red;
+    	width: 180px;
+    }
 
 
 
