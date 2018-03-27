@@ -5,10 +5,17 @@ package edu.northeastern.cs4500.model.services;
  * @author lgj81
  *
  */
-public class UserAction {
+public class UserActionService {
 	
 	// The connector to local database
 	private final LocalSQLConnectService connector = new LocalSQLConnectService();
+	
+	/**
+	 * Default constructor.
+	 */
+	public UserActionService() {
+		
+	}
 	
 	/**
 	 * To add the movie into user movie list
