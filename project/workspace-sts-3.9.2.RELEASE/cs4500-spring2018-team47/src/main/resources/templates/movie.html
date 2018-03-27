@@ -13,25 +13,26 @@
 <link rel="stylesheet" href="../css/movie.css">
 
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script src="../js/movie.js"></script>
 <title th:text="${movie.title}"></title>
 
 
 <style>
 .flex-container {
-  display: flex;
-  flex-wrap: nowrap;
-  background-color: DodgerBlue;
+	display: flex;
+	flex-wrap: nowrap;
+	background-color: DodgerBlue;
 }
 
-.flex-container > div {
-  background-color: #f1f1f1;
-  width: 100px;
-  margin: 10px;
-  text-align: center;
-  line-height: 75px;
-  font-size: 30px;
+.flex-container>div {
+	background-color: #f1f1f1;
+	width: 100px;
+	margin: 10px;
+	text-align: center;
+	line-height: 75px;
+	font-size: 30px;
 }
 </style>
 
@@ -122,64 +123,47 @@
 				<hr class="bg-danger p-2">
 			</div>
 		</div>
-		<div class="container mt-3 rec"
-				style="border: 3px; padding: 5px; margin: 5px">
-				<h1>REVIEWS</h1>
-				<script>
-					function postReview() {
-						var review = document.getElementById('review-box').value;
-						var encodedReview = encodeURI(review);
-						var movie = document.getElementById('imdbID').innerHTML;
-						var encodedMovie = encodeURI(movie);
-						var url = "/writeReview";
-						var param = "review=" + encodedReview + "&movieId=" + encodedMovie;
-						var xhr = new XMLHttpRequest();
-						xhr.open("POST", url, true);
-						xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-						xhr.send(param);
-					}
-				</script>
-				<textarea class="form-control" rows="5" id="review-box"
-					form="writeReview">Write your review here...</textarea>
-				<input type="submit" onclick="postReview()" class="review-button" id="writeReview">
-				
-				<hr class="bg-danger p-2">
-			</div>
+		<div class="container mt-3 rec">
+			<h1>REVIEWS</h1>
+			<h1 th:text="${movie.imdbID}" class="hidden" id="imdbID"
+				style="display: none;"></h1>
+			<input type="hidden" id="imdbID2" value="${movie.imdbID}" />
+			<textarea th:class="form-control" rows="5" id="review-box"
+				form="writeReview">Write your review here...</textarea>
+			<input type="submit" class="review-button" id="writeReview">
+			<hr class="bg-danger p-2">
+		</div>
 		<div class="container mt-3 wishList">
 			<h2>Your Wish list</h2>
-			<div class="rec row" >
-				<div>
-					<a th:href="@{/login}">
-					<img
-					src="https://i.pinimg.com/736x/fd/5e/66/fd5e662dce1a3a8cd192a5952fa64f02--classic-poster-classic-movies-posters.jpg"
-					style="width: 12vmax; height: 18vmax; padding: 5px;">
-					<div class="mx-auto">Title1</div>
-				</a>
-				</div>
-				
+			<div class="rec row">
 				<div class="col-md-2">
-					<a th:href="@{/login}">
-					<img
-					src="http://www.joblo.com/posters/images/full/Spiderman-poster-7-large.jpg"
-					style="width: 12vmax; height: 18vmax; padding: 5px;"> 
-					<p class="mx-auto">Title2</p>
-				</a>
+					<a th:href="@{/login}"> <img
+						src="https://i.pinimg.com/736x/fd/5e/66/fd5e662dce1a3a8cd192a5952fa64f02--classic-poster-classic-movies-posters.jpg"
+						style="width: 12vmax; height: 18vmax; padding: 5px;">
+						<div class="mx-auto">Title1</div>
+					</a>
+				</div>
+
+				<div class="col-md-2">
+					<a th:href="@{/login}"> <img
+						src="http://www.joblo.com/posters/images/full/Spiderman-poster-7-large.jpg"
+						style="width: 12vmax; height: 18vmax; padding: 5px;">
+						<p class="mx-auto">Title2</p>
+					</a>
 				</div>
 				<div class="col-md-2">
-					<a th:href="@{/login}">
-					<img
-					src="http://img.moviepostershop.com/ghostbusters-movie-poster-2016-1020775586.jpg"
-					style="width: 12vmax; height: 18vmax; padding: 5px;">
-					<div class="mx-auto">Title3</div>
-				</a>
+					<a th:href="@{/login}"> <img
+						src="http://img.moviepostershop.com/ghostbusters-movie-poster-2016-1020775586.jpg"
+						style="width: 12vmax; height: 18vmax; padding: 5px;">
+						<div class="mx-auto">Title3</div>
+					</a>
 				</div>
 				<div class="col-md-2 row-md-5">
-					<a th:href="@{/login}">
-					 <img
-					src="https://cdn.trendhunterstatic.com/thumbs/movie-poster-art.jpeg"
-					style="width: 12vmax; height: 18vmax;padding: 5px;">
-					<div class="mx-auto">Title4</div>
-				</a>
+					<a th:href="@{/login}"> <img
+						src="https://cdn.trendhunterstatic.com/thumbs/movie-poster-art.jpeg"
+						style="width: 12vmax; height: 18vmax; padding: 5px;">
+						<div class="mx-auto">Title4</div>
+					</a>
 				</div>
 			</div>
 		</div>
