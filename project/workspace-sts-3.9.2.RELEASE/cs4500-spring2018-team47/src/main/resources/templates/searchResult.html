@@ -48,6 +48,9 @@
 				</a>
 			</div>
 		</div>
+		<div th:unless="${not #lists.isEmpty(movie)}">
+			<div>No movies match this title. Please try again.</div>
+		</div>
 		<h1>Users</h1>
 			<div th:each="user : ${user}">
 					<div class="container movieRow row">
@@ -67,7 +70,7 @@
 					</div>
 				</div>
 			</div>
-		<!-- else no movies are found  -->
+		<!-- else no users are found  -->
 		<div th:unless="${not #lists.isEmpty(user)}">
 			<div>No users match this title. Please try again.</div>
 		</div>
