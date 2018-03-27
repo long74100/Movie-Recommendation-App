@@ -6,6 +6,8 @@
 </head>
 <body>
 	<div th:fragment="header">
+		<link rel="stylesheet" href="../css/loginRegister.css">
+		<script src="../js/loginRegister.js"></script>
 		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 			<a class="navbar-brand text-danger" href="#" th:href="@{/}">Rotten Tomatillos</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse"
@@ -29,18 +31,27 @@
 						
 					</div>
 				</form>
-				<ul class="navbar-nav my-2 my-lg-0">
-					<li class="nav-item"><a class="nav-link text-danger" href="#"
-						th:href="@{/login}">Login</a></li>
-					<li class="nav-item"><a class="nav-link text-danger" href="#"
-						th:href="@{/registration}">Register</a></li>
-				</ul>
+				
+				
+				<!-- <div th:replace="fragments/loginRegister :: loginRegister"></div>
+				<button type="button" class="btn btn-outline-danger my-2my-lg-0" style="margin-right:5px" data-toggle="modal" data-target="#loginRegisterModal">
+  					Login
+				</button>
+				<button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#loginRegisterModal">
+  					Register
+				</button> -->
+				
+				<button type="button" class="btn btn-outline-danger my-2my-lg-0" style="margin-right:5px" 
+				onclick="location.href='/login'">
+  					Login
+				</button>
+				<button type="button" class="btn btn-outline-danger"
+				onclick="location.href='/registration'">
+  					Register
+				</button>
 			</div>
 		</nav>
-		
-		<div class="modal" id="login">
-		
-		</div>
+
 		</div>
 </body>
 </html>
