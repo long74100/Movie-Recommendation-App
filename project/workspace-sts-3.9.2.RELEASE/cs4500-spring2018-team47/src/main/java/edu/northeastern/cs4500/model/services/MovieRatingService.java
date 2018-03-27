@@ -1,6 +1,6 @@
 package edu.northeastern.cs4500.model.services;
 
-import edu.northeastern.cs4500.model.movieRating.MovieRating;
+import edu.northeastern.cs4500.model.movie.MovieRating;
 
 public interface MovieRatingService {
 	/**
