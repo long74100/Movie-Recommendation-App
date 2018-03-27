@@ -1,0 +1,9 @@
+
+Zsquid:S1170"!Make this final field static too.(Ù³ô‹şÿÿÿÿ8‹Ø¤Ï¤,HçRMINORZ
+CODE_SMELL
+¡squid:UselessImportCheck"`Remove this unused import 'org.springframework.security.web.util.matcher.AntPathRequestMatcher'.(¼¸ö8‹Ø¤Ï¤,HèRMINORZ
+CODE_SMELL
+squid:UselessImportCheck"ORemove this unused import 'org.springframework.beans.factory.annotation.Value'.(ìø›8‹Ø¤Ï¤,HéRMINORZ
+CODE_SMELL
+Zsquid:S1170"!Make this final field static too.(âó¤¢ıÿÿÿÿ8‹Ø¤Ï¤,HêRMINORZ
+CODE_SMELL

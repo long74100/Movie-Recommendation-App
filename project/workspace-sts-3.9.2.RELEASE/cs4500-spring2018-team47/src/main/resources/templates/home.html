@@ -15,12 +15,16 @@
 <body> 
 	<div th:replace="fragments/navBar :: header"></div>
 	<div class="container">
-		<p th:text="${username}">Test</p>
-		
+		<p th:text="${username}">test</p>
 		<form th:action="@{/logout}" method="post">
 		    <div>
 				<button type="submit">Logout</button>
 		    </div> 	
+		</form>
+		<form th:action="@{/profile}" method="GET">
+			<div>
+				<button type="submit">profile</button>
+			</div>
 		</form>
 	</div>
 	

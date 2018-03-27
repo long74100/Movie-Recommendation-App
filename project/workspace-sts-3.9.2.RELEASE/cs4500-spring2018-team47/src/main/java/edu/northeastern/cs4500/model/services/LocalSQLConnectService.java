@@ -289,8 +289,7 @@ public class LocalSQLConnectService {
     }
     
     
-    // ----------------------------USER OPERATOR-----------------------------------
-    
+    // ----- user interaction in local database-----
     
     /**
      * To send friend request to receiver if there is non shown in relation list.
@@ -396,5 +395,37 @@ public class LocalSQLConnectService {
 
 	}
     
-    
+    /**
+     * To get movie from user movie list
+     * @return list of movie names 
+     */
+    public ArrayList<ArrayList<String>> getMovieFromUserMovieList(int userId, String listname) {
+    	ArrayList<ArrayList<String>> result = new ArrayList<>();
+    	try {
+    		String query = 
+    				"select Movie.movie_id, Movie.movie_name, Movie.actor, Movie.plot from Movie join "
+    				+ "(select A.movie_id from UserMovieList as A join Movie Movielist as B on A.user_id = B.user_id"
+    				+ " and A.list_name = B.list_name where A.user_id = " + userId + " and A.list_name = \"" + listname + "\")"
+    				+ " as comp on comp.movie_id = Movie.movie_id)";
+    		myResult = connectStatement.executeQuery(query);
+    		while(myResult.next()) {
+    			ArrayList<String> element = new ArrayList<>();
+    			String movieId = myResult.getString("movie_id");
+    			String movieName = myResult.getString("movie_name");
+    			String movieActor = myResult.getString("actor");
+    			String moviePlot = myResult.getString("plot");
+    			element.add(movieId);
+    			element.add(movieName);
+    			element.add(movieActor);
+    			element.add(moviePlot);
+    			// add to final result.
+    			result.add(element);
+    		}
+    	}
+    	catch(SQLException sq) {
+    		sq.printStackTrace();
+    	}
+    	
+    	return result;
+    }
 }

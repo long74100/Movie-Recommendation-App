@@ -1,0 +1,47 @@
+
+Tsquid:S1148³"#Use a logger to log this exception.(Í‚õÃHÃRMINORZVULNERABILITY
+ªsquid:S1319å"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(ÉŸ–³üÿÿÿÿ8Šó•Õ¢,HÄRMINORZ
+CODE_SMELL
+]squid:S1135#"2Complete the task associated to this TODO comment.(óï¯AHÅRINFOZ
+CODE_SMELL
+Ssquid:S1148d"#Use a logger to log this exception.(¹ç“†HÆRMINORZVULNERABILITY
+ªsquid:S1319Ñ"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(ã¶ÎÈúÿÿÿÿ8Šó•Õ¢,HÇRMINORZ
+CODE_SMELL
+hsquid:S1141©"5Extract this nested try block into a separate method.(¡»¢üùÿÿÿÿHÈRMAJORZ
+CODE_SMELL
+}squid:UnusedPrivateMethod“"<Remove this unused private "deleteFromLocalDatabase" method.(‡íÑðùÿÿÿÿHÉRMAJORZ
+CODE_SMELL
+Isquid:S1643\"Use a StringBuilder instead.(´îè“HÊRMINORZ
+CODE_SMELL
+ªsquid:S1319½"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(–Ó®œÿÿÿÿÿ8Šó•Õ¢,HËRMINORZ
+CODE_SMELL
+_squid:S1135”"2Complete the task associated to this TODO comment.(îÖÃHÌRINFOZ
+CODE_SMELL
+j
+squid:S106|"9Replace this use of System.out or System.err by a logger.(ôê×¨üÿÿÿÿHÍRMAJORZ
+CODE_SMELL
+nsquid:UselessImportCheck"4Remove this unused import 'javax.swing.JOptionPane'.(÷‰ÎéHÎRMINORZ
+CODE_SMELL
+ªsquid:S1319ï"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(¥ÏÅŸýÿÿÿÿ8Šó•Õ¢,HÏRMINORZ
+CODE_SMELL
+¨squid:S1319¤"uThe type of the "movieNames" object should be an interface such as "List" rather than the implementation "ArrayList".(ÔÁžæûÿÿÿÿHÐRMINORZ
+CODE_SMELL
+Xsquid:S1148?"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿHÑRMINORZVULNERABILITY
+e
+squid:S106L"9Replace this use of System.out or System.err by a logger.(—ª¥ÄHÒRMAJORZ
+CODE_SMELL
+ªsquid:S1319Ç"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(¿¿ß¯úÿÿÿÿ8Šó•Õ¢,HÓRMINORZ
+CODE_SMELL
+Ysquid:S1172“"&Remove these unused method parameters.(‡íÑðùÿÿÿÿHÔRMAJORZ
+CODE_SMELL
+Nsquid:S1643Y"Use a StringBuilder instead.(Ö˜âœþÿÿÿÿHÕRMINORZ
+CODE_SMELL
+Ysquid:S1148¯"#Use a logger to log this exception.(•ÅÁžþÿÿÿÿHÖRMINORZVULNERABILITY
+f
+squid:S106‹"9Replace this use of System.out or System.err by a logger.(’ÊÔþH×RMAJORZ
+CODE_SMELL
+ªsquid:S1319Û"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(¥–žÒÿÿÿÿÿ8Šó•Õ¢,HØRMINORZ
+CODE_SMELL
+j
+squid:S106R"9Replace this use of System.out or System.err by a logger.(ôþ×úÿÿÿÿHÙRMAJORZ
+CODE_SMELL
