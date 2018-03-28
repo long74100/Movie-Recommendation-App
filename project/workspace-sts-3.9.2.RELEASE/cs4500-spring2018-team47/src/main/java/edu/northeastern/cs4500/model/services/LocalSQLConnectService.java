@@ -6,12 +6,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-<<<<<<< HEAD
-import java.util.Date;
-=======
 import java.util.HashMap;
 import java.util.List;
->>>>>>> aadca06e65003439550b63b200ede211f5a415aa
 
 import edu.northeastern.cs4500.model.movie.MovieReview;
 

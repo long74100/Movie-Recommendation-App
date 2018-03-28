@@ -160,8 +160,8 @@ public class MovieController {
     @RequestMapping(value="/writeReview", method=RequestMethod.POST)
     @ResponseStatus(value = HttpStatus.OK)
     public void writeReview(@RequestBody String review, HttpServletRequest httpServletRequest) {
-    	MovieReview movieReview = new MovieReview();
-    	movieReview.setMovie_id(httpServletRequest.getParameter("imdbID"));
+    	MovieReview movieReview = new MovieReview();	
+    	movieReview.setMovie_id(httpServletRequest.getParameter("movieId"));
     	movieReview.setReview(httpServletRequest.getParameter("review"));
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
     	movieReview.setDate(formatter.format(new Date()));

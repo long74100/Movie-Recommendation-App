@@ -118,16 +118,6 @@
 				<hr class="bg-danger p-2">
 			</div>
 		</div>
-		<div class="container mt-3 rec">
-			<h1>REVIEWS</h1>
-			<h1 th:text="${movie.imdbID}" class="hidden" id="imdbID"
-				style="display: none;"></h1>
-			<input type="hidden" id="imdbID2" value="${movie.imdbID}" />
-			<textarea th:class="form-control" rows="5" id="review-box"
-				form="writeReview">Write your review here...</textarea>
-			<input type="submit" class="review-button" id="writeReview">
-			<hr class="bg-danger p-2">
-		</div>
 		<div class="container mt-3 wishList">
 			<h2>Your Wish list</h2>
 			<div class="rec row">
@@ -161,6 +151,15 @@
 					</a>
 				</div>
 			</div>
+			<hr class="bg-danger p-2">
+		</div>
+		<div class="container mt-3 rec">
+			<h1>REVIEWS</h1>
+			<h1 th:text="${movie.imdbID}" class="hidden" id="imdbID"
+				style="display: none;"></h1>
+			<textarea th:class="form-control" rows="5" id="review-box"
+				form="writeReview" placeholder="Write your review here..."></textarea>
+			<input type="submit" class="review-button" id="writeReview">
 		</div>
 </body>
 </html>
