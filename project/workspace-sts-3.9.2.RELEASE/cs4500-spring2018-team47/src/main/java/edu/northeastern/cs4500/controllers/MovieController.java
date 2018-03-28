@@ -26,6 +26,7 @@ import org.springframework.web.servlet.ModelAndView;
 import edu.northeastern.cs4500.model.movie.Movie;
 import edu.northeastern.cs4500.model.movieRating.MovieRating;
 import edu.northeastern.cs4500.model.services.IOmdbService;
+import edu.northeastern.cs4500.model.services.LocalSQLConnectService;
 import edu.northeastern.cs4500.model.services.MovieRatingService;
 import edu.northeastern.cs4500.model.services.OmdbSQLconnectService;
 import edu.northeastern.cs4500.model.services.OmdbServiceImpl;
@@ -38,7 +39,8 @@ import java.util.Random;
 @Controller
 public class MovieController {
 
-    private IOmdbService omdbService = new OmdbServiceImpl();
+    private LocalSQLConnectService localSQLConnector = new LocalSQLConnectService();
+	private IOmdbService omdbService = new OmdbServiceImpl();
     private SessionService sessionService = new SessionServiceImpl();
     private OmdbSQLconnectService localDbConnector = new OmdbSQLconnectService();
     private ArrayList<String> movieNames = new ArrayList<>();
@@ -70,12 +72,6 @@ public class MovieController {
 	    	movie.setImdbRating(movieJSON.getString("imdbRating"));
 	    	movieList.add(movie);
 	    	movieNames.add(movie.getTitle());
-	    	
-	    	User user = new User();
-	    	if(userService.findUserByUsername(searchParam) != null) {
-		    	user = userService.findUserByUsername(searchParam);
-		    	userList.add(user);
-	    	}
 	    	x++;
 	    }
 	    
@@ -88,6 +84,8 @@ public class MovieController {
 	    // use logger
 	    e.printStackTrace();
 	}
+	
+	userList = localSQLConnector.keywordSearchUser(searchParam);
 	
 	ModelAndView modelAndView = new ModelAndView();
 	Authentication auth = SecurityContextHolder.getContext().getAuthentication();
