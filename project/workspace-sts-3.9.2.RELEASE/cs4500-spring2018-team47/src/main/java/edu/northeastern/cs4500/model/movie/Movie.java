@@ -31,6 +31,7 @@ public class Movie implements Serializable{
 	String runtime;
 	String metascore;
 	String imdbID;
+	String poster;
 	
 
 	public String getGenre() {
@@ -119,6 +120,14 @@ public class Movie implements Serializable{
 	
 	public void setPlot(String plot) {
 		this.plot = plot;
+	}
+	
+	public String getPoster() {
+		return poster;
+	}
+
+	public void setPoster(String poster) {
+		this.poster = poster;
 	}
 	
 }
