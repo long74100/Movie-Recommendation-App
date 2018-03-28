@@ -28,7 +28,6 @@ public class UserprofileController {
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		User user = userService.findUserByEmail(auth.getName());
 		modelAndView.addObject("user", user);
-		modelAndView.addObject("profileUser", user);
 		modelAndView.setViewName("userProfile");
 		return modelAndView;
 	}
@@ -42,7 +41,6 @@ public class UserprofileController {
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		User user = userService.findUserByEmail(auth.getName());
 		modelAndView.addObject("user", user);
-		modelAndView.addObject("profileUser", user);
 		modelAndView.setViewName("movielist");
 		return modelAndView;
 	}
