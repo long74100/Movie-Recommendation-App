@@ -9,14 +9,15 @@
 		<link rel="stylesheet" href="../css/loginRegister.css">
 		<script src="../js/loginRegister.js"></script>
 		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-			<a class="navbar-brand text-danger" href="#" th:href="@{/}">Rotten Tomatillos</a>
+			<a class="navbar-brand text-danger" href="#" th:href="@{/}">Rotten
+				Tomatillos</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse"
 				data-target="#navbarSupportedContent"
 				aria-controls="navbarSupportedContent" aria-expanded="false"
 				aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
-			
+
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<form th:action="@{/search}" method="get"
 					class="form-inline mx-auto" role="search">
@@ -28,30 +29,39 @@
 								<i class="glyphicon glyphicon-search">Search</i>
 							</button>
 						</div>
-						
+
 					</div>
 				</form>
-				
-				
-				<!-- <div th:replace="fragments/loginRegister :: loginRegister"></div>
-				<button type="button" class="btn btn-outline-danger my-2my-lg-0" style="margin-right:5px" data-toggle="modal" data-target="#loginRegisterModal">
-  					Login
-				</button>
-				<button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#loginRegisterModal">
-  					Register
-				</button> -->
-				
-				<button type="button" class="btn btn-outline-danger my-2my-lg-0" style="margin-right:5px" 
-				onclick="location.href='/login'">
-  					Login
-				</button>
-				<button type="button" class="btn btn-outline-danger"
-				onclick="location.href='/registration'">
-  					Register
-				</button>
+
+				<div th:switch="${user}">
+					<div th:case="null">
+						<button type="button" class="btn btn-outline-danger my-2my-lg-0"
+							style="margin-right: 5px" onclick="location.href='/login'">
+							Login</button>
+						<button type="button" class="btn btn-outline-danger"
+							onclick="location.href='/registration'">Register</button>
+					</div>
+					<div th:case="*">
+						<div class="dropdown">
+							<button class="btn btn-outline-danger dropdown-toggle"
+								type="button" data-toggle="dropdown" aria-haspopup="true"
+								aria-expanded="false" th:text="${user.username}"></button>
+							<div class="dropdown-menu bg-dark" aria-labelledby="dropdownMenuButton">
+								<form th:action="@{/profile}" method="GET">
+									 <input class="dropdown-item btn-link text-danger" type="submit" name="profile" value="Profile" />
+								</form>
+								<form th:action="@{/logout}" method="post">
+									 <input class="dropdown-item btn-link text-danger" type="submit" name="logout" value="Logout" />
+								</form>
+							</div>
+						</div>
+
+					</div>
+
+				</div>
 			</div>
 		</nav>
 
-		</div>
+	</div>
 </body>
 </html>
