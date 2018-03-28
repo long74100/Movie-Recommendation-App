@@ -52,19 +52,19 @@ public class UserprofileController {
 		return modelAndView;
 	}
 	
-	@RequestMapping(value="/profile/{username}", method = RequestMethod.GET)
+	@RequestMapping(value="/view/{username}", method = RequestMethod.GET)
     public ModelAndView userProfile(@PathVariable String username) {
 		ModelAndView modelAndView = new ModelAndView();
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		User user = userService.findUserByEmail(auth.getName());
-		modelAndView.setViewName("fragments/userProfile/profilePage");
 		User profileUser = userService.findUserByUsername(username);
 		modelAndView.addObject("profileUser", profileUser);
 		modelAndView.addObject("user", user);
+		modelAndView.setViewName("fragments/userProfile/profilePage");
 		return modelAndView;
 	}
 	
-	@RequestMapping(value="/profile/{username}", method = RequestMethod.POST)
+	@RequestMapping(value="/view/{username}", method = RequestMethod.POST)
     public ModelAndView addFriend(@PathVariable String username) {
 		
 		ModelAndView modelAndView = new ModelAndView();
