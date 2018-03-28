@@ -44,7 +44,7 @@ public class UserprofileController {
 		modelAndView.addObject("username", user.getUsername());
 		modelAndView.addObject("userid", user.getId());
 		modelAndView.addObject("Owner", "MovieList Owner: " + user.getUsername());
-		modelAndView.setViewName("movieList");
+		modelAndView.setViewName("movielist");
 		return modelAndView;
 	}
 	
