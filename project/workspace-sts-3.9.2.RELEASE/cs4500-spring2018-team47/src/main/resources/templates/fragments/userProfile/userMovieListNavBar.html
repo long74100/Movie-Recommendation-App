@@ -14,13 +14,32 @@
                 placeholder="Create movie list here..."/>
                 <button class="createBtn">Create</button>
             </div>
+            
             <ul class="movieRepoList">
+            <!-- Here to put the movie list names -->
+            	<div th:if="${not #lists.isEmpty(usermovielist)}" class="movieRepoList">
+            		<div th:each="list : ${usermovielist}">
+            			<a th:href="@{/profile+to+movielist+{list}(list=${list})}"><p th:text="${list}"></p></a>
+            		</div>
+            	</div>
+            </ul>
+            <!--<ul class="movieRepoList">
     			<li>Default</li>
     			<li>Defaul2</li>
-    		</ul>
+    		</ul>-->
         </div>
         <div class="movieListNameTitleBar">
             <p class="Movietitletxt">Movie List</p>
+            	
+        <div class="MovieListContent">
+            <!-- Here to put the movies inside the movie list -->
+            
+            
+            
+            </div>
+            
+            
+            
         </div>
 	
 	</div>
