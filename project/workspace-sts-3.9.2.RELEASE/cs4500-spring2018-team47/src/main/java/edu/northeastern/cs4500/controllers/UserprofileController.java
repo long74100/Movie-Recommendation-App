@@ -54,5 +54,14 @@ public class UserprofileController {
 		return modelAndView;
 	}
 	
+	@RequestMapping(value="/profile/add+{username}", method = RequestMethod.POST)
+    public ModelAndView addFriend(@PathVariable String username) {
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.setViewName("login");
+		User user = userService.findUserByUsername(username);
+		modelAndView.addObject("profileUser", user);
+		return modelAndView;
+	}
+	
 	
 }

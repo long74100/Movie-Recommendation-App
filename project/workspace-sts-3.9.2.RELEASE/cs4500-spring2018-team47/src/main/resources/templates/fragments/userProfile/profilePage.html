@@ -15,7 +15,7 @@
 					<div th:case="*">
 						<h1 th:text="${profileUser.username}"></h1>
 						<div>
-							<form th:action="@{/profile/{username}(username=${profileUser.username})}" method="POST">
+							<form th:action="@{/profile/add+{username}(username=${profileUser.username})}" method="POST">
 									 <button class="btn btn-primary" type="submit" name="addFriend" value="Add Friend">Add Friend</button>
 							</form>
 						</div>
