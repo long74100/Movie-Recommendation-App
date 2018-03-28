@@ -17,17 +17,23 @@
             </div>
             <ul class="leftMenu">
                 <p></p>
-                <p class="useful">General</p>
-                <p class="useful">Privacy</p>
-                <p class="useful">Friends</p>
-                <p class="useful">Prods</p>
-                <form th:action="@{/profile+to+movielist}" method="GET">
-                	<p class="useful"><input class="movielistbtn" type="submit" value="Movie List"></p>
-                </form>
-                <p class="useful">Watch History</p>
-                <p class="useful">System Prods</p>
-                <p class="useful">Settings</p>
-                <p class="useful">Contact us</p>
+                
+                <a th:href="@{/profile+to+movielist}">
+					<p class="useful">Privacy</p></a>
+                <a th:href="@{/profile+to+movielist}">
+                	<p class="useful">Friends</p></a>
+                <a th:href="@{/profile+to+movielist}">
+					<p class="useful">Prods</p></a>
+                <a th:href="@{/profile+to+movielist}">
+					<p class="useful">Movie List</p></a>
+                <a th:href="@{/profile+to+movielist}">
+					<p class="useful">Watch History</p></a>
+                <a th:href="@{/profile+to+movielist}">
+					<p class="useful">System Prods</p></a>
+                <a th:href="@{/profile+to+movielist}">
+					<p class="useful">Settings</p></a>
+                <a th:href="@{/profile+to+movielist}">
+					<p class="useful">Contact us</p></a>
             </ul>
         </div>
         </div>

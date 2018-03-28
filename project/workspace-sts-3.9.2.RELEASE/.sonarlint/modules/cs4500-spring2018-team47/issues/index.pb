@@ -125,3 +125,5 @@ s
 Csrc/main/resources/templates/fragments/userProfile/profileMenu.html,d\c\dc1c4fd084e4f97cbb0a832ef25354aebac008a4
 [
 +src/main/resources/templates/movieList.html,c\b\cbdc0721bd627551b14ae5fbcd1c1000cd78afc3
+]
+-src/main/resources/static/js/loginRegister.js,7\8\789c75d7e895bc48bc124c1d44ec4ebeccb2d261

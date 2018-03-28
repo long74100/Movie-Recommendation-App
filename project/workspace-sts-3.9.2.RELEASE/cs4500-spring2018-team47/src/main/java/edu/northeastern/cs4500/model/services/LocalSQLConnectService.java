@@ -8,8 +8,11 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 import org.springframework.jdbc.core.JdbcTemplate;
+
+import edu.northeastern.cs4500.model.movie.Movie;
 
 /**
  * This class is used to connect to the local database. This tool builds a connection between front end 
@@ -377,11 +380,34 @@ public class LocalSQLConnectService {
 	}
     
     /**
+     * To get the movie list name for all movie lists belonging to given user
+     * @param userId the id for user
+     * @return the list of movie name 
+     */
+    public List<String> getMovieListForUser(int userId) {
+    	ArrayList<String> movieNames = new ArrayList<>();
+    	try {
+    		String query = "select list_name from Movielist where user_id = " + userId;
+    		myResult = connectStatement.executeQuery(query);
+    		if(myResult.next()) {
+    			String listName = myResult.getString("list_name");
+    			movieNames.add(listName);
+    		}
+    		
+    	}
+    	catch(SQLException sq) {
+    		sq.printStackTrace();
+    	}
+    	
+    	return movieNames;
+    }
+    
+    /**
      * To get movie from user movie list
      * @return list of movie names 
      */
-    public ArrayList<ArrayList<String>> getMovieFromUserMovieList(int userId, String listname) {
-    	ArrayList<ArrayList<String>> result = new ArrayList<>();
+    public List<Movie> getMovieFromUserMovieList(int userId, String listname) {
+    	ArrayList<Movie> result = new ArrayList<>();
     	try {
     		String query = 
     				"select Movie.movie_id, Movie.movie_name, Movie.actor, Movie.plot from Movie join "
@@ -390,15 +416,16 @@ public class LocalSQLConnectService {
     				+ " as comp on comp.movie_id = Movie.movie_id)";
     		myResult = connectStatement.executeQuery(query);
     		while(myResult.next()) {
-    			ArrayList<String> element = new ArrayList<>();
+    			Movie element = new Movie();
     			String movieId = myResult.getString("movie_id");
     			String movieName = myResult.getString("movie_name");
     			String movieActor = myResult.getString("actor");
     			String moviePlot = myResult.getString("plot");
-    			element.add(movieId);
-    			element.add(movieName);
-    			element.add(movieActor);
-    			element.add(moviePlot);
+    			
+    			element.setImdbID(movieId);
+    			element.setTitle(movieName);
+    			element.setActors(movieActor);
+    			element.setPlot(moviePlot);
     			// add to final result.
     			result.add(element);
     		}
@@ -406,7 +433,6 @@ public class LocalSQLConnectService {
     	catch(SQLException sq) {
     		sq.printStackTrace();
     	}
-    	
     	return result;
     }
 }

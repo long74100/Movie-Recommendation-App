@@ -1,100 +1,102 @@
 
-‹squid:S2077x"RUse a variable binding mechanism to construct this query instead of concatenation.(é£¢8ë´ø¾¢,HÛ!RBLOCKERZVULNERABILITY
-†squid:UselessImportCheck"GRemove this unused import 'org.springframework.jdbc.core.JdbcTemplate'.(å ê‹ÿÿÿÿÿHÉ!RMINORZ
+‘squid:S2077š"RUse a variable binding mechanism to construct this query instead of concatenation.(…ßœøÿÿÿÿ8…ªÕ¢,Hê$RBLOCKERZVULNERABILITY
+ssquid:S2696¸"6Make the enclosing method "static" or remove this set.(…ßœøÿÿÿÿ8¦ë£Â¢,H”%RCRITICALZ
 CODE_SMELL
-‘squid:S2077ä"RUse a variable binding mechanism to construct this query instead of concatenation.(Î­‹¼ùÿÿÿÿ8ğ‘şÜ¢,Hê!RBLOCKERZVULNERABILITY
-rsquid:S2696?"6Make the enclosing method "static" or remove this set.(¢Ë×ÿÿÿÿÿ8¦ë£Â¢,Hİ!RCRITICALZ
+\squid:EmptyStatementUsageCheck$"Remove this empty statement.(¶ñ¾ÕHò$RMINORZ
 CODE_SMELL
-[squid:S1148ç"#Use a logger to log this exception.(á×¬8ğ‘şÜ¢,Hõ!RMINORZVULNERABILITY
-[squid:S1148÷"#Use a logger to log this exception.(á×¬8ğ‘şÜ¢,HÜ!RMINORZVULNERABILITY
-‹squid:S00115!"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(¶ñ¾ÕHá!RCRITICALZ
+‹squid:S00115$"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(¶ñ¾ÕHŞ$RCRITICALZ
 CODE_SMELL
-Œsquid:S00117…"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ú¨õïÿÿÿÿÿ8…ªÕ¢,Hÿ!RMINORZ
+_squid:S30101"-Remove this assignment of "connectStatement".(ÀÄÊëøÿÿÿÿHõ$RMAJORZ
 CODE_SMELL
-¤squid:S1319ÿ"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(—¼‚\8¶©­¦,HÊ"RMINORZ
+Xsquid:S1068""+Remove this unused "command" private field.(ÔƒğH%RMAJORZ
 CODE_SMELL
-‹squid:S00115!"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(¶ñ¾ÕHÆ!RCRITICALZ
+squid:S1192Æ"SDefine a constant instead of duplicating this literal " where senderId = " 3 times.(»×Ó„ÿÿÿÿÿ8ğ‘şÜ¢,H%RCRITICALZ
 CODE_SMELL
-‘squid:S2077ò"RUse a variable binding mechanism to construct this query instead of concatenation.(…ßœøÿÿÿÿ8…ªÕ¢,Hı!RBLOCKERZVULNERABILITY
-‹squid:S00115!"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(¶ñ¾ÕHä!RCRITICALZ
+‘squid:S2077Ö"RUse a variable binding mechanism to construct this query instead of concatenation.(…ßœøÿÿÿÿ8…ªÕ¢,Hƒ%RBLOCKERZVULNERABILITY
+¥squid:S1319£"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(¼Ô¦Â8…ªÕ¢,Hï$RMINORZ
 CODE_SMELL
-Œsquid:S2068"U'password' detected in this expression, review this potentially hardcoded credential.(ñ®öøÿÿÿÿHË!RBLOCKERZVULNERABILITY
-ssquid:S2696‡"6Make the enclosing method "static" or remove this set.(…ßœøÿÿÿÿ8¶©­¦,HË"RCRITICALZ
+ssquid:S2696‡"6Make the enclosing method "static" or remove this set.(…ßœøÿÿÿÿ8¶©­¦,Hˆ%RCRITICALZ
 CODE_SMELL
-[squid:S1148×"#Use a logger to log this exception.(á×¬8ğ‘şÜ¢,HĞ!RMINORZVULNERABILITY
-‰squid:S2077?"RUse a variable binding mechanism to construct this query instead of concatenation.(¢Ë×ÿÿÿÿÿHÓ!RBLOCKERZVULNERABILITY
-[squid:S1148È"#Use a logger to log this exception.(á×¬8ğ‘şÜ¢,HÊ!RMINORZVULNERABILITY
-[squid:S1148´"#Use a logger to log this exception.(¸ß¹8ğ‘şÜ¢,Hó!RMINORZVULNERABILITY
-usquid:UselessImportCheck"6Remove this unused import 'java.sql.DatabaseMetaData'.(»à‹ÃøÿÿÿÿHñ!RMINORZ
+ssquid:S2696õ"6Make the enclosing method "static" or remove this set.(…ßœøÿÿÿÿ8…ªÕ¢,Hú$RCRITICALZ
 CODE_SMELL
-Šsquid:S1192S"SDefine a constant instead of duplicating this literal " and receiverId = " 4 times.(¿»ÏŒ8ğ‘şÜ¢,HÚ!RCRITICALZ
-CODE_SMELL
-¥squid:S1319 "pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(¼Ô¦Â8…ªÕ¢,Hú!RMINORZ
-CODE_SMELL
-[squid:S1148›"#Use a logger to log this exception.(á×¬8…ªÕ¢,Hü!RMINORZVULNERABILITY
-squid:S2077U"RUse a variable binding mechanism to construct this query instead of concatenation.(…ßœøÿÿÿÿ8ë´ø¾¢,Hà!RBLOCKERZVULNERABILITY
-‘squid:S2077Ä"RUse a variable binding mechanism to construct this query instead of concatenation.(…ßœøÿÿÿÿ8…ªÕ¢,HØ!RBLOCKERZVULNERABILITY
-‘squid:S2077‡"RUse a variable binding mechanism to construct this query instead of concatenation.(…ßœøÿÿÿÿ8¶©­¦,HÉ"RBLOCKERZVULNERABILITY
-squid:S1192Ã"SDefine a constant instead of duplicating this literal " where senderId = " 3 times.(»×Ó„ÿÿÿÿÿ8ğ‘şÜ¢,Hğ!RCRITICALZ
-CODE_SMELL
-\squid:EmptyStatementUsageCheck!"Remove this empty statement.(¶ñ¾ÕHÒ!RMINORZ
-CODE_SMELL
-rsquid:S2696U"6Make the enclosing method "static" or remove this set.(…ßœøÿÿÿÿ8…ªÕ¢,HÖ!RCRITICALZ
-CODE_SMELL
-`squid:S1148—"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8…ªÕ¢,H€"RMINORZVULNERABILITY
-‘squid:S2077Å"RUse a variable binding mechanism to construct this query instead of concatenation.(ññÂèøÿÿÿÿ8ğ‘şÜ¢,Hé!RBLOCKERZVULNERABILITY
-ssquid:S2696Ä"6Make the enclosing method "static" or remove this set.(…ßœøÿÿÿÿ8…ªÕ¢,HÑ!RCRITICALZ
-CODE_SMELL
-‰squid:S2077h"RUse a variable binding mechanism to construct this query instead of concatenation.(ññÂèøÿÿÿÿHÙ!RBLOCKERZVULNERABILITY
-‘squid:S2077¦"RUse a variable binding mechanism to construct this query instead of concatenation.(…ßœøÿÿÿÿ8…ªÕ¢,HÍ!RBLOCKERZVULNERABILITY
-‘squid:S2077µ"RUse a variable binding mechanism to construct this query instead of concatenation.(…ßœøÿÿÿÿ8…ªÕ¢,Hã!RBLOCKERZVULNERABILITY
+squid:S2077k"RUse a variable binding mechanism to construct this query instead of concatenation.(ññÂèøÿÿÿÿ8ğ‘şÜ¢,Hé$RBLOCKERZVULNERABILITY
+‘squid:S2077ç"RUse a variable binding mechanism to construct this query instead of concatenation.(Î­‹¼ùÿÿÿÿ8ğ‘şÜ¢,Hÿ$RBLOCKERZVULNERABILITY
+[squid:S1148·"#Use a logger to log this exception.(¸ß¹8Ú–‚Æ¢,Hí$RMINORZVULNERABILITY
+Ysquid:S1148š"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿH‹%RMINORZVULNERABILITY
+‰squid:S2077B"RUse a variable binding mechanism to construct this query instead of concatenation.(¢Ë×ÿÿÿÿÿHî$RBLOCKERZVULNERABILITY
 q
-squid:S106y"9Replace this use of System.out or System.err by a logger.(¢İùˆûÿÿÿÿ8¦ë£Â¢,HÅ!RMAJORZ
+squid:S106|"9Replace this use of System.out or System.err by a logger.(¢İùˆûÿÿÿÿ8ğ‘şÜ¢,H•%RMAJORZ
 CODE_SMELL
-Zsquid:S1148["#Use a logger to log this exception.(á×¬8¦ë£Â¢,H"RMINORZVULNERABILITY
-‘squid:S2077±"RUse a variable binding mechanism to construct this query instead of concatenation.(ññÂèøÿÿÿÿ8ğ‘şÜ¢,HÕ!RBLOCKERZVULNERABILITY
-Zsquid:S1148E"#Use a logger to log this exception.(á×¬8Ú–‚Æ¢,Hí!RMINORZVULNERABILITY
-[squid:S1148Œ"#Use a logger to log this exception.(á×¬8…ªÕ¢,Hâ!RMINORZVULNERABILITY
-k
-squid:S106‰"9Replace this use of System.out or System.err by a logger.(Ú¨µúÿÿÿÿHÈ!RMAJORZ
-CODE_SMELL
-‘squid:S2077ô"RUse a variable binding mechanism to construct this query instead of concatenation.(Î­‹¼ùÿÿÿÿ8ğ‘şÜ¢,Hì!RBLOCKERZVULNERABILITY
-\squid:S1068""*Remove this unused "status" private field.(¦àòšùÿÿÿÿHÔ!RMAJORZ
-CODE_SMELL
-ssquid:S2696µ"6Make the enclosing method "static" or remove this set.(…ßœøÿÿÿÿ8…ªÕ¢,Hô!RCRITICALZ
-CODE_SMELL
-Zsquid:S1148|"#Use a logger to log this exception.(á×¬8ë´ø¾¢,Hö!RMINORZVULNERABILITY
-ssquid:S2696Ó"6Make the enclosing method "static" or remove this set.(…ßœøÿÿÿÿ8…ªÕ¢,Hï!RCRITICALZ
-CODE_SMELL
-ssquid:S2696—"6Make the enclosing method "static" or remove this set.(…ßœøÿÿÿÿ8…ªÕ¢,Hò!RCRITICALZ
-CODE_SMELL
-[squid:S1148ª"#Use a logger to log this exception.(á×¬8…ªÕ¢,Hù!RMINORZVULNERABILITY
-`squid:S1148¹"#Use a logger to log this exception.(¾Îûëøÿÿÿÿ8…ªÕ¢,H×!RMINORZVULNERABILITY
-`squid:S1148È"#Use a logger to log this exception.(¾Îûëøÿÿÿÿ8…ªÕ¢,Hç!RMINORZVULNERABILITY
-Ssquid:S11481"#Use a logger to log this exception.(¸ß¹H÷!RMINORZVULNERABILITY
 m
-squid:S106¸"9Replace this use of System.out or System.err by a logger.(ÈöÃÒ8ğ‘şÜ¢,Hû!RMAJORZ
+squid:S106»"9Replace this use of System.out or System.err by a logger.(ÈöÃÒ8¦ë£Â¢,Hö$RMAJORZ
 CODE_SMELL
-`squid:S1148×"#Use a logger to log this exception.(¾Îûëøÿÿÿÿ8…ªÕ¢,Hß!RMINORZVULNERABILITY
+‘squid:S2077‹"RUse a variable binding mechanism to construct this query instead of concatenation.(ññÂèøÿÿÿÿ8ë´ø¾¢,H…%RBLOCKERZVULNERABILITY
+[squid:S1148Ú"#Use a logger to log this exception.(á×¬8ë´ø¾¢,Hğ$RMINORZVULNERABILITY
+‘squid:S2077©"RUse a variable binding mechanism to construct this query instead of concatenation.(…ßœøÿÿÿÿ8…ªÕ¢,Hù$RBLOCKERZVULNERABILITY
 tsquid:UselessImportCheck
-".Remove this unused import 'java.util.HashMap'.(™˜”€ùÿÿÿÿ8…ªÕ¢,Hè!RMINORZ
+".Remove this unused import 'java.util.HashMap'.(™˜”€ùÿÿÿÿ8…ªÕ¢,H‚%RMINORZ
 CODE_SMELL
-‘squid:S2077Ó"RUse a variable binding mechanism to construct this query instead of concatenation.(…ßœøÿÿÿÿ8…ªÕ¢,HŞ!RBLOCKERZVULNERABILITY
-‘squid:S2077—"RUse a variable binding mechanism to construct this query instead of concatenation.(…ßœøÿÿÿÿ8…ªÕ¢,Hø!RBLOCKERZVULNERABILITY
-‘squid:S2077ˆ"RUse a variable binding mechanism to construct this query instead of concatenation.(ññÂèøÿÿÿÿ8…ªÕ¢,Hå!RBLOCKERZVULNERABILITY
-[squid:S1148—"#Use a logger to log this exception.(Ãõ­„8¶©­¦,HÌ"RMINORZVULNERABILITY
-_squid:S3010."-Remove this assignment of "connectStatement".(ÀÄÊëøÿÿÿÿHî!RMAJORZ
+rsquid:S2696B"6Make the enclosing method "static" or remove this set.(¢Ë×ÿÿÿÿÿ8…ªÕ¢,H†%RCRITICALZ
 CODE_SMELL
-Xsquid:S1068"+Remove this unused "command" private field.(ÔƒğHÄ!RMAJORZ
+Zsquid:S11484"#Use a logger to log this exception.(¸ß¹8…ªÕ¢,H“%RMINORZVULNERABILITY
+[squid:S1148ê"#Use a logger to log this exception.(á×¬8…ªÕ¢,Hã$RMINORZVULNERABILITY
+‘squid:S2077÷"RUse a variable binding mechanism to construct this query instead of concatenation.(Î­‹¼ùÿÿÿÿ8ğ‘şÜ¢,Hş$RBLOCKERZVULNERABILITY
+ssquid:S2696©"6Make the enclosing method "static" or remove this set.(…ßœøÿÿÿÿ8…ªÕ¢,HŠ%RCRITICALZ
 CODE_SMELL
-Xsquid:S3010-"&Remove this assignment of "connector".(Ù®Ä¬øÿÿÿÿHÇ!RMAJORZ
+Œsquid:S2068 "U'password' detected in this expression, review this potentially hardcoded credential.(ñ®öøÿÿÿÿH‰%RBLOCKERZVULNERABILITY
+Zsquid:S1148^"#Use a logger to log this exception.(á×¬8ğ‘şÜ¢,Hü$RMINORZVULNERABILITY
+†squid:UselessImportCheck"GRemove this unused import 'org.springframework.jdbc.core.JdbcTemplate'.(å ê‹ÿÿÿÿÿH÷$RMINORZ
 CODE_SMELL
-ssquid:S2696¦"6Make the enclosing method "static" or remove this set.(…ßœøÿÿÿÿ8…ªÕ¢,Hë!RCRITICALZ
+ssquid:S2696Ö"6Make the enclosing method "static" or remove this set.(…ßœøÿÿÿÿ8…ªÕ¢,H™%RCRITICALZ
 CODE_SMELL
-‘squid:S2077Ô"RUse a variable binding mechanism to construct this query instead of concatenation.(ññÂèøÿÿÿÿ8ğ‘şÜ¢,Hş!RBLOCKERZVULNERABILITY
-Ssquid:S1148k"#Use a logger to log this exception.(á×¬HÌ!RMINORZVULNERABILITY
-`squid:S1148ö"#Use a logger to log this exception.(¾Îûëøÿÿÿÿ8…ªÕ¢,HÏ!RMINORZVULNERABILITY
-‹squid:S00115!"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(¶ñ¾ÕHæ!RCRITICALZ
+`squid:S1148Ë"#Use a logger to log this exception.(¾Îûëøÿÿÿÿ8…ªÕ¢,H—%RMINORZVULNERABILITY
+`squid:S1148Ú"#Use a logger to log this exception.(¾Îûëøÿÿÿÿ8ğ‘şÜ¢,H€%RMINORZVULNERABILITY
+‘squid:S2077¸"RUse a variable binding mechanism to construct this query instead of concatenation.(…ßœøÿÿÿÿ8…ªÕ¢,Hë$RBLOCKERZVULNERABILITY
+[squid:S1148"#Use a logger to log this exception.(á×¬8…ªÕ¢,H–%RMINORZVULNERABILITY
+Ssquid:S1148H"#Use a logger to log this exception.(á×¬Hä$RMINORZVULNERABILITY
+ssquid:S2696š"6Make the enclosing method "static" or remove this set.(…ßœøÿÿÿÿ8…ªÕ¢,Hç$RCRITICALZ
 CODE_SMELL
-ssquid:S2696ò"6Make the enclosing method "static" or remove this set.(…ßœøÿÿÿÿ8…ªÕ¢,HÎ!RCRITICALZ
+`squid:S1148ù"#Use a logger to log this exception.(¾Îûëøÿÿÿÿ8…ªÕ¢,H‡%RMINORZVULNERABILITY
+\squid:S1068%"*Remove this unused "status" private field.(¦àòšùÿÿÿÿH%RMAJORZ
 CODE_SMELL
+Œsquid:S00117ˆ"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ú¨õïÿÿÿÿÿ8…ªÕ¢,Hè$RMINORZ
+CODE_SMELL
+Šsquid:S1192V"SDefine a constant instead of duplicating this literal " and receiverId = " 4 times.(¿»ÏŒ8ğ‘şÜ¢,Hı$RCRITICALZ
+CODE_SMELL
+[squid:S1148"#Use a logger to log this exception.(Ãõ­„8…ªÕ¢,Hñ$RMINORZVULNERABILITY
+‹squid:S00115$"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(¶ñ¾ÕH%RCRITICALZ
+CODE_SMELL
+‘squid:S2077õ"RUse a variable binding mechanism to construct this query instead of concatenation.(…ßœøÿÿÿÿ8ë´ø¾¢,H›%RBLOCKERZVULNERABILITY
+‘squid:S2077‡"RUse a variable binding mechanism to construct this query instead of concatenation.(…ßœøÿÿÿÿ8¶©­¦,Hš%RBLOCKERZVULNERABILITY
+‘squid:S2077È"RUse a variable binding mechanism to construct this query instead of concatenation.(ññÂèøÿÿÿÿ8ğ‘şÜ¢,Hİ$RBLOCKERZVULNERABILITY
+k
+squid:S106Œ"9Replace this use of System.out or System.err by a logger.(Ú¨µúÿÿÿÿHà$RMAJORZ
+CODE_SMELL
+rsquid:S2696X"6Make the enclosing method "static" or remove this set.(…ßœøÿÿÿÿ8…ªÕ¢,Hå$RCRITICALZ
+CODE_SMELL
+ssquid:S2696Ç"6Make the enclosing method "static" or remove this set.(…ßœøÿÿÿÿ8…ªÕ¢,H%RCRITICALZ
+CODE_SMELL
+Zsquid:S1148n"#Use a logger to log this exception.(á×¬8ğ‘şÜ¢,Hø$RMINORZVULNERABILITY
+[squid:S1148"#Use a logger to log this exception.(á×¬8¶©­¦,H‘%RMINORZVULNERABILITY
+[squid:S1148Ë"#Use a logger to log this exception.(á×¬8…ªÕ¢,Hô$RMINORZVULNERABILITY
+‹squid:S00115$"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(¶ñ¾ÕH%RCRITICALZ
+CODE_SMELL
+‹squid:S00115$"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(¶ñ¾ÕHâ$RCRITICALZ
+CODE_SMELL
+‘squid:S2077×"RUse a variable binding mechanism to construct this query instead of concatenation.(ññÂèøÿÿÿÿ8…ªÕ¢,Hì$RBLOCKERZVULNERABILITY
+[squid:S1148­"#Use a logger to log this exception.(á×¬8…ªÕ¢,Há$RMINORZVULNERABILITY
+‘squid:S2077´"RUse a variable binding mechanism to construct this query instead of concatenation.(ññÂèøÿÿÿÿ8…ªÕ¢,H˜%RBLOCKERZVULNERABILITY
+`squid:S1148¼"#Use a logger to log this exception.(¾Îûëøÿÿÿÿ8¦ë£Â¢,Hß$RMINORZVULNERABILITY
+Xsquid:S30100"&Remove this assignment of "connector".(Ù®Ä¬øÿÿÿÿHû$RMAJORZ
+CODE_SMELL
+‘squid:S2077Ç"RUse a variable binding mechanism to construct this query instead of concatenation.(…ßœøÿÿÿÿ8…ªÕ¢,HŒ%RBLOCKERZVULNERABILITY
+„squid:S2077{"RUse a variable binding mechanism to construct this query instead of concatenation.(é£¢Hœ%RBLOCKERZVULNERABILITY
+usquid:UselessImportCheck"6Remove this unused import 'java.sql.DatabaseMetaData'.(»à‹ÃøÿÿÿÿH%RMINORZ
+CODE_SMELL
+squid:S2077X"RUse a variable binding mechanism to construct this query instead of concatenation.(…ßœøÿÿÿÿ8ğ‘şÜ¢,H„%RBLOCKERZVULNERABILITY
+Zsquid:S1148"#Use a logger to log this exception.(á×¬8ğ‘şÜ¢,Hæ$RMINORZVULNERABILITY
+[squid:S1148ú"#Use a logger to log this exception.(á×¬8ğ‘şÜ¢,H’%RMINORZVULNERABILITY
+‘squid:S2077¡"RUse a variable binding mechanism to construct this query instead of concatenation.(…ßœøÿÿÿÿ8Ú¶¥Ë¦,H·%RBLOCKERZVULNERABILITY
+ssquid:S2696¡"6Make the enclosing method "static" or remove this set.(…ßœøÿÿÿÿ8Ú¶¥Ë¦,H¸%RCRITICALZ
+CODE_SMELL
+[squid:S1148²"#Use a logger to log this exception.(Ãõ­„8Ú¶¥Ë¦,H¹%RMINORZVULNERABILITY

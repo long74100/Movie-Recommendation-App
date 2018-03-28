@@ -1,7 +1,7 @@
 
-‘squid:UselessImportCheck"KRemove this unused import 'edu.northeastern.cs4500.model.user.UserProfile'.(Ğ²Õ—ıÿÿÿÿ8ÆåØ¥¦,H RMINORZ
+qsquid:UselessImportCheck"0Remove this unused import 'java.util.ArrayList'.(÷‰îƒ8†ÛÍ§¥,H˜#RMINORZ
 CODE_SMELL
-tsquid:UselessImportCheck".Remove this unused import 'java.util.HashMap'.(™˜”€ùÿÿÿÿ8†ÛÍ§¥,HœRMINORZ
+tsquid:UselessImportCheck".Remove this unused import 'java.util.HashMap'.(™˜”€ùÿÿÿÿ8†ÛÍ§¥,H—#RMINORZ
 CODE_SMELL
-qsquid:UselessImportCheck"0Remove this unused import 'java.util.ArrayList'.(÷‰îƒ8†ÛÍ§¥,HRMINORZ
+‘squid:UselessImportCheck"KRemove this unused import 'edu.northeastern.cs4500.model.user.UserProfile'.(Ğ²Õ—ıÿÿÿÿ8ÆåØ¥¦,H–#RMINORZ
 CODE_SMELL

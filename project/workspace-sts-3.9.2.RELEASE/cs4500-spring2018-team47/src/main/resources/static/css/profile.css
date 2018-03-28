@@ -42,25 +42,48 @@
 
     .leftMenu p.useful {
     	font-size: 15px;
-        padding: 7px 10px;
+       /*padding: 0px 0px 0px 0px;*/
+       	padding: 7px 10px;
     	color: wheat;
+    	margin-bottom: 5px;
     	cursor: pointer;
         text-align: center;
         overflow: hidden;
-        margin-bottom:10px;
         background: linear-gradient(to right, wheat 50%, black 50%);
         background-size: 200% 100%;
         background-position: right bottom;
         transition: all 0.25s ease;
     }
     
-    .movielistbtn {
+    .former {
+    	width:180px;
+    	height:40px;
+    	margin-bottom: 10px;
+    }
+    
+    
+    .leftMenu p:focus {
+    	color: black;
+    	background-color: black;
+    	text-align:top;
+    }
+    
+    .profileOptBtn {
+    	font-size: 15px;
     	background-color: Transparent;
     	border: none;
     	outline: none;
     	cursor: pointer;
-    	color: red;
+    	padding-top: 9px;
+    	padding-bottom: 9px;
+    	color: wheat;
+    	text-align: center;
     	width: 180px;
+    }
+    
+    .profileOptBtn:hover {
+    	color: black;
+        font-weight: bold;
     }
 
 
@@ -68,12 +91,12 @@
     .leftMenu p {
         text-decoration: none;
     	font-size: 17px;
-        padding: 7px 10px;
     	color: black;
     	display: block;
         text-align: center;
         margin: 0px;
         overflow: hidden;
+        height:40px;
     }
 
 

@@ -32,7 +32,10 @@ public class UserprofileController {
 		modelAndView.setViewName("userProfile");
 		return modelAndView;
 	}
-	
+	/**
+	 * 
+	 * Pass the movie list here
+	 */
 	@RequestMapping(value={"/profile+to+movielist"}, method = RequestMethod.GET)
 	public ModelAndView getMovieList() {
 		ModelAndView modelAndView = new ModelAndView();

@@ -7,7 +7,7 @@
 <body>
 	<div th:fragment="movieListNavBar">
 		<div th:replace="fragments/userProfile/profileMenu :: userProfileMenu"></div>
-		<div class="movieManagerMenu">
+		<div class="movieManagerMenu" th:action="@{/profile+to+movielist}" method="GET">
             <div class="listCreator">
                 <input class="listNameGetter" 
                 type="text" 
