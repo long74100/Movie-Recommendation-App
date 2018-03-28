@@ -25,6 +25,10 @@ public class UserprofileController {
 	@Autowired
     private UserService userService;
 	
+	/**
+	 * This is to return the profile page
+	 * @return the model view of profile page
+	 */
 	@RequestMapping(value={"/profile"}, method = RequestMethod.GET)
 	public ModelAndView getProfile() {
 		ModelAndView modelAndView = new ModelAndView();
@@ -34,9 +38,10 @@ public class UserprofileController {
 		modelAndView.setViewName("userProfile");
 		return modelAndView;
 	}
+	
 	/**
-	 * 
-	 * Pass the movie list here
+	 * This is to return the user movie list page besides the profile management navigation bar
+	 * @return the movie list page
 	 */
 	@RequestMapping(value={"/profile+to+movielist"}, method = RequestMethod.GET)
 	public ModelAndView getMovieList() {
@@ -91,8 +96,9 @@ public class UserprofileController {
 		modelAndView.addObject("currentMovies", movies);
 		modelAndView.setViewName("listMoviesItem");
 		return modelAndView;
-		
 	}
+	
+	
 	
 	
 }
