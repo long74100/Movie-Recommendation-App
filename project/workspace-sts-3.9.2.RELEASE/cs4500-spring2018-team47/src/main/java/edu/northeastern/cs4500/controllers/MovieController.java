@@ -138,6 +138,12 @@ public class MovieController {
 	User user = userService.findUserByEmail(auth.getName());
 	modelAndView.addObject("user", user);
 	modelAndView.addObject("movie", movie);
+	
+	if (user != null) {
+	    int rating = localSQLConnector.getRating(user.getId(), movie.get("imdbID"));
+	    modelAndView.addObject("rating", rating);
+	}
+	
 	modelAndView.setViewName("movie");
 	return modelAndView;
     }
