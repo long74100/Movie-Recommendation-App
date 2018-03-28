@@ -16,6 +16,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -158,8 +160,9 @@ public class MovieController {
     	movieReview.setReview(httpServletRequest.getParameter("review"));
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
     	movieReview.setDate(formatter.format(new Date()));
-    	//grab userid somehow
-    	movieReview.setUser_id("-1");
+    	Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+    	User user = userService.findUserByEmail(auth.getName());
+    	movieReview.setUser_id(String.valueOf(user.getId()));
     	LocalSQLConnectService db = new LocalSQLConnectService();
     	db.addReviewToLocalDB(movieReview);
     }
