@@ -152,8 +152,13 @@ public class MovieController {
         movieRating.setDate(formatter.format(new Date()));
         	Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         	User user = userService.findUserByEmail(auth.getName());
-        	movieRating.setUserID(user.getId());
-    	movieRatingService.saveMovieRating(movieRating);
+        	
+        	if (user != null) {
+        	    movieRating.setUserID(user.getId());
+        	    movieRatingService.saveMovieRating(movieRating);
+        	} else {
+        	    System.out.println("user does not exist");
+        	}
     
     }
         
