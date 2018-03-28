@@ -1,12 +1,14 @@
 <!Doctype html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
-
+	<noscript th:replace="fragments/quickAddCSS :: quickAddCSS"></noscript>	
 </head>
 
 <body>
+	<div th:replace="fragments/navBar :: header"></div>
 	<div th:fragment="profilePage">
 		<div style="margin-left: 200px">
+			<h1></h1>
 			<div class="container mt-3 wishList">
 			<h2>Your Wish list</h2>
 			<div class="rec row">
