@@ -15,7 +15,6 @@
 <body> 
 	<div th:replace="fragments/navBar :: header"></div>
 	<div class="container">
-		<p th:text="${username}">test</p>
 		<form th:action="@{/logout}" method="post">
 		    <div>
 				<button type="submit">Logout</button>
