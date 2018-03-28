@@ -430,6 +430,22 @@ public class LocalSQLConnectService {
     }
     
     /**
+     * To return all movies stored in user's movie list with the given user id
+     * @param userId user who owns the movie list
+     * @return list of movies
+     */
+    public HashMap<String, ArrayList<Movie>> getMovieFromMovieList(int userId) {
+    	HashMap<String, ArrayList<Movie>> output = new HashMap<>();
+    	List<String> movieListName = this.getMovieListForUser(userId);
+    	for(int i = 0; i < movieListName.size(); i++) {
+    		String listName = movieListName.get(i);
+    		ArrayList<Movie> movies = this.getMovieFromUserMovieList(userId, listName);
+    		output.put(listName, movies);
+    	}
+    	return output;
+    }
+    
+    /**
      * To get the movie list name for all movie lists belonging to given user
      * @param userId the id for user
      * @return the list of movie name 
@@ -456,14 +472,12 @@ public class LocalSQLConnectService {
      * To get movie from user movie list
      * @return list of movie names 
      */
-    public List<Movie> getMovieFromUserMovieList(int userId, String listname) {
+    public ArrayList<Movie> getMovieFromUserMovieList(int userId, String listname) {
     	ArrayList<Movie> result = new ArrayList<>();
     	try {
-    		String query = 
-    				"select Movie.movie_id, Movie.movie_name, Movie.actor, Movie.plot from Movie join "
-    				+ "(select A.movie_id from UserMovieList as A join Movie Movielist as B on A.user_id = B.user_id"
-    				+ " and A.list_name = B.list_name where A.user_id = " + userId + " and A.list_name = \"" + listname + "\")"
-    				+ " as comp on comp.movie_id = Movie.movie_id)";
+    		String query = "select Movie.movie_id, Movie.movie_name, Movie.plot, Movie.actor from Movie join " + 
+    				"(select movie_id from UserMovieList where user_id = " + userId + " and list_name = \"" + listname + 
+    				"\") as comp on comp.movie_id = Movie.movie_id";
     		myResult = connectStatement.executeQuery(query);
     		while(myResult.next()) {
     			Movie element = new Movie();
@@ -471,7 +485,7 @@ public class LocalSQLConnectService {
     			String movieName = myResult.getString("movie_name");
     			String movieActor = myResult.getString("actor");
     			String moviePlot = myResult.getString("plot");
-    			
+    			System.out.println(movieId + "+" + movieName + "+" + movieActor + "+" + moviePlot);
     			element.setImdbID(movieId);
     			element.setTitle(movieName);
     			element.setActors(movieActor);
