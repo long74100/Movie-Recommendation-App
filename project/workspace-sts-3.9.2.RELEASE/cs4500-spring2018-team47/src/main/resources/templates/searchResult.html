@@ -16,7 +16,7 @@
 				<a th:href="@{/movie/{title}(title=${movie.title})}">
 					<div class="container shadow row">
 					<img class="col-md-4"
-					src="http://www.joblo.com/posters/images/full/the-martian-poster.jpg"
+					th:src="${movie.poster}"
 					class="poster">
 					<div class="col-md-4">
 			
