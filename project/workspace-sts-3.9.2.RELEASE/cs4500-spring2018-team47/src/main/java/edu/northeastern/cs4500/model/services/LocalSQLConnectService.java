@@ -499,4 +499,25 @@ public class LocalSQLConnectService {
     	}
     	return result;
     }
+    
+    /**
+     * Get a rating from movie ratings.
+     */
+    public int getRating(int userId, String movieId) {
+	try {
+	    
+	    String query = "select rating from rating"
+	    	+ " where rating.user_id = " + userId
+	    	+ " and rating.movie_id = '" + movieId + "'";
+	    
+	     myResult = connectStatement.executeQuery(query);
+	     if(myResult.next()) {
+		 return myResult.getInt("rating");
+	     } 
+	} catch(SQLException e) {
+	    // log error
+	}
+	
+	return -1;
+    }
 }
