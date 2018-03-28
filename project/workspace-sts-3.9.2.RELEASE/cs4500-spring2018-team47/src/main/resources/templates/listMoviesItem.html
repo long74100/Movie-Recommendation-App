@@ -4,16 +4,19 @@
 	<noscript th:replace="fragments/quickAddCSS :: quickAddCSS"></noscript>
 	<link rel="stylesheet" href="../css/movieListMng.css">
 	<link rel="stylesheet" href="../css/profile.css">
+	<link rel="stylesheet" href="../css/userMovieListsItem.css">
 	<title>Movie List Item</title>
 </head>
 <body> 
 
     <div th:replace="fragments/userProfile/userMovieListNavBar :: movieListNavBar"></div>
-    <div>
+    <div class="movieListItems">
     	<ul>
     		<div th:if="${not #lists.isEmpty(currentMovies)}" class="movieItems">
-            	<div th:each="movie : ${currentMovies}">
-            		<p th:text="${movie.title}"></p>
+            	<div th:each="movie : ${currentMovies}" class="movieItemAttr">
+            		<p class="itemTitle" th:text="${movie.title}"></p>
+            		Actors: <p class="itemActors" th:text="${movie.actors}"></p>
+            		Plot: <p class="itemPlot" th:text="${movie.plot}"></p>
             	</div>
     		</div>
    		</ul>

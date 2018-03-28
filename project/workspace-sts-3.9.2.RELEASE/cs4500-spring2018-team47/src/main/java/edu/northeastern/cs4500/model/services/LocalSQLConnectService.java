@@ -461,11 +461,6 @@ public class LocalSQLConnectService {
     		String query = "select Movie.movie_id, Movie.movie_name, Movie.plot, Movie.actor from Movie join " + 
     				"(select movie_id from UserMovieList where user_id = " + userId + " and list_name = \"" + listname + 
     				"\") as comp on comp.movie_id = Movie.movie_id";
-//    		String query = 
-//    				"select Movie.movie_id, Movie.movie_name, Movie.actor, Movie.plot from Movie join "
-//    				+ "(select A.movie_id from UserMovieList as A join Movielist as B on A.user_id = B.user_id"
-//    				+ " and A.list_name = B.list_name where A.user_id = " + userId + " and A.list_name = \"" + listname + "\")"
-//    				+ " as comp on comp.movie_id = Movie.movie_id)";
     		myResult = connectStatement.executeQuery(query);
     		while(myResult.next()) {
     			Movie element = new Movie();
@@ -473,7 +468,7 @@ public class LocalSQLConnectService {
     			String movieName = myResult.getString("movie_name");
     			String movieActor = myResult.getString("actor");
     			String moviePlot = myResult.getString("plot");
-    			
+    			System.out.println(movieId + "+" + movieName + "+" + movieActor + "+" + moviePlot);
     			element.setImdbID(movieId);
     			element.setTitle(movieName);
     			element.setActors(movieActor);
