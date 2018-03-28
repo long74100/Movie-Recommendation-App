@@ -68,11 +68,13 @@ public class MovieController {
 	    	Movie movie = new Movie();
 		    movieJSON = omdbService.searchMovieByTitle(movieJSONList.getJSONObject(x).getString("Title"), "t");
 	    	movie.setTitle(movieJSON.getString("Title"));
+	    	movie.setPoster(movieJSON.getString("Poster"));
 	    	movie.setActors(movieJSON.getString("Actors"));
 	    	movie.setReleased(movieJSON.getString("Released"));
 	    	movie.setImdbRating(movieJSON.getString("imdbRating"));
 	    	movieList.add(movie);
 	    	movieNames.add(movie.getTitle());
+	    	System.out.println("Poster"+ movie.getPoster());
 	    	x++;
 	    }
 	    
@@ -114,6 +116,7 @@ public class MovieController {
 	    movie.put("actors", movieJSON.getString("Actors"));
 	    movie.put("runtime", movieJSON.getString("Runtime"));
 	    movie.put("country", movieJSON.getString("Country"));
+	    movie.put("poster", movieJSON.getString("Poster"));
 	    movie.put("imdbRating", movieJSON.getString("imdbRating"));
 	    
 	    // to add seached movie into local database
