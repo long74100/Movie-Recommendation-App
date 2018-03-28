@@ -44,20 +44,19 @@
 		</div>
 		<h1>Users</h1>
 			<div th:each="user : ${users}">
-					<div class="container movieRow row">
+					<div class="container shadow row">
 					<img class="col-md-4"
 					src="http://www.joblo.com/posters/images/full/the-martian-poster.jpg"
 					class="poster">
 					<div class="col-md-4">
 			
-						<div th:text="${user.getFirstName}" class="movieTitle"></div>
-						<div th:text="${user.getUsername}"></div>
+						<div th:text="${user.username}" class="movieTitle"></div>
+						<div th:text="${user.firstName}"></div>
 					</div>
 					<div class="col-md-2">
 						<div style="margin: 2px;">
-							<button class="btn btn-primary">Add to Watchlist</button>
+							<button class="btn btn-primary">Add Friend</button>
 						</div>
-						<button class="btn btn-primary">Prod to a Friend</button>
 					</div>
 				</div>
 			</div>

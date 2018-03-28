@@ -1,11 +1,11 @@
 ----------------------------------------------------------------
-Tue Jan 23 19:25:11 EST 2018:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.13.1.1 - (1765088): instance a816c00e-0161-258d-e3b3-0000051ec870 
-on database directory memory:C:\Users\Alec\Documents\workspace-sts-3.9.2.RELEASE\cs4500-spring2018-annunziato\testdb with class loader sun.misc.Launcher$AppClassLoader@4aa298b7 
-Loaded from file:/C:/Users/Alec/.m2/repository/org/apache/derby/derby/10.13.1.1/derby-10.13.1.1.jar
+Tue Mar 27 23:07:22 EDT 2018:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.13.1.1 - (1765088): instance a816c00e-0162-6a93-0312-00001b0ab600 
+on database directory memory:D:\EdwardWang\team-47-spring18\project\workspace-sts-3.9.2.RELEASE\cs4500-spring2018-team47\testdb with class loader sun.misc.Launcher$AppClassLoader@6d06d69c 
+Loaded from file:/C:/Users/Edward%20Wang/.m2/repository/org/apache/derby/derby/10.13.1.1/derby-10.13.1.1.jar
 java.vendor=Oracle Corporation
-java.runtime.version=1.8.0_111-b14
-user.dir=C:\Users\Alec\Documents\workspace-sts-3.9.2.RELEASE\cs4500-spring2018-annunziato
+java.runtime.version=1.8.0_162-b12
+user.dir=D:\EdwardWang\team-47-spring18\project\workspace-sts-3.9.2.RELEASE\cs4500-spring2018-team47
 os.name=Windows 10
 os.arch=amd64
 os.version=10.0
