@@ -88,10 +88,13 @@ public class MovieController {
 	    // use logger
 	    e.printStackTrace();
 	}
-
+	
 	ModelAndView modelAndView = new ModelAndView();
+	Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+	User user = userService.findUserByEmail(auth.getName());
+	modelAndView.addObject("user", user);
 	modelAndView.addObject("movie", movieList);
-	modelAndView.addObject("user", userList);
+	modelAndView.addObject("users", userList);
 	modelAndView.setViewName("searchResult");
 	return modelAndView;
     }
@@ -122,6 +125,9 @@ public class MovieController {
 	    e.printStackTrace();
 	}
 	ModelAndView modelAndView = new ModelAndView();
+	Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+	User user = userService.findUserByEmail(auth.getName());
+	modelAndView.addObject("user", user);
 	modelAndView.addObject("movie", movie);
 	modelAndView.setViewName("movie");
 	return modelAndView;
