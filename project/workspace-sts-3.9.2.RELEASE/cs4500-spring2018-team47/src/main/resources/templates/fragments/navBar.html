@@ -42,8 +42,20 @@
 							onclick="location.href='/registration'">Register</button>
 					</div>
 					<div th:case="*">
-						<button th:text="${user.username}" class="btn btn-outline-danger"></button>
-						
+						<div class="dropdown">
+							<button class="btn btn-outline-danger dropdown-toggle"
+								type="button" data-toggle="dropdown" aria-haspopup="true"
+								aria-expanded="false" th:text="${user.username}"></button>
+							<div class="dropdown-menu bg-dark" aria-labelledby="dropdownMenuButton">
+								<form th:action="@{/profile}" method="GET">
+									 <input class="dropdown-item btn-link text-danger" type="submit" name="profile" value="Profile" />
+								</form>
+								<form th:action="@{/logout}" method="post">
+									 <input class="dropdown-item btn-link text-danger" type="submit" name="logout" value="Logout" />
+								</form>
+							</div>
+						</div>
+
 					</div>
 
 				</div>
