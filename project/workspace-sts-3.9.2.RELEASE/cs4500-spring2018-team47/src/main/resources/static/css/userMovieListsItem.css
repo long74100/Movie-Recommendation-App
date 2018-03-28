@@ -1,0 +1,47 @@
+.movieListItems {
+	margin-left:200px;
+}
+
+.movieItems {
+	margin-left:270px;
+	margin-top:50px;
+}
+
+.movieItemAttr {
+	cursor: pointer;
+    background: gainsboro;
+    border-bottom-style: solid;
+    border-bottom-width: thin;
+    width:800px;
+}
+
+.movieItemAttr:hover {
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    background: wheat;
+}
+
+.movieItemAttr p {
+	margin-left: 1.5px;
+}
+
+.movieItemAttr .itemTitle {
+	position: relative;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+
+.movieItemAttr .itemTitle:hover {
+	color: red;
+}
+
+.movieItemAttr .itemActors {
+	position: relative;
+	font-size: 12px;
+}
+
+.movieItemAttr .itemPlot {
+	position: relative;
+	font-size: 10px;
+}
+
