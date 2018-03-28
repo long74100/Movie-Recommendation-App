@@ -52,7 +52,7 @@
 			<div>No movies match this title. Please try again.</div>
 		</div>
 		<h1>Users</h1>
-			<div th:each="user : ${user}">
+			<div th:each="user : ${users}">
 					<div class="container movieRow row">
 					<img class="col-md-4"
 					src="http://www.joblo.com/posters/images/full/the-martian-poster.jpg"
@@ -71,7 +71,7 @@
 				</div>
 			</div>
 		<!-- else no users are found  -->
-		<div th:unless="${not #lists.isEmpty(user)}">
+		<div th:unless="${not #lists.isEmpty(users)}">
 			<div>No users match this title. Please try again.</div>
 		</div>
 	</div>
