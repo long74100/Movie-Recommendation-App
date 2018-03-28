@@ -26,17 +26,20 @@ public class UserprofileController {
 		ModelAndView modelAndView = new ModelAndView();
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		User user = userService.findUserByEmail(auth.getName());
-		modelAndView.addObject("username", "User: " + user.getUsername());
+		modelAndView.addObject("user", user);
 		modelAndView.setViewName("userProfile");
 		return modelAndView;
 	}
-	
-	@RequestMapping(value={"/profile/movielist"}, method = RequestMethod.GET)
+	/**
+	 * 
+	 * Pass the movie list here
+	 */
+	@RequestMapping(value={"/profile+to+movielist"}, method = RequestMethod.GET)
 	public ModelAndView getMovieList() {
 		ModelAndView modelAndView = new ModelAndView();
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		User user = userService.findUserByEmail(auth.getName());
-		modelAndView.addObject("Owner", "MovieList Owner: " + user.getUsername());
+		modelAndView.addObject("user", user);
 		modelAndView.setViewName("movielist");
 		return modelAndView;
 	}

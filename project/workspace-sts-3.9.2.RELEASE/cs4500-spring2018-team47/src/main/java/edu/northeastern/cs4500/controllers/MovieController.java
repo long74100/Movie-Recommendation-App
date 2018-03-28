@@ -44,7 +44,8 @@ import edu.northeastern.cs4500.model.user.User;
 @Controller
 public class MovieController {
 
-    private IOmdbService omdbService = new OmdbServiceImpl();
+    private LocalSQLConnectService localSQLConnector = new LocalSQLConnectService();
+	private IOmdbService omdbService = new OmdbServiceImpl();
     private SessionService sessionService = new SessionServiceImpl();
     private OmdbSQLconnectService localDbConnector = new OmdbSQLconnectService();
     private ArrayList<String> movieNames = new ArrayList<>();
@@ -61,6 +62,7 @@ public class MovieController {
 	List<Movie> movieList = new ArrayList<Movie>();
 	List<User> userList = new ArrayList<User>();
 
+	// get list of movies, only 5
 	try {
 	    movieJSON = omdbService.searchMovieByTitle(searchParam, "s");
 	    
@@ -76,12 +78,6 @@ public class MovieController {
 	    	movie.setImdbRating(movieJSON.getString("imdbRating"));
 	    	movieList.add(movie);
 	    	movieNames.add(movie.getTitle());
-	    	
-	    	User user = new User();
-	    	if(userService.findUserByUsername(searchParam) != null) {
-		    	user = userService.findUserByUsername(searchParam);
-		    	userList.add(user);
-	    	}
 	    	x++;
 	    }
 	    
@@ -94,10 +90,16 @@ public class MovieController {
 	    // use logger
 	    e.printStackTrace();
 	}
-
+	
+	// get list of users
+	userList = localSQLConnector.keywordSearchUser(searchParam);
+	
 	ModelAndView modelAndView = new ModelAndView();
+	Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+	User user = userService.findUserByEmail(auth.getName());
+	modelAndView.addObject("user", user);
 	modelAndView.addObject("movie", movieList);
-	modelAndView.addObject("user", userList);
+	modelAndView.addObject("users", userList);
 	modelAndView.setViewName("searchResult");
 	return modelAndView;
     }
@@ -129,6 +131,9 @@ public class MovieController {
 	    e.printStackTrace();
 	}
 	ModelAndView modelAndView = new ModelAndView();
+	Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+	User user = userService.findUserByEmail(auth.getName());
+	modelAndView.addObject("user", user);
 	modelAndView.addObject("movie", movie);
 	modelAndView.setViewName("movie");
 	return modelAndView;

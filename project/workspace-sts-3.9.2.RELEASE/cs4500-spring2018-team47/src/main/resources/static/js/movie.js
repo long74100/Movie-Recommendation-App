@@ -28,7 +28,7 @@ function init() {
 				  method: 'post',
 				  headers: {
 					'Accept': 'application/json, text/plain, */*',
-				    'Content-Type': 'ap	plication/json'
+				    'Content-Type': 'application/json'
 				  },
 				  body: payload
 			});

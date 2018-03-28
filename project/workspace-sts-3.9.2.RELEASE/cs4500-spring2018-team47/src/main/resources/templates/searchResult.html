@@ -2,16 +2,7 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale 1.0">
-
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-<link rel="stylesheet"
-	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<noscript th:replace="fragments/quickAddCSS :: quickAddCSS"></noscript>	
 <link rel="stylesheet" href="css/searchResult.css">
 <title>Search Results</title>
 </head>
@@ -33,7 +24,7 @@
 						<div th:text="${movie.actors}"></div>
 					</div>
 					<div class="col-md-2">
-						<b>Runtime: </b>
+						<b>Release Date: </b>
 						<div th:text="${movie.Released}"></div>
 						<b>IMDB Rating: </b>
 						<div th:text="${movie.ImdbRating}"></div>
@@ -52,26 +43,25 @@
 			<div>No movies match this title. Please try again.</div>
 		</div>
 		<h1>Users</h1>
-			<div th:each="user : ${user}">
-					<div class="container movieRow row">
+			<div th:each="user : ${users}">
+					<div class="container shadow row">
 					<img class="col-md-4"
 					src="http://www.joblo.com/posters/images/full/the-martian-poster.jpg"
 					class="poster">
 					<div class="col-md-4">
 			
-						<div th:text="${user.getFirstName}" class="movieTitle"></div>
-						<div th:text="${user.getUsername}"></div>
+						<div th:text="${user.username}" class="movieTitle"></div>
+						<div th:text="${user.firstName}"></div>
 					</div>
 					<div class="col-md-2">
 						<div style="margin: 2px;">
-							<button class="btn btn-primary">Add to Watchlist</button>
+							<button class="btn btn-primary">Add Friend</button>
 						</div>
-						<button class="btn btn-primary">Prod to a Friend</button>
 					</div>
 				</div>
 			</div>
 		<!-- else no users are found  -->
-		<div th:unless="${not #lists.isEmpty(user)}">
+		<div th:unless="${not #lists.isEmpty(users)}">
 			<div>No users match this title. Please try again.</div>
 		</div>
 	</div>

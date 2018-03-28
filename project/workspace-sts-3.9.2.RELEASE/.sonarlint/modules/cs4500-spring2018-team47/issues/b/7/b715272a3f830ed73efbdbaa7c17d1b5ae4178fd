@@ -1,11 +1,11 @@
 
-esquid:S1481N",Remove this unused "profile" local variable.(çÿ›‘ÿÿÿÿÿ8šÏó§¥,H¾RMINORZ
+›squid:UselessImportCheck"URemove this unused import 'edu.northeastern.cs4500.model.session.SessionServiceImpl'.(ø¯‡—ıÿÿÿÿ8ÿõó¹¢,H RMINORZ
 CODE_SMELL
-‚squid:S1192*"MDefine a constant instead of duplicating this literal "registration" 3 times.(Õ‘äÊşÿÿÿÿH¦RCRITICALZ
+tsquid:S1854N";Remove this useless assignment to local variable "profile".(çÿ›‘ÿÿÿÿÿ8“¤Û¤¦,HßRMAJORZ
 CODE_SMELL
-—squid:UselessImportCheck"QRemove this unused import 'edu.northeastern.cs4500.model.session.SessionService'.(¥Ïüÿÿÿÿ8ÿõó¹¢,H¥RMINORZ
+esquid:S1481N",Remove this unused "profile" local variable.(çÿ›‘ÿÿÿÿÿ8“¤Û¤¦,HŞRMINORZ
 CODE_SMELL
-›squid:UselessImportCheck"URemove this unused import 'edu.northeastern.cs4500.model.session.SessionServiceImpl'.(ø¯‡—ıÿÿÿÿ8ÿõó¹¢,H§RMINORZ
+‚squid:S1192*"MDefine a constant instead of duplicating this literal "registration" 3 times.(Õ‘äÊşÿÿÿÿHŸRCRITICALZ
 CODE_SMELL
-tsquid:S1854N";Remove this useless assignment to local variable "profile".(çÿ›‘ÿÿÿÿÿ8šÏó§¥,H¿RMAJORZ
+—squid:UselessImportCheck"QRemove this unused import 'edu.northeastern.cs4500.model.session.SessionService'.(¥Ïüÿÿÿÿ8ÿõó¹¢,H£RMINORZ
 CODE_SMELL

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-<head>
+<head th:fragment="quickAddCSS">
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	
@@ -10,26 +10,9 @@
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 	
-	<title>Rotten Tomatillos Home</title>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 </head>
-<body> 
-	<div th:replace="fragments/navBar :: header"></div>
-	<div class="container">
-		<p th:text="${username}">test</p>
-		<form th:action="@{/logout}" method="post">
-		    <div>
-				<button type="submit">Logout</button>
-		    </div> 	
-		</form>
-		<form th:action="@{/profile}" method="GET">
-			<div>
-				<button type="submit">profile</button>
-			</div>
-		</form>
-	</div>
-	
-	
-	 
+<body>
 	
 </body>
 </html>

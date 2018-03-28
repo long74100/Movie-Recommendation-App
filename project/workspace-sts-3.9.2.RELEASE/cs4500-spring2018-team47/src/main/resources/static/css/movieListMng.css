@@ -1,0 +1,114 @@
+ .movieListContainer {
+        margin-left: 250px;
+        height: 100%;
+        position: fixed;
+        overflow: scroll;
+        overflow-x: hidden;
+        clear: both;
+    }
+
+    .MovieListContent {
+        margin-top: 55px;
+        padding-left: 250px;
+        clear: both;
+    }
+    
+    .listNameGetter {
+    	width: 170px;
+    }
+   
+
+    .movieListNameTitleBar {
+        background: wheat;
+        margin-left:469px;
+        color: black;
+        height: 50px;
+        width:800px;
+        text-align: center;
+        margin-bottom: 0px;
+        border: black;
+        border-style: solid;
+        position: fixed;
+        clear: both;
+        z-index: 1;
+        
+    }
+
+    .Movietitletxt {
+        font-size: 30px;
+        margin-top: 0px;
+        z-index: -1;
+        position: relative;
+    }
+
+    .listCreator {
+        margin-top: 5px;
+        margin-left: 5px;
+        margin-right:5px;
+        position: relative;
+    }
+
+    .movieManagerMenu {
+        position: fixed;
+        margin-top: 0px;
+        height: 100%;
+        margin-left: 230px;
+        background: black;
+        color: wheat;
+        width: 240px;
+    }
+
+    .createBtn {
+        background: tomato;
+        width: 53px;
+        color: black;
+        text-align: left;
+        margin-left: 0px;
+        font-size: 12px;
+        border: solid;
+        cursor: pointer;
+        border-color: burlywood;
+    }
+
+
+    .createBtn:hover {
+        background: black;
+        border: solid;
+        color:white;
+        border-color: tomato;
+    }
+
+    .movieRepoName {
+        margin-top: 5px;
+        margin-bottom: 5px;
+        margin-right: 1px;
+        margin-left: 1px;
+        cursor: pointer;
+    }
+
+    .movieRepoName:hover {
+        background: wheat;
+        color:black;
+        font-size: 20px;
+    }
+    
+    .movieRepoList li {
+    	margin-top: 5px;
+        margin-bottom: 5px;
+        margin-right: 1px;
+        margin-left: 1px;
+        cursor: pointer;
+    }
+    
+    .movieRepoList li:hover {
+    	background: wheat;
+        color:black;
+        font-size: 20px;
+    }
+
+    ul {
+      margin-top: 15px;
+      list-style-type: none;
+      padding-left: 0pt;
+      height: 450px;
+    }
