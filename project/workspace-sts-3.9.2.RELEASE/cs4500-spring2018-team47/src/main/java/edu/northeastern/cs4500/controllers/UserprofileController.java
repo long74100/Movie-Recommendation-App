@@ -66,6 +66,7 @@ public class UserprofileController {
 		modelAndView.addObject("currentMovies", movies);
 		modelAndView.setViewName("listMoviesItem");
 		return modelAndView;
+		
 	}
 	
 	
