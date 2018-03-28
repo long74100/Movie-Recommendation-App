@@ -1,10 +1,13 @@
 package edu.northeastern.cs4500.controllers;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -12,6 +15,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -21,20 +25,21 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.servlet.ModelAndView;
 
 import edu.northeastern.cs4500.model.movie.Movie;
-import edu.northeastern.cs4500.model.movieRating.MovieRating;
+import edu.northeastern.cs4500.model.movie.MovieRating;
+import edu.northeastern.cs4500.model.movie.MovieReview;
 import edu.northeastern.cs4500.model.services.IOmdbService;
 import edu.northeastern.cs4500.model.services.LocalSQLConnectService;
 import edu.northeastern.cs4500.model.services.MovieRatingService;
 import edu.northeastern.cs4500.model.services.OmdbSQLconnectService;
 import edu.northeastern.cs4500.model.services.OmdbServiceImpl;
+import edu.northeastern.cs4500.model.services.UserService;
 import edu.northeastern.cs4500.model.session.SessionService;
 import edu.northeastern.cs4500.model.session.SessionServiceImpl;
-import edu.northeastern.cs4500.model.services.UserService;
 import edu.northeastern.cs4500.model.user.User;
-import java.util.Random;
 
 @Controller
 public class MovieController {
@@ -52,7 +57,7 @@ public class MovieController {
     private UserService userService;
 
     @RequestMapping(value = { "/search" }, method = RequestMethod.GET)
-    public ModelAndView searchResult(@RequestParam("q") String searchParam) {
+    public ModelAndView searchResult(@RequestParam("title") String searchParam) {
 	JSONObject movieJSON = new JSONObject();
 	List<Movie> movieList = new ArrayList<Movie>();
 	List<User> userList = new ArrayList<User>();
@@ -118,6 +123,7 @@ public class MovieController {
 	    movie.put("country", movieJSON.getString("Country"));
 	    movie.put("poster", movieJSON.getString("Poster"));
 	    movie.put("imdbRating", movieJSON.getString("imdbRating"));
+	    movie.put("imdbID", movieJSON.getString("imdbID"));
 	    
 	    // to add seached movie into local database
 	    localDbConnector.catchMovie(movieJSON);
@@ -153,8 +159,21 @@ public class MovieController {
 	}
 	return new MovieRating();
     }
-    
-    
+        
+    @RequestMapping(value="/writeReview", method=RequestMethod.POST)
+    @ResponseStatus(value = HttpStatus.OK)
+    public void writeReview(@RequestBody String review, HttpServletRequest httpServletRequest) {
+    	MovieReview movieReview = new MovieReview();	
+    	movieReview.setMovie_id(httpServletRequest.getParameter("movieId"));
+    	movieReview.setReview(httpServletRequest.getParameter("review"));
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+    	movieReview.setDate(formatter.format(new Date()));
+    	Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+    	User user = userService.findUserByEmail(auth.getName());
+    	movieReview.setUser_id(String.valueOf(user.getId()));
+    	LocalSQLConnectService db = new LocalSQLConnectService();
+    	db.addReviewToLocalDB(movieReview);
+    }
     
     /**
      * To add movie from searched result to local database
@@ -162,5 +181,4 @@ public class MovieController {
     private void addMoviesIntoLocalDB() {
     	localDbConnector.addMultiMovies(movieNames);
     }
-
 }

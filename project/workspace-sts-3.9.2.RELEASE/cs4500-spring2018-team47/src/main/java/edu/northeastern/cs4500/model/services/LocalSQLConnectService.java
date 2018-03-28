@@ -1,7 +1,6 @@
 package edu.northeastern.cs4500.model.services;
 
 import java.sql.Connection;
-import java.sql.DatabaseMetaData;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -10,7 +9,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import org.springframework.jdbc.core.JdbcTemplate;
+import edu.northeastern.cs4500.model.movie.MovieReview;
 
 import edu.northeastern.cs4500.model.movie.Movie;
 import edu.northeastern.cs4500.model.user.User;
@@ -379,7 +378,25 @@ public class LocalSQLConnectService {
     		ep.printStackTrace();
     	}
 	}
-     
+
+    public void addReviewToLocalDB(MovieReview mr) {
+		try {
+			int reviewId = mr.getId();
+			String reviewContent = mr.getReview();
+			String movieId = mr.getMovie_id();
+			String reviewer_id = mr.getUser_id();
+			String date = mr.getDate();
+			String query = 
+			"insert into Review values (" + reviewId + ", \"" + movieId + "\", " + reviewer_id + ", \"" +  date + "\", \"" + reviewContent + "\")";
+			
+			connectStatement.executeUpdate(query);
+			
+		}
+		catch(SQLException se){
+			se.printStackTrace();
+		}
+
+	}
     /**
      * To get list of users that match the given search name
      * @param username the user name that will be used as search keyword
