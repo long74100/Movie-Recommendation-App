@@ -141,23 +141,20 @@ public class MovieController {
 	modelAndView.setViewName("movie");
 	return modelAndView;
     }
-
+    
     @RequestMapping(value= "/movie/rating",method=RequestMethod.POST)
-    public @ResponseBody MovieRating setRating(@RequestBody String rating, HttpServletRequest httpServletRequest) {
-	try {
-	    JSONObject json = new JSONObject(rating);
-		MovieRating movieRating = new MovieRating();
-		movieRating.setMovieName(json.getString("movie"));
-		movieRating.setRating(Double.valueOf(json.getString("rating")));
-		Random rand = new Random();
-		int  n = rand.nextInt(10) + 1;
-		movieRating.setUserID(n);
-		movieRatingService.saveMovieRating(movieRating);
-	} catch (JSONException e) {
-		
-	    // use logger
-	}
-	return new MovieRating();
+    @ResponseStatus(value = HttpStatus.OK)
+        public void setRating(@RequestBody String rating, HttpServletRequest httpServletRequest) {
+    	MovieRating movieRating = new MovieRating();	
+        	movieRating.setMovieId(httpServletRequest.getParameter("movieId"));
+        	movieRating.setRating(Double.valueOf(httpServletRequest.getParameter("rating")));
+        	SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+        movieRating.setDate(formatter.format(new Date()));
+        	Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        	User user = userService.findUserByEmail(auth.getName());
+        	movieRating.setUserID(user.getId());
+    	movieRatingService.saveMovieRating(movieRating);
+    
     }
         
     @RequestMapping(value="/writeReview", method=RequestMethod.POST)
