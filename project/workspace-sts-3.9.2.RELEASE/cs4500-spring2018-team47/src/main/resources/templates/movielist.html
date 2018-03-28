@@ -16,7 +16,7 @@
 <body> 
 	<div id="container" th:action="@{/movielist}" method="GET">
 		<div id="movielistContent" class="movielistContext">
-			<p th:text="${Owner}"></p>
+			<p th:text="${user.username}"></p>
 		</div>
 		
 	</div>
