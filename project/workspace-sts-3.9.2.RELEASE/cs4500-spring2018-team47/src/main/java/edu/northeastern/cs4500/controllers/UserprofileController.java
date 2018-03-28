@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import edu.northeastern.cs4500.model.services.LocalSQLConnectService;
 import edu.northeastern.cs4500.model.services.UserService;
 import edu.northeastern.cs4500.model.user.User;
 import edu.northeastern.cs4500.model.user.UserProfile;
@@ -56,10 +57,17 @@ public class UserprofileController {
 	
 	@RequestMapping(value="/profile/add+{username}", method = RequestMethod.POST)
     public ModelAndView addFriend(@PathVariable String username) {
+		
 		ModelAndView modelAndView = new ModelAndView();
+		
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		User user = userService.findUserByEmail(auth.getName());
+		User receiverUser = userService.findUserByUsername(username);
+		
+		LocalSQLConnectService localSQLConnectService = new LocalSQLConnectService();
+		localSQLConnectService.sendFriendRequest(user.getId(), receiverUser.getId());
+		
 		modelAndView.setViewName("login");
-		User user = userService.findUserByUsername(username);
-		modelAndView.addObject("profileUser", user);
 		return modelAndView;
 	}
 	
