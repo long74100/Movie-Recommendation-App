@@ -49,6 +49,8 @@ public class UserprofileController {
     public ModelAndView userProfile(@PathVariable String username) {
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.setViewName("fragments/userProfile/profilePage");
+		User user = userService.findUserByUsername(username);
+		modelAndView.addObject("profileUser", user);
 		return modelAndView;
 	}
 	

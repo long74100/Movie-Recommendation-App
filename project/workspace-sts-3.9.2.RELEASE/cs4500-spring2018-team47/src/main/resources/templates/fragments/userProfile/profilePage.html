@@ -8,7 +8,7 @@
 	<div th:replace="fragments/navBar :: header"></div>
 	<div th:fragment="profilePage">
 		<div style="margin-left: 200px">
-			<h1></h1>
+			<h1 th:text="${profileUser.username}"></h1>
 			<div class="container mt-3 wishList">
 			<h2>Your Wish list</h2>
 			<div class="rec row">
