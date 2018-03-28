@@ -64,8 +64,8 @@ public class UserprofileController {
 		return modelAndView;
 	}
 	
-/*	@RequestMapping(value="/profile/add+{username}", method = RequestMethod.POST)
-    public void addFriend(@PathVariable String username) {
+	@RequestMapping(value="/profile/{username}", method = RequestMethod.POST)
+    public ModelAndView addFriend(@PathVariable String username) {
 		
 		ModelAndView modelAndView = new ModelAndView();
 		
@@ -75,9 +75,13 @@ public class UserprofileController {
 		
 		LocalSQLConnectService localSQLConnectService = new LocalSQLConnectService();
 		localSQLConnectService.sendFriendRequest(user.getId(), receiverUser.getId());
+		User profileUser = userService.findUserByUsername(username);
 		
-		modelAndView.setViewName("login");
-	}*/
+		modelAndView.addObject("user", user);
+		modelAndView.addObject("profileUser", profileUser);
+		modelAndView.setViewName("fragments/userProfile/profilePage");
+		return modelAndView;
+	}
 	
 	
 	@RequestMapping(value={"/profile+to+movielist+{listName}"}, method = RequestMethod.GET)
