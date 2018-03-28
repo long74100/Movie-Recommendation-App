@@ -5,7 +5,7 @@
 </head>
 <body>
 	<div th:fragment="userProfileMenu">
-		<script type="text/javascript" src="js/sideBarFunctions.js"></script>
+		<script type="text/javascript" src="../js/sideBarFunctions.js"></script>
 		<div th:replace="fragments/navBar :: header"></div>
 		<div id="container" th:action="@{/userProfile}" method="GET">
         <div id="leftside" class="menuHolder">
@@ -17,15 +17,23 @@
             </div>
             <ul class="leftMenu">
                 <p></p>
-                <p class="useful">General</p>
-                <p class="useful">Privacy</p>
-                <p class="useful">Friends</p>
-                <p class="useful">Prods</p>
-                <p class="useful" onClick="getMovieList">Movie List</p>
-                <p class="useful">Watch History</p>
-                <p class="useful">System Prods</p>
-                <p class="useful">Settings</p>
-                <p class="useful">Contact us</p>
+                
+                <a th:href="@{/profile+to+movielist}">
+					<p class="useful">Privacy</p></a>
+                <a th:href="@{/profile+to+movielist}">
+                	<p class="useful">Friends</p></a>
+                <a th:href="@{/profile+to+movielist}">
+					<p class="useful">Prods</p></a>
+                <a th:href="@{/profile+to+movielist}">
+					<p class="useful">Movie List</p></a>
+                <a th:href="@{/profile+to+movielist}">
+					<p class="useful">Watch History</p></a>
+                <a th:href="@{/profile+to+movielist}">
+					<p class="useful">System Prods</p></a>
+                <a th:href="@{/profile+to+movielist}">
+					<p class="useful">Settings</p></a>
+                <a th:href="@{/profile+to+movielist}">
+					<p class="useful">Contact us</p></a>
             </ul>
         </div>
         </div>

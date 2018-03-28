@@ -30,8 +30,11 @@ public class UserprofileController {
 		modelAndView.setViewName("userProfile");
 		return modelAndView;
 	}
-	
-	@RequestMapping(value={"/profile/movielist"}, method = RequestMethod.GET)
+	/**
+	 * 
+	 * Pass the movie list here
+	 */
+	@RequestMapping(value={"/profile+to+movielist"}, method = RequestMethod.GET)
 	public ModelAndView getMovieList() {
 		ModelAndView modelAndView = new ModelAndView();
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();

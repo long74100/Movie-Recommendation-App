@@ -8,8 +8,12 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 import org.springframework.jdbc.core.JdbcTemplate;
+
+import edu.northeastern.cs4500.model.movie.Movie;
+import edu.northeastern.cs4500.model.user.User;
 
 /**
  * This class is used to connect to the local database. This tool builds a connection between front end 
@@ -375,13 +379,68 @@ public class LocalSQLConnectService {
     		ep.printStackTrace();
     	}
 	}
+     
+    /**
+     * To get list of users that match the given search name
+     * @param username the user name that will be used as search keyword
+     * @return list of users
+     */
+    public List<User> keywordSearchUser(String username) {
+    	ArrayList<User> output = new ArrayList<>();
+    	try {
+    		String query = "select * from user where username like \"%" + username + "%\"";
+    		myResult = connectStatement.executeQuery(query);
+    		while(myResult.next()) {
+    			User matched_user = new User();
+    			int user_id = myResult.getInt("user_id");
+    			String user_name = myResult.getString("username");
+    			int user_role = myResult.getInt("role");
+    			int user_active_status = myResult.getInt("active");
+    			matched_user.setActive(user_active_status);
+    			matched_user.setUsername(user_name);
+    			matched_user.setRole(user_role);
+    			matched_user.setId(user_id);
+    			output.add(matched_user);
+    		}
+    		
+    	}
+    	catch(SQLException ep) {
+    		ep.printStackTrace();
+    	}
+    	
+    	return output;
+    	
+    }
+    
+    /**
+     * To get the movie list name for all movie lists belonging to given user
+     * @param userId the id for user
+     * @return the list of movie name 
+     */
+    public List<String> getMovieListForUser(int userId) {
+    	ArrayList<String> movieNames = new ArrayList<>();
+    	try {
+    		String query = "select list_name from Movielist where user_id = " + userId;
+    		myResult = connectStatement.executeQuery(query);
+    		while(myResult.next()) {
+    			String listName = myResult.getString("list_name");
+    			movieNames.add(listName);
+    		}
+    		
+    	}
+    	catch(SQLException sq) {
+    		sq.printStackTrace();
+    	}
+    	
+    	return movieNames;
+    }
     
     /**
      * To get movie from user movie list
      * @return list of movie names 
      */
-    public ArrayList<ArrayList<String>> getMovieFromUserMovieList(int userId, String listname) {
-    	ArrayList<ArrayList<String>> result = new ArrayList<>();
+    public List<Movie> getMovieFromUserMovieList(int userId, String listname) {
+    	ArrayList<Movie> result = new ArrayList<>();
     	try {
     		String query = 
     				"select Movie.movie_id, Movie.movie_name, Movie.actor, Movie.plot from Movie join "
@@ -390,15 +449,16 @@ public class LocalSQLConnectService {
     				+ " as comp on comp.movie_id = Movie.movie_id)";
     		myResult = connectStatement.executeQuery(query);
     		while(myResult.next()) {
-    			ArrayList<String> element = new ArrayList<>();
+    			Movie element = new Movie();
     			String movieId = myResult.getString("movie_id");
     			String movieName = myResult.getString("movie_name");
     			String movieActor = myResult.getString("actor");
     			String moviePlot = myResult.getString("plot");
-    			element.add(movieId);
-    			element.add(movieName);
-    			element.add(movieActor);
-    			element.add(moviePlot);
+    			
+    			element.setImdbID(movieId);
+    			element.setTitle(movieName);
+    			element.setActors(movieActor);
+    			element.setPlot(moviePlot);
     			// add to final result.
     			result.add(element);
     		}
@@ -406,7 +466,6 @@ public class LocalSQLConnectService {
     	catch(SQLException sq) {
     		sq.printStackTrace();
     	}
-    	
     	return result;
     }
 }

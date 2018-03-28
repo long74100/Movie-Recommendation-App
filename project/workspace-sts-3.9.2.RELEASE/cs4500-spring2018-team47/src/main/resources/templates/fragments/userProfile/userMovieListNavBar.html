@@ -1,0 +1,33 @@
+<!Doctype html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+
+</head>
+
+<body>
+	<div th:fragment="movieListNavBar">
+		<div th:replace="fragments/userProfile/profileMenu :: userProfileMenu"></div>
+		<div class="movieManagerMenu" th:action="@{/profile+to+movielist}" method="GET">
+            <div class="listCreator">
+                <input class="listNameGetter" 
+                type="text" 
+                placeholder="Create movie list here..."/>
+                <button class="createBtn">Create</button>
+            </div>
+            <ul class="movieRepoList">
+    			<li>Default</li>
+    			<li>Defaul2</li>
+    		</ul>
+        </div>
+        <div class="movieListNameTitleBar">
+            <p class="Movietitletxt">Movie List</p>
+        </div>
+	
+	</div>
+
+</body>
+
+
+
+
+</html>

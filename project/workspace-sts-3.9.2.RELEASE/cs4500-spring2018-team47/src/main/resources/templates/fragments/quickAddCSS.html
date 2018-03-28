@@ -12,7 +12,28 @@
 	
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 </head>
+<<<<<<< HEAD:project/workspace-sts-3.9.2.RELEASE/cs4500-spring2018-team47/src/main/resources/templates/home.html
+<body> 
+	<div th:replace="fragments/navBar :: header"></div>
+	<div class="container">
+		<p th:text="${username}">test</p>
+		<form th:action="@{/logout}" method="post">
+		    <div>
+				<button type="submit">Logout</button>
+		    </div> 	
+		</form>
+		<form th:action="@{/profile}" method="GET">
+			<div>
+				<button>profile</button>
+			</div>
+		</form>
+	</div>
+	
+	
+	 
+=======
 <body>
+>>>>>>> 1361bacdda533db0e6f6863d2daacaa152ab8c76:project/workspace-sts-3.9.2.RELEASE/cs4500-spring2018-team47/src/main/resources/templates/fragments/quickAddCSS.html
 	
 </body>
 </html>

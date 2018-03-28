@@ -3,14 +3,11 @@
 <head>
 	<noscript th:replace="fragments/quickAddCSS :: quickAddCSS"></noscript>
 	
-	<title>User Movie List</title>
+	<title>Movie List</title>
 </head>
 <body> 
-	<div id="container" th:action="@{/movielist}" method="GET">
-		<div id="movielistContent" class="movielistContext">
-			<p th:text="${user.username}"></p>
-		</div>
-		
-	</div>
+
+    <div th:replace="fragments/userProfile/userMovieListNavBar :: movieListNavBar"></div>
+
 </body>
 </html>
