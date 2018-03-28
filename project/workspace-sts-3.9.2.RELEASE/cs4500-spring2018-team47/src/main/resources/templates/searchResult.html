@@ -16,7 +16,7 @@
 				<a th:href="@{/movie/{title}(title=${movie.title})}">
 					<div class="container shadow row">
 					<img class="col-md-4"
-					src="http://www.joblo.com/posters/images/full/the-martian-poster.jpg"
+					th:src="${movie.poster}"
 					class="poster">
 					<div class="col-md-4">
 			
@@ -44,6 +44,7 @@
 		</div>
 		<h1>Users</h1>
 			<div th:each="user : ${users}">
+				<a th:href="@{/profile/{username}(username=${user.username})}">
 					<div class="container shadow row">
 					<img class="col-md-4"
 					src="http://www.joblo.com/posters/images/full/the-martian-poster.jpg"
@@ -59,6 +60,7 @@
 						</div>
 					</div>
 				</div>
+				</a>
 			</div>
 		<!-- else no users are found  -->
 		<div th:unless="${not #lists.isEmpty(users)}">

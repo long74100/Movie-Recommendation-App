@@ -52,6 +52,31 @@ public class UserprofileController {
 		return modelAndView;
 	}
 	
+	@RequestMapping(value="/profile/{username}", method = RequestMethod.GET)
+    public ModelAndView userProfile(@PathVariable String username) {
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.setViewName("fragments/userProfile/profilePage");
+		User user = userService.findUserByUsername(username);
+		modelAndView.addObject("profileUser", user);
+		return modelAndView;
+	}
+	
+	@RequestMapping(value="/profile/add+{username}", method = RequestMethod.POST)
+    public ModelAndView addFriend(@PathVariable String username) {
+		
+		ModelAndView modelAndView = new ModelAndView();
+		
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		User user = userService.findUserByEmail(auth.getName());
+		User receiverUser = userService.findUserByUsername(username);
+		
+		LocalSQLConnectService localSQLConnectService = new LocalSQLConnectService();
+		localSQLConnectService.sendFriendRequest(user.getId(), receiverUser.getId());
+		
+		modelAndView.setViewName("login");
+		return modelAndView;
+	}
+	
 	
 	@RequestMapping(value={"/profile+to+movielist+{listName}"}, method = RequestMethod.GET)
 	public ModelAndView getMovieItems(@PathVariable String listName) {
