@@ -1,7 +1,7 @@
 <!Doctype html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
-	<noscript th:replace="fragments/quickAddCSS :: quickAddCSS"></noscript>	
+	<noscript th:replace="fragments/quickAddCSSJS :: quickAddCSSJS"></noscript>	
 </head>
 
 <body>
@@ -15,7 +15,7 @@
 					<div th:case="*">
 						<h1 th:text="${profileUser.username}"></h1>
 						<div>
-							<form th:action="@{/profile/{username}(username=${profileUser.username})}" method="POST">
+							<form th:action="@{/view/profile/{username}(username=${profileUser.username})}" method="POST">
 									 <button class="btn btn-primary" type="submit" name="addFriend" value="Add Friend">Add Friend</button>
 							</form>
 						</div>
