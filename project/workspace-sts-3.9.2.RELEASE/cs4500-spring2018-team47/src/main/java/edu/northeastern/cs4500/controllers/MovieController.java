@@ -57,6 +57,7 @@ public class MovieController {
 	List<Movie> movieList = new ArrayList<Movie>();
 	List<User> userList = new ArrayList<User>();
 
+	// get list of movies, only 5
 	try {
 	    movieJSON = omdbService.searchMovieByTitle(searchParam, "s");
 	    
@@ -85,6 +86,7 @@ public class MovieController {
 	    e.printStackTrace();
 	}
 	
+	// get list of users
 	userList = localSQLConnector.keywordSearchUser(searchParam);
 	
 	ModelAndView modelAndView = new ModelAndView();
