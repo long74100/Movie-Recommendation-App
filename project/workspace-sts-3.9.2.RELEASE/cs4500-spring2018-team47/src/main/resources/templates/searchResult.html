@@ -44,7 +44,7 @@
 		</div>
 		<h1>Users</h1>
 			<div th:each="user : ${users}">
-				<a th:href="@{/profile/{username}(username=${user.username})}">
+				<a th:href="@{/view/profile/{username}(username=${user.username})}">
 					<div class="container shadow row">
 					<img class="col-md-4"
 					src="http://www.joblo.com/posters/images/full/the-martian-poster.jpg"

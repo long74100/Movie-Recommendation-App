@@ -52,7 +52,7 @@ public class UserprofileController {
 		return modelAndView;
 	}
 	
-	@RequestMapping(value="/profile/{username}", method = RequestMethod.GET)
+	@RequestMapping(value="/view/profile/{username}", method = RequestMethod.GET)
     public ModelAndView userProfile(@PathVariable String username) {
 		ModelAndView modelAndView = new ModelAndView();
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
@@ -64,7 +64,7 @@ public class UserprofileController {
 		return modelAndView;
 	}
 	
-	@RequestMapping(value="/profile/{username}", method = RequestMethod.POST)
+	@RequestMapping(value="/view/profile/{username}", method = RequestMethod.POST)
     public ModelAndView addFriend(@PathVariable String username) {
 		
 		ModelAndView modelAndView = new ModelAndView();
