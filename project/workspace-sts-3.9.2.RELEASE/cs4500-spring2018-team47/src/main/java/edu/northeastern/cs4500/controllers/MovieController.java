@@ -180,6 +180,7 @@ public class MovieController {
     	Authentication auth = SecurityContextHolder.getContext().getAuthentication();
     	User user = userService.findUserByEmail(auth.getName());
     	movieReview.setUser_id(String.valueOf(user.getId()));
+    	movieReview.setUsername(user.getUsername());
     	LocalSQLConnectService db = new LocalSQLConnectService();
     	db.addReviewToLocalDB(movieReview);
     }

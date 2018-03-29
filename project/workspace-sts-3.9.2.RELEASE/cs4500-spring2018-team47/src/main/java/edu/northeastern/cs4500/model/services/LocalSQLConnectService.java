@@ -404,8 +404,10 @@ public class LocalSQLConnectService {
 			String movieId = mr.getMovie_id();
 			String reviewer_id = mr.getUser_id();
 			String date = mr.getDate();
+			String username = mr.getUsername();
 			String query = 
-			"insert into Review values (" + reviewId + ", \"" + movieId + "\", " + reviewer_id + ", \"" +  date + "\", \"" + reviewContent + "\")";
+			"insert into Review values (" + reviewId + ", \"" + movieId + "\", " 
+			+ reviewer_id + ", \"" +  username + "\", \"" + date + "\", \"" + reviewContent + "\")";
 			
 			connectStatement.executeUpdate(query);
 			
@@ -746,6 +748,8 @@ public class LocalSQLConnectService {
     
     /**
      * Get a rating from movie ratings.
+     * @param userId the user Id
+     * @param movieId the movie Id
      */
     public int getRating(int userId, String movieId) {
 	try {
@@ -758,11 +762,84 @@ public class LocalSQLConnectService {
 	     if(myResult.next()) {
 		 return myResult.getInt("rating");
 	     } 
-	} catch(SQLException e) {
+	} 
+	catch(SQLException e) {
 		logger.error(e.getMessage());
 	}
 	
-	return -1;
+		return -1;
     }
+    
+    
+    /**
+     * To get all the reviews for the movie with given movieId
+     * @param movieId the movie that will be checked the reviews
+     * @return list of movie reviews
+     */
+    public List<MovieReview> getReviewsForMovie(String movieId) {
+    	ArrayList<MovieReview> result = new ArrayList<>();
+    	try {
+    		String query = "select * from Review where movie_id = \"" + movieId + "\"";
+    		myResult = connectStatement.executeQuery(query);
+    		if(myResult.next()) {
+    			MovieReview output = new MovieReview();
+    			String username = myResult.getString("reviewer_name");
+    			String userid = myResult.getString("reviewer_id");
+    			Integer reviewId = myResult.getInt("review_id");
+    			String reviewDate = myResult.getString("review_date");
+    			String description = myResult.getString("description");
+    			output.setDate(reviewDate);
+    			output.setMovie_id(movieId);
+    			output.setReview(description);
+    			output.setUser_id(userid);
+    			output.setUsername(username);
+    			result.add(output);
+    		}
+    	}
+    	catch(SQLException ep) {
+    		ep.printStackTrace();
+    	}
+    	return result;
+    }
+    
+    
+    /**
+     * To get review written by given user
+     * @param userId the user's id
+     * @return the list of movie
+     */
+    public List<MovieReview> getReviewForUser(String userId) {
+    	ArrayList<MovieReview> output = new ArrayList<>();
+    	
+    	try {
+    		String query = "select * from Review where reviewer_id = \"" + userId + "\"";
+    		myResult = connectStatement.executeQuery(query);
+    		while(myResult.next()) {
+    			MovieReview item = new MovieReview();
+    			String username = myResult.getString("reviewer_name");
+    			String movieid = myResult.getString("movie_id");
+    			Integer reviewId = myResult.getInt("review_id");
+    			String reviewDate = myResult.getString("review_date");
+    			String description = myResult.getString("description");
+    			item.setDate(reviewDate);
+    			item.setMovie_id(movieid);
+    			item.setReview(description);
+    			item.setUser_id(userId);
+    			item.setUsername(username);
+    			output.add(item);
+    		}
+    	}
+    	catch(SQLException sq) {
+    		sq.printStackTrace();
+    	}
+    	
+    	return output;
+    }
+    
+    
+    
+    
+    
+    
 
 }
