@@ -19,6 +19,9 @@
             		Plot: <p class="itemPlot" th:text="${movie.plot}"></p>
             	</div>
     		</div>
+    		<div th:unless="${not #lists.isEmpty(currentMovies)}" class="movieItems">
+			<div class="emptyMessage">Your list is empty. Add some movie into it.</div>
+		</div>
    		</ul>
     
     </div>
