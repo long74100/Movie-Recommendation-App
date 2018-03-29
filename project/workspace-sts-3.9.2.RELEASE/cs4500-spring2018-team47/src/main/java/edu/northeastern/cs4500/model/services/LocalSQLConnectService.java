@@ -379,6 +379,10 @@ public class LocalSQLConnectService {
     	}
 	}
 
+    /**
+     * To add the review into local database
+     * @param mr Movie review for a movie
+     */
     public void addReviewToLocalDB(MovieReview mr) {
 		try {
 			int reviewId = mr.getId();
@@ -498,5 +502,67 @@ public class LocalSQLConnectService {
     		sq.printStackTrace();
     	}
     	return result;
+    }
+    
+    /**
+     * To create movie list 
+     * @param movieListName the name for the movie list
+     */
+    public void createMovieList(int userid, String movieListName) {
+    	try {
+    		String query = "select * from Movielist where user_id = " + userid + " and list_name = \"" + movieListName + "\"";
+    		myResult = connectStatement.executeQuery(query);
+    		if(myResult.next()) {
+    			System.out.println("You already have this movielist");
+    		}
+    		else {
+    			String addListQuery = "insert into Movielist values (" + userid + ", \"" + movieListName + "\")";
+    			connectStatement.executeUpdate(addListQuery);
+    			System.out.println("movielist has added");
+    		}
+    	}
+    	catch(SQLException sq) {
+    		sq.printStackTrace();
+    	}
+    }
+    
+    /**
+     * To add the movie into the movie list with given name
+     * @param userId the user that this movie list belongs to
+     * @param listName the name of the movie list
+     * @param movieId id for movie that will be added to this list
+     * @param movieName name for movie that will be added to this list
+     */
+    public void addMovieIntoMovieList(int userId, String listName, String movieId, String movieName) {
+    	try {
+    		String query = "insert into UserMovieList vlaues (" + userId + ", \"" + listName + "\", \"" + 
+    						movieId + "\", \"" + movieName + "\")";
+    		connectStatement.executeUpdate(query);
+    	}
+    	catch(SQLException sq) {
+    		sq.printStackTrace();
+    	}
+    }
+    
+    /**
+     * To get the status of the users relationship
+     * @param senderId the user who sent the request
+     * @param receiverId the user who is sent the request
+     * @return the relationship one of the following: "friend", "onHold"
+     */
+    public String getUserRelation(int senderId, int receiverId) {
+    	StringBuilder status = new StringBuilder();
+    	try {
+    		String query = "select * from userRelation where senderId = " + senderId + " and receiverId " + receiverId;
+    		myResult = connectStatement.executeQuery(query);
+    		if(myResult.next()) {
+    			String sta = myResult.getString("relationStatus");
+    		}
+    	}
+    	catch(SQLException sq) {
+    		sq.printStackTrace();
+    	}
+    	
+    	return status.toString();
     }
 }

@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import edu.northeastern.cs4500.model.movie.Movie;
@@ -53,6 +54,7 @@ public class UserprofileController {
 		List<String> movieListNames = sqlConnector.getMovieListForUser(user.getId());
 		modelAndView.addObject("usermovielist", movieListNames);
 		modelAndView.addObject("currentMovies", new ArrayList<Movie>());
+//		modelAndView.addObject("newListName", "");
 		modelAndView.setViewName("movielist");
 		return modelAndView;
 	}
@@ -92,13 +94,35 @@ public class UserprofileController {
 		modelAndView.addObject("user", user);
 		List<String> movieListNames = sqlConnector.getMovieListForUser(user.getId());
 		ArrayList<Movie> movies = sqlConnector.getMovieFromUserMovieList(user.getId(), listName);
+//		if(!movieListNames.contains(listName)) {
+//			sqlConnector.createMovieList(user.getId(), listName);
+//			movieListNames.add(listName);
+//		}
 		modelAndView.addObject("usermovielist", movieListNames);
 		modelAndView.addObject("currentMovies", movies);
 		modelAndView.setViewName("listMoviesItem");
 		return modelAndView;
 	}
 	
+//	@RequestMapping(value = { "/search" }, method = RequestMethod.GET)
+//    public ModelAndView searchResult(@RequestParam("title") String searchParam) {
 	
+//	@RequestMapping(value = {"/profile+to+movielist?=new"}, method = RequestMethod.GET) 
+//	public ModelAndView addNewMovieList(@RequestParam("newListName") String newListName) {
+//		ModelAndView modelAndView = new ModelAndView();
+//		LocalSQLConnectService sqlConnector = new LocalSQLConnectService();
+//		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+//		User user = userService.findUserByEmail(auth.getName());
+//		modelAndView.addObject("user", user);
+//		List<String> movieListNames = sqlConnector.getMovieListForUser(user.getId());
+//		if(!movieListNames.contains(newListName)) {
+//			sqlConnector.createMovieList(user.getId(), newListName);
+//			movieListNames.add(newListName);
+//		}
+//		modelAndView.addObject("usermovielist", movieListNames);
+//		modelAndView.setViewName("home");
+//		return modelAndView;
+//	}
 	
 	
 }
