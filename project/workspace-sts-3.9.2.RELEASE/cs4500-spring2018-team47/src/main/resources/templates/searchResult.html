@@ -2,7 +2,7 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:th="http://www.thymeleaf.org">
 <head>
-<noscript th:replace="fragments/quickAddCSS :: quickAddCSS"></noscript>	
+<noscript th:replace="fragments/quickAddCSSJS :: quickAddCSSJS"></noscript>
 <link rel="stylesheet" href="css/searchResult.css">
 <title>Search Results</title>
 </head>
@@ -44,7 +44,7 @@
 		</div>
 		<h1>Users</h1>
 			<div th:each="user : ${users}">
-				<a th:href="@{/profile/{username}(username=${user.username})}">
+				<a th:href="@{/view/{username}(username=${user.username})}">
 					<div class="container shadow row">
 					<img class="col-md-4"
 					src="http://www.joblo.com/posters/images/full/the-martian-poster.jpg"

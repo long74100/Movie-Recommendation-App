@@ -1,13 +1,13 @@
 package edu.northeastern.cs4500.controllers;
 
 import java.io.IOException;
+
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Random;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -24,7 +24,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -37,19 +36,22 @@ import edu.northeastern.cs4500.model.services.MovieRatingService;
 import edu.northeastern.cs4500.model.services.OmdbSQLconnectService;
 import edu.northeastern.cs4500.model.services.OmdbServiceImpl;
 import edu.northeastern.cs4500.model.services.UserService;
-import edu.northeastern.cs4500.model.session.SessionService;
-import edu.northeastern.cs4500.model.session.SessionServiceImpl;
 import edu.northeastern.cs4500.model.user.User;
+
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 @Controller
 public class MovieController {
 
     private LocalSQLConnectService localSQLConnector = new LocalSQLConnectService();
 	private IOmdbService omdbService = new OmdbServiceImpl();
-    private SessionService sessionService = new SessionServiceImpl();
     private OmdbSQLconnectService localDbConnector = new OmdbSQLconnectService();
     private ArrayList<String> movieNames = new ArrayList<>();
     
+    private static final Logger logger = LogManager.getLogger(MovieController.class);
+
     @Autowired
     private MovieRatingService movieRatingService;
     
@@ -130,34 +132,40 @@ public class MovieController {
 	    localDbConnector.loadMovieToLocalDB();
 	    
 	} catch (IOException | JSONException e) {
-	    // use logger
-	    e.printStackTrace();
+	    logger.error(e.getMessage());
 	}
+	
 	ModelAndView modelAndView = new ModelAndView();
 	Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 	User user = userService.findUserByEmail(auth.getName());
 	modelAndView.addObject("user", user);
 	modelAndView.addObject("movie", movie);
+	
+	if (user != null) {
+	    int rating = localSQLConnector.getRating(user.getId(), movie.get("imdbID"));
+	    modelAndView.addObject("rating", rating);
+	}
+	
 	modelAndView.setViewName("movie");
 	return modelAndView;
     }
-
+    
     @RequestMapping(value= "/movie/rating",method=RequestMethod.POST)
-    public @ResponseBody MovieRating setRating(@RequestBody String rating, HttpServletRequest httpServletRequest) {
-	try {
-	    JSONObject json = new JSONObject(rating);
-		MovieRating movieRating = new MovieRating();
-		movieRating.setMovieName(json.getString("movie"));
-		movieRating.setRating(Double.valueOf(json.getString("rating")));
-		Random rand = new Random();
-		int  n = rand.nextInt(10) + 1;
-		movieRating.setUserID(n);
-		movieRatingService.saveMovieRating(movieRating);
-	} catch (JSONException e) {
-		
-	    // use logger
-	}
-	return new MovieRating();
+    @ResponseStatus(value = HttpStatus.OK)
+        public void setRating(@RequestBody String rating, HttpServletRequest httpServletRequest) {
+    	MovieRating movieRating = new MovieRating();	
+        	movieRating.setMovieId(httpServletRequest.getParameter("movieId"));
+        	movieRating.setRating(Double.valueOf(httpServletRequest.getParameter("rating")));
+        	SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+        movieRating.setDate(formatter.format(new Date()));
+        	Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        	User user = userService.findUserByEmail(auth.getName());
+        	
+        	if (user != null) {
+        	    movieRating.setUserID(user.getId());
+        	    movieRatingService.saveMovieRating(movieRating);
+        	} 
+        	
     }
         
     @RequestMapping(value="/writeReview", method=RequestMethod.POST)
