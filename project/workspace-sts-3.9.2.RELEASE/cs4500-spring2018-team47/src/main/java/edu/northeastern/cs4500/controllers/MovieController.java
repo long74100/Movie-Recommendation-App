@@ -46,7 +46,7 @@ import org.apache.logging.log4j.Logger;
 public class MovieController {
 
     private LocalSQLConnectService localSQLConnector = new LocalSQLConnectService();
-	private IOmdbService omdbService = new OmdbServiceImpl();
+    private IOmdbService omdbService = new OmdbServiceImpl();
     private OmdbSQLconnectService localDbConnector = new OmdbSQLconnectService();
     private ArrayList<String> movieNames = new ArrayList<>();
     
@@ -144,6 +144,7 @@ public class MovieController {
 	if (user != null) {
 	    int rating = localSQLConnector.getRating(user.getId(), movie.get("imdbID"));
 	    modelAndView.addObject("rating", rating);
+	    modelAndView.addObject("userId", user.getId());
 	}
 	
 	modelAndView.setViewName("movie");
