@@ -418,19 +418,15 @@ public class LocalSQLConnectService {
 
 	}
     
-    public void addMovieList(int userId, String movieList) {
-	try {
-	    String query = "insert into Movielist(user_id, list_name) values (" + userId + ", \"" + movieList + "\")";
-	    connectStatement.executeUpdate(query);
-	} catch(SQLException se) {
-	    logger.error(se.getMessage());
-	}
-    }
     
+    /**
+     * To set up initial movie list for the new user 
+     * @param userId the new user's id
+     */
     public void preloadMovieList(int userId) {
-	addMovieList(userId, "Watched");
-	addMovieList(userId, "Favorites");
-	addMovieList(userId, "Recommended");
+    	createMovieList(userId, "Watched");
+    	createMovieList(userId, "Favorites");
+    	createMovieList(userId, "Recommended");
 
     }
     

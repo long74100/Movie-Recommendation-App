@@ -1,0 +1,44 @@
+2018-03-29 02:47:51.904 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-3] e.n.c.m.s.LocalSQLConnectService         : Too many connections
+2018-03-29 02:47:53.709 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-1] e.n.c.m.s.LocalSQLConnectService         : Too many connections
+2018-03-29 02:47:54.698 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Too many connections
+2018-03-29 02:47:56.744 ERROR LAPTOP-JQGD3FG3 --- [io-8080-exec-10] e.n.c.m.s.LocalSQLConnectService         : Too many connections
+2018-03-29 02:51:59.243 ERROR LAPTOP-JQGD3FG3 --- [io-8080-exec-10] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 02:51:59.246 ERROR LAPTOP-JQGD3FG3 --- [io-8080-exec-10] e.n.c.m.s.LocalSQLConnectService         : Communications link failure
+
+The last packet successfully received from the server was 242,395 milliseconds ago.  The last packet sent successfully to the server was 1 milliseconds ago.
+2018-03-29 02:51:59.257 ERROR LAPTOP-JQGD3FG3 --- [io-8080-exec-10] e.n.c.m.s.LocalSQLConnectService         : No operations allowed after connection closed.
+2018-03-29 02:51:59.257 ERROR LAPTOP-JQGD3FG3 --- [io-8080-exec-10] e.n.c.m.s.LocalSQLConnectService         : No operations allowed after statement closed.
+2018-03-29 02:51:59.265 ERROR LAPTOP-JQGD3FG3 --- [io-8080-exec-10] e.n.c.m.s.LocalSQLConnectService         : No operations allowed after connection closed.
+2018-03-29 02:51:59.265 ERROR LAPTOP-JQGD3FG3 --- [io-8080-exec-10] e.n.c.m.s.LocalSQLConnectService         : No operations allowed after statement closed.
+2018-03-29 02:51:59.277 ERROR LAPTOP-JQGD3FG3 --- [io-8080-exec-10] e.n.c.m.s.LocalSQLConnectService         : No operations allowed after connection closed.
+2018-03-29 02:51:59.277 ERROR LAPTOP-JQGD3FG3 --- [io-8080-exec-10] e.n.c.m.s.LocalSQLConnectService         : No operations allowed after statement closed.
+2018-03-29 02:51:59.287 ERROR LAPTOP-JQGD3FG3 --- [io-8080-exec-10] e.n.c.m.s.LocalSQLConnectService         : No operations allowed after connection closed.
+2018-03-29 02:51:59.288 ERROR LAPTOP-JQGD3FG3 --- [io-8080-exec-10] e.n.c.m.s.LocalSQLConnectService         : No operations allowed after statement closed.
+2018-03-29 02:51:59.288 ERROR LAPTOP-JQGD3FG3 --- [io-8080-exec-10] e.n.c.m.s.LocalSQLConnectService         : No operations allowed after statement closed.
+2018-03-29 02:52:00.520 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-1] e.n.c.m.s.LocalSQLConnectService         : No operations allowed after connection closed.
+2018-03-29 02:52:00.521 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-1] e.n.c.m.s.LocalSQLConnectService         : No operations allowed after statement closed.
+2018-03-29 02:52:46.252 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : No operations allowed after connection closed.
+2018-03-29 02:52:46.253 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : No operations allowed after statement closed.
+2018-03-29 02:52:46.264 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : No operations allowed after connection closed.
+2018-03-29 02:52:46.264 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : No operations allowed after statement closed.
+2018-03-29 02:52:46.273 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : No operations allowed after connection closed.
+2018-03-29 02:52:46.273 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : No operations allowed after statement closed.
+2018-03-29 02:52:46.283 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : No operations allowed after connection closed.
+2018-03-29 02:52:46.283 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : No operations allowed after statement closed.
+2018-03-29 02:52:46.295 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : No operations allowed after connection closed.
+2018-03-29 02:52:46.296 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : No operations allowed after statement closed.
+2018-03-29 02:52:46.314 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : No operations allowed after connection closed.
+2018-03-29 02:52:46.314 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : No operations allowed after statement closed.
+2018-03-29 02:52:46.329 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : No operations allowed after connection closed.
+2018-03-29 02:52:46.329 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : No operations allowed after statement closed.
+2018-03-29 02:52:46.340 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : No operations allowed after connection closed.
+2018-03-29 02:52:46.340 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : No operations allowed after statement closed.
+2018-03-29 02:52:46.350 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : No operations allowed after connection closed.
+2018-03-29 02:52:46.351 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : No operations allowed after statement closed.
+2018-03-29 02:52:46.361 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : No operations allowed after connection closed.
+2018-03-29 02:52:46.361 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : No operations allowed after statement closed.
+2018-03-29 02:52:46.361 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : No operations allowed after statement closed.
+2018-03-29 02:52:47.711 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-4] e.n.c.m.s.LocalSQLConnectService         : No operations allowed after connection closed.
+2018-03-29 02:52:47.711 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-4] e.n.c.m.s.LocalSQLConnectService         : No operations allowed after statement closed.
+2018-03-29 02:52:47.740 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-4] e.n.c.m.s.LocalSQLConnectService         : No operations allowed after statement closed.
+2018-03-29 02:53:02.436 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-5] e.n.c.m.s.LocalSQLConnectService         : Cannot add or update a child row: a foreign key constraint fails (`cs4500_spring2018_team47_dev`.`Review`, CONSTRAINT `movie_reference` FOREIGN KEY (`movie_id`) REFERENCES `Movie` (`movie_id`) ON DELETE CASCADE ON UPDATE CASCADE)
