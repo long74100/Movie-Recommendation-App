@@ -517,3 +517,7 @@ The last packet successfully received from the server was 242,395 milliseconds a
 2018-03-29 14:14:03.860 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt0112462' for key 'PRIMARY'
 2018-03-29 14:14:05.880 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-7] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
 2018-03-29 14:14:05.906 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-7] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt0096895' for key 'PRIMARY'
+2018-03-29 14:33:36.925 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-8] e.n.c.m.s.LocalSQLConnectService         : Too many connections
+2018-03-29 14:34:02.107 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-3] e.n.c.m.s.LocalSQLConnectService         : Too many connections
+2018-03-29 14:34:09.627 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-7] e.n.c.m.s.LocalSQLConnectService         : Too many connections
+2018-03-29 14:34:11.252 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-4] e.n.c.m.s.LocalSQLConnectService         : Too many connections

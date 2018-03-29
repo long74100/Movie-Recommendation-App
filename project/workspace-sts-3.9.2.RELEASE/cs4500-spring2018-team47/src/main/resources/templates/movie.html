@@ -22,7 +22,6 @@
 						<p class="m-0">
 							Imdb Rating: <span th:text="${movie.imdbRating}"></span>
 						<p class="m-0">Community Rating:
-<<<<<<< HEAD
 						<p class="m-0">Your vote:</p>
 						<h1 th:text="${rating}" class="d-none" id="currentRating"></h1>
 						<fieldset class="rating m-0">
@@ -37,8 +36,6 @@
 							<input type="radio" id="rate9" value="9" /><label for="rate9"></label> 
 							<input type="radio" id="rate10" value="10" /><label for="rate10"></label> 
 						</fieldset>
-						
-=======
 						<div th:switch="${user}">
 							<div th:case="null"></div>
 							<div th:case="*">
@@ -61,7 +58,6 @@
 							</div>
 
 						</div>
->>>>>>> ff25534fd2431b63951d50414f188f30226ed467
 					</div>
 				</div>
 
@@ -87,7 +83,6 @@
 					</div>
 
 					<button class="btn btn-primary">Find in Theaters</button>
-<<<<<<< HEAD
 					<button class="btn btn-secondary">Share with a Friend</button>
 					
 					<div>
@@ -99,15 +94,6 @@
 						<button id="addToList" class="btn btn-primary">Add</button>
 						<button type="button" class="btn btn-danger">Remove</button>
 					</div>
-	
-					<!--  <select class="mt-3">
-						<option>Favorites</option>
-						<option>Recommended</option>
-						<option>Watched</option>
-					</select>
-					<button class="btn btn-primary">Add</button>
-					<button type="button" class="btn btn-danger">Remove</button>-->
-=======
 					<span th:switch="${user}"> <span th:case="null"></span> <span
 						th:case="*">
 							<button class="btn btn-secondary">Share with a Friend</button> <select
@@ -121,8 +107,6 @@
 					</span>
 					</span>
 
-
->>>>>>> ff25534fd2431b63951d50414f188f30226ed467
 				</div>
 			</div>
 		<hr class="bg-danger p-2">
