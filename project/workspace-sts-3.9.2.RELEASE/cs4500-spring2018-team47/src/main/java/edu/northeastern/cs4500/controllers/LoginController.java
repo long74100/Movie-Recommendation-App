@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import edu.northeastern.cs4500.model.services.LocalSQLConnectService;
 import edu.northeastern.cs4500.model.services.UserService;
 import edu.northeastern.cs4500.model.user.User;
 
@@ -24,6 +25,9 @@ public class LoginController {
 
     @Autowired
     private UserService userService;
+    
+    private LocalSQLConnectService localSQLConnector = new LocalSQLConnectService();
+
 
     @RequestMapping(value = { "/login" }, method = RequestMethod.GET)
     public ModelAndView login() {
@@ -60,6 +64,7 @@ public class LoginController {
 	    modelAndView.setViewName("registration");
 	} else {
 	    userService.saveUser(newUser);
+	    localSQLConnector.preloadMovieList(newUser.getId());
 	    modelAndView.addObject("successMessage", "Registration successful!");
 	    modelAndView.addObject("user", new User());
 	    modelAndView.setViewName("registration");
