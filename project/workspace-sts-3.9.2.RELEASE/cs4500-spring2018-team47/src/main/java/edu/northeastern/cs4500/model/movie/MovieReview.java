@@ -13,7 +13,7 @@ import edu.northeastern.cs4500.model.user.User;
 public class MovieReview implements Serializable {
 	@Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "review_id")
+	@Column(name = "review_id", nullable = false, unique = true)
 	private int id;
 	@Column(name = "description")
 	private String review;
@@ -23,10 +23,17 @@ public class MovieReview implements Serializable {
 	private String date;
 	@Column(name = "reviewer_id")
 	private String user_id;
+	@Column(name = "reviewer_name")
+	private String username;
 	
 	public int getId() {
 		return id;
 	}
+	
+	public String getUsername() {
+		return username;
+	}
+	
 	public String getReview() {
 		return review;
 	}
@@ -50,5 +57,9 @@ public class MovieReview implements Serializable {
 	}
 	public void setUser_id(String user_id) {
 		this.user_id = user_id;
+	}
+	
+	public void setUsername(String name) {
+		this.username = name;
 	}
 }

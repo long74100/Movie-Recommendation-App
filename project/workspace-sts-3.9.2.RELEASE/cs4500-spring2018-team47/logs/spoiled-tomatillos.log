@@ -1,0 +1,27 @@
+2018-03-28 23:33:14.036 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Column count doesn't match value count at row 1
+2018-03-28 23:33:38.423 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Column count doesn't match value count at row 1
+2018-03-28 23:36:57.403 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+2018-03-28 23:38:08.016 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-1] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry '0' for key 'PRIMARY'
+2018-03-28 23:45:40.507 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-1] e.n.c.m.s.LocalSQLConnectService         : Data truncation: Incorrect date value: 'Titan' for column 'review_date' at row 1
+2018-03-28 23:45:46.848 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-7] e.n.c.m.s.LocalSQLConnectService         : Data truncation: Incorrect date value: 'Titan' for column 'review_date' at row 1
+2018-03-28 23:49:25.234 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-7] e.n.c.m.s.LocalSQLConnectService         : Data truncation: Incorrect date value: 'Hello Titan' for column 'review_date' at row 1
+2018-03-28 23:56:36.539 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Data truncation: Incorrect date value: 'Hello Titan' for column 'review_date' at row 1
+2018-03-28 23:56:46.276 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-1] e.n.c.m.s.LocalSQLConnectService         : Too many connections
+2018-03-28 23:56:46.301 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-1] e.n.c.m.s.LocalSQLConnectService         : Data truncation: Incorrect date value: 'Hello 2' for column 'review_date' at row 1
+2018-03-29 00:00:13.553 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Too many connections
+2018-03-29 00:00:13.582 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Data truncation: Incorrect date value: 'Nice' for column 'review_date' at row 1
+2018-03-29 00:03:46.674 ERROR LAPTOP-JQGD3FG3 --- [  restartedMain] e.n.c.m.s.LocalSQLConnectService         : Too many connections
+2018-03-29 00:04:52.676 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-1] e.n.c.m.s.LocalSQLConnectService         : Too many connections
+2018-03-29 00:04:52.702 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-1] e.n.c.m.s.LocalSQLConnectService         : Data truncation: Incorrect date value: 'Sokuka' for column 'review_date' at row 1
+2018-03-29 00:05:52.068 ERROR LAPTOP-JQGD3FG3 --- [  restartedMain] e.n.c.m.s.LocalSQLConnectService         : Too many connections
+2018-03-29 00:07:20.686 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Too many connections
+2018-03-29 00:50:18.208 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-1] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry '0' for key 'PRIMARY'
+2018-03-29 00:59:13.912 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-8] e.n.c.c.MovieController                  : JSONObject["Title"] not found.
+2018-03-29 00:59:22.434 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-9] e.n.c.c.MovieController                  : JSONObject["Title"] not found.
+2018-03-29 00:59:26.441 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-1] e.n.c.c.MovieController                  : JSONObject["Title"] not found.
+2018-03-29 00:59:50.626 ERROR LAPTOP-JQGD3FG3 --- [io-8080-exec-10] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry '0' for key 'PRIMARY'
+2018-03-29 01:01:31.268 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry '0' for key 'PRIMARY'
+2018-03-29 01:06:23.222 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-3] e.n.c.m.s.LocalSQLConnectService         : You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'Sea Witch" bound for Murmansk through the sub-stalked North Atlantic.", "English' at line 1
+2018-03-29 01:06:30.699 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry '0' for key 'PRIMARY'
+2018-03-29 01:07:53.716 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-9] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry '0' for key 'PRIMARY'
+2018-03-29 01:28:01.488 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-8] e.n.c.m.s.LocalSQLConnectService         : You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'Sea Witch" bound for Murmansk through the sub-stalked North Atlantic.", "English' at line 1
