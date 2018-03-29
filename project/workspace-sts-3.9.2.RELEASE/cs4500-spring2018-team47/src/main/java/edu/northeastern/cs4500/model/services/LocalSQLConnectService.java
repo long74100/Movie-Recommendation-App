@@ -476,9 +476,13 @@ public class LocalSQLConnectService {
 	}
     
     public void addMovieList(int userId, String movieList) {
+    	String sqlcmd = "insert into Movielist(user_id, list_name) values (?, \"?\")";
+    	PreparedStatement pstmt = null;
 	try {
-	    String query = "insert into Movielist(user_id, list_name) values (" + userId + ", \"" + movieList + "\")";
-	    connectStatement.executeUpdate(query);
+		pstmt = connector.prepareStatement(sqlcmd);
+		pstmt.setInt(1, userId);
+		pstmt.setString(2, movieList);
+		pstmt.executeUpdate();
 	} catch(SQLException se) {
 	    logger.error(se.getMessage());
 	}
