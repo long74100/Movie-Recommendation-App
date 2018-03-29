@@ -6,12 +6,13 @@ import org.junit.Before;
 import org.junit.Test;
 import org.skyscreamer.jsonassert.JSONAssert;
 
+import edu.northeastern.cs4500.Cs4500Spring2018Team47ApplicationTests;
 import edu.northeastern.cs4500.model.services.IOmdbService;
 import edu.northeastern.cs4500.model.services.OmdbServiceImpl;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-public class OmdbServiceImplTest {
+public class OmdbServiceImplTest extends Cs4500Spring2018Team47ApplicationTests {
 	
 	private static final Logger logger = LogManager.getLogger(OmdbServiceImplTest.class);
 	private static IOmdbService omdbServiceImpl;
