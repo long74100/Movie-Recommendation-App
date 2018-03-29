@@ -12,14 +12,14 @@
 	text-decoration: none;
 	color: #666;
 	font-weight: bold;
-	font-size: 15px;
+	font-size: 20px;
 	-webkit-transition: all 0.1s linear;
 	-moz-transition: all 0.1s linear;
 	transition: all 0.1s linear;
 }
 .panel-friend>.panel-heading a.active{
 	color: #029f5b;
-	font-size: 35px;
+	font-size: 32px;
 }
 .panel-friend>.panel-heading hr{
 	margin-top: 10px;
