@@ -45,7 +45,7 @@ public class OmdbSQLconnectService {
 	 * To catch the movie information from online Movie JSON Object.
 	 * @param movieJsonString
 	 */
-	public void catchMovie(JSONObject movieJSON) {
+	private void catchMovie(JSONObject movieJSON) {
 		try {
 			for(int i = 0; i < oldbfields.size(); i++) {
 				String olField = oldbfields.get(i);
@@ -71,7 +71,8 @@ public class OmdbSQLconnectService {
 	 * 1. To check if there is existing id, which means the movie is already there. If there is one, don't import
 	 * 2. If there is no current movie id, load into the database.
 	 */
-	public void loadMovieToLocalDB() {
+	public void loadMovieToLocalDB(JSONObject movieJSON) {
+		catchMovie(movieJSON);
 		if(this.fieldToValue.isEmpty()) {
 			System.out.println("There is nothing to load to database");
 		}
@@ -149,14 +150,6 @@ public class OmdbSQLconnectService {
 	}
 	
 	/**
-	 * To clear the table with given table name
-	 * @param tableName the name of table that will be clear all data from
-	 */
-	public void clearTable(String tableName) {
-		this.connector.clearTable(tableName);
-	}
-	
-	/**
 	 * To add multiple movies into the local database instead letting system load one by one
 	 * Note: (For admin user only) Might be in different class.
 	 * @param movieNames the names for list of movie that would be added to local database.
@@ -168,8 +161,7 @@ public class OmdbSQLconnectService {
 			try {
 				try {
 					JSONObject current = obj.searchMovieByTitle(item, "t");
-					catchMovie(current);
-					loadMovieToLocalDB();
+					loadMovieToLocalDB(current);
 				}
 				catch(JSONException je) {
 					je.printStackTrace();
@@ -222,7 +214,7 @@ public class OmdbSQLconnectService {
 	}
 	
 	/**
-	 * To search the movie by release time
+	 * To search the movie by release time(date)
 	 * @param time the year that movie was released
 	 * @return list of movie information
 	 */
