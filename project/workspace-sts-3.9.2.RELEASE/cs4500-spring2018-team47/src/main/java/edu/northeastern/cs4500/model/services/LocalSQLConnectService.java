@@ -549,9 +549,12 @@ public class LocalSQLConnectService {
      */
     public List<String> getMovieListForUser(int userId) {
     	ArrayList<String> movieNames = new ArrayList<>();
+    	String sqlcmd = "select list_name from Movielist where user_id = ?";
+    	PreparedStatement pstmt = null;
     	try {
-    		String query = "select list_name from Movielist where user_id = " + userId;
-    		myResult = connectStatement.executeQuery(query);
+    		pstmt = connector.prepareStatement(sqlcmd);
+    		pstmt.setInt(1, userId);
+    		myResult = pstmt.executeQuery();
     		while(myResult.next()) {
     			String listName = myResult.getString("list_name");
     			movieNames.add(listName);
@@ -571,18 +574,20 @@ public class LocalSQLConnectService {
      */
     public ArrayList<Movie> getMovieFromUserMovieList(int userId, String listname) {
     	ArrayList<Movie> result = new ArrayList<>();
+    	String sqlcmd = "select Movie.movie_id, Movie.movie_name, Movie.plot, Movie.actor from Movie join " + 
+				"(select movie_id from UserMovieList where user_id = ? and list_name = \"?\") as comp on comp.movie_id = Movie.movie_id";
+    	PreparedStatement pstmt = null;
     	try {
-    		String query = "select Movie.movie_id, Movie.movie_name, Movie.plot, Movie.actor from Movie join " + 
-    				"(select movie_id from UserMovieList where user_id = " + userId + " and list_name = \"" + listname + 
-    				"\") as comp on comp.movie_id = Movie.movie_id";
-    		myResult = connectStatement.executeQuery(query);
+    		pstmt = connector.prepareStatement(sqlcmd);
+    		pstmt.setInt(1, userId);
+    		pstmt.setString(2, listname);
+    		myResult = pstmt.executeQuery();
     		while(myResult.next()) {
     			Movie element = new Movie();
     			String movieId = myResult.getString("movie_id");
     			String movieName = myResult.getString("movie_name");
     			String movieActor = myResult.getString("actor");
     			String moviePlot = myResult.getString("plot");
-    			System.out.println(movieId + "+" + movieName + "+" + movieActor + "+" + moviePlot);
     			element.setImdbID(movieId);
     			element.setTitle(movieName);
     			element.setActors(movieActor);
@@ -602,20 +607,27 @@ public class LocalSQLConnectService {
      * @param movieListName the name for the movie list
      */
     public void createMovieList(int userid, String movieListName) {
+    	String sqlcmd = "select * from Movielist where user_id = ? and list_name = \"?\"";
+    	String addListQuery = "insert into Movielist values (?, \"?\")";
+    	PreparedStatement pstmt = null;
+    	PreparedStatement pstmt2 = null;
     	try {
-    		String query = "select * from Movielist where user_id = " + userid + " and list_name = \"" + movieListName + "\"";
-    		myResult = connectStatement.executeQuery(query);
+    		pstmt = connector.prepareStatement(sqlcmd);
+    		pstmt.setInt(1, userid);
+    		pstmt.setString(2, movieListName);
+    		myResult = pstmt.executeQuery();
     		if(myResult.next()) {
     			System.out.println("You already have this movielist");
     		}
     		else {
-    			String addListQuery = "insert into Movielist values (" + userid + ", \"" + movieListName + "\")";
-    			connectStatement.executeUpdate(addListQuery);
-    			System.out.println("movielist has added");
+    			pstmt2 = connector.prepareStatement(addListQuery);
+        		pstmt2.setInt(1, userid);
+        		pstmt2.setString(2, movieListName);
+        		pstmt2.executeUpdate();
     		}
     	}
     	catch(SQLException sq) {
-    		sq.printStackTrace();
+    		logger.error(sq.getMessage());
     	}
     }
     
@@ -627,13 +639,18 @@ public class LocalSQLConnectService {
      * @param movieName name for movie that will be added to this list
      */
     public void addMovieIntoMovieList(int userId, String listName, String movieId, String movieName) {
+    	String sqlcmd = "insert into UserMovieList values (?, \"?\", \"?\", \"?\")";
+    	PreparedStatement pstmt = null;
     	try {
-    		String query = "insert into UserMovieList vlaues (" + userId + ", \"" + listName + "\", \"" + 
-    						movieId + "\", \"" + movieName + "\")";
-    		connectStatement.executeUpdate(query);
+    		pstmt = connector.prepareStatement(sqlcmd);
+    		pstmt.setInt(1, userId);
+    		pstmt.setString(2, listName);
+    		pstmt.setString(3, movieId);
+    		pstmt.setString(4, movieName);
+    		pstmt.executeUpdate();
     	}
     	catch(SQLException sq) {
-    		sq.printStackTrace();
+    		logger.error(sq.getMessage());
     	}
     }
     
@@ -645,16 +662,20 @@ public class LocalSQLConnectService {
      */
     public String getUserRelation(int senderId, int receiverId) {
     	StringBuilder status = new StringBuilder();
+    	String sqlcmd = "select * from userRelation where senderId = ? and receiverId ?";
+	PreparedStatement pstmt = null;
     	try {
-    		String query = "select * from userRelation where senderId = " + senderId + " and receiverId " + receiverId;
-    		myResult = connectStatement.executeQuery(query);
+    		pstmt = connector.prepareStatement(sqlcmd);
+    		pstmt.setInt(1, senderId);
+    		pstmt.setInt(2, receiverId);
+    		myResult = pstmt.executeQuery();
     		if(myResult.next()) {
     			String sta = myResult.getString("relationStatus");
     			status.append(sta);
     		}
     	}
     	catch(SQLException sq) {
-    		sq.printStackTrace();
+    		logger.error(sq.getMessage());
     	}
     	
     	return status.toString();
@@ -667,11 +688,14 @@ public class LocalSQLConnectService {
      */
     public List<User> getAllFriendsAsSender(int userId) {
     	ArrayList<User> output = new ArrayList<>();
-    	try {
-    		String query = "select * from user join "
-    				+ "(select senderId from userRelation where receiverId = " + userId + " and relationStatus = \"" + "friend" + "\") as comp"
-    						+ " on user.user_id = comp.senderId";
-    		myResult = connectStatement.executeQuery(query);
+    	String sqlcmd = "select * from user join "
+				+ "(select senderId from userRelation where receiverId = ? and relationStatus = \"friend\") as comp"
+				+ " on user.user_id = comp.senderId";
+    	PreparedStatement pstmt = null;
+    try {
+        	pstmt = connector.prepareStatement(sqlcmd);
+        	pstmt.setInt(1, userId);
+        	myResult = pstmt.executeQuery();
     		while(myResult.next()) {
     			String friendUsername = myResult.getString("username");
     			Integer friendUserId = myResult.getInt("senderId");
@@ -682,7 +706,7 @@ public class LocalSQLConnectService {
     		}
     	}
     	catch(SQLException sq) {
-    		sq.printStackTrace();
+    		logger.error(sq.getMessage());
     	}
     	return output;
     }
@@ -694,11 +718,14 @@ public class LocalSQLConnectService {
      */
     public List<User> getAllFriendAsReceiver(int userId) {
     	ArrayList<User> output = new ArrayList<>();
-    	try {
-    		String query = "select * from user join "
-    				+ "(select receiverId from userRelation where senderId = " + userId + " and relationStatus = \"" + "friend" + "\") as comp "
-    						+ "on user.user_id = comp.receiverId";
-    		myResult = connectStatement.executeQuery(query);
+    	String sqlcmd = "select * from user join "
+				+ "(select receiverId from userRelation where senderId = ? and relationStatus = \"friend\") as comp "
+				+ "on user.user_id = comp.receiverId";
+    	PreparedStatement pstmt = null;
+    try {
+        	pstmt = connector.prepareStatement(sqlcmd);
+        	pstmt.setInt(1, userId);
+        	myResult = pstmt.executeQuery();
     		while(myResult.next()) {
     			String friendUsername = myResult.getString("username");
     			Integer friendUserId = myResult.getInt("senderId");
@@ -709,7 +736,7 @@ public class LocalSQLConnectService {
     		}
     	}
     	catch(SQLException sq) {
-    		sq.printStackTrace();
+    		logger.error(sq.getMessage());
     	}
     	return output;
     }
@@ -736,12 +763,14 @@ public class LocalSQLConnectService {
      */
     public List<User> getAllReceivedFriendRequest(int userId) {
     	ArrayList<User> output = new ArrayList<>();
-    	try {
-    		String query =  "select * from user join "
-    				+ "(select senderId from userRelation where receiverId = " + userId + " and relationStatus = \"" + "onHold" + "\") as comp "
-					+ "on user.user_id = comp.senderId";
-    		myResult = connectStatement.executeQuery(query);
-    		
+    	String sqlcmd = "select * from user join "
+				+ "(select senderId from userRelation where receiverId = ? and relationStatus = \"onHold\") as comp "
+				+ "on user.user_id = comp.senderId";
+    	PreparedStatement pstmt = null;
+    try {
+        	pstmt = connector.prepareStatement(sqlcmd);
+        	pstmt.setInt(1, userId);
+        	myResult = pstmt.executeQuery();
     		while(myResult.next()) {
     			String  friendUserName = myResult.getString("username");
     			Integer friendUserId = myResult.getInt("senderId");
@@ -753,7 +782,7 @@ public class LocalSQLConnectService {
     		
     	}
     	catch(SQLException sq) {
-    		sq.printStackTrace();
+    		logger.error(sq.getMessage());
     	}
     	
     	return output;
@@ -766,12 +795,14 @@ public class LocalSQLConnectService {
      */
     public List<User> getAllSentFriendRequest(int userId) {
     	ArrayList<User> output = new ArrayList<>();
-    	try {
-    		String query =  "select * from user join "
-    				+ "(select receiverId from userRelation where senderId = " + userId + " and relationStatus = \"" + "onHold" + "\") as comp "
-					+ "on user.user_id = comp.receiverId";
-    		myResult = connectStatement.executeQuery(query);
-    		
+    	String sqlcmd = "select * from user join "
+				+ "(select receiverId from userRelation where senderId = ? and relationStatus = \"onHold\") as comp "
+				+ "on user.user_id = comp.receiverId";
+    	PreparedStatement pstmt = null;
+    try {
+        	pstmt = connector.prepareStatement(sqlcmd);
+        	pstmt.setInt(1, userId);
+        	myResult = pstmt.executeQuery();
     		while(myResult.next()) {
     			String  friendUserName = myResult.getString("username");
     			Integer friendUserId = myResult.getInt("receiverId");
@@ -783,7 +814,7 @@ public class LocalSQLConnectService {
     		
     	}
     	catch(SQLException sq) {
-    		sq.printStackTrace();
+    		logger.error(sq.getMessage());
     	}
     	
     	return output;
@@ -812,17 +843,18 @@ public class LocalSQLConnectService {
      * @param movieId the movie Id
      */
     public int getRating(int userId, String movieId) {
-	try {
-	    
-	    String query = "select rating from rating"
-	    	+ " where rating.user_id = " + userId
-	    	+ " and rating.movie_id = '" + movieId + "'";
-	    
-	     myResult = connectStatement.executeQuery(query);
-	     if(myResult.next()) {
-		 return myResult.getInt("rating");
-	     } 
-	} 
+    	String sqlcmd = "select rating from rating"
+    	    	+ " where rating.user_id = ? and rating.movie_id = \"?\"";
+    	PreparedStatement pstmt = null;
+    try {
+        	pstmt = connector.prepareStatement(sqlcmd);
+        	pstmt.setInt(1, userId);
+        	pstmt.setString(2, movieId);
+        	myResult = pstmt.executeQuery();
+        	if(myResult.next()) {
+        		return myResult.getInt("rating");
+        		} 
+    } 
 	catch(SQLException e) {
 		logger.error(e.getMessage());
 	}
@@ -838,9 +870,12 @@ public class LocalSQLConnectService {
      */
     public List<MovieReview> getReviewsForMovie(String movieId) {
     	ArrayList<MovieReview> result = new ArrayList<>();
-    	try {
-    		String query = "select * from Review where movie_id = \"" + movieId + "\"";
-    		myResult = connectStatement.executeQuery(query);
+    	String sqlcmd = "select * from Review where movie_id = \"?\"";
+    	PreparedStatement pstmt = null;
+    try {
+        	pstmt = connector.prepareStatement(sqlcmd);
+        	pstmt.setString(1, movieId);
+        	myResult = pstmt.executeQuery();
     		if(myResult.next()) {
     			MovieReview output = new MovieReview();
     			String username = myResult.getString("reviewer_name");
@@ -870,10 +905,12 @@ public class LocalSQLConnectService {
      */
     public List<MovieReview> getReviewForUser(String userId) {
     	ArrayList<MovieReview> output = new ArrayList<>();
-    	
-    	try {
-    		String query = "select * from Review where reviewer_id = \"" + userId + "\"";
-    		myResult = connectStatement.executeQuery(query);
+    	String sqlcmd = "select * from Review where reviewer_id = \"?\"";
+    	PreparedStatement pstmt = null;
+    try {
+        	pstmt = connector.prepareStatement(sqlcmd);
+        	pstmt.setString(1, userId);
+        	myResult = pstmt.executeQuery();
     		while(myResult.next()) {
     			MovieReview item = new MovieReview();
     			String username = myResult.getString("reviewer_name");
