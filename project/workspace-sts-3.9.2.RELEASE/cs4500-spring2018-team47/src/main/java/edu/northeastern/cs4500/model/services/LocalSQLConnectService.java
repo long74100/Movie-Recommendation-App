@@ -407,6 +407,23 @@ public class LocalSQLConnectService {
 		}
 
 	}
+    
+    public void addMovieList(int userId, String movieList) {
+	try {
+	    String query = "insert into Movielist(user_id, list_name) values (" + userId + ", \"" + movieList + "\")";
+	    connectStatement.executeUpdate(query);
+	} catch(SQLException se) {
+	    logger.error(se.getMessage());
+	}
+    }
+    
+    public void preloadMovieList(int userId) {
+	addMovieList(userId, "Watched");
+	addMovieList(userId, "Favorites");
+	addMovieList(userId, "Recommended");
+
+    }
+    
     /**
      * To get list of users that match the given search name
      * @param username the user name that will be used as search keyword
@@ -511,7 +528,6 @@ public class LocalSQLConnectService {
     }
     
     /**
-<<<<<<< HEAD
      * To create movie list 
      * @param movieListName the name for the movie list
      */
@@ -653,7 +669,7 @@ public class LocalSQLConnectService {
     	try {
     		String query =  "select * from user join "
     				+ "(select senderId from userRelation where receiverId = " + userId + " and relationStatus = \"" + "onHold" + "\") as comp "
-					+ "on user.user_id = comp.receiverId";
+					+ "on user.user_id = comp.senderId";
     		myResult = connectStatement.executeQuery(query);
     		
     		while(myResult.next()) {
