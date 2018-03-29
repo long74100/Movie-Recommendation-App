@@ -24,6 +24,12 @@
 	margin-left: 1.5px;
 }
 
+.emptyMessage {
+	font-size: 35;
+	width:800px;
+	margin-top:20px;
+}
+
 .movieItemAttr .itemTitle {
 	position: relative;
 	font-size: 20px;
