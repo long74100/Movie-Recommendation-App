@@ -214,7 +214,7 @@ public class OmdbSQLconnectService {
 	}
 	
 	/**
-	 * To search the movie by release time
+	 * To search the movie by release time(date)
 	 * @param time the year that movie was released
 	 * @return list of movie information
 	 */
