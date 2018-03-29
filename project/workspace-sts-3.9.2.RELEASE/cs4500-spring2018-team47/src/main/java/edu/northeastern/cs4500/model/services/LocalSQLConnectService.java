@@ -848,7 +848,7 @@ public class LocalSQLConnectService {
      */
     public int getRating(int userId, String movieId) {
     	String sqlcmd = "select rating from rating"
-    	    	+ " where rating.user_id = ? and rating.movie_id = \"?\"";
+    	    	+ " where rating.user_id = ? and rating.movie_id = ?";
     	PreparedStatement pstmt = null;
     try {
         	pstmt = connector.prepareStatement(sqlcmd);
