@@ -12,14 +12,14 @@
             <div class="headset">
                <img src="http://api.hdwallpapers5k.com/resource/fileuploads/photos/albums/1426/7d825902-ab1b-4338-aa2d-14201a68071d.jpg?quality=100&w=1000"
                 class="headPortrait"/><br>
-               <p th:text="${user.username}" 
-               	style="color: wheat; font-size: 15px; margin-bottom: 0px;">loginUser</p>
+               <p class="d-flex justify-content-center" th:text="${user.username}" 
+               	style="color: wheat; font-size: 20px; margin-bottom: 0px;">loginUser</p>
             </div>
             <ul class="leftMenu">
                 <p></p>
                 <a th:href="@{/profile}">
 					<p class="useful">Profile</p></a>
-                <a th:href="@{/profile}">
+                <a th:href="@{/profile+to+friendsAndRequests}">
                 	<p class="useful">Friends</p></a>
                 <a th:href="@{/profile}">
 					<p class="useful">Prods</p></a>

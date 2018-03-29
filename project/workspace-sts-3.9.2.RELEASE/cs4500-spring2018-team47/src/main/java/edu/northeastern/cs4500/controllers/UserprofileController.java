@@ -106,7 +106,28 @@ public class UserprofileController {
 		return modelAndView;
 	}
 	
-
+	/*
+	 * go to see who you are friends with and what friend requests you have
+	 */
+	@RequestMapping(value={"/profile+to+friendsAndRequests"}, method = RequestMethod.GET)
+	public ModelAndView friendsAndRequests() {
+		ModelAndView modelAndView = new ModelAndView();
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		User user = userService.findUserByEmail(auth.getName());
+		
+		LocalSQLConnectService sqlConnector = new LocalSQLConnectService();
+		List<User> friends = sqlConnector.getAllFriends(user.getId());
+		List<User> receivedRequest = sqlConnector.getAllReceivedFriendRequest(user.getId());
+		List<User> sentRequest = sqlConnector.getAllSentFriendRequest(user.getId());
+		modelAndView.addObject("user", user);
+		modelAndView.addObject("friends", friends);
+		modelAndView.addObject("receivedRequest", receivedRequest);
+		modelAndView.addObject("sendRequest", sentRequest);
+		
+		modelAndView.setViewName("friendsAndRequests");
+		return modelAndView;
+	}
+	
 	
 	
 }
