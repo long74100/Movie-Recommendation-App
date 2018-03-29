@@ -688,11 +688,14 @@ public class LocalSQLConnectService {
      */
     public List<User> getAllFriendsAsSender(int userId) {
     	ArrayList<User> output = new ArrayList<>();
-    	try {
-    		String query = "select * from user join "
-    				+ "(select senderId from userRelation where receiverId = " + userId + " and relationStatus = \"" + "friend" + "\") as comp"
-    						+ " on user.user_id = comp.senderId";
-    		myResult = connectStatement.executeQuery(query);
+    	String sqlcmd = "select * from user join "
+				+ "(select senderId from userRelation where receiverId = ? and relationStatus = \"friend\") as comp"
+				+ " on user.user_id = comp.senderId";
+    	PreparedStatement pstmt = null;
+    try {
+        	pstmt = connector.prepareStatement(sqlcmd);
+        	pstmt.setInt(1, userId);
+        	myResult = pstmt.executeQuery();
     		while(myResult.next()) {
     			String friendUsername = myResult.getString("username");
     			Integer friendUserId = myResult.getInt("senderId");
@@ -715,11 +718,14 @@ public class LocalSQLConnectService {
      */
     public List<User> getAllFriendAsReceiver(int userId) {
     	ArrayList<User> output = new ArrayList<>();
-    	try {
-    		String query = "select * from user join "
-    				+ "(select receiverId from userRelation where senderId = " + userId + " and relationStatus = \"" + "friend" + "\") as comp "
-    						+ "on user.user_id = comp.receiverId";
-    		myResult = connectStatement.executeQuery(query);
+    	String sqlcmd = "select * from user join "
+				+ "(select receiverId from userRelation where senderId = ? and relationStatus = \"friend\") as comp "
+				+ "on user.user_id = comp.receiverId";
+    	PreparedStatement pstmt = null;
+    try {
+        	pstmt = connector.prepareStatement(sqlcmd);
+        	pstmt.setInt(1, userId);
+        	myResult = pstmt.executeQuery();
     		while(myResult.next()) {
     			String friendUsername = myResult.getString("username");
     			Integer friendUserId = myResult.getInt("senderId");
@@ -757,12 +763,14 @@ public class LocalSQLConnectService {
      */
     public List<User> getAllReceivedFriendRequest(int userId) {
     	ArrayList<User> output = new ArrayList<>();
-    	try {
-    		String query =  "select * from user join "
-    				+ "(select senderId from userRelation where receiverId = " + userId + " and relationStatus = \"" + "onHold" + "\") as comp "
-					+ "on user.user_id = comp.senderId";
-    		myResult = connectStatement.executeQuery(query);
-    		
+    	String sqlcmd = "select * from user join "
+				+ "(select senderId from userRelation where receiverId = ? and relationStatus = \"onHold\") as comp "
+				+ "on user.user_id = comp.senderId";
+    	PreparedStatement pstmt = null;
+    try {
+        	pstmt = connector.prepareStatement(sqlcmd);
+        	pstmt.setInt(1, userId);
+        	myResult = pstmt.executeQuery();
     		while(myResult.next()) {
     			String  friendUserName = myResult.getString("username");
     			Integer friendUserId = myResult.getInt("senderId");
@@ -787,12 +795,14 @@ public class LocalSQLConnectService {
      */
     public List<User> getAllSentFriendRequest(int userId) {
     	ArrayList<User> output = new ArrayList<>();
-    	try {
-    		String query =  "select * from user join "
-    				+ "(select receiverId from userRelation where senderId = " + userId + " and relationStatus = \"" + "onHold" + "\") as comp "
-					+ "on user.user_id = comp.receiverId";
-    		myResult = connectStatement.executeQuery(query);
-    		
+    	String sqlcmd = "select * from user join "
+				+ "(select receiverId from userRelation where senderId = ? and relationStatus = \"onHold\") as comp "
+				+ "on user.user_id = comp.receiverId";
+    	PreparedStatement pstmt = null;
+    try {
+        	pstmt = connector.prepareStatement(sqlcmd);
+        	pstmt.setInt(1, userId);
+        	myResult = pstmt.executeQuery();
     		while(myResult.next()) {
     			String  friendUserName = myResult.getString("username");
     			Integer friendUserId = myResult.getInt("receiverId");
@@ -833,17 +843,18 @@ public class LocalSQLConnectService {
      * @param movieId the movie Id
      */
     public int getRating(int userId, String movieId) {
-	try {
-	    
-	    String query = "select rating from rating"
-	    	+ " where rating.user_id = " + userId
-	    	+ " and rating.movie_id = '" + movieId + "'";
-	    
-	     myResult = connectStatement.executeQuery(query);
-	     if(myResult.next()) {
-		 return myResult.getInt("rating");
-	     } 
-	} 
+    	String sqlcmd = "select rating from rating"
+    	    	+ " where rating.user_id = ? and rating.movie_id = \"?\"";
+    	PreparedStatement pstmt = null;
+    try {
+        	pstmt = connector.prepareStatement(sqlcmd);
+        	pstmt.setInt(1, userId);
+        	pstmt.setString(2, movieId);
+        	myResult = pstmt.executeQuery();
+        	if(myResult.next()) {
+        		return myResult.getInt("rating");
+        		} 
+    } 
 	catch(SQLException e) {
 		logger.error(e.getMessage());
 	}
@@ -859,9 +870,12 @@ public class LocalSQLConnectService {
      */
     public List<MovieReview> getReviewsForMovie(String movieId) {
     	ArrayList<MovieReview> result = new ArrayList<>();
-    	try {
-    		String query = "select * from Review where movie_id = \"" + movieId + "\"";
-    		myResult = connectStatement.executeQuery(query);
+    	String sqlcmd = "select * from Review where movie_id = \"?\"";
+    	PreparedStatement pstmt = null;
+    try {
+        	pstmt = connector.prepareStatement(sqlcmd);
+        	pstmt.setString(1, movieId);
+        	myResult = pstmt.executeQuery();
     		if(myResult.next()) {
     			MovieReview output = new MovieReview();
     			String username = myResult.getString("reviewer_name");
@@ -891,10 +905,12 @@ public class LocalSQLConnectService {
      */
     public List<MovieReview> getReviewForUser(String userId) {
     	ArrayList<MovieReview> output = new ArrayList<>();
-    	
-    	try {
-    		String query = "select * from Review where reviewer_id = \"" + userId + "\"";
-    		myResult = connectStatement.executeQuery(query);
+    	String sqlcmd = "select * from Review where reviewer_id = \"?\"";
+    	PreparedStatement pstmt = null;
+    try {
+        	pstmt = connector.prepareStatement(sqlcmd);
+        	pstmt.setString(1, userId);
+        	myResult = pstmt.executeQuery();
     		while(myResult.next()) {
     			MovieReview item = new MovieReview();
     			String username = myResult.getString("reviewer_name");
