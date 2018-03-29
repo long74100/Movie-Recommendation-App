@@ -787,3 +787,7 @@ The last packet successfully received from the server was 242,395 milliseconds a
 2018-03-29 17:10:13.073 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
 2018-03-29 17:10:14.810 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-4] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
 2018-03-29 17:10:19.484 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-9] e.n.c.m.s.LocalSQLConnectService         : Cannot add or update a child row: a foreign key constraint fails (`cs4500_spring2018_team47_dev`.`UserMovieList`, CONSTRAINT `to_moive` FOREIGN KEY (`movie_id`) REFERENCES `Movie` (`movie_id`))
+2018-03-29 17:14:01.099 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:14:01.407 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:14:01.515 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:14:01.563 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
