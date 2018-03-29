@@ -1,6 +1,7 @@
 package edu.northeastern.cs4500.model.services;
 
 import java.sql.Connection;
+
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -8,6 +9,9 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import edu.northeastern.cs4500.model.movie.MovieReview;
 
@@ -39,6 +43,8 @@ public class LocalSQLConnectService {
 	private static Statement connectStatement = null;
 	private static ResultSet myResult = null;
 	private ArrayList<String> movie = new ArrayList<>();
+	private static final Logger logger = LogManager.getLogger(LocalSQLConnectService.class);
+	
 	/**
 	 * The constructor
 	 * The constructor will automatically create connection to local database
@@ -49,7 +55,7 @@ public class LocalSQLConnectService {
 			connectStatement = connector.createStatement();
 		}
 		catch(SQLException se) {
-			se.printStackTrace();
+			logger.error(se.getMessage());
 		}
 		
 	}
@@ -69,7 +75,7 @@ public class LocalSQLConnectService {
     		}
     	}
     	catch (SQLException ep) {
-    		ep.printStackTrace();
+		logger.error(ep.getMessage());
     	}
     	return false;
     }
@@ -91,7 +97,7 @@ public class LocalSQLConnectService {
     		}
     	}
     	catch(SQLException ep) {
-    		ep.printStackTrace();
+		logger.error(ep.getMessage());
     	}
     	return false;
     }
@@ -107,7 +113,7 @@ public class LocalSQLConnectService {
     		connectStatement.executeUpdate(query);
     	}
     	catch(SQLException ep) {
-    		ep.printStackTrace();
+		logger.error(ep.getMessage());
     	}
     }
     
@@ -124,7 +130,7 @@ public class LocalSQLConnectService {
     		System.out.println("delete row " + row + " id: " + id);
     	}
     	catch(SQLException ep) {
-    		ep.printStackTrace();
+		logger.error(ep.getMessage());
     	}
     }
     
@@ -140,7 +146,7 @@ public class LocalSQLConnectService {
     		System.out.println("Clear Table for test insert");
     	}
     	catch(SQLException ep) {
-    		ep.printStackTrace();
+		logger.error(ep.getMessage());
     	}
     }
     
@@ -155,7 +161,7 @@ public class LocalSQLConnectService {
     		execute();
     	}
     	catch(SQLException ep) {
-    		ep.printStackTrace();
+		logger.error(ep.getMessage());
     	}
     }
     
@@ -170,7 +176,7 @@ public class LocalSQLConnectService {
     		execute();
     	}
     	catch(SQLException ep) {
-    		ep.printStackTrace();
+		logger.error(ep.getMessage());
     	}
     }
     
@@ -185,7 +191,7 @@ public class LocalSQLConnectService {
     		execute();
     	}
     	catch(SQLException ec) {
-    		ec.printStackTrace();
+		logger.error(ec.getMessage());
     	}
     }
     
@@ -200,7 +206,7 @@ public class LocalSQLConnectService {
     		execute();
     	}
     	catch(SQLException ec) {
-    		ec.printStackTrace();
+		logger.error(ec.getMessage());
     	}
     }
     
@@ -215,7 +221,7 @@ public class LocalSQLConnectService {
     		execute();
     	}
     	catch(SQLException ec) {
-    		ec.printStackTrace();
+		logger.error(ec.getMessage());
     	}
     }
     
@@ -246,7 +252,7 @@ public class LocalSQLConnectService {
     		execute();
     	}
     	catch(SQLException ec) {
-    		ec.printStackTrace();
+		logger.error(ec.getMessage());
     	}
     }
     
@@ -279,7 +285,7 @@ public class LocalSQLConnectService {
     		}
     	}
     	catch(Exception e) {
-    		e.printStackTrace();
+		logger.error(e.getMessage());
     	}
     }
     
@@ -308,7 +314,7 @@ public class LocalSQLConnectService {
     			connectStatement.executeUpdate(query);
     		}
     		catch(SQLException se) {
-    			se.printStackTrace();
+			logger.error(se.getMessage());
     		}
     	}
     	else {
@@ -328,7 +334,7 @@ public class LocalSQLConnectService {
     		connectStatement.executeUpdate(query);
     	}
     	catch(SQLException ep) {
-    		ep.printStackTrace();
+		logger.error(ep.getMessage());
     	}
     }
     
@@ -343,7 +349,7 @@ public class LocalSQLConnectService {
     		connectStatement.executeUpdate(query);
     	}
     	catch(SQLException ep) {
-    		ep.printStackTrace();
+		logger.error(ep.getMessage());
     	}
     }
     
@@ -359,7 +365,7 @@ public class LocalSQLConnectService {
     		connectStatement.executeUpdate(value);
     	}
     	catch(SQLException ep) {
-    		ep.printStackTrace();
+		logger.error(ep.getMessage());
     	}
 	}
     
@@ -375,7 +381,7 @@ public class LocalSQLConnectService {
     		connectStatement.executeUpdate(value);
     	}
     	catch(SQLException ep) {
-    		ep.printStackTrace();
+		logger.error(ep.getMessage());
     	}
 	}
 
@@ -393,7 +399,7 @@ public class LocalSQLConnectService {
 			
 		}
 		catch(SQLException se){
-			se.printStackTrace();
+			logger.error(se.getMessage());
 		}
 
 	}
@@ -422,11 +428,27 @@ public class LocalSQLConnectService {
     		
     	}
     	catch(SQLException ep) {
-    		ep.printStackTrace();
+		logger.error(ep.getMessage());
     	}
     	
     	return output;
     	
+    }
+    
+    /**
+     * To return all movies stored in user's movie list with the given user id
+     * @param userId user who owns the movie list
+     * @return list of movies
+     */
+    public HashMap<String, ArrayList<Movie>> getMovieFromMovieList(int userId) {
+    	HashMap<String, ArrayList<Movie>> output = new HashMap<>();
+    	List<String> movieListName = this.getMovieListForUser(userId);
+    	for(int i = 0; i < movieListName.size(); i++) {
+    		String listName = movieListName.get(i);
+    		ArrayList<Movie> movies = this.getMovieFromUserMovieList(userId, listName);
+    		output.put(listName, movies);
+    	}
+    	return output;
     }
     
     /**
@@ -446,7 +468,7 @@ public class LocalSQLConnectService {
     		
     	}
     	catch(SQLException sq) {
-    		sq.printStackTrace();
+		logger.error(sq.getMessage());
     	}
     	
     	return movieNames;
@@ -456,14 +478,12 @@ public class LocalSQLConnectService {
      * To get movie from user movie list
      * @return list of movie names 
      */
-    public List<Movie> getMovieFromUserMovieList(int userId, String listname) {
+    public ArrayList<Movie> getMovieFromUserMovieList(int userId, String listname) {
     	ArrayList<Movie> result = new ArrayList<>();
     	try {
-    		String query = 
-    				"select Movie.movie_id, Movie.movie_name, Movie.actor, Movie.plot from Movie join "
-    				+ "(select A.movie_id from UserMovieList as A join Movie Movielist as B on A.user_id = B.user_id"
-    				+ " and A.list_name = B.list_name where A.user_id = " + userId + " and A.list_name = \"" + listname + "\")"
-    				+ " as comp on comp.movie_id = Movie.movie_id)";
+    		String query = "select Movie.movie_id, Movie.movie_name, Movie.plot, Movie.actor from Movie join " + 
+    				"(select movie_id from UserMovieList where user_id = " + userId + " and list_name = \"" + listname + 
+    				"\") as comp on comp.movie_id = Movie.movie_id";
     		myResult = connectStatement.executeQuery(query);
     		while(myResult.next()) {
     			Movie element = new Movie();
@@ -471,7 +491,7 @@ public class LocalSQLConnectService {
     			String movieName = myResult.getString("movie_name");
     			String movieActor = myResult.getString("actor");
     			String moviePlot = myResult.getString("plot");
-    			
+    			System.out.println(movieId + "+" + movieName + "+" + movieActor + "+" + moviePlot);
     			element.setImdbID(movieId);
     			element.setTitle(movieName);
     			element.setActors(movieActor);
@@ -481,8 +501,29 @@ public class LocalSQLConnectService {
     		}
     	}
     	catch(SQLException sq) {
-    		sq.printStackTrace();
+		logger.error(sq.getMessage());
     	}
     	return result;
+    }
+    
+    /**
+     * Get a rating from movie ratings.
+     */
+    public int getRating(int userId, String movieId) {
+	try {
+	    
+	    String query = "select rating from rating"
+	    	+ " where rating.user_id = " + userId
+	    	+ " and rating.movie_id = '" + movieId + "'";
+	    
+	     myResult = connectStatement.executeQuery(query);
+	     if(myResult.next()) {
+		 return myResult.getInt("rating");
+	     } 
+	} catch(SQLException e) {
+		logger.error(e.getMessage());
+	}
+	
+	return -1;
     }
 }

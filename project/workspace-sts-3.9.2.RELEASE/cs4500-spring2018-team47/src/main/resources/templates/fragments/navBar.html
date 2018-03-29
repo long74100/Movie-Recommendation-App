@@ -6,9 +6,7 @@
 </head>
 <body>
 	<div th:fragment="header">
-		<link rel="stylesheet" href="../css/loginRegister.css">
-		<script src="../js/loginRegister.js"></script>
-		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
 			<a class="navbar-brand text-danger" href="#" th:href="@{/}">Rotten
 				Tomatillos</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse"
@@ -48,10 +46,10 @@
 								aria-expanded="false" th:text="${user.username}"></button>
 							<div class="dropdown-menu bg-dark" aria-labelledby="dropdownMenuButton">
 								<form th:action="@{/profile}" method="GET">
-									 <input class="dropdown-item btn-link text-danger" type="submit" name="profile" value="Profile" />
+									 <input class="dropdown-item btn-link text-danger" style="cursor:pointer" type="submit" name="profile" value="Profile" />
 								</form>
 								<form th:action="@{/logout}" method="post">
-									 <input class="dropdown-item btn-link text-danger" type="submit" name="logout" value="Logout" />
+									 <input class="dropdown-item btn-link text-danger" type="submit" style="cursor:pointer" name="logout" value="Logout" />
 								</form>
 							</div>
 						</div>

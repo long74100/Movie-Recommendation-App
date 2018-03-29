@@ -3,28 +3,10 @@
 	xmlns:th="http://www.thymeleaf.org">
 
 <head>
-<noscript th:replace="fragments/quickAddCSS :: quickAddCSS"></noscript>
+<noscript th:replace="fragments/quickAddCSSJS :: quickAddCSSJS"></noscript>
 <link rel="stylesheet" href="../css/movie.css">
 <script src="../js/movie.js"></script>
 <title th:text="${movie.title}"></title>
-
-
-<style>
-.flex-container {
-	display: flex;
-	flex-wrap: nowrap;
-	background-color: DodgerBlue;
-}
-
-.flex-container>div {
-	background-color: #f1f1f1;
-	width: 100px;
-	margin: 10px;
-	text-align: center;
-	line-height: 75px;
-	font-size: 30px;
-}
-</style>
 
 </head>
 <body>
@@ -43,23 +25,21 @@
 							Imdb Rating: <span th:text="${movie.imdbRating}"></span>
 						<p class="m-0">Community Rating:
 						<p class="m-0">Your vote:</p>
+						<h1 th:text="${rating}" class="d-none" id="currentRating"></h1>
 						<fieldset class="rating m-0">
-							<input type="radio" id="star5" value="5" /><label class="full"
-								for="star5"></label> <input type="radio" id="star4half"
-								value="4.5" /><label class="half" for="star4half"></label> <input
-								type="radio" id="star4" value="4" /><label class="full"
-								for="star4"></label> <input type="radio" id="star3half"
-								value="3.5" /><label class="half" for="star3half"></label> <input
-								type="radio" id="star3" value="3" /><label class="full"
-								for="star3"></label> <input type="radio" id="star2half"
-								value="2.5" /><label class="half" for="star2half"></label> <input
-								type="radio" id="star2" value="2" /><label class="full"
-								for="star2"></label> <input type="radio" id="star1half"
-								value="1.5" /><label class="half" for="star1half"></label> <input
-								type="radio" id="star1" value="1" /><label class="full"
-								for="star1"></label> <input type="radio" id="starhalf"
-								value="0.5" /><label class="half" for="starhalf"></label>
+							<input type="radio" id="rate1" value="1" /><label for="rate1"></label> 
+							<input type="radio" id="rate2" value="2" /><label for="rate2"></label> 
+							<input type="radio" id="rate3" value="3" /><label for="rate3"></label> 
+							<input type="radio" id="rate4" value="4" /><label for="rate4"></label> 
+							<input type="radio" id="rate5" value="5" /><label for="rate5"></label> 
+							<input type="radio" id="rate6" value="6" /><label for="rate6"></label> 
+							<input type="radio" id="rate7" value="7" /><label for="rate7"></label> 
+							<input type="radio" id="rate8" value="8" /><label for="rate8"></label> 
+							<input type="radio" id="rate9" value="9" /><label for="rate9"></label> 
+							<input type="radio" id="rate10" value="10" /><label for="rate10"></label> 
+	
 						</fieldset>
+						
 					</div>
 				</div>
 
@@ -158,3 +138,5 @@
 		</div>
 </body>
 </html>
+API Training Shop Blog About
+© 2018 GitHub, Inc. Help Support
