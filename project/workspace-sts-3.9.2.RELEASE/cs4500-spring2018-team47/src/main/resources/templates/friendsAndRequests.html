@@ -49,15 +49,16 @@
 									</div>
 								</div>
 								<div id="request-list" style="display: none;">
-									<h2>Received: </h2>
+									<h2>Received:</h2>
 									<div class="items">
 										<div th:each="user : ${receivedRequest}">
 											<a href="#">
 												<div class="d-inline-flex p-2 shadow item">
 													<div th:text="${user.username}"
 														class="movieTitle d-flex justify-content-start"></div>
+													<div th:text="${user.id}" id="senderID" style="display: none;"></div>
 													<div class="d-flex justify-content-end">
-														<button class=" btn btn-primary">Accept</button>
+														<button id="acceptRequest" class=" btn btn-primary">Accept</button>
 													</div>
 												</div>
 											</a>
@@ -68,7 +69,7 @@
 										<div>No friend requests. Go make friends.</div>
 									</div>
 
-									<h2>Sent: </h2>
+									<h2>Sent:</h2>
 									<div class="items">
 										<div th:each="user : ${sentRequest}">
 											<a href="#">
