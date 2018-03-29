@@ -118,9 +118,12 @@ public class UserprofileController {
 		LocalSQLConnectService sqlConnector = new LocalSQLConnectService();
 		List<User> friends = sqlConnector.getAllFriends(user.getId());
 		List<User> receivedRequest = sqlConnector.getAllReceivedFriendRequest(user.getId());
+		List<User> sentRequest = sqlConnector.getAllSentFriendRequest(user.getId());
 		modelAndView.addObject("user", user);
 		modelAndView.addObject("friends", friends);
 		modelAndView.addObject("receivedRequest", receivedRequest);
+		modelAndView.addObject("sendRequest", sentRequest);
+		
 		modelAndView.setViewName("friendsAndRequests");
 		return modelAndView;
 	}
