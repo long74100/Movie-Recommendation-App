@@ -46,7 +46,7 @@ import org.apache.logging.log4j.Logger;
 public class MovieController {
 
     private LocalSQLConnectService localSQLConnector = new LocalSQLConnectService();
-	private IOmdbService omdbService = new OmdbServiceImpl();
+    private IOmdbService omdbService = new OmdbServiceImpl();
     private OmdbSQLconnectService localDbConnector = new OmdbSQLconnectService();
     private ArrayList<String> movieNames = new ArrayList<>();
     
@@ -128,8 +128,7 @@ public class MovieController {
 	    movie.put("imdbID", movieJSON.getString("imdbID"));
 	    
 	    // to add seached movie into local database
-	    localDbConnector.catchMovie(movieJSON);
-	    localDbConnector.loadMovieToLocalDB();
+	    localDbConnector.loadMovieToLocalDB(movieJSON);
 	    
 	} catch (IOException | JSONException e) {
 	    logger.error(e.getMessage());
@@ -144,6 +143,7 @@ public class MovieController {
 	if (user != null) {
 	    int rating = localSQLConnector.getRating(user.getId(), movie.get("imdbID"));
 	    modelAndView.addObject("rating", rating);
+	    modelAndView.addObject("userId", user.getId());
 	}
 	
 	modelAndView.setViewName("movie");
@@ -179,6 +179,7 @@ public class MovieController {
     	Authentication auth = SecurityContextHolder.getContext().getAuthentication();
     	User user = userService.findUserByEmail(auth.getName());
     	movieReview.setUser_id(String.valueOf(user.getId()));
+    	movieReview.setUsername(user.getUsername());
     	LocalSQLConnectService db = new LocalSQLConnectService();
     	db.addReviewToLocalDB(movieReview);
     }
