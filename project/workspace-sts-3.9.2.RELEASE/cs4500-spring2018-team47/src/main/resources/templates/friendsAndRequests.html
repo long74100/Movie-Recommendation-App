@@ -50,18 +50,17 @@
 								</div>
 								<div id="request-list" style="display: none;">
 									<h2>Received:</h2>
-									<div class="items">
+									<div class="items" id="receivedRequestList">
 										<div th:each="user : ${receivedRequest}">
 											<a href="#">
 												<div class="d-inline-flex p-2 shadow item">
 													<div th:text="${user.username}"
 														class="movieTitle d-flex justify-content-start"></div>
-													<div th:text="${user.id}" id="senderID" style="display: none;"></div>
 													<div class="d-flex justify-content-end">
-														<button id="acceptRequest" class=" btn btn-primary">Accept</button>
+														<button th:onclick="'addFriend(\''+${user.id}+'\');'" id="acceptRequest" class=" btn btn-primary">Accept</button>
 													</div>
 												</div>
-											</a>
+											</a> 
 										</div>
 									</div>
 									<!-- else no users are found  -->

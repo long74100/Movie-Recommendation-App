@@ -139,7 +139,6 @@ public class UserprofileController {
 	@RequestMapping(value="/acceptRequest", method=RequestMethod.POST)
     @ResponseStatus(value = HttpStatus.OK)
     public void acceptFriendRequest(HttpServletRequest httpServletRequest) {
-		
     	Authentication auth = SecurityContextHolder.getContext().getAuthentication();
     	User user = userService.findUserByEmail(auth.getName());
     	LocalSQLConnectService db = new LocalSQLConnectService();

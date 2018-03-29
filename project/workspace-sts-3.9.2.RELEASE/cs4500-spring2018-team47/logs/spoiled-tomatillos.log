@@ -35,3 +35,13 @@
 2018-03-29 01:40:50.008 ERROR DESKTOP-AKNICNU --- [nio-8080-exec-5] e.n.c.m.s.LocalSQLConnectService         : Column count doesn't match value count at row 1
 2018-03-29 01:41:12.154 ERROR DESKTOP-AKNICNU --- [nio-8080-exec-7] e.n.c.m.s.LocalSQLConnectService         : Too many connections
 2018-03-29 01:41:12.179 ERROR DESKTOP-AKNICNU --- [nio-8080-exec-7] e.n.c.m.s.LocalSQLConnectService         : Column count doesn't match value count at row 1
+2018-03-29 01:57:02.977 ERROR DESKTOP-AKNICNU --- [nio-8080-exec-4] e.n.c.m.s.LocalSQLConnectService         : Too many connections
+2018-03-29 01:57:09.476 ERROR DESKTOP-AKNICNU --- [nio-8080-exec-9] e.n.c.m.s.LocalSQLConnectService         : Too many connections
+2018-03-29 01:57:14.356 ERROR DESKTOP-AKNICNU --- [io-8080-exec-10] e.n.c.m.s.LocalSQLConnectService         : Too many connections
+2018-03-29 01:57:17.767 ERROR DESKTOP-AKNICNU --- [nio-8080-exec-5] e.n.c.m.s.LocalSQLConnectService         : Too many connections
+2018-03-29 01:57:21.308 ERROR DESKTOP-AKNICNU --- [nio-8080-exec-1] e.n.c.m.s.LocalSQLConnectService         : Too many connections
+2018-03-29 01:57:22.879 ERROR DESKTOP-AKNICNU --- [nio-8080-exec-4] e.n.c.m.s.LocalSQLConnectService         : Too many connections
+2018-03-29 02:24:35.213 ERROR DESKTOP-AKNICNU --- [nio-8080-exec-1] e.n.c.m.s.LocalSQLConnectService         : Too many connections
+2018-03-29 02:24:59.643 ERROR DESKTOP-AKNICNU --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Too many connections
+2018-03-29 02:25:20.156 ERROR DESKTOP-AKNICNU --- [nio-8080-exec-4] e.n.c.m.s.LocalSQLConnectService         : Too many connections
+2018-03-29 02:47:14.747 ERROR DESKTOP-AKNICNU --- [nio-8080-exec-4] e.n.c.m.s.LocalSQLConnectService         : Too many connections

@@ -14,19 +14,15 @@ $(function() {
 		$(this).addClass('active');
 		e.preventDefault();
 	});
-
-	$('#acceptRequest').click(
-			function() {
-				alert("hello!");
-				var senderID = document.querySelector("#senderID").innerText;
-				var encodedAcceptRequest = encodeURI(senderID);
-				var url = "/acceptRequest";
-				var param = "senderID=" + encodedAcceptRequest;
-				var xhr = new XMLHttpRequest();
-				xhr.open("POST", url, true);
-				xhr.setRequestHeader("Content-type",
-						"application/x-www-form-urlencoded");
-				xhr.send(param);
-			});
-
 });
+
+function addFriend(value) {
+	var encodedAcceptRequest = encodeURI(value);
+	var url = "/acceptRequest";
+	var param = "senderID=" + encodedAcceptRequest;
+	var xhr = new XMLHttpRequest();
+	xhr.open("POST", url, true);
+	xhr.setRequestHeader("Content-type",
+			"application/x-www-form-urlencoded");
+	xhr.send(param);
+}
