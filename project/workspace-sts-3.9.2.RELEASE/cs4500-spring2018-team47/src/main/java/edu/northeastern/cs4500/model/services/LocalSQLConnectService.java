@@ -557,6 +557,7 @@ public class LocalSQLConnectService {
     		myResult = connectStatement.executeQuery(query);
     		if(myResult.next()) {
     			String sta = myResult.getString("relationStatus");
+    			status.append(sta);
     		}
     	}
     	catch(SQLException sq) {
@@ -565,4 +566,151 @@ public class LocalSQLConnectService {
     	
     	return status.toString();
     }
+    
+    /**
+     * To get all friend's userId as they are the request sender
+     * @param userId current user's id
+     * @return list of friend id
+     */
+    public List<User> getAllFriendsAsSender(int userId) {
+    	ArrayList<User> output = new ArrayList<>();
+    	try {
+    		String query = "select * from user join "
+    				+ "(select senderId from userRelation where receiverId = " + userId + " and relationStatus = \"" + "friend" + "\") as comp"
+    						+ " on user.user_id = comp.senderId";
+    		myResult = connectStatement.executeQuery(query);
+    		while(myResult.next()) {
+    			String friendUsername = myResult.getString("username");
+    			Integer friendUserId = myResult.getInt("senderId");
+    			User friend = new User();
+    			friend.setId(friendUserId);
+    			friend.setUsername(friendUsername);
+    			output.add(friend);
+    		}
+    	}
+    	catch(SQLException sq) {
+    		sq.printStackTrace();
+    	}
+    	return output;
+    }
+    
+    /**
+     * To get all friend's userId as they are the request receiver
+     * @param userId current user's id
+     * @return list of friend Id
+     */
+    public List<User> getAllFriendAsReceiver(int userId) {
+    	ArrayList<User> output = new ArrayList<>();
+    	try {
+    		String query = "select * from user join "
+    				+ "(select receiverId from userRelation where senderId = " + userId + " and relationStatus = \"" + "friend" + "\") as comp "
+    						+ "on user.user_id = comp.receiverId";
+    		myResult = connectStatement.executeQuery(query);
+    		while(myResult.next()) {
+    			String friendUsername = myResult.getString("username");
+    			Integer friendUserId = myResult.getInt("senderId");
+    			User friend = new User();
+    			friend.setId(friendUserId);
+    			friend.setUsername(friendUsername);;
+    			output.add(friend);
+    		}
+    	}
+    	catch(SQLException sq) {
+    		sq.printStackTrace();
+    	}
+    	return output;
+    }
+    
+    
+    /**
+     * To get all friends 
+     * @param userId the current user's id
+     * @return list of username
+     */
+    public List<User> getAllFriends(int userId) {
+    	ArrayList<User> output = new ArrayList<>();
+    	output.addAll(this.getAllFriendAsReceiver(userId));
+    	output.addAll(this.getAllFriendsAsSender(userId));
+    	return output;
+    }
+    
+   
+    
+    /**
+     * To get all friend requests from other users
+     * @param userId the current user's id
+     * @return list of username who sent the friend request
+     */
+    public List<User> getAllReceivedFriendRequest(int userId) {
+    	ArrayList<User> output = new ArrayList<>();
+    	try {
+    		String query =  "select * from user join "
+    				+ "(select senderId from userRelation where receiverId = " + userId + " and relationStatus = \"" + "onHold" + "\") as comp "
+					+ "on user.user_id = comp.receiverId";
+    		myResult = connectStatement.executeQuery(query);
+    		
+    		while(myResult.next()) {
+    			String  friendUserName = myResult.getString("username");
+    			Integer friendUserId = myResult.getInt("senderId");
+    			User friend = new User();
+    			friend.setId(friendUserId);
+    			friend.setUsername(friendUserName);
+    			output.add(friend);
+    		}
+    		
+    	}
+    	catch(SQLException sq) {
+    		sq.printStackTrace();
+    	}
+    	
+    	return output;
+    }
+    
+    /**
+     * To get all friend requests this user sent out
+     * @param userId the current user's id
+     * @return list of username who sent the friend request
+     */
+    public List<User> getAllSentFriendRequest(int userId) {
+    	ArrayList<User> output = new ArrayList<>();
+    	try {
+    		String query =  "select * from user join "
+    				+ "(select receiverId from userRelation where senderId = " + userId + " and relationStatus = \"" + "onHold" + "\") as comp "
+					+ "on user.user_id = comp.receiverId";
+    		myResult = connectStatement.executeQuery(query);
+    		
+    		while(myResult.next()) {
+    			String  friendUserName = myResult.getString("username");
+    			Integer friendUserId = myResult.getInt("receiverId");
+    			User friend = new User();
+    			friend.setId(friendUserId);
+    			friend.setUsername(friendUserName);
+    			output.add(friend);
+    		}
+    		
+    	}
+    	catch(SQLException sq) {
+    		sq.printStackTrace();
+    	}
+    	
+    	return output;
+    }
+    
+    
+    
+    /**
+     * To return the total number of friend request 
+     * @param userId the current user's id
+     * @return the total number of friend request
+     */
+    public List<User> getAllFriendRequest(int userId) {
+    	ArrayList<User> output = new ArrayList<>();
+    	output.addAll(this.getAllReceivedFriendRequest(userId));
+    	output.addAll(this.getAllSentFriendRequest(userId));
+    	
+    	return output;
+    }
+    
+    
+    
 }
