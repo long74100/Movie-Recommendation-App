@@ -1,0 +1,25 @@
+2018-03-28 21:39:43.292 ERROR Longshengs-MacBook-Air.local --- [nio-8080-exec-4] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-28 21:39:43.307 ERROR Longshengs-MacBook-Air.local --- [nio-8080-exec-4] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-28 21:39:43.308 ERROR Longshengs-MacBook-Air.local --- [nio-8080-exec-4] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-28 21:43:33.112 ERROR Longshengs-MacBook-Air.local --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-28 21:43:33.127 ERROR Longshengs-MacBook-Air.local --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-28 21:43:33.128 ERROR Longshengs-MacBook-Air.local --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-28 21:45:47.754 ERROR Longshengs-MacBook-Air.local --- [nio-8080-exec-8] e.n.c.m.s.LocalSQLConnectService         : Unknown column 'movieList' in 'field list'
+2018-03-28 21:45:47.786 ERROR Longshengs-MacBook-Air.local --- [nio-8080-exec-8] e.n.c.m.s.LocalSQLConnectService         : Unknown column 'movieList' in 'field list'
+2018-03-28 21:45:47.811 ERROR Longshengs-MacBook-Air.local --- [nio-8080-exec-8] e.n.c.m.s.LocalSQLConnectService         : Unknown column 'movieList' in 'field list'
+2018-03-28 21:47:27.491 ERROR Longshengs-MacBook-Air.local --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Unknown column 'Watched' in 'field list'
+2018-03-28 21:47:27.525 ERROR Longshengs-MacBook-Air.local --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Unknown column 'Favorites' in 'field list'
+2018-03-28 21:47:27.549 ERROR Longshengs-MacBook-Air.local --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Unknown column 'Recommended' in 'field list'
+2018-03-28 21:50:24.624 ERROR Longshengs-MacBook-Air.local --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Unknown column 'Watched' in 'field list'
+2018-03-28 21:50:24.664 ERROR Longshengs-MacBook-Air.local --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Unknown column 'Favorites' in 'field list'
+2018-03-28 21:50:24.688 ERROR Longshengs-MacBook-Air.local --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Unknown column 'Recommended' in 'field list'
+2018-03-28 22:43:57.939 ERROR Longshengs-MacBook-Air.local --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry '0' for key 'PRIMARY'
+2018-03-28 22:44:00.394 ERROR Longshengs-MacBook-Air.local --- [nio-8080-exec-7] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry '0' for key 'PRIMARY'
+2018-03-28 22:45:23.450 ERROR Longshengs-MacBook-Air.local --- [nio-8080-exec-1] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry '0' for key 'PRIMARY'
+2018-03-28 22:49:27.067 ERROR Longshengs-MacBook-Air.local --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry '0' for key 'PRIMARY'
+2018-03-28 22:49:27.067 ERROR Longshengs-MacBook-Air.local --- [nio-8080-exec-9] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry '0' for key 'PRIMARY'
+2018-03-28 22:49:27.067 ERROR Longshengs-MacBook-Air.local --- [nio-8080-exec-5] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry '0' for key 'PRIMARY'
+2018-03-28 22:49:27.067 ERROR Longshengs-MacBook-Air.local --- [nio-8080-exec-4] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry '0' for key 'PRIMARY'
+2018-03-28 22:49:27.074 ERROR Longshengs-MacBook-Air.local --- [nio-8080-exec-3] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry '0' for key 'PRIMARY'
+2018-03-28 22:49:30.845 ERROR Longshengs-MacBook-Air.local --- [nio-8080-exec-1] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry '0' for key 'PRIMARY'
+2018-03-28 22:49:39.339 ERROR Longshengs-MacBook-Air.local --- [io-8080-exec-10] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry '0' for key 'PRIMARY'
