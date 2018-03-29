@@ -101,4 +101,16 @@ public class UserprofileController {
 	}
 	
 	
+	@RequestMapping(value={"/profile+to+friendsAndRequests"}, method = RequestMethod.GET)
+	public ModelAndView friendsAndRequests() {
+		ModelAndView modelAndView = new ModelAndView();
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		User user = userService.findUserByEmail(auth.getName());
+		modelAndView.addObject("user", user);
+		modelAndView.setViewName("friendsAndRequests");
+		return modelAndView;
+	}
+	
+	
+	
 }
