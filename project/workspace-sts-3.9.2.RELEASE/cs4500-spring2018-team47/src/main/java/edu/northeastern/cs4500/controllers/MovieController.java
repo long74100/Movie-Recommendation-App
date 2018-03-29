@@ -49,6 +49,7 @@ public class MovieController {
 	private IOmdbService omdbService = new OmdbServiceImpl();
     private OmdbSQLconnectService localDbConnector = new OmdbSQLconnectService();
     private ArrayList<String> movieNames = new ArrayList<>();
+    
     private static final Logger logger = LogManager.getLogger(MovieController.class);
 
     @Autowired
@@ -131,9 +132,9 @@ public class MovieController {
 	    localDbConnector.loadMovieToLocalDB();
 	    
 	} catch (IOException | JSONException e) {
-	    // use logger
-	    e.printStackTrace();
+	    logger.error(e.getMessage());
 	}
+	
 	ModelAndView modelAndView = new ModelAndView();
 	Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 	User user = userService.findUserByEmail(auth.getName());
@@ -143,12 +144,6 @@ public class MovieController {
 	if (user != null) {
 	    int rating = localSQLConnector.getRating(user.getId(), movie.get("imdbID"));
 	    modelAndView.addObject("rating", rating);
-	} else {
-	    logger.debug("Debugging log");
-	    logger.info("Info log");
-	    logger.warn("Hey, This is a warning!");
-	    logger.error("Oops! We have an Error. OK");
-	    logger.fatal("Damn! Fatal error. Please fix me.");
 	}
 	
 	modelAndView.setViewName("movie");
@@ -169,10 +164,8 @@ public class MovieController {
         	if (user != null) {
         	    movieRating.setUserID(user.getId());
         	    movieRatingService.saveMovieRating(movieRating);
-        	} else {
-        	    System.out.println("user does not exist");
-        	}
-    
+        	} 
+        	
     }
         
     @RequestMapping(value="/writeReview", method=RequestMethod.POST)
