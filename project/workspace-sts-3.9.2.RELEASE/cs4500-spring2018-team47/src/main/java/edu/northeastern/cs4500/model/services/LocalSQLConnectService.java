@@ -68,7 +68,7 @@ public class LocalSQLConnectService {
      * @return true if given movie exists in local database, else return false
      */
     public boolean containMovie(String movieId) {
-    	String sqlcmd = "select * from Movie where movie_id =\"?\"";
+    	String sqlcmd = "select * from Movie where movie_id =?";
     	PreparedStatement pstmt = null;
     	try {
     		pstmt = connector.prepareStatement(sqlcmd);
@@ -91,7 +91,7 @@ public class LocalSQLConnectService {
      * @return true if they sent request to each other.
      */
     private boolean hasMadeRequest(int senderId, int receiverId) {
-    	String sqlcmd = "select * from userRelation where (senderId = \"?\" and receiverId = \"?\") or (senderId = \"?\" and receiverId = \"?\")";
+    	String sqlcmd = "select * from userRelation where (senderId = ? and receiverId = ?) or (senderId = ? and receiverId = ?)";
     	PreparedStatement pstmt = null;
     	try {
     		pstmt = connector.prepareStatement(sqlcmd);
@@ -116,7 +116,7 @@ public class LocalSQLConnectService {
      * @param tableName the destination table that the data will be inserted to
      */
     public void insertData(String data, String tableName) {
-    	String sqlcmd = "insert into \"?\" values ?";
+    	String sqlcmd = "insert into ? values ?";
     	PreparedStatement pstmt = null;
     	try {
     		pstmt = connector.prepareStatement(sqlcmd);
@@ -136,7 +136,7 @@ public class LocalSQLConnectService {
      * @param id the given movie id
      */
     public void deleteFromMovieTable(String id) {
-    	String sqlcmd = "delete from Movie where movie_id = \"?\"";
+    	String sqlcmd = "delete from Movie where movie_id = ?";
     	PreparedStatement pstmt = null;
     	try {
     		pstmt = connector.prepareStatement(sqlcmd);
@@ -356,7 +356,7 @@ public class LocalSQLConnectService {
      * @param receiverId the id for receiver
      */
     public void sendFriendRequest(int senderId, int receiverId) {
-    	String sqlcmd = "insert into userRelation values (\"?\", \"?\", \"onHold\", \"0\", \"0\")";
+    	String sqlcmd = "insert into userRelation values (?, ?, \"onHold\", \"0\", \"0\")";
     	PreparedStatement pstmt = null;
     	if(!this.hasMadeRequest(senderId, receiverId)) {
     		try {
@@ -476,7 +476,7 @@ public class LocalSQLConnectService {
 	}
     
     public void addMovieList(int userId, String movieList) {
-    	String sqlcmd = "insert into Movielist(user_id, list_name) values (?, \"?\")";
+    	String sqlcmd = "insert into Movielist(user_id, list_name) values (?, ?)";
     	PreparedStatement pstmt = null;
 	try {
 		pstmt = connector.prepareStatement(sqlcmd);
@@ -579,7 +579,7 @@ public class LocalSQLConnectService {
     public ArrayList<Movie> getMovieFromUserMovieList(int userId, String listname) {
     	ArrayList<Movie> result = new ArrayList<>();
     	String sqlcmd = "select Movie.movie_id, Movie.movie_name, Movie.plot, Movie.actor from Movie join " + 
-				"(select movie_id from UserMovieList where user_id = ? and list_name = \"?\") as comp on comp.movie_id = Movie.movie_id";
+				"(select movie_id from UserMovieList where user_id = ? and list_name = ?) as comp on comp.movie_id = Movie.movie_id";
     	PreparedStatement pstmt = null;
     	try {
     		pstmt = connector.prepareStatement(sqlcmd);
@@ -611,8 +611,8 @@ public class LocalSQLConnectService {
      * @param movieListName the name for the movie list
      */
     public void createMovieList(int userid, String movieListName) {
-    	String sqlcmd = "select * from Movielist where user_id = ? and list_name = \"?\"";
-    	String addListQuery = "insert into Movielist values (?, \"?\")";
+    	String sqlcmd = "select * from Movielist where user_id = ? and list_name = ?";
+    	String addListQuery = "insert into Movielist values (?, ?)";
     	PreparedStatement pstmt = null;
     	PreparedStatement pstmt2 = null;
     	try {
@@ -643,7 +643,7 @@ public class LocalSQLConnectService {
      * @param movieName name for movie that will be added to this list
      */
     public void addMovieIntoMovieList(int userId, String listName, String movieId, String movieName) {
-    	String sqlcmd = "insert into UserMovieList values (?, \"?\", \"?\", \"?\")";
+    	String sqlcmd = "insert into UserMovieList values (?, ?, ?, ?)";
     	PreparedStatement pstmt = null;
     	try {
     		pstmt = connector.prepareStatement(sqlcmd);
@@ -848,7 +848,7 @@ public class LocalSQLConnectService {
      */
     public int getRating(int userId, String movieId) {
     	String sqlcmd = "select rating from rating"
-    	    	+ " where rating.user_id = ? and rating.movie_id = \"?\"";
+    	    	+ " where rating.user_id = ? and rating.movie_id = ?";
     	PreparedStatement pstmt = null;
     try {
         	pstmt = connector.prepareStatement(sqlcmd);
@@ -874,7 +874,7 @@ public class LocalSQLConnectService {
      */
     public List<MovieReview> getReviewsForMovie(String movieId) {
     	ArrayList<MovieReview> result = new ArrayList<>();
-    	String sqlcmd = "select * from Review where movie_id = \"?\"";
+    	String sqlcmd = "select * from Review where movie_id = ?";
     	PreparedStatement pstmt = null;
     try {
         	pstmt = connector.prepareStatement(sqlcmd);
@@ -909,7 +909,7 @@ public class LocalSQLConnectService {
      */
     public List<MovieReview> getReviewForUser(String userId) {
     	ArrayList<MovieReview> output = new ArrayList<>();
-    	String sqlcmd = "select * from Review where reviewer_id = \"?\"";
+    	String sqlcmd = "select * from Review where reviewer_id = ?";
     	PreparedStatement pstmt = null;
     try {
         	pstmt = connector.prepareStatement(sqlcmd);
