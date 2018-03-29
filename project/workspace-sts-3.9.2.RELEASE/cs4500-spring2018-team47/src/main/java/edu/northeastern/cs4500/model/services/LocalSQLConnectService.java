@@ -720,7 +720,7 @@ public class LocalSQLConnectService {
     
     
     
-=======
+    /**
      * Get a rating from movie ratings.
      */
     public int getRating(int userId, String movieId) {
@@ -740,5 +740,5 @@ public class LocalSQLConnectService {
 	
 	return -1;
     }
->>>>>>> d44dcde801b34ae9b22ef22a26d46922d21fbed1
+
 }
