@@ -653,7 +653,7 @@ public class LocalSQLConnectService {
     	try {
     		String query =  "select * from user join "
     				+ "(select senderId from userRelation where receiverId = " + userId + " and relationStatus = \"" + "onHold" + "\") as comp "
-					+ "on user.user_id = comp.receiverId";
+					+ "on user.user_id = comp.senderId";
     		myResult = connectStatement.executeQuery(query);
     		
     		while(myResult.next()) {
