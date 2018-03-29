@@ -564,7 +564,7 @@ public class LocalSQLConnectService {
      */
     public void addMovieIntoMovieList(int userId, String listName, String movieId, String movieName) {
     	try {
-    		String query = "insert into UserMovieList vlaues (" + userId + ", \"" + listName + "\", \"" + 
+    		String query = "insert into UserMovieList values (" + userId + ", \"" + listName + "\", \"" + 
     						movieId + "\", \"" + movieName + "\")";
     		connectStatement.executeUpdate(query);
     	}
@@ -831,11 +831,5 @@ public class LocalSQLConnectService {
     	
     	return output;
     }
-    
-    
-    
-    
-    
-    
 
 }

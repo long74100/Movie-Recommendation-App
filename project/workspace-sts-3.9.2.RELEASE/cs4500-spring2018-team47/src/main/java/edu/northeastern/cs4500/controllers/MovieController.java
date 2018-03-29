@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.swing.JOptionPane;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -157,7 +158,7 @@ public class MovieController {
         	movieRating.setMovieId(httpServletRequest.getParameter("movieId"));
         	movieRating.setRating(Double.valueOf(httpServletRequest.getParameter("rating")));
         	SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-        movieRating.setDate(formatter.format(new Date()));
+        	movieRating.setDate(formatter.format(new Date()));
         	Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         	User user = userService.findUserByEmail(auth.getName());
         	
@@ -182,6 +183,19 @@ public class MovieController {
     	movieReview.setUsername(user.getUsername());
     	LocalSQLConnectService db = new LocalSQLConnectService();
     	db.addReviewToLocalDB(movieReview);
+    }
+    
+    @RequestMapping(value="/addMovieToList", method=RequestMethod.POST)
+    @ResponseStatus(value = HttpStatus.OK)
+    public void addMovieToList(@RequestBody String movie, HttpServletRequest httpServletRequest) {
+    	LocalSQLConnectService db = new LocalSQLConnectService();
+    	Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+    	User user = userService.findUserByEmail(auth.getName());
+    	Integer userId = user.getId();
+    	String listname = httpServletRequest.getParameter("movieList");
+    	String movieId = httpServletRequest.getParameter("movieId");
+    	String movieName = httpServletRequest.getParameter("movie");
+    	db.addMovieIntoMovieList(userId, listname, movieId, movieName);
     }
     
     /**

@@ -37,7 +37,6 @@
 							<input type="radio" id="rate8" value="8" /><label for="rate8"></label> 
 							<input type="radio" id="rate9" value="9" /><label for="rate9"></label> 
 							<input type="radio" id="rate10" value="10" /><label for="rate10"></label> 
-	
 						</fieldset>
 						
 					</div>
@@ -66,14 +65,24 @@
 
 					<button class="btn btn-primary">Find in Theaters</button>
 					<button class="btn btn-secondary">Share with a Friend</button>
-
-					<select class="mt-3">
-						<option>Watch List</option>
+					
+					<div>
+						<select id="listOpt" class="mt-3">
 						<option>Favorites</option>
-						<option>Adventure</option>
+						<option>Recommended</option>
+						<option>Watched</option>
+						</select>
+						<button id="addToList" class="btn btn-primary">Add</button>
+						<button type="button" class="btn btn-danger">Remove</button>
+					</div>
+	
+					<!--  <select class="mt-3">
+						<option>Favorites</option>
+						<option>Recommended</option>
+						<option>Watched</option>
 					</select>
 					<button class="btn btn-primary">Add</button>
-					<button type="button" class="btn btn-danger">Remove</button>
+					<button type="button" class="btn btn-danger">Remove</button>-->
 				</div>
 			</div>
 			<hr class="bg-danger p-2">
