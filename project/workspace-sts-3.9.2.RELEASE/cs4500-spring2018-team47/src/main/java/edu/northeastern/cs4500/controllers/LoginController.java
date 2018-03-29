@@ -2,6 +2,7 @@ package edu.northeastern.cs4500.controllers;
 
 import javax.validation.Valid;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -11,11 +12,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import edu.northeastern.cs4500.model.services.LocalSQLConnectService;
 import edu.northeastern.cs4500.model.services.UserService;
-import edu.northeastern.cs4500.model.session.SessionService;
-import edu.northeastern.cs4500.model.session.SessionServiceImpl;
 import edu.northeastern.cs4500.model.user.User;
-import edu.northeastern.cs4500.model.user.UserProfile;
 
 /**
  * Spring MVC Controller to handle mappings for login and registration.
@@ -26,6 +25,9 @@ public class LoginController {
 
     @Autowired
     private UserService userService;
+    
+    private LocalSQLConnectService localSQLConnector = new LocalSQLConnectService();
+
 
     @RequestMapping(value = { "/login" }, method = RequestMethod.GET)
     public ModelAndView login() {
@@ -62,6 +64,7 @@ public class LoginController {
 	    modelAndView.setViewName("registration");
 	} else {
 	    userService.saveUser(newUser);
+	    localSQLConnector.preloadMovieList(newUser.getId());
 	    modelAndView.addObject("successMessage", "Registration successful!");
 	    modelAndView.addObject("user", new User());
 	    modelAndView.setViewName("registration");

@@ -5,17 +5,17 @@ import static org.junit.Assert.assertEquals;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-import org.json.JSONException;
 import org.json.JSONObject;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
-import org.skyscreamer.jsonassert.JSONAssert;
 
 import edu.northeastern.cs4500.model.services.IOmdbService;
-import edu.northeastern.cs4500.model.services.OmdbServiceImpl;
 import edu.northeastern.cs4500.model.services.OmdbSQLconnectService;
+import edu.northeastern.cs4500.model.services.OmdbServiceImpl;
 
-public class LocalDBServiceTest {
+
+@Ignore public class LocalDBServiceTest {
 	
 	// the OMDB service 
 	private static IOmdbService omdbService;
@@ -42,10 +42,8 @@ public class LocalDBServiceTest {
 				// check if the local database already has the given movie by searching movie id, 
 				assertEquals(sqlConnector.hasMovie("tt0096895"), false);
 				JSONObject job = omdbService.searchMovieByTitle("Batman", "t");
-				// to catch movie information(JSON File)
-				sqlConnector.catchMovie(job);
 				// import movie into local database
-				sqlConnector.loadMovieToLocalDB();
+				sqlConnector.loadMovieToLocalDB(job);
 				// test if the movie already exists in local database
 				assertEquals(sqlConnector.hasMovie("tt0096895"), true);
 			}

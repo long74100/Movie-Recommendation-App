@@ -1,19 +1,20 @@
 package edu.northeastern.cs4500.servicetests;
 
-import static org.junit.Assert.assertEquals;
-
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.junit.Before;
 import org.junit.Test;
 import org.skyscreamer.jsonassert.JSONAssert;
 
+import edu.northeastern.cs4500.Cs4500Spring2018Team47ApplicationTests;
 import edu.northeastern.cs4500.model.services.IOmdbService;
 import edu.northeastern.cs4500.model.services.OmdbServiceImpl;
-import edu.northeastern.cs4500.model.services.OmdbSQLconnectService;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
-public class OmdbServiceImplTest {
+public class OmdbServiceImplTest extends Cs4500Spring2018Team47ApplicationTests {
 	
+	private static final Logger logger = LogManager.getLogger(OmdbServiceImplTest.class);
 	private static IOmdbService omdbServiceImpl;
 	
 	@Before
@@ -34,11 +35,11 @@ public class OmdbServiceImplTest {
 			+ "\"Plot\":\"The Dark Knight of Gotham City begins his war on crime with his first major enemy being the clownishly homicidal Joker.\","
 			+ "\"Language\":\"English, French, Spanish\","
 			+ "\"Country\":\"USA, UK\","
-			+ "\"Awards\":\"Won 1 Oscar. Another 9 wins & 26 nominations.\","
-			+ "\"Poster\":\"https://images-na.ssl-images-amazon.com/images/M/MV5BMTYwNjAyODIyMF5BMl5BanBnXkFtZTYwNDMwMDk2._V1_SX300.jpg\","
+			+ "\"Awards\":\"Won 1 Oscar. Another 8 wins & 26 nominations.\","
+			+ "\"Poster\":\"https://ia.media-imdb.com/images/M/MV5BMTYwNjAyODIyMF5BMl5BanBnXkFtZTYwNDMwMDk2._V1_SX300.jpg\","
 			+ "\"Ratings\":[{\"Source\":\"Internet Movie Database\",\"Value\":\"7.6/10\"},{\"Source\":\"Rotten Tomatoes\",\"Value\":\"72%\"},{\"Source\":\"Metacritic\",\"Value\":\"69/100\"}],\"Metascore\":\"69\","
 			+ "\"imdbRating\":\"7.6\","
-			+ "\"imdbVotes\":\"294,261\","
+			+ "\"imdbVotes\":\"296,001\","
 			+ "\"imdbID\":\"tt0096895\","
 			+ "\"Type\":\"movie\","
 			+ "\"DVD\":\"25 Mar 1997\","
@@ -63,7 +64,7 @@ public class OmdbServiceImplTest {
 			e1.printStackTrace();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			logger.error(e.getMessage());
 		}
 	
 		//title of non existing movie
@@ -73,10 +74,10 @@ public class OmdbServiceImplTest {
 			JSONAssert.assertEquals(expectedSearchResult, actualSearchResult, true);
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			logger.error(e.getMessage());
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			logger.error(e.getMessage());
 		}
 		
 		//no title in search
@@ -86,10 +87,10 @@ public class OmdbServiceImplTest {
 			JSONAssert.assertEquals(expectedSearchResult, actualSearchResult, true);
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			logger.error(e.getMessage());
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			logger.error(e.getMessage());
 		}
 	}
 	
