@@ -1,6 +1,7 @@
 package edu.northeastern.cs4500.model.services;
 
 import java.sql.Connection;
+
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -8,6 +9,9 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import edu.northeastern.cs4500.model.movie.MovieReview;
 
@@ -39,6 +43,8 @@ public class LocalSQLConnectService {
 	private static Statement connectStatement = null;
 	private static ResultSet myResult = null;
 	private ArrayList<String> movie = new ArrayList<>();
+	private static final Logger logger = LogManager.getLogger(LocalSQLConnectService.class);
+	
 	/**
 	 * The constructor
 	 * The constructor will automatically create connection to local database
@@ -49,7 +55,7 @@ public class LocalSQLConnectService {
 			connectStatement = connector.createStatement();
 		}
 		catch(SQLException se) {
-			se.printStackTrace();
+			logger.error(se.getMessage());
 		}
 		
 	}
@@ -69,7 +75,7 @@ public class LocalSQLConnectService {
     		}
     	}
     	catch (SQLException ep) {
-    		ep.printStackTrace();
+		logger.error(ep.getMessage());
     	}
     	return false;
     }
@@ -91,7 +97,7 @@ public class LocalSQLConnectService {
     		}
     	}
     	catch(SQLException ep) {
-    		ep.printStackTrace();
+		logger.error(ep.getMessage());
     	}
     	return false;
     }
@@ -107,7 +113,7 @@ public class LocalSQLConnectService {
     		connectStatement.executeUpdate(query);
     	}
     	catch(SQLException ep) {
-    		ep.printStackTrace();
+		logger.error(ep.getMessage());
     	}
     }
     
@@ -124,7 +130,7 @@ public class LocalSQLConnectService {
     		System.out.println("delete row " + row + " id: " + id);
     	}
     	catch(SQLException ep) {
-    		ep.printStackTrace();
+		logger.error(ep.getMessage());
     	}
     }
     
@@ -140,7 +146,7 @@ public class LocalSQLConnectService {
     		System.out.println("Clear Table for test insert");
     	}
     	catch(SQLException ep) {
-    		ep.printStackTrace();
+		logger.error(ep.getMessage());
     	}
     }
     
@@ -155,7 +161,7 @@ public class LocalSQLConnectService {
     		execute();
     	}
     	catch(SQLException ep) {
-    		ep.printStackTrace();
+		logger.error(ep.getMessage());
     	}
     }
     
@@ -170,7 +176,7 @@ public class LocalSQLConnectService {
     		execute();
     	}
     	catch(SQLException ep) {
-    		ep.printStackTrace();
+		logger.error(ep.getMessage());
     	}
     }
     
@@ -185,7 +191,7 @@ public class LocalSQLConnectService {
     		execute();
     	}
     	catch(SQLException ec) {
-    		ec.printStackTrace();
+		logger.error(ec.getMessage());
     	}
     }
     
@@ -200,7 +206,7 @@ public class LocalSQLConnectService {
     		execute();
     	}
     	catch(SQLException ec) {
-    		ec.printStackTrace();
+		logger.error(ec.getMessage());
     	}
     }
     
@@ -215,7 +221,7 @@ public class LocalSQLConnectService {
     		execute();
     	}
     	catch(SQLException ec) {
-    		ec.printStackTrace();
+		logger.error(ec.getMessage());
     	}
     }
     
@@ -246,7 +252,7 @@ public class LocalSQLConnectService {
     		execute();
     	}
     	catch(SQLException ec) {
-    		ec.printStackTrace();
+		logger.error(ec.getMessage());
     	}
     }
     
@@ -279,7 +285,7 @@ public class LocalSQLConnectService {
     		}
     	}
     	catch(Exception e) {
-    		e.printStackTrace();
+		logger.error(e.getMessage());
     	}
     }
     
@@ -308,7 +314,7 @@ public class LocalSQLConnectService {
     			connectStatement.executeUpdate(query);
     		}
     		catch(SQLException se) {
-    			se.printStackTrace();
+			logger.error(se.getMessage());
     		}
     	}
     	else {
@@ -328,7 +334,7 @@ public class LocalSQLConnectService {
     		connectStatement.executeUpdate(query);
     	}
     	catch(SQLException ep) {
-    		ep.printStackTrace();
+		logger.error(ep.getMessage());
     	}
     }
     
@@ -343,7 +349,7 @@ public class LocalSQLConnectService {
     		connectStatement.executeUpdate(query);
     	}
     	catch(SQLException ep) {
-    		ep.printStackTrace();
+		logger.error(ep.getMessage());
     	}
     }
     
@@ -359,7 +365,7 @@ public class LocalSQLConnectService {
     		connectStatement.executeUpdate(value);
     	}
     	catch(SQLException ep) {
-    		ep.printStackTrace();
+		logger.error(ep.getMessage());
     	}
 	}
     
@@ -375,10 +381,14 @@ public class LocalSQLConnectService {
     		connectStatement.executeUpdate(value);
     	}
     	catch(SQLException ep) {
-    		ep.printStackTrace();
+		logger.error(ep.getMessage());
     	}
 	}
 
+    /**
+     * To add the review into local database
+     * @param mr Movie review for a movie
+     */
     public void addReviewToLocalDB(MovieReview mr) {
 		try {
 			int reviewId = mr.getId();
@@ -393,7 +403,7 @@ public class LocalSQLConnectService {
 			
 		}
 		catch(SQLException se){
-			se.printStackTrace();
+			logger.error(se.getMessage());
 		}
 
 	}
@@ -422,7 +432,7 @@ public class LocalSQLConnectService {
     		
     	}
     	catch(SQLException ep) {
-    		ep.printStackTrace();
+		logger.error(ep.getMessage());
     	}
     	
     	return output;
@@ -462,7 +472,7 @@ public class LocalSQLConnectService {
     		
     	}
     	catch(SQLException sq) {
-    		sq.printStackTrace();
+		logger.error(sq.getMessage());
     	}
     	
     	return movieNames;
@@ -495,10 +505,220 @@ public class LocalSQLConnectService {
     		}
     	}
     	catch(SQLException sq) {
-    		sq.printStackTrace();
+		logger.error(sq.getMessage());
     	}
     	return result;
     }
+    
+    /**
+<<<<<<< HEAD
+     * To create movie list 
+     * @param movieListName the name for the movie list
+     */
+    public void createMovieList(int userid, String movieListName) {
+    	try {
+    		String query = "select * from Movielist where user_id = " + userid + " and list_name = \"" + movieListName + "\"";
+    		myResult = connectStatement.executeQuery(query);
+    		if(myResult.next()) {
+    			System.out.println("You already have this movielist");
+    		}
+    		else {
+    			String addListQuery = "insert into Movielist values (" + userid + ", \"" + movieListName + "\")";
+    			connectStatement.executeUpdate(addListQuery);
+    			System.out.println("movielist has added");
+    		}
+    	}
+    	catch(SQLException sq) {
+    		sq.printStackTrace();
+    	}
+    }
+    
+    /**
+     * To add the movie into the movie list with given name
+     * @param userId the user that this movie list belongs to
+     * @param listName the name of the movie list
+     * @param movieId id for movie that will be added to this list
+     * @param movieName name for movie that will be added to this list
+     */
+    public void addMovieIntoMovieList(int userId, String listName, String movieId, String movieName) {
+    	try {
+    		String query = "insert into UserMovieList vlaues (" + userId + ", \"" + listName + "\", \"" + 
+    						movieId + "\", \"" + movieName + "\")";
+    		connectStatement.executeUpdate(query);
+    	}
+    	catch(SQLException sq) {
+    		sq.printStackTrace();
+    	}
+    }
+    
+    /**
+     * To get the status of the users relationship
+     * @param senderId the user who sent the request
+     * @param receiverId the user who is sent the request
+     * @return the relationship one of the following: "friend", "onHold"
+     */
+    public String getUserRelation(int senderId, int receiverId) {
+    	StringBuilder status = new StringBuilder();
+    	try {
+    		String query = "select * from userRelation where senderId = " + senderId + " and receiverId " + receiverId;
+    		myResult = connectStatement.executeQuery(query);
+    		if(myResult.next()) {
+    			String sta = myResult.getString("relationStatus");
+    			status.append(sta);
+    		}
+    	}
+    	catch(SQLException sq) {
+    		sq.printStackTrace();
+    	}
+    	
+    	return status.toString();
+    }
+    
+    /**
+     * To get all friend's userId as they are the request sender
+     * @param userId current user's id
+     * @return list of friend id
+     */
+    public List<User> getAllFriendsAsSender(int userId) {
+    	ArrayList<User> output = new ArrayList<>();
+    	try {
+    		String query = "select * from user join "
+    				+ "(select senderId from userRelation where receiverId = " + userId + " and relationStatus = \"" + "friend" + "\") as comp"
+    						+ " on user.user_id = comp.senderId";
+    		myResult = connectStatement.executeQuery(query);
+    		while(myResult.next()) {
+    			String friendUsername = myResult.getString("username");
+    			Integer friendUserId = myResult.getInt("senderId");
+    			User friend = new User();
+    			friend.setId(friendUserId);
+    			friend.setUsername(friendUsername);
+    			output.add(friend);
+    		}
+    	}
+    	catch(SQLException sq) {
+    		sq.printStackTrace();
+    	}
+    	return output;
+    }
+    
+    /**
+     * To get all friend's userId as they are the request receiver
+     * @param userId current user's id
+     * @return list of friend Id
+     */
+    public List<User> getAllFriendAsReceiver(int userId) {
+    	ArrayList<User> output = new ArrayList<>();
+    	try {
+    		String query = "select * from user join "
+    				+ "(select receiverId from userRelation where senderId = " + userId + " and relationStatus = \"" + "friend" + "\") as comp "
+    						+ "on user.user_id = comp.receiverId";
+    		myResult = connectStatement.executeQuery(query);
+    		while(myResult.next()) {
+    			String friendUsername = myResult.getString("username");
+    			Integer friendUserId = myResult.getInt("senderId");
+    			User friend = new User();
+    			friend.setId(friendUserId);
+    			friend.setUsername(friendUsername);;
+    			output.add(friend);
+    		}
+    	}
+    	catch(SQLException sq) {
+    		sq.printStackTrace();
+    	}
+    	return output;
+    }
+    
+    
+    /**
+     * To get all friends 
+     * @param userId the current user's id
+     * @return list of username
+     */
+    public List<User> getAllFriends(int userId) {
+    	ArrayList<User> output = new ArrayList<>();
+    	output.addAll(this.getAllFriendAsReceiver(userId));
+    	output.addAll(this.getAllFriendsAsSender(userId));
+    	return output;
+    }
+    
+   
+    
+    /**
+     * To get all friend requests from other users
+     * @param userId the current user's id
+     * @return list of username who sent the friend request
+     */
+    public List<User> getAllReceivedFriendRequest(int userId) {
+    	ArrayList<User> output = new ArrayList<>();
+    	try {
+    		String query =  "select * from user join "
+    				+ "(select senderId from userRelation where receiverId = " + userId + " and relationStatus = \"" + "onHold" + "\") as comp "
+					+ "on user.user_id = comp.receiverId";
+    		myResult = connectStatement.executeQuery(query);
+    		
+    		while(myResult.next()) {
+    			String  friendUserName = myResult.getString("username");
+    			Integer friendUserId = myResult.getInt("senderId");
+    			User friend = new User();
+    			friend.setId(friendUserId);
+    			friend.setUsername(friendUserName);
+    			output.add(friend);
+    		}
+    		
+    	}
+    	catch(SQLException sq) {
+    		sq.printStackTrace();
+    	}
+    	
+    	return output;
+    }
+    
+    /**
+     * To get all friend requests this user sent out
+     * @param userId the current user's id
+     * @return list of username who sent the friend request
+     */
+    public List<User> getAllSentFriendRequest(int userId) {
+    	ArrayList<User> output = new ArrayList<>();
+    	try {
+    		String query =  "select * from user join "
+    				+ "(select receiverId from userRelation where senderId = " + userId + " and relationStatus = \"" + "onHold" + "\") as comp "
+					+ "on user.user_id = comp.receiverId";
+    		myResult = connectStatement.executeQuery(query);
+    		
+    		while(myResult.next()) {
+    			String  friendUserName = myResult.getString("username");
+    			Integer friendUserId = myResult.getInt("receiverId");
+    			User friend = new User();
+    			friend.setId(friendUserId);
+    			friend.setUsername(friendUserName);
+    			output.add(friend);
+    		}
+    		
+    	}
+    	catch(SQLException sq) {
+    		sq.printStackTrace();
+    	}
+    	
+    	return output;
+    }
+    
+    
+    
+    /**
+     * To return the total number of friend request 
+     * @param userId the current user's id
+     * @return the total number of friend request
+     */
+    public List<User> getAllFriendRequest(int userId) {
+    	ArrayList<User> output = new ArrayList<>();
+    	output.addAll(this.getAllReceivedFriendRequest(userId));
+    	output.addAll(this.getAllSentFriendRequest(userId));
+    	
+    	return output;
+    }
+    
+    
     
     /**
      * Get a rating from movie ratings.
@@ -515,9 +735,10 @@ public class LocalSQLConnectService {
 		 return myResult.getInt("rating");
 	     } 
 	} catch(SQLException e) {
-	    // log error
+		logger.error(e.getMessage());
 	}
 	
 	return -1;
     }
+
 }

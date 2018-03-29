@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import edu.northeastern.cs4500.model.movie.Movie;
@@ -25,6 +26,10 @@ public class UserprofileController {
 	@Autowired
     private UserService userService;
 	
+	/**
+	 * This is to return the profile page
+	 * @return the model view of profile page
+	 */
 	@RequestMapping(value={"/profile"}, method = RequestMethod.GET)
 	public ModelAndView getProfile() {
 		ModelAndView modelAndView = new ModelAndView();
@@ -34,9 +39,10 @@ public class UserprofileController {
 		modelAndView.setViewName("userProfile");
 		return modelAndView;
 	}
+	
 	/**
-	 * 
-	 * Pass the movie list here
+	 * This is to return the user movie list page besides the profile management navigation bar
+	 * @return the movie list page
 	 */
 	@RequestMapping(value={"/profile+to+movielist"}, method = RequestMethod.GET)
 	public ModelAndView getMovieList() {
@@ -48,6 +54,7 @@ public class UserprofileController {
 		List<String> movieListNames = sqlConnector.getMovieListForUser(user.getId());
 		modelAndView.addObject("usermovielist", movieListNames);
 		modelAndView.addObject("currentMovies", new ArrayList<Movie>());
+//		modelAndView.addObject("newListName", "");
 		modelAndView.setViewName("movielist");
 		return modelAndView;
 	}
@@ -97,8 +104,9 @@ public class UserprofileController {
 		modelAndView.addObject("currentMovies", movies);
 		modelAndView.setViewName("listMoviesItem");
 		return modelAndView;
-		
 	}
+	
+
 	
 	
 }

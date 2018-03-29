@@ -1,13 +1,10 @@
 package edu.northeastern.cs4500.configurations;
 
-import java.nio.charset.StandardCharsets;
-
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.thymeleaf.spring4.SpringTemplateEngine;
 import org.thymeleaf.spring4.templateresolver.SpringResourceTemplateResolver;
 import org.thymeleaf.spring4.view.ThymeleafViewResolver;
-import org.thymeleaf.templatemode.StandardTemplateModeHandlers;
 
 @Configuration
 public class ThymeleafConfig {
