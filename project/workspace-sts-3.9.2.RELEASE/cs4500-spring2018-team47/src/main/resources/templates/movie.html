@@ -132,7 +132,8 @@
 			<h1>REVIEWS</h1>
 			<h1 th:text="${movie.imdbID}" class="hidden" id="imdbID"
 				style="display: none;"></h1>
-
+			<h1 th:text="${userId}" class="hidden" id="userID"
+				style="display: none;"></h1>
 			<textarea th:class="form-control" rows="5" id="review-box"
 				form="writeReview" placeholder="Write your review here..."></textarea>
 			<input type="submit" class="review-button" id="writeReview">

@@ -1,14 +1,23 @@
 function init() {
+	const rating = document.querySelector(".rating");
+	const reviewBox = document.querySelector("#review-box");
+	const userId = document.querySelector("#userID").innerText;
+	
+	if (userId == "") {
+		rating.classList.add("d-none");
+		reviewBox.classList.add("d-none");
+		submitReviewButton.classList.add("d-none");
+		return;
+	}
+	
 	const movieName = document.querySelector(".movie-title").innerText;
 	const ratingButtons = document.querySelectorAll(".rating input");
 	const submitReviewButton = document.querySelector("#writeReview");
 	const movieId = document.querySelector("#imdbID").innerText;
-	
 	const currRating = document.querySelector("#currentRating").innerText;
 	
 	submitReviewButton.onclick = function() {
-		var reviewBox = document.querySelector("#review-box").value;
-		var encodedReview = encodeURI(reviewBox);
+		var encodedReview = encodeURI(reviewBox.value);
 		var movie = document.querySelector("#imdbID").innerText;
 		var encodedMovie = encodeURI(movie);
 		var url = "/writeReview";

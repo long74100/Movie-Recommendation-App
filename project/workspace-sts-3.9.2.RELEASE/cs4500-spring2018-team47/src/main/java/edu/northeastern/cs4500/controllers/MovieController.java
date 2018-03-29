@@ -144,6 +144,7 @@ public class MovieController {
 	if (user != null) {
 	    int rating = localSQLConnector.getRating(user.getId(), movie.get("imdbID"));
 	    modelAndView.addObject("rating", rating);
+	    modelAndView.addObject("userId", user.getId());
 	}
 	
 	modelAndView.setViewName("movie");
