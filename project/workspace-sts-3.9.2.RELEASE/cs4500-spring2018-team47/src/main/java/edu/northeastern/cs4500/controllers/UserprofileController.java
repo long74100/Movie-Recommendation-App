@@ -130,7 +130,7 @@ public class UserprofileController {
 		modelAndView.addObject("user", user);
 		modelAndView.addObject("friends", friends);
 		modelAndView.addObject("receivedRequest", receivedRequest);
-		modelAndView.addObject("sendRequest", sentRequest);
+		modelAndView.addObject("sentRequest", sentRequest);
 		
 		modelAndView.setViewName("friendsAndRequests");
 		return modelAndView;
