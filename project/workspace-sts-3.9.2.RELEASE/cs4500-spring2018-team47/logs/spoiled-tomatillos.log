@@ -1,0 +1,26 @@
+2018-03-29 00:37:33.178 ERROR Rus-MacBook-Pro-2.local --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 00:37:33.210 ERROR Rus-MacBook-Pro-2.local --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt0372784' for key 'PRIMARY'
+2018-03-29 00:37:33.221 ERROR Rus-MacBook-Pro-2.local --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 00:37:33.246 ERROR Rus-MacBook-Pro-2.local --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt2975590' for key 'PRIMARY'
+2018-03-29 00:37:33.256 ERROR Rus-MacBook-Pro-2.local --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 00:37:33.281 ERROR Rus-MacBook-Pro-2.local --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt0096895' for key 'PRIMARY'
+2018-03-29 00:37:33.292 ERROR Rus-MacBook-Pro-2.local --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 00:37:33.319 ERROR Rus-MacBook-Pro-2.local --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt0103776' for key 'PRIMARY'
+2018-03-29 00:37:33.328 ERROR Rus-MacBook-Pro-2.local --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 00:37:33.354 ERROR Rus-MacBook-Pro-2.local --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt0112462' for key 'PRIMARY'
+2018-03-29 00:37:38.584 ERROR Rus-MacBook-Pro-2.local --- [nio-8080-exec-3] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 00:37:38.610 ERROR Rus-MacBook-Pro-2.local --- [nio-8080-exec-3] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt0372784' for key 'PRIMARY'
+2018-03-29 00:42:47.864 ERROR Rus-MacBook-Pro-2.local --- [nio-8080-exec-1] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 00:42:47.893 ERROR Rus-MacBook-Pro-2.local --- [nio-8080-exec-1] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt0372784' for key 'PRIMARY'
+2018-03-29 00:42:50.636 ERROR Rus-MacBook-Pro-2.local --- [nio-8080-exec-8] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 00:42:50.662 ERROR Rus-MacBook-Pro-2.local --- [nio-8080-exec-8] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt0372784' for key 'PRIMARY'
+2018-03-29 00:42:50.674 ERROR Rus-MacBook-Pro-2.local --- [nio-8080-exec-8] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 00:42:50.700 ERROR Rus-MacBook-Pro-2.local --- [nio-8080-exec-8] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt2975590' for key 'PRIMARY'
+2018-03-29 00:42:50.709 ERROR Rus-MacBook-Pro-2.local --- [nio-8080-exec-8] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 00:42:50.734 ERROR Rus-MacBook-Pro-2.local --- [nio-8080-exec-8] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt0096895' for key 'PRIMARY'
+2018-03-29 00:42:50.746 ERROR Rus-MacBook-Pro-2.local --- [nio-8080-exec-8] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 00:42:50.772 ERROR Rus-MacBook-Pro-2.local --- [nio-8080-exec-8] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt0103776' for key 'PRIMARY'
+2018-03-29 00:42:50.787 ERROR Rus-MacBook-Pro-2.local --- [nio-8080-exec-8] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 00:42:50.813 ERROR Rus-MacBook-Pro-2.local --- [nio-8080-exec-8] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt0112462' for key 'PRIMARY'
+2018-03-29 00:42:52.964 ERROR Rus-MacBook-Pro-2.local --- [nio-8080-exec-3] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 00:42:52.990 ERROR Rus-MacBook-Pro-2.local --- [nio-8080-exec-3] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt2975590' for key 'PRIMARY'
