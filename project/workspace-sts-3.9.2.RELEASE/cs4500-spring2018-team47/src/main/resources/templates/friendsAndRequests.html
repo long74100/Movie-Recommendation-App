@@ -57,7 +57,7 @@
 													<div th:text="${user.username}"
 														class="movieTitle d-flex justify-content-start"></div>
 													<div class="d-flex justify-content-end">
-														<button th:onclick="'addFriend(\''+${user.id}+'\');'" id="acceptRequest" class=" btn btn-primary">Accept</button>
+														<button th:onclick="'addFriend(\''+${user.id}+'\','+this+');'" id="acceptRequest" class=" btn btn-primary">Accept</button>
 													</div>
 												</div>
 											</a> 

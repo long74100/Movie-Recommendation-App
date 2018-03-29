@@ -6,6 +6,8 @@ $(function() {
 		$('#request-list-link').removeClass('active');
 		$(this).addClass('active');
 		e.preventDefault();
+
+		location.reload();
 	});
 	$('#request-list-link').click(function(e) {
 		$("#request-list").delay(100).fadeIn(100);
@@ -16,7 +18,7 @@ $(function() {
 	});
 });
 
-function addFriend(value) {
+function addFriend(value, thisButton) {
 	var encodedAcceptRequest = encodeURI(value);
 	var url = "/acceptRequest";
 	var param = "senderID=" + encodedAcceptRequest;
@@ -25,4 +27,5 @@ function addFriend(value) {
 	xhr.setRequestHeader("Content-type",
 			"application/x-www-form-urlencoded");
 	xhr.send(param);
+	thisButton.innerHTML = "Accepted!";
 }
