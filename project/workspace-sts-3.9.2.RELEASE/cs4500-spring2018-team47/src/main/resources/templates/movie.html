@@ -17,29 +17,33 @@
 			<hr class="bg-danger p-2">
 			<div class="row">
 				<div class="col-sm-3 col-md-4">
-					<img
-						th:src="${movie.poster}"
-						class="poster">
+					<img th:src="${movie.poster}" class="poster">
 					<div class="rating mt-1 m-0">
 						<p class="m-0">
 							Imdb Rating: <span th:text="${movie.imdbRating}"></span>
 						<p class="m-0">Community Rating:
-						<p class="m-0">Your vote:</p>
-						<h1 th:text="${rating}" class="d-none" id="currentRating"></h1>
-						<fieldset class="rating m-0">
-							<input type="radio" id="rate1" value="1" /><label for="rate1"></label> 
-							<input type="radio" id="rate2" value="2" /><label for="rate2"></label> 
-							<input type="radio" id="rate3" value="3" /><label for="rate3"></label> 
-							<input type="radio" id="rate4" value="4" /><label for="rate4"></label> 
-							<input type="radio" id="rate5" value="5" /><label for="rate5"></label> 
-							<input type="radio" id="rate6" value="6" /><label for="rate6"></label> 
-							<input type="radio" id="rate7" value="7" /><label for="rate7"></label> 
-							<input type="radio" id="rate8" value="8" /><label for="rate8"></label> 
-							<input type="radio" id="rate9" value="9" /><label for="rate9"></label> 
-							<input type="radio" id="rate10" value="10" /><label for="rate10"></label> 
-	
-						</fieldset>
-						
+						<div th:switch="${user}">
+							<div th:case="null"></div>
+							<div th:case="*">
+								<p class="m-0">Your vote:</p>
+								<h1 th:text="${rating}" class="d-none" id="currentRating"></h1>
+								<fieldset class="rating m-0">
+									<input type="radio" id="rate1" value="1" /><label for="rate1"></label>
+									<input type="radio" id="rate2" value="2" /><label for="rate2"></label>
+									<input type="radio" id="rate3" value="3" /><label for="rate3"></label>
+									<input type="radio" id="rate4" value="4" /><label for="rate4"></label>
+									<input type="radio" id="rate5" value="5" /><label for="rate5"></label>
+									<input type="radio" id="rate6" value="6" /><label for="rate6"></label>
+									<input type="radio" id="rate7" value="7" /><label for="rate7"></label>
+									<input type="radio" id="rate8" value="8" /><label for="rate8"></label>
+									<input type="radio" id="rate9" value="9" /><label for="rate9"></label>
+									<input type="radio" id="rate10" value="10" /><label
+										for="rate10"></label>
+
+								</fieldset>
+							</div>
+
+						</div>
 					</div>
 				</div>
 
@@ -65,78 +69,56 @@
 					</div>
 
 					<button class="btn btn-primary">Find in Theaters</button>
-					<button class="btn btn-secondary">Share with a Friend</button>
+					<span th:switch="${user}"> <span th:case="null"></span> <span
+						th:case="*">
+							<button class="btn btn-secondary">Share with a Friend</button> <select
+							class="mt-3">
+								<option>Watch List</option>
+								<option>Favorites</option>
+								<option>Adventure</option>
+						</select>
+							<button class="btn btn-primary">Add</button>
+							<button type="button" class="btn btn-danger">Remove</button>
+					</span>
+					</span>
 
-					<select class="mt-3">
-						<option>Watch List</option>
-						<option>Favorites</option>
-						<option>Adventure</option>
-					</select>
-					<button class="btn btn-primary">Add</button>
-					<button type="button" class="btn btn-danger">Remove</button>
+
 				</div>
 			</div>
+		<hr class="bg-danger p-2">
+		</div>
+	</div>
+	<div class="container mt-3 rec">
+		<h2>Viewers also liked</h2>
+		<div>
+			<img
+				src="https://i.pinimg.com/736x/fd/5e/66/fd5e662dce1a3a8cd192a5952fa64f02--classic-poster-classic-movies-posters.jpg"
+				style="width: 15%; height: 15%; padding: 5px;"> <img
+				src="http://www.joblo.com/posters/images/full/Spiderman-poster-7-large.jpg"
+				style="width: 15%; height: 15%; padding: 5px;"> <img
+				src="http://img.moviepostershop.com/ghostbusters-movie-poster-2016-1020775586.jpg"
+				style="width: 15%; height: 15%; padding: 5px;"> <img
+				src="https://cdn.trendhunterstatic.com/thumbs/movie-poster-art.jpeg"
+				style="width: 15%; height: 15%; padding: 5px;">
 			<hr class="bg-danger p-2">
 		</div>
-		<div class="container mt-3 rec">
-			<h2>Viewers also liked</h2>
-			<div>
-				<img
-					src="https://i.pinimg.com/736x/fd/5e/66/fd5e662dce1a3a8cd192a5952fa64f02--classic-poster-classic-movies-posters.jpg"
-					style="width: 15%; height: 15%; padding: 5px;"> <img
-					src="http://www.joblo.com/posters/images/full/Spiderman-poster-7-large.jpg"
-					style="width: 15%; height: 15%; padding: 5px;"> <img
-					src="http://img.moviepostershop.com/ghostbusters-movie-poster-2016-1020775586.jpg"
-					style="width: 15%; height: 15%; padding: 5px;"> <img
-					src="https://cdn.trendhunterstatic.com/thumbs/movie-poster-art.jpeg"
-					style="width: 15%; height: 15%; padding: 5px;">
-				<hr class="bg-danger p-2">
-			</div>
-		</div>
-		<div class="container mt-3 wishList">
-			<h2>Your Wish list</h2>
-			<div class="rec row">
-				<div class="col-md-2">
-					<a th:href="@{/login}"> <img
-						src="https://i.pinimg.com/736x/fd/5e/66/fd5e662dce1a3a8cd192a5952fa64f02--classic-poster-classic-movies-posters.jpg"
-						style="width: 12vmax; height: 18vmax; padding: 5px;">
-						<div class="mx-auto">Title1</div>
-					</a>
-				</div>
+	</div>
+	<div class="container mt-3 rec">
+		<h1>REVIEWS</h1>
 
-				<div class="col-md-2">
-					<a th:href="@{/login}"> <img
-						src="http://www.joblo.com/posters/images/full/Spiderman-poster-7-large.jpg"
-						style="width: 12vmax; height: 18vmax; padding: 5px;">
-						<p class="mx-auto">Title2</p>
-					</a>
-				</div>
-				<div class="col-md-2">
-					<a th:href="@{/login}"> <img
-						src="http://img.moviepostershop.com/ghostbusters-movie-poster-2016-1020775586.jpg"
-						style="width: 12vmax; height: 18vmax; padding: 5px;">
-						<div class="mx-auto">Title3</div>
-					</a>
-				</div>
-				<div class="col-md-2 row-md-5">
-					<a th:href="@{/login}"> <img
-						src="https://cdn.trendhunterstatic.com/thumbs/movie-poster-art.jpeg"
-						style="width: 12vmax; height: 18vmax; padding: 5px;">
-						<div class="mx-auto">Title4</div>
-					</a>
-				</div>
+		<div th:switch="${user}">
+			<div th:case="null"></div>
+			<div th:case="*">
+				<h1 th:text="${movie.imdbID}" class="hidden" id="imdbID"
+					style="display: none;"></h1>
+				<h1 th:text="${userId}" class="hidden" id="userID"
+					style="display: none;"></h1>
+				<textarea th:class="form-control" rows="5" id="review-box"
+					form="writeReview" placeholder="Write your review here..."></textarea>
+				<input type="submit" class="review-button" id="writeReview">
 			</div>
-			<hr class="bg-danger p-2">
 		</div>
-		<div class="container mt-3 rec">
-			<h1>REVIEWS</h1>
-			<h1 th:text="${movie.imdbID}" class="hidden" id="imdbID"
-				style="display: none;"></h1>
-			<h1 th:text="${userId}" class="hidden" id="userID"
-				style="display: none;"></h1>
-			<textarea th:class="form-control" rows="5" id="review-box"
-				form="writeReview" placeholder="Write your review here..."></textarea>
-			<input type="submit" class="review-button" id="writeReview">
-		</div>
+	</div>
+
 </body>
 </html>
