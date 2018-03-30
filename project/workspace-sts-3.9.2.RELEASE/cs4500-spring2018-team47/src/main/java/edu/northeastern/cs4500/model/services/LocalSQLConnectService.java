@@ -129,7 +129,10 @@ public class LocalSQLConnectService {
     	}
     }
     
-    // -----------------MOVIE OPERATOR---------------------------------
+    /**
+     * Movie Operators:
+     * This section is for user and system to operate on the movies
+     */
     
     /**
      * To delete the given movie from the local database
@@ -336,15 +339,6 @@ public class LocalSQLConnectService {
     	catch(Exception e) {
 		logger.error(e.getMessage());
     	}
-    }
-    
-    
-    /**
-     * To return the search result from local database
-     * @return list of movies relevant to the search keyword.
-     */
-    public ArrayList<String> getSearchMovieResult() {
-    	return this.movie;
     }
     
     
