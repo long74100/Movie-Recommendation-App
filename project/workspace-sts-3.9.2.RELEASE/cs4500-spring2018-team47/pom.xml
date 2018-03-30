@@ -22,8 +22,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
-		<sonar.inclusions> main/java </sonar.inclusions>
-		<sonar.test.inclusions> test/java </sonar.test.inclusions>
+		<sonar.coverage.exclusions>./*</sonar.coverage.exclusions>
 	</properties>
 
 	<dependencies>
