@@ -102,6 +102,8 @@ public class MovieController {
 	ModelAndView modelAndView = new ModelAndView();
 	Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 	User user = userService.findUserByEmail(auth.getName());
+	
+	
 	modelAndView.addObject("user", user);
 	modelAndView.addObject("movie", movieList);
 	modelAndView.addObject("users", userList);
@@ -135,9 +137,14 @@ public class MovieController {
 	    logger.error(e.getMessage());
 	}
 	
+	
+	
 	ModelAndView modelAndView = new ModelAndView();
 	Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 	User user = userService.findUserByEmail(auth.getName());
+	// To extract user movie list
+	List<String> userMovieList = localSQLConnector.getMovieListForUser(user.getId());
+	modelAndView.addObject("userMVlist", userMovieList);
 	modelAndView.addObject("user", user);
 	modelAndView.addObject("movie", movie);
 	
@@ -166,8 +173,8 @@ public class MovieController {
         	    movieRating.setUserID(user.getId());
         	    movieRatingService.saveMovieRating(movieRating);
         	} 
-        	
     }
+    
         
     @RequestMapping(value="/writeReview", method=RequestMethod.POST)
     @ResponseStatus(value = HttpStatus.OK)
@@ -181,21 +188,19 @@ public class MovieController {
     	User user = userService.findUserByEmail(auth.getName());
     	movieReview.setUser_id(String.valueOf(user.getId()));
     	movieReview.setUsername(user.getUsername());
-    	LocalSQLConnectService db = new LocalSQLConnectService();
-    	db.addReviewToLocalDB(movieReview);
+    	localSQLConnector.addReviewToLocalDB(movieReview);
     }
     
     @RequestMapping(value="/addMovieToList", method=RequestMethod.POST)
     @ResponseStatus(value = HttpStatus.OK)
     public void addMovieToList(@RequestBody String movie, HttpServletRequest httpServletRequest) {
-    	LocalSQLConnectService db = new LocalSQLConnectService();
     	Authentication auth = SecurityContextHolder.getContext().getAuthentication();
     	User user = userService.findUserByEmail(auth.getName());
     	Integer userId = user.getId();
     	String listname = httpServletRequest.getParameter("movieList");
     	String movieId = httpServletRequest.getParameter("movieId");
     	String movieName = httpServletRequest.getParameter("movie");
-    	db.addMovieIntoMovieList(userId, listname, movieId, movieName);
+    	localSQLConnector.addMovieIntoMovieList(userId, listname, movieId, movieName);
     }
     
     /**

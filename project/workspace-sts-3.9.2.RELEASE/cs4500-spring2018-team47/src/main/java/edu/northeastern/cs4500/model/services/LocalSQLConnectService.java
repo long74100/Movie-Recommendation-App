@@ -342,6 +342,15 @@ public class LocalSQLConnectService {
     }
     
     
+    /**
+     * To return the search result from local database
+     * @return list of movies relevant to the search keyword.
+     */
+    public ArrayList<String> getSearchMovieResult() {
+    	return this.movie;
+    }
+    
+    
     // ----- user interaction in local database-----
     
     /**
@@ -468,20 +477,6 @@ public class LocalSQLConnectService {
 		}
 
 	}
-    
-
-    public void addMovieList(int userId, String movieList) {
-    	String sqlcmd = "insert into Movielist(user_id, list_name) values (?, ?)";
-    	PreparedStatement pstmt = null;
-	try {
-		pstmt = connector.prepareStatement(sqlcmd);
-		pstmt.setInt(1, userId);
-		pstmt.setString(2, movieList);
-		pstmt.executeUpdate();
-	} catch(SQLException se) {
-	    logger.error(se.getMessage());
-	}
-    }
 
     
     /**
@@ -489,10 +484,7 @@ public class LocalSQLConnectService {
      * @param userId the new user's id
      */
     public void preloadMovieList(int userId) {
-    	createMovieList(userId, "Watched");
     	createMovieList(userId, "Favorites");
-    	createMovieList(userId, "Recommended");
-
     }
     
     /**
@@ -525,7 +517,6 @@ public class LocalSQLConnectService {
     	catch(SQLException ep) {
 		logger.error(ep.getMessage());
     	}
-    	
     	return output;
     	
     }

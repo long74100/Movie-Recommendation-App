@@ -62,7 +62,6 @@ public class UserprofileController {
 		List<String> movieListNames = sqlConnector.getMovieListForUser(user.getId());
 		modelAndView.addObject("usermovielist", movieListNames);
 		modelAndView.addObject("currentMovies", new ArrayList<Movie>());
-//		modelAndView.addObject("newListName", "");
 		modelAndView.setViewName("movielist");
 		return modelAndView;
 	}

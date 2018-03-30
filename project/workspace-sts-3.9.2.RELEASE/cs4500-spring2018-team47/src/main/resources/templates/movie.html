@@ -62,16 +62,15 @@
 
 					<button class="btn btn-primary">Find in Theaters</button>
 					<button class="btn btn-secondary">Share with a Friend</button>
-					
-					<div>
-						<select id="listOpt" class="mt-3">
-						<option>Favorites</option>
-						<option>Recommended</option>
-						<option>Watched</option>
-						</select>
-						<button id="addToList" class="btn btn-primary">Add</button>
+					 <div>
+					 	<select th:if="${not #lists.isEmpty(userMVlist)}" id="listOpt" class="mt-3">
+							<div th:each="listName : ${userMVlist}">
+								<option><p th:text="${listName}"></p></option>
+							</div>					 	
+					 	</select>
+					 	<button id="addToList" class="btn btn-primary">Add</button>
 						<button type="button" class="btn btn-danger">Remove</button>
-					</div>
+					 </div>
 				</div>
 			</div>
 		<hr class="bg-danger p-2">
