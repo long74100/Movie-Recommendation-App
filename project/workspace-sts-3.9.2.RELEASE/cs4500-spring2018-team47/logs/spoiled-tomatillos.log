@@ -791,3 +791,15 @@ The last packet successfully received from the server was 242,395 milliseconds a
 2018-03-29 17:14:01.407 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
 2018-03-29 17:14:01.515 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
 2018-03-29 17:14:01.563 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 19:41:46.122 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-7] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 19:41:46.164 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-7] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 19:41:46.200 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-7] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 19:41:46.236 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-7] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 19:41:46.272 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-7] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 19:41:50.462 ERROR LAPTOP-JQGD3FG3 --- [io-8080-exec-10] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 19:42:00.188 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Cannot add or update a child row: a foreign key constraint fails (`cs4500_spring2018_team47_dev`.`UserMovieList`, CONSTRAINT `to_moive` FOREIGN KEY (`movie_id`) REFERENCES `Movie` (`movie_id`))
+2018-03-29 19:42:53.950 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-3] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 19:42:53.986 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-3] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 19:42:54.035 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-3] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 19:42:54.072 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-3] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 19:42:54.110 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-3] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().

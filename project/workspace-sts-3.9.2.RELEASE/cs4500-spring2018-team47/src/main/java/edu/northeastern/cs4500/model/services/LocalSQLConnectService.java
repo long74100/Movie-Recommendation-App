@@ -887,7 +887,7 @@ public class LocalSQLConnectService {
         	pstmt = connector.prepareStatement(sqlcmd);
         	pstmt.setString(1, movieId);
         	myResult = pstmt.executeQuery();
-    		if(myResult.next()) {
+    		while(myResult.next()) {
     			MovieReview output = new MovieReview();
     			String username = myResult.getString("reviewer_name");
     			String userid = myResult.getString("reviewer_id");

@@ -35,7 +35,6 @@ function init() {
 		var listObject = document.getElementById("listOpt");
 		var selectedList = listObject.options[listObject.selectedIndex].value;
 		var movieId = document.querySelector("#imdbID").innerText;
-		//var userid = document.querySelector("#userID").innerText;
 		const movieName = document.querySelector(".movie-title").innerText;
 		var encodedMovie = encodeURI(movieId);
 		var encodedMovieName = encodeURI(movieName);

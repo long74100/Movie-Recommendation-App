@@ -146,4 +146,14 @@ public class UserprofileController {
     }
 	
 	
+	@RequestMapping(value= "/createMovieList", method=RequestMethod.POST)
+	@ResponseStatus(value = HttpStatus.OK)
+	public void createNewMovieList(@RequestBody String listName, HttpServletRequest httpservletRequest) {
+		LocalSQLConnectService db = new LocalSQLConnectService();
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+    	User user = userService.findUserByEmail(auth.getName());
+    	Integer userId = user.getId();
+    	String newListName = httpservletRequest.getParameter("listName");
+    	db.createMovieList(userId, newListName);
+	}
 }
