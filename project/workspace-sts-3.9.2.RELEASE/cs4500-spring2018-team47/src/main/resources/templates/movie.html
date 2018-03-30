@@ -59,9 +59,11 @@
 						<b>Actor(s): </b>
 						<p th:text="${movie.actors}"></p>
 					</div>
-
+				
 					<button class="btn btn-primary">Find in Theaters</button>
 					<button class="btn btn-secondary">Share with a Friend</button>
+					
+					<!-- Get User's movie list and shown as dropdown list -->
 					 <div>
 					 	<select th:if="${not #lists.isEmpty(userMVlist)}" id="listOpt" class="mt-3">
 							<div th:each="listName : ${userMVlist}">
