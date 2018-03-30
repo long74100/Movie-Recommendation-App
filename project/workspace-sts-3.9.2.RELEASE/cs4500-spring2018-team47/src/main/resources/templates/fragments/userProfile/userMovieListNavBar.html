@@ -7,26 +7,23 @@
 <body>
 	<div th:fragment="movieListNavBar">
 		<div th:replace="fragments/userProfile/profileMenu :: userProfileMenu"></div>
+		<script type="text/javascript" src="../js/movieListMng.js"></script>
 		<div class="movieManagerMenu" th:action="@{/profile+to+movielist}" method="GET">
             <div class="listCreator">
-                <input class="listNameGetter" 
+                <span><input id="newListName" class="listNameGetter" 
                 type="text" 
                 placeholder="Create movie list here..."/>
-                <button class="createBtn" type="submit">Create</button>
+                <button id="movieCreateBtn" class="createBtn">Create</button></span>
             </div>
             
             <ul class="movieRepoList">
             <!-- Here to put the movie list names -->
-            	<div th:if="${not #lists.isEmpty(usermovielist)}" class="movieRepoList">
+            	<div th:if="${not #lists.isEmpty(usermovielist)}" class="movieRepoList" id="movieListsItem">
             		<div th:each="list : ${usermovielist}">
             			<a th:href="@{/profile+to+movielist+{list}(list=${list})}"><p th:text="${list}"></p></a>
             		</div>
             	</div>
             </ul>
-            <!--<ul class="movieRepoList">
-    			<li>Default</li>
-    			<li>Defaul2</li>
-    		</ul>-->
         </div>
         <div class="movieListNameTitleBar">
             <p class="Movietitletxt">Movie List</p>

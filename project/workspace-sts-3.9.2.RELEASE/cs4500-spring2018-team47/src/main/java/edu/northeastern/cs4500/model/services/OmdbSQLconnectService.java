@@ -19,6 +19,7 @@ import org.apache.logging.log4j.Logger;
  * @author lgj81
  */
 public class OmdbSQLconnectService {
+
     // this is the movie information fields for online movie database
     private final ArrayList<String> oldbfields = new ArrayList<>(Arrays.asList("imdbID", "Title", "Rated", "Runtime",
 	    "Year", "Released", "Genre", "Director", "Actors", "Plot", "Language", "Country", "Awards", "Poster",

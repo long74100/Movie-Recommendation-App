@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.swing.JOptionPane;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -101,6 +102,8 @@ public class MovieController {
 	ModelAndView modelAndView = new ModelAndView();
 	Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 	User user = userService.findUserByEmail(auth.getName());
+	
+	
 	modelAndView.addObject("user", user);
 	modelAndView.addObject("movie", movieList);
 	modelAndView.addObject("users", userList);
@@ -135,16 +138,25 @@ public class MovieController {
 	    logger.error(e.getMessage());
 	}
 	
+	
+	
 	ModelAndView modelAndView = new ModelAndView();
 	Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 	User user = userService.findUserByEmail(auth.getName());
+	
 	modelAndView.addObject("user", user);
 	modelAndView.addObject("movie", movie);
 	
 	if (user != null) {
+		// To extract user movie list
+		List<String> userMovieList = localSQLConnector.getMovieListForUser(user.getId());
+		modelAndView.addObject("userMVlist", userMovieList);
 	    int rating = localSQLConnector.getRating(user.getId(), movie.get("imdbID"));
 	    modelAndView.addObject("rating", rating);
 	    modelAndView.addObject("userId", user.getId());
+	}
+	else {
+		modelAndView.addObject("userMVlist", new ArrayList<String>());
 	}
 	
 	modelAndView.setViewName("movie");
@@ -158,7 +170,7 @@ public class MovieController {
         	movieRating.setMovieId(httpServletRequest.getParameter("movieId"));
         	movieRating.setRating(Double.valueOf(httpServletRequest.getParameter("rating")));
         	SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-        movieRating.setDate(formatter.format(new Date()));
+        	movieRating.setDate(formatter.format(new Date()));
         	Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         	User user = userService.findUserByEmail(auth.getName());
         	
@@ -166,8 +178,8 @@ public class MovieController {
         	    movieRating.setUserID(user.getId());
         	    movieRatingService.saveMovieRating(movieRating);
         	} 
-        	
     }
+    
         
     @RequestMapping(value="/writeReview", method=RequestMethod.POST)
     @ResponseStatus(value = HttpStatus.OK)
@@ -181,8 +193,19 @@ public class MovieController {
     	User user = userService.findUserByEmail(auth.getName());
     	movieReview.setUser_id(String.valueOf(user.getId()));
     	movieReview.setUsername(user.getUsername());
-    	LocalSQLConnectService db = new LocalSQLConnectService();
-    	db.addReviewToLocalDB(movieReview);
+    	localSQLConnector.addReviewToLocalDB(movieReview);
+    }
+    
+    @RequestMapping(value="/addMovieToList", method=RequestMethod.POST)
+    @ResponseStatus(value = HttpStatus.OK)
+    public void addMovieToList(@RequestBody String movie, HttpServletRequest httpServletRequest) {
+    	Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+    	User user = userService.findUserByEmail(auth.getName());
+    	Integer userId = user.getId();
+    	String listname = httpServletRequest.getParameter("movieList");
+    	String movieId = httpServletRequest.getParameter("movieId");
+    	String movieName = httpServletRequest.getParameter("movie");
+    	localSQLConnector.addMovieIntoMovieList(userId, listname, movieId, movieName);
     }
     
     /**
