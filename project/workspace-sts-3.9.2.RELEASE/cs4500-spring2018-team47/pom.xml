@@ -22,7 +22,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
-		<sonar.coverage.exclusions>src/main/java/**/configurations/*, src/main/java/**/controllers/*, src/main/java/**/movie/*, src/main/java/**/movieList/*, src/main/java/**/user/*, src/main/java/**/prod/*, src/main/java/**/repositories/* </sonar.coverage.exclusions>
+		<sonar.coverage.exclusions>src/main/java/**/* </sonar.coverage.exclusions>
 	</properties>
 
 	<dependencies>
