@@ -131,6 +131,7 @@ public class MovieController {
 	    localDbConnector.loadMovieToLocalDB(movieJSON);
 	    
 	} catch (IOException | JSONException e) {
+	    e.printStackTrace();
 	    logger.error(e.getMessage());
 	}
 	
