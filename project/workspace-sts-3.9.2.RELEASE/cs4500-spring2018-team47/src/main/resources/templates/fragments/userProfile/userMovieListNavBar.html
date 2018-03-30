@@ -24,13 +24,6 @@
             		</div>
             	</div>
             </ul>
-            <select th:if="${not #lists.isEmpty(usermovielist)}" class="movieRepoList" style="display: none;">
-            		<div th:each="list : ${usermovielist}">
-            			<option>
-            				<a th:href="@{/profile+to+movielist+{list}(list=${list})}"><p th:text="${list}"></p></a>
-            			</option>
-            		</div>
-            </select>
         </div>
         <div class="movieListNameTitleBar">
             <p class="Movietitletxt">Movie List</p>

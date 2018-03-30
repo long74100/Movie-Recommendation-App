@@ -19,12 +19,12 @@ public class OmdbSQLconnectService {
 	// this is the movie information fields for online movie database
 	private final ArrayList<String> oldbfields = new ArrayList<>(Arrays.asList(
 			"imdbID", "Title", "Rated", "Runtime", "Year", "Released", "Genre", "Director", "Actors", "Plot", 
-			"Language", "Country", "Awards", "Poster", "Metascore", "imdbRating", "imdbVotes", "Production"));
+			"Language", "Country", "Awards", "Poster", "Metascore", "imdbRating", "imdbVotes"));
 
 	// this is the movie information fields for local movie database
 	private final ArrayList<String> lcdbfields = new ArrayList<>(Arrays.asList(
 			"movie_id", "movie_name", "movie_rated", "runtime", "movie_year", "released_date", "genre", "director", "actor", "plot", 
-			"movie_language", "country", "awards", "poster", "metascore", "imdbRating", "imdbvotes", "production"));
+			"movie_language", "country", "awards", "poster", "metascore", "imdbRating", "imdbvotes"));
 	
 	// container for matching <local movie field> -> <online movie information>
 	private HashMap<String, String> fieldToValue;
