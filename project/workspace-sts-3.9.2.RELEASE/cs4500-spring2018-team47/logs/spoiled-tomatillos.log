@@ -1,2 +1,3 @@
 2018-03-30 18:23:41.913 ERROR Longshengs-MacBook-Air.local --- [nio-8080-exec-4] e.n.c.m.s.OmdbSQLconnectService          : JSONObject["Production"] not found.
 2018-03-30 18:23:42.004 ERROR Longshengs-MacBook-Air.local --- [nio-8080-exec-4] e.n.c.m.s.OmdbSQLconnectService          : JSONObject["Production"] not found.
+2018-03-30 18:32:04.084 ERROR Longshengs-MacBook-Air.local --- [nio-8080-exec-4] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
