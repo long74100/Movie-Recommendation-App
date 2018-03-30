@@ -14,14 +14,8 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		 <exclusions>
-   			 <exclusion>
-  		    <groupId>org.springframework.boot</groupId>
-  		    <artifactId>spring-boot-starter-logging</artifactId>
- 		   </exclusion>
- 		 </exclusions>
 		<version>1.5.9.RELEASE</version>
-		<relativePath/> <!-- lookup parent from repository -->
+		<relativePath/> 
 	</parent>
 
 	<properties>
@@ -53,10 +47,13 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
-			  <exclusion>
-     			 <groupId>org.springframework.boot</groupId>
-     			 <artifactId>spring-boot-starter-logging</artifactId>
-   			 </exclusion>
+			<exclusions>
+			
+			 	 <exclusion>	
+     				 <groupId>org.springframework.boot</groupId>
+     				 <artifactId>spring-boot-starter-logging</artifactId>
+   				 </exclusion>
+   			 </exclusions>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.derby</groupId>
@@ -106,6 +103,7 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-log4j2</artifactId>
+			<exclusions>
 			<exclusion>
         		  <groupId>ch.qos.logback</groupId>
       		  <artifactId>logback-classic</artifactId>
@@ -114,6 +112,7 @@
       			  <groupId>org.springframework.boot</groupId>
        			 <artifactId>spring-boot-starter-logging</artifactId>
    			 </exclusion>
+   			 </exclusions>
 		</dependency>
 	</dependencies>
 
