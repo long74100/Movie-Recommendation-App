@@ -142,16 +142,20 @@ public class MovieController {
 	ModelAndView modelAndView = new ModelAndView();
 	Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 	User user = userService.findUserByEmail(auth.getName());
-	// To extract user movie list
-	List<String> userMovieList = localSQLConnector.getMovieListForUser(user.getId());
-	modelAndView.addObject("userMVlist", userMovieList);
+	
 	modelAndView.addObject("user", user);
 	modelAndView.addObject("movie", movie);
 	
 	if (user != null) {
+		// To extract user movie list
+		List<String> userMovieList = localSQLConnector.getMovieListForUser(user.getId());
+		modelAndView.addObject("userMVlist", userMovieList);
 	    int rating = localSQLConnector.getRating(user.getId(), movie.get("imdbID"));
 	    modelAndView.addObject("rating", rating);
 	    modelAndView.addObject("userId", user.getId());
+	}
+	else {
+		modelAndView.addObject("userMVlist", new ArrayList<String>());
 	}
 	
 	modelAndView.setViewName("movie");

@@ -26,7 +26,7 @@ public class OmdbSQLconnectService {
 			"movie_id", "movie_name", "movie_rated", "runtime", "movie_year", "released_date", "genre", "director", "actor", "plot", 
 			"movie_language", "country", "awards", "poster", "metascore", "imdbRating", "imdbvotes"));
 	
-	// container for matching <local movie field> -> <online movie information>
+	// container for matching {local movie field}==>{online movie information}
 	private HashMap<String, String> fieldToValue;
 	
 	// The connector to local database
@@ -56,6 +56,7 @@ public class OmdbSQLconnectService {
 				else {
 					String value = (String)movieJSON.get(olField);
 					fieldToValue.put(lcfields, value);
+					System.out.println(value);
 				}
 			}
 		}
