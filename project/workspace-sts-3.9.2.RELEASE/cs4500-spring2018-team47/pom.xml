@@ -22,8 +22,8 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
-		<sonar.inclusions> src/main/java </sonar.inclusions>
-		<sonar.test.inclusions> src/test/java </sonar.test.inclusions>
+		<sonar.inclusions> src/main/java/* </sonar.inclusions>
+		<sonar.test.inclusions> src/test/java/* </sonar.test.inclusions>
 	</properties>
 
 	<dependencies>
@@ -31,6 +31,16 @@
    			<groupId>org.json</groupId>
    			<artifactId>json</artifactId>
    			<version>20080701</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter</artifactId>
+			<exclusions>
+				<exclusion>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-starter-logging</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -48,7 +58,6 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 			<exclusions>
-			
 			 	 <exclusion>	
      				 <groupId>org.springframework.boot</groupId>
      				 <artifactId>spring-boot-starter-logging</artifactId>
@@ -104,15 +113,19 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-log4j2</artifactId>
 			<exclusions>
-			<exclusion>
-        		  <groupId>ch.qos.logback</groupId>
-      		  <artifactId>logback-classic</artifactId>
-   			 </exclusion>
-   			  <exclusion>
-      			  <groupId>org.springframework.boot</groupId>
-       			 <artifactId>spring-boot-starter-logging</artifactId>
-   			 </exclusion>
-   			 </exclusions>
+				<exclusion>
+        		  		<groupId>ch.qos.logback</groupId>
+      		  		<artifactId>logback-classic</artifactId>
+   			 	</exclusion>
+   			  	<exclusion>
+      				<groupId>org.springframework.boot</groupId>
+      				<artifactId>spring-boot-starter-logging</artifactId>
+   			 	</exclusion>
+   			 	<exclusion>
+   			 		<groupId>org.slf4j</groupId>
+   			 		<artifactId>slf4j-log4j12</artifactId>
+   			 	</exclusion>
+   			</exclusions>
 		</dependency>
 	</dependencies>
 
