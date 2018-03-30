@@ -1,14 +1,16 @@
 package edu.northeastern.cs4500.model.services;
 
 import java.io.IOException;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 
-import javax.swing.JOptionPane;
-
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 /**
  * This class is used to connect to the online OMDB, extract movie information from it and store in
@@ -31,6 +33,8 @@ public class OmdbSQLconnectService {
 	
 	// The connector to local database
 	private final LocalSQLConnectService connector = new LocalSQLConnectService();
+	private static final Logger logger = LogManager.getLogger(OmdbSQLconnectService.class);
+
 	
 	// TODO: need to distribute the actors, directors,etc, to different tables.	
 	
@@ -60,7 +64,7 @@ public class OmdbSQLconnectService {
 			}
 		}
 		catch (JSONException e) {
-			e.printStackTrace();
+		    logger.error(e.getMessage());
 		}
 	}
 	
@@ -74,13 +78,13 @@ public class OmdbSQLconnectService {
 	public void loadMovieToLocalDB(JSONObject movieJSON) {
 		catchMovie(movieJSON);
 		if(this.fieldToValue.isEmpty()) {
-			System.out.println("There is nothing to load to database");
+		    // do nothing
 		}
 		else {
 			try {
 				String currentMovieId = this.fieldToValue.get("movie_id");
 				if(movieAlreadyExists(currentMovieId)) {
-					System.out.println("Movie already exists");
+				    // do nothing
 				}
 				else {
 					// insert movie into local database
@@ -98,7 +102,7 @@ public class OmdbSQLconnectService {
 				}
 			}
 			catch (NullPointerException nl) {
-				nl.printStackTrace();
+			    logger.error(nl.getMessage());
 			}
 			
 		}
@@ -122,7 +126,6 @@ public class OmdbSQLconnectService {
 	 */
 	public boolean hasMovie(String movieId) {
 		if(this.connector.containMovie(movieId)) {
-			System.out.println("Movie already exists in local database");
 			return true;
 		}
 		else {
@@ -137,7 +140,6 @@ public class OmdbSQLconnectService {
 	 */
 	private void insertToLocalDatabase(String data, String tableName) {
 		this.connector.insertData(data, tableName);
-		System.out.println("add movie successfully");
 	}
 	
 	/**
@@ -164,11 +166,11 @@ public class OmdbSQLconnectService {
 					loadMovieToLocalDB(current);
 				}
 				catch(JSONException je) {
-					je.printStackTrace();
+				    logger.error(je.getMessage());
 				}
 			}
 			catch(IOException io) {
-				io.printStackTrace();
+			    logger.error(io.getMessage());
 			}
 		}
 	}
