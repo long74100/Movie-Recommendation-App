@@ -1,3 +1,1004 @@
-2018-03-30 18:23:41.913 ERROR Longshengs-MacBook-Air.local --- [nio-8080-exec-4] e.n.c.m.s.OmdbSQLconnectService          : JSONObject["Production"] not found.
-2018-03-30 18:23:42.004 ERROR Longshengs-MacBook-Air.local --- [nio-8080-exec-4] e.n.c.m.s.OmdbSQLconnectService          : JSONObject["Production"] not found.
-2018-03-30 18:32:04.084 ERROR Longshengs-MacBook-Air.local --- [nio-8080-exec-4] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+<<<<<<< HEAD
+2018-03-29 02:47:51.904 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-3] e.n.c.m.s.LocalSQLConnectService         : Too many connections
+2018-03-29 02:47:53.709 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-1] e.n.c.m.s.LocalSQLConnectService         : Too many connections
+2018-03-29 02:47:54.698 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Too many connections
+2018-03-29 02:47:56.744 ERROR LAPTOP-JQGD3FG3 --- [io-8080-exec-10] e.n.c.m.s.LocalSQLConnectService         : Too many connections
+2018-03-29 02:51:59.243 ERROR LAPTOP-JQGD3FG3 --- [io-8080-exec-10] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 02:51:59.246 ERROR LAPTOP-JQGD3FG3 --- [io-8080-exec-10] e.n.c.m.s.LocalSQLConnectService         : Communications link failure
+
+The last packet successfully received from the server was 242,395 milliseconds ago.  The last packet sent successfully to the server was 1 milliseconds ago.
+2018-03-29 02:51:59.257 ERROR LAPTOP-JQGD3FG3 --- [io-8080-exec-10] e.n.c.m.s.LocalSQLConnectService         : No operations allowed after connection closed.
+2018-03-29 02:51:59.257 ERROR LAPTOP-JQGD3FG3 --- [io-8080-exec-10] e.n.c.m.s.LocalSQLConnectService         : No operations allowed after statement closed.
+2018-03-29 02:51:59.265 ERROR LAPTOP-JQGD3FG3 --- [io-8080-exec-10] e.n.c.m.s.LocalSQLConnectService         : No operations allowed after connection closed.
+2018-03-29 02:51:59.265 ERROR LAPTOP-JQGD3FG3 --- [io-8080-exec-10] e.n.c.m.s.LocalSQLConnectService         : No operations allowed after statement closed.
+2018-03-29 02:51:59.277 ERROR LAPTOP-JQGD3FG3 --- [io-8080-exec-10] e.n.c.m.s.LocalSQLConnectService         : No operations allowed after connection closed.
+2018-03-29 02:51:59.277 ERROR LAPTOP-JQGD3FG3 --- [io-8080-exec-10] e.n.c.m.s.LocalSQLConnectService         : No operations allowed after statement closed.
+2018-03-29 02:51:59.287 ERROR LAPTOP-JQGD3FG3 --- [io-8080-exec-10] e.n.c.m.s.LocalSQLConnectService         : No operations allowed after connection closed.
+2018-03-29 02:51:59.288 ERROR LAPTOP-JQGD3FG3 --- [io-8080-exec-10] e.n.c.m.s.LocalSQLConnectService         : No operations allowed after statement closed.
+2018-03-29 02:51:59.288 ERROR LAPTOP-JQGD3FG3 --- [io-8080-exec-10] e.n.c.m.s.LocalSQLConnectService         : No operations allowed after statement closed.
+2018-03-29 02:52:00.520 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-1] e.n.c.m.s.LocalSQLConnectService         : No operations allowed after connection closed.
+2018-03-29 02:52:00.521 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-1] e.n.c.m.s.LocalSQLConnectService         : No operations allowed after statement closed.
+2018-03-29 02:52:46.252 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : No operations allowed after connection closed.
+2018-03-29 02:52:46.253 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : No operations allowed after statement closed.
+2018-03-29 02:52:46.264 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : No operations allowed after connection closed.
+2018-03-29 02:52:46.264 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : No operations allowed after statement closed.
+2018-03-29 02:52:46.273 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : No operations allowed after connection closed.
+2018-03-29 02:52:46.273 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : No operations allowed after statement closed.
+2018-03-29 02:52:46.283 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : No operations allowed after connection closed.
+2018-03-29 02:52:46.283 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : No operations allowed after statement closed.
+2018-03-29 02:52:46.295 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : No operations allowed after connection closed.
+2018-03-29 02:52:46.296 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : No operations allowed after statement closed.
+2018-03-29 02:52:46.314 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : No operations allowed after connection closed.
+2018-03-29 02:52:46.314 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : No operations allowed after statement closed.
+2018-03-29 02:52:46.329 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : No operations allowed after connection closed.
+2018-03-29 02:52:46.329 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : No operations allowed after statement closed.
+2018-03-29 02:52:46.340 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : No operations allowed after connection closed.
+2018-03-29 02:52:46.340 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : No operations allowed after statement closed.
+2018-03-29 02:52:46.350 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : No operations allowed after connection closed.
+2018-03-29 02:52:46.351 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : No operations allowed after statement closed.
+2018-03-29 02:52:46.361 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : No operations allowed after connection closed.
+2018-03-29 02:52:46.361 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : No operations allowed after statement closed.
+2018-03-29 02:52:46.361 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : No operations allowed after statement closed.
+2018-03-29 02:52:47.711 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-4] e.n.c.m.s.LocalSQLConnectService         : No operations allowed after connection closed.
+2018-03-29 02:52:47.711 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-4] e.n.c.m.s.LocalSQLConnectService         : No operations allowed after statement closed.
+2018-03-29 02:52:47.740 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-4] e.n.c.m.s.LocalSQLConnectService         : No operations allowed after statement closed.
+2018-03-29 02:53:02.436 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-5] e.n.c.m.s.LocalSQLConnectService         : Cannot add or update a child row: a foreign key constraint fails (`cs4500_spring2018_team47_dev`.`Review`, CONSTRAINT `movie_reference` FOREIGN KEY (`movie_id`) REFERENCES `Movie` (`movie_id`) ON DELETE CASCADE ON UPDATE CASCADE)
+2018-03-29 03:03:53.864 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-3] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 03:03:53.914 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-3] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 03:03:53.953 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-3] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 03:03:53.996 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-3] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 03:03:54.054 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-3] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 03:03:57.392 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 03:03:57.421 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt0078748' for key 'PRIMARY'
+2018-03-29 03:04:44.374 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-4] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 03:04:44.400 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-4] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt0078748' for key 'PRIMARY'
+2018-03-29 03:04:44.411 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-4] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 03:04:44.437 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-4] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt0103644' for key 'PRIMARY'
+2018-03-29 03:04:44.448 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-4] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 03:04:44.473 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-4] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt0118583' for key 'PRIMARY'
+2018-03-29 03:04:44.488 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-4] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 03:04:44.515 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-4] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt2316204' for key 'PRIMARY'
+2018-03-29 03:04:44.526 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-4] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 03:04:44.552 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-4] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt0370263' for key 'PRIMARY'
+2018-03-29 03:04:44.563 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-4] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 03:04:44.606 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-4] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 03:04:44.632 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-4] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt0330373' for key 'PRIMARY'
+2018-03-29 03:04:44.647 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-4] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 03:04:44.690 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-4] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 03:04:44.729 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-4] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 03:04:45.753 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-9] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 03:04:45.780 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-9] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt1951264' for key 'PRIMARY'
+2018-03-29 03:05:51.837 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-5] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 03:05:51.864 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-5] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt0078748' for key 'PRIMARY'
+2018-03-29 03:05:51.877 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-5] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 03:05:51.903 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-5] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt0103644' for key 'PRIMARY'
+2018-03-29 03:05:51.917 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-5] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 03:05:51.945 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-5] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt0118583' for key 'PRIMARY'
+2018-03-29 03:05:51.957 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-5] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 03:05:51.983 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-5] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt2316204' for key 'PRIMARY'
+2018-03-29 03:05:51.995 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-5] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 03:05:52.022 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-5] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt0370263' for key 'PRIMARY'
+2018-03-29 03:05:52.033 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-5] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 03:05:52.060 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-5] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt1951264' for key 'PRIMARY'
+2018-03-29 03:05:52.076 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-5] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 03:05:52.102 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-5] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt0330373' for key 'PRIMARY'
+2018-03-29 03:05:52.117 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-5] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 03:05:52.144 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-5] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt0328107' for key 'PRIMARY'
+2018-03-29 03:05:52.152 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-5] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 03:05:52.178 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-5] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt0253556' for key 'PRIMARY'
+2018-03-29 03:05:52.193 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-5] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 03:05:52.220 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-5] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt0107206' for key 'PRIMARY'
+2018-03-29 03:05:52.236 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-5] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 03:05:52.262 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-5] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt1951264' for key 'PRIMARY'
+2018-03-29 03:05:52.273 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-5] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 03:05:52.300 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-5] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt0330373' for key 'PRIMARY'
+2018-03-29 03:05:52.314 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-5] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 03:05:52.341 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-5] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt0328107' for key 'PRIMARY'
+2018-03-29 03:05:52.355 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-5] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 03:05:52.381 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-5] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt0253556' for key 'PRIMARY'
+2018-03-29 03:05:52.395 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-5] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 03:05:52.423 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-5] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt0107206' for key 'PRIMARY'
+2018-03-29 03:05:54.380 ERROR LAPTOP-JQGD3FG3 --- [io-8080-exec-10] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 03:05:54.407 ERROR LAPTOP-JQGD3FG3 --- [io-8080-exec-10] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt1951264' for key 'PRIMARY'
+2018-03-29 03:06:58.509 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 03:06:58.542 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt1201607' for key 'PRIMARY'
+2018-03-29 03:06:58.555 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 03:06:58.580 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt0241527' for key 'PRIMARY'
+2018-03-29 03:06:58.603 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 03:06:58.629 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt0295297' for key 'PRIMARY'
+2018-03-29 03:06:58.642 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 03:06:58.668 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt0330373' for key 'PRIMARY'
+2018-03-29 03:06:58.679 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 03:06:58.706 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'Defense Against the Dark Arts" teacher, but there is also trouble brewing. Convi' at line 1
+2018-03-29 03:07:00.315 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 03:07:00.346 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt0295297' for key 'PRIMARY'
+2018-03-29 03:13:46.771 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-8] e.n.c.m.s.LocalSQLConnectService         : Too many connections
+2018-03-29 03:13:49.182 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Too many connections
+2018-03-29 03:13:49.754 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-7] e.n.c.m.s.LocalSQLConnectService         : Too many connections
+2018-03-29 03:13:51.068 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-8] e.n.c.m.s.LocalSQLConnectService         : Too many connections
+2018-03-29 03:14:22.305 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-8] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 03:14:22.331 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-8] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt1201607' for key 'PRIMARY'
+2018-03-29 03:14:22.343 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-8] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 03:14:22.370 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-8] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt0241527' for key 'PRIMARY'
+2018-03-29 03:14:22.385 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-8] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 03:14:22.412 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-8] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt0295297' for key 'PRIMARY'
+2018-03-29 03:14:22.424 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-8] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 03:14:22.451 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-8] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt0330373' for key 'PRIMARY'
+2018-03-29 03:14:22.461 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-8] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 03:14:22.487 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-8] e.n.c.m.s.LocalSQLConnectService         : You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'Defense Against the Dark Arts" teacher, but there is also trouble brewing. Convi' at line 1
+2018-03-29 03:14:22.499 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-8] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 03:14:22.527 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-8] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt2560140' for key 'PRIMARY'
+2018-03-29 03:14:22.537 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-8] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 03:14:22.564 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-8] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt0120913' for key 'PRIMARY'
+2018-03-29 03:14:22.577 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-8] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 03:14:22.605 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-8] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt2072230' for key 'PRIMARY'
+2018-03-29 03:14:22.631 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-8] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 03:14:22.657 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-8] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt4294052' for key 'PRIMARY'
+2018-03-29 03:14:22.669 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-8] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 03:14:22.696 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-8] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt1709198' for key 'PRIMARY'
+2018-03-29 03:14:24.283 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-9] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 03:14:24.311 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-9] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt2560140' for key 'PRIMARY'
+2018-03-29 03:17:32.805 ERROR LAPTOP-JQGD3FG3 --- [io-8080-exec-10] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 03:17:32.838 ERROR LAPTOP-JQGD3FG3 --- [io-8080-exec-10] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt2560140' for key 'PRIMARY'
+2018-03-29 03:17:32.854 ERROR LAPTOP-JQGD3FG3 --- [io-8080-exec-10] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 03:17:32.880 ERROR LAPTOP-JQGD3FG3 --- [io-8080-exec-10] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt0120913' for key 'PRIMARY'
+2018-03-29 03:17:32.991 ERROR LAPTOP-JQGD3FG3 --- [io-8080-exec-10] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 03:17:33.054 ERROR LAPTOP-JQGD3FG3 --- [io-8080-exec-10] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt2072230' for key 'PRIMARY'
+2018-03-29 03:17:33.128 ERROR LAPTOP-JQGD3FG3 --- [io-8080-exec-10] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 03:17:33.174 ERROR LAPTOP-JQGD3FG3 --- [io-8080-exec-10] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt4294052' for key 'PRIMARY'
+2018-03-29 03:17:33.186 ERROR LAPTOP-JQGD3FG3 --- [io-8080-exec-10] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 03:17:33.216 ERROR LAPTOP-JQGD3FG3 --- [io-8080-exec-10] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt1709198' for key 'PRIMARY'
+2018-03-29 03:17:34.419 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 03:17:34.445 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt2560140' for key 'PRIMARY'
+2018-03-29 03:38:56.447 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-8] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 03:38:56.490 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-8] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 03:38:56.531 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-8] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 03:38:56.558 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-8] e.n.c.m.s.LocalSQLConnectService         : You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'Brundlefly" searches for a cure to his mutated genes while being monitored by a ' at line 1
+2018-03-29 03:38:56.567 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-8] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 03:38:56.595 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-8] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt0091064' for key 'PRIMARY'
+2018-03-29 03:38:56.605 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-8] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 03:38:58.257 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-3] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 03:38:58.285 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-3] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt0091064' for key 'PRIMARY'
+2018-03-29 04:01:53.104 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 04:01:53.135 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt2560140' for key 'PRIMARY'
+2018-03-29 04:01:53.147 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 04:01:53.173 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt0120913' for key 'PRIMARY'
+2018-03-29 04:01:53.184 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 04:01:53.213 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt2072230' for key 'PRIMARY'
+2018-03-29 04:01:53.227 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 04:01:53.252 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt4294052' for key 'PRIMARY'
+2018-03-29 04:01:53.264 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 04:01:53.291 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt1709198' for key 'PRIMARY'
+2018-03-29 04:01:54.931 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-8] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 04:01:54.958 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-8] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt2560140' for key 'PRIMARY'
+2018-03-29 04:12:37.751 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-7] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 04:12:37.777 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-7] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt2560140' for key 'PRIMARY'
+2018-03-29 04:12:37.787 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-7] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 04:12:37.815 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-7] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt0120913' for key 'PRIMARY'
+2018-03-29 04:12:37.828 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-7] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 04:12:37.855 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-7] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt2072230' for key 'PRIMARY'
+2018-03-29 04:12:37.950 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-7] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 04:12:37.976 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-7] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt4294052' for key 'PRIMARY'
+2018-03-29 04:12:37.994 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-7] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 04:12:38.021 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-7] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt1709198' for key 'PRIMARY'
+2018-03-29 04:12:38.037 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-7] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 04:12:38.065 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-7] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt2560140' for key 'PRIMARY'
+2018-03-29 04:12:38.077 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-7] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 04:12:38.103 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-7] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt0120913' for key 'PRIMARY'
+2018-03-29 04:12:38.114 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-7] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 04:12:38.140 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-7] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt2072230' for key 'PRIMARY'
+2018-03-29 04:12:38.153 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-7] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 04:12:38.179 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-7] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt4294052' for key 'PRIMARY'
+2018-03-29 04:12:38.194 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-7] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 04:12:38.222 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-7] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt1709198' for key 'PRIMARY'
+2018-03-29 04:12:40.208 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-1] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 04:12:40.235 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-1] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt2560140' for key 'PRIMARY'
+2018-03-29 04:31:11.600 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-4] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 04:31:23.793 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-1] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 04:31:23.823 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-1] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt0070705' for key 'PRIMARY'
+2018-03-29 04:31:23.834 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-1] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 04:31:23.875 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-1] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 04:31:23.901 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-1] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt0070705' for key 'PRIMARY'
+2018-03-29 04:31:23.914 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-1] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 04:31:23.940 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-1] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt0110577' for key 'PRIMARY'
+2018-03-29 04:31:23.953 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-1] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 04:31:23.979 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-1] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt0070705' for key 'PRIMARY'
+2018-03-29 04:31:23.988 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-1] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 04:31:24.015 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-1] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt0110577' for key 'PRIMARY'
+2018-03-29 04:31:24.027 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-1] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 04:31:24.067 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-1] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 04:31:24.093 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-1] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt1345836' for key 'PRIMARY'
+2018-03-29 04:31:24.104 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-1] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 04:31:24.147 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-1] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 04:31:24.173 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-1] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt1399103' for key 'PRIMARY'
+2018-03-29 04:31:24.188 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-1] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 04:31:25.635 ERROR LAPTOP-JQGD3FG3 --- [io-8080-exec-10] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 04:31:25.661 ERROR LAPTOP-JQGD3FG3 --- [io-8080-exec-10] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt0468569' for key 'PRIMARY'
+2018-03-29 04:31:28.101 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-7] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 04:31:28.126 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-7] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt0070705' for key 'PRIMARY'
+2018-03-29 04:31:28.138 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-7] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 04:31:28.164 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-7] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt0110577' for key 'PRIMARY'
+2018-03-29 04:31:28.177 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-7] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 04:31:28.203 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-7] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt0070705' for key 'PRIMARY'
+2018-03-29 04:31:28.215 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-7] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 04:31:28.242 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-7] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt0110577' for key 'PRIMARY'
+2018-03-29 04:31:28.255 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-7] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 04:31:28.283 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-7] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt0070705' for key 'PRIMARY'
+2018-03-29 04:31:28.293 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-7] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 04:31:28.320 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-7] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt0110577' for key 'PRIMARY'
+2018-03-29 04:31:28.335 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-7] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 04:31:28.361 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-7] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt0468569' for key 'PRIMARY'
+2018-03-29 04:31:28.374 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-7] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 04:31:28.400 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-7] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt1345836' for key 'PRIMARY'
+2018-03-29 04:31:28.413 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-7] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 04:31:28.439 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-7] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt1981115' for key 'PRIMARY'
+2018-03-29 04:31:28.456 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-7] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 04:31:28.482 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-7] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt1399103' for key 'PRIMARY'
+2018-03-29 04:31:28.495 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-7] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 04:31:28.521 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-7] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt1790885' for key 'PRIMARY'
+2018-03-29 04:31:28.532 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-7] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 04:31:28.558 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-7] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt0468569' for key 'PRIMARY'
+2018-03-29 04:31:28.569 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-7] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 04:31:28.595 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-7] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt1345836' for key 'PRIMARY'
+2018-03-29 04:31:28.606 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-7] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 04:31:28.632 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-7] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt1981115' for key 'PRIMARY'
+2018-03-29 04:31:28.645 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-7] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 04:31:28.671 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-7] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt1399103' for key 'PRIMARY'
+2018-03-29 04:31:28.682 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-7] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 04:31:28.709 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-7] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt1790885' for key 'PRIMARY'
+2018-03-29 04:31:30.421 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-1] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 04:31:30.448 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-1] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt1345836' for key 'PRIMARY'
+2018-03-29 04:31:33.077 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-9] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 04:31:33.104 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-9] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt0070705' for key 'PRIMARY'
+2018-03-29 04:31:33.117 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-9] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 04:31:33.143 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-9] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt0110577' for key 'PRIMARY'
+2018-03-29 04:31:33.154 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-9] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 04:31:33.182 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-9] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt0070705' for key 'PRIMARY'
+2018-03-29 04:31:33.193 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-9] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 04:31:33.219 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-9] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt0110577' for key 'PRIMARY'
+2018-03-29 04:31:33.230 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-9] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 04:31:33.256 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-9] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt0070705' for key 'PRIMARY'
+2018-03-29 04:31:33.267 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-9] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 04:31:33.294 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-9] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt0110577' for key 'PRIMARY'
+2018-03-29 04:31:33.311 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-9] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 04:31:33.339 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-9] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt0468569' for key 'PRIMARY'
+2018-03-29 04:31:33.353 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-9] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 04:31:33.379 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-9] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt1345836' for key 'PRIMARY'
+2018-03-29 04:31:33.397 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-9] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 04:31:33.424 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-9] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt1981115' for key 'PRIMARY'
+2018-03-29 04:31:33.434 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-9] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 04:31:33.461 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-9] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt1399103' for key 'PRIMARY'
+2018-03-29 04:31:33.471 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-9] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 04:31:33.498 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-9] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt1790885' for key 'PRIMARY'
+2018-03-29 04:31:33.511 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-9] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 04:31:33.537 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-9] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt0468569' for key 'PRIMARY'
+2018-03-29 04:31:33.550 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-9] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 04:31:33.576 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-9] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt1345836' for key 'PRIMARY'
+2018-03-29 04:31:33.589 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-9] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 04:31:33.615 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-9] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt1981115' for key 'PRIMARY'
+2018-03-29 04:31:33.628 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-9] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 04:31:33.654 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-9] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt1399103' for key 'PRIMARY'
+2018-03-29 04:31:33.667 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-9] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 04:31:33.694 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-9] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt1790885' for key 'PRIMARY'
+2018-03-29 04:31:33.704 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-9] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 04:31:33.732 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-9] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt0468569' for key 'PRIMARY'
+2018-03-29 04:31:33.747 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-9] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 04:31:33.773 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-9] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt1345836' for key 'PRIMARY'
+2018-03-29 04:31:33.786 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-9] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 04:31:33.813 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-9] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt1981115' for key 'PRIMARY'
+2018-03-29 04:31:33.827 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-9] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 04:31:33.853 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-9] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt1399103' for key 'PRIMARY'
+2018-03-29 04:31:33.864 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-9] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 04:31:33.890 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-9] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt1790885' for key 'PRIMARY'
+2018-03-29 04:31:35.182 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-3] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 04:31:35.207 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-3] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt0468569' for key 'PRIMARY'
+2018-03-29 04:32:47.089 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-4] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 04:32:47.228 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-4] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 04:32:47.270 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-4] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 04:32:47.297 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-4] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt0027113' for key 'PRIMARY'
+2018-03-29 04:32:47.307 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-4] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 04:32:47.344 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-4] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 04:32:48.720 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-8] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 04:32:48.745 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-8] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt0027113' for key 'PRIMARY'
+2018-03-29 04:35:35.429 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-7] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 04:35:35.465 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-7] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt2560140' for key 'PRIMARY'
+2018-03-29 04:35:35.475 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-7] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 04:35:35.500 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-7] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt0120913' for key 'PRIMARY'
+2018-03-29 04:35:35.511 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-7] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 04:35:35.537 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-7] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt2072230' for key 'PRIMARY'
+2018-03-29 04:35:35.548 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-7] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 04:35:35.575 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-7] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt4294052' for key 'PRIMARY'
+2018-03-29 04:35:35.591 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-7] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 04:35:35.618 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-7] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt1709198' for key 'PRIMARY'
+2018-03-29 04:35:37.186 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 04:35:37.212 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt2560140' for key 'PRIMARY'
+2018-03-29 05:21:17.203 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-7] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 05:21:17.285 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-7] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 05:21:17.376 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-7] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 05:21:17.449 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-7] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 05:21:17.495 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-7] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt0100669' for key 'PRIMARY'
+2018-03-29 05:21:17.546 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-7] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 05:21:22.731 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-3] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 05:21:22.769 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-3] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt2084949' for key 'PRIMARY'
+2018-03-29 06:05:25.358 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-4] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 06:05:25.420 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-4] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 06:05:25.479 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-4] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 06:05:25.539 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-4] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 06:05:25.610 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-4] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 06:05:27.719 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-3] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 06:05:27.759 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-3] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt0317248' for key 'PRIMARY'
+2018-03-29 06:08:21.744 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 06:08:21.792 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt2560140' for key 'PRIMARY'
+2018-03-29 06:08:21.813 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 06:08:21.851 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt0120913' for key 'PRIMARY'
+2018-03-29 06:08:21.874 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 06:08:21.916 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt2072230' for key 'PRIMARY'
+2018-03-29 06:08:21.949 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 06:08:21.991 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt4294052' for key 'PRIMARY'
+2018-03-29 06:08:22.007 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 06:08:22.046 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt1709198' for key 'PRIMARY'
+2018-03-29 06:08:24.250 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-1] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 06:08:24.289 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-1] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt2072230' for key 'PRIMARY'
+2018-03-29 06:33:11.764 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-1] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 06:33:11.828 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-1] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 06:33:11.886 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-1] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 06:33:11.939 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-1] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 06:33:12.036 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-1] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 06:33:14.555 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 06:33:14.590 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt0368530' for key 'PRIMARY'
+2018-03-29 06:36:25.088 ERROR LAPTOP-JQGD3FG3 --- [io-8080-exec-10] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 06:36:25.154 ERROR LAPTOP-JQGD3FG3 --- [io-8080-exec-10] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 06:36:25.231 ERROR LAPTOP-JQGD3FG3 --- [io-8080-exec-10] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 06:36:25.272 ERROR LAPTOP-JQGD3FG3 --- [io-8080-exec-10] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt0101414' for key 'PRIMARY'
+2018-03-29 06:36:25.294 ERROR LAPTOP-JQGD3FG3 --- [io-8080-exec-10] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 06:36:25.350 ERROR LAPTOP-JQGD3FG3 --- [io-8080-exec-10] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 06:36:28.030 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 06:36:28.068 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt0053285' for key 'PRIMARY'
+2018-03-29 06:41:32.162 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 06:41:32.203 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt0468569' for key 'PRIMARY'
+2018-03-29 06:41:32.221 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 06:41:32.261 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt1345836' for key 'PRIMARY'
+2018-03-29 06:41:32.282 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 06:41:32.317 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt1981115' for key 'PRIMARY'
+2018-03-29 06:41:32.342 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 06:41:32.381 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt1399103' for key 'PRIMARY'
+2018-03-29 06:41:32.400 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 06:41:32.444 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt1790885' for key 'PRIMARY'
+2018-03-29 06:41:45.160 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 06:41:45.206 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt1981115' for key 'PRIMARY'
+2018-03-29 06:41:54.901 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-1] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 06:41:54.941 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-1] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt1981115' for key 'PRIMARY'
+2018-03-29 06:44:54.820 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-5] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 06:44:54.868 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-5] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt0317248' for key 'PRIMARY'
+2018-03-29 06:44:54.890 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-5] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 06:44:54.928 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-5] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt1602613' for key 'PRIMARY'
+2018-03-29 06:44:54.953 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-5] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 06:44:54.991 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-5] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt1912398' for key 'PRIMARY'
+2018-03-29 06:44:55.009 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-5] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 06:44:55.057 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-5] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt0068182' for key 'PRIMARY'
+2018-03-29 06:44:55.075 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-5] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 06:44:55.119 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-5] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt2283748' for key 'PRIMARY'
+2018-03-29 06:45:15.677 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-7] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 06:45:15.714 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-7] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt0317248' for key 'PRIMARY'
+2018-03-29 06:45:15.740 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-7] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 06:45:15.782 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-7] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt1602613' for key 'PRIMARY'
+2018-03-29 06:45:15.801 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-7] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 06:45:15.843 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-7] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt1912398' for key 'PRIMARY'
+2018-03-29 06:45:15.865 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-7] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 06:45:15.902 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-7] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt0068182' for key 'PRIMARY'
+2018-03-29 06:45:15.936 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-7] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 06:45:15.977 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-7] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt2283748' for key 'PRIMARY'
+2018-03-29 06:45:15.998 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-7] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 06:45:16.035 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-7] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt0317248' for key 'PRIMARY'
+2018-03-29 06:45:16.058 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-7] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 06:45:16.093 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-7] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt1602613' for key 'PRIMARY'
+2018-03-29 06:45:16.113 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-7] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 06:45:16.152 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-7] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt1912398' for key 'PRIMARY'
+2018-03-29 06:45:16.171 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-7] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 06:45:16.207 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-7] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt0068182' for key 'PRIMARY'
+2018-03-29 06:45:16.230 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-7] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 06:45:16.268 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-7] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt2283748' for key 'PRIMARY'
+2018-03-29 06:45:23.105 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 06:45:23.143 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt0068182' for key 'PRIMARY'
+2018-03-29 07:08:21.064 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-3] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 07:08:21.101 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-3] e.n.c.m.s.LocalSQLConnectService         : You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'Timeout" is the story of a young boy named Timmy who is struck with boredom and ' at line 1
+2018-03-29 07:10:35.690 ERROR LAPTOP-JQGD3FG3 --- [io-8080-exec-10] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 13:52:45.374 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-7] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 13:52:45.406 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-7] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt2560140' for key 'PRIMARY'
+2018-03-29 13:52:45.459 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-7] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 13:52:45.484 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-7] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt0120913' for key 'PRIMARY'
+2018-03-29 13:52:45.521 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-7] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 13:52:45.545 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-7] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt2072230' for key 'PRIMARY'
+2018-03-29 13:52:45.581 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-7] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 13:52:45.606 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-7] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt4294052' for key 'PRIMARY'
+2018-03-29 13:52:45.643 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-7] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 13:52:45.668 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-7] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt1709198' for key 'PRIMARY'
+2018-03-29 13:52:47.773 ERROR LAPTOP-JQGD3FG3 --- [io-8080-exec-10] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 13:52:47.799 ERROR LAPTOP-JQGD3FG3 --- [io-8080-exec-10] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt2560140' for key 'PRIMARY'
+2018-03-29 14:02:27.063 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-3] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 14:02:27.099 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-3] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt2560140' for key 'PRIMARY'
+2018-03-29 14:02:27.138 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-3] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 14:02:27.162 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-3] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt0120913' for key 'PRIMARY'
+2018-03-29 14:02:27.210 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-3] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 14:02:27.234 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-3] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt2072230' for key 'PRIMARY'
+2018-03-29 14:02:27.270 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-3] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 14:02:27.296 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-3] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt4294052' for key 'PRIMARY'
+2018-03-29 14:02:27.344 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-3] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 14:02:27.369 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-3] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt1709198' for key 'PRIMARY'
+2018-03-29 14:02:28.901 ERROR LAPTOP-JQGD3FG3 --- [io-8080-exec-10] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 14:02:28.927 ERROR LAPTOP-JQGD3FG3 --- [io-8080-exec-10] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt2560140' for key 'PRIMARY'
+2018-03-29 14:02:39.483 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-3] e.n.c.m.s.LocalSQLConnectService         : Too many connections
+2018-03-29 14:02:41.007 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Too many connections
+2018-03-29 14:02:41.874 ERROR LAPTOP-JQGD3FG3 --- [io-8080-exec-10] e.n.c.m.s.LocalSQLConnectService         : Too many connections
+2018-03-29 14:02:43.032 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-7] e.n.c.m.s.LocalSQLConnectService         : Too many connections
+2018-03-29 14:04:37.875 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-1] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 14:04:37.901 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-1] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt2560140' for key 'PRIMARY'
+2018-03-29 14:04:37.937 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-1] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 14:04:37.962 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-1] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt0120913' for key 'PRIMARY'
+2018-03-29 14:04:37.998 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-1] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 14:04:38.023 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-1] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt2072230' for key 'PRIMARY'
+2018-03-29 14:04:38.058 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-1] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 14:04:38.083 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-1] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt4294052' for key 'PRIMARY'
+2018-03-29 14:04:38.122 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-1] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 14:04:38.146 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-1] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt1709198' for key 'PRIMARY'
+2018-03-29 14:04:38.197 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-1] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 14:04:38.221 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-1] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt0372784' for key 'PRIMARY'
+2018-03-29 14:04:38.259 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-1] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 14:04:38.285 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-1] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt2975590' for key 'PRIMARY'
+2018-03-29 14:04:38.324 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-1] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 14:04:38.393 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-1] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 14:04:38.418 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-1] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt0103776' for key 'PRIMARY'
+2018-03-29 14:04:38.457 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-1] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 14:04:38.483 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-1] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt0112462' for key 'PRIMARY'
+2018-03-29 14:04:40.250 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-8] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 14:04:40.276 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-8] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt0372784' for key 'PRIMARY'
+2018-03-29 14:05:28.614 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-8] e.n.c.m.s.LocalSQLConnectService         : Too many connections
+2018-03-29 14:05:30.023 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-1] e.n.c.m.s.LocalSQLConnectService         : Too many connections
+2018-03-29 14:06:02.456 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Too many connections
+2018-03-29 14:07:51.108 ERROR LAPTOP-JQGD3FG3 --- [  restartedMain] e.n.c.m.s.LocalSQLConnectService         : Too many connections
+2018-03-29 14:08:15.586 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-4] e.n.c.m.s.LocalSQLConnectService         : Too many connections
+2018-03-29 14:08:16.541 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-9] e.n.c.m.s.LocalSQLConnectService         : Too many connections
+2018-03-29 14:08:17.362 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-1] e.n.c.m.s.LocalSQLConnectService         : Too many connections
+2018-03-29 14:08:21.189 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-5] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 14:08:21.213 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-5] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt0372784' for key 'PRIMARY'
+2018-03-29 14:08:21.248 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-5] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 14:08:21.273 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-5] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt2975590' for key 'PRIMARY'
+2018-03-29 14:08:21.307 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-5] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 14:08:21.331 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-5] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt0096895' for key 'PRIMARY'
+2018-03-29 14:08:21.367 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-5] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 14:08:21.394 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-5] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt0103776' for key 'PRIMARY'
+2018-03-29 14:08:21.429 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-5] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 14:08:21.454 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-5] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt0112462' for key 'PRIMARY'
+2018-03-29 14:08:24.589 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 14:08:24.614 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt0372784' for key 'PRIMARY'
+2018-03-29 14:08:24.649 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 14:08:24.674 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt2975590' for key 'PRIMARY'
+2018-03-29 14:08:25.069 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 14:08:25.095 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt0096895' for key 'PRIMARY'
+2018-03-29 14:08:25.194 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 14:08:25.225 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt0103776' for key 'PRIMARY'
+2018-03-29 14:08:25.261 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 14:08:25.286 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt0112462' for key 'PRIMARY'
+2018-03-29 14:08:25.321 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 14:08:25.346 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt0372784' for key 'PRIMARY'
+2018-03-29 14:08:25.382 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 14:08:25.411 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt2975590' for key 'PRIMARY'
+2018-03-29 14:08:25.446 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 14:08:25.471 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt0096895' for key 'PRIMARY'
+2018-03-29 14:08:25.508 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 14:08:25.533 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt0103776' for key 'PRIMARY'
+2018-03-29 14:08:25.567 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 14:08:25.591 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt0112462' for key 'PRIMARY'
+2018-03-29 14:08:28.891 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-8] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 14:08:28.915 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-8] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt0103776' for key 'PRIMARY'
+2018-03-29 14:08:48.820 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-1] e.n.c.m.s.LocalSQLConnectService         : Too many connections
+2018-03-29 14:08:50.393 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-5] e.n.c.m.s.LocalSQLConnectService         : Too many connections
+2018-03-29 14:10:27.094 ERROR LAPTOP-JQGD3FG3 --- [  restartedMain] e.n.c.m.s.LocalSQLConnectService         : Too many connections
+2018-03-29 14:11:01.806 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-3] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 14:11:01.835 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-3] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt0372784' for key 'PRIMARY'
+2018-03-29 14:11:01.873 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-3] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 14:11:01.897 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-3] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt2975590' for key 'PRIMARY'
+2018-03-29 14:11:01.932 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-3] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 14:11:01.961 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-3] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt0096895' for key 'PRIMARY'
+2018-03-29 14:11:01.995 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-3] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 14:11:02.021 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-3] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt0103776' for key 'PRIMARY'
+2018-03-29 14:11:02.056 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-3] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 14:11:02.080 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-3] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt0112462' for key 'PRIMARY'
+2018-03-29 14:11:04.369 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 14:11:04.394 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt0096895' for key 'PRIMARY'
+2018-03-29 14:14:03.071 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 14:14:03.105 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt0372784' for key 'PRIMARY'
+2018-03-29 14:14:03.146 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 14:14:03.172 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt2975590' for key 'PRIMARY'
+2018-03-29 14:14:03.208 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 14:14:03.243 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt0096895' for key 'PRIMARY'
+2018-03-29 14:14:03.302 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 14:14:03.326 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt0103776' for key 'PRIMARY'
+2018-03-29 14:14:03.366 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 14:14:03.860 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt0112462' for key 'PRIMARY'
+2018-03-29 14:14:05.880 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-7] e.n.c.m.s.LocalSQLConnectService         : Parameter index out of range (1 > number of parameters, which is 0).
+2018-03-29 14:14:05.906 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-7] e.n.c.m.s.LocalSQLConnectService         : Duplicate entry 'tt0096895' for key 'PRIMARY'
+2018-03-29 14:33:36.925 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-8] e.n.c.m.s.LocalSQLConnectService         : Too many connections
+2018-03-29 14:34:02.107 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-3] e.n.c.m.s.LocalSQLConnectService         : Too many connections
+2018-03-29 14:34:09.627 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-7] e.n.c.m.s.LocalSQLConnectService         : Too many connections
+2018-03-29 14:34:11.252 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-4] e.n.c.m.s.LocalSQLConnectService         : Too many connections
+2018-03-29 14:39:33.991 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 14:39:34.057 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 14:39:34.128 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 14:39:54.229 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-1] e.n.c.m.s.LocalSQLConnectService         : Too many connections
+2018-03-29 14:39:55.541 ERROR LAPTOP-JQGD3FG3 --- [io-8080-exec-10] e.n.c.m.s.LocalSQLConnectService         : Too many connections
+2018-03-29 17:05:40.840 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:05:40.901 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:05:40.987 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:05:41.166 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:05:41.275 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:05:41.332 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:05:43.687 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-8] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:05:45.854 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Cannot add or update a child row: a foreign key constraint fails (`cs4500_spring2018_team47_dev`.`UserMovieList`, CONSTRAINT `to_moive` FOREIGN KEY (`movie_id`) REFERENCES `Movie` (`movie_id`))
+2018-03-29 17:05:51.929 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:05:51.985 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:05:52.032 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:05:52.197 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:05:52.248 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:05:52.301 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:05:52.421 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:05:52.490 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:05:52.537 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:05:52.591 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:05:55.208 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-8] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:05:56.910 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Cannot add or update a child row: a foreign key constraint fails (`cs4500_spring2018_team47_dev`.`UserMovieList`, CONSTRAINT `to_moive` FOREIGN KEY (`movie_id`) REFERENCES `Movie` (`movie_id`))
+2018-03-29 17:06:03.026 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:06:03.098 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:06:03.166 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:06:03.398 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:06:03.460 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:06:03.506 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:06:03.611 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:06:03.664 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:06:03.735 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:06:03.796 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:06:03.858 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:06:03.919 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:06:03.973 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:06:04.047 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:06:04.106 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:06:05.944 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-8] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:06:07.832 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Cannot add or update a child row: a foreign key constraint fails (`cs4500_spring2018_team47_dev`.`UserMovieList`, CONSTRAINT `to_moive` FOREIGN KEY (`movie_id`) REFERENCES `Movie` (`movie_id`))
+2018-03-29 17:06:11.213 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:06:11.262 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:06:11.322 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:06:11.506 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:06:11.557 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:06:11.610 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:06:11.717 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:06:11.768 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:06:11.836 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:06:11.911 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:06:12.006 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:06:12.049 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:06:12.092 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:06:12.138 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:06:12.182 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:06:12.247 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:06:12.307 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:06:12.367 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:06:12.414 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:06:12.466 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:06:17.309 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-8] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:06:22.180 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Cannot add or update a child row: a foreign key constraint fails (`cs4500_spring2018_team47_dev`.`UserMovieList`, CONSTRAINT `to_moive` FOREIGN KEY (`movie_id`) REFERENCES `Movie` (`movie_id`))
+2018-03-29 17:06:30.541 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:06:30.589 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:06:30.640 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:06:30.967 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:06:31.103 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:06:31.161 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:06:31.401 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:06:31.489 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:06:31.554 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:06:31.603 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:06:31.660 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:06:31.730 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:06:31.794 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:06:31.867 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:06:31.969 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:06:32.044 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:06:32.098 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:06:32.172 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:06:32.239 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:06:32.316 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:06:32.384 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:06:32.492 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:06:32.549 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:06:32.605 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:06:35.203 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-8] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:06:37.103 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Cannot add or update a child row: a foreign key constraint fails (`cs4500_spring2018_team47_dev`.`UserMovieList`, CONSTRAINT `to_moive` FOREIGN KEY (`movie_id`) REFERENCES `Movie` (`movie_id`))
+2018-03-29 17:06:40.050 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:06:40.116 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:06:40.211 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:06:40.604 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:06:40.671 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:06:40.732 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:06:40.868 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:06:40.920 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:06:41.004 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:06:41.057 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:06:41.127 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:06:41.189 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:06:41.238 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:06:41.398 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:06:41.459 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:06:41.511 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:06:41.568 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:06:41.640 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:06:41.692 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:06:41.748 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:06:41.822 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:06:41.975 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:06:42.075 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:06:42.149 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:06:42.210 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:06:42.446 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:06:42.506 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:06:42.568 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:06:49.671 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:06:49.738 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:06:49.792 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:06:50.139 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:06:50.201 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:06:50.356 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:06:50.482 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:06:50.610 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:06:50.676 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:06:50.730 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:06:50.792 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:06:50.837 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:06:50.884 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:06:50.935 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:06:50.980 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:06:51.026 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:06:51.074 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:06:51.120 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:06:51.171 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:06:51.218 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:06:51.277 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:06:51.414 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:06:51.466 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:06:51.537 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:06:51.594 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:06:51.782 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:06:51.826 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:06:51.880 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:06:51.931 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:06:52.021 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:06:52.065 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:06:52.108 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:06:55.927 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-1] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:06:57.753 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-3] e.n.c.m.s.LocalSQLConnectService         : Cannot add or update a child row: a foreign key constraint fails (`cs4500_spring2018_team47_dev`.`UserMovieList`, CONSTRAINT `to_moive` FOREIGN KEY (`movie_id`) REFERENCES `Movie` (`movie_id`))
+2018-03-29 17:07:39.240 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:07:41.426 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-9] e.n.c.m.s.LocalSQLConnectService         : Cannot add or update a child row: a foreign key constraint fails (`cs4500_spring2018_team47_dev`.`UserMovieList`, CONSTRAINT `to_moive` FOREIGN KEY (`movie_id`) REFERENCES `Movie` (`movie_id`))
+2018-03-29 17:07:48.106 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:07:48.181 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:07:48.238 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:07:48.467 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:07:48.522 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:07:48.572 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:07:48.666 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:07:48.712 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:07:48.755 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:07:48.883 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:07:48.926 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:07:48.972 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:07:49.018 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:07:49.086 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:07:49.160 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:07:49.258 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:07:49.324 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:07:49.397 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:07:49.479 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:07:49.529 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:07:49.573 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:07:49.663 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:07:49.706 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:07:49.787 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:07:49.837 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:07:49.973 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:07:50.021 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:07:50.077 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:07:50.138 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:07:50.254 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:07:50.311 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:07:50.374 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:07:50.443 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:07:50.530 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:07:50.624 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:07:50.707 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:07:50.766 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:07:50.815 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:07:52.880 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:07:54.810 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-9] e.n.c.m.s.LocalSQLConnectService         : Cannot add or update a child row: a foreign key constraint fails (`cs4500_spring2018_team47_dev`.`UserMovieList`, CONSTRAINT `to_moive` FOREIGN KEY (`movie_id`) REFERENCES `Movie` (`movie_id`))
+2018-03-29 17:07:59.792 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:07:59.847 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:07:59.896 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:08:00.204 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:08:00.251 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:08:00.296 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:08:00.424 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:08:00.573 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:08:00.616 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:08:00.658 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:08:00.705 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:08:00.754 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:08:00.800 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:08:00.850 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:08:00.977 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:08:01.051 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:08:01.134 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:08:01.379 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:08:01.468 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:08:01.519 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:08:01.594 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:08:01.704 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:08:01.763 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:08:01.931 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:08:02.064 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:08:02.220 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:08:02.283 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:08:02.376 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:08:02.433 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:08:02.567 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:08:02.629 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:08:02.721 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:08:02.782 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:08:02.824 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:08:02.871 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:08:02.915 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:08:02.960 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:08:03.006 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:08:03.062 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:08:03.103 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:08:03.145 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:08:03.190 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:08:03.232 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:08:06.463 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:08:08.751 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-9] e.n.c.m.s.LocalSQLConnectService         : Cannot add or update a child row: a foreign key constraint fails (`cs4500_spring2018_team47_dev`.`UserMovieList`, CONSTRAINT `to_moive` FOREIGN KEY (`movie_id`) REFERENCES `Movie` (`movie_id`))
+2018-03-29 17:09:04.702 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-4] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:09:04.766 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-4] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:09:04.826 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-4] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:09:04.873 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-4] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:09:40.641 ERROR LAPTOP-JQGD3FG3 --- [io-8080-exec-10] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:09:40.720 ERROR LAPTOP-JQGD3FG3 --- [io-8080-exec-10] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:09:40.795 ERROR LAPTOP-JQGD3FG3 --- [io-8080-exec-10] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:09:40.876 ERROR LAPTOP-JQGD3FG3 --- [io-8080-exec-10] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:09:40.993 ERROR LAPTOP-JQGD3FG3 --- [io-8080-exec-10] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:09:41.045 ERROR LAPTOP-JQGD3FG3 --- [io-8080-exec-10] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:09:41.112 ERROR LAPTOP-JQGD3FG3 --- [io-8080-exec-10] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:09:41.177 ERROR LAPTOP-JQGD3FG3 --- [io-8080-exec-10] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:10:10.593 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:10:10.652 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:10:10.709 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:10:10.837 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:10:11.061 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:10:11.472 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:10:11.912 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:10:12.146 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:10:12.225 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:10:12.356 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:10:12.685 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:10:12.933 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:10:13.073 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:10:14.810 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-4] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:10:19.484 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-9] e.n.c.m.s.LocalSQLConnectService         : Cannot add or update a child row: a foreign key constraint fails (`cs4500_spring2018_team47_dev`.`UserMovieList`, CONSTRAINT `to_moive` FOREIGN KEY (`movie_id`) REFERENCES `Movie` (`movie_id`))
+2018-03-29 17:14:01.099 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:14:01.407 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:14:01.515 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 17:14:01.563 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 19:41:46.122 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-7] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 19:41:46.164 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-7] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 19:41:46.200 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-7] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 19:41:46.236 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-7] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 19:41:46.272 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-7] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 19:41:50.462 ERROR LAPTOP-JQGD3FG3 --- [io-8080-exec-10] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 19:42:00.188 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Cannot add or update a child row: a foreign key constraint fails (`cs4500_spring2018_team47_dev`.`UserMovieList`, CONSTRAINT `to_moive` FOREIGN KEY (`movie_id`) REFERENCES `Movie` (`movie_id`))
+2018-03-29 19:42:53.950 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-3] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 19:42:53.986 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-3] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 19:42:54.035 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-3] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 19:42:54.072 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-3] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-29 19:42:54.110 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-3] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 03:22:43.569 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-7] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 03:22:43.635 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-7] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 03:22:43.702 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-7] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 03:22:43.771 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-7] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 03:22:43.832 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-7] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 03:22:48.439 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-1] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 03:22:51.349 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-5] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 03:22:51.456 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-5] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 03:22:51.518 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-5] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 03:22:51.632 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-5] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 03:22:51.732 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-5] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 03:22:51.793 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-5] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 03:22:51.851 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-5] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 03:22:51.928 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-5] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 03:22:51.994 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-5] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 03:22:52.107 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-5] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 03:22:54.046 ERROR LAPTOP-JQGD3FG3 --- [io-8080-exec-10] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 03:26:10.953 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-8] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 03:26:11.018 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-8] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 03:26:11.076 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-8] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 03:26:11.140 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-8] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 03:26:11.209 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-8] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 03:26:13.643 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-7] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 03:26:17.726 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-3] e.n.c.m.s.LocalSQLConnectService         : Cannot add or update a child row: a foreign key constraint fails (`cs4500_spring2018_team47_dev`.`UserMovieList`, CONSTRAINT `to_moive` FOREIGN KEY (`movie_id`) REFERENCES `Movie` (`movie_id`))
+2018-03-30 03:27:15.899 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-4] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 03:27:16.002 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-4] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 03:27:16.061 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-4] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 03:27:16.129 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-4] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 03:27:16.191 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-4] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 03:58:32.565 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 03:58:32.623 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 03:58:32.692 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 03:58:32.758 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 03:58:32.819 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 04:08:42.602 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.c.MovieController                  : JSONObject["Title"] not found.
+2018-03-30 04:10:16.622 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-9] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 04:10:22.961 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-4] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 04:10:31.961 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 04:10:40.966 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 04:10:49.792 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-8] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 04:10:54.604 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-9] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 04:13:26.332 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-1] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 04:14:07.586 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-4] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 04:47:50.486 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-3] e.n.c.c.MovieController                  : JSONObject["Title"] not found.
+2018-03-30 14:29:13.168 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-4] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 14:29:13.212 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-4] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 14:29:24.677 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-1] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 14:29:46.656 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-4] e.n.c.m.s.LocalSQLConnectService         : Cannot add or update a child row: a foreign key constraint fails (`cs4500_spring2018_team47_dev`.`UserMovieList`, CONSTRAINT `to_moive` FOREIGN KEY (`movie_id`) REFERENCES `Movie` (`movie_id`))
+2018-03-30 14:31:02.822 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-7] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 14:31:02.862 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-7] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 14:31:03.043 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-7] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 14:31:03.079 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-7] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 15:16:46.435 ERROR LAPTOP-JQGD3FG3 --- [io-8080-exec-10] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 15:16:46.481 ERROR LAPTOP-JQGD3FG3 --- [io-8080-exec-10] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 15:16:46.515 ERROR LAPTOP-JQGD3FG3 --- [io-8080-exec-10] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 15:16:46.549 ERROR LAPTOP-JQGD3FG3 --- [io-8080-exec-10] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 15:16:46.584 ERROR LAPTOP-JQGD3FG3 --- [io-8080-exec-10] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 15:16:48.653 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-9] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 15:16:51.183 ERROR LAPTOP-JQGD3FG3 --- [io-8080-exec-10] e.n.c.m.s.LocalSQLConnectService         : Cannot add or update a child row: a foreign key constraint fails (`cs4500_spring2018_team47_dev`.`UserMovieList`, CONSTRAINT `to_moive` FOREIGN KEY (`movie_id`) REFERENCES `Movie` (`movie_id`) ON DELETE CASCADE)
+2018-03-30 15:18:36.378 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-8] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 15:18:36.412 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-8] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 15:18:36.446 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-8] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 15:18:36.499 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-8] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 15:18:36.540 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-8] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 15:19:11.432 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-9] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 15:19:11.468 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-9] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 15:19:11.503 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-9] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 15:19:11.538 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-9] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 15:19:11.574 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-9] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 15:22:22.759 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-7] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 15:22:22.795 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-7] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 15:22:22.831 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-7] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 15:22:22.942 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-7] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 15:22:22.977 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-7] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 15:22:23.382 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-7] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 15:22:23.417 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-7] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 15:22:23.453 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-7] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 15:22:23.490 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-7] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 15:22:23.602 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-7] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 18:33:55.072 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.c.MovieController                  : JSONObject["Title"] not found.
+2018-03-30 18:34:09.471 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-3] e.n.c.c.MovieController                  : JSONObject["Title"] not found.
+2018-03-30 18:34:31.674 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-4] e.n.c.c.MovieController                  : JSONObject["Title"] not found.
+2018-03-30 18:35:09.280 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-5] e.n.c.c.MovieController                  : JSONObject["Title"] not found.
+2018-03-30 18:35:15.285 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-8] e.n.c.c.MovieController                  : JSONObject["Title"] not found.
+2018-03-30 18:35:42.353 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-4] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 18:35:42.413 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-4] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 18:35:42.456 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-4] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 18:35:42.493 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-4] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 18:35:57.683 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-3] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 18:35:57.720 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-3] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 18:35:57.793 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-3] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 18:35:57.828 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-3] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 18:37:06.590 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-9] e.n.c.m.s.LocalSQLConnectService         : Too many connections
+2018-03-30 18:37:09.427 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-7] e.n.c.m.s.LocalSQLConnectService         : Too many connections
+2018-03-30 18:47:50.824 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-7] e.n.c.m.s.LocalSQLConnectService         : Illegal operation on empty result set.
+2018-03-30 18:54:15.987 ERROR LAPTOP-JQGD3FG3 --- [io-8080-exec-10] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 18:54:19.923 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-4] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 18:54:27.735 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 18:54:29.952 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-8] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 18:54:35.513 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-5] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 18:54:35.549 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-5] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 18:54:35.588 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-5] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 18:54:35.623 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-5] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 18:54:35.658 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-5] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 18:54:35.752 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-5] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 18:54:35.857 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-5] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 18:54:35.892 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-5] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 18:54:35.931 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-5] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 18:54:35.968 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-5] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 18:54:38.848 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-9] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 18:54:38.888 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-9] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 18:54:38.927 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-9] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 18:54:38.964 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-9] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 18:54:39.000 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-9] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 18:54:39.034 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-9] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 18:54:39.069 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-9] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 18:54:39.106 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-9] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 18:54:39.141 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-9] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 18:54:39.177 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-9] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 18:54:54.652 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-3] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 18:54:54.688 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-3] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 18:54:54.722 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-3] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 18:54:54.760 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-3] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 18:54:54.795 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-3] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 18:54:54.829 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-3] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 18:54:54.881 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-3] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 18:54:54.935 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-3] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 18:54:54.971 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-3] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 18:54:55.006 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-3] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 18:55:06.008 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-7] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 18:55:06.045 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-7] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 18:55:06.080 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-7] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 18:55:06.117 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-7] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 18:55:06.156 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-7] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 18:55:06.194 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-7] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 18:55:06.230 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-7] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 18:55:06.271 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-7] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 18:55:06.310 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-7] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 18:55:06.385 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-7] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 19:05:34.988 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 19:06:20.551 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-9] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 19:06:23.689 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-3] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 19:07:26.904 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-4] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 19:07:26.947 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-4] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 19:07:26.996 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-4] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 19:07:27.042 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-4] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 19:07:27.083 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-4] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 19:07:27.129 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-4] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 19:07:27.168 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-4] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 19:07:27.211 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-4] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 19:07:27.255 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-4] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 19:07:48.945 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 19:13:29.116 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-5] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 19:13:31.513 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-8] e.n.c.m.s.LocalSQLConnectService         : Cannot add or update a child row: a foreign key constraint fails (`cs4500_spring2018_team47_dev`.`UserMovieList`, CONSTRAINT `to_moive` FOREIGN KEY (`movie_id`) REFERENCES `Movie` (`movie_id`) ON DELETE CASCADE ON UPDATE CASCADE)
+2018-03-30 19:18:36.629 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-4] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 19:20:59.339 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-9] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 19:20:59.665 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-9] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 19:21:16.098 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 19:21:16.350 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 19:21:16.397 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 19:21:16.431 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 19:21:16.467 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 19:21:16.501 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 19:21:16.536 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 19:21:36.834 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 19:22:26.641 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-5] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 19:22:26.895 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-5] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 19:22:26.933 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-5] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 19:22:26.969 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-5] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 19:22:27.007 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-5] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 19:22:27.044 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-5] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 19:22:27.082 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-5] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 19:22:27.118 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-5] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 19:22:27.158 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-5] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 19:22:27.194 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-5] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 19:22:27.235 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-5] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 19:22:27.275 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-5] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 19:22:55.784 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-3] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 19:23:48.580 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-5] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 19:23:48.865 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-5] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 19:23:49.012 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-5] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 19:23:49.057 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-5] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 19:23:49.101 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-5] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 19:23:49.142 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-5] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 19:23:49.183 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-5] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 19:23:49.220 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-5] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 19:23:49.263 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-5] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 19:23:49.337 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-5] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 19:23:49.373 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-5] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 19:23:49.413 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-5] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 19:23:49.454 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-5] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 19:23:49.601 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-5] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 19:23:49.650 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-5] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 19:23:49.694 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-5] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 19:23:49.729 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-5] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 19:24:15.371 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-8] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-03-30 19:31:20.763 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-1] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+

@@ -13,6 +13,7 @@ function init() {
 	const movieName = document.querySelector(".movie-title").innerText;
 	const ratingButtons = document.querySelectorAll(".rating input");
 	const submitReviewButton = document.querySelector("#writeReview");
+	
 	const movieId = document.querySelector("#imdbID").innerText;
 	const currRating = document.querySelector("#currentRating").innerText;
 	
@@ -27,7 +28,26 @@ function init() {
 		xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 		xhr.send(param);
 	}
-
+	
+	var addtolistButton = document.querySelector("#addToList");
+	// to get the list name
+	addtolistButton.onclick = function() {
+		var listObject = document.getElementById("listOpt");
+		var selectedList = listObject.options[listObject.selectedIndex].value;
+		var movieId = document.querySelector("#imdbID").innerText;
+		const movieName = document.querySelector(".movie-title").innerText;
+		var encodedMovie = encodeURI(movieId);
+		var encodedMovieName = encodeURI(movieName);
+		var encodedList = encodeURI(selectedList);
+		const url = "/addMovieToList";
+		var param = "movie=" + encodedMovieName + "&movieId=" + encodedMovie + "&movieList=" + encodedList;
+		var xhr = new XMLHttpRequest();
+		xhr.open("POST", url, true);
+		xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+		xhr.send(param);
+	}
+	
+	
 	for (button in ratingButtons) {
 		if (ratingButtons[button].value == currRating) {
 			ratingButtons[button].checked = true;
@@ -56,5 +76,10 @@ function init() {
 		}
 	}
 }
+
+
+
+
+
 
 document.addEventListener("DOMContentLoaded", init);

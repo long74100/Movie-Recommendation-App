@@ -19,9 +19,9 @@
    
 
     .movieListNameTitleBar {
-        background: wheat;
+        background: black;
         margin-left:469px;
-        color: black;
+        color: white;
         height: 50px;
         width:800px;
         text-align: center;
@@ -53,29 +53,33 @@
         margin-top: 0px;
         height: 100%;
         margin-left: 230px;
-        background: black;
+        background: white;
         color: wheat;
         width: 240px;
     }
 
     .createBtn {
-        background: tomato;
-        width: 53px;
-        color: black;
-        text-align: left;
+    	size: 53px;
+        padding: 20px;
+        text-align: center;
         margin-left: 0px;
-        font-size: 12px;
-        border: solid;
+        font-size: 16px;
+        display: inline-block;
         cursor: pointer;
-        border-color: burlywood;
+        border-color: black;
+        border-width: thin;
+        background-color: white;
+        border-radius: 4px;
+        padding: 2px;
+        
+    	color: black;
     }
 
 
     .createBtn:hover {
         background: black;
-        border: solid;
         color:white;
-        border-color: tomato;
+        font-weight: bold;
     }
 
     .movieRepoName {
@@ -87,7 +91,6 @@
     }
 
     .movieRepoName:hover {
-        background: wheat;
         color:black;
         font-size: 20px;
     }
@@ -101,10 +104,10 @@
     }
     
     .movieRepoList p:hover {
-    	background: wheat;
         color:black;
         font-size: 20px;
     }
+    
 
     ul {
       margin-top: 15px;
