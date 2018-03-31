@@ -62,7 +62,6 @@ public class UserprofileController {
 		List<String> movieListNames = sqlConnector.getMovieListForUser(user.getId());
 		modelAndView.addObject("usermovielist", movieListNames);
 		modelAndView.addObject("currentMovies", new ArrayList<Movie>());
-//		modelAndView.addObject("newListName", "");
 		modelAndView.setViewName("movielist");
 		return modelAndView;
 	}
@@ -146,4 +145,14 @@ public class UserprofileController {
     }
 	
 	
+	@RequestMapping(value= "/createMovieList", method=RequestMethod.POST)
+	@ResponseStatus(value = HttpStatus.OK)
+	public void createNewMovieList(@RequestBody String listName, HttpServletRequest httpservletRequest) {
+		LocalSQLConnectService db = new LocalSQLConnectService();
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+    	User user = userService.findUserByEmail(auth.getName());
+    	Integer userId = user.getId();
+    	String newListName = httpservletRequest.getParameter("listName");
+    	db.createMovieList(userId, newListName);
+	}
 }

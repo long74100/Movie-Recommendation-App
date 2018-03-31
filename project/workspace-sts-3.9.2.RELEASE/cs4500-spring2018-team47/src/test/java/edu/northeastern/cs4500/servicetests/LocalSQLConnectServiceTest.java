@@ -16,7 +16,8 @@ public class LocalSQLConnectServiceTest {
 	}
 	
 	@Test
-	public void testContainMovie() {
-		
+	public void testCreateMovieList() {
+		this.init();
+		localSQLConnectService.createMovieList(32, "NewTestList+A");
 	}
 }

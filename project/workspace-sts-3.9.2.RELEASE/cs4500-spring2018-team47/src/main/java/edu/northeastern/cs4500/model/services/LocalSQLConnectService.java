@@ -129,7 +129,10 @@ public class LocalSQLConnectService {
     	}
     }
     
-    // -----------------MOVIE OPERATOR---------------------------------
+    /**
+     * Movie Operators:
+     * This section is for user and system to operate on the movies
+     */
     
     /**
      * To delete the given movie from the local database
@@ -369,9 +372,7 @@ public class LocalSQLConnectService {
 			logger.error(se.getMessage());
     		}
     	}
-    	else {
-    		System.out.println("friend request has made.");
-    	}
+    
     }
     
     /**
@@ -474,25 +475,14 @@ public class LocalSQLConnectService {
 		}
 
 	}
-    
-    public void addMovieList(int userId, String movieList) {
-    	String sqlcmd = "insert into Movielist(user_id, list_name) values (?, ?)";
-    	PreparedStatement pstmt = null;
-	try {
-		pstmt = connector.prepareStatement(sqlcmd);
-		pstmt.setInt(1, userId);
-		pstmt.setString(2, movieList);
-		pstmt.executeUpdate();
-	} catch(SQLException se) {
-	    logger.error(se.getMessage());
-	}
-    }
-    
-    public void preloadMovieList(int userId) {
-	addMovieList(userId, "Watched");
-	addMovieList(userId, "Favorites");
-	addMovieList(userId, "Recommended");
 
+    
+    /**
+     * To set up initial movie list for the new user 
+     * @param userId the new user's id
+     */
+    public void preloadMovieList(int userId) {
+    	createMovieList(userId, "Favorites");
     }
     
     /**
@@ -525,7 +515,6 @@ public class LocalSQLConnectService {
     	catch(SQLException ep) {
 		logger.error(ep.getMessage());
     	}
-    	
     	return output;
     	
     }
@@ -620,11 +609,8 @@ public class LocalSQLConnectService {
     		pstmt.setInt(1, userid);
     		pstmt.setString(2, movieListName);
     		myResult = pstmt.executeQuery();
-    		if(myResult.next()) {
-    			System.out.println("You already have this movielist");
-    		}
-    		else {
-    			pstmt2 = connector.prepareStatement(addListQuery);
+    		if(!myResult.next()) {
+    		pstmt2 = connector.prepareStatement(addListQuery);
         		pstmt2.setInt(1, userid);
         		pstmt2.setString(2, movieListName);
         		pstmt2.executeUpdate();
@@ -646,6 +632,7 @@ public class LocalSQLConnectService {
     	String sqlcmd = "insert into UserMovieList values (?, ?, ?, ?)";
     	PreparedStatement pstmt = null;
     	try {
+
     		pstmt = connector.prepareStatement(sqlcmd);
     		pstmt.setInt(1, userId);
     		pstmt.setString(2, listName);
@@ -896,7 +883,7 @@ public class LocalSQLConnectService {
     		}
     	}
     	catch(SQLException ep) {
-    		ep.printStackTrace();
+	    logger.error(ep.getMessage());
     	}
     	return result;
     }
@@ -931,16 +918,10 @@ public class LocalSQLConnectService {
     		}
     	}
     	catch(SQLException sq) {
-    		sq.printStackTrace();
+	    logger.error(sq.getMessage());
     	}
     	
     	return output;
     }
-    
-    
-    
-    
-    
-    
 
 }
