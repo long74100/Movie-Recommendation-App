@@ -105,9 +105,27 @@
 					style="display: none;"></h1>
 				<textarea th:class="form-control" rows="5" id="review-box"
 					form="writeReview" placeholder="Write your review here..."></textarea>
-				<input type="submit" class="review-button" id="writeReview">
+				<input type="submit" class="review-button btn-primary" style="margin-bottom: 10px" id="writeReview">
 			</div>
 		</div>
+		
+		<div th:each="review : ${reviews}">
+				<div class="container shadow row" style="margin-bottom: 10px">
+					<div class="col-md-4">
+						<div th:text="${review.username}" class="movieTitle"></div>
+					</div>
+					<div class="col-md-2">
+						<div style="margin: 2px;">
+							<div th:text="${review.review}"></div>
+						</div>
+					</div>
+				</div>
+		</div>
+		<!-- else no users are found  -->
+		<div th:unless="${not #lists.isEmpty(reviews)}">
+			<div>No users match this title. Please try again.</div>
+		</div>
+		
 	</div>
 
 </body>
