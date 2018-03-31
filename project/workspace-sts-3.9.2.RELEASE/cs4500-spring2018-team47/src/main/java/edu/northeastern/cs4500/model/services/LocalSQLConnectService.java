@@ -369,9 +369,7 @@ public class LocalSQLConnectService {
 			logger.error(se.getMessage());
     		}
     	}
-    	else {
-    		System.out.println("friend request has made.");
-    	}
+    
     }
     
     /**
@@ -620,11 +618,8 @@ public class LocalSQLConnectService {
     		pstmt.setInt(1, userid);
     		pstmt.setString(2, movieListName);
     		myResult = pstmt.executeQuery();
-    		if(myResult.next()) {
-    			System.out.println("You already have this movielist");
-    		}
-    		else {
-    			pstmt2 = connector.prepareStatement(addListQuery);
+    		if(!myResult.next()) {
+    		pstmt2 = connector.prepareStatement(addListQuery);
         		pstmt2.setInt(1, userid);
         		pstmt2.setString(2, movieListName);
         		pstmt2.executeUpdate();
@@ -896,7 +891,7 @@ public class LocalSQLConnectService {
     		}
     	}
     	catch(SQLException ep) {
-    		ep.printStackTrace();
+	    logger.error(ep.getMessage());
     	}
     	return result;
     }
@@ -931,7 +926,7 @@ public class LocalSQLConnectService {
     		}
     	}
     	catch(SQLException sq) {
-    		sq.printStackTrace();
+	    logger.error(sq.getMessage());
     	}
     	
     	return output;

@@ -81,7 +81,6 @@ public class MovieController {
 	    	movie.setImdbRating(movieJSON.getString("imdbRating"));
 	    	movieList.add(movie);
 	    	movieNames.add(movie.getTitle());
-	    	System.out.println("Poster"+ movie.getPoster());
 	    	x++;
 	    }
 	    
@@ -92,7 +91,7 @@ public class MovieController {
 	    
 	} catch (IOException | JSONException e) {
 	    // use logger
-	    e.printStackTrace();
+	    logger.error(e.getMessage());
 	}
 	
 	// get list of users
@@ -131,7 +130,6 @@ public class MovieController {
 	    localDbConnector.loadMovieToLocalDB(movieJSON);
 	    
 	} catch (IOException | JSONException e) {
-	    e.printStackTrace();
 	    logger.error(e.getMessage());
 	}
 	
