@@ -82,7 +82,6 @@ public class MovieController {
 	    	movie.setImdbRating(movieJSON.getString("imdbRating"));
 	    	movieList.add(movie);
 	    	movieNames.add(movie.getTitle());
-	    	System.out.println("Poster"+ movie.getPoster());
 	    	x++;
 	    }
 	    
@@ -93,7 +92,7 @@ public class MovieController {
 	    
 	} catch (IOException | JSONException e) {
 	    // use logger
-	    e.printStackTrace();
+	    logger.error(e.getMessage());
 	}
 	
 	// get list of users
@@ -115,7 +114,8 @@ public class MovieController {
     public ModelAndView movieResult(@PathVariable String title) {
 	JSONObject movieJSON = new JSONObject();
 	Map<String, String> movie = new HashMap<String, String>();
-
+	List<MovieReview> reviews = null;
+	
 	try {
 	    movieJSON = omdbService.searchMovieByTitle(title, "t");
 	    movie.put("title", movieJSON.getString("Title"));
@@ -130,11 +130,12 @@ public class MovieController {
 	    movie.put("imdbRating", movieJSON.getString("imdbRating"));
 	    movie.put("imdbID", movieJSON.getString("imdbID"));
 	    
+	    reviews = localSQLConnector.getReviewsForMovie(movieJSON.getString("imdbID"));
+	    
 	    // to add seached movie into local database
 	    localDbConnector.loadMovieToLocalDB(movieJSON);
 	    
 	} catch (IOException | JSONException e) {
-	    e.printStackTrace();
 	    logger.error(e.getMessage());
 	}
 	
@@ -143,7 +144,8 @@ public class MovieController {
 	ModelAndView modelAndView = new ModelAndView();
 	Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 	User user = userService.findUserByEmail(auth.getName());
-	
+      
+	modelAndView.addObject("reviews", reviews);
 	modelAndView.addObject("user", user);
 	modelAndView.addObject("movie", movie);
 	
