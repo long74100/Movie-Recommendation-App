@@ -33,6 +33,7 @@ public class UserprofileController {
 	
 	@Autowired
     private UserService userService;
+	private LocalSQLConnectService sqlConnector = new LocalSQLConnectService();
 	
 	/**
 	 * This is to return the profile page
@@ -54,7 +55,6 @@ public class UserprofileController {
 	 */
 	@RequestMapping(value={"/profile+to+movielist"}, method = RequestMethod.GET)
 	public ModelAndView getMovieList() {
-		LocalSQLConnectService sqlConnector = new LocalSQLConnectService();
 		ModelAndView modelAndView = new ModelAndView();
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		User user = userService.findUserByEmail(auth.getName());
@@ -86,9 +86,7 @@ public class UserprofileController {
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		User user = userService.findUserByEmail(auth.getName());
 		User receiverUser = userService.findUserByUsername(username);
-		
-		LocalSQLConnectService localSQLConnectService = new LocalSQLConnectService();
-		localSQLConnectService.sendFriendRequest(user.getId(), receiverUser.getId());
+		sqlConnector.sendFriendRequest(user.getId(), receiverUser.getId());
 		User profileUser = userService.findUserByUsername(username);
 		
 		modelAndView.addObject("user", user);
@@ -101,7 +99,6 @@ public class UserprofileController {
 	@RequestMapping(value={"/profile+to+movielist+{listName}"}, method = RequestMethod.GET)
 	public ModelAndView getMovieItems(@PathVariable String listName) {
 		ModelAndView modelAndView = new ModelAndView();
-		LocalSQLConnectService sqlConnector = new LocalSQLConnectService();
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		User user = userService.findUserByEmail(auth.getName());
 		modelAndView.addObject("user", user);
@@ -121,8 +118,6 @@ public class UserprofileController {
 		ModelAndView modelAndView = new ModelAndView();
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		User user = userService.findUserByEmail(auth.getName());
-		
-		LocalSQLConnectService sqlConnector = new LocalSQLConnectService();
 		List<User> friends = sqlConnector.getAllFriends(user.getId());
 		List<User> receivedRequest = sqlConnector.getAllReceivedFriendRequest(user.getId());
 		List<User> sentRequest = sqlConnector.getAllSentFriendRequest(user.getId());
@@ -140,19 +135,17 @@ public class UserprofileController {
     public void acceptFriendRequest(HttpServletRequest httpServletRequest) {
     	Authentication auth = SecurityContextHolder.getContext().getAuthentication();
     	User user = userService.findUserByEmail(auth.getName());
-    	LocalSQLConnectService db = new LocalSQLConnectService();
-    	db.acceptRequest(Integer.valueOf(httpServletRequest.getParameter("senderID")), user.getId());
+    	sqlConnector.acceptRequest(Integer.valueOf(httpServletRequest.getParameter("senderID")), user.getId());
     }
 	
 	
 	@RequestMapping(value= "/createMovieList", method=RequestMethod.POST)
 	@ResponseStatus(value = HttpStatus.OK)
 	public void createNewMovieList(@RequestBody String listName, HttpServletRequest httpservletRequest) {
-		LocalSQLConnectService db = new LocalSQLConnectService();
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
     	User user = userService.findUserByEmail(auth.getName());
     	Integer userId = user.getId();
     	String newListName = httpservletRequest.getParameter("listName");
-    	db.createMovieList(userId, newListName);
+    	sqlConnector.createMovieList(userId, newListName);
 	}
 }

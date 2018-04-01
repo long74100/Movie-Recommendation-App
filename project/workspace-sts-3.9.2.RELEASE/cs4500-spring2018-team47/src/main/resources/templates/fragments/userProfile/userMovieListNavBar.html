@@ -19,7 +19,7 @@
             <ul class="movieRepoList">
             <!-- Here to put the movie list names -->
             	<div th:if="${not #lists.isEmpty(usermovielist)}" class="movieRepoList" id="movieListsItem">
-            		<div th:each="list : ${usermovielist}">
+            		<div th:each="list : ${usermovielist}" class="movielistItem">
             			<a th:href="@{/profile+to+movielist+{list}(list=${list})}"><p th:text="${list}"></p></a>
             		</div>
             	</div>

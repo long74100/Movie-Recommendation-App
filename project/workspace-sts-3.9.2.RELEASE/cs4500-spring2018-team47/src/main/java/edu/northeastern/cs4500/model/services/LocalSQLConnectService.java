@@ -543,24 +543,23 @@ public class LocalSQLConnectService {
      * @return the list of movie name 
      */
     public List<String> getMovieListForUser(int userId) {
-    	ArrayList<String> movieNames = new ArrayList<>();
-    	String sqlcmd = "select list_name from Movielist where user_id = ?";
-    	PreparedStatement pstmt = null;
+    	ArrayList<String> movieListNames = new ArrayList<>();
     	try {
+    		String sqlcmd = "select * from Movielist where user_id = ?";
+        	PreparedStatement pstmt = null;
     		pstmt = connector.prepareStatement(sqlcmd);
     		pstmt.setInt(1, userId);
     		myResult = pstmt.executeQuery();
     		while(myResult.next()) {
     			String listName = myResult.getString("list_name");
-    			movieNames.add(listName);
-    		}
-    		
+    			movieListNames.add(listName);
+    		}	
     	}
     	catch(SQLException sq) {
-		logger.error(sq.getMessage());
+    		logger.error(sq.getMessage());
     	}
     	
-    	return movieNames;
+    	return movieListNames;
     }
     
     /**
