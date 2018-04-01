@@ -13,13 +13,14 @@ function init() {
 			xhr.open("POST", url, true);
 			xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 			xhr.send(param);
-			location.reload(true);
+			setTimeout(function() {
+				location.reload(true);
+				}, 
+				560);
 		}
 		else {
 			alert("Can't create list without name or only space name");
 		}
-		location.reload();
-		
 	}
 }
 
