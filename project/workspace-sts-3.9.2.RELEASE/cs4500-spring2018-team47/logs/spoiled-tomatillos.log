@@ -9537,3 +9537,319 @@ Using default security password: 8007bbec-4cbf-4d70-a42e-efec06b4180f
 [THYMELEAF]     * Prefix: "th"
 [THYMELEAF] TEMPLATE ENGINE CONFIGURED OK
 2018-04-01 19:26:24.251  INFO LAPTOP-JQGD3FG3 --- [nio-8080-exec-3] o.t.TemplateEngine                       : [THYMELEAF] TEMPLATE ENGINE INITIALIZED
+2018-04-01 19:39:32.004  INFO LAPTOP-JQGD3FG3 --- [  restartedMain] e.n.c.Cs4500Spring2018Team47Application  : Starting Cs4500Spring2018Team47Application on LAPTOP-JQGD3FG3 with PID 8180 (started by lgj81 in C:\Users\lgj81\Desktop\NEU\Computer Science\CS4500 Software development\GuojingLi\team-47-spring18\project\workspace-sts-3.9.2.RELEASE\cs4500-spring2018-team47)
+2018-04-01 19:39:32.019 DEBUG LAPTOP-JQGD3FG3 --- [  restartedMain] e.n.c.Cs4500Spring2018Team47Application  : Running with Spring Boot v1.5.9.RELEASE, Spring v4.3.13.RELEASE
+2018-04-01 19:39:32.020  INFO LAPTOP-JQGD3FG3 --- [  restartedMain] e.n.c.Cs4500Spring2018Team47Application  : No active profile set, falling back to default profiles: default
+2018-04-01 19:39:32.830  INFO LAPTOP-JQGD3FG3 --- [  restartedMain] ationConfigEmbeddedWebApplicationContext : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@6256692a: startup date [Sun Apr 01 19:39:32 EDT 2018]; root of context hierarchy
+2018-04-01 19:39:32.872  INFO LAPTOP-JQGD3FG3 --- [kground-preinit] o.h.v.i.u.Version                        : HV000001: Hibernate Validator 5.3.6.Final
+2018-04-01 19:39:35.998  INFO LAPTOP-JQGD3FG3 --- [  restartedMain] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat initialized with port(s): 8080 (http)
+2018-04-01 19:39:36.008  INFO LAPTOP-JQGD3FG3 --- [  restartedMain] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2018-04-01 19:39:36.011  INFO LAPTOP-JQGD3FG3 --- [  restartedMain] o.a.c.c.StandardEngine                   : Starting Servlet Engine: Apache Tomcat/8.5.23
+2018-04-01 19:39:36.260  INFO LAPTOP-JQGD3FG3 --- [ost-startStop-1] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2018-04-01 19:39:36.261  INFO LAPTOP-JQGD3FG3 --- [ost-startStop-1] o.s.w.c.ContextLoader                    : Root WebApplicationContext: initialization completed in 3437 ms
+2018-04-01 19:39:37.023  INFO LAPTOP-JQGD3FG3 --- [ost-startStop-1] o.s.b.w.s.FilterRegistrationBean         : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-04-01 19:39:37.025  INFO LAPTOP-JQGD3FG3 --- [ost-startStop-1] o.s.b.w.s.FilterRegistrationBean         : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-04-01 19:39:37.025  INFO LAPTOP-JQGD3FG3 --- [ost-startStop-1] o.s.b.w.s.FilterRegistrationBean         : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-04-01 19:39:37.025  INFO LAPTOP-JQGD3FG3 --- [ost-startStop-1] o.s.b.w.s.FilterRegistrationBean         : Mapping filter: 'requestContextFilter' to: [/*]
+2018-04-01 19:39:37.032  INFO LAPTOP-JQGD3FG3 --- [ost-startStop-1] .s.DelegatingFilterProxyRegistrationBean : Mapping filter: 'springSecurityFilterChain' to: [/*]
+2018-04-01 19:39:37.033  INFO LAPTOP-JQGD3FG3 --- [ost-startStop-1] o.s.b.w.s.ServletRegistrationBean        : Mapping servlet: 'dispatcherServlet' to [/]
+2018-04-01 19:39:40.589  INFO LAPTOP-JQGD3FG3 --- [  restartedMain] j.LocalContainerEntityManagerFactoryBean : Building JPA container EntityManagerFactory for persistence unit 'default'
+2018-04-01 19:39:40.664  INFO LAPTOP-JQGD3FG3 --- [  restartedMain] o.h.j.i.u.LogHelper                      : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-04-01 19:39:41.051  INFO LAPTOP-JQGD3FG3 --- [  restartedMain] o.h.Version                              : HHH000412: Hibernate Core {5.0.12.Final}
+2018-04-01 19:39:41.059  INFO LAPTOP-JQGD3FG3 --- [  restartedMain] o.h.c.Environment                        : HHH000206: hibernate.properties not found
+2018-04-01 19:39:41.066  INFO LAPTOP-JQGD3FG3 --- [  restartedMain] o.h.c.Environment                        : HHH000021: Bytecode provider name : javassist
+2018-04-01 19:39:41.301  INFO LAPTOP-JQGD3FG3 --- [  restartedMain] o.h.a.c.Version                          : HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2018-04-01 19:39:41.685  INFO LAPTOP-JQGD3FG3 --- [  restartedMain] o.h.d.Dialect                            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2018-04-01 19:39:42.407  WARN LAPTOP-JQGD3FG3 --- [  restartedMain] o.h.b.i.SessionFactoryBuilderImpl        : Unrecognized hbm2ddl_auto value : none .  Supported values include create, create-drop, update, and validate.  Ignoring
+2018-04-01 19:39:43.264  INFO LAPTOP-JQGD3FG3 --- [  restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2018-04-01 19:39:45.414  INFO LAPTOP-JQGD3FG3 --- [  restartedMain] o.s.s.w.DefaultSecurityFilterChain       : Creating filter chain: Ant [pattern='/resources/**'], []
+2018-04-01 19:39:45.414  INFO LAPTOP-JQGD3FG3 --- [  restartedMain] o.s.s.w.DefaultSecurityFilterChain       : Creating filter chain: Ant [pattern='/static/**'], []
+2018-04-01 19:39:45.414  INFO LAPTOP-JQGD3FG3 --- [  restartedMain] o.s.s.w.DefaultSecurityFilterChain       : Creating filter chain: Ant [pattern='/css/**'], []
+2018-04-01 19:39:45.414  INFO LAPTOP-JQGD3FG3 --- [  restartedMain] o.s.s.w.DefaultSecurityFilterChain       : Creating filter chain: Ant [pattern='/js/**'], []
+2018-04-01 19:39:45.414  INFO LAPTOP-JQGD3FG3 --- [  restartedMain] o.s.s.w.DefaultSecurityFilterChain       : Creating filter chain: Ant [pattern='/images/**'], []
+2018-04-01 19:39:45.481  INFO LAPTOP-JQGD3FG3 --- [  restartedMain] o.s.s.w.DefaultSecurityFilterChain       : Creating filter chain: org.springframework.security.web.util.matcher.AnyRequestMatcher@1, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@38a77476, org.springframework.security.web.context.SecurityContextPersistenceFilter@5554a2c1, org.springframework.security.web.header.HeaderWriterFilter@4a07467b, org.springframework.security.web.authentication.logout.LogoutFilter@2175d7bd, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@7e55ac34, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@63ffd12c, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@c899ca0, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@27defe4c, org.springframework.security.web.session.SessionManagementFilter@263fd1cc, org.springframework.security.web.access.ExceptionTranslationFilter@16a63d01, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@4dc6bd99]
+2018-04-01 19:39:47.005  INFO LAPTOP-JQGD3FG3 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@6256692a: startup date [Sun Apr 01 19:39:32 EDT 2018]; root of context hierarchy
+2018-04-01 19:39:47.463  INFO LAPTOP-JQGD3FG3 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/hello/insert/{msg}]}" onto public edu.northeastern.cs4500.controllers.hello.HelloObject edu.northeastern.cs4500.controllers.hello.HelloController.insertMessage(java.lang.String)
+2018-04-01 19:39:47.466  INFO LAPTOP-JQGD3FG3 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/hello/object]}" onto public edu.northeastern.cs4500.controllers.hello.HelloObject edu.northeastern.cs4500.controllers.hello.HelloController.sayHelloObject()
+2018-04-01 19:39:47.467  INFO LAPTOP-JQGD3FG3 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/hello/string]}" onto public java.lang.String edu.northeastern.cs4500.controllers.hello.HelloController.sayHello()
+2018-04-01 19:39:47.469  INFO LAPTOP-JQGD3FG3 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/hello/insert]}" onto public edu.northeastern.cs4500.controllers.hello.HelloObject edu.northeastern.cs4500.controllers.hello.HelloController.insertHelloObject()
+2018-04-01 19:39:47.470  INFO LAPTOP-JQGD3FG3 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/hello/select/all]}" onto public java.util.List<edu.northeastern.cs4500.controllers.hello.HelloObject> edu.northeastern.cs4500.controllers.hello.HelloController.selectAllHelloObjects()
+2018-04-01 19:39:47.472  INFO LAPTOP-JQGD3FG3 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/home],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.LoginController.home()
+2018-04-01 19:39:47.473  INFO LAPTOP-JQGD3FG3 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/login],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.LoginController.login()
+2018-04-01 19:39:47.474  INFO LAPTOP-JQGD3FG3 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/registration],methods=[POST]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.LoginController.createNewUser(edu.northeastern.cs4500.model.user.User,org.springframework.validation.BindingResult)
+2018-04-01 19:39:47.475  INFO LAPTOP-JQGD3FG3 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/registration],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.LoginController.registration()
+2018-04-01 19:39:47.478  INFO LAPTOP-JQGD3FG3 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/movie/{title}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.MovieController.movieResult(java.lang.String)
+2018-04-01 19:39:47.478  INFO LAPTOP-JQGD3FG3 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/search],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.MovieController.searchResult(java.lang.String)
+2018-04-01 19:39:47.482  INFO LAPTOP-JQGD3FG3 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/writeReview],methods=[POST]}" onto public void edu.northeastern.cs4500.controllers.MovieController.writeReview(java.lang.String,javax.servlet.http.HttpServletRequest)
+2018-04-01 19:39:47.484  INFO LAPTOP-JQGD3FG3 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/movie/rating],methods=[POST]}" onto public void edu.northeastern.cs4500.controllers.MovieController.setRating(java.lang.String,javax.servlet.http.HttpServletRequest)
+2018-04-01 19:39:47.485  INFO LAPTOP-JQGD3FG3 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/addMovieToList],methods=[POST]}" onto public void edu.northeastern.cs4500.controllers.MovieController.addMovieToList(java.lang.String,javax.servlet.http.HttpServletRequest)
+2018-04-01 19:39:47.487  INFO LAPTOP-JQGD3FG3 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.PageController.login()
+2018-04-01 19:39:47.497  INFO LAPTOP-JQGD3FG3 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/profile],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.UserprofileController.getProfile()
+2018-04-01 19:39:47.497  INFO LAPTOP-JQGD3FG3 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/profile+to+movielist+{listName}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.UserprofileController.getMovieItems(java.lang.String)
+2018-04-01 19:39:47.498  INFO LAPTOP-JQGD3FG3 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/view/{username}],methods=[POST]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.UserprofileController.addFriend(java.lang.String)
+2018-04-01 19:39:47.499  INFO LAPTOP-JQGD3FG3 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/view/{username}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.UserprofileController.userProfile(java.lang.String)
+2018-04-01 19:39:47.500  INFO LAPTOP-JQGD3FG3 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/profile+to+movielist],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.UserprofileController.getMovieList()
+2018-04-01 19:39:47.502  INFO LAPTOP-JQGD3FG3 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/acceptRequest],methods=[POST]}" onto public void edu.northeastern.cs4500.controllers.UserprofileController.acceptFriendRequest(javax.servlet.http.HttpServletRequest)
+2018-04-01 19:39:47.503  INFO LAPTOP-JQGD3FG3 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/createMovieList],methods=[POST]}" onto public void edu.northeastern.cs4500.controllers.UserprofileController.createNewMovieList(java.lang.String,javax.servlet.http.HttpServletRequest)
+2018-04-01 19:39:47.504  INFO LAPTOP-JQGD3FG3 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/profile+to+friendsAndRequests],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.UserprofileController.friendsAndRequests()
+2018-04-01 19:39:47.513  INFO LAPTOP-JQGD3FG3 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-04-01 19:39:47.515  INFO LAPTOP-JQGD3FG3 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-04-01 19:39:47.605  INFO LAPTOP-JQGD3FG3 --- [  restartedMain] o.s.w.s.h.SimpleUrlHandlerMapping        : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-04-01 19:39:47.605  INFO LAPTOP-JQGD3FG3 --- [  restartedMain] o.s.w.s.h.SimpleUrlHandlerMapping        : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-04-01 19:39:47.687  INFO LAPTOP-JQGD3FG3 --- [  restartedMain] o.s.w.s.h.SimpleUrlHandlerMapping        : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-04-01 19:39:47.761  INFO LAPTOP-JQGD3FG3 --- [  restartedMain] oConfiguration$WelcomePageHandlerMapping : Adding welcome page: ServletContext resource [/index.html]
+2018-04-01 19:39:48.454  INFO LAPTOP-JQGD3FG3 --- [  restartedMain] b.a.s.AuthenticationManagerConfiguration : 
+
+Using default security password: eaaab981-29b0-44c5-be31-968d41284c21
+
+2018-04-01 19:39:49.723  INFO LAPTOP-JQGD3FG3 --- [  restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2018-04-01 19:39:49.788  INFO LAPTOP-JQGD3FG3 --- [  restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2018-04-01 19:39:49.805  INFO LAPTOP-JQGD3FG3 --- [  restartedMain] o.a.c.h.Http11NioProtocol                : Initializing ProtocolHandler ["http-nio-8080"]
+2018-04-01 19:39:49.817  INFO LAPTOP-JQGD3FG3 --- [  restartedMain] o.a.c.h.Http11NioProtocol                : Starting ProtocolHandler ["http-nio-8080"]
+2018-04-01 19:39:49.829  INFO LAPTOP-JQGD3FG3 --- [  restartedMain] o.a.t.u.n.NioSelectorPool                : Using a shared selector for servlet write/read
+2018-04-01 19:39:49.844  INFO LAPTOP-JQGD3FG3 --- [  restartedMain] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat started on port(s): 8080 (http)
+2018-04-01 19:39:49.849  INFO LAPTOP-JQGD3FG3 --- [  restartedMain] e.n.c.Cs4500Spring2018Team47Application  : Started Cs4500Spring2018Team47Application in 18.201 seconds (JVM running for 18.898)
+2018-04-01 19:39:52.860  INFO LAPTOP-JQGD3FG3 --- [nio-8080-exec-1] o.a.c.c.C.[.[.[/]                        : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-04-01 19:39:52.860  INFO LAPTOP-JQGD3FG3 --- [nio-8080-exec-1] o.s.w.s.DispatcherServlet                : FrameworkServlet 'dispatcherServlet': initialization started
+2018-04-01 19:39:52.880  INFO LAPTOP-JQGD3FG3 --- [nio-8080-exec-1] o.s.w.s.DispatcherServlet                : FrameworkServlet 'dispatcherServlet': initialization completed in 20 ms
+2018-04-01 19:39:52.951  INFO LAPTOP-JQGD3FG3 --- [nio-8080-exec-1] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2018-04-01 19:39:53.683  INFO LAPTOP-JQGD3FG3 --- [nio-8080-exec-1] o.t.TemplateEngine                       : [THYMELEAF] INITIALIZING TEMPLATE ENGINE
+2018-04-01 19:39:53.965  INFO LAPTOP-JQGD3FG3 --- [nio-8080-exec-1] o.t.t.AbstractTemplateResolver           : [THYMELEAF] INITIALIZING TEMPLATE RESOLVER: org.thymeleaf.spring4.templateresolver.SpringResourceTemplateResolver
+2018-04-01 19:39:53.965  INFO LAPTOP-JQGD3FG3 --- [nio-8080-exec-1] o.t.t.AbstractTemplateResolver           : [THYMELEAF] TEMPLATE RESOLVER INITIALIZED OK
+2018-04-01 19:39:53.965  INFO LAPTOP-JQGD3FG3 --- [nio-8080-exec-1] o.t.m.AbstractMessageResolver            : [THYMELEAF] INITIALIZING MESSAGE RESOLVER: org.thymeleaf.spring4.messageresolver.SpringMessageResolver
+2018-04-01 19:39:53.965  INFO LAPTOP-JQGD3FG3 --- [nio-8080-exec-1] o.t.m.AbstractMessageResolver            : [THYMELEAF] MESSAGE RESOLVER INITIALIZED OK
+2018-04-01 19:39:53.973  INFO LAPTOP-JQGD3FG3 --- [nio-8080-exec-1] o.t.T.CONFIG                             : [THYMELEAF] TEMPLATE ENGINE CONFIGURATION:
+[THYMELEAF] * Cache Factory implementation: org.thymeleaf.cache.StandardCacheManager
+[THYMELEAF] * Template modes:
+[THYMELEAF]     * HTML5
+[THYMELEAF]     * XML
+[THYMELEAF]     * VALIDXHTML
+[THYMELEAF]     * XHTML
+[THYMELEAF]     * LEGACYHTML5
+[THYMELEAF]     * VALIDXML
+[THYMELEAF] * Template resolvers (in order):
+[THYMELEAF]     * org.thymeleaf.spring4.templateresolver.SpringResourceTemplateResolver
+[THYMELEAF] * Message resolvers (in order):
+[THYMELEAF]     * org.thymeleaf.spring4.messageresolver.SpringMessageResolver
+[THYMELEAF] * Dialect: org.thymeleaf.spring4.dialect.SpringStandardDialect
+[THYMELEAF]     * Prefix: "th"
+[THYMELEAF] TEMPLATE ENGINE CONFIGURED OK
+2018-04-01 19:39:53.974  INFO LAPTOP-JQGD3FG3 --- [nio-8080-exec-1] o.t.TemplateEngine                       : [THYMELEAF] TEMPLATE ENGINE INITIALIZED
+2018-04-01 19:40:35.630 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-04-01 19:40:35.674 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-04-01 19:40:35.713 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-04-01 19:40:35.756 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-04-01 19:40:35.792 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-04-01 19:40:35.831 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-04-01 19:40:35.910 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-04-01 19:40:35.950 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-04-01 19:40:35.990 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-04-01 19:40:48.844 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-1] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-04-01 19:44:45.772 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-7] o.t.TemplateEngine                       : [THYMELEAF][http-nio-8080-exec-7] Exception processing template "error": Error resolving template "error", template might not exist or might not be accessible by any of the configured Template Resolvers
+2018-04-01 19:44:45.773 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-7] o.a.c.c.C.[.[.[.[dispatcherServlet]      : Servlet.service() for servlet [dispatcherServlet] threw exception
+org.thymeleaf.exceptions.TemplateInputException: Error resolving template "error", template might not exist or might not be accessible by any of the configured Template Resolvers
+	at org.thymeleaf.TemplateRepository.getTemplate(TemplateRepository.java:246)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1104)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1060)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1011)
+	at org.thymeleaf.spring4.view.ThymeleafView.renderFragment(ThymeleafView.java:335)
+	at org.thymeleaf.spring4.view.ThymeleafView.render(ThymeleafView.java:190)
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1286)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1041)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:984)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:901)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:970)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:861)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:635)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:846)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:742)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:728)
+	at org.apache.catalina.core.ApplicationDispatcher.processRequest(ApplicationDispatcher.java:469)
+	at org.apache.catalina.core.ApplicationDispatcher.doForward(ApplicationDispatcher.java:392)
+	at org.apache.catalina.core.ApplicationDispatcher.forward(ApplicationDispatcher.java:311)
+	at org.apache.catalina.core.StandardHostValve.custom(StandardHostValve.java:395)
+	at org.apache.catalina.core.StandardHostValve.status(StandardHostValve.java:254)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:177)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:803)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1459)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Unknown Source)
+2018-04-01 19:44:45.774 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-7] o.a.c.c.C.[.[localhost]                  : Exception Processing ErrorPage[errorCode=0, location=/error]
+org.springframework.web.util.NestedServletException: Request processing failed; nested exception is org.thymeleaf.exceptions.TemplateInputException: Error resolving template "error", template might not exist or might not be accessible by any of the configured Template Resolvers
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:982)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:861)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:635)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:846)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:742)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:728)
+	at org.apache.catalina.core.ApplicationDispatcher.processRequest(ApplicationDispatcher.java:469)
+	at org.apache.catalina.core.ApplicationDispatcher.doForward(ApplicationDispatcher.java:392)
+	at org.apache.catalina.core.ApplicationDispatcher.forward(ApplicationDispatcher.java:311)
+	at org.apache.catalina.core.StandardHostValve.custom(StandardHostValve.java:395)
+	at org.apache.catalina.core.StandardHostValve.status(StandardHostValve.java:254)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:177)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:803)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1459)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: org.thymeleaf.exceptions.TemplateInputException: Error resolving template "error", template might not exist or might not be accessible by any of the configured Template Resolvers
+	at org.thymeleaf.TemplateRepository.getTemplate(TemplateRepository.java:246)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1104)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1060)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1011)
+	at org.thymeleaf.spring4.view.ThymeleafView.renderFragment(ThymeleafView.java:335)
+	at org.thymeleaf.spring4.view.ThymeleafView.render(ThymeleafView.java:190)
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1286)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1041)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:984)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:901)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:970)
+	... 25 more
+2018-04-01 19:44:54.997 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-5] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-04-01 19:44:58.609 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-04-01 19:45:10.519 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-5] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-04-01 19:45:13.980 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-8] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-04-01 19:45:14.040 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-8] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-04-01 19:45:14.089 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-8] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-04-01 19:45:14.171 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-8] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-04-01 19:45:14.218 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-8] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-04-01 19:45:14.282 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-8] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-04-01 19:45:14.399 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-8] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-04-01 19:45:14.453 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-8] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-04-01 19:45:14.498 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-8] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-04-01 19:45:14.547 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-8] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-04-01 19:45:14.645 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-8] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-04-01 19:45:14.696 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-8] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-04-01 19:45:14.745 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-8] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-04-01 19:45:21.666 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] o.t.TemplateEngine                       : [THYMELEAF][http-nio-8080-exec-6] Exception processing template "error": Error resolving template "error", template might not exist or might not be accessible by any of the configured Template Resolvers
+2018-04-01 19:45:21.666 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] o.a.c.c.C.[.[.[.[dispatcherServlet]      : Servlet.service() for servlet [dispatcherServlet] threw exception
+org.thymeleaf.exceptions.TemplateInputException: Error resolving template "error", template might not exist or might not be accessible by any of the configured Template Resolvers
+	at org.thymeleaf.TemplateRepository.getTemplate(TemplateRepository.java:246)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1104)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1060)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1011)
+	at org.thymeleaf.spring4.view.ThymeleafView.renderFragment(ThymeleafView.java:335)
+	at org.thymeleaf.spring4.view.ThymeleafView.render(ThymeleafView.java:190)
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1286)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1041)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:984)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:901)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:970)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:861)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:635)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:846)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:742)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:728)
+	at org.apache.catalina.core.ApplicationDispatcher.processRequest(ApplicationDispatcher.java:469)
+	at org.apache.catalina.core.ApplicationDispatcher.doForward(ApplicationDispatcher.java:392)
+	at org.apache.catalina.core.ApplicationDispatcher.forward(ApplicationDispatcher.java:311)
+	at org.apache.catalina.core.StandardHostValve.custom(StandardHostValve.java:395)
+	at org.apache.catalina.core.StandardHostValve.status(StandardHostValve.java:254)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:177)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:803)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1459)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Unknown Source)
+2018-04-01 19:45:21.666 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-6] o.a.c.c.C.[.[localhost]                  : Exception Processing ErrorPage[errorCode=0, location=/error]
+org.springframework.web.util.NestedServletException: Request processing failed; nested exception is org.thymeleaf.exceptions.TemplateInputException: Error resolving template "error", template might not exist or might not be accessible by any of the configured Template Resolvers
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:982)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:861)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:635)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:846)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:742)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:728)
+	at org.apache.catalina.core.ApplicationDispatcher.processRequest(ApplicationDispatcher.java:469)
+	at org.apache.catalina.core.ApplicationDispatcher.doForward(ApplicationDispatcher.java:392)
+	at org.apache.catalina.core.ApplicationDispatcher.forward(ApplicationDispatcher.java:311)
+	at org.apache.catalina.core.StandardHostValve.custom(StandardHostValve.java:395)
+	at org.apache.catalina.core.StandardHostValve.status(StandardHostValve.java:254)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:177)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:803)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1459)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: org.thymeleaf.exceptions.TemplateInputException: Error resolving template "error", template might not exist or might not be accessible by any of the configured Template Resolvers
+	at org.thymeleaf.TemplateRepository.getTemplate(TemplateRepository.java:246)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1104)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1060)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1011)
+	at org.thymeleaf.spring4.view.ThymeleafView.renderFragment(ThymeleafView.java:335)
+	at org.thymeleaf.spring4.view.ThymeleafView.render(ThymeleafView.java:190)
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1286)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1041)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:984)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:901)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:970)
+	... 25 more
+2018-04-01 19:47:54.934 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-04-01 19:47:54.975 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-04-01 19:47:55.014 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-04-01 19:47:55.060 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-04-01 19:47:55.098 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-04-01 19:47:55.139 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-04-01 19:47:55.226 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-04-01 19:47:55.265 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-04-01 19:47:55.304 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-04-01 19:47:55.340 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-04-01 19:47:55.418 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-04-01 19:47:55.469 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-04-01 19:47:55.506 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-04-01 19:47:55.544 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-04-01 19:47:55.650 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-04-01 19:49:03.769 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-3] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-04-01 19:49:03.804 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-3] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-04-01 19:49:03.840 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-3] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-04-01 19:49:03.878 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-3] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-04-01 19:49:03.914 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-3] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-04-01 19:49:03.993 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-3] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-04-01 19:49:04.068 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-3] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-04-01 19:49:04.115 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-3] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-04-01 19:49:04.162 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-3] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-04-01 19:49:04.198 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-3] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-04-01 19:49:04.274 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-3] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-04-01 19:49:04.316 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-3] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-04-01 19:49:04.358 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-3] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-04-01 19:49:04.397 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-3] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-04-01 19:49:04.520 ERROR LAPTOP-JQGD3FG3 --- [nio-8080-exec-3] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
