@@ -2,13 +2,40 @@
 	margin-left:200px;
 }
 
+
+.movielist-dropdown-menu {
+	display: none;
+	background: white;
+	width: 132px;
+	height:75px;
+	color: black;
+    position: absolute;
+    margin-top: 0px;
+    top:0px;
+  	z-index: 10;
+  	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.movielist-dropdown-menu li: {
+	padding-left: 2px;
+	border-bottom-style: solid;
+    border-bottom-width: thin;
+}
+
+.movielist-dropdown-menu li:hover {
+	background: black;
+	color: white;
+	cursor: pointer;
+}
+
+
+
 .movieItems {
 	margin-left:270px;
 	margin-top:50px;
 }
 
 .movieItemAttr {
-	cursor: pointer;
     background: gainsboro;
     border-bottom-style: solid;
     border-bottom-width: thin;

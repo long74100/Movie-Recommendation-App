@@ -1,6 +1,7 @@
 function init() {
 	
 	const addListButton = document.querySelector("#movieCreateBtn");
+	var movieItem = document.getElementById("singleMovie");
 	
 	// this is to create a new movie list
 	addListButton.onclick = function() {
@@ -16,13 +17,15 @@ function init() {
 			setTimeout(function() {
 				location.reload(true);
 				}, 
-				560);
+				150);
 		}
 		else {
 			alert("Can't create list without name or only space name");
 		}
 	}
 }
+
+
 
 
 

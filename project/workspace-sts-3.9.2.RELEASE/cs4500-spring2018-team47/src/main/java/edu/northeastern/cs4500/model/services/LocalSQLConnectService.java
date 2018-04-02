@@ -144,7 +144,7 @@ public class LocalSQLConnectService {
     	try {
     		pstmt = connector.prepareStatement(sqlcmd);
     		pstmt.setString(1, id);
-        	myResult = pstmt.executeQuery();
+        	pstmt.executeUpdate();
     	}
     	catch(SQLException ep) {
 		logger.error(ep.getMessage());
@@ -614,6 +614,27 @@ public class LocalSQLConnectService {
         		pstmt2.setString(2, movieListName);
         		pstmt2.executeUpdate();
     		}
+    	}
+    	catch(SQLException sq) {
+    		logger.error(sq.getMessage());
+    	}
+    }
+    
+    /**
+     * To delete a movie from user's movie list
+     * @param userid the user who owns movie list
+     * @param movieList the movie list that will be deleted from 
+     * @param movieId movie that will be deleted
+     */
+    public void deleteMovieFromUserMovieList(int userid, String movieList, String movieId) {
+    	String sqlcmd = "delete from UserMovieList where user_id = ? and (list_name = ? and movie_id = ?)";
+    	PreparedStatement pstmt = null;
+    	try {
+    		pstmt = connector.prepareStatement(sqlcmd);
+    		pstmt.setInt(1, userid);
+    		pstmt.setString(2, movieList);
+    		pstmt.setString(3, movieId);
+    		pstmt.executeUpdate();
     	}
     	catch(SQLException sq) {
     		logger.error(sq.getMessage());

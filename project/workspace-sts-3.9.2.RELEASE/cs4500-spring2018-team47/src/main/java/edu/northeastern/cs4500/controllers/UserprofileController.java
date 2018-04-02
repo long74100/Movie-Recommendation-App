@@ -105,6 +105,7 @@ public class UserprofileController {
 		List<String> movieListNames = sqlConnector.getMovieListForUser(user.getId());
 		ArrayList<Movie> movies = sqlConnector.getMovieFromUserMovieList(user.getId(), listName);
 		modelAndView.addObject("usermovielist", movieListNames);
+		modelAndView.addObject("currentMovielist", listName);
 		modelAndView.addObject("currentMovies", movies);
 		modelAndView.setViewName("listMoviesItem");
 		return modelAndView;
@@ -147,5 +148,17 @@ public class UserprofileController {
     	Integer userId = user.getId();
     	String newListName = httpservletRequest.getParameter("listName");
     	sqlConnector.createMovieList(userId, newListName);
+	}
+	
+	
+	@RequestMapping(value="/deleteMovie", method=RequestMethod.POST)
+	@ResponseStatus(value= HttpStatus.OK)
+	public void deleteMovieFromMovieList(@RequestBody String movieAndList, HttpServletRequest httpserveletRequest) {
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+    	User user = userService.findUserByEmail(auth.getName());
+    	Integer userId = user.getId();
+    	String movieList = httpserveletRequest.getParameter("listName");
+    	String movieId = httpserveletRequest.getParameter("movieId");
+    	sqlConnector.deleteMovieFromUserMovieList(userId, movieList, movieId);
 	}
 }

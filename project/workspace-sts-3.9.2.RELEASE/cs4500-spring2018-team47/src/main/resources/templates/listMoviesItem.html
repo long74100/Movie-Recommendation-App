@@ -5,15 +5,28 @@
 	<link rel="stylesheet" href="../css/movieListMng.css">
 	<link rel="stylesheet" href="../css/profile.css">
 	<link rel="stylesheet" href="../css/userMovieListsItem.css">
+	<script type="text/javascript" src="../js/movielistItem.js"></script>
 	<title>Movie List Item</title>
 </head>
 <body> 
 
     <div th:replace="fragments/userProfile/userMovieListNavBar :: movieListNavBar"></div>
+    
+    <div id="movielist-dropdown-menu" class="movielist-dropdown-menu">
+    	<ul style="margin-top: 0px; margin-bottom:0px;">
+    		<li id="prod-this-to-friends" class="prod-this-to-friends">Prods to friend</li>
+    		<li id="add-to-other-list" class="add-to-other-list">Add to other list</li>
+    		<li id="delete-current-selected-item" class="delete-current-selected-item" th:onclick="'deleteMovie()'">Remove</li>
+    	</ul>
+    </div>
+    
     <div class="movieListItems">
     	<ul>
     		<div th:if="${not #lists.isEmpty(currentMovies)}" class="movieItems">
-            	<div th:each="movie : ${currentMovies}" class="movieItemAttr">
+    			<p id="currentMovieList" th:text="${currentMovielist}" style="display: none"></p>
+            	<div th:each="movie : ${currentMovies}" class="movieItemAttr" id="singleMovie" 
+            	th:oncontextmenu="'return showOpMenu(event);'">
+            		<p id="singleMovieId" th:text="${movie.imdbID}" style="display: none"></p>
 					<a th:href="@{/movie/{title}(title=${movie.title})}">
             			<p class="itemTitle" th:text="${movie.title}"></p>
             		</a>
@@ -22,13 +35,12 @@
             	</div>
     		</div>
     		<div th:unless="${not #lists.isEmpty(currentMovies)}" class="movieItems">
-			<div class="emptyMessage">Your list is empty. Add some movie into it.</div>
-		</div>
+				<div class="emptyMessage">
+				Your list is empty. Add some movie into it.
+				</div>
+			</div>
    		</ul>
-    
     </div>
     
-    
-
 </body>
 </html>
