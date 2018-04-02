@@ -22,28 +22,20 @@
 						<p class="m-0">
 							Imdb Rating: <span th:text="${movie.imdbRating}"></span>
 						<p class="m-0">Community Rating:
-						<div th:switch="${user}">
-							<div th:case="null"></div>
-							<div th:case="*">
-								<p class="m-0">Your vote:</p>
-								<h1 th:text="${rating}" class="d-none" id="currentRating"></h1>
-								<fieldset class="rating m-0">
-									<input type="radio" id="rate1" value="1" /><label for="rate1"></label>
-									<input type="radio" id="rate2" value="2" /><label for="rate2"></label>
-									<input type="radio" id="rate3" value="3" /><label for="rate3"></label>
-									<input type="radio" id="rate4" value="4" /><label for="rate4"></label>
-									<input type="radio" id="rate5" value="5" /><label for="rate5"></label>
-									<input type="radio" id="rate6" value="6" /><label for="rate6"></label>
-									<input type="radio" id="rate7" value="7" /><label for="rate7"></label>
-									<input type="radio" id="rate8" value="8" /><label for="rate8"></label>
-									<input type="radio" id="rate9" value="9" /><label for="rate9"></label>
-									<input type="radio" id="rate10" value="10" /><label
-										for="rate10"></label>
-
-								</fieldset>
-							</div>
-
-						</div>
+						<p class="m-0">Your vote:</p>
+						<h1 th:text="${rating}" class="d-none" id="currentRating"></h1>
+						<fieldset class="rating m-0">
+							<input type="radio" id="rate1" value="1" /><label for="rate1"></label> 
+							<input type="radio" id="rate2" value="2" /><label for="rate2"></label> 
+							<input type="radio" id="rate3" value="3" /><label for="rate3"></label> 
+							<input type="radio" id="rate4" value="4" /><label for="rate4"></label> 
+							<input type="radio" id="rate5" value="5" /><label for="rate5"></label> 
+							<input type="radio" id="rate6" value="6" /><label for="rate6"></label> 
+							<input type="radio" id="rate7" value="7" /><label for="rate7"></label> 
+							<input type="radio" id="rate8" value="8" /><label for="rate8"></label> 
+							<input type="radio" id="rate9" value="9" /><label for="rate9"></label> 
+							<input type="radio" id="rate10" value="10" /><label for="rate10"></label> 
+						</fieldset>
 					</div>
 				</div>
 
@@ -67,22 +59,20 @@
 						<b>Actor(s): </b>
 						<p th:text="${movie.actors}"></p>
 					</div>
-
+				
 					<button class="btn btn-primary">Find in Theaters</button>
-					<span th:switch="${user}"> <span th:case="null"></span> <span
-						th:case="*">
-							<button class="btn btn-secondary">Share with a Friend</button> <select
-							class="mt-3">
-								<option>Watch List</option>
-								<option>Favorites</option>
-								<option>Adventure</option>
-						</select>
-							<button class="btn btn-primary">Add</button>
-							<button type="button" class="btn btn-danger">Remove</button>
-					</span>
-					</span>
-
-
+					<button class="btn btn-secondary">Share with a Friend</button>
+					
+					<!-- Get User's movie list and shown as dropdown list -->
+					 <div>
+					 	<select th:if="${not #lists.isEmpty(userMVlist)}" id="listOpt" class="mt-3">
+							<div th:each="listName : ${userMVlist}">
+								<option><p th:text="${listName}"></p></option>
+							</div>					 	
+					 	</select>
+					 	<button id="addToList" class="btn btn-primary">Add</button>
+						<button type="button" class="btn btn-danger">Remove</button>
+					 </div>
 				</div>
 			</div>
 		<hr class="bg-danger p-2">
@@ -115,9 +105,27 @@
 					style="display: none;"></h1>
 				<textarea th:class="form-control" rows="5" id="review-box"
 					form="writeReview" placeholder="Write your review here..."></textarea>
-				<input type="submit" class="review-button" id="writeReview">
+				<input type="submit" class="review-button btn-primary" style="margin-bottom: 10px" id="writeReview">
 			</div>
 		</div>
+		
+		<div th:each="review : ${reviews}">
+				<div class="container shadow row" style="margin-bottom: 10px">
+					<div class="col-md-4">
+						<div th:text="${review.username}" class="movieTitle"></div>
+					</div>
+					<div class="col-md-2">
+						<div style="margin: 2px;">
+							<div th:text="${review.review}"></div>
+						</div>
+					</div>
+				</div>
+		</div>
+		<!-- else no users are found  -->
+		<div th:unless="${not #lists.isEmpty(reviews)}">
+			<div>No users match this title. Please try again.</div>
+		</div>
+		
 	</div>
 
 </body>

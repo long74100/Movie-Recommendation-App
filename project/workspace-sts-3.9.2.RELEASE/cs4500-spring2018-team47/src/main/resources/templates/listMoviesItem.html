@@ -14,7 +14,9 @@
     	<ul>
     		<div th:if="${not #lists.isEmpty(currentMovies)}" class="movieItems">
             	<div th:each="movie : ${currentMovies}" class="movieItemAttr">
-            		<p class="itemTitle" th:text="${movie.title}"></p>
+					<a th:href="@{/movie/{title}(title=${movie.title})}">
+            			<p class="itemTitle" th:text="${movie.title}"></p>
+            		</a>
             		Actors: <p class="itemActors" th:text="${movie.actors}"></p>
             		Plot: <p class="itemPlot" th:text="${movie.plot}"></p>
             	</div>
