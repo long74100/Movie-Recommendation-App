@@ -1,0 +1,48 @@
+.prodlist-menu {
+	margin-left: 600px;
+    height: 40px;
+    position: fixed;
+}
+
+
+.receiving {
+	margin-left: 0px;
+    margin-right: 0px;
+    position: fixed;
+    border: solid;
+    border-radius: 20px;
+    text-align: center;
+    background: black;
+    border-color: black;
+    color:wheat;
+    width: 170px;
+    cursor: pointer;
+}
+
+.receiving:hover {
+	background: wheat;
+	color: black;
+}
+
+
+.proding {
+	margin-left: 0px;
+    margin-top: 0px;
+    position: fixed;
+    top: 58px;
+    left: 800px;
+    border: solid;
+    border-radius: 20px;
+    text-align: center;
+    border-color: black;
+    color:wheat;
+    background: black;
+    width: 170px;
+    cursor: pointer;
+}
+
+
+.proding:hover {
+	background: wheat;
+	color: black;
+}

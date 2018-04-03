@@ -42,7 +42,6 @@ function showMenu(event) {
 		menu.style.display = 'block';
 	}
 	return false;
-	
 }
 
 function returnPosition(event) {

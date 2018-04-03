@@ -49,6 +49,16 @@ public class UserprofileController {
 		return modelAndView;
 	}
 	
+	@RequestMapping(value={"/prodRepo"}, method = RequestMethod.GET) 
+	public ModelAndView getProdList() {
+		ModelAndView modelAndView = new ModelAndView();
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		User user = userService.findUserByEmail(auth.getName());
+		modelAndView.addObject("user", user);
+		modelAndView.setViewName("prods");
+		return modelAndView;
+	}
+	
 	/**
 	 * This is to return the user movie list page besides the profile management navigation bar
 	 * @return the movie list page
