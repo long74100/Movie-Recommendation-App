@@ -30,7 +30,7 @@
 				<h2>Favorites</h2>
 				<div class="rec row">
 					<div th:each="movie : ${favorites}">
-						<a th:href="@{login}">
+						<a th:href="@{/movie/{title}(title=${movie.title})}">
 							<div class="col-md-2">
 								<div th:src="${movie.poster}"></div>
 								<div th:text="${movie.title}"></div>

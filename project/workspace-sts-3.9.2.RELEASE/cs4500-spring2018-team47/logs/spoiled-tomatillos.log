@@ -1348,3 +1348,30 @@ Using default security password: 53c6c838-d54d-461e-92b7-ae747eb985c4
 2018-04-02 22:28:33.783  INFO DESKTOP-AKNICNU --- [  restartedMain] o.a.t.u.n.NioSelectorPool                : Using a shared selector for servlet write/read
 2018-04-02 22:28:33.787  INFO DESKTOP-AKNICNU --- [  restartedMain] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat started on port(s): 8080 (http)
 2018-04-02 22:28:33.788  INFO DESKTOP-AKNICNU --- [  restartedMain] e.n.c.Cs4500Spring2018Team47Application  : Started Cs4500Spring2018Team47Application in 4.118 seconds (JVM running for 975.979)
+2018-04-02 22:32:42.136  INFO DESKTOP-AKNICNU --- [nio-8080-exec-2] o.a.c.c.C.[.[.[/]                        : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-04-02 22:32:42.137  INFO DESKTOP-AKNICNU --- [nio-8080-exec-2] o.s.w.s.DispatcherServlet                : FrameworkServlet 'dispatcherServlet': initialization started
+2018-04-02 22:32:42.152  INFO DESKTOP-AKNICNU --- [nio-8080-exec-2] o.s.w.s.DispatcherServlet                : FrameworkServlet 'dispatcherServlet': initialization completed in 15 ms
+2018-04-02 22:32:42.160  INFO DESKTOP-AKNICNU --- [nio-8080-exec-2] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2018-04-02 22:32:42.253  INFO DESKTOP-AKNICNU --- [nio-8080-exec-2] o.t.TemplateEngine                       : [THYMELEAF] INITIALIZING TEMPLATE ENGINE
+2018-04-02 22:32:42.257  INFO DESKTOP-AKNICNU --- [nio-8080-exec-2] o.t.t.AbstractTemplateResolver           : [THYMELEAF] INITIALIZING TEMPLATE RESOLVER: org.thymeleaf.spring4.templateresolver.SpringResourceTemplateResolver
+2018-04-02 22:32:42.258  INFO DESKTOP-AKNICNU --- [nio-8080-exec-2] o.t.t.AbstractTemplateResolver           : [THYMELEAF] TEMPLATE RESOLVER INITIALIZED OK
+2018-04-02 22:32:42.258  INFO DESKTOP-AKNICNU --- [nio-8080-exec-2] o.t.m.AbstractMessageResolver            : [THYMELEAF] INITIALIZING MESSAGE RESOLVER: org.thymeleaf.spring4.messageresolver.SpringMessageResolver
+2018-04-02 22:32:42.258  INFO DESKTOP-AKNICNU --- [nio-8080-exec-2] o.t.m.AbstractMessageResolver            : [THYMELEAF] MESSAGE RESOLVER INITIALIZED OK
+2018-04-02 22:32:42.259  INFO DESKTOP-AKNICNU --- [nio-8080-exec-2] o.t.T.CONFIG                             : [THYMELEAF] TEMPLATE ENGINE CONFIGURATION:
+[THYMELEAF] * Cache Factory implementation: org.thymeleaf.cache.StandardCacheManager
+[THYMELEAF] * Template modes:
+[THYMELEAF]     * VALIDXHTML
+[THYMELEAF]     * HTML5
+[THYMELEAF]     * VALIDXML
+[THYMELEAF]     * XML
+[THYMELEAF]     * XHTML
+[THYMELEAF]     * LEGACYHTML5
+[THYMELEAF] * Template resolvers (in order):
+[THYMELEAF]     * org.thymeleaf.spring4.templateresolver.SpringResourceTemplateResolver
+[THYMELEAF] * Message resolvers (in order):
+[THYMELEAF]     * org.thymeleaf.spring4.messageresolver.SpringMessageResolver
+[THYMELEAF] * Dialect: org.thymeleaf.spring4.dialect.SpringStandardDialect
+[THYMELEAF]     * Prefix: "th"
+[THYMELEAF] TEMPLATE ENGINE CONFIGURED OK
+2018-04-02 22:32:42.259  INFO DESKTOP-AKNICNU --- [nio-8080-exec-2] o.t.TemplateEngine                       : [THYMELEAF] TEMPLATE ENGINE INITIALIZED
+2018-04-02 22:37:58.851 ERROR DESKTOP-AKNICNU --- [nio-8080-exec-5] e.n.c.c.MovieController                  : JSONObject["Search"] not found.
