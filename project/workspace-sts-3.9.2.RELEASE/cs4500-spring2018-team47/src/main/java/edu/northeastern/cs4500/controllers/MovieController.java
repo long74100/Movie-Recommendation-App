@@ -31,8 +31,9 @@ import org.springframework.web.servlet.ModelAndView;
 import edu.northeastern.cs4500.model.movie.Movie;
 import edu.northeastern.cs4500.model.movie.MovieRating;
 import edu.northeastern.cs4500.model.movie.MovieReview;
+import edu.northeastern.cs4500.model.services.ILocalSQLConnectService;
 import edu.northeastern.cs4500.model.services.IMovieDBService;
-import edu.northeastern.cs4500.model.services.LocalSQLConnectService;
+import edu.northeastern.cs4500.model.services.LocalSQLConnectServiceImpl;
 import edu.northeastern.cs4500.model.services.MovieDBServiceImpl;
 import edu.northeastern.cs4500.model.services.MovieRatingService;
 import edu.northeastern.cs4500.model.services.UserService;
@@ -42,9 +43,9 @@ import edu.northeastern.cs4500.model.user.User;
 public class MovieController {
 
 	private IMovieDBService movieDbService = new MovieDBServiceImpl();
-	private LocalSQLConnectService localDbConnector = new LocalSQLConnectService();
+	private ILocalSQLConnectService localDbConnector = new LocalSQLConnectServiceImpl();
 
-	private ArrayList<String> movieNames = new ArrayList<>();
+	private ArrayList<String> movieIDs = new ArrayList<>();
 
 	private static final Logger logger = LogManager.getLogger(MovieController.class);
 
@@ -85,23 +86,14 @@ public class MovieController {
 				movie.setImdbRating(String.valueOf(movieJSON.getDouble("vote_average")));
 				movie.setImdbID(movieDetails.getString("imdb_id"));
 				movie.setTheMovieDbID(String.valueOf(movieJSON.getInt("id")));
-				// =======
-				// movieJSON =
-				// omdbService.searchMovieByTitle(movieJSONList.getJSONObject(x).getString("Title"),
-				// "t");
-				// movie.setTitle(movieJSON.getString("Title"));
 				movie.setPoster("http://image.tmdb.org/t/p/w185/" + movieJSON.getString("poster_path"));
-				// movie.setActors(movieJSON.getString("Actors"));
-				// movie.setReleased(movieJSON.getString("Released"));
-				// movie.setImdbRating(movieJSON.getString("imdbRating"));
-				// >>>>>>> e5484edeb2d9b5318014d3a61e9c7866ab700a9e
 				movieList.add(movie);
-				movieNames.add(movie.getTitle());
+				movieIDs.add(movie.getTheMovieDbID());
 				x++;
 			}
 
-			// to add multiple movies from search results.
-			// this.addMoviesIntoLocalDB();
+//			 to add multiple movies from search results.
+			 this.addMoviesIntoLocalDB();
 
 		} catch (IOException | JSONException e) {
 			// use logger
@@ -169,7 +161,7 @@ public class MovieController {
 			logger.error(e.getMessage());
 		}
 
-  		ModelAndView modelAndView = new ModelAndView();
+		ModelAndView modelAndView = new ModelAndView();
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		User user = userService.findUserByEmail(auth.getName());
 
@@ -239,7 +231,7 @@ public class MovieController {
 	/**
 	 * To add movie from searched result to local database
 	 */
-	// private void addMoviesIntoLocalDB() {
-	// localDbConnector.addMultiMovies(movieNames);
-	// }
+	private void addMoviesIntoLocalDB() {
+		localDbConnector.addMultiMovies(movieIDs);
+	}
 }
