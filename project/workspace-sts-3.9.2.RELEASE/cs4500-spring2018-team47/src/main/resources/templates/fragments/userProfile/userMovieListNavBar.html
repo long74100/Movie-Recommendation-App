@@ -18,10 +18,15 @@
             
             <ul class="movieRepoList">
             	<div th:if="${not #lists.isEmpty(usermovielist)}" class="movieRepoList" id="movieListsItem">
-            		<div th:each="list : ${usermovielist}" class="movielistItem" id="singleList"
-            		th:oncontextmenu="'return showMenu(event);'">
+            		<div th:each="list : ${usermovielist}" class="movielistItem" id="singleList">
             			<a th:href="@{/profile+to+movielist+{list}(list=${list})}">
-            			<p class="repo" th:text="${list}" style="width: 120px; float: left;"></p></a>
+            				<div>
+            					<p class="repo" th:text="${list}"></p>
+            					<button class="clean-movielist">clean</button>
+            					<!-- Add on click here -->
+            					<button class="delete-movielist">delete</button>
+            				</div>
+            			</a>
             		</div>
             	</div>
             </ul>
