@@ -17,33 +17,27 @@
             </div>
             
             <ul class="movieRepoList">
-            <!-- Here to put the movie list names -->
             	<div th:if="${not #lists.isEmpty(usermovielist)}" class="movieRepoList" id="movieListsItem">
-            		<div th:each="list : ${usermovielist}" class="movielistItem">
-            			<a th:href="@{/profile+to+movielist+{list}(list=${list})}"><p th:text="${list}"></p></a>
+            		<div th:each="list : ${usermovielist}" class="movielistItem" id="singleList"
+            		th:oncontextmenu="'return showMenu(event);'">
+            			<a th:href="@{/profile+to+movielist+{list}(list=${list})}">
+            			<p class="repo" th:text="${list}" style="width: 120px; float: left;"></p></a>
             		</div>
             	</div>
             </ul>
         </div>
         <div class="movieListNameTitleBar">
             <p class="Movietitletxt">Movie List</p>
-            	
-        <div class="MovieListContent">
-            <!-- Here to put the movies inside the movie list -->
-            
-            
-            
-            </div>
-            
-            
-            
-        </div>
-	
+        <div class="MovieListContent"></div>
+       </div>
+       
+       <div id="movielist-operator" class="movielist-operator">
+       	<ul style="margin-top: 0px; margin-bottom:0px;">
+    		<li id="clean-movie-list" class="clean-movie-list" th:onclick="'cleanMovieList()'">clean List</li>
+    		<li id="remove-movie-list" class="remove-movie-list" th:onclick="'deleteMovieList()'">delete List</li>
+    		<li id="add-movie-to-list" class="add-movie-to-list" style="display: none;">Add movie</li>
+    	</ul>
+       </div>
 	</div>
-
 </body>
-
-
-
-
 </html>

@@ -1,7 +1,15 @@
 function init() {
 	
+	var movielistop = document.getElementById("movielist-operator");
+	
+	window.onclick = closeMenu;
+	
+	function closeMenu() {
+		movielistop.style.display = 'none';
+	}
+	
+	
 	const addListButton = document.querySelector("#movieCreateBtn");
-	var movieItem = document.getElementById("singleMovie");
 	
 	// this is to create a new movie list
 	addListButton.onclick = function() {
@@ -25,6 +33,33 @@ function init() {
 	}
 }
 
+function showMenu(event) {
+	var menu = document.getElementById("movielist-operator");
+	var clickPosition = returnPosition(event);
+	if(event.which == 3) {
+		menu.style.marginLeft = clickPosition.x + 'px';
+		menu.style.marginTop = clickPosition.y + 'px';
+		menu.style.display = 'block';
+	}
+	return false;
+	
+}
+
+function returnPosition(event) {
+	var positionX = event.pageX;
+	var positionY = event.pageY;
+	return {x: positionX, y:positionY}
+}
+
+
+function deleteList() {
+	
+}
+
+
+function cleanList() {
+	
+}
 
 
 

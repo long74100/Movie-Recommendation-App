@@ -29,10 +29,8 @@ function getMenuPosition(event) {
 }
 
 // this is to delete the movie from the current movie list
-function deleteMovie() {
-	const movieId = document.getElementById("singleMovieId").innerText;
-	const movieListName = document.getElementById("currentMovieList").innerText;
-	
+function deleteMovie(movieId, thisButton) {
+	var movieListName = document.getElementById("currentMovieList").innerText;
 	var encodedListName = encodeURI(movieListName);
 	var encodedMovieId = encodeURI(movieId);
 	var url = "/deleteMovie";

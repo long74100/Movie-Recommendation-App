@@ -566,7 +566,7 @@ public class LocalSQLConnectService {
      */
     public ArrayList<Movie> getMovieFromUserMovieList(int userId, String listname) {
     	ArrayList<Movie> result = new ArrayList<>();
-    	String sqlcmd = "select Movie.movie_id, Movie.movie_name, Movie.plot, Movie.actor from Movie join " + 
+    	String sqlcmd = "select Movie.movie_id, Movie.movie_name, Movie.plot, Movie.actor, Movie.poster from Movie join " + 
 				"(select movie_id from UserMovieList where user_id = ? and list_name = ?) as comp on comp.movie_id = Movie.movie_id";
     	PreparedStatement pstmt = null;
     	try {
@@ -580,10 +580,12 @@ public class LocalSQLConnectService {
     			String movieName = myResult.getString("movie_name");
     			String movieActor = myResult.getString("actor");
     			String moviePlot = myResult.getString("plot");
+    			String moviePoster = myResult.getString("poster");
     			element.setImdbID(movieId);
     			element.setTitle(movieName);
     			element.setActors(movieActor);
     			element.setPlot(moviePlot);
+    			element.setPoster(moviePoster);
     			// add to final result.
     			result.add(element);
     		}
@@ -942,6 +944,33 @@ public class LocalSQLConnectService {
     	}
     	
     	return output;
+    }
+    
+    /**
+     * To delete the movie list also delete all the stored movies records
+     * @param userId user who owns the given list
+     * @param listName name of the movie list
+     */
+    public void deleteMovieList(int userId, String listName) {
+    	String sqlcmd = "delete from Movielist where user_id = ? and list_name = ?";
+    	String sqlcmdfollowing = "delete from UserMovieList where user_id = ? and list_name = ?";
+    	PreparedStatement pstmt = null;
+    	PreparedStatement pstmt2 = null;
+    	try {
+    		pstmt = connector.prepareStatement(sqlcmd);
+    		pstmt.setInt(1, userId);
+    		pstmt.setString(2, listName);
+    		int deletedRow = pstmt.executeUpdate();
+    		if(deletedRow > 0) {
+    			pstmt2 = connector.prepareStatement(sqlcmdfollowing);
+    			pstmt2.setInt(1, userId);
+    			pstmt2.setString(2, listName);
+    			pstmt2.executeUpdate();
+    		}
+    	}
+    	catch(SQLException sl) {
+    		logger.error(sl.getMessage());
+    	}
     }
 
 }

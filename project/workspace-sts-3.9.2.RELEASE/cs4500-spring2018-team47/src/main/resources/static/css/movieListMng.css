@@ -6,6 +6,31 @@
         overflow-x: hidden;
         clear: both;
     }
+    
+   .movielist-operator {
+   		display: none;
+   		background: black;
+		width: 100px;
+		height:50px;
+		color: white;
+    	position: absolute;
+    	margin-top: 0px;
+    	top:0px;
+  		z-index: 10;
+  		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+   }
+   
+   .movielist-operator li {
+   		color: white;
+   		background: black;
+   }
+   
+   .movielist-operator li:hover {
+   		cursor: pointer;
+   		color: black;
+   		background: wheat;
+   }
+    
 
     .MovieListContent {
         margin-top: 55px;
@@ -71,7 +96,6 @@
         background-color: white;
         border-radius: 4px;
         padding: 2px;
-        
     	color: black;
     }
 
@@ -96,6 +120,7 @@
     }
     
     .movieRepoList p {
+    	color:#808080;
     	margin-top: 5px;
         margin-bottom: 5px;
         margin-right: 1px;

@@ -24,14 +24,24 @@
     	<ul>
     		<div th:if="${not #lists.isEmpty(currentMovies)}" class="movieItems">
     			<p id="currentMovieList" th:text="${currentMovielist}" style="display: none"></p>
-            	<div th:each="movie : ${currentMovies}" class="movieItemAttr" id="singleMovie" 
-            	th:oncontextmenu="'return showOpMenu(event);'">
-            		<p id="singleMovieId" th:text="${movie.imdbID}" style="display: none"></p>
-					<a th:href="@{/movie/{title}(title=${movie.title})}">
-            			<p class="itemTitle" th:text="${movie.title}"></p>
-            		</a>
-            		Actors: <p class="itemActors" th:text="${movie.actors}"></p>
-            		Plot: <p class="itemPlot" th:text="${movie.plot}"></p>
+            	<div th:each="movie : ${currentMovies}" class="movieItemAttr" id="singleMovie">
+            	<!--  th:oncontextmenu="'return showOpMenu(event);'"-->
+            		<span>
+            			<img class="item-poster" th:src="${movie.poster}"/>
+            			<p id="singleMovieId" th:text="${movie.imdbID}" style="display: none"></p>
+            			<div id="movie-items-except-poster" class="movie-items-except-poster">
+            				<a th:href="@{/movie/{title}(title=${movie.title})}">
+            					<p class="itemTitle" th:text="${movie.title}"></p>
+            				</a>
+            				<span>Actors: <p class="itemActors" th:text="${movie.actors}"></p></span>
+            				<span>Plot: <p class="itemPlot" th:text="${movie.plot}"></p></span>
+            				<button id="prod-movie" class="prod-movie" type="submit">Prod</button>
+            				<!-- th:onclick="'addFriend(\''+${user.id}+'\','+this+');'" -->
+            				<button type="submit" th:onclick="'deleteMovie(\''+${movie.imdbID}+'\','+this+')'" 
+            					class="delete-movie-btn" id="delete-movie-btn">Delete
+            				</button>
+            		</div>
+            		</span>
             	</div>
     		</div>
     		<div th:unless="${not #lists.isEmpty(currentMovies)}" class="movieItems">
