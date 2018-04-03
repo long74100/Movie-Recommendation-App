@@ -2,13 +2,95 @@
 	margin-left:200px;
 }
 
+.item-poster {
+	width: 200px;
+	height: 260px;
+	margin-top: 0px;
+	float: left;
+}
+
+.movie-items-except-poster {
+	width: 600px;
+	margin-left: 210px;
+	margin-right: 0px;
+	height: 265px;
+}
+
+.delete-movie-btn {
+	size: 53px;
+    padding: 20px;
+    text-align: center;
+    margin-left: 10px;
+    font-size: 16px;
+    display: inline-block;
+    cursor: pointer;
+    border-color: black;
+    border-width: thin;
+    background-color: black;
+    border-radius: 4px;
+    padding: 2px;
+  	color: white;
+}
+
+.delete-movie-btn:hover {
+	color: black;
+	background-color: red;
+}
+
+.prod-movie {
+	size: 53px;
+    text-align: center;
+    margin-left: 480px;
+    margin-top: 50px;
+    font-size: 16px;
+    display: inline-block;
+    cursor: pointer;
+    border-color: black;
+    border-width: thin;
+    background-color: black;
+    border-radius: 4px;
+    padding: 2px;
+  	color: white;
+}
+
+.prod-movie:hover {
+	color: black;;
+	background-color: green;
+}
+
+.movielist-dropdown-menu {
+	display: none;
+	background: white;
+	width: 132px;
+	height:75px;
+	color: black;
+    position: absolute;
+    margin-top: 0px;
+    top:0px;
+  	z-index: 10;
+  	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.movielist-dropdown-menu li: {
+	padding-left: 2px;
+	border-bottom-style: solid;
+    border-bottom-width: thin;
+}
+
+.movielist-dropdown-menu li:hover {
+	background: black;
+	color: white;
+	cursor: pointer;
+}
+
+
+
 .movieItems {
 	margin-left:270px;
 	margin-top:50px;
 }
 
 .movieItemAttr {
-	cursor: pointer;
     background: gainsboro;
     border-bottom-style: solid;
     border-bottom-width: thin;
@@ -31,7 +113,6 @@
 }
 
 .movieItemAttr .itemTitle {
-	position: relative;
 	font-size: 20px;
 	font-weight: bold;
 	color: black;
