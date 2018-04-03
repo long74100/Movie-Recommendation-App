@@ -51,7 +51,12 @@ function returnPosition(event) {
 	return {x: positionX, y:positionY}
 }
 
-
+/**
+ * This is to delete the movie list
+ * @param listName name of movie list
+ * @param thisButton delete button
+ * @returns the movie list with given one deleted
+ */
 function deleteList(listName, thisButton) {
 	var encodedListName = encodeURI(listName);
 	var url = "/deleteList";
@@ -66,9 +71,24 @@ function deleteList(listName, thisButton) {
 		150);
 }
 
-
-function cleanList() {
-	
+/**
+ * This is to clean the movie list, that is to make the movie list empty
+ * @param listName the list that will be clean up
+ * @param thisButton the clean button
+ * @returns an empty movie list with the given name 
+ */
+function cleanList(listName, thisButton) {
+	var encodedListName = encodeURI(listName);
+	var url = "/cleanList";
+	var param = "listName=" + encodedListName;
+	var xhr = new XMLHttpRequest();
+	xhr.open("POST", url, true);
+	xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+	xhr.send(param);
+	setTimeout(function() {
+		location.reload(true);
+		}, 
+		150);
 }
 
 

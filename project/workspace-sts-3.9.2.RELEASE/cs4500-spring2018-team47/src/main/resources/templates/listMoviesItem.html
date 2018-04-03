@@ -20,6 +20,11 @@
     	</ul>
     </div>
     
+    <div class="movieListNameTitleBar">
+            <p class="Movietitletxt" th:text="${currentMovielist}">Movie List</p>
+        <div class="MovieListContent"></div>
+    </div>
+    
     <div class="movieListItems">
     	<ul>
     		<div th:if="${not #lists.isEmpty(currentMovies)}" class="movieItems">

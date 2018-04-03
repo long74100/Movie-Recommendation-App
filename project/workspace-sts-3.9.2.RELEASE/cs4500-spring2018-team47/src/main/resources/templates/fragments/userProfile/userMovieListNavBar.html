@@ -22,8 +22,7 @@
             			<a th:href="@{/profile+to+movielist+{list}(list=${list})}">
             				<div>
             					<p class="repo" th:text="${list}"></p>
-            					<button class="clean-movielist">clean</button>
-            					<!-- Add on click here: function needs to be done -->
+            					<button class="clean-movielist" th:onclick="'cleanList(\''+${list}+'\', '+this+')'">clean</button>
             					<button class="delete-movielist" th:onclick="'deleteList(\''+${list}+'\','+this+')'">delete</button>
             				</div>
             			</a>
@@ -31,10 +30,6 @@
             	</div>
             </ul>
         </div>
-        <div class="movieListNameTitleBar">
-            <p class="Movietitletxt">Movie List</p>
-        <div class="MovieListContent"></div>
-       </div>
        
        <div id="movielist-operator" class="movielist-operator">
        	<ul style="margin-top: 0px; margin-bottom:0px;">

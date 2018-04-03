@@ -972,5 +972,24 @@ public class LocalSQLConnectService {
     		logger.error(sl.getMessage());
     	}
     }
+    
+    /**
+     * To clean the movie list with given list name
+     * @param userId the movie list's owner
+     * @param listName the name of movie list
+     */
+    public void cleanMovieList(int userId, String listName) {
+    	String sqlcmd = "delete from UserMovieList where user_id = ? and list_name = ?";
+    	PreparedStatement pstmt = null;
+    	try {
+    		pstmt = connector.prepareStatement(sqlcmd);
+    		pstmt.setInt(1, userId);
+    		pstmt.setString(2, listName);
+    		pstmt.executeUpdate();
+    	}
+    	catch(SQLException sq) {
+    		sq.printStackTrace();
+    	}
+    }
 
 }
