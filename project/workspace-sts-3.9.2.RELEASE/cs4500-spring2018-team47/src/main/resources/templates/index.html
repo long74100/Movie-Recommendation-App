@@ -2,8 +2,24 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
 	<noscript th:replace="fragments/quickAddCSSJS :: quickAddCSSJS"></noscript>
-	
-	<title>Rotten Tomatillos Landing</title>
+<style>
+.grid-container {
+	display: grid;
+	grid-template-columns: auto auto auto;
+	background-color: #2196F3;
+	padding: 10px;
+}
+
+.grid-item {
+	background-color: rgba(255, 255, 255, 0.8);
+	border: 1px solid rgba(0, 0, 0, 0.8);
+	padding: 20px;
+	font-size: 30px;
+	text-align: center;
+}
+</style>
+
+<title>Rotten Tomatillos Landing</title>
 	
 </head>
 <body>
@@ -13,5 +29,14 @@
 		<div>Welcome to Rotten Tomatillos! This site is still under construction, please come back at a later time.</div>
 		<div id="root"></div>
 	</div> 
+	<div class="grid-container">
+		<div class="grid-item">
+		<img src="https://i.pinimg.com/736x/fd/5e/66/fd5e662dce1a3a8cd192a5952fa64f02--classic-poster-classic-movies-posters.jpg"
+				style="width: 15%; height: 15%; padding: 5px;"></div>
+  		<div class="grid-item"><img src="https://i.pinimg.com/736x/fd/5e/66/fd5e662dce1a3a8cd192a5952fa64f02--classic-poster-classic-movies-posters.jpg"
+				style="width: 15%; height: 15%; padding: 5px;"></div>
+  		<div class="grid-item"><img src="https://i.pinimg.com/736x/fd/5e/66/fd5e662dce1a3a8cd192a5952fa64f02--classic-poster-classic-movies-posters.jpg"
+				style="width: 15%; height: 15%; padding: 5px;"></div>
+	</div>
 </body>
 </html>
