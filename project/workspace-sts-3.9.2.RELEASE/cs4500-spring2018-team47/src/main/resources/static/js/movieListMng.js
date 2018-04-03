@@ -52,8 +52,18 @@ function returnPosition(event) {
 }
 
 
-function deleteList() {
-	
+function deleteList(listName, thisButton) {
+	var encodedListName = encodeURI(listName);
+	var url = "/deleteList";
+	var param = "listName=" + encodedListName;
+	var xhr = new XMLHttpRequest();
+	xhr.open("POST", url, true);
+	xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+	xhr.send(param);
+	setTimeout(function() {
+		location.reload(true);
+		}, 
+		150);
 }
 
 

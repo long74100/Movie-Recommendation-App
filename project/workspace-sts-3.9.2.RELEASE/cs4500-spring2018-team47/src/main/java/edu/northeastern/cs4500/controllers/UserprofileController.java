@@ -161,4 +161,15 @@ public class UserprofileController {
     	String movieId = httpserveletRequest.getParameter("movieId");
     	sqlConnector.deleteMovieFromUserMovieList(userId, movieList, movieId);
 	}
+	
+
+	@RequestMapping(value="/deleteList", method=RequestMethod.POST)
+	@ResponseStatus(value= HttpStatus.OK)
+	public void deleteMovieList(@RequestBody String movieList, HttpServletRequest httpserveletRequest) {
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+    	User user = userService.findUserByEmail(auth.getName());
+    	Integer userId = user.getId();
+    	String movieListName = httpserveletRequest.getParameter("listName");
+    	sqlConnector.deleteMovieList(userId, movieListName);
+	}
 }

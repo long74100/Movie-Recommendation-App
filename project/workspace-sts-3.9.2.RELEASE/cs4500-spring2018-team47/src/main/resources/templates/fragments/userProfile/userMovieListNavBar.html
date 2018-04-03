@@ -23,8 +23,8 @@
             				<div>
             					<p class="repo" th:text="${list}"></p>
             					<button class="clean-movielist">clean</button>
-            					<!-- Add on click here -->
-            					<button class="delete-movielist">delete</button>
+            					<!-- Add on click here: function needs to be done -->
+            					<button class="delete-movielist" th:onclick="'deleteList(\''+${list}+'\','+this+')'">delete</button>
             				</div>
             			</a>
             		</div>
