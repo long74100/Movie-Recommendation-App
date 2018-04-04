@@ -264,4 +264,14 @@ public class MovieController {
 		String movieName = httpServletRequest.getParameter("movie");
 		localDbConnector.addMovieIntoMovieList(userId, listname, movieId, movieName);
 	}
+<<<<<<< HEAD
+=======
+
+	/**
+	 * To add movie from searched result to local database
+	 */
+	private void addMoviesIntoLocalDB() {
+		localDbConnector.addMultiMovies(movieIDs);
+	}
+>>>>>>> 6037e27a88cdfabe779409316a730641094dcb61
 }

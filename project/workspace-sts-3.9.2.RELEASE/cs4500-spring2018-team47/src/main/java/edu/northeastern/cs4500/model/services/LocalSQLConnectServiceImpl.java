@@ -29,7 +29,7 @@ import edu.northeastern.cs4500.model.user.User;
  * 
  * @author lgj81
  */
-public class LocalSQLConnectService {
+public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 	// the local database URL
 	private static String url = "jdbc:mysql://team-47-dev-db.cllrg7hgpqkh.us-east-2.rds.amazonaws.com/"
 			+ "cs4500_spring2018_team47_dev";
@@ -52,7 +52,7 @@ public class LocalSQLConnectService {
 	 * The constructor
 	 * The constructor will automatically create connection to local database
 	 */
-	public LocalSQLConnectService() {
+	public LocalSQLConnectServiceImpl() {
 		try {
 			connector = DriverManager.getConnection(url, username, password);
 			connectStatement = connector.createStatement();
@@ -116,7 +116,7 @@ public class LocalSQLConnectService {
      * Store movie into local db when user search and click to view the movie profile
      * @param movieObject the object containing all movie information
      */
-
+    @Override
     public void loadMovieIntoLocalDB(Map<String, String> movieObject) {
     	System.out.println("Start loading movie....");
     	
@@ -1022,5 +1022,26 @@ public class LocalSQLConnectService {
     		sq.printStackTrace();
     	}
     }
+
+
+	@Override
+	public void loadMovieToLocalDB(JSONObject movieJSON) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void addMultiMovies(ArrayList<String> ids) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public ArrayList<String> getSearchMovieResult() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 }
