@@ -92,8 +92,6 @@ public class MovieController {
 				x++;
 			}
 
-//			 to add multiple movies from search results.
-			 this.addMoviesIntoLocalDB();
 
 		} catch (IOException | JSONException e) {
 			// use logger
@@ -187,6 +185,7 @@ public class MovieController {
 			movie.put("imdbID", movieJSON.getString("imdb_id"));
 			movie.put("poster", "http://image.tmdb.org/t/p/w185/" + movieJSON.getString("poster_path"));
 			movie.put("language", language.toString());
+			movie.put("movieDBid", id);
 			
 			// load movie into local db when the user clicks into the movie pages.
 			localDbConnector.loadMovieIntoLocalDB(movie);
@@ -264,14 +263,4 @@ public class MovieController {
 		String movieName = httpServletRequest.getParameter("movie");
 		localDbConnector.addMovieIntoMovieList(userId, listname, movieId, movieName);
 	}
-<<<<<<< HEAD
-=======
-
-	/**
-	 * To add movie from searched result to local database
-	 */
-	private void addMoviesIntoLocalDB() {
-		localDbConnector.addMultiMovies(movieIDs);
-	}
->>>>>>> 6037e27a88cdfabe779409316a730641094dcb61
 }

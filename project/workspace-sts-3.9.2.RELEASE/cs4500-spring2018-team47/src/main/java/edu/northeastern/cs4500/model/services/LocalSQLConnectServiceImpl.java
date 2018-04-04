@@ -46,7 +46,7 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 	private static Statement connectStatement = null;
 	private static ResultSet myResult = null;
 	private ArrayList<String> movie = new ArrayList<>();
-	private static final Logger logger = LogManager.getLogger(LocalSQLConnectService.class);
+	private static final Logger logger = LogManager.getLogger(LocalSQLConnectServiceImpl.class);
 	
 	/**
 	 * The constructor
@@ -120,7 +120,7 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
     public void loadMovieIntoLocalDB(Map<String, String> movieObject) {
     	System.out.println("Start loading movie....");
     	
-    	String sqlcmd = "insert into Movie values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"; 
+    	String sqlcmd = "insert into Movie values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"; 
     	String movie_id = movieObject.get("imdbID");
     	String movie_name = movieObject.get("title");
     	String genre = movieObject.get("genre");
@@ -133,6 +133,7 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
     	String imdbRating = movieObject.get("imdbRating");
     	String poster = movieObject.get("poster");
     	String language = movieObject.get("language");
+    	String movieDBid = movieObject.get("movieDBid");
     	PreparedStatement pstmt = null;
     	
     	try {
@@ -149,6 +150,7 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
     		pstmt.setString(10, country);
     		pstmt.setString(11, poster);
     		pstmt.setString(12, imdbRating);
+    		pstmt.setString(13, movieDBid);
     		pstmt.executeUpdate();
     		System.out.println("loading movie finished");
     	}
@@ -597,7 +599,7 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
      */
     public ArrayList<Movie> getMovieFromUserMovieList(int userId, String listname) {
     	ArrayList<Movie> result = new ArrayList<>();
-    	String sqlcmd = "select Movie.movie_id, Movie.movie_name, Movie.plot, Movie.actor, Movie.poster from Movie join " + 
+    	String sqlcmd = "select Movie.movie_id, Movie.movie_name, Movie.plot, Movie.actor, Movie.poster, Movie.movieDBid from Movie join " + 
 				"(select movie_id from UserMovieList where user_id = ? and list_name = ?) as comp on comp.movie_id = Movie.movie_id";
     	PreparedStatement pstmt = null;
     	try {
@@ -612,11 +614,13 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
     			String movieActor = myResult.getString("actor");
     			String moviePlot = myResult.getString("plot");
     			String moviePoster = myResult.getString("poster");
+    			String movieDBId = myResult.getString("movieDBid");
     			element.setImdbID(movieId);
     			element.setTitle(movieName);
     			element.setActors(movieActor);
     			element.setPlot(moviePlot);
     			element.setPoster(moviePoster);
+    			element.setTheMovieDbID(movieDBId);
     			// add to final result.
     			result.add(element);
     		}
