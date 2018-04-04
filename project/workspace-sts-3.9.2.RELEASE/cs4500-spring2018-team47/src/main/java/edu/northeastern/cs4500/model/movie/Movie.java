@@ -32,7 +32,16 @@ public class Movie implements Serializable{
 	String metascore;
 	String imdbID;
 	String poster;
+	String theMovieDbID;
 	
+
+	public String getTheMovieDbID() {
+		return theMovieDbID;
+	}
+
+	public void setTheMovieDbID(String theMovieDbID) {
+		this.theMovieDbID = theMovieDbID;
+	}
 
 	public String getGenre() {
 		return genre;

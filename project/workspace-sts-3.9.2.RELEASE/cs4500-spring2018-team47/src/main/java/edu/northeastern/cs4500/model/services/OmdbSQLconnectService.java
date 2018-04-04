@@ -149,22 +149,22 @@ public class OmdbSQLconnectService {
      * @param movieNames
      *            the names for list of movie that would be added to local database.
      */
-    public void addMultiMovies(ArrayList<String> movieNames) {
-	OmdbServiceImpl obj = new OmdbServiceImpl();
-	for (int i = 0; i < movieNames.size(); i++) {
-	    String item = movieNames.get(i);
-	    try {
-		try {
-		    JSONObject current = obj.searchMovieByTitle(item, "t");
-		    loadMovieToLocalDB(current);
-		} catch (JSONException je) {
-		    logger.error(je.getMessage());
-		}
-	    } catch (IOException io) {
-		logger.error(io.getMessage());
-	    }
-	}
-    }
+//    public void addMultiMovies(ArrayList<String> movieNames) {
+//	MovieDBServiceImpl obj = new MovieDBServiceImpl();
+//	for (int i = 0; i < movieNames.size(); i++) {
+//	    String item = movieNames.get(i);
+//	    try {
+//		try {
+//		    JSONObject current = obj.searchMovieDetails(item, "t");
+//		    loadMovieToLocalDB(current);
+//		} catch (JSONException je) {
+//		    logger.error(je.getMessage());
+//		}
+//	    } catch (IOException io) {
+//		logger.error(io.getMessage());
+//	    }
+////	}
+//    }
 
     /**
      * To search movies which the actor with given name act on
