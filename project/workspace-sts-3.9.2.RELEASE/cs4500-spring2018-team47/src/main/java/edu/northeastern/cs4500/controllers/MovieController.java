@@ -122,56 +122,81 @@ public class MovieController {
 			movieJSON = movieDbService.searchMovieDetails(Integer.valueOf(id));
 			JSONArray movieCast = movieDbService.searchMovieCast(movieJSON.getInt("id")).getJSONArray("cast");
 			JSONArray movieCrew = movieDbService.searchMovieCast(movieJSON.getInt("id")).getJSONArray("crew");
-
+			
 			String actors = "";
-			for (int y = 0; y < 5; y++) {
-				actors += movieCast.getJSONObject(y).getString("name");
-				if (y != 4) {
-					actors += ", ";
-				}
-			}
 			String director = "";
-			for (int y = 0; y < movieCrew.length(); y++) {
-				if (movieCrew.getJSONObject(y).getString("job").equals("Director")) {
-					director = movieCrew.getJSONObject(y).getString("name");
+			try {
+				for (int y = 0; y < 5; y++) {
+					actors += movieCast.getJSONObject(y).getString("name");
+					if (y != 4) {
+						actors += ", ";
+					}
+				}
+				
+				for (int y = 0; y < movieCrew.length(); y++) {
+					if (movieCrew.getJSONObject(y).getString("job").equals("Director")) {
+						director = movieCrew.getJSONObject(y).getString("name");
+					}
 				}
 			}
+			catch(NullPointerException np) {
+				logger.error(np.getMessage());
+			}
+			
 			
 			// add all the genres
 			JSONArray genreList = movieJSON.getJSONArray("genres");
 			StringBuilder genre = new StringBuilder();
-			for(int i = 0; i < genreList.length(); i++) {
-				if(i == genreList.length() - 1) {
-					genre.append(genreList.getJSONObject(i).getString("name"));
-				}
-				else {
-					genre.append(genreList.getJSONObject(i).getString("name") + ", ");
+			try {
+				for(int i = 0; i < genreList.length(); i++) {
+					if(i == genreList.length() - 1) {
+						genre.append(genreList.getJSONObject(i).getString("name"));
+					}
+					else {
+						genre.append(genreList.getJSONObject(i).getString("name") + ", ");
+					}
 				}
 			}
+			catch(NullPointerException np) {
+				logger.error(np.getMessage());
+			}
+			
 			
 			// add all the countries
 			JSONArray countries = movieJSON.getJSONArray("production_countries");
 			StringBuilder contry = new StringBuilder();
-			for(int i = 0; i < countries.length(); i++) {
-				if(i == countries.length() - 1) {
-					contry.append(countries.getJSONObject(i).getString("name"));
-				}
-				else {
-					contry.append(countries.getJSONObject(i).getString("name") + ", ");
+			try {
+				for(int i = 0; i < countries.length(); i++) {
+					if(i == countries.length() - 1) {
+						contry.append(countries.getJSONObject(i).getString("name"));
+					}
+					else {
+						contry.append(countries.getJSONObject(i).getString("name") + ", ");
+					}
 				}
 			}
+			catch(NullPointerException np) {
+				logger.error(np.getMessage());
+			}
+			
 			
 			// add all the language
 			JSONArray languages = movieJSON.getJSONArray("spoken_languages");
 			StringBuilder language = new StringBuilder();
-			for(int i = 0; i < languages.length(); i++) {
-				if(i == languages.length() - 1) {
-					language.append(languages.getJSONObject(i).getString("name"));
-				}
-				else {
-					language.append(languages.getJSONObject(i).getString("name") + ", ");
+			try {
+				for(int i = 0; i < languages.length(); i++) {
+					if(i == languages.length() - 1) {
+						language.append(languages.getJSONObject(i).getString("name"));
+					}
+					else {
+						language.append(languages.getJSONObject(i).getString("name") + ", ");
+					}
 				}
 			}
+			catch (NullPointerException np) {
+				logger.error(np.getMessage());
+			}
+			
 			
 			movie.put("director", director);
 			movie.put("title", movieJSON.getString("title"));

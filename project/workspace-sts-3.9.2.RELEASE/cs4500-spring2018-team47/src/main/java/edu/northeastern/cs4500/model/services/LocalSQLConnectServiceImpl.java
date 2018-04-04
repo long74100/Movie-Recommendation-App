@@ -710,7 +710,7 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
      */
     public String getUserRelation(int senderId, int receiverId) {
     	StringBuilder status = new StringBuilder();
-    	String sqlcmd = "select * from userRelation where senderId = ? and receiverId ?";
+    	String sqlcmd = "select * from userRelation where senderId = ? and receiverId = ?";
 	PreparedStatement pstmt = null;
     	try {
     		pstmt = connector.prepareStatement(sqlcmd);
@@ -776,7 +776,7 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
         	myResult = pstmt.executeQuery();
     		while(myResult.next()) {
     			String friendUsername = myResult.getString("username");
-    			Integer friendUserId = myResult.getInt("senderId");
+    			Integer friendUserId = myResult.getInt("receiverId");
     			User friend = new User();
     			friend.setId(friendUserId);
     			friend.setUsername(friendUsername);;
@@ -879,7 +879,6 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
     	ArrayList<User> output = new ArrayList<>();
     	output.addAll(this.getAllReceivedFriendRequest(userId));
     	output.addAll(this.getAllSentFriendRequest(userId));
-    	
     	return output;
     }
     
