@@ -85,16 +85,7 @@ public class MovieController {
 				movie.setImdbRating(String.valueOf(movieJSON.getDouble("vote_average")));
 				movie.setImdbID(movieDetails.getString("imdb_id"));
 				movie.setTheMovieDbID(String.valueOf(movieJSON.getInt("id")));
-				// =======
-				// movieJSON =
-				// omdbService.searchMovieByTitle(movieJSONList.getJSONObject(x).getString("Title"),
-				// "t");
-				// movie.setTitle(movieJSON.getString("Title"));
 				movie.setPoster("http://image.tmdb.org/t/p/w185/" + movieJSON.getString("poster_path"));
-				// movie.setActors(movieJSON.getString("Actors"));
-				// movie.setReleased(movieJSON.getString("Released"));
-				// movie.setImdbRating(movieJSON.getString("imdbRating"));
-				// >>>>>>> e5484edeb2d9b5318014d3a61e9c7866ab700a9e
 				movieList.add(movie);
 				movieNames.add(movie.getTitle());
 				x++;
@@ -146,24 +137,61 @@ public class MovieController {
 					director = movieCrew.getJSONObject(y).getString("name");
 				}
 			}
-
+			
+			// add all the genres
+			JSONArray genreList = movieJSON.getJSONArray("genres");
+			StringBuilder genre = new StringBuilder();
+			for(int i = 0; i < genreList.length(); i++) {
+				if(i == genreList.length() - 1) {
+					genre.append(genreList.getJSONObject(i).getString("name"));
+				}
+				else {
+					genre.append(genreList.getJSONObject(i).getString("name") + ", ");
+				}
+			}
+			
+			// add all the countries
+			JSONArray countries = movieJSON.getJSONArray("production_countries");
+			StringBuilder contry = new StringBuilder();
+			for(int i = 0; i < countries.length(); i++) {
+				if(i == countries.length() - 1) {
+					contry.append(countries.getJSONObject(i).getString("name"));
+				}
+				else {
+					contry.append(countries.getJSONObject(i).getString("name") + ", ");
+				}
+			}
+			
+			// add all the language
+			JSONArray languages = movieJSON.getJSONArray("spoken_languages");
+			StringBuilder language = new StringBuilder();
+			for(int i = 0; i < languages.length(); i++) {
+				if(i == languages.length() - 1) {
+					language.append(languages.getJSONObject(i).getString("name"));
+				}
+				else {
+					language.append(languages.getJSONObject(i).getString("name") + ", ");
+				}
+			}
+			
 			movie.put("director", director);
 			movie.put("title", movieJSON.getString("title"));
 			movie.put("plot", movieJSON.getString("overview"));
-			// only selects one of the genres the movie belongs to
-			movie.put("genre", movieJSON.getJSONArray("genres").getJSONObject(0).getString("name"));
+			movie.put("genre", genre.toString());
 			movie.put("released", movieJSON.getString("release_date"));
 			movie.put("actors", actors);
 			movie.put("runtime", String.valueOf(movieJSON.getInt("runtime")));
-			movie.put("country", movieJSON.getJSONArray("production_countries").getJSONObject(0).getString("name"));
+			movie.put("country", contry.toString());
 			movie.put("imdbRating", String.valueOf(movieJSON.getInt("vote_average")));
 			movie.put("imdbID", movieJSON.getString("imdb_id"));
 			movie.put("poster", "http://image.tmdb.org/t/p/w185/" + movieJSON.getString("poster_path"));
+			movie.put("language", language.toString());
+			
+			// load movie into local db when the user clicks into the movie pages.
+			localDbConnector.loadMovieIntoLocalDB(movie);
 
 			reviews = localDbConnector.getReviewsForMovie(movieJSON.getString("imdb_id"));
-
-			// to add searched movie into local database
-			// localDbConnector.loadMovieToLocalDB(movieJSON);
+			
 
 		} catch (IOException | JSONException e) {
 			logger.error(e.getMessage());
@@ -235,11 +263,4 @@ public class MovieController {
 		String movieName = httpServletRequest.getParameter("movie");
 		localDbConnector.addMovieIntoMovieList(userId, listname, movieId, movieName);
 	}
-
-	/**
-	 * To add movie from searched result to local database
-	 */
-	// private void addMoviesIntoLocalDB() {
-	// localDbConnector.addMultiMovies(movieNames);
-	// }
 }

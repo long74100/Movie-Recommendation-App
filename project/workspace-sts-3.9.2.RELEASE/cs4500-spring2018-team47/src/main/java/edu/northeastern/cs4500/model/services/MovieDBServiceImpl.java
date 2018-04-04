@@ -40,7 +40,7 @@ public class MovieDBServiceImpl implements IMovieDBService{
 		while((inputLine = in.readLine()) != null) {
 			content.append(inputLine);
 		}
-		System.out.println(content.toString());
+		//System.out.println(content.toString());
 		in.close();
 		return new JSONObject(content.toString());
 	}

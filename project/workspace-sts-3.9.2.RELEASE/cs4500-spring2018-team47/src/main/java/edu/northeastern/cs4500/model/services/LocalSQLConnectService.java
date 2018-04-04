@@ -10,6 +10,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -108,6 +109,50 @@ public class LocalSQLConnectService {
 		logger.error(ep.getMessage());
     	}
     	return false;
+    }
+    
+    /**
+     * Store movie into local db when user search and click to view the movie profile
+     * @param movieObject the object containing all movie information
+     */
+    public void loadMovieIntoLocalDB(Map<String, String> movieObject) {
+    	System.out.println("Start loading movie....");
+    	
+    	String sqlcmd = "insert into Movie values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"; 
+    	String movie_id = movieObject.get("imdbID");
+    	String movie_name = movieObject.get("title");
+    	String genre = movieObject.get("genre");
+    	String plot = movieObject.get("plot");
+    	String actors = movieObject.get("actors");
+    	String directors = movieObject.get("director");
+    	String released = movieObject.get("released");
+    	String runtime = movieObject.get("runtime");
+    	String country = movieObject.get("country");
+    	String imdbRating = movieObject.get("imdbRating");
+    	String poster = movieObject.get("poster");
+    	String language = movieObject.get("language");
+    	PreparedStatement pstmt = null;
+    	
+    	try {
+    		pstmt = connector.prepareStatement(sqlcmd);
+    		pstmt.setString(1, movie_id);
+    		pstmt.setString(2, movie_name);
+    		pstmt.setString(3, runtime);
+    		pstmt.setString(4, released);
+    		pstmt.setString(5, genre);
+    		pstmt.setString(6, directors);
+    		pstmt.setString(7, actors);
+    		pstmt.setString(8, plot);
+    		pstmt.setString(9, language);
+    		pstmt.setString(10, country);
+    		pstmt.setString(11, poster);
+    		pstmt.setString(12, imdbRating);
+    		pstmt.executeUpdate();
+    		System.out.println("loading movie finished");
+    	}
+    	catch(SQLException sq) {
+    		logger.error(sq.getMessage());
+    	}
     }
     
     /**
@@ -267,9 +312,7 @@ public class LocalSQLConnectService {
     public void searchByKeyWordInOne(String keyword) {
     	String sqlcmd = "select * from Movie where movie_id like \"%\"?\"%\""
 				+ " or movie_name like \"%\"?\"%\"" 
-				+ " or movie_rated like \"%\"?\"%\""
-				+ " or runtime like \"%\"?\"%\""  
-				+ " or movie_year like \"%\"?\"%\""
+				+ " or runtime like \"%\"?\"%\""
 				+ " or release_date like \"%\"?\"%\"" 
 				+ " or genre like \"%\"?\"%\""
 				+ " or director like \"%\"?\"%\""
@@ -277,10 +320,7 @@ public class LocalSQLConnectService {
 				+ " or plot like \"%\"?\"%\""
 				+ " or movie_language like \"%\"?\"%\""
 				+ " or country like \"%\"?\"%\""
-				+ " or metascore like \"%\"?\"%\""
-				+ " or imdbRating like \"%\"?\"%\""
-				+ " or ratings like \"%\"?\"%\""
-				+ " or production like \"%\"?\"%\"";
+				+ " or imdbRating like \"%\"?\"%\"";
     	PreparedStatement pstmt = null;
     	try {
     		pstmt = connector.prepareStatement(sqlcmd);
@@ -316,7 +356,6 @@ public class LocalSQLConnectService {
     		while(myResult.next()) {
     			String movieId = myResult.getString("movie_id");
     			String movieName = myResult.getString("movie_name");
-    			String movieRated = myResult.getString("movie_rated");
     			String runtime = myResult.getString("runtime");
     			String genre = myResult.getString("genre");
     			String released_date = myResult.getString("released_date");
@@ -327,27 +366,17 @@ public class LocalSQLConnectService {
     			String country = myResult.getString("country");
     			String poster = myResult.getString("poster");
     			String imdbRating = myResult.getString("imdbRating");
-    			String ratings = myResult.getString("ratings");
     			StringBuilder output = new StringBuilder();
-    			output.append(movieId + "| " + movieName + "| " + movieRated + "| " 
+    			output.append(movieId + "| " + movieName + "| " 
     					+ runtime + "| " + genre + "| " + released_date + "| " + director + "| " + 
     					actors + "| " + plot + "| " + language + "| " + country + "| " + poster + "| "
-    					+ imdbRating + "| " + ratings);
+    					+ imdbRating);
     			movie.add(output.toString());
     		}
     	}
     	catch(Exception e) {
 		logger.error(e.getMessage());
     	}
-    }
-    
-    
-    /**
-     * To return the search result from local database
-     * @return list of movies relevant to the search keyword.
-     */
-    public ArrayList<String> getSearchMovieResult() {
-    	return this.movie;
     }
     
     

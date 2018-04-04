@@ -166,75 +166,75 @@ public class OmdbSQLconnectService {
 ////	}
 //    }
 
-    /**
-     * To search movies which the actor with given name act on
-     * 
-     * @param actorName
-     *            the name of actors
-     * @return the list of movie information
-     */
-    public ArrayList<String> searchMovieByActors(String actorName) {
-	this.connector.searchKeyWordActorsName(actorName);
-	return this.connector.getSearchMovieResult();
-    }
-
-    /**
-     * To search movie based on genre
-     * 
-     * @param genre
-     *            the movie genre
-     * @return the list of movie information
-     */
-    public ArrayList<String> searchMovieByGenre(String genre) {
-	this.connector.searchKeyWordGenre(genre);
-	return this.connector.getSearchMovieResult();
-    }
-
-    /**
-     * To search the movies that are held by the director with given name
-     * 
-     * @param director
-     *            the name of director
-     * @return the list of movie information
-     */
-    public ArrayList<String> searchMovieByDirector(String director) {
-	this.connector.searchKeyWordDirectorName(director);
-	return this.connector.getSearchMovieResult();
-    }
-
-    /**
-     * To search movie based on given keyword
-     * 
-     * @param mvTitle
-     *            the given searched string used for movie title
-     * @return list of movie information
-     */
-    public ArrayList<String> searchMovieByTitleKeyWord(String mvTitle) {
-	this.connector.searchKeyWordMovieTitle(mvTitle);
-	return this.connector.getSearchMovieResult();
-    }
-
-    /**
-     * To search the movie by release time(date)
-     * 
-     * @param time
-     *            the year that movie was released
-     * @return list of movie information
-     */
-    public ArrayList<String> searchMovieByTime(String time) {
-	this.connector.searchKeyWordTime(time);
-	return this.connector.getSearchMovieResult();
-    }
-
-    /**
-     * To search movie based on a keyword
-     * 
-     * @param keyword
-     *            the keyword that is used to search for movie
-     * @return all movies that contain the keyword as a text information.
-     */
-    public ArrayList<String> searchMovieByAll(String keyword) {
-	this.connector.searchByKeyWordInOne(keyword);
-	return this.connector.getSearchMovieResult();
-    }
+//    /**
+//     * To search movies which the actor with given name act on
+//     * 
+//     * @param actorName
+//     *            the name of actors
+//     * @return the list of movie information
+//     */
+//    public ArrayList<String> searchMovieByActors(String actorName) {
+//	this.connector.searchKeyWordActorsName(actorName);
+//	return this.connector.getSearchMovieResult();
+//    }
+//
+//    /**
+//     * To search movie based on genre
+//     * 
+//     * @param genre
+//     *            the movie genre
+//     * @return the list of movie information
+//     */
+//    public ArrayList<String> searchMovieByGenre(String genre) {
+//	this.connector.searchKeyWordGenre(genre);
+//	return this.connector.getSearchMovieResult();
+//    }
+//
+//    /**
+//     * To search the movies that are held by the director with given name
+//     * 
+//     * @param director
+//     *            the name of director
+//     * @return the list of movie information
+//     */
+//    public ArrayList<String> searchMovieByDirector(String director) {
+//	this.connector.searchKeyWordDirectorName(director);
+//	return this.connector.getSearchMovieResult();
+//    }
+//
+//    /**
+//     * To search movie based on given keyword
+//     * 
+//     * @param mvTitle
+//     *            the given searched string used for movie title
+//     * @return list of movie information
+//     */
+//    public ArrayList<String> searchMovieByTitleKeyWord(String mvTitle) {
+//	this.connector.searchKeyWordMovieTitle(mvTitle);
+//	return this.connector.getSearchMovieResult();
+//    }
+//
+//    /**
+//     * To search the movie by release time(date)
+//     * 
+//     * @param time
+//     *            the year that movie was released
+//     * @return list of movie information
+//     */
+//    public ArrayList<String> searchMovieByTime(String time) {
+//	this.connector.searchKeyWordTime(time);
+//	return this.connector.getSearchMovieResult();
+//    }
+//
+//    /**
+//     * To search movie based on a keyword
+//     * 
+//     * @param keyword
+//     *            the keyword that is used to search for movie
+//     * @return all movies that contain the keyword as a text information.
+//     */
+//    public ArrayList<String> searchMovieByAll(String keyword) {
+//	this.connector.searchByKeyWordInOne(keyword);
+//	return this.connector.getSearchMovieResult();
+//    }
 }
