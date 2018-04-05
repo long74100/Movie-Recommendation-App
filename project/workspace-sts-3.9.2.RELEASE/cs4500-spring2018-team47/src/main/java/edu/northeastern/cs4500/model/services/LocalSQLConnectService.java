@@ -144,7 +144,7 @@ public class LocalSQLConnectService {
     	try {
     		pstmt = connector.prepareStatement(sqlcmd);
     		pstmt.setString(1, id);
-        	myResult = pstmt.executeQuery();
+        	pstmt.executeUpdate();
     	}
     	catch(SQLException ep) {
 		logger.error(ep.getMessage());
@@ -541,24 +541,23 @@ public class LocalSQLConnectService {
      * @return the list of movie name 
      */
     public List<String> getMovieListForUser(int userId) {
-    	ArrayList<String> movieNames = new ArrayList<>();
-    	String sqlcmd = "select list_name from Movielist where user_id = ?";
-    	PreparedStatement pstmt = null;
+    	ArrayList<String> movieListNames = new ArrayList<>();
     	try {
+    		String sqlcmd = "select * from Movielist where user_id = ?";
+        	PreparedStatement pstmt = null;
     		pstmt = connector.prepareStatement(sqlcmd);
     		pstmt.setInt(1, userId);
     		myResult = pstmt.executeQuery();
     		while(myResult.next()) {
     			String listName = myResult.getString("list_name");
-    			movieNames.add(listName);
-    		}
-    		
+    			movieListNames.add(listName);
+    		}	
     	}
     	catch(SQLException sq) {
-		logger.error(sq.getMessage());
+    		logger.error(sq.getMessage());
     	}
     	
-    	return movieNames;
+    	return movieListNames;
     }
     
     /**
@@ -567,7 +566,7 @@ public class LocalSQLConnectService {
      */
     public ArrayList<Movie> getMovieFromUserMovieList(int userId, String listname) {
     	ArrayList<Movie> result = new ArrayList<>();
-    	String sqlcmd = "select Movie.movie_id, Movie.movie_name, Movie.plot, Movie.actor from Movie join " + 
+    	String sqlcmd = "select Movie.movie_id, Movie.movie_name, Movie.plot, Movie.actor, Movie.poster from Movie join " + 
 				"(select movie_id from UserMovieList where user_id = ? and list_name = ?) as comp on comp.movie_id = Movie.movie_id";
     	PreparedStatement pstmt = null;
     	try {
@@ -581,10 +580,12 @@ public class LocalSQLConnectService {
     			String movieName = myResult.getString("movie_name");
     			String movieActor = myResult.getString("actor");
     			String moviePlot = myResult.getString("plot");
+    			String moviePoster = myResult.getString("poster");
     			element.setImdbID(movieId);
     			element.setTitle(movieName);
     			element.setActors(movieActor);
     			element.setPlot(moviePlot);
+    			element.setPoster(moviePoster);
     			// add to final result.
     			result.add(element);
     		}
@@ -615,6 +616,27 @@ public class LocalSQLConnectService {
         		pstmt2.setString(2, movieListName);
         		pstmt2.executeUpdate();
     		}
+    	}
+    	catch(SQLException sq) {
+    		logger.error(sq.getMessage());
+    	}
+    }
+    
+    /**
+     * To delete a movie from user's movie list
+     * @param userid the user who owns movie list
+     * @param movieList the movie list that will be deleted from 
+     * @param movieId movie that will be deleted
+     */
+    public void deleteMovieFromUserMovieList(int userid, String movieList, String movieId) {
+    	String sqlcmd = "delete from UserMovieList where user_id = ? and (list_name = ? and movie_id = ?)";
+    	PreparedStatement pstmt = null;
+    	try {
+    		pstmt = connector.prepareStatement(sqlcmd);
+    		pstmt.setInt(1, userid);
+    		pstmt.setString(2, movieList);
+    		pstmt.setString(3, movieId);
+    		pstmt.executeUpdate();
     	}
     	catch(SQLException sq) {
     		logger.error(sq.getMessage());
@@ -922,6 +944,52 @@ public class LocalSQLConnectService {
     	}
     	
     	return output;
+    }
+    
+    /**
+     * To delete the movie list also delete all the stored movies records
+     * @param userId user who owns the given list
+     * @param listName name of the movie list
+     */
+    public void deleteMovieList(int userId, String listName) {
+    	String sqlcmd = "delete from Movielist where user_id = ? and list_name = ?";
+    	String sqlcmdfollowing = "delete from UserMovieList where user_id = ? and list_name = ?";
+    	PreparedStatement pstmt = null;
+    	PreparedStatement pstmt2 = null;
+    	try {
+    		pstmt = connector.prepareStatement(sqlcmd);
+    		pstmt.setInt(1, userId);
+    		pstmt.setString(2, listName);
+    		int deletedRow = pstmt.executeUpdate();
+    		if(deletedRow > 0) {
+    			pstmt2 = connector.prepareStatement(sqlcmdfollowing);
+    			pstmt2.setInt(1, userId);
+    			pstmt2.setString(2, listName);
+    			pstmt2.executeUpdate();
+    		}
+    	}
+    	catch(SQLException sl) {
+    		logger.error(sl.getMessage());
+    	}
+    }
+    
+    /**
+     * To clean the movie list with given list name
+     * @param userId the movie list's owner
+     * @param listName the name of movie list
+     */
+    public void cleanMovieList(int userId, String listName) {
+    	String sqlcmd = "delete from UserMovieList where user_id = ? and list_name = ?";
+    	PreparedStatement pstmt = null;
+    	try {
+    		pstmt = connector.prepareStatement(sqlcmd);
+    		pstmt.setInt(1, userId);
+    		pstmt.setString(2, listName);
+    		pstmt.executeUpdate();
+    	}
+    	catch(SQLException sq) {
+    		sq.printStackTrace();
+    	}
     }
 
 }

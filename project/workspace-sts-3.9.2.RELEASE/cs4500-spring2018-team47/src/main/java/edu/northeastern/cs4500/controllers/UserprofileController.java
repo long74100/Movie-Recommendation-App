@@ -110,6 +110,7 @@ public class UserprofileController {
 		List<String> movieListNames = sqlConnector.getMovieListForUser(user.getId());
 		ArrayList<Movie> movies = sqlConnector.getMovieFromUserMovieList(user.getId(), listName);
 		modelAndView.addObject("usermovielist", movieListNames);
+		modelAndView.addObject("currentMovielist", listName);
 		modelAndView.addObject("currentMovies", movies);
 		modelAndView.setViewName("listMoviesItem");
 		return modelAndView;
@@ -147,11 +148,44 @@ public class UserprofileController {
 	@RequestMapping(value= "/createMovieList", method=RequestMethod.POST)
 	@ResponseStatus(value = HttpStatus.OK)
 	public void createNewMovieList(@RequestBody String listName, HttpServletRequest httpservletRequest) {
-		LocalSQLConnectService db = new LocalSQLConnectService();
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
     	User user = userService.findUserByEmail(auth.getName());
     	Integer userId = user.getId();
     	String newListName = httpservletRequest.getParameter("listName");
-    	db.createMovieList(userId, newListName);
+    	sqlConnector.createMovieList(userId, newListName);
+	}
+	
+	
+	@RequestMapping(value="/deleteMovie", method=RequestMethod.POST)
+	@ResponseStatus(value= HttpStatus.OK)
+	public void deleteMovieFromMovieList(@RequestBody String movieAndList, HttpServletRequest httpserveletRequest) {
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+    	User user = userService.findUserByEmail(auth.getName());
+    	Integer userId = user.getId();
+    	String movieList = httpserveletRequest.getParameter("listName");
+    	String movieId = httpserveletRequest.getParameter("movieId");
+    	sqlConnector.deleteMovieFromUserMovieList(userId, movieList, movieId);
+	}
+	
+
+	@RequestMapping(value="/deleteList", method=RequestMethod.POST)
+	@ResponseStatus(value= HttpStatus.OK)
+	public void deleteMovieList(@RequestBody String movieList, HttpServletRequest httpserveletRequest) {
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+    	User user = userService.findUserByEmail(auth.getName());
+    	Integer userId = user.getId();
+    	String movieListName = httpserveletRequest.getParameter("listName");
+    	sqlConnector.deleteMovieList(userId, movieListName);
+	}
+	
+	
+	@RequestMapping(value="/cleanList", method=RequestMethod.POST)
+	@ResponseStatus(value= HttpStatus.OK)
+	public void cleanMovieList(@RequestBody String movieList, HttpServletRequest httpserveletRequest) {
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+    	User user = userService.findUserByEmail(auth.getName());
+    	Integer userId = user.getId();
+    	String movieListName = httpserveletRequest.getParameter("listName");
+    	sqlConnector.cleanMovieList(userId, movieListName);
 	}
 }
