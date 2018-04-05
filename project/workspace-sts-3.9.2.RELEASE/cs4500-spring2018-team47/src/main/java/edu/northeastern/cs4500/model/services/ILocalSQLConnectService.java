@@ -10,6 +10,7 @@ import org.json.JSONObject;
 import edu.northeastern.cs4500.model.movie.Movie;
 import edu.northeastern.cs4500.model.movie.MovieReview;
 import edu.northeastern.cs4500.model.user.User;
+import edu.northeastern.cs4500.prod.Prod;
 
 public interface ILocalSQLConnectService {
 
@@ -374,7 +375,30 @@ public interface ILocalSQLConnectService {
 	 */
 	void loadMovieIntoLocalDB(Map<String, String> movie);
 	
+	/**
+	 * To send prod to a friend
+	 * @param senderId the prod sender
+	 * @param receiverId the prod receiver
+	 * @param senderName the name of sender
+	 * @param receiverName name of receiver
+	 * @param movieId prod movie id
+	 * @param movieName prod movie name
+	 * @param date sent date
+	 * @param comment sender's comment
+	 */
+	void sendProdToFriend(int senderId, int receiverId, String senderName, 
+			String receiverName, String movieId, String movieName, String date, String comment);
 	
-	void sendProdToFriend(int senderId, int receiverId);
+	/**
+	 * To extract all prods from friends
+	 * @param userId the user who receives the prods 
+	 */
+	List<Prod> extractAllFriendProds(int userId);
+	
+	/**
+	 * To extract all prods sent to friends
+	 * @param userId the user who sent the prods
+	 */
+	List<Prod> extractAllSentProds(int userId);
 }
 

@@ -20,6 +20,7 @@ import edu.northeastern.cs4500.model.movie.MovieReview;
 
 import edu.northeastern.cs4500.model.movie.Movie;
 import edu.northeastern.cs4500.model.user.User;
+import edu.northeastern.cs4500.prod.Prod;
 
 /**
  * This class is used to connect to the local database. This tool builds a connection between front end 
@@ -1052,6 +1053,86 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 	public ArrayList<String> getSearchMovieResult() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+	
+	@Override
+	public void sendProdToFriend(int senderId, int receiverId, String senderName, 
+			String receiverName, String movieId, String movieName, String date, String comment) {
+		String sqlcmd = "insert into Prod values (?, ?, ?, ?, ?, ?, ?, ?)";
+		PreparedStatement pstmt = null;
+		try {
+			pstmt = connector.prepareStatement(sqlcmd);
+			pstmt.setInt(1, senderId);
+			pstmt.setInt(2, receiverId);
+			pstmt.setString(3, senderName);
+			pstmt.setString(4, receiverName);
+			pstmt.setString(5,  movieId);
+			pstmt.setString(6, movieName);
+			pstmt.setString(7, date);
+			pstmt.setString(8, comment);
+			pstmt.executeUpdate();
+		}
+		catch (SQLException sq) {
+			logger.error(sq.getMessage());
+		}
+	}
+	
+	@Override
+	public List<Prod> extractAllFriendProds(int userId) {
+		String sqlcmd = "select * from Prod where receiverId = ?";
+		PreparedStatement pstmt = null;
+		ArrayList<Prod> friendsProds = new ArrayList<>();
+		try {
+			pstmt = connector.prepareStatement(sqlcmd);
+			myResult = pstmt.executeQuery();
+			while(myResult.next()) {
+				Prod prod = new Prod();
+				prod.setSender(myResult.getInt("senderId"));
+				prod.setSenderName(myResult.getString("sender_name"));
+				prod.setReceiver(userId);
+				prod.setReceiverName(myResult.getString("receiver_name"));
+				prod.setMovieId(myResult.getString("movieId"));
+				prod.setMovieName(myResult.getString("movieName"));
+				prod.setTime(myResult.getString("sent_date"));
+				prod.setComment(myResult.getString("senderComment"));
+				friendsProds.add(prod);
+			}
+			
+		}
+		catch(SQLException sq) {
+			logger.error(sq.getMessage());
+		}
+		
+		return friendsProds;
+	}
+	
+	@Override
+	public List<Prod> extractAllSentProds(int userId) {
+		String sqlcmd = "select * from Prod where senderId = ?";
+		PreparedStatement pstmt = null;
+		ArrayList<Prod> sentOutProds = new ArrayList<>();
+		try {
+			pstmt = connector.prepareStatement(sqlcmd);
+			myResult = pstmt.executeQuery();
+			while(myResult.next()) {
+				Prod prod = new Prod();
+				prod.setSender(myResult.getInt(userId));
+				prod.setSenderName(myResult.getString("sender_name"));
+				prod.setReceiver(myResult.getInt("receiverId"));
+				prod.setReceiverName(myResult.getString("receiver_name"));
+				prod.setMovieId(myResult.getString("movieId"));
+				prod.setMovieName(myResult.getString("movieName"));
+				prod.setTime(myResult.getString("sent_date"));
+				prod.setComment(myResult.getString("senderComment"));
+				sentOutProds.add(prod);
+			}
+			
+		}
+		catch(SQLException sq) {
+			logger.error(sq.getMessage());
+		}
+		
+		return sentOutProds;
 	}
 
 }

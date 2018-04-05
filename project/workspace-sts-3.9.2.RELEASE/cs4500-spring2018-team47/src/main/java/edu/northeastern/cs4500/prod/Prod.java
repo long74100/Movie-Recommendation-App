@@ -23,6 +23,12 @@ public class Prod {
 	// the receiver's id
 	private int receiverId;
 	
+	// the sender's name
+	private String senderName;
+	
+	// the receiver's name
+	private String receiverName;
+	
 	// the movie's id
 	private String movieId;
 	
@@ -55,11 +61,27 @@ public class Prod {
 	}
 	
 	/**
+	 * To get receiver name
+	 * @return the name of receiver
+	 */
+	public String getReceiverName() {
+		return this.receiverName;
+	}
+	
+	/**
 	 * to get sender id
 	 * @return sender id
 	 */
 	public int getSenderId() {
 		return this.senderId;
+	}
+	
+	/**
+	 * To get sender's name
+	 * @return name of sender
+	 */
+	public String getSenderName() {
+		return this.senderName;
 	}
 	
 	/**
@@ -120,6 +142,22 @@ public class Prod {
 	 */
 	public void setMovieId(String mid) {
 		this.movieId = mid;
+	}
+	
+	/**
+	 * To set sender's name
+	 * @param senderName name of sender will be set
+	 */
+	public void setSenderName(String senderName) {
+		this.senderName = senderName;
+	}
+	
+	/**
+	 * To set receiver's name
+	 * @param receiverName name of receiver will be set
+	 */
+	public void setReceiverName(String receiverName) {
+		this.receiverName = receiverName;
 	}
 	
 	/**
