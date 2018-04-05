@@ -45,6 +45,9 @@ public class UserprofileController {
 		ModelAndView modelAndView = new ModelAndView();
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		User user = userService.findUserByEmail(auth.getName());
+		
+		List<Movie> favorites = sqlConnector.getMovieFromUserMovieList(user.getId(), "Favorites");
+		modelAndView.addObject("favorites", favorites);
 		modelAndView.addObject("user", user);
 		modelAndView.setViewName("userProfile");
 		return modelAndView;
@@ -83,6 +86,8 @@ public class UserprofileController {
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		User user = userService.findUserByEmail(auth.getName());
 		User profileUser = userService.findUserByUsername(username);
+		List<Movie> favorites = sqlConnector.getMovieFromUserMovieList(profileUser.getId(), "Favorites");
+		modelAndView.addObject("favorites", favorites);
 		modelAndView.addObject("profileUser", profileUser);
 		modelAndView.addObject("user", user);
 		modelAndView.setViewName("fragments/userProfile/profilePage");

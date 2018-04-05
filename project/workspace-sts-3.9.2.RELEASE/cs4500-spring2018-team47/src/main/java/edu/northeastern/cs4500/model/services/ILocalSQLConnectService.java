@@ -373,5 +373,8 @@ public interface ILocalSQLConnectService {
 	 * @param movie the movie information.
 	 */
 	void loadMovieIntoLocalDB(Map<String, String> movie);
+	
+	
+	void sendProdToFriend(int senderId, int receiverId);
 }
 
