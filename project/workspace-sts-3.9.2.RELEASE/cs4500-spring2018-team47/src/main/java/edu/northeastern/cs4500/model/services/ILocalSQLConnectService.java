@@ -400,5 +400,21 @@ public interface ILocalSQLConnectService {
 	 * @param userId the user who sent the prods
 	 */
 	List<Prod> extractAllSentProds(int userId);
+	
+	/**
+	 * To get all prods sent to a friend
+	 * @param userId the user who sent the prods
+	 * @param friendId the user who received the prods
+	 * @return list of prods the user sent to receiver user
+	 */
+	List<Prod> extractProdsSentToAFriend(int userId, int friendId);
+	
+	/**
+	 * To get all the prods received from a user
+	 * @param userId the user who received the prod
+	 * @param friendId the user who sent the prod
+	 * @return
+	 */
+	List<Prod> extractProdsReceivedFromAFriend(int userId, int friendId);
 }
 
