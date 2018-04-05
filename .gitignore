@@ -11,8 +11,7 @@ local.properties
 .loadpath
 .recommenders
 .DS_Store
-
-
+.log
 
 # External tool builders
 .externalToolBuilders/
@@ -26,7 +25,7 @@ local.properties
 # CDT-specific (C/C++ Development Tooling)
 .cproject
 
-# CDT- autotools 
+# CDT- autotools
 .autotools
 
 # Java annotation processor (APT)
