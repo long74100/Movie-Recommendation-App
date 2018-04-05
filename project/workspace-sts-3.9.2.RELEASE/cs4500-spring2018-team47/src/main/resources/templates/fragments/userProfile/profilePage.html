@@ -1,7 +1,10 @@
 <!Doctype html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+	<link rel="stylesheet" href="../css/profile.css">	
 <head>
-	<noscript th:replace="fragments/quickAddCSSJS :: quickAddCSSJS"></noscript>	
+<noscript th:replace="fragments/quickAddCSSJS :: quickAddCSSJS"></noscript>
+
 </head>
 
 <body>
@@ -9,61 +12,46 @@
 	<div th:fragment="profilePage">
 		<div style="margin-left: 200px">
 			<div th:switch="${profileUser}">
-					<div th:case="null">
-						Current User!
-					</div>
-					<div th:case="*">
-						<h1 th:text="${profileUser.username}"></h1>
-						
-						<div th:if="${user != null}">
-							<form th:action="@{/view/{username}(username=${profileUser.username})}" method="POST">
-									 <button class="btn btn-primary" type="submit" name="addFriend" value="Add Friend">Add Friend</button>
-							</form>
-						</div>
-				
+				<div th:case="null">Current User!</div>
+				<div th:case="*">
+					<h1 th:text="${profileUser.username}"></h1>
+
+					<div th:if="${user != null}">
+						<form
+							th:action="@{/view/{username}(username=${profileUser.username})}"
+							method="POST">
+							<button class="btn btn-primary" type="submit" name="addFriend"
+								value="Add Friend">Add Friend</button>
+						</form>
 					</div>
 
 				</div>
-			<div class="container mt-3 wishList">
-			<h2>Your Wish list</h2>
-			<div class="rec row">
-				<div class="col-md-2">
-					<a th:href="@{/login}"> <img
-						src="https://i.pinimg.com/736x/fd/5e/66/fd5e662dce1a3a8cd192a5952fa64f02--classic-poster-classic-movies-posters.jpg"
-						style="width: 12vmax; height: 18vmax; padding: 5px;">
-						<div class="mx-	auto">Title1</div>
-					</a>
-				</div>
 
-				<div class="col-md-2">
-					<a th:href="@{/login}"> <img
-						src="http://www.joblo.com/posters/images/full/Spiderman-poster-7-large.jpg"
-						style="width: 12vmax; height: 18vmax; padding: 5px;">
-						<p class="mx-auto">Title2</p>
-					</a>
-				</div>
-				<div class="col-md-2">
-					<a th:href="@{/login}"> <img
-						src="http://img.moviepostershop.com/ghostbusters-movie-poster-2016-1020775586.jpg"
-						style="width: 12vmax; height: 18vmax; padding: 5px;">
-						<div class="mx-auto">Title3</div>
-					</a>
-				</div>
-				<div class="col-md-2 row-md-5">
-					<a th:href="@{/login}"> <img
-						src="https://cdn.trendhunterstatic.com/thumbs/movie-poster-art.jpeg"
-						style="width: 12vmax; height: 18vmax; padding: 5px;">
-						<div class="mx-auto">Title4</div>
-					</a>
-				</div>
 			</div>
-			<hr class="bg-danger p-2">
-		</div>
-		<div class="container mt-3 wishList">
-			<h2>Your Feed</h2>
+			<div class="container mt-3 wishList">
+				<h2>Favorites</h2>
+				<div class="rec row">
+					<div th:each="movie : ${favorites}">
+						<a th:href="@{/movie/{id}(id=${movie.theMovieDbID})}">
+							<div class="col-md-2">
+								<img th:src="${movie.poster}"></img>
+								<div th:text="${movie.title}"> </div>
+								
+							</div>
+						</a>
+					</div>
+					<!-- else no users are found  -->
+					<div th:unless="${not #lists.isEmpty(favorites)}">
+						<div>No favorites have been  added.</div>
+					</div>
+				</div>
+				<hr class="bg-danger p-2">
+			</div>
+			<div class="container mt-3 wishList">
+				<h2>Your Feed</h2>
 				<div>Your reviews and ratings here</div>
-			<hr class="bg-danger p-2">
-		</div>
+				<hr class="bg-danger p-2">
+			</div>
 		</div>
 	</div>
 

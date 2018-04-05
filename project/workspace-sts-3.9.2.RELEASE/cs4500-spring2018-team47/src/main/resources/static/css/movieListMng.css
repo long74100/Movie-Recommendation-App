@@ -1,3 +1,12 @@
+ html {
+    overflow: scroll;
+    overflow-x: hidden;
+}
+::-webkit-scrollbar {
+    width: 0px;  /* remove scrollbar space */
+    background: transparent;  /* optional: just make scrollbar invisible */
+}
+ 
  .movieListContainer {
         margin-left: 250px;
         height: 100%;
@@ -6,6 +15,87 @@
         overflow-x: hidden;
         clear: both;
     }
+    
+    .movielistItem {
+    	border: solid;
+    	border-width: thin;
+    	border-color: #1b1e21;
+    	margin-bottom: 8px;
+    	border-radius: 15px;
+    	background: #1b1e21;
+    	cursor: pointer;
+    	overflow:hidden;
+    }
+    
+    .movielistItem:hover {
+    	border-color: oldlace;
+    	border-width: 1.5px;
+    }
+    
+    
+    .movieRepoList {
+    	overflow:auto;
+    	list-style-type: none;
+    	height:580px;
+    }
+    .repo {
+    	width: 200px; 
+    	float: left;
+    	color: oldlace;
+    	margin-top: 5px;
+    	font-weight: bold;
+        margin-bottom: 5px;
+        margin-right: 1px;
+        margin-left: 1px;
+    }
+    
+    .clean-movielist {
+    	margin-left: 120px;
+    	border-radius: 4px;
+    	display: inline-block;
+    	border-width:thin;
+    	border-color: oldlace;
+    	background: oldlace;
+    	color: black;
+    	cursor: pointer;
+    }
+    
+    .delete-movielist {
+    	border-radius: 4px;
+    	display: inline-block;
+    	border-width: thin;
+    	border-color: #dc3545!important;
+    	background: #dc3545!important;
+    	color: white;
+    	cursor: pointer;
+    	padding-right: 3px;
+    	padding-left: 2px;
+    }
+    
+   .movielist-operator {
+   		display: none;
+   		background: black;
+		width: 100px;
+		height:50px;
+		color: white;
+    	position: absolute;
+    	margin-top: 0px;
+    	top:0px;
+  		z-index: 10;
+  		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+   }
+   
+   .movielist-operator li {
+   		color: white;
+   		background: black;
+   }
+   
+   .movielist-operator li:hover {
+   		cursor: pointer;
+   		color: black;
+   		background: wheat;
+   }
+    
 
     .MovieListContent {
         margin-top: 55px;
@@ -19,15 +109,16 @@
    
 
     .movieListNameTitleBar {
-        background: wheat;
+        background: black;
         margin-left:469px;
-        color: black;
+        color: white;
         height: 50px;
         width:800px;
         text-align: center;
         margin-bottom: 0px;
         border-style: solid;
       	border-width: thin;
+      	border-radius: 10px;
         position: fixed;
         clear: both;
         z-index: 1;
@@ -52,30 +143,33 @@
         position: fixed;
         margin-top: 0px;
         height: 100%;
-        margin-left: 230px;
-        background: black;
+        margin-left: 210px;
+        background: white;
         color: wheat;
         width: 240px;
     }
 
     .createBtn {
-        background: tomato;
-        width: 53px;
-        color: black;
-        text-align: left;
+    	size: 53px;
+        padding: 20px;
+        text-align: center;
         margin-left: 0px;
-        font-size: 12px;
-        border: solid;
+        font-size: 16px;
+        display: inline-block;
         cursor: pointer;
-        border-color: burlywood;
+        border-color: black;
+        border-width: thin;
+        background-color: white;
+        border-radius: 4px;
+        padding: 2px;
+    	color: black;
     }
 
 
     .createBtn:hover {
         background: black;
-        border: solid;
         color:white;
-        border-color: tomato;
+        font-weight: bold;
     }
 
     .movieRepoName {
@@ -87,21 +181,6 @@
     }
 
     .movieRepoName:hover {
-        background: wheat;
-        color:black;
-        font-size: 20px;
-    }
-    
-    .movieRepoList p {
-    	margin-top: 5px;
-        margin-bottom: 5px;
-        margin-right: 1px;
-        margin-left: 1px;
-        cursor: pointer;
-    }
-    
-    .movieRepoList p:hover {
-    	background: wheat;
         color:black;
         font-size: 20px;
     }

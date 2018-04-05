@@ -1,114 +1,115 @@
- .menuHolder {
-        height: 100%;
-        width: 180px;
-        overflow: hidden;
-        float: left;
-        position: fixed;
-        margin-top: 0px;
-    }
+.menuHolder {
+	height: 100%;
+	width: 180px;
+	overflow: hidden;
+	float: left;
+	position: fixed;
+	margin-top: 0px;
+}
 
-    .headset {
-        background-color: black; 
-        margin-left: 0px;
-        width: 180px;
-    }
+.headset {
+	background-color: black;
+	margin-left: 0px;
+	width: 180px;
+}
 
-    .subcontent {
-        margin-left: 180px;
-        margin-top: 50px;
-        width:80%;
-        height:80%;
-    }
-    
+.subcontent {
+	margin-left: 180px;
+	margin-top: 50px;
+	width: 80%;
+	height: 80%;
+}
 
-    .headPortrait {
-        margin-left: 0px;
-        width: 96.4%;
-        height:140px;
-        margin-bottom: 0px;
-        border:3px solid #e31b78;
-    }
+.headPortrait {
+	margin-left: 0px;
+	width: 96.4%;
+	height: 140px;
+	margin-bottom: 0px;
+	border: 3px solid #e31b78;
+}
 
-    .leftMenu {
-        list-style-type: none;
-        padding: 0;
-        background-color: black;
-        /* opacity: 0.85; */
-        margin-left: 0px;
-        margin-top: 0px;
-        width: 180px;
-        height: 100%;
-    }
+.leftMenu {
+	list-style-type: none;
+	padding: 0;
+	background-color: black;
+	/* opacity: 0.85; */
+	margin-left: 0px;
+	margin-top: 0px;
+	width: 180px;
+	height: 100%;
+}
 
-    .leftMenu p.useful {
-    	font-size: 15px;
-       /*padding: 0px 0px 0px 0px;*/
-       	padding: 7px 10px;
-    	color: #e31b78;
-    	margin-bottom: 5px;
-    	cursor: pointer;
-        text-align: center;
-        overflow: hidden;
-        background: linear-gradient(to right, #e31b78 50%, black 50%);
-        background-size: 200% 100%;
-        background-position: right bottom;
-        transition: all 0.25s ease;
-    }
-    
-    .former {
-    	width:180px;
-    	height:40px;
-    	margin-bottom: 10px;
-    }
-    
-    
-    .leftMenu p:focus {
-    	color: black;
-    	background-color: black;
-    	text-align:top;
-    }
-    
-    .profileOptBtn {
-    	font-size: 15px;
-    	background-color: Transparent;
-    	border: none;
-    	outline: none;
-    	cursor: pointer;
-    	padding-top: 9px;
-    	padding-bottom: 9px;
-    	color: #e31b78;
-    	text-align: center;
-    	width: 180px;
-    }
-    
-    .profileOptBtn:hover {
-    	color: black;
-        font-weight: bold;
-    }
+.leftMenu p.useful {
+	font-size: 15px;
+	/*padding: 0px 0px 0px 0px;*/
+	padding: 7px 10px;
+	color: #e31b78;
+	margin-bottom: 5px;
+	cursor: pointer;
+	text-align: center;
+	overflow: hidden;
+	background: linear-gradient(to right, #e31b78 50%, black 50%);
+	background-size: 200% 100%;
+	background-position: right bottom;
+	transition: all 0.25s ease;
+}
 
+.former {
+	width: 180px;
+	height: 40px;
+	margin-bottom: 10px;
+}
 
+.leftMenu p:focus {
+	color: black;
+	background-color: black;
+	text-align: top;
+}
 
-    .leftMenu p {
-        text-decoration: none;
-    	font-size: 17px;
-    	color: black;
-    	display: block;
-        text-align: center;
-        margin: 0px;
-        overflow: hidden;
-        height:40px;
-    }
+.profileOptBtn {
+	font-size: 15px;
+	background-color: Transparent;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	padding-top: 9px;
+	padding-bottom: 9px;
+	color: #e31b78;
+	text-align: center;
+	width: 180px;
+}
 
+.profileOptBtn:hover {
+	color: black;
+	font-weight: bold;
+}
 
+.leftMenu p {
+	text-decoration: none;
+	font-size: 17px;
+	color: black;
+	display: block;
+	text-align: center;
+	margin: 0px;
+	overflow: hidden;
+	height: 40px;
+}
 
-    .leftMenu p.useful:hover {
-        background-size: 300% 100%;
-        color: black;
-        font-weight: bold;
-        background-position: left bottom;
-    }
+.leftMenu p.useful:hover {
+	background-size: 300% 100%;
+	color: black;
+	font-weight: bold;
+	background-position: left bottom;
+}
 
-    .leftMenu padding:focus {
-        background: red;
+/** Images **/
+img {
+	transition: all .2s ease-in-out;
+}
+.rec  div:hover {
+	transform: scale(1.05);
+}
 
-    }
+.leftMenu padding:focus {
+	background: red;
+}

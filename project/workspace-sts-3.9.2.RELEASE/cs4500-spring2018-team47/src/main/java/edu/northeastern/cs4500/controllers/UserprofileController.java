@@ -23,7 +23,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 import edu.northeastern.cs4500.model.movie.Movie;
 import edu.northeastern.cs4500.model.movie.MovieReview;
-import edu.northeastern.cs4500.model.services.LocalSQLConnectService;
+import edu.northeastern.cs4500.model.services.ILocalSQLConnectService;
+import edu.northeastern.cs4500.model.services.LocalSQLConnectServiceImpl;
 import edu.northeastern.cs4500.model.services.UserService;
 import edu.northeastern.cs4500.model.user.User;
 import edu.northeastern.cs4500.model.user.UserProfile;
@@ -33,6 +34,7 @@ public class UserprofileController {
 	
 	@Autowired
     private UserService userService;
+	private ILocalSQLConnectService sqlConnector = new LocalSQLConnectServiceImpl();
 	
 	/**
 	 * This is to return the profile page
@@ -43,8 +45,21 @@ public class UserprofileController {
 		ModelAndView modelAndView = new ModelAndView();
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		User user = userService.findUserByEmail(auth.getName());
+		
+		List<Movie> favorites = sqlConnector.getMovieFromUserMovieList(user.getId(), "Favorites");
+		modelAndView.addObject("favorites", favorites);
 		modelAndView.addObject("user", user);
 		modelAndView.setViewName("userProfile");
+		return modelAndView;
+	}
+	
+	@RequestMapping(value={"/prodRepo"}, method = RequestMethod.GET) 
+	public ModelAndView getProdList() {
+		ModelAndView modelAndView = new ModelAndView();
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		User user = userService.findUserByEmail(auth.getName());
+		modelAndView.addObject("user", user);
+		modelAndView.setViewName("prods");
 		return modelAndView;
 	}
 	
@@ -54,7 +69,6 @@ public class UserprofileController {
 	 */
 	@RequestMapping(value={"/profile+to+movielist"}, method = RequestMethod.GET)
 	public ModelAndView getMovieList() {
-		LocalSQLConnectService sqlConnector = new LocalSQLConnectService();
 		ModelAndView modelAndView = new ModelAndView();
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		User user = userService.findUserByEmail(auth.getName());
@@ -62,7 +76,6 @@ public class UserprofileController {
 		List<String> movieListNames = sqlConnector.getMovieListForUser(user.getId());
 		modelAndView.addObject("usermovielist", movieListNames);
 		modelAndView.addObject("currentMovies", new ArrayList<Movie>());
-//		modelAndView.addObject("newListName", "");
 		modelAndView.setViewName("movielist");
 		return modelAndView;
 	}
@@ -76,6 +89,8 @@ public class UserprofileController {
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		User user = userService.findUserByEmail(auth.getName());
 		User profileUser = userService.findUserByUsername(username);
+		List<Movie> favorites = sqlConnector.getMovieFromUserMovieList(profileUser.getId(), "Favorites");
+		modelAndView.addObject("favorites", favorites);
 		modelAndView.addObject("profileUser", profileUser);
 		modelAndView.addObject("user", user);
 		modelAndView.setViewName("fragments/userProfile/profilePage");
@@ -89,9 +104,7 @@ public class UserprofileController {
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		User user = userService.findUserByEmail(auth.getName());
 		User receiverUser = userService.findUserByUsername(username);
-		
-		LocalSQLConnectService localSQLConnectService = new LocalSQLConnectService();
-		localSQLConnectService.sendFriendRequest(user.getId(), receiverUser.getId());
+		sqlConnector.sendFriendRequest(user.getId(), receiverUser.getId());
 		User profileUser = userService.findUserByUsername(username);
 		
 		modelAndView.addObject("user", user);
@@ -104,13 +117,13 @@ public class UserprofileController {
 	@RequestMapping(value={"/profile+to+movielist+{listName}"}, method = RequestMethod.GET)
 	public ModelAndView getMovieItems(@PathVariable String listName) {
 		ModelAndView modelAndView = new ModelAndView();
-		LocalSQLConnectService sqlConnector = new LocalSQLConnectService();
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		User user = userService.findUserByEmail(auth.getName());
 		modelAndView.addObject("user", user);
 		List<String> movieListNames = sqlConnector.getMovieListForUser(user.getId());
 		ArrayList<Movie> movies = sqlConnector.getMovieFromUserMovieList(user.getId(), listName);
 		modelAndView.addObject("usermovielist", movieListNames);
+		modelAndView.addObject("currentMovielist", listName);
 		modelAndView.addObject("currentMovies", movies);
 		modelAndView.setViewName("listMoviesItem");
 		return modelAndView;
@@ -124,8 +137,6 @@ public class UserprofileController {
 		ModelAndView modelAndView = new ModelAndView();
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		User user = userService.findUserByEmail(auth.getName());
-		
-		LocalSQLConnectService sqlConnector = new LocalSQLConnectService();
 		List<User> friends = sqlConnector.getAllFriends(user.getId());
 		List<User> receivedRequest = sqlConnector.getAllReceivedFriendRequest(user.getId());
 		List<User> sentRequest = sqlConnector.getAllSentFriendRequest(user.getId());
@@ -143,9 +154,51 @@ public class UserprofileController {
     public void acceptFriendRequest(HttpServletRequest httpServletRequest) {
     	Authentication auth = SecurityContextHolder.getContext().getAuthentication();
     	User user = userService.findUserByEmail(auth.getName());
-    	LocalSQLConnectService db = new LocalSQLConnectService();
-    	db.acceptRequest(Integer.valueOf(httpServletRequest.getParameter("senderID")), user.getId());
+    	sqlConnector.acceptRequest(Integer.valueOf(httpServletRequest.getParameter("senderID")), user.getId());
     }
 	
 	
+	@RequestMapping(value= "/createMovieList", method=RequestMethod.POST)
+	@ResponseStatus(value = HttpStatus.OK)
+	public void createNewMovieList(@RequestBody String listName, HttpServletRequest httpservletRequest) {
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+    	User user = userService.findUserByEmail(auth.getName());
+    	Integer userId = user.getId();
+    	String newListName = httpservletRequest.getParameter("listName");
+    	sqlConnector.createMovieList(userId, newListName);
+	}
+	
+	
+	@RequestMapping(value="/deleteMovie", method=RequestMethod.POST)
+	@ResponseStatus(value= HttpStatus.OK)
+	public void deleteMovieFromMovieList(@RequestBody String movieAndList, HttpServletRequest httpserveletRequest) {
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+    	User user = userService.findUserByEmail(auth.getName());
+    	Integer userId = user.getId();
+    	String movieList = httpserveletRequest.getParameter("listName");
+    	String movieId = httpserveletRequest.getParameter("movieId");
+    	sqlConnector.deleteMovieFromUserMovieList(userId, movieList, movieId);
+	}
+	
+
+	@RequestMapping(value="/deleteList", method=RequestMethod.POST)
+	@ResponseStatus(value= HttpStatus.OK)
+	public void deleteMovieList(@RequestBody String movieList, HttpServletRequest httpserveletRequest) {
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+    	User user = userService.findUserByEmail(auth.getName());
+    	Integer userId = user.getId();
+    	String movieListName = httpserveletRequest.getParameter("listName");
+    	sqlConnector.deleteMovieList(userId, movieListName);
+	}
+	
+	
+	@RequestMapping(value="/cleanList", method=RequestMethod.POST)
+	@ResponseStatus(value= HttpStatus.OK)
+	public void cleanMovieList(@RequestBody String movieList, HttpServletRequest httpserveletRequest) {
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+    	User user = userService.findUserByEmail(auth.getName());
+    	Integer userId = user.getId();
+    	String movieListName = httpserveletRequest.getParameter("listName");
+    	sqlConnector.cleanMovieList(userId, movieListName);
+	}
 }

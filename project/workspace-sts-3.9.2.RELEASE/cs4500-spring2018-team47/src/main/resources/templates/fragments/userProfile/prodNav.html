@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<noscript th:replace="fragments/quickAddCSSJS :: quickAddCSSJS"></noscript>
+	
+</head>
+<body>
+	<div th:fragment="prodNavBar">
+		<div th:replace="fragments/userProfile/profileMenu :: userProfileMenu"></div>
+			<div class="prodlist-menu" id="prodlist-menu">
+				<span>
+					<p class="receiving">Received from friends</p> |
+					<p class="proding">Prod to friends</p>
+				</span>
+			</div>
+	</div>
+
+
+
+</body>
+</html>
