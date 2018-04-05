@@ -1,8 +1,10 @@
 <!Doctype html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:th="http://www.thymeleaf.org">
+	<link rel="stylesheet" href="../css/profile.css">	
 <head>
 <noscript th:replace="fragments/quickAddCSSJS :: quickAddCSSJS"></noscript>
+
 </head>
 
 <body>
@@ -30,10 +32,10 @@
 				<h2>Favorites</h2>
 				<div class="rec row">
 					<div th:each="movie : ${favorites}">
-						<a th:href="@{/movie/{title}(title=${movie.title})}">
+						<a th:href="@{/movie/{id}(id=${movie.theMovieDbID})}">
 							<div class="col-md-2">
-								<div th:src="${movie.poster}"></div>
-								<div th:text="${movie.title}"></div>
+								<img th:src="${movie.poster}"></img>
+								<div th:text="${movie.title}"> </div>
 								
 							</div>
 						</a>
