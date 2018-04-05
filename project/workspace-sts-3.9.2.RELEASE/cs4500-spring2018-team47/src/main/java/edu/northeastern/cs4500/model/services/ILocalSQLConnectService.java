@@ -345,7 +345,7 @@ public interface ILocalSQLConnectService {
 	 *            the user's id
 	 * @return the list of movie
 	 */
-	List<MovieReview> getReviewForUser(String userId);
+	List<MovieReview> getReviewForUser(int userId);
 
 	/**
 	 * To delete the movie list also delete all the stored movies records
