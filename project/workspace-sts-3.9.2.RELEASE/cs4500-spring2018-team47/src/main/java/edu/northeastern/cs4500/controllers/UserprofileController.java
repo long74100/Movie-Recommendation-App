@@ -23,7 +23,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 import edu.northeastern.cs4500.model.movie.Movie;
 import edu.northeastern.cs4500.model.movie.MovieReview;
-import edu.northeastern.cs4500.model.services.LocalSQLConnectService;
+import edu.northeastern.cs4500.model.services.ILocalSQLConnectService;
+import edu.northeastern.cs4500.model.services.LocalSQLConnectServiceImpl;
 import edu.northeastern.cs4500.model.services.UserService;
 import edu.northeastern.cs4500.model.user.User;
 import edu.northeastern.cs4500.model.user.UserProfile;
@@ -33,7 +34,7 @@ public class UserprofileController {
 	
 	@Autowired
     private UserService userService;
-	private LocalSQLConnectService sqlConnector = new LocalSQLConnectService();
+	private ILocalSQLConnectService sqlConnector = new LocalSQLConnectServiceImpl();
 	
 	/**
 	 * This is to return the profile page
@@ -49,6 +50,16 @@ public class UserprofileController {
 		modelAndView.addObject("favorites", favorites);
 		modelAndView.addObject("user", user);
 		modelAndView.setViewName("userProfile");
+		return modelAndView;
+	}
+	
+	@RequestMapping(value={"/prodRepo"}, method = RequestMethod.GET) 
+	public ModelAndView getProdList() {
+		ModelAndView modelAndView = new ModelAndView();
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		User user = userService.findUserByEmail(auth.getName());
+		modelAndView.addObject("user", user);
+		modelAndView.setViewName("prods");
 		return modelAndView;
 	}
 	

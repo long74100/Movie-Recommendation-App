@@ -6,11 +6,14 @@
 	width: 200px;
 	height: 260px;
 	margin-top: 0px;
+	border-radius: 8px;
+	margin-left: 2px;
+	margin-top: 2px;
 	float: left;
 }
 
 .movie-items-except-poster {
-	width: 600px;
+	width: 580px;
 	margin-left: 210px;
 	margin-right: 0px;
 	height: 265px;
@@ -21,41 +24,45 @@
     padding: 20px;
     text-align: center;
     margin-left: 10px;
+    margin-top: 5px;
+    margin-right: 5px;
+    width: 90px;
     font-size: 16px;
     display: inline-block;
     cursor: pointer;
     border-color: black;
     border-width: thin;
-    background-color: black;
+    background-color: oldlace;
     border-radius: 4px;
     padding: 2px;
-  	color: white;
+  	color: black;
 }
 
 .delete-movie-btn:hover {
-	color: black;
-	background-color: red;
+	color: white;
+	background-color: #dc3545!important;
 }
 
 .prod-movie {
-	size: 53px;
+	width: 90px;
     text-align: center;
-    margin-left: 480px;
-    margin-top: 50px;
+    margin-left: 5px;
+    margin-top: 5px;
+    float:left;
     font-size: 16px;
     display: inline-block;
     cursor: pointer;
     border-color: black;
     border-width: thin;
-    background-color: black;
+    background-color: oldlace;
     border-radius: 4px;
     padding: 2px;
-  	color: white;
+  	color: black;
 }
 
 .prod-movie:hover {
-	color: black;;
-	background-color: green;
+	color: oldlace;
+	background-color: #4dd0e1;
 }
 
 .movielist-dropdown-menu {
@@ -84,6 +91,10 @@
 }
 
 
+.poster-and-btn {
+	height: 300px;
+	width: 200px;	
+}
 
 .movieItems {
 	margin-left:270px;
@@ -91,15 +102,17 @@
 }
 
 .movieItemAttr {
-    background: gainsboro;
+    background: #1b1e21;
     border-bottom-style: solid;
     border-bottom-width: thin;
-    width:800px;
+    width:799px;
+    height:300px;
+    border-radius: 10px;
+    color:white;
 }
 
 .movieItemAttr:hover {
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    background: wheat;
 }
 
 .movieItemAttr p {
@@ -115,21 +128,29 @@
 .movieItemAttr .itemTitle {
 	font-size: 20px;
 	font-weight: bold;
-	color: black;
+	color: wheat;
 }
 
 
 .movieItemAttr .itemTitle:hover {
-	color: red;
+	text-decoration: underline;
 }
+.movieItemAttr .itemReleased {
+	position: relative;
+	font-size: 12px;
+	color: oldlace;
+}
+
 
 .movieItemAttr .itemActors {
 	position: relative;
 	font-size: 12px;
+	color: oldlace;
 }
 
 .movieItemAttr .itemPlot {
 	position: relative;
 	font-size: 10px;
+	color: oldlace;
 }
 

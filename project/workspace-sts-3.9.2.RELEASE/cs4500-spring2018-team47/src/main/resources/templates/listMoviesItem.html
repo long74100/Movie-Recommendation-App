@@ -32,26 +32,32 @@
             	<div th:each="movie : ${currentMovies}" class="movieItemAttr" id="singleMovie">
             	<!--  th:oncontextmenu="'return showOpMenu(event);'"-->
             		<span>
-            			<img class="item-poster" th:src="${movie.poster}"/>
-            			<p id="singleMovieId" th:text="${movie.imdbID}" style="display: none"></p>
-            			<div id="movie-items-except-poster" class="movie-items-except-poster">
-            				<a th:href="@{/movie/{title}(title=${movie.title})}">
-            					<p class="itemTitle" th:text="${movie.title}"></p>
-            				</a>
-            				<span>Actors: <p class="itemActors" th:text="${movie.actors}"></p></span>
-            				<span>Plot: <p class="itemPlot" th:text="${movie.plot}"></p></span>
+            			<div class="poster-and-btn" id="poster-and-btn" style="height:300px; width:200px; float:left;">
+            				<img class="item-poster" th:src="${movie.poster}"/>
             				<button id="prod-movie" class="prod-movie" type="submit">Prod</button>
-            				<!-- th:onclick="'addFriend(\''+${user.id}+'\','+this+');'" -->
             				<button type="submit" th:onclick="'deleteMovie(\''+${movie.imdbID}+'\','+this+')'" 
             					class="delete-movie-btn" id="delete-movie-btn">Delete
             				</button>
+            			</div>
+            			
+            			<p id="singleMovieId" th:text="${movie.imdbID}" style="display: none"></p>
+            			<div id="movie-items-except-poster" class="movie-items-except-poster">
+            				<!-- <a th:href="@{/movie/{title}(title=${movie.title})}">
+            					<p class="itemTitle" th:text="${movie.title}"></p>
+            					</a> -->
+            				<a th:href="@{/movie/{id}(id=${movie.theMovieDbID})}">
+            					<p class="itemTitle" th:text="${movie.title}"></p>
+            				</a>
+            				<span>Released: <p class="itemReleased" th:text="${movie.released}"></p></span>
+            				<span>Actors: <p class="itemActors" th:text="${movie.actors}"></p></span>
+            				<span>Plot: <p class="itemPlot" th:text="${movie.plot}"></p></span>
             		</div>
             		</span>
             	</div>
     		</div>
     		<div th:unless="${not #lists.isEmpty(currentMovies)}" class="movieItems">
 				<div class="emptyMessage">
-				Your list is empty. Add some movie into it.
+				Your list is empty. Let's add some movies.
 				</div>
 			</div>
    		</ul>

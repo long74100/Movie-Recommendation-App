@@ -10,9 +10,11 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.json.JSONObject;
 
 import edu.northeastern.cs4500.model.movie.MovieReview;
 
@@ -27,7 +29,7 @@ import edu.northeastern.cs4500.model.user.User;
  * 
  * @author lgj81
  */
-public class LocalSQLConnectService {
+public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 	// the local database URL
 	private static String url = "jdbc:mysql://team-47-dev-db.cllrg7hgpqkh.us-east-2.rds.amazonaws.com/"
 			+ "cs4500_spring2018_team47_dev";
@@ -44,13 +46,13 @@ public class LocalSQLConnectService {
 	private static Statement connectStatement = null;
 	private static ResultSet myResult = null;
 	private ArrayList<String> movie = new ArrayList<>();
-	private static final Logger logger = LogManager.getLogger(LocalSQLConnectService.class);
+	private static final Logger logger = LogManager.getLogger(LocalSQLConnectServiceImpl.class);
 	
 	/**
 	 * The constructor
 	 * The constructor will automatically create connection to local database
 	 */
-	public LocalSQLConnectService() {
+	public LocalSQLConnectServiceImpl() {
 		try {
 			connector = DriverManager.getConnection(url, username, password);
 			connectStatement = connector.createStatement();
@@ -108,6 +110,58 @@ public class LocalSQLConnectService {
 		logger.error(ep.getMessage());
     	}
     	return false;
+    }
+    
+    /**
+     * Store movie into local db when user search and click to view the movie profile
+     * @param movieObject the object containing all movie information
+     */
+    @Override
+    public void loadMovieIntoLocalDB(Map<String, String> movieObject) {
+    	System.out.println("Start loading movie....");
+    	try {
+    		String sqlcmd = "insert into Movie values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"; 
+        	String movie_id = movieObject.get("imdbID");
+        	String movie_name = movieObject.get("title");
+        	String genre = movieObject.get("genre");
+        	String plot = movieObject.get("plot");
+        	String actors = movieObject.get("actors");
+        	String directors = movieObject.get("director");
+        	String released = movieObject.get("released");
+        	String runtime = movieObject.get("runtime");
+        	String country = movieObject.get("country");
+        	String imdbRating = movieObject.get("imdbRating");
+        	String poster = movieObject.get("poster");
+        	String language = movieObject.get("language");
+        	String movieDBid = movieObject.get("movieDBid");
+        	PreparedStatement pstmt = null;
+        	
+        	try {
+        		pstmt = connector.prepareStatement(sqlcmd);
+        		pstmt.setString(1, movie_id);
+        		pstmt.setString(2, movie_name);
+        		pstmt.setString(3, runtime);
+        		pstmt.setString(4, released);
+        		pstmt.setString(5, genre);
+        		pstmt.setString(6, directors);
+        		pstmt.setString(7, actors);
+        		pstmt.setString(8, plot);
+        		pstmt.setString(9, language);
+        		pstmt.setString(10, country);
+        		pstmt.setString(11, poster);
+        		pstmt.setString(12, imdbRating);
+        		pstmt.setString(13, movieDBid);
+        		pstmt.executeUpdate();
+        		System.out.println("loading movie finished");
+        	}
+        	catch(SQLException sq) {
+        		logger.error(sq.getMessage());
+        	}
+    	}
+    	catch(Exception ep) {
+    		logger.error(ep.getMessage());
+    	}
+    	
     }
     
     /**
@@ -267,9 +321,7 @@ public class LocalSQLConnectService {
     public void searchByKeyWordInOne(String keyword) {
     	String sqlcmd = "select * from Movie where movie_id like \"%\"?\"%\""
 				+ " or movie_name like \"%\"?\"%\"" 
-				+ " or movie_rated like \"%\"?\"%\""
-				+ " or runtime like \"%\"?\"%\""  
-				+ " or movie_year like \"%\"?\"%\""
+				+ " or runtime like \"%\"?\"%\""
 				+ " or release_date like \"%\"?\"%\"" 
 				+ " or genre like \"%\"?\"%\""
 				+ " or director like \"%\"?\"%\""
@@ -277,10 +329,7 @@ public class LocalSQLConnectService {
 				+ " or plot like \"%\"?\"%\""
 				+ " or movie_language like \"%\"?\"%\""
 				+ " or country like \"%\"?\"%\""
-				+ " or metascore like \"%\"?\"%\""
-				+ " or imdbRating like \"%\"?\"%\""
-				+ " or ratings like \"%\"?\"%\""
-				+ " or production like \"%\"?\"%\"";
+				+ " or imdbRating like \"%\"?\"%\"";
     	PreparedStatement pstmt = null;
     	try {
     		pstmt = connector.prepareStatement(sqlcmd);
@@ -316,7 +365,6 @@ public class LocalSQLConnectService {
     		while(myResult.next()) {
     			String movieId = myResult.getString("movie_id");
     			String movieName = myResult.getString("movie_name");
-    			String movieRated = myResult.getString("movie_rated");
     			String runtime = myResult.getString("runtime");
     			String genre = myResult.getString("genre");
     			String released_date = myResult.getString("released_date");
@@ -327,27 +375,17 @@ public class LocalSQLConnectService {
     			String country = myResult.getString("country");
     			String poster = myResult.getString("poster");
     			String imdbRating = myResult.getString("imdbRating");
-    			String ratings = myResult.getString("ratings");
     			StringBuilder output = new StringBuilder();
-    			output.append(movieId + "| " + movieName + "| " + movieRated + "| " 
+    			output.append(movieId + "| " + movieName + "| " 
     					+ runtime + "| " + genre + "| " + released_date + "| " + director + "| " + 
     					actors + "| " + plot + "| " + language + "| " + country + "| " + poster + "| "
-    					+ imdbRating + "| " + ratings);
+    					+ imdbRating);
     			movie.add(output.toString());
     		}
     	}
     	catch(Exception e) {
 		logger.error(e.getMessage());
     	}
-    }
-    
-    
-    /**
-     * To return the search result from local database
-     * @return list of movies relevant to the search keyword.
-     */
-    public ArrayList<String> getSearchMovieResult() {
-    	return this.movie;
     }
     
     
@@ -566,7 +604,7 @@ public class LocalSQLConnectService {
      */
     public ArrayList<Movie> getMovieFromUserMovieList(int userId, String listname) {
     	ArrayList<Movie> result = new ArrayList<>();
-    	String sqlcmd = "select Movie.movie_id, Movie.movie_name, Movie.plot, Movie.actor, Movie.poster from Movie join " + 
+    	String sqlcmd = "select Movie.movie_id, Movie.movie_name, Movie.released_date, Movie.plot, Movie.actor, Movie.poster, Movie.movieDBid from Movie join " + 
 				"(select movie_id from UserMovieList where user_id = ? and list_name = ?) as comp on comp.movie_id = Movie.movie_id";
     	PreparedStatement pstmt = null;
     	try {
@@ -581,11 +619,15 @@ public class LocalSQLConnectService {
     			String movieActor = myResult.getString("actor");
     			String moviePlot = myResult.getString("plot");
     			String moviePoster = myResult.getString("poster");
+    			String movieDBId = myResult.getString("movieDBid");
+    			String release = myResult.getString("released_date");
     			element.setImdbID(movieId);
     			element.setTitle(movieName);
     			element.setActors(movieActor);
     			element.setPlot(moviePlot);
     			element.setPoster(moviePoster);
+    			element.setTheMovieDbID(movieDBId);
+    			element.setReleased(release);
     			// add to final result.
     			result.add(element);
     		}
@@ -675,7 +717,7 @@ public class LocalSQLConnectService {
      */
     public String getUserRelation(int senderId, int receiverId) {
     	StringBuilder status = new StringBuilder();
-    	String sqlcmd = "select * from userRelation where senderId = ? and receiverId ?";
+    	String sqlcmd = "select * from userRelation where senderId = ? and receiverId = ?";
 	PreparedStatement pstmt = null;
     	try {
     		pstmt = connector.prepareStatement(sqlcmd);
@@ -741,7 +783,7 @@ public class LocalSQLConnectService {
         	myResult = pstmt.executeQuery();
     		while(myResult.next()) {
     			String friendUsername = myResult.getString("username");
-    			Integer friendUserId = myResult.getInt("senderId");
+    			Integer friendUserId = myResult.getInt("receiverId");
     			User friend = new User();
     			friend.setId(friendUserId);
     			friend.setUsername(friendUsername);;
@@ -844,7 +886,6 @@ public class LocalSQLConnectService {
     	ArrayList<User> output = new ArrayList<>();
     	output.addAll(this.getAllReceivedFriendRequest(userId));
     	output.addAll(this.getAllSentFriendRequest(userId));
-    	
     	return output;
     }
     
@@ -991,5 +1032,26 @@ public class LocalSQLConnectService {
     		sq.printStackTrace();
     	}
     }
+
+
+	@Override
+	public void loadMovieToLocalDB(JSONObject movieJSON) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void addMultiMovies(ArrayList<String> ids) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public ArrayList<String> getSearchMovieResult() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 }
