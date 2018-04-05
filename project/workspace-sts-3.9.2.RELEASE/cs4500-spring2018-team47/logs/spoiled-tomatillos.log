@@ -12997,3 +12997,107 @@ Caused by: org.thymeleaf.exceptions.TemplateInputException: Error resolving temp
 	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:901)
 	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:970)
 	... 26 more
+2018-04-04 22:52:48.746  INFO LAPTOP-JQGD3FG3 --- [  restartedMain] e.n.c.Cs4500Spring2018Team47Application  : Starting Cs4500Spring2018Team47Application on LAPTOP-JQGD3FG3 with PID 272 (started by lgj81 in C:\Users\lgj81\Desktop\NEU\Computer Science\CS4500 Software development\GuojingLi\team-47-spring18\project\workspace-sts-3.9.2.RELEASE\cs4500-spring2018-team47)
+2018-04-04 22:52:48.761 DEBUG LAPTOP-JQGD3FG3 --- [  restartedMain] e.n.c.Cs4500Spring2018Team47Application  : Running with Spring Boot v1.5.9.RELEASE, Spring v4.3.13.RELEASE
+2018-04-04 22:52:48.761  INFO LAPTOP-JQGD3FG3 --- [  restartedMain] e.n.c.Cs4500Spring2018Team47Application  : No active profile set, falling back to default profiles: default
+2018-04-04 22:52:49.372  INFO LAPTOP-JQGD3FG3 --- [  restartedMain] ationConfigEmbeddedWebApplicationContext : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@bbd36c4: startup date [Wed Apr 04 22:52:49 EDT 2018]; root of context hierarchy
+2018-04-04 22:52:49.431  INFO LAPTOP-JQGD3FG3 --- [kground-preinit] o.h.v.i.u.Version                        : HV000001: Hibernate Validator 5.3.6.Final
+2018-04-04 22:52:53.568  INFO LAPTOP-JQGD3FG3 --- [  restartedMain] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat initialized with port(s): 8080 (http)
+2018-04-04 22:52:53.623  INFO LAPTOP-JQGD3FG3 --- [  restartedMain] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2018-04-04 22:52:53.635  INFO LAPTOP-JQGD3FG3 --- [  restartedMain] o.a.c.c.StandardEngine                   : Starting Servlet Engine: Apache Tomcat/8.5.23
+2018-04-04 22:52:54.056  INFO LAPTOP-JQGD3FG3 --- [ost-startStop-1] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2018-04-04 22:52:54.057  INFO LAPTOP-JQGD3FG3 --- [ost-startStop-1] o.s.w.c.ContextLoader                    : Root WebApplicationContext: initialization completed in 4696 ms
+2018-04-04 22:52:54.330  INFO LAPTOP-JQGD3FG3 --- [ost-startStop-1] o.s.b.w.s.FilterRegistrationBean         : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-04-04 22:52:54.331  INFO LAPTOP-JQGD3FG3 --- [ost-startStop-1] o.s.b.w.s.FilterRegistrationBean         : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-04-04 22:52:54.331  INFO LAPTOP-JQGD3FG3 --- [ost-startStop-1] o.s.b.w.s.FilterRegistrationBean         : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-04-04 22:52:54.331  INFO LAPTOP-JQGD3FG3 --- [ost-startStop-1] o.s.b.w.s.FilterRegistrationBean         : Mapping filter: 'requestContextFilter' to: [/*]
+2018-04-04 22:52:54.333  INFO LAPTOP-JQGD3FG3 --- [ost-startStop-1] .s.DelegatingFilterProxyRegistrationBean : Mapping filter: 'springSecurityFilterChain' to: [/*]
+2018-04-04 22:52:54.333  INFO LAPTOP-JQGD3FG3 --- [ost-startStop-1] o.s.b.w.s.ServletRegistrationBean        : Mapping servlet: 'dispatcherServlet' to [/]
+2018-04-04 22:52:57.587  INFO LAPTOP-JQGD3FG3 --- [  restartedMain] j.LocalContainerEntityManagerFactoryBean : Building JPA container EntityManagerFactory for persistence unit 'default'
+2018-04-04 22:52:57.606  INFO LAPTOP-JQGD3FG3 --- [  restartedMain] o.h.j.i.u.LogHelper                      : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-04-04 22:52:57.685  INFO LAPTOP-JQGD3FG3 --- [  restartedMain] o.h.Version                              : HHH000412: Hibernate Core {5.0.12.Final}
+2018-04-04 22:52:57.687  INFO LAPTOP-JQGD3FG3 --- [  restartedMain] o.h.c.Environment                        : HHH000206: hibernate.properties not found
+2018-04-04 22:52:57.688  INFO LAPTOP-JQGD3FG3 --- [  restartedMain] o.h.c.Environment                        : HHH000021: Bytecode provider name : javassist
+2018-04-04 22:52:57.727  INFO LAPTOP-JQGD3FG3 --- [  restartedMain] o.h.a.c.Version                          : HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2018-04-04 22:52:57.854  INFO LAPTOP-JQGD3FG3 --- [  restartedMain] o.h.d.Dialect                            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2018-04-04 22:52:58.086  WARN LAPTOP-JQGD3FG3 --- [  restartedMain] o.h.b.i.SessionFactoryBuilderImpl        : Unrecognized hbm2ddl_auto value : none .  Supported values include create, create-drop, update, and validate.  Ignoring
+2018-04-04 22:52:58.964  INFO LAPTOP-JQGD3FG3 --- [  restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2018-04-04 22:53:00.997  INFO LAPTOP-JQGD3FG3 --- [  restartedMain] o.s.s.w.DefaultSecurityFilterChain       : Creating filter chain: Ant [pattern='/resources/**'], []
+2018-04-04 22:53:00.997  INFO LAPTOP-JQGD3FG3 --- [  restartedMain] o.s.s.w.DefaultSecurityFilterChain       : Creating filter chain: Ant [pattern='/static/**'], []
+2018-04-04 22:53:00.997  INFO LAPTOP-JQGD3FG3 --- [  restartedMain] o.s.s.w.DefaultSecurityFilterChain       : Creating filter chain: Ant [pattern='/css/**'], []
+2018-04-04 22:53:00.997  INFO LAPTOP-JQGD3FG3 --- [  restartedMain] o.s.s.w.DefaultSecurityFilterChain       : Creating filter chain: Ant [pattern='/js/**'], []
+2018-04-04 22:53:00.998  INFO LAPTOP-JQGD3FG3 --- [  restartedMain] o.s.s.w.DefaultSecurityFilterChain       : Creating filter chain: Ant [pattern='/images/**'], []
+2018-04-04 22:53:01.074  INFO LAPTOP-JQGD3FG3 --- [  restartedMain] o.s.s.w.DefaultSecurityFilterChain       : Creating filter chain: org.springframework.security.web.util.matcher.AnyRequestMatcher@1, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@181ef9a5, org.springframework.security.web.context.SecurityContextPersistenceFilter@2ee5a728, org.springframework.security.web.header.HeaderWriterFilter@31b46612, org.springframework.security.web.authentication.logout.LogoutFilter@e73687e, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@5f455efa, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@129aeb28, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2979acb8, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@45c1ae34, org.springframework.security.web.session.SessionManagementFilter@3cf38e55, org.springframework.security.web.access.ExceptionTranslationFilter@1927d551, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@d09f3b5]
+2018-04-04 22:53:01.388  INFO LAPTOP-JQGD3FG3 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@bbd36c4: startup date [Wed Apr 04 22:52:49 EDT 2018]; root of context hierarchy
+2018-04-04 22:53:01.471  INFO LAPTOP-JQGD3FG3 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/hello/insert]}" onto public edu.northeastern.cs4500.controllers.hello.HelloObject edu.northeastern.cs4500.controllers.hello.HelloController.insertHelloObject()
+2018-04-04 22:53:01.472  INFO LAPTOP-JQGD3FG3 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/hello/select/all]}" onto public java.util.List<edu.northeastern.cs4500.controllers.hello.HelloObject> edu.northeastern.cs4500.controllers.hello.HelloController.selectAllHelloObjects()
+2018-04-04 22:53:01.472  INFO LAPTOP-JQGD3FG3 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/hello/string]}" onto public java.lang.String edu.northeastern.cs4500.controllers.hello.HelloController.sayHello()
+2018-04-04 22:53:01.473  INFO LAPTOP-JQGD3FG3 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/hello/insert/{msg}]}" onto public edu.northeastern.cs4500.controllers.hello.HelloObject edu.northeastern.cs4500.controllers.hello.HelloController.insertMessage(java.lang.String)
+2018-04-04 22:53:01.473  INFO LAPTOP-JQGD3FG3 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/hello/object]}" onto public edu.northeastern.cs4500.controllers.hello.HelloObject edu.northeastern.cs4500.controllers.hello.HelloController.sayHelloObject()
+2018-04-04 22:53:01.474  INFO LAPTOP-JQGD3FG3 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/home],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.LoginController.home()
+2018-04-04 22:53:01.475  INFO LAPTOP-JQGD3FG3 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/registration],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.LoginController.registration()
+2018-04-04 22:53:01.475  INFO LAPTOP-JQGD3FG3 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/login],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.LoginController.login()
+2018-04-04 22:53:01.475  INFO LAPTOP-JQGD3FG3 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/registration],methods=[POST]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.LoginController.createNewUser(edu.northeastern.cs4500.model.user.User,org.springframework.validation.BindingResult)
+2018-04-04 22:53:01.476  INFO LAPTOP-JQGD3FG3 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/search],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.MovieController.searchResult(java.lang.String)
+2018-04-04 22:53:01.476  INFO LAPTOP-JQGD3FG3 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/movie/{id}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.MovieController.movieResult(java.lang.String)
+2018-04-04 22:53:01.478  INFO LAPTOP-JQGD3FG3 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/writeReview],methods=[POST]}" onto public void edu.northeastern.cs4500.controllers.MovieController.writeReview(java.lang.String,javax.servlet.http.HttpServletRequest)
+2018-04-04 22:53:01.478  INFO LAPTOP-JQGD3FG3 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/addMovieToList],methods=[POST]}" onto public void edu.northeastern.cs4500.controllers.MovieController.addMovieToList(java.lang.String,javax.servlet.http.HttpServletRequest)
+2018-04-04 22:53:01.479  INFO LAPTOP-JQGD3FG3 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/movie/rating],methods=[POST]}" onto public void edu.northeastern.cs4500.controllers.MovieController.setRating(java.lang.String,javax.servlet.http.HttpServletRequest)
+2018-04-04 22:53:01.479  INFO LAPTOP-JQGD3FG3 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.PageController.login()
+2018-04-04 22:53:01.483  INFO LAPTOP-JQGD3FG3 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/profile+to+friendsAndRequests],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.UserprofileController.friendsAndRequests()
+2018-04-04 22:53:01.483  INFO LAPTOP-JQGD3FG3 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/createMovieList],methods=[POST]}" onto public void edu.northeastern.cs4500.controllers.UserprofileController.createNewMovieList(java.lang.String,javax.servlet.http.HttpServletRequest)
+2018-04-04 22:53:01.483  INFO LAPTOP-JQGD3FG3 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/acceptRequest],methods=[POST]}" onto public void edu.northeastern.cs4500.controllers.UserprofileController.acceptFriendRequest(javax.servlet.http.HttpServletRequest)
+2018-04-04 22:53:01.484  INFO LAPTOP-JQGD3FG3 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/deleteMovie],methods=[POST]}" onto public void edu.northeastern.cs4500.controllers.UserprofileController.deleteMovieFromMovieList(java.lang.String,javax.servlet.http.HttpServletRequest)
+2018-04-04 22:53:01.484  INFO LAPTOP-JQGD3FG3 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/profile+to+movielist+{listName}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.UserprofileController.getMovieItems(java.lang.String)
+2018-04-04 22:53:01.484  INFO LAPTOP-JQGD3FG3 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/view/{username}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.UserprofileController.userProfile(java.lang.String)
+2018-04-04 22:53:01.484  INFO LAPTOP-JQGD3FG3 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/profile+to+movielist],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.UserprofileController.getMovieList()
+2018-04-04 22:53:01.485  INFO LAPTOP-JQGD3FG3 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/cleanList],methods=[POST]}" onto public void edu.northeastern.cs4500.controllers.UserprofileController.cleanMovieList(java.lang.String,javax.servlet.http.HttpServletRequest)
+2018-04-04 22:53:01.485  INFO LAPTOP-JQGD3FG3 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/view/{username}],methods=[POST]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.UserprofileController.addFriend(java.lang.String)
+2018-04-04 22:53:01.485  INFO LAPTOP-JQGD3FG3 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/deleteList],methods=[POST]}" onto public void edu.northeastern.cs4500.controllers.UserprofileController.deleteMovieList(java.lang.String,javax.servlet.http.HttpServletRequest)
+2018-04-04 22:53:01.486  INFO LAPTOP-JQGD3FG3 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/prodRepo],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.UserprofileController.getProdList()
+2018-04-04 22:53:01.486  INFO LAPTOP-JQGD3FG3 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/profile],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.UserprofileController.getProfile()
+2018-04-04 22:53:01.488  INFO LAPTOP-JQGD3FG3 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-04-04 22:53:01.489  INFO LAPTOP-JQGD3FG3 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-04-04 22:53:01.515  INFO LAPTOP-JQGD3FG3 --- [  restartedMain] o.s.w.s.h.SimpleUrlHandlerMapping        : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-04-04 22:53:01.515  INFO LAPTOP-JQGD3FG3 --- [  restartedMain] o.s.w.s.h.SimpleUrlHandlerMapping        : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-04-04 22:53:01.564  INFO LAPTOP-JQGD3FG3 --- [  restartedMain] o.s.w.s.h.SimpleUrlHandlerMapping        : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-04-04 22:53:01.584  INFO LAPTOP-JQGD3FG3 --- [  restartedMain] oConfiguration$WelcomePageHandlerMapping : Adding welcome page: ServletContext resource [/index.html]
+2018-04-04 22:53:01.930  INFO LAPTOP-JQGD3FG3 --- [  restartedMain] b.a.s.AuthenticationManagerConfiguration : 
+
+Using default security password: 576a732f-e848-4b23-ab21-4ed9b10da2b5
+
+2018-04-04 22:53:02.810  INFO LAPTOP-JQGD3FG3 --- [  restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2018-04-04 22:53:02.876  INFO LAPTOP-JQGD3FG3 --- [  restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2018-04-04 22:53:02.898  INFO LAPTOP-JQGD3FG3 --- [  restartedMain] o.a.c.h.Http11NioProtocol                : Initializing ProtocolHandler ["http-nio-8080"]
+2018-04-04 22:53:02.913  INFO LAPTOP-JQGD3FG3 --- [  restartedMain] o.a.c.h.Http11NioProtocol                : Starting ProtocolHandler ["http-nio-8080"]
+2018-04-04 22:53:02.930  INFO LAPTOP-JQGD3FG3 --- [  restartedMain] o.a.t.u.n.NioSelectorPool                : Using a shared selector for servlet write/read
+2018-04-04 22:53:02.955  INFO LAPTOP-JQGD3FG3 --- [  restartedMain] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat started on port(s): 8080 (http)
+2018-04-04 22:53:02.960  INFO LAPTOP-JQGD3FG3 --- [  restartedMain] e.n.c.Cs4500Spring2018Team47Application  : Started Cs4500Spring2018Team47Application in 14.944 seconds (JVM running for 15.692)
+2018-04-04 22:53:07.361  INFO LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] o.a.c.c.C.[.[.[/]                        : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-04-04 22:53:07.362  INFO LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] o.s.w.s.DispatcherServlet                : FrameworkServlet 'dispatcherServlet': initialization started
+2018-04-04 22:53:07.378  INFO LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] o.s.w.s.DispatcherServlet                : FrameworkServlet 'dispatcherServlet': initialization completed in 16 ms
+2018-04-04 22:53:07.427  INFO LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2018-04-04 22:53:07.649  INFO LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] o.t.TemplateEngine                       : [THYMELEAF] INITIALIZING TEMPLATE ENGINE
+2018-04-04 22:53:07.706  INFO LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] o.t.t.AbstractTemplateResolver           : [THYMELEAF] INITIALIZING TEMPLATE RESOLVER: org.thymeleaf.spring4.templateresolver.SpringResourceTemplateResolver
+2018-04-04 22:53:07.706  INFO LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] o.t.t.AbstractTemplateResolver           : [THYMELEAF] TEMPLATE RESOLVER INITIALIZED OK
+2018-04-04 22:53:07.706  INFO LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] o.t.m.AbstractMessageResolver            : [THYMELEAF] INITIALIZING MESSAGE RESOLVER: org.thymeleaf.spring4.messageresolver.SpringMessageResolver
+2018-04-04 22:53:07.706  INFO LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] o.t.m.AbstractMessageResolver            : [THYMELEAF] MESSAGE RESOLVER INITIALIZED OK
+2018-04-04 22:53:07.711  INFO LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] o.t.T.CONFIG                             : [THYMELEAF] TEMPLATE ENGINE CONFIGURATION:
+[THYMELEAF] * Cache Factory implementation: org.thymeleaf.cache.StandardCacheManager
+[THYMELEAF] * Template modes:
+[THYMELEAF]     * XML
+[THYMELEAF]     * XHTML
+[THYMELEAF]     * VALIDXML
+[THYMELEAF]     * HTML5
+[THYMELEAF]     * LEGACYHTML5
+[THYMELEAF]     * VALIDXHTML
+[THYMELEAF] * Template resolvers (in order):
+[THYMELEAF]     * org.thymeleaf.spring4.templateresolver.SpringResourceTemplateResolver
+[THYMELEAF] * Message resolvers (in order):
+[THYMELEAF]     * org.thymeleaf.spring4.messageresolver.SpringMessageResolver
+[THYMELEAF] * Dialect: org.thymeleaf.spring4.dialect.SpringStandardDialect
+[THYMELEAF]     * Prefix: "th"
+[THYMELEAF] TEMPLATE ENGINE CONFIGURED OK
+2018-04-04 22:53:07.711  INFO LAPTOP-JQGD3FG3 --- [nio-8080-exec-2] o.t.TemplateEngine                       : [THYMELEAF] TEMPLATE ENGINE INITIALIZED
