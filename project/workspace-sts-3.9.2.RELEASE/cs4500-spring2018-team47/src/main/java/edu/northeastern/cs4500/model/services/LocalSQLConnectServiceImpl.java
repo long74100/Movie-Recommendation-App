@@ -963,7 +963,7 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
     	PreparedStatement pstmt = null;
     try {
         	pstmt = connector.prepareStatement(sqlcmd);
-        	pstmt.setString(1, userId);
+        	pstmt.setInt(1, userId);
         	myResult = pstmt.executeQuery();
     		while(myResult.next()) {
     			MovieReview item = new MovieReview();

@@ -19,7 +19,7 @@ public class MovieReview implements Serializable {
 	@Column(name = "review_date")
 	private String date;
 	@Column(name = "reviewer_id")
-	private String user_id;
+	private int user_id;
 	@Column(name = "reviewer_name")
 	private String username;
 	
@@ -52,7 +52,7 @@ public class MovieReview implements Serializable {
 	public String getUser_id() {
 		return user_id;
 	}
-	public void setUser_id(String user_id) {
+	public void setUser_id(int user_id) {
 		this.user_id = user_id;
 	}
 	
