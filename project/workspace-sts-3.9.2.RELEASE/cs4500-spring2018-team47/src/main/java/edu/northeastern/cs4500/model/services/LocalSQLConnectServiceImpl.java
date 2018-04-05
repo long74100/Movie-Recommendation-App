@@ -957,7 +957,7 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
      * @param userId the user's id
      * @return the list of movie
      */
-    public List<MovieReview> getReviewForUser(String userId) {
+    public List<MovieReview> getReviewForUser(int userId) {
     	ArrayList<MovieReview> output = new ArrayList<>();
     	String sqlcmd = "select * from Review where reviewer_id = ?";
     	PreparedStatement pstmt = null;
