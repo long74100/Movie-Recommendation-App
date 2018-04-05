@@ -498,7 +498,7 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 			int reviewId = mr.getId();
 			String reviewContent = mr.getReview();
 			String movieId = mr.getMovie_id();
-			String reviewer_id = mr.getUser_id();
+			int reviewer_id = mr.getUser_id();
 			String date = mr.getDate();
 			String username = mr.getUsername();
 			String query = 
@@ -933,7 +933,7 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
     		while(myResult.next()) {
     			MovieReview output = new MovieReview();
     			String username = myResult.getString("reviewer_name");
-    			String userid = myResult.getString("reviewer_id");
+    			int userid = myResult.getInt("reviewer_id");
     			Integer reviewId = myResult.getInt("review_id");
     			String reviewDate = myResult.getString("review_date");
     			String description = myResult.getString("description");

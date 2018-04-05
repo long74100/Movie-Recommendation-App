@@ -49,7 +49,7 @@ public class MovieReview implements Serializable {
 	public void setDate(String date) {
 		this.date = date;
 	}
-	public String getUser_id() {
+	public int getUser_id() {
 		return user_id;
 	}
 	public void setUser_id(int user_id) {
