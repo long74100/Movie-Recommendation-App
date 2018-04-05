@@ -197,20 +197,25 @@ public class MovieController {
 				logger.error(np.getMessage());
 			}
 			
+			try {
+				movie.put("director", director);
+				movie.put("title", movieJSON.getString("title"));
+				movie.put("plot", movieJSON.getString("overview"));
+				movie.put("genre", genre.toString());
+				movie.put("released", movieJSON.getString("release_date"));
+				movie.put("actors", actors);
+				movie.put("runtime", String.valueOf(movieJSON.getInt("runtime")));
+				movie.put("country", contry.toString());
+				movie.put("imdbRating", String.valueOf(movieJSON.getInt("vote_average")));
+				movie.put("imdbID", movieJSON.getString("imdb_id"));
+				movie.put("poster", "http://image.tmdb.org/t/p/w185/" + movieJSON.getString("poster_path"));
+				movie.put("language", language.toString());
+				movie.put("movieDBid", id);
+			}
+			catch(Exception ep) {
+				logger.error(ep.getMessage());
+			}
 			
-			movie.put("director", director);
-			movie.put("title", movieJSON.getString("title"));
-			movie.put("plot", movieJSON.getString("overview"));
-			movie.put("genre", genre.toString());
-			movie.put("released", movieJSON.getString("release_date"));
-			movie.put("actors", actors);
-			movie.put("runtime", String.valueOf(movieJSON.getInt("runtime")));
-			movie.put("country", contry.toString());
-			movie.put("imdbRating", String.valueOf(movieJSON.getInt("vote_average")));
-			movie.put("imdbID", movieJSON.getString("imdb_id"));
-			movie.put("poster", "http://image.tmdb.org/t/p/w185/" + movieJSON.getString("poster_path"));
-			movie.put("language", language.toString());
-			movie.put("movieDBid", id);
 			
 			// load movie into local db when the user clicks into the movie pages.
 			localDbConnector.loadMovieIntoLocalDB(movie);

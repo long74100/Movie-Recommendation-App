@@ -119,44 +119,49 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
     @Override
     public void loadMovieIntoLocalDB(Map<String, String> movieObject) {
     	System.out.println("Start loading movie....");
-    	
-    	String sqlcmd = "insert into Movie values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"; 
-    	String movie_id = movieObject.get("imdbID");
-    	String movie_name = movieObject.get("title");
-    	String genre = movieObject.get("genre");
-    	String plot = movieObject.get("plot");
-    	String actors = movieObject.get("actors");
-    	String directors = movieObject.get("director");
-    	String released = movieObject.get("released");
-    	String runtime = movieObject.get("runtime");
-    	String country = movieObject.get("country");
-    	String imdbRating = movieObject.get("imdbRating");
-    	String poster = movieObject.get("poster");
-    	String language = movieObject.get("language");
-    	String movieDBid = movieObject.get("movieDBid");
-    	PreparedStatement pstmt = null;
-    	
     	try {
-    		pstmt = connector.prepareStatement(sqlcmd);
-    		pstmt.setString(1, movie_id);
-    		pstmt.setString(2, movie_name);
-    		pstmt.setString(3, runtime);
-    		pstmt.setString(4, released);
-    		pstmt.setString(5, genre);
-    		pstmt.setString(6, directors);
-    		pstmt.setString(7, actors);
-    		pstmt.setString(8, plot);
-    		pstmt.setString(9, language);
-    		pstmt.setString(10, country);
-    		pstmt.setString(11, poster);
-    		pstmt.setString(12, imdbRating);
-    		pstmt.setString(13, movieDBid);
-    		pstmt.executeUpdate();
-    		System.out.println("loading movie finished");
+    		String sqlcmd = "insert into Movie values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"; 
+        	String movie_id = movieObject.get("imdbID");
+        	String movie_name = movieObject.get("title");
+        	String genre = movieObject.get("genre");
+        	String plot = movieObject.get("plot");
+        	String actors = movieObject.get("actors");
+        	String directors = movieObject.get("director");
+        	String released = movieObject.get("released");
+        	String runtime = movieObject.get("runtime");
+        	String country = movieObject.get("country");
+        	String imdbRating = movieObject.get("imdbRating");
+        	String poster = movieObject.get("poster");
+        	String language = movieObject.get("language");
+        	String movieDBid = movieObject.get("movieDBid");
+        	PreparedStatement pstmt = null;
+        	
+        	try {
+        		pstmt = connector.prepareStatement(sqlcmd);
+        		pstmt.setString(1, movie_id);
+        		pstmt.setString(2, movie_name);
+        		pstmt.setString(3, runtime);
+        		pstmt.setString(4, released);
+        		pstmt.setString(5, genre);
+        		pstmt.setString(6, directors);
+        		pstmt.setString(7, actors);
+        		pstmt.setString(8, plot);
+        		pstmt.setString(9, language);
+        		pstmt.setString(10, country);
+        		pstmt.setString(11, poster);
+        		pstmt.setString(12, imdbRating);
+        		pstmt.setString(13, movieDBid);
+        		pstmt.executeUpdate();
+        		System.out.println("loading movie finished");
+        	}
+        	catch(SQLException sq) {
+        		logger.error(sq.getMessage());
+        	}
     	}
-    	catch(SQLException sq) {
-    		logger.error(sq.getMessage());
+    	catch(Exception ep) {
+    		logger.error(ep.getMessage());
     	}
+    	
     }
     
     /**
@@ -599,7 +604,7 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
      */
     public ArrayList<Movie> getMovieFromUserMovieList(int userId, String listname) {
     	ArrayList<Movie> result = new ArrayList<>();
-    	String sqlcmd = "select Movie.movie_id, Movie.movie_name, Movie.plot, Movie.actor, Movie.poster, Movie.movieDBid from Movie join " + 
+    	String sqlcmd = "select Movie.movie_id, Movie.movie_name, Movie.released_date, Movie.plot, Movie.actor, Movie.poster, Movie.movieDBid from Movie join " + 
 				"(select movie_id from UserMovieList where user_id = ? and list_name = ?) as comp on comp.movie_id = Movie.movie_id";
     	PreparedStatement pstmt = null;
     	try {
@@ -615,12 +620,14 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
     			String moviePlot = myResult.getString("plot");
     			String moviePoster = myResult.getString("poster");
     			String movieDBId = myResult.getString("movieDBid");
+    			String release = myResult.getString("released_date");
     			element.setImdbID(movieId);
     			element.setTitle(movieName);
     			element.setActors(movieActor);
     			element.setPlot(moviePlot);
     			element.setPoster(moviePoster);
     			element.setTheMovieDbID(movieDBId);
+    			element.setReleased(release);
     			// add to final result.
     			result.add(element);
     		}

@@ -52,7 +52,7 @@ public class OmdbServiceImplTest extends Cs4500Spring2018Team47ApplicationTests 
 	public void testSearchMovie() {
 		init();
 		try {
-			movieDbService.searchMovieDetails(100);
+			movieDbService.searchMovieDetails(383498);
 		}
 		catch(Exception s) {
 			s.printStackTrace();

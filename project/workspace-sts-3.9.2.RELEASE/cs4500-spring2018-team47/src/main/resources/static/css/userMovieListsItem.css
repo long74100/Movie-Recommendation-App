@@ -135,6 +135,12 @@
 .movieItemAttr .itemTitle:hover {
 	text-decoration: underline;
 }
+.movieItemAttr .itemReleased {
+	position: relative;
+	font-size: 12px;
+	color: oldlace;
+}
+
 
 .movieItemAttr .itemActors {
 	position: relative;

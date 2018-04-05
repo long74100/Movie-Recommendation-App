@@ -48,6 +48,7 @@
             				<a th:href="@{/movie/{id}(id=${movie.theMovieDbID})}">
             					<p class="itemTitle" th:text="${movie.title}"></p>
             				</a>
+            				<span>Released: <p class="itemReleased" th:text="${movie.released}"></p></span>
             				<span>Actors: <p class="itemActors" th:text="${movie.actors}"></p></span>
             				<span>Plot: <p class="itemPlot" th:text="${movie.plot}"></p></span>
             		</div>
