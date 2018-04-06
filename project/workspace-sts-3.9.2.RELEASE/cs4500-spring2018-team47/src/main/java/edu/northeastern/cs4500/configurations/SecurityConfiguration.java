@@ -21,7 +21,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
 	@Autowired
 	private DataSource dataSource;
-	private final String userQuery = "select email, password, active from user where email=?";
+	private final String userQuery = "select email, password, active from user where email=? and active = 1";
 	private final String roleQuery = "select email, role.role from user join role on user.role = role.role_id  where email=?";
 	
 	@Override
@@ -41,7 +41,10 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		
 		http
 			.authorizeRequests()
-				.antMatchers("/", "/login", "/test", "/registration", "/search/**", "/movie/**", "/writeReview/**","/view/**").permitAll()
+				.antMatchers("/", "/login", "/test", "/registration", "/search/**", "/movie/**", "/writeReview/**","/view/**")
+				.permitAll()
+				.antMatchers("/movie/rating")
+				.hasAnyRole("USER")
 				.antMatchers("/admin/**")
 				.hasAnyRole("ADMIN")
 				.anyRequest()
