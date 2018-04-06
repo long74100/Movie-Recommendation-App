@@ -216,7 +216,12 @@ public class MovieController {
 				logger.error(ep.getMessage());
 			}
 			
-			
+			Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+			User user = userService.findUserByEmail(auth.getName());
+			Integer userId = user.getId();
+			SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+			localDbConnector.addMovieIntoMovieList(userId, "Browse History", 
+					movie.get("imdbID"), movie.get("title"), formatter.format(new Date()));
 			// load movie into local db when the user clicks into the movie pages.
 			localDbConnector.loadMovieIntoLocalDB(movie);
 
@@ -256,7 +261,7 @@ public class MovieController {
 		MovieRating movieRating = new MovieRating();
 		movieRating.setMovieId(httpServletRequest.getParameter("movieId"));
 		movieRating.setRating(Double.valueOf(httpServletRequest.getParameter("rating")));
-		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		movieRating.setDate(formatter.format(new Date()));
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		User user = userService.findUserByEmail(auth.getName());
@@ -273,7 +278,7 @@ public class MovieController {
 		MovieReview movieReview = new MovieReview();
 		movieReview.setMovie_id(httpServletRequest.getParameter("movieId"));
 		movieReview.setReview(httpServletRequest.getParameter("review"));
-		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		movieReview.setDate(formatter.format(new Date()));
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		User user = userService.findUserByEmail(auth.getName());
@@ -291,6 +296,7 @@ public class MovieController {
 		String listname = httpServletRequest.getParameter("movieList");
 		String movieId = httpServletRequest.getParameter("movieId");
 		String movieName = httpServletRequest.getParameter("movie");
-		localDbConnector.addMovieIntoMovieList(userId, listname, movieId, movieName);
+		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		localDbConnector.addMovieIntoMovieList(userId, listname, movieId, movieName, formatter.format(new Date()));
 	}
 }

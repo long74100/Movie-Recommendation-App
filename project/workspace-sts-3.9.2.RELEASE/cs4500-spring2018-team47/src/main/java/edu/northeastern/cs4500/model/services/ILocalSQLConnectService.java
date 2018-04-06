@@ -227,7 +227,7 @@ public interface ILocalSQLConnectService {
 	 * @param movieListName
 	 *            the name for the movie list
 	 */
-	void createMovieList(int userid, String movieListName);
+	void createMovieList(int userid, String movieListName, String date);
 
 	/**
 	 * To delete a movie from user's movie list
@@ -252,8 +252,9 @@ public interface ILocalSQLConnectService {
 	 *            id for movie that will be added to this list
 	 * @param movieName
 	 *            name for movie that will be added to this list
+	 * @param date the date when movie is added
 	 */
-	void addMovieIntoMovieList(int userId, String listName, String movieId, String movieName);
+	void addMovieIntoMovieList(int userId, String listName, String movieId, String movieName, String date);
 
 	/**
 	 * To get the status of the users relationship

@@ -161,9 +161,11 @@ public class UserprofileController {
 	public void createNewMovieList(@RequestBody String listName, HttpServletRequest httpservletRequest) {
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
     	User user = userService.findUserByEmail(auth.getName());
+    	SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+    	String movieListCreatedDate = formatter.format(new Date());
     	Integer userId = user.getId();
     	String newListName = httpservletRequest.getParameter("listName");
-    	sqlConnector.createMovieList(userId, newListName);
+    	sqlConnector.createMovieList(userId, newListName, movieListCreatedDate);
 	}
 	
 	

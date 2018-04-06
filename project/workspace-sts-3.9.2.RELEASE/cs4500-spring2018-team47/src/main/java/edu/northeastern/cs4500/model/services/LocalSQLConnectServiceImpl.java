@@ -1,16 +1,17 @@
 package edu.northeastern.cs4500.model.services;
 
 import java.sql.Connection;
-
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Date;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -521,7 +522,9 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
      * @param userId the new user's id
      */
     public void preloadMovieList(int userId) {
-    	createMovieList(userId, "Favorites");
+    	SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+    	createMovieList(userId, "Browse History", formatter.format(new Date()));
+    	createMovieList(userId, "Favorites", formatter.format(new Date()));
     }
     
     /**
@@ -582,7 +585,7 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
     public List<String> getMovieListForUser(int userId) {
     	ArrayList<String> movieListNames = new ArrayList<>();
     	try {
-    		String sqlcmd = "select * from Movielist where user_id = ?";
+    		String sqlcmd = "select * from Movielist where user_id = ? order by created_date asc";
         	PreparedStatement pstmt = null;
     		pstmt = connector.prepareStatement(sqlcmd);
     		pstmt.setInt(1, userId);
@@ -606,7 +609,7 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
     public ArrayList<Movie> getMovieFromUserMovieList(int userId, String listname) {
     	ArrayList<Movie> result = new ArrayList<>();
     	String sqlcmd = "select Movie.movie_id, Movie.movie_name, Movie.released_date, Movie.plot, Movie.actor, Movie.poster, Movie.movieDBid from Movie join " + 
-				"(select movie_id from UserMovieList where user_id = ? and list_name = ?) as comp on comp.movie_id = Movie.movie_id";
+    			"(select movie_id from UserMovieList where user_id = ? and list_name = ? order by add_date desc) as comp on comp.movie_id = Movie.movie_id";
     	PreparedStatement pstmt = null;
     	try {
     		pstmt = connector.prepareStatement(sqlcmd);
@@ -643,9 +646,9 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
      * To create movie list 
      * @param movieListName the name for the movie list
      */
-    public void createMovieList(int userid, String movieListName) {
+    public void createMovieList(int userid, String movieListName, String date) {
     	String sqlcmd = "select * from Movielist where user_id = ? and list_name = ?";
-    	String addListQuery = "insert into Movielist values (?, ?)";
+    	String addListQuery = "insert into Movielist values (?, ?, ?)";
     	PreparedStatement pstmt = null;
     	PreparedStatement pstmt2 = null;
     	try {
@@ -657,6 +660,7 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
     		pstmt2 = connector.prepareStatement(addListQuery);
         		pstmt2.setInt(1, userid);
         		pstmt2.setString(2, movieListName);
+        		pstmt2.setString(3, date);
         		pstmt2.executeUpdate();
     		}
     	}
@@ -693,8 +697,8 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
      * @param movieId id for movie that will be added to this list
      * @param movieName name for movie that will be added to this list
      */
-    public void addMovieIntoMovieList(int userId, String listName, String movieId, String movieName) {
-    	String sqlcmd = "insert into UserMovieList values (?, ?, ?, ?)";
+    public void addMovieIntoMovieList(int userId, String listName, String movieId, String movieName, String add_date) {
+    	String sqlcmd = "insert into UserMovieList values (?, ?, ?, ?, ?)";
     	PreparedStatement pstmt = null;
     	try {
 
@@ -703,6 +707,7 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
     		pstmt.setString(2, listName);
     		pstmt.setString(3, movieId);
     		pstmt.setString(4, movieName);
+    		pstmt.setString(5, add_date);
     		pstmt.executeUpdate();
     	}
     	catch(SQLException sq) {
