@@ -4,6 +4,7 @@
 	<link rel="stylesheet" href="../css/profile.css">	
 <head>
 <noscript th:replace="fragments/quickAddCSSJS :: quickAddCSSJS"></noscript>
+<script src="../../../js/admin.js"></script>
 
 </head>
 
@@ -25,8 +26,7 @@
 						</form>
 						
 						<form th:if="${user.role == 2}" class="d-inline">
-							<button class="btn btn-danger" type="submit" name="banUser"
-								value="Ban User">Ban User</button>
+							<button id="ban-button" th:text="${profileUser.active == 1 ? 'Ban User' : 'Unban User'}"></button>
 						</form>
 					</div>
 
