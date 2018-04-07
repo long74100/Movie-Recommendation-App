@@ -1,33 +1,54 @@
 function init() {
-	
 	let banButton = document.querySelector("#ban-button");
-	let userId = document.querySelector("#profileUserId").innerText;
-	
+
 	if (banButton) {
 		let buttonText = banButton.innerText;
 		banButton.classList = buttonText == "Ban User" ? "btn btn-danger" : "btn btn-success";
 		banButton.addEventListener("click", banOrUnbanUser);
+	} else {
+		let banButtons = document.querySelectorAll(".unban-btn");
+		for (let btn of banButtons) {
+			let userId = btn.parentElement.firstElementChild.innerText;
+			btn.addEventListener("click", unbanUser);
+			btn.addEventListener("click", removeFromPage);
+		}
+	}
+	
+	function removeFromPage(ev) {
+		let banned = document.querySelector("#banned");
+		banned.removeChild(ev.target.parentElement);
+	}
+	
+	function unbanUser(ev) {
+		let userId = ev.target.parentElement.firstElementChild.innerText;
+		updateUserActiveStatus(userId, 0);
+		
 	}
 	
 	function banOrUnbanUser(ev) {
 		ev.preventDefault();
+		let profileUserId = document.querySelector("#profileUserId");
+		let userId = profileUserId ? profileUserId.innerText : "";
+		updateUserActiveStatus(userId, banButton.innerText == "Ban User" ? 1 : 0);
+		updateButton(banButton.innerText);
+		
+	}
+	
+	function updateUserActiveStatus(id, statusTo) {
 		let url = "/admin/ban";
-		let encodedUserId = encodeURI(userId);
-		let encodedUserStatus = encodeURI(banButton.innerText == "Ban User" ? 1 : 0);
+		let encodedUserId = encodeURI(id);
+		let encodedUserStatus = encodeURI(statusTo);
 		let param = "userId=" + encodedUserId + "&userStatus=" + encodedUserStatus;
 		let xhr = new XMLHttpRequest();
 		xhr.open("POST", url, true);
 		xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 		xhr.send(param);
-	
-		updateButton(banButton.innerText);
-		
+
 	}
 	
 	function updateButton(text) {
 		banButton.innerText = text == "Ban User" ? "Unban User" : "Ban User";
 		banButton.classList = text == "Ban User" ? "btn btn-success" : "btn btn-danger";
-
 
 	}
 	

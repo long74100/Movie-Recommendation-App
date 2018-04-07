@@ -67,6 +67,7 @@ public class AdminController {
 	    List<User> bannedList = localDbConnector.getBannedList();
 	    modelAndView.addObject("banned", bannedList);
 	    modelAndView.setViewName("banned");
+
 	    return modelAndView;
 		
 	}
