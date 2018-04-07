@@ -293,4 +293,6 @@ public class MovieController {
 		String movieName = httpServletRequest.getParameter("movie");
 		localDbConnector.addMovieIntoMovieList(userId, listname, movieId, movieName);
 	}
+
+	
 }

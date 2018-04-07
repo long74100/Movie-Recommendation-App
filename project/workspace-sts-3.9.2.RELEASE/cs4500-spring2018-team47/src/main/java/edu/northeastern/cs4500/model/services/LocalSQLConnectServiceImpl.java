@@ -1029,7 +1029,7 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
     		pstmt.executeUpdate();
     	}
     	catch(SQLException sq) {
-    		sq.printStackTrace();
+	    logger.error(sq.getMessage());
     	}
     }
 
@@ -1052,6 +1052,22 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 	public ArrayList<String> getSearchMovieResult() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+	
+	@Override
+	public void updateUserStatus(int userId, int status) {
+	    String sqlcmd = "update user set active = ? where user_id = ?";
+	    PreparedStatement pstmt = null;
+	    try {
+	   	pstmt = connector.prepareStatement(sqlcmd);
+	    	pstmt.setInt(1, status);
+	    	pstmt.setInt(2, userId);
+	    	pstmt.executeUpdate();
+	    }
+	    catch(SQLException sq) {
+		    logger.error(sq.getMessage());
+	    }    
+
 	}
 
 }

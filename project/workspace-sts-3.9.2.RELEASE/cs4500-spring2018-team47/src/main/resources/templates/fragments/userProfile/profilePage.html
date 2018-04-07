@@ -15,8 +15,8 @@
 			<div th:switch="${profileUser}">
 				<div th:case="null">Current User!</div>
 				<div th:case="*">
-					<h1 th:text="${profileUser.username}"></h1>
-
+					<h1 th:text="${profileUser.username}" id="profileUserName"></h1>
+					<span th:text="${profileUser.id}" id="profileUserId" class="d-none"></span>
 					<div th:if="${user != null}">
 						<form
 							th:action="@{/view/{username}(username=${profileUser.username})}"

@@ -373,5 +373,11 @@ public interface ILocalSQLConnectService {
 	 * @param movie the movie information.
 	 */
 	void loadMovieIntoLocalDB(Map<String, String> movie);
+	
+	/**
+	 * Update a user's active status.
+	 * @param userId for user to update and status to set
+	 */
+	public void updateUserStatus(int userId, int status);
 }
 
