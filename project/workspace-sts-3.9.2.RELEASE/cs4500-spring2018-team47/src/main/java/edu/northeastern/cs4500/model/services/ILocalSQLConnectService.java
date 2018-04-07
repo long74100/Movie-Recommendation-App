@@ -379,5 +379,14 @@ public interface ILocalSQLConnectService {
 	 * @param userId for user to update and status to set
 	 */
 	public void updateUserStatus(int userId, int status);
+	
+	
+	/**
+	 * Returns a list of banned users.
+	 * @return banned users
+	 */
+	List<User> getBannedList();
+
+	
 }
 

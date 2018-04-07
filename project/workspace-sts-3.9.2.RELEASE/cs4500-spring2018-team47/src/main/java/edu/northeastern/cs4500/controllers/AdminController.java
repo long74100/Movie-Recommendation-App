@@ -1,5 +1,7 @@
 package edu.northeastern.cs4500.controllers;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,13 +26,14 @@ import edu.northeastern.cs4500.model.user.User;
 
  */
 @Controller
+@RequestMapping("/admin")
 public class AdminController {
 	private ILocalSQLConnectService localDbConnector = new LocalSQLConnectServiceImpl();
 
 	@Autowired
 	private UserService userService;
 
-	@RequestMapping(value = "/admin/ban", method = RequestMethod.POST)
+	@RequestMapping(value = "/ban", method = RequestMethod.POST)
 	@ResponseStatus(value = HttpStatus.OK)
 	public void setRating(@RequestBody String userId, HttpServletRequest httpServletRequest) {
 	    	
@@ -45,16 +48,28 @@ public class AdminController {
 				
 	}
 	
-	  @RequestMapping(value = "/admin/home", method = RequestMethod.GET)
-	    public ModelAndView home() {
-		ModelAndView modelAndView = new ModelAndView();
-		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-		User user = userService.findUserByEmail(auth.getName());
-		modelAndView.addObject("user", user);
-		modelAndView.setViewName("home");
-		return modelAndView;
+	@RequestMapping(value = "/home", method = RequestMethod.GET)
+	public ModelAndView home() {
+	    ModelAndView modelAndView = new ModelAndView();
+	    Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+	    User user = userService.findUserByEmail(auth.getName());
+	    modelAndView.addObject("user", user);
+	    modelAndView.setViewName("home");
+	    return modelAndView;
 		
-	    }
+	}
+	
+	@RequestMapping(value = "/bannedlist", method = RequestMethod.GET)
+	public ModelAndView bannedList() {
+	    ModelAndView modelAndView = new ModelAndView();
+	    Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+	    User user = userService.findUserByEmail(auth.getName());
+	    List<User> bannedList = localDbConnector.getBannedList();
+	    modelAndView.addObject("banned", bannedList);
+	    modelAndView.setViewName("banned");
+	    return modelAndView;
+		
+	}
 
 
 

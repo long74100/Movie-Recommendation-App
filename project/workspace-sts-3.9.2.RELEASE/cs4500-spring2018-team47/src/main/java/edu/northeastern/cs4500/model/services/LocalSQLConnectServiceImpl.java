@@ -1070,4 +1070,34 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 
 	}
 
+
+	@Override
+	public List<User> getBannedList() {
+	    ArrayList<User> output = new ArrayList<>();
+	    String sqlcmd = "select * from user where active = 0";
+	    PreparedStatement pstmt = null;
+	    
+	    try {
+	    	pstmt = connector.prepareStatement(sqlcmd);
+	    	myResult = pstmt.executeQuery();
+	    	while(myResult.next()) {
+	    		User matched_user = new User();
+	    		int user_id = myResult.getInt("user_id");
+	    		String user_name = myResult.getString("username");
+	    		int user_role = myResult.getInt("role");
+	    		int user_active_status = myResult.getInt("active");
+	    		matched_user.setActive(user_active_status);
+	    		matched_user.setUsername(user_name);
+	    		matched_user.setRole(user_role);
+	    		matched_user.setId(user_id);
+	  		output.add(matched_user);
+	    	}
+	    		
+	    }
+	    catch(SQLException ep) {
+		logger.error(ep.getMessage());
+	    }
+	    return output;
+	}
+
 }

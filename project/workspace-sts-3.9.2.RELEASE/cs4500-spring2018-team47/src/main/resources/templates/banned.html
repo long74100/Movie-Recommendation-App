@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+	<noscript th:replace="fragments/quickAddCSSJS :: quickAddCSSJS"></noscript>
+	<title>Banned Users</title>
+</head>
+<body>
+	<div th:replace="fragments/navBar :: header"></div>
+	<div class="container mt-3 showcase">
+		<h1>Banned Users</h1>
+			<div th:each="user : ${banned}" class="border border-danger rounded p-3 row">
+				<h2 th:text="${user.username}" class="col-sm"></h1>
+				<h2 class="btn btn-success col-3">Unban</h1>
+			</div>
+
+	</div>
+</body>
+</html>
