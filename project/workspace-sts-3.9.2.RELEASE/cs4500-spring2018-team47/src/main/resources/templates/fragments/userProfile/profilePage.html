@@ -4,6 +4,7 @@
 	<link rel="stylesheet" href="../css/profile.css">	
 <head>
 <noscript th:replace="fragments/quickAddCSSJS :: quickAddCSSJS"></noscript>
+<script src="../../../js/admin.js"></script>
 
 </head>
 
@@ -14,14 +15,18 @@
 			<div th:switch="${profileUser}">
 				<div th:case="null">Current User!</div>
 				<div th:case="*">
-					<h1 th:text="${profileUser.username}"></h1>
-
+					<h1 th:text="${profileUser.username}" id="profileUserName"></h1>
+					<span th:text="${profileUser.id}" id="profileUserId" class="d-none"></span>
 					<div th:if="${user != null}">
 						<form
 							th:action="@{/view/{username}(username=${profileUser.username})}"
-							method="POST">
+							method="POST" class="d-inline">
 							<button class="btn btn-primary" type="submit" name="addFriend"
 								value="Add Friend">Add Friend</button>
+						</form>
+						
+						<form th:if="${user.role == 2}" class="d-inline">
+							<button id="ban-button" th:text="${profileUser.active == 1 ? 'Ban User' : 'Unban User'}"></button>
 						</form>
 					</div>
 
