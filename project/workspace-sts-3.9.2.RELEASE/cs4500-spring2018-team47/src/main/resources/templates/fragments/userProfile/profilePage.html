@@ -19,9 +19,14 @@
 					<div th:if="${user != null}">
 						<form
 							th:action="@{/view/{username}(username=${profileUser.username})}"
-							method="POST">
+							method="POST" class="d-inline">
 							<button class="btn btn-primary" type="submit" name="addFriend"
 								value="Add Friend">Add Friend</button>
+						</form>
+						
+						<form th:if="${user.role == 2}" class="d-inline">
+							<button class="btn btn-danger" type="submit" name="banUser"
+								value="Ban User">Ban User</button>
 						</form>
 					</div>
 
