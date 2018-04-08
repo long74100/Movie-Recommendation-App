@@ -489,3 +489,506 @@ Using default security password: 96aa48a7-70ff-40a1-be88-3c3c30caac26
 [THYMELEAF]     * Prefix: "th"
 [THYMELEAF] TEMPLATE ENGINE CONFIGURED OK
 2018-04-02 21:59:43.116  INFO Rus-MBP-2 --- [nio-8080-exec-1] o.t.TemplateEngine                       : [THYMELEAF] TEMPLATE ENGINE INITIALIZED
+2018-04-05 23:15:16.930  INFO Rus-MBP-2 --- [  restartedMain] e.n.c.Cs4500Spring2018Team47Application  : Starting Cs4500Spring2018Team47Application on Rus-MBP-2 with PID 29919 (/Users/rusmillie/CS4500Team47/project/workspace-sts-3.9.2.RELEASE/cs4500-spring2018-team47/target/classes started by rusmillie in /Users/rusmillie/CS4500Team47/project/workspace-sts-3.9.2.RELEASE/cs4500-spring2018-team47)
+2018-04-05 23:15:16.933 DEBUG Rus-MBP-2 --- [  restartedMain] e.n.c.Cs4500Spring2018Team47Application  : Running with Spring Boot v1.5.9.RELEASE, Spring v4.3.13.RELEASE
+2018-04-05 23:15:16.934  INFO Rus-MBP-2 --- [  restartedMain] e.n.c.Cs4500Spring2018Team47Application  : No active profile set, falling back to default profiles: default
+2018-04-05 23:15:17.089  INFO Rus-MBP-2 --- [  restartedMain] ationConfigEmbeddedWebApplicationContext : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@68e3a9dd: startup date [Thu Apr 05 23:15:17 EDT 2018]; root of context hierarchy
+2018-04-05 23:15:17.115  INFO Rus-MBP-2 --- [kground-preinit] o.h.v.i.u.Version                        : HV000001: Hibernate Validator 5.3.6.Final
+2018-04-05 23:15:18.309  INFO Rus-MBP-2 --- [  restartedMain] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat initialized with port(s): 8080 (http)
+2018-04-05 23:15:18.317  INFO Rus-MBP-2 --- [  restartedMain] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2018-04-05 23:15:18.318  INFO Rus-MBP-2 --- [  restartedMain] o.a.c.c.StandardEngine                   : Starting Servlet Engine: Apache Tomcat/8.5.23
+2018-04-05 23:15:18.408  INFO Rus-MBP-2 --- [ost-startStop-1] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2018-04-05 23:15:18.408  INFO Rus-MBP-2 --- [ost-startStop-1] o.s.w.c.ContextLoader                    : Root WebApplicationContext: initialization completed in 1321 ms
+2018-04-05 23:15:18.530  INFO Rus-MBP-2 --- [ost-startStop-1] o.s.b.w.s.FilterRegistrationBean         : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-04-05 23:15:18.530  INFO Rus-MBP-2 --- [ost-startStop-1] o.s.b.w.s.FilterRegistrationBean         : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-04-05 23:15:18.530  INFO Rus-MBP-2 --- [ost-startStop-1] o.s.b.w.s.FilterRegistrationBean         : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-04-05 23:15:18.530  INFO Rus-MBP-2 --- [ost-startStop-1] o.s.b.w.s.FilterRegistrationBean         : Mapping filter: 'requestContextFilter' to: [/*]
+2018-04-05 23:15:18.531  INFO Rus-MBP-2 --- [ost-startStop-1] .s.DelegatingFilterProxyRegistrationBean : Mapping filter: 'springSecurityFilterChain' to: [/*]
+2018-04-05 23:15:18.532  INFO Rus-MBP-2 --- [ost-startStop-1] o.s.b.w.s.ServletRegistrationBean        : Mapping servlet: 'dispatcherServlet' to [/]
+2018-04-05 23:15:22.038  INFO Rus-MBP-2 --- [  restartedMain] j.LocalContainerEntityManagerFactoryBean : Building JPA container EntityManagerFactory for persistence unit 'default'
+2018-04-05 23:15:22.049  INFO Rus-MBP-2 --- [  restartedMain] o.h.j.i.u.LogHelper                      : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-04-05 23:15:22.097  INFO Rus-MBP-2 --- [  restartedMain] o.h.Version                              : HHH000412: Hibernate Core {5.0.12.Final}
+2018-04-05 23:15:22.099  INFO Rus-MBP-2 --- [  restartedMain] o.h.c.Environment                        : HHH000206: hibernate.properties not found
+2018-04-05 23:15:22.100  INFO Rus-MBP-2 --- [  restartedMain] o.h.c.Environment                        : HHH000021: Bytecode provider name : javassist
+2018-04-05 23:15:22.131  INFO Rus-MBP-2 --- [  restartedMain] o.h.a.c.Version                          : HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2018-04-05 23:15:22.220  INFO Rus-MBP-2 --- [  restartedMain] o.h.d.Dialect                            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2018-04-05 23:15:22.368  WARN Rus-MBP-2 --- [  restartedMain] o.h.b.i.SessionFactoryBuilderImpl        : Unrecognized hbm2ddl_auto value : none .  Supported values include create, create-drop, update, and validate.  Ignoring
+2018-04-05 23:15:22.571  INFO Rus-MBP-2 --- [  restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2018-04-05 23:15:23.949  INFO Rus-MBP-2 --- [  restartedMain] o.s.s.w.DefaultSecurityFilterChain       : Creating filter chain: Ant [pattern='/resources/**'], []
+2018-04-05 23:15:23.949  INFO Rus-MBP-2 --- [  restartedMain] o.s.s.w.DefaultSecurityFilterChain       : Creating filter chain: Ant [pattern='/static/**'], []
+2018-04-05 23:15:23.949  INFO Rus-MBP-2 --- [  restartedMain] o.s.s.w.DefaultSecurityFilterChain       : Creating filter chain: Ant [pattern='/css/**'], []
+2018-04-05 23:15:23.949  INFO Rus-MBP-2 --- [  restartedMain] o.s.s.w.DefaultSecurityFilterChain       : Creating filter chain: Ant [pattern='/js/**'], []
+2018-04-05 23:15:23.949  INFO Rus-MBP-2 --- [  restartedMain] o.s.s.w.DefaultSecurityFilterChain       : Creating filter chain: Ant [pattern='/images/**'], []
+2018-04-05 23:15:24.012  INFO Rus-MBP-2 --- [  restartedMain] o.s.s.w.DefaultSecurityFilterChain       : Creating filter chain: org.springframework.security.web.util.matcher.AnyRequestMatcher@1, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@407a2f33, org.springframework.security.web.context.SecurityContextPersistenceFilter@3c485f8c, org.springframework.security.web.header.HeaderWriterFilter@4d085721, org.springframework.security.web.authentication.logout.LogoutFilter@6f668ba, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@4ba6819a, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@681ccfb4, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@299c03ab, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4021ce74, org.springframework.security.web.session.SessionManagementFilter@73616031, org.springframework.security.web.access.ExceptionTranslationFilter@b766df4, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@4ffb5c5a]
+2018-04-05 23:15:24.297  INFO Rus-MBP-2 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@68e3a9dd: startup date [Thu Apr 05 23:15:17 EDT 2018]; root of context hierarchy
+2018-04-05 23:15:24.354  INFO Rus-MBP-2 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/home],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.LoginController.home()
+2018-04-05 23:15:24.355  INFO Rus-MBP-2 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/registration],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.LoginController.registration()
+2018-04-05 23:15:24.355  INFO Rus-MBP-2 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/login],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.LoginController.login()
+2018-04-05 23:15:24.356  INFO Rus-MBP-2 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/registration],methods=[POST]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.LoginController.createNewUser(edu.northeastern.cs4500.model.user.User,org.springframework.validation.BindingResult)
+2018-04-05 23:15:24.356  INFO Rus-MBP-2 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/search],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.MovieController.searchResult(java.lang.String)
+2018-04-05 23:15:24.357  INFO Rus-MBP-2 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/movie/{title}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.MovieController.movieResult(java.lang.String)
+2018-04-05 23:15:24.357  INFO Rus-MBP-2 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/movie/rating],methods=[POST]}" onto public void edu.northeastern.cs4500.controllers.MovieController.setRating(java.lang.String,javax.servlet.http.HttpServletRequest)
+2018-04-05 23:15:24.358  INFO Rus-MBP-2 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/writeReview],methods=[POST]}" onto public void edu.northeastern.cs4500.controllers.MovieController.writeReview(java.lang.String,javax.servlet.http.HttpServletRequest)
+2018-04-05 23:15:24.358  INFO Rus-MBP-2 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/addMovieToList],methods=[POST]}" onto public void edu.northeastern.cs4500.controllers.MovieController.addMovieToList(java.lang.String,javax.servlet.http.HttpServletRequest)
+2018-04-05 23:15:24.359  INFO Rus-MBP-2 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.PageController.login()
+2018-04-05 23:15:24.362  INFO Rus-MBP-2 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/profile],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.UserprofileController.getProfile()
+2018-04-05 23:15:24.362  INFO Rus-MBP-2 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/view/{username}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.UserprofileController.userProfile(java.lang.String)
+2018-04-05 23:15:24.362  INFO Rus-MBP-2 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/profile+to+movielist],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.UserprofileController.getMovieList()
+2018-04-05 23:15:24.362  INFO Rus-MBP-2 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/view/{username}],methods=[POST]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.UserprofileController.addFriend(java.lang.String)
+2018-04-05 23:15:24.362  INFO Rus-MBP-2 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/profile+to+movielist+{listName}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.UserprofileController.getMovieItems(java.lang.String)
+2018-04-05 23:15:24.363  INFO Rus-MBP-2 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/profile+to+friendsAndRequests],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.UserprofileController.friendsAndRequests()
+2018-04-05 23:15:24.363  INFO Rus-MBP-2 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/acceptRequest],methods=[POST]}" onto public void edu.northeastern.cs4500.controllers.UserprofileController.acceptFriendRequest(javax.servlet.http.HttpServletRequest)
+2018-04-05 23:15:24.363  INFO Rus-MBP-2 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/createMovieList],methods=[POST]}" onto public void edu.northeastern.cs4500.controllers.UserprofileController.createNewMovieList(java.lang.String,javax.servlet.http.HttpServletRequest)
+2018-04-05 23:15:24.364  INFO Rus-MBP-2 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/hello/insert]}" onto public edu.northeastern.cs4500.controllers.hello.HelloObject edu.northeastern.cs4500.controllers.hello.HelloController.insertHelloObject()
+2018-04-05 23:15:24.364  INFO Rus-MBP-2 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/hello/insert/{msg}]}" onto public edu.northeastern.cs4500.controllers.hello.HelloObject edu.northeastern.cs4500.controllers.hello.HelloController.insertMessage(java.lang.String)
+2018-04-05 23:15:24.364  INFO Rus-MBP-2 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/hello/select/all]}" onto public java.util.List<edu.northeastern.cs4500.controllers.hello.HelloObject> edu.northeastern.cs4500.controllers.hello.HelloController.selectAllHelloObjects()
+2018-04-05 23:15:24.364  INFO Rus-MBP-2 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/hello/string]}" onto public java.lang.String edu.northeastern.cs4500.controllers.hello.HelloController.sayHello()
+2018-04-05 23:15:24.365  INFO Rus-MBP-2 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/hello/object]}" onto public edu.northeastern.cs4500.controllers.hello.HelloObject edu.northeastern.cs4500.controllers.hello.HelloController.sayHelloObject()
+2018-04-05 23:15:24.367  INFO Rus-MBP-2 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-04-05 23:15:24.367  INFO Rus-MBP-2 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-04-05 23:15:24.389  INFO Rus-MBP-2 --- [  restartedMain] o.s.w.s.h.SimpleUrlHandlerMapping        : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-04-05 23:15:24.389  INFO Rus-MBP-2 --- [  restartedMain] o.s.w.s.h.SimpleUrlHandlerMapping        : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-04-05 23:15:24.419  INFO Rus-MBP-2 --- [  restartedMain] o.s.w.s.h.SimpleUrlHandlerMapping        : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-04-05 23:15:24.435  INFO Rus-MBP-2 --- [  restartedMain] oConfiguration$WelcomePageHandlerMapping : Adding welcome page: ServletContext resource [/index.html]
+2018-04-05 23:15:24.516  INFO Rus-MBP-2 --- [  restartedMain] b.a.s.AuthenticationManagerConfiguration : 
+
+Using default security password: e3c2e312-27db-4d14-8c0a-7a6cd57a890e
+
+2018-04-05 23:15:24.765  INFO Rus-MBP-2 --- [  restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2018-04-05 23:15:24.801  INFO Rus-MBP-2 --- [  restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2018-04-05 23:15:24.815  INFO Rus-MBP-2 --- [  restartedMain] o.a.c.h.Http11NioProtocol                : Initializing ProtocolHandler ["http-nio-8080"]
+2018-04-05 23:15:24.827  INFO Rus-MBP-2 --- [  restartedMain] o.a.c.h.Http11NioProtocol                : Starting ProtocolHandler ["http-nio-8080"]
+2018-04-05 23:15:24.844  INFO Rus-MBP-2 --- [  restartedMain] o.a.t.u.n.NioSelectorPool                : Using a shared selector for servlet write/read
+2018-04-05 23:15:24.856  INFO Rus-MBP-2 --- [  restartedMain] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat started on port(s): 8080 (http)
+2018-04-05 23:15:24.861  INFO Rus-MBP-2 --- [  restartedMain] e.n.c.Cs4500Spring2018Team47Application  : Started Cs4500Spring2018Team47Application in 8.11 seconds (JVM running for 8.846)
+2018-04-05 23:15:32.037  INFO Rus-MBP-2 --- [nio-8080-exec-1] o.a.c.c.C.[.[.[/]                        : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-04-05 23:15:32.039  INFO Rus-MBP-2 --- [nio-8080-exec-1] o.s.w.s.DispatcherServlet                : FrameworkServlet 'dispatcherServlet': initialization started
+2018-04-05 23:15:32.054  INFO Rus-MBP-2 --- [nio-8080-exec-1] o.s.w.s.DispatcherServlet                : FrameworkServlet 'dispatcherServlet': initialization completed in 15 ms
+2018-04-05 23:15:32.096  INFO Rus-MBP-2 --- [nio-8080-exec-1] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2018-04-05 23:15:32.277  INFO Rus-MBP-2 --- [nio-8080-exec-1] o.t.TemplateEngine                       : [THYMELEAF] INITIALIZING TEMPLATE ENGINE
+2018-04-05 23:15:32.323  INFO Rus-MBP-2 --- [nio-8080-exec-1] o.t.t.AbstractTemplateResolver           : [THYMELEAF] INITIALIZING TEMPLATE RESOLVER: org.thymeleaf.spring4.templateresolver.SpringResourceTemplateResolver
+2018-04-05 23:15:32.324  INFO Rus-MBP-2 --- [nio-8080-exec-1] o.t.t.AbstractTemplateResolver           : [THYMELEAF] TEMPLATE RESOLVER INITIALIZED OK
+2018-04-05 23:15:32.324  INFO Rus-MBP-2 --- [nio-8080-exec-1] o.t.m.AbstractMessageResolver            : [THYMELEAF] INITIALIZING MESSAGE RESOLVER: org.thymeleaf.spring4.messageresolver.SpringMessageResolver
+2018-04-05 23:15:32.324  INFO Rus-MBP-2 --- [nio-8080-exec-1] o.t.m.AbstractMessageResolver            : [THYMELEAF] MESSAGE RESOLVER INITIALIZED OK
+2018-04-05 23:15:32.329  INFO Rus-MBP-2 --- [nio-8080-exec-1] o.t.T.CONFIG                             : [THYMELEAF] TEMPLATE ENGINE CONFIGURATION:
+[THYMELEAF] * Cache Factory implementation: org.thymeleaf.cache.StandardCacheManager
+[THYMELEAF] * Template modes:
+[THYMELEAF]     * LEGACYHTML5
+[THYMELEAF]     * VALIDXHTML
+[THYMELEAF]     * XHTML
+[THYMELEAF]     * VALIDXML
+[THYMELEAF]     * HTML5
+[THYMELEAF]     * XML
+[THYMELEAF] * Template resolvers (in order):
+[THYMELEAF]     * org.thymeleaf.spring4.templateresolver.SpringResourceTemplateResolver
+[THYMELEAF] * Message resolvers (in order):
+[THYMELEAF]     * org.thymeleaf.spring4.messageresolver.SpringMessageResolver
+[THYMELEAF] * Dialect: org.thymeleaf.spring4.dialect.SpringStandardDialect
+[THYMELEAF]     * Prefix: "th"
+[THYMELEAF] TEMPLATE ENGINE CONFIGURED OK
+2018-04-05 23:15:32.329  INFO Rus-MBP-2 --- [nio-8080-exec-1] o.t.TemplateEngine                       : [THYMELEAF] TEMPLATE ENGINE INITIALIZED
+2018-04-06 12:52:14.524  INFO Rus-MBP-2 --- [      Thread-10] ationConfigEmbeddedWebApplicationContext : Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@68e3a9dd: startup date [Thu Apr 05 23:15:17 EDT 2018]; root of context hierarchy
+2018-04-07 20:24:05.447  INFO Rus-MacBook-Pro-2.local --- [  restartedMain] e.n.c.Cs4500Spring2018Team47Application  : Starting Cs4500Spring2018Team47Application on Rus-MacBook-Pro-2.local with PID 69616 (/Users/rusmillie/CS4500Team47/project/workspace-sts-3.9.2.RELEASE/cs4500-spring2018-team47/target/classes started by rusmillie in /Users/rusmillie/CS4500Team47/project/workspace-sts-3.9.2.RELEASE/cs4500-spring2018-team47)
+2018-04-07 20:24:05.451 DEBUG Rus-MacBook-Pro-2.local --- [  restartedMain] e.n.c.Cs4500Spring2018Team47Application  : Running with Spring Boot v1.5.9.RELEASE, Spring v4.3.13.RELEASE
+2018-04-07 20:24:05.451  INFO Rus-MacBook-Pro-2.local --- [  restartedMain] e.n.c.Cs4500Spring2018Team47Application  : No active profile set, falling back to default profiles: default
+2018-04-07 20:24:05.643  INFO Rus-MacBook-Pro-2.local --- [  restartedMain] ationConfigEmbeddedWebApplicationContext : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@4eadee2c: startup date [Sat Apr 07 20:24:05 EDT 2018]; root of context hierarchy
+2018-04-07 20:24:05.683  INFO Rus-MacBook-Pro-2.local --- [kground-preinit] o.h.v.i.u.Version                        : HV000001: Hibernate Validator 5.3.6.Final
+2018-04-07 20:24:07.051  INFO Rus-MacBook-Pro-2.local --- [  restartedMain] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat initialized with port(s): 8080 (http)
+2018-04-07 20:24:07.062  INFO Rus-MacBook-Pro-2.local --- [  restartedMain] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2018-04-07 20:24:07.063  INFO Rus-MacBook-Pro-2.local --- [  restartedMain] o.a.c.c.StandardEngine                   : Starting Servlet Engine: Apache Tomcat/8.5.23
+2018-04-07 20:24:07.173  INFO Rus-MacBook-Pro-2.local --- [ost-startStop-1] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2018-04-07 20:24:07.173  INFO Rus-MacBook-Pro-2.local --- [ost-startStop-1] o.s.w.c.ContextLoader                    : Root WebApplicationContext: initialization completed in 1533 ms
+2018-04-07 20:24:07.301  INFO Rus-MacBook-Pro-2.local --- [ost-startStop-1] o.s.b.w.s.FilterRegistrationBean         : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-04-07 20:24:07.301  INFO Rus-MacBook-Pro-2.local --- [ost-startStop-1] o.s.b.w.s.FilterRegistrationBean         : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-04-07 20:24:07.301  INFO Rus-MacBook-Pro-2.local --- [ost-startStop-1] o.s.b.w.s.FilterRegistrationBean         : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-04-07 20:24:07.301  INFO Rus-MacBook-Pro-2.local --- [ost-startStop-1] o.s.b.w.s.FilterRegistrationBean         : Mapping filter: 'requestContextFilter' to: [/*]
+2018-04-07 20:24:07.302  INFO Rus-MacBook-Pro-2.local --- [ost-startStop-1] .s.DelegatingFilterProxyRegistrationBean : Mapping filter: 'springSecurityFilterChain' to: [/*]
+2018-04-07 20:24:07.303  INFO Rus-MacBook-Pro-2.local --- [ost-startStop-1] o.s.b.w.s.ServletRegistrationBean        : Mapping servlet: 'dispatcherServlet' to [/]
+2018-04-07 20:24:12.124  INFO Rus-MacBook-Pro-2.local --- [  restartedMain] j.LocalContainerEntityManagerFactoryBean : Building JPA container EntityManagerFactory for persistence unit 'default'
+2018-04-07 20:24:12.139  INFO Rus-MacBook-Pro-2.local --- [  restartedMain] o.h.j.i.u.LogHelper                      : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-04-07 20:24:12.209  INFO Rus-MacBook-Pro-2.local --- [  restartedMain] o.h.Version                              : HHH000412: Hibernate Core {5.0.12.Final}
+2018-04-07 20:24:12.210  INFO Rus-MacBook-Pro-2.local --- [  restartedMain] o.h.c.Environment                        : HHH000206: hibernate.properties not found
+2018-04-07 20:24:12.212  INFO Rus-MacBook-Pro-2.local --- [  restartedMain] o.h.c.Environment                        : HHH000021: Bytecode provider name : javassist
+2018-04-07 20:24:12.250  INFO Rus-MacBook-Pro-2.local --- [  restartedMain] o.h.a.c.Version                          : HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2018-04-07 20:24:12.382  INFO Rus-MacBook-Pro-2.local --- [  restartedMain] o.h.d.Dialect                            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2018-04-07 20:24:12.565  WARN Rus-MacBook-Pro-2.local --- [  restartedMain] o.h.b.i.SessionFactoryBuilderImpl        : Unrecognized hbm2ddl_auto value : none .  Supported values include create, create-drop, update, and validate.  Ignoring
+2018-04-07 20:24:12.814  INFO Rus-MacBook-Pro-2.local --- [  restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2018-04-07 20:24:14.504  INFO Rus-MacBook-Pro-2.local --- [  restartedMain] o.s.s.w.DefaultSecurityFilterChain       : Creating filter chain: Ant [pattern='/resources/**'], []
+2018-04-07 20:24:14.504  INFO Rus-MacBook-Pro-2.local --- [  restartedMain] o.s.s.w.DefaultSecurityFilterChain       : Creating filter chain: Ant [pattern='/static/**'], []
+2018-04-07 20:24:14.504  INFO Rus-MacBook-Pro-2.local --- [  restartedMain] o.s.s.w.DefaultSecurityFilterChain       : Creating filter chain: Ant [pattern='/css/**'], []
+2018-04-07 20:24:14.505  INFO Rus-MacBook-Pro-2.local --- [  restartedMain] o.s.s.w.DefaultSecurityFilterChain       : Creating filter chain: Ant [pattern='/js/**'], []
+2018-04-07 20:24:14.505  INFO Rus-MacBook-Pro-2.local --- [  restartedMain] o.s.s.w.DefaultSecurityFilterChain       : Creating filter chain: Ant [pattern='/images/**'], []
+2018-04-07 20:24:14.564  INFO Rus-MacBook-Pro-2.local --- [  restartedMain] o.s.s.w.DefaultSecurityFilterChain       : Creating filter chain: org.springframework.security.web.util.matcher.AnyRequestMatcher@1, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@9ab8094, org.springframework.security.web.context.SecurityContextPersistenceFilter@1550f2eb, org.springframework.security.web.header.HeaderWriterFilter@5057d8c5, org.springframework.security.web.authentication.logout.LogoutFilter@7233b4ef, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@ee660a, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@654dc267, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@44dd7cc9, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@49d7e4f6, org.springframework.security.web.session.SessionManagementFilter@d6fc901, org.springframework.security.web.access.ExceptionTranslationFilter@4d7343be, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@3955930]
+2018-04-07 20:24:14.814  INFO Rus-MacBook-Pro-2.local --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@4eadee2c: startup date [Sat Apr 07 20:24:05 EDT 2018]; root of context hierarchy
+2018-04-07 20:24:14.874  INFO Rus-MacBook-Pro-2.local --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/home],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.LoginController.home()
+2018-04-07 20:24:14.875  INFO Rus-MacBook-Pro-2.local --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/registration],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.LoginController.registration()
+2018-04-07 20:24:14.875  INFO Rus-MacBook-Pro-2.local --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/login],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.LoginController.login()
+2018-04-07 20:24:14.875  INFO Rus-MacBook-Pro-2.local --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/registration],methods=[POST]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.LoginController.createNewUser(edu.northeastern.cs4500.model.user.User,org.springframework.validation.BindingResult)
+2018-04-07 20:24:14.876  INFO Rus-MacBook-Pro-2.local --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/search],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.MovieController.searchResult(java.lang.String)
+2018-04-07 20:24:14.876  INFO Rus-MacBook-Pro-2.local --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/movie/{title}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.MovieController.movieResult(java.lang.String)
+2018-04-07 20:24:14.877  INFO Rus-MacBook-Pro-2.local --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/movie/rating],methods=[POST]}" onto public void edu.northeastern.cs4500.controllers.MovieController.setRating(java.lang.String,javax.servlet.http.HttpServletRequest)
+2018-04-07 20:24:14.877  INFO Rus-MacBook-Pro-2.local --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/writeReview],methods=[POST]}" onto public void edu.northeastern.cs4500.controllers.MovieController.writeReview(java.lang.String,javax.servlet.http.HttpServletRequest)
+2018-04-07 20:24:14.877  INFO Rus-MacBook-Pro-2.local --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/addMovieToList],methods=[POST]}" onto public void edu.northeastern.cs4500.controllers.MovieController.addMovieToList(java.lang.String,javax.servlet.http.HttpServletRequest)
+2018-04-07 20:24:14.877  INFO Rus-MacBook-Pro-2.local --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.PageController.login()
+2018-04-07 20:24:14.879  INFO Rus-MacBook-Pro-2.local --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/profile],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.UserprofileController.getProfile()
+2018-04-07 20:24:14.879  INFO Rus-MacBook-Pro-2.local --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/view/{username}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.UserprofileController.userProfile(java.lang.String)
+2018-04-07 20:24:14.879  INFO Rus-MacBook-Pro-2.local --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/profile+to+movielist],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.UserprofileController.getMovieList()
+2018-04-07 20:24:14.880  INFO Rus-MacBook-Pro-2.local --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/view/{username}],methods=[POST]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.UserprofileController.addFriend(java.lang.String)
+2018-04-07 20:24:14.880  INFO Rus-MacBook-Pro-2.local --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/profile+to+movielist+{listName}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.UserprofileController.getMovieItems(java.lang.String)
+2018-04-07 20:24:14.880  INFO Rus-MacBook-Pro-2.local --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/profile+to+friendsAndRequests],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.UserprofileController.friendsAndRequests()
+2018-04-07 20:24:14.880  INFO Rus-MacBook-Pro-2.local --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/acceptRequest],methods=[POST]}" onto public void edu.northeastern.cs4500.controllers.UserprofileController.acceptFriendRequest(javax.servlet.http.HttpServletRequest)
+2018-04-07 20:24:14.880  INFO Rus-MacBook-Pro-2.local --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/createMovieList],methods=[POST]}" onto public void edu.northeastern.cs4500.controllers.UserprofileController.createNewMovieList(java.lang.String,javax.servlet.http.HttpServletRequest)
+2018-04-07 20:24:14.881  INFO Rus-MacBook-Pro-2.local --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/hello/insert]}" onto public edu.northeastern.cs4500.controllers.hello.HelloObject edu.northeastern.cs4500.controllers.hello.HelloController.insertHelloObject()
+2018-04-07 20:24:14.881  INFO Rus-MacBook-Pro-2.local --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/hello/insert/{msg}]}" onto public edu.northeastern.cs4500.controllers.hello.HelloObject edu.northeastern.cs4500.controllers.hello.HelloController.insertMessage(java.lang.String)
+2018-04-07 20:24:14.881  INFO Rus-MacBook-Pro-2.local --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/hello/select/all]}" onto public java.util.List<edu.northeastern.cs4500.controllers.hello.HelloObject> edu.northeastern.cs4500.controllers.hello.HelloController.selectAllHelloObjects()
+2018-04-07 20:24:14.881  INFO Rus-MacBook-Pro-2.local --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/hello/string]}" onto public java.lang.String edu.northeastern.cs4500.controllers.hello.HelloController.sayHello()
+2018-04-07 20:24:14.881  INFO Rus-MacBook-Pro-2.local --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/hello/object]}" onto public edu.northeastern.cs4500.controllers.hello.HelloObject edu.northeastern.cs4500.controllers.hello.HelloController.sayHelloObject()
+2018-04-07 20:24:14.883  INFO Rus-MacBook-Pro-2.local --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-04-07 20:24:14.883  INFO Rus-MacBook-Pro-2.local --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-04-07 20:24:14.904  INFO Rus-MacBook-Pro-2.local --- [  restartedMain] o.s.w.s.h.SimpleUrlHandlerMapping        : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-04-07 20:24:14.904  INFO Rus-MacBook-Pro-2.local --- [  restartedMain] o.s.w.s.h.SimpleUrlHandlerMapping        : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-04-07 20:24:14.930  INFO Rus-MacBook-Pro-2.local --- [  restartedMain] o.s.w.s.h.SimpleUrlHandlerMapping        : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-04-07 20:24:14.944  INFO Rus-MacBook-Pro-2.local --- [  restartedMain] oConfiguration$WelcomePageHandlerMapping : Adding welcome page: ServletContext resource [/index.html]
+2018-04-07 20:24:15.021  INFO Rus-MacBook-Pro-2.local --- [  restartedMain] b.a.s.AuthenticationManagerConfiguration : 
+
+Using default security password: 8857f997-d5a6-4695-a6ea-c2f2d407ac7b
+
+2018-04-07 20:24:15.326  INFO Rus-MacBook-Pro-2.local --- [  restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2018-04-07 20:24:15.365  INFO Rus-MacBook-Pro-2.local --- [  restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2018-04-07 20:24:15.383  INFO Rus-MacBook-Pro-2.local --- [  restartedMain] o.a.c.h.Http11NioProtocol                : Initializing ProtocolHandler ["http-nio-8080"]
+2018-04-07 20:24:15.393  INFO Rus-MacBook-Pro-2.local --- [  restartedMain] o.a.c.h.Http11NioProtocol                : Starting ProtocolHandler ["http-nio-8080"]
+2018-04-07 20:24:15.412  INFO Rus-MacBook-Pro-2.local --- [  restartedMain] o.a.t.u.n.NioSelectorPool                : Using a shared selector for servlet write/read
+2018-04-07 20:24:15.427  INFO Rus-MacBook-Pro-2.local --- [  restartedMain] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat started on port(s): 8080 (http)
+2018-04-07 20:24:15.432  INFO Rus-MacBook-Pro-2.local --- [  restartedMain] e.n.c.Cs4500Spring2018Team47Application  : Started Cs4500Spring2018Team47Application in 10.21 seconds (JVM running for 11.203)
+2018-04-07 20:24:15.830  INFO Rus-MacBook-Pro-2.local --- [nio-8080-exec-1] o.a.c.c.C.[.[.[/]                        : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-04-07 20:24:15.830  INFO Rus-MacBook-Pro-2.local --- [nio-8080-exec-1] o.s.w.s.DispatcherServlet                : FrameworkServlet 'dispatcherServlet': initialization started
+2018-04-07 20:24:15.844  INFO Rus-MacBook-Pro-2.local --- [nio-8080-exec-1] o.s.w.s.DispatcherServlet                : FrameworkServlet 'dispatcherServlet': initialization completed in 14 ms
+2018-04-07 20:24:15.888  INFO Rus-MacBook-Pro-2.local --- [nio-8080-exec-1] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2018-04-07 20:24:16.104  INFO Rus-MacBook-Pro-2.local --- [nio-8080-exec-1] o.t.TemplateEngine                       : [THYMELEAF] INITIALIZING TEMPLATE ENGINE
+2018-04-07 20:24:16.150  INFO Rus-MacBook-Pro-2.local --- [nio-8080-exec-1] o.t.t.AbstractTemplateResolver           : [THYMELEAF] INITIALIZING TEMPLATE RESOLVER: org.thymeleaf.spring4.templateresolver.SpringResourceTemplateResolver
+2018-04-07 20:24:16.150  INFO Rus-MacBook-Pro-2.local --- [nio-8080-exec-1] o.t.t.AbstractTemplateResolver           : [THYMELEAF] TEMPLATE RESOLVER INITIALIZED OK
+2018-04-07 20:24:16.150  INFO Rus-MacBook-Pro-2.local --- [nio-8080-exec-1] o.t.m.AbstractMessageResolver            : [THYMELEAF] INITIALIZING MESSAGE RESOLVER: org.thymeleaf.spring4.messageresolver.SpringMessageResolver
+2018-04-07 20:24:16.150  INFO Rus-MacBook-Pro-2.local --- [nio-8080-exec-1] o.t.m.AbstractMessageResolver            : [THYMELEAF] MESSAGE RESOLVER INITIALIZED OK
+2018-04-07 20:24:16.154  INFO Rus-MacBook-Pro-2.local --- [nio-8080-exec-1] o.t.T.CONFIG                             : [THYMELEAF] TEMPLATE ENGINE CONFIGURATION:
+[THYMELEAF] * Cache Factory implementation: org.thymeleaf.cache.StandardCacheManager
+[THYMELEAF] * Template modes:
+[THYMELEAF]     * HTML5
+[THYMELEAF]     * LEGACYHTML5
+[THYMELEAF]     * VALIDXHTML
+[THYMELEAF]     * XML
+[THYMELEAF]     * VALIDXML
+[THYMELEAF]     * XHTML
+[THYMELEAF] * Template resolvers (in order):
+[THYMELEAF]     * org.thymeleaf.spring4.templateresolver.SpringResourceTemplateResolver
+[THYMELEAF] * Message resolvers (in order):
+[THYMELEAF]     * org.thymeleaf.spring4.messageresolver.SpringMessageResolver
+[THYMELEAF] * Dialect: org.thymeleaf.spring4.dialect.SpringStandardDialect
+[THYMELEAF]     * Prefix: "th"
+[THYMELEAF] TEMPLATE ENGINE CONFIGURED OK
+2018-04-07 20:24:16.154  INFO Rus-MacBook-Pro-2.local --- [nio-8080-exec-1] o.t.TemplateEngine                       : [THYMELEAF] TEMPLATE ENGINE INITIALIZED
+2018-04-07 20:58:15.963  INFO Rus-MacBook-Pro-2.local --- [      Thread-10] ationConfigEmbeddedWebApplicationContext : Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@4eadee2c: startup date [Sat Apr 07 20:24:05 EDT 2018]; root of context hierarchy
+2018-04-07 20:59:12.177  INFO Rus-MacBook-Pro-2.local --- [  restartedMain] e.n.c.Cs4500Spring2018Team47Application  : Starting Cs4500Spring2018Team47Application on Rus-MacBook-Pro-2.local with PID 71312 (/Users/rusmillie/CS4500Team47/project/workspace-sts-3.9.2.RELEASE/cs4500-spring2018-team47/target/classes started by rusmillie in /Users/rusmillie/CS4500Team47/project/workspace-sts-3.9.2.RELEASE/cs4500-spring2018-team47)
+2018-04-07 20:59:12.180 DEBUG Rus-MacBook-Pro-2.local --- [  restartedMain] e.n.c.Cs4500Spring2018Team47Application  : Running with Spring Boot v1.5.9.RELEASE, Spring v4.3.13.RELEASE
+2018-04-07 20:59:12.180  INFO Rus-MacBook-Pro-2.local --- [  restartedMain] e.n.c.Cs4500Spring2018Team47Application  : No active profile set, falling back to default profiles: default
+2018-04-07 20:59:12.343  INFO Rus-MacBook-Pro-2.local --- [  restartedMain] ationConfigEmbeddedWebApplicationContext : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@18163931: startup date [Sat Apr 07 20:59:12 EDT 2018]; root of context hierarchy
+2018-04-07 20:59:12.371  INFO Rus-MacBook-Pro-2.local --- [kground-preinit] o.h.v.i.u.Version                        : HV000001: Hibernate Validator 5.3.6.Final
+2018-04-07 20:59:13.557  INFO Rus-MacBook-Pro-2.local --- [  restartedMain] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat initialized with port(s): 8080 (http)
+2018-04-07 20:59:13.567  INFO Rus-MacBook-Pro-2.local --- [  restartedMain] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2018-04-07 20:59:13.568  INFO Rus-MacBook-Pro-2.local --- [  restartedMain] o.a.c.c.StandardEngine                   : Starting Servlet Engine: Apache Tomcat/8.5.23
+2018-04-07 20:59:13.665  INFO Rus-MacBook-Pro-2.local --- [ost-startStop-1] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2018-04-07 20:59:13.665  INFO Rus-MacBook-Pro-2.local --- [ost-startStop-1] o.s.w.c.ContextLoader                    : Root WebApplicationContext: initialization completed in 1324 ms
+2018-04-07 20:59:13.785  INFO Rus-MacBook-Pro-2.local --- [ost-startStop-1] o.s.b.w.s.FilterRegistrationBean         : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-04-07 20:59:13.785  INFO Rus-MacBook-Pro-2.local --- [ost-startStop-1] o.s.b.w.s.FilterRegistrationBean         : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-04-07 20:59:13.785  INFO Rus-MacBook-Pro-2.local --- [ost-startStop-1] o.s.b.w.s.FilterRegistrationBean         : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-04-07 20:59:13.785  INFO Rus-MacBook-Pro-2.local --- [ost-startStop-1] o.s.b.w.s.FilterRegistrationBean         : Mapping filter: 'requestContextFilter' to: [/*]
+2018-04-07 20:59:13.786  INFO Rus-MacBook-Pro-2.local --- [ost-startStop-1] .s.DelegatingFilterProxyRegistrationBean : Mapping filter: 'springSecurityFilterChain' to: [/*]
+2018-04-07 20:59:13.786  INFO Rus-MacBook-Pro-2.local --- [ost-startStop-1] o.s.b.w.s.ServletRegistrationBean        : Mapping servlet: 'dispatcherServlet' to [/]
+2018-04-07 20:59:18.410  INFO Rus-MacBook-Pro-2.local --- [  restartedMain] j.LocalContainerEntityManagerFactoryBean : Building JPA container EntityManagerFactory for persistence unit 'default'
+2018-04-07 20:59:18.422  INFO Rus-MacBook-Pro-2.local --- [  restartedMain] o.h.j.i.u.LogHelper                      : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-04-07 20:59:18.470  INFO Rus-MacBook-Pro-2.local --- [  restartedMain] o.h.Version                              : HHH000412: Hibernate Core {5.0.12.Final}
+2018-04-07 20:59:18.471  INFO Rus-MacBook-Pro-2.local --- [  restartedMain] o.h.c.Environment                        : HHH000206: hibernate.properties not found
+2018-04-07 20:59:18.472  INFO Rus-MacBook-Pro-2.local --- [  restartedMain] o.h.c.Environment                        : HHH000021: Bytecode provider name : javassist
+2018-04-07 20:59:18.508  INFO Rus-MacBook-Pro-2.local --- [  restartedMain] o.h.a.c.Version                          : HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2018-04-07 20:59:18.613  INFO Rus-MacBook-Pro-2.local --- [  restartedMain] o.h.d.Dialect                            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2018-04-07 20:59:18.778  WARN Rus-MacBook-Pro-2.local --- [  restartedMain] o.h.b.i.SessionFactoryBuilderImpl        : Unrecognized hbm2ddl_auto value : none .  Supported values include create, create-drop, update, and validate.  Ignoring
+2018-04-07 20:59:18.992  INFO Rus-MacBook-Pro-2.local --- [  restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2018-04-07 20:59:20.600  INFO Rus-MacBook-Pro-2.local --- [  restartedMain] o.s.s.w.DefaultSecurityFilterChain       : Creating filter chain: Ant [pattern='/resources/**'], []
+2018-04-07 20:59:20.600  INFO Rus-MacBook-Pro-2.local --- [  restartedMain] o.s.s.w.DefaultSecurityFilterChain       : Creating filter chain: Ant [pattern='/static/**'], []
+2018-04-07 20:59:20.600  INFO Rus-MacBook-Pro-2.local --- [  restartedMain] o.s.s.w.DefaultSecurityFilterChain       : Creating filter chain: Ant [pattern='/css/**'], []
+2018-04-07 20:59:20.600  INFO Rus-MacBook-Pro-2.local --- [  restartedMain] o.s.s.w.DefaultSecurityFilterChain       : Creating filter chain: Ant [pattern='/js/**'], []
+2018-04-07 20:59:20.600  INFO Rus-MacBook-Pro-2.local --- [  restartedMain] o.s.s.w.DefaultSecurityFilterChain       : Creating filter chain: Ant [pattern='/images/**'], []
+2018-04-07 20:59:20.652  INFO Rus-MacBook-Pro-2.local --- [  restartedMain] o.s.s.w.DefaultSecurityFilterChain       : Creating filter chain: org.springframework.security.web.util.matcher.AnyRequestMatcher@1, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@504b1910, org.springframework.security.web.context.SecurityContextPersistenceFilter@23e5e475, org.springframework.security.web.header.HeaderWriterFilter@18afdefa, org.springframework.security.web.authentication.logout.LogoutFilter@5aeddf08, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@71e64649, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@40fa2b2c, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2e4493f9, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1df5f867, org.springframework.security.web.session.SessionManagementFilter@5728c7af, org.springframework.security.web.access.ExceptionTranslationFilter@2b008d0a, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@e9dde3b]
+2018-04-07 20:59:20.896  INFO Rus-MacBook-Pro-2.local --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@18163931: startup date [Sat Apr 07 20:59:12 EDT 2018]; root of context hierarchy
+2018-04-07 20:59:20.948  INFO Rus-MacBook-Pro-2.local --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/home],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.LoginController.home()
+2018-04-07 20:59:20.949  INFO Rus-MacBook-Pro-2.local --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/login],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.LoginController.login()
+2018-04-07 20:59:20.949  INFO Rus-MacBook-Pro-2.local --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/registration],methods=[POST]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.LoginController.createNewUser(edu.northeastern.cs4500.model.user.User,org.springframework.validation.BindingResult)
+2018-04-07 20:59:20.949  INFO Rus-MacBook-Pro-2.local --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/registration],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.LoginController.registration()
+2018-04-07 20:59:20.950  INFO Rus-MacBook-Pro-2.local --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/search],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.MovieController.searchResult(java.lang.String)
+2018-04-07 20:59:20.950  INFO Rus-MacBook-Pro-2.local --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/movie/{title}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.MovieController.movieResult(java.lang.String)
+2018-04-07 20:59:20.952  INFO Rus-MacBook-Pro-2.local --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/movie/rating],methods=[POST]}" onto public void edu.northeastern.cs4500.controllers.MovieController.setRating(java.lang.String,javax.servlet.http.HttpServletRequest)
+2018-04-07 20:59:20.952  INFO Rus-MacBook-Pro-2.local --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/writeReview],methods=[POST]}" onto public void edu.northeastern.cs4500.controllers.MovieController.writeReview(java.lang.String,javax.servlet.http.HttpServletRequest)
+2018-04-07 20:59:20.953  INFO Rus-MacBook-Pro-2.local --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/addMovieToList],methods=[POST]}" onto public void edu.northeastern.cs4500.controllers.MovieController.addMovieToList(java.lang.String,javax.servlet.http.HttpServletRequest)
+2018-04-07 20:59:20.953  INFO Rus-MacBook-Pro-2.local --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.PageController.login()
+2018-04-07 20:59:20.956  INFO Rus-MacBook-Pro-2.local --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/profile],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.UserprofileController.getProfile()
+2018-04-07 20:59:20.956  INFO Rus-MacBook-Pro-2.local --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/view/{username}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.UserprofileController.userProfile(java.lang.String)
+2018-04-07 20:59:20.956  INFO Rus-MacBook-Pro-2.local --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/profile+to+movielist],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.UserprofileController.getMovieList()
+2018-04-07 20:59:20.956  INFO Rus-MacBook-Pro-2.local --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/view/{username}],methods=[POST]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.UserprofileController.addFriend(java.lang.String)
+2018-04-07 20:59:20.957  INFO Rus-MacBook-Pro-2.local --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/profile+to+movielist+{listName}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.UserprofileController.getMovieItems(java.lang.String)
+2018-04-07 20:59:20.957  INFO Rus-MacBook-Pro-2.local --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/profile+to+friendsAndRequests],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.UserprofileController.friendsAndRequests()
+2018-04-07 20:59:20.957  INFO Rus-MacBook-Pro-2.local --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/acceptRequest],methods=[POST]}" onto public void edu.northeastern.cs4500.controllers.UserprofileController.acceptFriendRequest(javax.servlet.http.HttpServletRequest)
+2018-04-07 20:59:20.958  INFO Rus-MacBook-Pro-2.local --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/createMovieList],methods=[POST]}" onto public void edu.northeastern.cs4500.controllers.UserprofileController.createNewMovieList(java.lang.String,javax.servlet.http.HttpServletRequest)
+2018-04-07 20:59:20.958  INFO Rus-MacBook-Pro-2.local --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/hello/insert]}" onto public edu.northeastern.cs4500.controllers.hello.HelloObject edu.northeastern.cs4500.controllers.hello.HelloController.insertHelloObject()
+2018-04-07 20:59:20.959  INFO Rus-MacBook-Pro-2.local --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/hello/insert/{msg}]}" onto public edu.northeastern.cs4500.controllers.hello.HelloObject edu.northeastern.cs4500.controllers.hello.HelloController.insertMessage(java.lang.String)
+2018-04-07 20:59:20.959  INFO Rus-MacBook-Pro-2.local --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/hello/select/all]}" onto public java.util.List<edu.northeastern.cs4500.controllers.hello.HelloObject> edu.northeastern.cs4500.controllers.hello.HelloController.selectAllHelloObjects()
+2018-04-07 20:59:20.959  INFO Rus-MacBook-Pro-2.local --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/hello/string]}" onto public java.lang.String edu.northeastern.cs4500.controllers.hello.HelloController.sayHello()
+2018-04-07 20:59:20.959  INFO Rus-MacBook-Pro-2.local --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/hello/object]}" onto public edu.northeastern.cs4500.controllers.hello.HelloObject edu.northeastern.cs4500.controllers.hello.HelloController.sayHelloObject()
+2018-04-07 20:59:20.961  INFO Rus-MacBook-Pro-2.local --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-04-07 20:59:20.961  INFO Rus-MacBook-Pro-2.local --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-04-07 20:59:20.987  INFO Rus-MacBook-Pro-2.local --- [  restartedMain] o.s.w.s.h.SimpleUrlHandlerMapping        : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-04-07 20:59:20.987  INFO Rus-MacBook-Pro-2.local --- [  restartedMain] o.s.w.s.h.SimpleUrlHandlerMapping        : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-04-07 20:59:21.011  INFO Rus-MacBook-Pro-2.local --- [  restartedMain] o.s.w.s.h.SimpleUrlHandlerMapping        : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-04-07 20:59:21.024  INFO Rus-MacBook-Pro-2.local --- [  restartedMain] oConfiguration$WelcomePageHandlerMapping : Adding welcome page: ServletContext resource [/index.html]
+2018-04-07 20:59:21.107  INFO Rus-MacBook-Pro-2.local --- [  restartedMain] b.a.s.AuthenticationManagerConfiguration : 
+
+Using default security password: 49bafc23-47f0-4faf-89a9-62f7a04705d7
+
+2018-04-07 20:59:21.429  INFO Rus-MacBook-Pro-2.local --- [  restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2018-04-07 20:59:21.466  INFO Rus-MacBook-Pro-2.local --- [  restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2018-04-07 20:59:21.481  INFO Rus-MacBook-Pro-2.local --- [  restartedMain] o.a.c.h.Http11NioProtocol                : Initializing ProtocolHandler ["http-nio-8080"]
+2018-04-07 20:59:21.490  INFO Rus-MacBook-Pro-2.local --- [  restartedMain] o.a.c.h.Http11NioProtocol                : Starting ProtocolHandler ["http-nio-8080"]
+2018-04-07 20:59:21.509  INFO Rus-MacBook-Pro-2.local --- [  restartedMain] o.a.t.u.n.NioSelectorPool                : Using a shared selector for servlet write/read
+2018-04-07 20:59:21.525  INFO Rus-MacBook-Pro-2.local --- [  restartedMain] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat started on port(s): 8080 (http)
+2018-04-07 20:59:21.531  INFO Rus-MacBook-Pro-2.local --- [  restartedMain] e.n.c.Cs4500Spring2018Team47Application  : Started Cs4500Spring2018Team47Application in 9.53 seconds (JVM running for 10.363)
+2018-04-07 20:59:25.857  INFO Rus-MacBook-Pro-2.local --- [nio-8080-exec-1] o.a.c.c.C.[.[.[/]                        : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-04-07 20:59:25.858  INFO Rus-MacBook-Pro-2.local --- [nio-8080-exec-1] o.s.w.s.DispatcherServlet                : FrameworkServlet 'dispatcherServlet': initialization started
+2018-04-07 20:59:25.872  INFO Rus-MacBook-Pro-2.local --- [nio-8080-exec-1] o.s.w.s.DispatcherServlet                : FrameworkServlet 'dispatcherServlet': initialization completed in 14 ms
+2018-04-07 20:59:25.913  INFO Rus-MacBook-Pro-2.local --- [nio-8080-exec-1] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2018-04-07 20:59:26.107  INFO Rus-MacBook-Pro-2.local --- [nio-8080-exec-1] o.t.TemplateEngine                       : [THYMELEAF] INITIALIZING TEMPLATE ENGINE
+2018-04-07 20:59:26.148  INFO Rus-MacBook-Pro-2.local --- [nio-8080-exec-1] o.t.t.AbstractTemplateResolver           : [THYMELEAF] INITIALIZING TEMPLATE RESOLVER: org.thymeleaf.spring4.templateresolver.SpringResourceTemplateResolver
+2018-04-07 20:59:26.148  INFO Rus-MacBook-Pro-2.local --- [nio-8080-exec-1] o.t.t.AbstractTemplateResolver           : [THYMELEAF] TEMPLATE RESOLVER INITIALIZED OK
+2018-04-07 20:59:26.148  INFO Rus-MacBook-Pro-2.local --- [nio-8080-exec-1] o.t.m.AbstractMessageResolver            : [THYMELEAF] INITIALIZING MESSAGE RESOLVER: org.thymeleaf.spring4.messageresolver.SpringMessageResolver
+2018-04-07 20:59:26.148  INFO Rus-MacBook-Pro-2.local --- [nio-8080-exec-1] o.t.m.AbstractMessageResolver            : [THYMELEAF] MESSAGE RESOLVER INITIALIZED OK
+2018-04-07 20:59:26.152  INFO Rus-MacBook-Pro-2.local --- [nio-8080-exec-1] o.t.T.CONFIG                             : [THYMELEAF] TEMPLATE ENGINE CONFIGURATION:
+[THYMELEAF] * Cache Factory implementation: org.thymeleaf.cache.StandardCacheManager
+[THYMELEAF] * Template modes:
+[THYMELEAF]     * VALIDXML
+[THYMELEAF]     * XHTML
+[THYMELEAF]     * VALIDXHTML
+[THYMELEAF]     * XML
+[THYMELEAF]     * HTML5
+[THYMELEAF]     * LEGACYHTML5
+[THYMELEAF] * Template resolvers (in order):
+[THYMELEAF]     * org.thymeleaf.spring4.templateresolver.SpringResourceTemplateResolver
+[THYMELEAF] * Message resolvers (in order):
+[THYMELEAF]     * org.thymeleaf.spring4.messageresolver.SpringMessageResolver
+[THYMELEAF] * Dialect: org.thymeleaf.spring4.dialect.SpringStandardDialect
+[THYMELEAF]     * Prefix: "th"
+[THYMELEAF] TEMPLATE ENGINE CONFIGURED OK
+2018-04-07 20:59:26.152  INFO Rus-MacBook-Pro-2.local --- [nio-8080-exec-1] o.t.TemplateEngine                       : [THYMELEAF] TEMPLATE ENGINE INITIALIZED
+2018-04-07 22:14:17.678  INFO Rus-MacBook-Pro-2.local --- [      Thread-10] ationConfigEmbeddedWebApplicationContext : Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@18163931: startup date [Sat Apr 07 20:59:12 EDT 2018]; root of context hierarchy
+2018-04-08 10:01:37.378  INFO Rus-MBP-2 --- [  restartedMain] e.n.c.Cs4500Spring2018Team47Application  : Starting Cs4500Spring2018Team47Application on Rus-MBP-2 with PID 1307 (/Users/rusmillie/CS4500Team47/project/workspace-sts-3.9.2.RELEASE/cs4500-spring2018-team47/target/classes started by rusmillie in /Users/rusmillie/CS4500Team47/project/workspace-sts-3.9.2.RELEASE/cs4500-spring2018-team47)
+2018-04-08 10:01:37.382 DEBUG Rus-MBP-2 --- [  restartedMain] e.n.c.Cs4500Spring2018Team47Application  : Running with Spring Boot v1.5.9.RELEASE, Spring v4.3.13.RELEASE
+2018-04-08 10:01:37.382  INFO Rus-MBP-2 --- [  restartedMain] e.n.c.Cs4500Spring2018Team47Application  : No active profile set, falling back to default profiles: default
+2018-04-08 10:01:37.581  INFO Rus-MBP-2 --- [  restartedMain] ationConfigEmbeddedWebApplicationContext : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@4eadee2c: startup date [Sun Apr 08 10:01:37 EDT 2018]; root of context hierarchy
+2018-04-08 10:01:37.615  INFO Rus-MBP-2 --- [kground-preinit] o.h.v.i.u.Version                        : HV000001: Hibernate Validator 5.3.6.Final
+2018-04-08 10:01:38.956  INFO Rus-MBP-2 --- [  restartedMain] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat initialized with port(s): 8080 (http)
+2018-04-08 10:01:38.967  INFO Rus-MBP-2 --- [  restartedMain] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2018-04-08 10:01:38.968  INFO Rus-MBP-2 --- [  restartedMain] o.a.c.c.StandardEngine                   : Starting Servlet Engine: Apache Tomcat/8.5.23
+2018-04-08 10:01:39.076  INFO Rus-MBP-2 --- [ost-startStop-1] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2018-04-08 10:01:39.077  INFO Rus-MBP-2 --- [ost-startStop-1] o.s.w.c.ContextLoader                    : Root WebApplicationContext: initialization completed in 1499 ms
+2018-04-08 10:01:39.192  INFO Rus-MBP-2 --- [ost-startStop-1] o.s.b.w.s.FilterRegistrationBean         : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-04-08 10:01:39.193  INFO Rus-MBP-2 --- [ost-startStop-1] o.s.b.w.s.FilterRegistrationBean         : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-04-08 10:01:39.193  INFO Rus-MBP-2 --- [ost-startStop-1] o.s.b.w.s.FilterRegistrationBean         : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-04-08 10:01:39.193  INFO Rus-MBP-2 --- [ost-startStop-1] o.s.b.w.s.FilterRegistrationBean         : Mapping filter: 'requestContextFilter' to: [/*]
+2018-04-08 10:01:39.194  INFO Rus-MBP-2 --- [ost-startStop-1] .s.DelegatingFilterProxyRegistrationBean : Mapping filter: 'springSecurityFilterChain' to: [/*]
+2018-04-08 10:01:39.194  INFO Rus-MBP-2 --- [ost-startStop-1] o.s.b.w.s.ServletRegistrationBean        : Mapping servlet: 'dispatcherServlet' to [/]
+2018-04-08 10:01:42.661  INFO Rus-MBP-2 --- [  restartedMain] j.LocalContainerEntityManagerFactoryBean : Building JPA container EntityManagerFactory for persistence unit 'default'
+2018-04-08 10:01:42.676  INFO Rus-MBP-2 --- [  restartedMain] o.h.j.i.u.LogHelper                      : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-04-08 10:01:42.742  INFO Rus-MBP-2 --- [  restartedMain] o.h.Version                              : HHH000412: Hibernate Core {5.0.12.Final}
+2018-04-08 10:01:42.743  INFO Rus-MBP-2 --- [  restartedMain] o.h.c.Environment                        : HHH000206: hibernate.properties not found
+2018-04-08 10:01:42.744  INFO Rus-MBP-2 --- [  restartedMain] o.h.c.Environment                        : HHH000021: Bytecode provider name : javassist
+2018-04-08 10:01:42.785  INFO Rus-MBP-2 --- [  restartedMain] o.h.a.c.Version                          : HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2018-04-08 10:01:42.905  INFO Rus-MBP-2 --- [  restartedMain] o.h.d.Dialect                            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2018-04-08 10:01:43.085  WARN Rus-MBP-2 --- [  restartedMain] o.h.b.i.SessionFactoryBuilderImpl        : Unrecognized hbm2ddl_auto value : none .  Supported values include create, create-drop, update, and validate.  Ignoring
+2018-04-08 10:01:43.327  INFO Rus-MBP-2 --- [  restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2018-04-08 10:01:44.788  INFO Rus-MBP-2 --- [  restartedMain] o.s.s.w.DefaultSecurityFilterChain       : Creating filter chain: Ant [pattern='/resources/**'], []
+2018-04-08 10:01:44.789  INFO Rus-MBP-2 --- [  restartedMain] o.s.s.w.DefaultSecurityFilterChain       : Creating filter chain: Ant [pattern='/static/**'], []
+2018-04-08 10:01:44.789  INFO Rus-MBP-2 --- [  restartedMain] o.s.s.w.DefaultSecurityFilterChain       : Creating filter chain: Ant [pattern='/css/**'], []
+2018-04-08 10:01:44.789  INFO Rus-MBP-2 --- [  restartedMain] o.s.s.w.DefaultSecurityFilterChain       : Creating filter chain: Ant [pattern='/js/**'], []
+2018-04-08 10:01:44.789  INFO Rus-MBP-2 --- [  restartedMain] o.s.s.w.DefaultSecurityFilterChain       : Creating filter chain: Ant [pattern='/images/**'], []
+2018-04-08 10:01:44.841  INFO Rus-MBP-2 --- [  restartedMain] o.s.s.w.DefaultSecurityFilterChain       : Creating filter chain: org.springframework.security.web.util.matcher.AnyRequestMatcher@1, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7ff66be1, org.springframework.security.web.context.SecurityContextPersistenceFilter@159ec943, org.springframework.security.web.header.HeaderWriterFilter@739d0418, org.springframework.security.web.authentication.logout.LogoutFilter@6a2fe765, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@55af4ee0, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@33ee75e1, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@d3fd2c1, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1232ea71, org.springframework.security.web.session.SessionManagementFilter@27bed58c, org.springframework.security.web.access.ExceptionTranslationFilter@14a04cca, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@6082ad39]
+2018-04-08 10:01:45.084  INFO Rus-MBP-2 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@4eadee2c: startup date [Sun Apr 08 10:01:37 EDT 2018]; root of context hierarchy
+2018-04-08 10:01:45.146  INFO Rus-MBP-2 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/home],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.LoginController.home()
+2018-04-08 10:01:45.147  INFO Rus-MBP-2 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/registration],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.LoginController.registration()
+2018-04-08 10:01:45.147  INFO Rus-MBP-2 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/login],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.LoginController.login()
+2018-04-08 10:01:45.147  INFO Rus-MBP-2 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/registration],methods=[POST]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.LoginController.createNewUser(edu.northeastern.cs4500.model.user.User,org.springframework.validation.BindingResult)
+2018-04-08 10:01:45.148  INFO Rus-MBP-2 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/search],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.MovieController.searchResult(java.lang.String)
+2018-04-08 10:01:45.148  INFO Rus-MBP-2 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/movie/{title}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.MovieController.movieResult(java.lang.String)
+2018-04-08 10:01:45.149  INFO Rus-MBP-2 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/movie/rating],methods=[POST]}" onto public void edu.northeastern.cs4500.controllers.MovieController.setRating(java.lang.String,javax.servlet.http.HttpServletRequest)
+2018-04-08 10:01:45.149  INFO Rus-MBP-2 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/writeReview],methods=[POST]}" onto public void edu.northeastern.cs4500.controllers.MovieController.writeReview(java.lang.String,javax.servlet.http.HttpServletRequest)
+2018-04-08 10:01:45.150  INFO Rus-MBP-2 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/addMovieToList],methods=[POST]}" onto public void edu.northeastern.cs4500.controllers.MovieController.addMovieToList(java.lang.String,javax.servlet.http.HttpServletRequest)
+2018-04-08 10:01:45.150  INFO Rus-MBP-2 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.PageController.login()
+2018-04-08 10:01:45.152  INFO Rus-MBP-2 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/profile],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.UserprofileController.getProfile()
+2018-04-08 10:01:45.152  INFO Rus-MBP-2 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/view/{username}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.UserprofileController.userProfile(java.lang.String)
+2018-04-08 10:01:45.152  INFO Rus-MBP-2 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/profile+to+movielist],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.UserprofileController.getMovieList()
+2018-04-08 10:01:45.152  INFO Rus-MBP-2 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/view/{username}],methods=[POST]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.UserprofileController.addFriend(java.lang.String)
+2018-04-08 10:01:45.153  INFO Rus-MBP-2 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/profile+to+movielist+{listName}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.UserprofileController.getMovieItems(java.lang.String)
+2018-04-08 10:01:45.153  INFO Rus-MBP-2 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/profile+to+friendsAndRequests],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.UserprofileController.friendsAndRequests()
+2018-04-08 10:01:45.153  INFO Rus-MBP-2 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/acceptRequest],methods=[POST]}" onto public void edu.northeastern.cs4500.controllers.UserprofileController.acceptFriendRequest(javax.servlet.http.HttpServletRequest)
+2018-04-08 10:01:45.153  INFO Rus-MBP-2 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/createMovieList],methods=[POST]}" onto public void edu.northeastern.cs4500.controllers.UserprofileController.createNewMovieList(java.lang.String,javax.servlet.http.HttpServletRequest)
+2018-04-08 10:01:45.154  INFO Rus-MBP-2 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/hello/insert]}" onto public edu.northeastern.cs4500.controllers.hello.HelloObject edu.northeastern.cs4500.controllers.hello.HelloController.insertHelloObject()
+2018-04-08 10:01:45.155  INFO Rus-MBP-2 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/hello/insert/{msg}]}" onto public edu.northeastern.cs4500.controllers.hello.HelloObject edu.northeastern.cs4500.controllers.hello.HelloController.insertMessage(java.lang.String)
+2018-04-08 10:01:45.155  INFO Rus-MBP-2 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/hello/select/all]}" onto public java.util.List<edu.northeastern.cs4500.controllers.hello.HelloObject> edu.northeastern.cs4500.controllers.hello.HelloController.selectAllHelloObjects()
+2018-04-08 10:01:45.155  INFO Rus-MBP-2 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/hello/string]}" onto public java.lang.String edu.northeastern.cs4500.controllers.hello.HelloController.sayHello()
+2018-04-08 10:01:45.155  INFO Rus-MBP-2 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/hello/object]}" onto public edu.northeastern.cs4500.controllers.hello.HelloObject edu.northeastern.cs4500.controllers.hello.HelloController.sayHelloObject()
+2018-04-08 10:01:45.158  INFO Rus-MBP-2 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-04-08 10:01:45.158  INFO Rus-MBP-2 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-04-08 10:01:45.180  INFO Rus-MBP-2 --- [  restartedMain] o.s.w.s.h.SimpleUrlHandlerMapping        : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-04-08 10:01:45.180  INFO Rus-MBP-2 --- [  restartedMain] o.s.w.s.h.SimpleUrlHandlerMapping        : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-04-08 10:01:45.211  INFO Rus-MBP-2 --- [  restartedMain] o.s.w.s.h.SimpleUrlHandlerMapping        : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-04-08 10:01:45.223  INFO Rus-MBP-2 --- [  restartedMain] oConfiguration$WelcomePageHandlerMapping : Adding welcome page: ServletContext resource [/index.html]
+2018-04-08 10:01:45.300  INFO Rus-MBP-2 --- [  restartedMain] b.a.s.AuthenticationManagerConfiguration : 
+
+Using default security password: 4436d492-2f57-48d5-bf26-2e2f0132064a
+
+2018-04-08 10:01:45.605  INFO Rus-MBP-2 --- [  restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2018-04-08 10:01:45.645  INFO Rus-MBP-2 --- [  restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2018-04-08 10:01:45.661  INFO Rus-MBP-2 --- [  restartedMain] o.a.c.h.Http11NioProtocol                : Initializing ProtocolHandler ["http-nio-8080"]
+2018-04-08 10:01:45.670  INFO Rus-MBP-2 --- [  restartedMain] o.a.c.h.Http11NioProtocol                : Starting ProtocolHandler ["http-nio-8080"]
+2018-04-08 10:01:45.690  INFO Rus-MBP-2 --- [  restartedMain] o.a.t.u.n.NioSelectorPool                : Using a shared selector for servlet write/read
+2018-04-08 10:01:45.704  INFO Rus-MBP-2 --- [  restartedMain] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat started on port(s): 8080 (http)
+2018-04-08 10:01:45.708  INFO Rus-MBP-2 --- [  restartedMain] e.n.c.Cs4500Spring2018Team47Application  : Started Cs4500Spring2018Team47Application in 8.554 seconds (JVM running for 9.535)
+2018-04-08 10:01:48.401  INFO Rus-MBP-2 --- [nio-8080-exec-1] o.a.c.c.C.[.[.[/]                        : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-04-08 10:01:48.401  INFO Rus-MBP-2 --- [nio-8080-exec-1] o.s.w.s.DispatcherServlet                : FrameworkServlet 'dispatcherServlet': initialization started
+2018-04-08 10:01:48.421  INFO Rus-MBP-2 --- [nio-8080-exec-1] o.s.w.s.DispatcherServlet                : FrameworkServlet 'dispatcherServlet': initialization completed in 20 ms
+2018-04-08 10:01:48.477  INFO Rus-MBP-2 --- [nio-8080-exec-1] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2018-04-08 10:01:48.724  INFO Rus-MBP-2 --- [nio-8080-exec-1] o.t.TemplateEngine                       : [THYMELEAF] INITIALIZING TEMPLATE ENGINE
+2018-04-08 10:01:48.781  INFO Rus-MBP-2 --- [nio-8080-exec-1] o.t.t.AbstractTemplateResolver           : [THYMELEAF] INITIALIZING TEMPLATE RESOLVER: org.thymeleaf.spring4.templateresolver.SpringResourceTemplateResolver
+2018-04-08 10:01:48.781  INFO Rus-MBP-2 --- [nio-8080-exec-1] o.t.t.AbstractTemplateResolver           : [THYMELEAF] TEMPLATE RESOLVER INITIALIZED OK
+2018-04-08 10:01:48.781  INFO Rus-MBP-2 --- [nio-8080-exec-1] o.t.m.AbstractMessageResolver            : [THYMELEAF] INITIALIZING MESSAGE RESOLVER: org.thymeleaf.spring4.messageresolver.SpringMessageResolver
+2018-04-08 10:01:48.781  INFO Rus-MBP-2 --- [nio-8080-exec-1] o.t.m.AbstractMessageResolver            : [THYMELEAF] MESSAGE RESOLVER INITIALIZED OK
+2018-04-08 10:01:48.788  INFO Rus-MBP-2 --- [nio-8080-exec-1] o.t.T.CONFIG                             : [THYMELEAF] TEMPLATE ENGINE CONFIGURATION:
+[THYMELEAF] * Cache Factory implementation: org.thymeleaf.cache.StandardCacheManager
+[THYMELEAF] * Template modes:
+[THYMELEAF]     * HTML5
+[THYMELEAF]     * XML
+[THYMELEAF]     * VALIDXML
+[THYMELEAF]     * XHTML
+[THYMELEAF]     * VALIDXHTML
+[THYMELEAF]     * LEGACYHTML5
+[THYMELEAF] * Template resolvers (in order):
+[THYMELEAF]     * org.thymeleaf.spring4.templateresolver.SpringResourceTemplateResolver
+[THYMELEAF] * Message resolvers (in order):
+[THYMELEAF]     * org.thymeleaf.spring4.messageresolver.SpringMessageResolver
+[THYMELEAF] * Dialect: org.thymeleaf.spring4.dialect.SpringStandardDialect
+[THYMELEAF]     * Prefix: "th"
+[THYMELEAF] TEMPLATE ENGINE CONFIGURED OK
+2018-04-08 10:01:48.788  INFO Rus-MBP-2 --- [nio-8080-exec-1] o.t.TemplateEngine                       : [THYMELEAF] TEMPLATE ENGINE INITIALIZED
+2018-04-08 10:26:37.668  INFO Rus-MBP-2 --- [  restartedMain] e.n.c.Cs4500Spring2018Team47Application  : Starting Cs4500Spring2018Team47Application on Rus-MBP-2 with PID 1667 (/Users/rusmillie/CS4500Team47/project/workspace-sts-3.9.2.RELEASE/cs4500-spring2018-team47/target/classes started by rusmillie in /Users/rusmillie/CS4500Team47/project/workspace-sts-3.9.2.RELEASE/cs4500-spring2018-team47)
+2018-04-08 10:26:37.671 DEBUG Rus-MBP-2 --- [  restartedMain] e.n.c.Cs4500Spring2018Team47Application  : Running with Spring Boot v1.5.9.RELEASE, Spring v4.3.13.RELEASE
+2018-04-08 10:26:37.672  INFO Rus-MBP-2 --- [  restartedMain] e.n.c.Cs4500Spring2018Team47Application  : No active profile set, falling back to default profiles: default
+2018-04-08 10:26:37.846  INFO Rus-MBP-2 --- [  restartedMain] ationConfigEmbeddedWebApplicationContext : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@4a2961ad: startup date [Sun Apr 08 10:26:37 EDT 2018]; root of context hierarchy
+2018-04-08 10:26:37.856  INFO Rus-MBP-2 --- [kground-preinit] o.h.v.i.u.Version                        : HV000001: Hibernate Validator 5.3.6.Final
+2018-04-08 10:26:39.133  INFO Rus-MBP-2 --- [  restartedMain] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat initialized with port(s): 8080 (http)
+2018-04-08 10:26:39.143  INFO Rus-MBP-2 --- [  restartedMain] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2018-04-08 10:26:39.144  INFO Rus-MBP-2 --- [  restartedMain] o.a.c.c.StandardEngine                   : Starting Servlet Engine: Apache Tomcat/8.5.23
+2018-04-08 10:26:39.255  INFO Rus-MBP-2 --- [ost-startStop-1] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2018-04-08 10:26:39.256  INFO Rus-MBP-2 --- [ost-startStop-1] o.s.w.c.ContextLoader                    : Root WebApplicationContext: initialization completed in 1413 ms
+2018-04-08 10:26:39.383  INFO Rus-MBP-2 --- [ost-startStop-1] o.s.b.w.s.FilterRegistrationBean         : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-04-08 10:26:39.384  INFO Rus-MBP-2 --- [ost-startStop-1] o.s.b.w.s.FilterRegistrationBean         : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-04-08 10:26:39.384  INFO Rus-MBP-2 --- [ost-startStop-1] o.s.b.w.s.FilterRegistrationBean         : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-04-08 10:26:39.384  INFO Rus-MBP-2 --- [ost-startStop-1] o.s.b.w.s.FilterRegistrationBean         : Mapping filter: 'requestContextFilter' to: [/*]
+2018-04-08 10:26:39.385  INFO Rus-MBP-2 --- [ost-startStop-1] .s.DelegatingFilterProxyRegistrationBean : Mapping filter: 'springSecurityFilterChain' to: [/*]
+2018-04-08 10:26:39.386  INFO Rus-MBP-2 --- [ost-startStop-1] o.s.b.w.s.ServletRegistrationBean        : Mapping servlet: 'dispatcherServlet' to [/]
+2018-04-08 10:26:42.980  INFO Rus-MBP-2 --- [  restartedMain] j.LocalContainerEntityManagerFactoryBean : Building JPA container EntityManagerFactory for persistence unit 'default'
+2018-04-08 10:26:42.991  INFO Rus-MBP-2 --- [  restartedMain] o.h.j.i.u.LogHelper                      : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-04-08 10:26:43.035  INFO Rus-MBP-2 --- [  restartedMain] o.h.Version                              : HHH000412: Hibernate Core {5.0.12.Final}
+2018-04-08 10:26:43.036  INFO Rus-MBP-2 --- [  restartedMain] o.h.c.Environment                        : HHH000206: hibernate.properties not found
+2018-04-08 10:26:43.037  INFO Rus-MBP-2 --- [  restartedMain] o.h.c.Environment                        : HHH000021: Bytecode provider name : javassist
+2018-04-08 10:26:43.068  INFO Rus-MBP-2 --- [  restartedMain] o.h.a.c.Version                          : HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2018-04-08 10:26:43.153  INFO Rus-MBP-2 --- [  restartedMain] o.h.d.Dialect                            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2018-04-08 10:26:43.302  WARN Rus-MBP-2 --- [  restartedMain] o.h.b.i.SessionFactoryBuilderImpl        : Unrecognized hbm2ddl_auto value : none .  Supported values include create, create-drop, update, and validate.  Ignoring
+2018-04-08 10:26:43.496  INFO Rus-MBP-2 --- [  restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2018-04-08 10:26:44.897  INFO Rus-MBP-2 --- [  restartedMain] o.s.s.w.DefaultSecurityFilterChain       : Creating filter chain: Ant [pattern='/resources/**'], []
+2018-04-08 10:26:44.897  INFO Rus-MBP-2 --- [  restartedMain] o.s.s.w.DefaultSecurityFilterChain       : Creating filter chain: Ant [pattern='/static/**'], []
+2018-04-08 10:26:44.897  INFO Rus-MBP-2 --- [  restartedMain] o.s.s.w.DefaultSecurityFilterChain       : Creating filter chain: Ant [pattern='/css/**'], []
+2018-04-08 10:26:44.897  INFO Rus-MBP-2 --- [  restartedMain] o.s.s.w.DefaultSecurityFilterChain       : Creating filter chain: Ant [pattern='/js/**'], []
+2018-04-08 10:26:44.897  INFO Rus-MBP-2 --- [  restartedMain] o.s.s.w.DefaultSecurityFilterChain       : Creating filter chain: Ant [pattern='/images/**'], []
+2018-04-08 10:26:44.949  INFO Rus-MBP-2 --- [  restartedMain] o.s.s.w.DefaultSecurityFilterChain       : Creating filter chain: org.springframework.security.web.util.matcher.AnyRequestMatcher@1, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7de6de82, org.springframework.security.web.context.SecurityContextPersistenceFilter@63a964a5, org.springframework.security.web.header.HeaderWriterFilter@1e37bc34, org.springframework.security.web.authentication.logout.LogoutFilter@14dbdf01, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@3fcd238b, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@b26bda5, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7626bf26, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@278df73e, org.springframework.security.web.session.SessionManagementFilter@1a6b6147, org.springframework.security.web.access.ExceptionTranslationFilter@6efcebc4, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@57d31418]
+2018-04-08 10:26:45.186  INFO Rus-MBP-2 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@4a2961ad: startup date [Sun Apr 08 10:26:37 EDT 2018]; root of context hierarchy
+2018-04-08 10:26:45.240  INFO Rus-MBP-2 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/home],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.LoginController.home()
+2018-04-08 10:26:45.240  INFO Rus-MBP-2 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/registration],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.LoginController.registration()
+2018-04-08 10:26:45.241  INFO Rus-MBP-2 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/login],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.LoginController.login()
+2018-04-08 10:26:45.241  INFO Rus-MBP-2 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/registration],methods=[POST]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.LoginController.createNewUser(edu.northeastern.cs4500.model.user.User,org.springframework.validation.BindingResult)
+2018-04-08 10:26:45.241  INFO Rus-MBP-2 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/search],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.MovieController.searchResult(java.lang.String)
+2018-04-08 10:26:45.242  INFO Rus-MBP-2 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/movie/{title}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.MovieController.movieResult(java.lang.String)
+2018-04-08 10:26:45.243  INFO Rus-MBP-2 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/movie/rating],methods=[POST]}" onto public void edu.northeastern.cs4500.controllers.MovieController.setRating(java.lang.String,javax.servlet.http.HttpServletRequest)
+2018-04-08 10:26:45.243  INFO Rus-MBP-2 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/writeReview],methods=[POST]}" onto public void edu.northeastern.cs4500.controllers.MovieController.writeReview(java.lang.String,javax.servlet.http.HttpServletRequest)
+2018-04-08 10:26:45.243  INFO Rus-MBP-2 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/addMovieToList],methods=[POST]}" onto public void edu.northeastern.cs4500.controllers.MovieController.addMovieToList(java.lang.String,javax.servlet.http.HttpServletRequest)
+2018-04-08 10:26:45.243  INFO Rus-MBP-2 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.PageController.login()
+2018-04-08 10:26:45.246  INFO Rus-MBP-2 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/profile],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.UserprofileController.getProfile()
+2018-04-08 10:26:45.246  INFO Rus-MBP-2 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/view/{username}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.UserprofileController.userProfile(java.lang.String)
+2018-04-08 10:26:45.246  INFO Rus-MBP-2 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/profile+to+movielist],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.UserprofileController.getMovieList()
+2018-04-08 10:26:45.246  INFO Rus-MBP-2 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/view/{username}],methods=[POST]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.UserprofileController.addFriend(java.lang.String)
+2018-04-08 10:26:45.246  INFO Rus-MBP-2 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/profile+to+movielist+{listName}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.UserprofileController.getMovieItems(java.lang.String)
+2018-04-08 10:26:45.247  INFO Rus-MBP-2 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/profile+to+friendsAndRequests],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.UserprofileController.friendsAndRequests()
+2018-04-08 10:26:45.247  INFO Rus-MBP-2 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/acceptRequest],methods=[POST]}" onto public void edu.northeastern.cs4500.controllers.UserprofileController.acceptFriendRequest(javax.servlet.http.HttpServletRequest)
+2018-04-08 10:26:45.247  INFO Rus-MBP-2 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/createMovieList],methods=[POST]}" onto public void edu.northeastern.cs4500.controllers.UserprofileController.createNewMovieList(java.lang.String,javax.servlet.http.HttpServletRequest)
+2018-04-08 10:26:45.248  INFO Rus-MBP-2 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/hello/insert]}" onto public edu.northeastern.cs4500.controllers.hello.HelloObject edu.northeastern.cs4500.controllers.hello.HelloController.insertHelloObject()
+2018-04-08 10:26:45.248  INFO Rus-MBP-2 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/hello/insert/{msg}]}" onto public edu.northeastern.cs4500.controllers.hello.HelloObject edu.northeastern.cs4500.controllers.hello.HelloController.insertMessage(java.lang.String)
+2018-04-08 10:26:45.248  INFO Rus-MBP-2 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/hello/select/all]}" onto public java.util.List<edu.northeastern.cs4500.controllers.hello.HelloObject> edu.northeastern.cs4500.controllers.hello.HelloController.selectAllHelloObjects()
+2018-04-08 10:26:45.249  INFO Rus-MBP-2 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/hello/string]}" onto public java.lang.String edu.northeastern.cs4500.controllers.hello.HelloController.sayHello()
+2018-04-08 10:26:45.249  INFO Rus-MBP-2 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/api/hello/object]}" onto public edu.northeastern.cs4500.controllers.hello.HelloObject edu.northeastern.cs4500.controllers.hello.HelloController.sayHelloObject()
+2018-04-08 10:26:45.251  INFO Rus-MBP-2 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-04-08 10:26:45.252  INFO Rus-MBP-2 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-04-08 10:26:45.273  INFO Rus-MBP-2 --- [  restartedMain] o.s.w.s.h.SimpleUrlHandlerMapping        : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-04-08 10:26:45.273  INFO Rus-MBP-2 --- [  restartedMain] o.s.w.s.h.SimpleUrlHandlerMapping        : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-04-08 10:26:45.299  INFO Rus-MBP-2 --- [  restartedMain] o.s.w.s.h.SimpleUrlHandlerMapping        : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-04-08 10:26:45.312  INFO Rus-MBP-2 --- [  restartedMain] oConfiguration$WelcomePageHandlerMapping : Adding welcome page: ServletContext resource [/index.html]
+2018-04-08 10:26:45.386  INFO Rus-MBP-2 --- [  restartedMain] b.a.s.AuthenticationManagerConfiguration : 
+
+Using default security password: 73f1357c-b887-4af9-8304-5266964fc37b
+
+2018-04-08 10:26:45.671  INFO Rus-MBP-2 --- [  restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2018-04-08 10:26:45.707  INFO Rus-MBP-2 --- [  restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2018-04-08 10:26:45.722  INFO Rus-MBP-2 --- [  restartedMain] o.a.c.h.Http11NioProtocol                : Initializing ProtocolHandler ["http-nio-8080"]
+2018-04-08 10:26:45.733  INFO Rus-MBP-2 --- [  restartedMain] o.a.c.h.Http11NioProtocol                : Starting ProtocolHandler ["http-nio-8080"]
+2018-04-08 10:26:45.752  INFO Rus-MBP-2 --- [  restartedMain] o.a.t.u.n.NioSelectorPool                : Using a shared selector for servlet write/read
+2018-04-08 10:26:45.766  INFO Rus-MBP-2 --- [  restartedMain] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat started on port(s): 8080 (http)
+2018-04-08 10:26:45.771  INFO Rus-MBP-2 --- [  restartedMain] e.n.c.Cs4500Spring2018Team47Application  : Started Cs4500Spring2018Team47Application in 8.284 seconds (JVM running for 9.005)
+2018-04-08 10:26:47.390  INFO Rus-MBP-2 --- [nio-8080-exec-1] o.a.c.c.C.[.[.[/]                        : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-04-08 10:26:47.390  INFO Rus-MBP-2 --- [nio-8080-exec-1] o.s.w.s.DispatcherServlet                : FrameworkServlet 'dispatcherServlet': initialization started
+2018-04-08 10:26:47.403  INFO Rus-MBP-2 --- [nio-8080-exec-1] o.s.w.s.DispatcherServlet                : FrameworkServlet 'dispatcherServlet': initialization completed in 13 ms
+2018-04-08 10:26:47.446  INFO Rus-MBP-2 --- [nio-8080-exec-1] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2018-04-08 10:26:47.631  INFO Rus-MBP-2 --- [nio-8080-exec-1] o.t.TemplateEngine                       : [THYMELEAF] INITIALIZING TEMPLATE ENGINE
+2018-04-08 10:26:47.673  INFO Rus-MBP-2 --- [nio-8080-exec-1] o.t.t.AbstractTemplateResolver           : [THYMELEAF] INITIALIZING TEMPLATE RESOLVER: org.thymeleaf.spring4.templateresolver.SpringResourceTemplateResolver
+2018-04-08 10:26:47.674  INFO Rus-MBP-2 --- [nio-8080-exec-1] o.t.t.AbstractTemplateResolver           : [THYMELEAF] TEMPLATE RESOLVER INITIALIZED OK
+2018-04-08 10:26:47.674  INFO Rus-MBP-2 --- [nio-8080-exec-1] o.t.m.AbstractMessageResolver            : [THYMELEAF] INITIALIZING MESSAGE RESOLVER: org.thymeleaf.spring4.messageresolver.SpringMessageResolver
+2018-04-08 10:26:47.674  INFO Rus-MBP-2 --- [nio-8080-exec-1] o.t.m.AbstractMessageResolver            : [THYMELEAF] MESSAGE RESOLVER INITIALIZED OK
+2018-04-08 10:26:47.677  INFO Rus-MBP-2 --- [nio-8080-exec-1] o.t.T.CONFIG                             : [THYMELEAF] TEMPLATE ENGINE CONFIGURATION:
+[THYMELEAF] * Cache Factory implementation: org.thymeleaf.cache.StandardCacheManager
+[THYMELEAF] * Template modes:
+[THYMELEAF]     * XHTML
+[THYMELEAF]     * LEGACYHTML5
+[THYMELEAF]     * VALIDXML
+[THYMELEAF]     * HTML5
+[THYMELEAF]     * VALIDXHTML
+[THYMELEAF]     * XML
+[THYMELEAF] * Template resolvers (in order):
+[THYMELEAF]     * org.thymeleaf.spring4.templateresolver.SpringResourceTemplateResolver
+[THYMELEAF] * Message resolvers (in order):
+[THYMELEAF]     * org.thymeleaf.spring4.messageresolver.SpringMessageResolver
+[THYMELEAF] * Dialect: org.thymeleaf.spring4.dialect.SpringStandardDialect
+[THYMELEAF]     * Prefix: "th"
+[THYMELEAF] TEMPLATE ENGINE CONFIGURED OK
+2018-04-08 10:26:47.677  INFO Rus-MBP-2 --- [nio-8080-exec-1] o.t.TemplateEngine                       : [THYMELEAF] TEMPLATE ENGINE INITIALIZED
