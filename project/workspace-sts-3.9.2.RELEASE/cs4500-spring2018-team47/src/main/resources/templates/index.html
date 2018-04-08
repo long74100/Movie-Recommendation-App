@@ -4,31 +4,82 @@
 
 	<head>
 	<title>Rotten Tomatillos</title>
-	<link rel="stylesheet" href="../slick/slick.css"/>
-	<link rel="stylesheet" href="../slick/slick-theme.css"/>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="../slick/slick.css"/>
+	<link rel="stylesheet" type="text/css" href="../slick/slick-theme.css"/>
+	<style type="text/css">
+	* {
+      box-sizing: border-box;
+    }
+
+    .slider {
+        width: 90%;
+        margin: 5px auto;
+    }
+    .slick-slide {
+    	margin: 0 10px;
+	}
+	/* the parent */
+	.slick-list {
+	    margin: 0 -10px;
+	}
+    .slick-prev:before, .slick-next:before { 
+    	color:red !important;
+	}
+	.poster {
+		display: block;
+    	width: 300px;
+    	height: 450px;
+	}
+	.featured-movies{
+		margin: auto;
+    	width: 80%;
+    	height: 2000px;
+    	border: 3px solid #73AD21;
+    	padding: 10px;
+	}
+	.credits{
+		margin: auto;
+    	width: 80%;
+    	padding: 10px;
+    	background: #696969;
+	}
+	</style>
 	</head>
 	
 	<body>
 	<noscript th:replace="fragments/quickAddCSSJS :: quickAddCSSJS"></noscript>
 	<div th:replace="fragments/navBar :: header"></div>
+	<div class="body">
+		<div class="slider your-class">
+			<div><img class="poster" src="https://image.tmdb.org/t/p/w600_and_h900_bestv2/vwFR5WI1RQ1RCxS0cdTbiSgaXJr.jpg"></div>
+			<div><img class="poster" src="https://image.tmdb.org/t/p/w600_and_h900_bestv2/sM33SANp9z6rXW8Itn7NnG1GOEs.jpg"></div>
+			<div><img class="poster" src="https://image.tmdb.org/t/p/w600_and_h900_bestv2/sM33SANp9z6rXW8Itn7NnG1GOEs.jpg"></div>
+			<div><img class="poster" src="https://image.tmdb.org/t/p/w600_and_h900_bestv2/sM33SANp9z6rXW8Itn7NnG1GOEs.jpg"></div>
+			<div><img class="poster" src="https://image.tmdb.org/t/p/w600_and_h900_bestv2/sM33SANp9z6rXW8Itn7NnG1GOEs.jpg"></div>
+			<div><img class="poster" src="https://image.tmdb.org/t/p/w600_and_h900_bestv2/sM33SANp9z6rXW8Itn7NnG1GOEs.jpg"></div>
+			<div><img class="poster" src="https://image.tmdb.org/t/p/w600_and_h900_bestv2/sM33SANp9z6rXW8Itn7NnG1GOEs.jpg"></div>
+			<div><img class="poster" src="https://image.tmdb.org/t/p/w600_and_h900_bestv2/sM33SANp9z6rXW8Itn7NnG1GOEs.jpg"></div>
+		</div>
+		<div class="featured-movies">
+			<div><h1>Featured Movies!</h1></div>
+		</div>
+		<div class="credits">
+			<div><h1>Developed by cool people</h1></div>
+		</div>
 	
-	<div class="your-class">
-		<div><h3>1</h3></div>
-		<div><h3>2</h3></div>
-		<div><h3>3</h3></div>
-		<div><h3>4</h3></div>
-		<div><h3>5</h3></div>
-		<div><h3>6</h3></div>
 	</div>
 	
 	<script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 	<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-	<script type="text/javascript" src="../slick/slick.js"></script>
+	<script type="text/javascript" src="../slick/slick.js" charset="utf-8"></script>
 	
 	<script type="text/javascript">
 		$(document).ready(function(){
 			$('.your-class').slick({
-				slidesToShow: 2,
+				arrows: true,
+				dots: true,
+				slidesToShow: 4,
 				slidesToScroll: 1,
 				autoplay: true,
 				autoplaySpeed: 2000,
