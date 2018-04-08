@@ -1,15 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+
 	<head>
-	<style>
-	</style>
-	<link rel="stylesheet" type="text/css" href="slick/slick.css"/>
-	<link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
-	<title>Rotten Tomatillos Landing</title>
+	<title>Rotten Tomatillos</title>
+	<link rel="stylesheet" href="../slick/slick.css"/>
+	<link rel="stylesheet" href="../slick/slick-theme.css"/>
 	</head>
 	
 	<body>
+	<noscript th:replace="fragments/quickAddCSSJS :: quickAddCSSJS"></noscript>
+	<div th:replace="fragments/navBar :: header"></div>
+	
 	<div class="your-class">
 		<div><h3>1</h3></div>
 		<div><h3>2</h3></div>
@@ -18,16 +20,19 @@
 		<div><h3>5</h3></div>
 		<div><h3>6</h3></div>
 	</div>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<script src="https://code.jquery.com/jquery-migrate-3.0.1.js"></script>
-	<script type="text/javascript" src="slick/slick.min.js"></script>
+	
+	<script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+	<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+	<script type="text/javascript" src="../slick/slick.js"></script>
 	
 	<script type="text/javascript">
 		$(document).ready(function(){
 			$('.your-class').slick({
-				infinite: true,
 				slidesToShow: 2,
-				slidesToScroll: 1
+				slidesToScroll: 1,
+				autoplay: true,
+				autoplaySpeed: 2000,
+				
 			});
 		});
 	</script>
