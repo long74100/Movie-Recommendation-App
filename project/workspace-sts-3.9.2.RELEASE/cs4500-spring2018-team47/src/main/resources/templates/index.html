@@ -1,17 +1,90 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-<head>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+
+	<head>
+	<title>Rotten Tomatillos</title>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="../slick/slick.css"/>
+	<link rel="stylesheet" type="text/css" href="../slick/slick-theme.css"/>
+	<style type="text/css">
+	* {
+      box-sizing: border-box;
+    }
+
+    .slider {
+        width: 95%;
+        margin: 5px auto;
+    }
+    .slick-slide {
+    	margin: 0 10px;
+	}
+	/* the parent */
+	.slick-list {
+	    margin: 0 -10px;
+	}
+    .slick-prev:before, .slick-next:before { 
+    	color:grey !important;
+	}
+	.poster {
+		display: block;
+    	width: 100%;
+	}
+	.featured-movies{
+		margin: auto;
+    	width: 80%;
+    	height: 2000px;
+    	border: 3px solid #73AD21;
+    	padding: 10px;
+	}
+	.credits{
+		margin: auto;
+    	width: 80%;
+    	padding: 10px;
+    	background: #696969;
+	}
+	</style>
+	</head>
+	
+	<body>
 	<noscript th:replace="fragments/quickAddCSSJS :: quickAddCSSJS"></noscript>
-	
-	<title>Rotten Tomatillos Landing</title>
-	
-</head>
-<body>
 	<div th:replace="fragments/navBar :: header"></div>
-	<div class="container">
+	<div class="body">
+		<div class="slider your-class">
+			<div><img class="poster" src="https://image.tmdb.org/t/p/w600_and_h900_bestv2/vwFR5WI1RQ1RCxS0cdTbiSgaXJr.jpg"></div>
+			<div><img class="poster" src="https://image.tmdb.org/t/p/w600_and_h900_bestv2/sM33SANp9z6rXW8Itn7NnG1GOEs.jpg"></div>
+			<div><img class="poster" src="https://image.tmdb.org/t/p/w600_and_h900_bestv2/kOVEVeg59E0wsnXmF9nrh6OmWII.jpg"></div>
+			<div><img class="poster" src="https://image.tmdb.org/t/p/w600_and_h900_bestv2/eKi8dIrr8voobbaGzDpe8w0PVbC.jpg"></div>
+			<div><img class="poster" src="https://image.tmdb.org/t/p/w600_and_h900_bestv2/pU1ULUq8D3iRxl1fdX2lZIzdHuI.jpg"></div>
+			<div><img class="poster" src="https://image.tmdb.org/t/p/w600_and_h900_bestv2/uxzzxijgPIY7slzFvMotPv8wjKA.jpg"></div>
+			<div><img class="poster" src="https://image.tmdb.org/t/p/w600_and_h900_bestv2/fchHLsLjFvzAFSQykiMwdF1051.jpg"></div>
+			<div><img class="poster" src="https://image.tmdb.org/t/p/w600_and_h900_bestv2/ePyN2nX9t8SOl70eRW47Q29zUFO.jpg"></div>
+		</div>
+		<div class="featured-movies">
+			<div><h1>Featured Movies!</h1></div>
+		</div>
+		<div class="credits">
+			<div><h1>Developed by cool people</h1></div>
+		</div>
 	
-		<div>Welcome to Rotten Tomatillos! This site is still under construction, please come back at a later time.</div>
-		<div id="root"></div>
-	</div> 
+	</div>
+	
+	<script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+	<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+	<script type="text/javascript" src="../slick/slick.js" charset="utf-8"></script>
+	
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('.your-class').slick({
+				arrows: true,
+				dots: true,
+				slidesToShow: 5,
+				slidesToScroll: 1,
+				autoplay: true,
+				autoplaySpeed: 2000,
+				
+			});
+		});
+	</script>
 </body>
 </html>
