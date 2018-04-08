@@ -1299,3 +1299,4 @@ Using default security password: 14390411-977f-4a19-a5e2-95be226ce7da
 2018-04-08 12:08:48.093 ERROR Rus-MBP-2 --- [nio-8080-exec-3] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
 2018-04-08 12:08:48.154 ERROR Rus-MBP-2 --- [nio-8080-exec-3] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
 2018-04-08 12:08:49.985 ERROR Rus-MBP-2 --- [nio-8080-exec-9] e.n.c.m.s.LocalSQLConnectService         : Can not issue data manipulation statements with executeQuery().
+2018-04-08 12:52:47.133  INFO Rus-MBP-2 --- [      Thread-10] ationConfigEmbeddedWebApplicationContext : Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@68e3a9dd: startup date [Sun Apr 08 11:34:58 EDT 2018]; root of context hierarchy
