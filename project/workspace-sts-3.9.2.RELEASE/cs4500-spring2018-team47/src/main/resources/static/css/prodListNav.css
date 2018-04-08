@@ -1,9 +1,87 @@
 .prodlist-menu {
-	margin-left: 600px;
-    height: 40px;
+	margin-left: 180px;
+    height: 100%;
     position: fixed;
+    background: #1b1e21;
 }
 
+.friend-info-for-prod {
+	height: 30px;
+	margin-bottom: 3px;
+	margin-left: 0px;
+	cursor: pointer;
+	border-bottom: solid;
+	border-bottom-width: thin;
+	border-color: black;
+	margin-right: 5px;
+	border-radius: 4px;
+	color: wheat;
+}
+
+.friend-info-for-prod:hover {
+	background: wheat;
+	color: black;
+}
+
+.friend-search-bar {
+	background: black;
+	border-width: thin;
+	color: wheat;
+	border-style: solid;
+	margin-top: 5px;
+	margin-left: 15px;
+	border-color: wheat;
+	border-radius: 8px;
+}
+
+.search-friend-btn {
+    border-radius: 4px;
+    background:  transparent;
+    color:  wheat;
+    border-width:  thin;
+    border-color:  wheat;
+    margin-right:  5px;
+    cursor: pointer;
+}
+
+.search-friend-btn:hover {
+	background: wheat;
+	color: black;
+}
+
+
+
+
+
+.username-search-tool {
+	margin-top: 10px;
+}
+
+.friend-list {
+	background-color: #1b1e21;
+	margin-left: 0px;
+	height:100%;
+}
+
+.friend-username{
+	margin-bottom: 3px;
+    margin-left: 35px;
+    margin-top: 0px;
+    bottom: 0px;
+    border-top-width: 2px;
+    background: transparent;
+}
+
+.friendList-div {
+    margin-top: 15px;
+    margin-left: 15px;
+}
+
+
+.user-headportrait {
+	width: 30px;
+	float: left;
+}
 
 .receiving {
 	margin-left: 0px;

@@ -19,7 +19,6 @@
             <ul class="movieRepoList">
             	<div th:if="${not #lists.isEmpty(usermovielist)}" class="movieRepoList" id="movieListsItem">
             		<div th:each="list : ${usermovielist}" class="movielistItem" id="singleList">
-            			
             			<a th:href="@{/profile+to+movielist+{list}(list=${list})}">
             				<div th:if="${list == 'Browse History' or list == 'Favorites'}">
             					<p class="repo" th:text="${list}"></p>

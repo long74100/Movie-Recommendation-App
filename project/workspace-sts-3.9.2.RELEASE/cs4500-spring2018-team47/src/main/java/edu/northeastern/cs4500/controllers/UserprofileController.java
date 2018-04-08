@@ -53,16 +53,6 @@ public class UserprofileController {
 		return modelAndView;
 	}
 	
-	@RequestMapping(value={"/prodRepo"}, method = RequestMethod.GET) 
-	public ModelAndView getProdList() {
-		ModelAndView modelAndView = new ModelAndView();
-		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-		User user = userService.findUserByEmail(auth.getName());
-		modelAndView.addObject("user", user);
-		modelAndView.setViewName("prods");
-		return modelAndView;
-	}
-	
 	/**
 	 * This is to return the user movie list page besides the profile management navigation bar
 	 * @return the movie list page
@@ -119,7 +109,9 @@ public class UserprofileController {
 		User user = userService.findUserByEmail(auth.getName());
 		modelAndView.addObject("user", user);
 		List<String> movieListNames = sqlConnector.getMovieListForUser(user.getId());
+		List<User> friendList = sqlConnector.getAllFriends(user.getId());
 		ArrayList<Movie> movies = sqlConnector.getMovieFromUserMovieList(user.getId(), listName);
+		modelAndView.addObject("friendList", friendList);
 		modelAndView.addObject("usermovielist", movieListNames);
 		modelAndView.addObject("currentMovielist", listName);
 		modelAndView.addObject("currentMovies", movies);
@@ -200,5 +192,21 @@ public class UserprofileController {
     	Integer userId = user.getId();
     	String movieListName = httpserveletRequest.getParameter("listName");
     	sqlConnector.cleanMovieList(userId, movieListName);
+	}
+	
+	/**
+	 * This is to direct to the prod page
+	 * @return prod page
+	 */
+	@RequestMapping(value={"/prodRepo"}, method = RequestMethod.GET) 
+	public ModelAndView getProdList() {
+		ModelAndView modelAndView = new ModelAndView();
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		User user = userService.findUserByEmail(auth.getName());
+		List<User> allFriends = sqlConnector.getAllFriends(user.getId());
+		modelAndView.addObject("friendList", allFriends);
+		modelAndView.addObject("user", user);
+		modelAndView.setViewName("prods");
+		return modelAndView;
 	}
 }

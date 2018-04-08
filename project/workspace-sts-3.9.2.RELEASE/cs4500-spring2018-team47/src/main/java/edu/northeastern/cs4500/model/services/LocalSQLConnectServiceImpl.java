@@ -1060,6 +1060,14 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 		return null;
 	}
 	
+	
+	/**
+	 * *********************************************************
+	 * 														   *
+	 * 						PROD OPERATOR                      *
+	 *														   *
+	 * *********************************************************
+	 */
 	@Override
 	public void sendProdToFriend(int senderId, int receiverId, String senderName, 
 			String receiverName, String movieId, String movieName, String date, String comment) {

@@ -216,14 +216,17 @@ public class MovieController {
 				logger.error(ep.getMessage());
 			}
 			
+			
+			// load movie into local db when the user clicks into the movie pages.
+			localDbConnector.loadMovieIntoLocalDB(movie);
+			
+			// to update the browse history
 			Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 			User user = userService.findUserByEmail(auth.getName());
 			Integer userId = user.getId();
 			SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 			localDbConnector.addMovieIntoMovieList(userId, "Browse History", 
 					movie.get("imdbID"), movie.get("title"), formatter.format(new Date()));
-			// load movie into local db when the user clicks into the movie pages.
-			localDbConnector.loadMovieIntoLocalDB(movie);
 
 			reviews = localDbConnector.getReviewsForMovie(movieJSON.getString("imdb_id"));
 			

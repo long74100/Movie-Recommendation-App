@@ -45,4 +45,56 @@ function deleteMovie(movieId, thisButton) {
 		150);
 }
 
+function showFriendsToProd(movieName, thisButton) {
+	var friendToProd = document.getElementById("friendList-for-prod");
+	var clickPosition = getMenuPosition(event);
+	document.getElementById("prod-movie-name").innerHTML = movieName;
+	friendToProd.style.display = "block";
+}
+
+
+function addRecipient(userName, userId) {
+	var userContainer = document.getElementById("prod-to-friend-input-container");
+	var elem = document.getElementById("prodUserId" + userId);
+	if(elem != null) {
+		alert("You already added this recipient.");
+	}
+	else {
+		var innerHtml = 
+			userContainer.innerHTML + 
+			"<div style=\"width:auto;" + " border: solid; border-radius:8px; border-width:thin; background:black; color:wheat; float: left;\"" +
+					" id=\"" + "prodUserId" + userId + "\"\">" +
+				"<span>" +
+					"<p class=\"RecipientUserName\" id=\"RecipientUserName\" style=\"float:left; margin-bottom:0px;\">" 
+					+ userName + 
+					"</p>" + 
+					"<p class=\"prodRecipientId\" id=\"prodRecipientId\" style=\"display: none;\">" + userId + "</p>" +
+					"<button class=\"deleteUserBtn\" type=\"submit\" " +
+					"id=\"deleteUserBtn\" onclick=\"deleteRecipient(\'" + userId + "\', this)\"" +
+					"style=\"width:20px; height:100%; float: left; padding-left: 2px; padding-right: 2px; text-align:left; background:transparent; border:none; color:white;\">" +
+					"&times;</button>" +
+				"</span>" +
+			"</div>";
+		document.getElementById("prod-to-friend-input-container").innerHTML = innerHtml;
+	}
+	
+}
+
+function cleanInput() {
+	document.getElementById("prod-to-friend-input-container").innerHTML = "";
+}
+
+function deleteRecipient(userId, thisButton) {
+	var elem = document.getElementById("prodUserId" + userId);
+	elem.parentNode.removeChild(elem);
+	return false;
+}
+
+
+function closeProdMenu() {
+	var prodFriendList = document.getElementById("friendList-for-prod");
+	document.getElementById("prod-to-friend-input-container").innerHTML = "";
+	prodFriendList.style.display = 'none';
+}
+
 document.addEventListener("DOMContentLoaded", init);
