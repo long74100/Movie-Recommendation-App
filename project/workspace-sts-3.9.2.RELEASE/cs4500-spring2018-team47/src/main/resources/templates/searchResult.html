@@ -13,7 +13,7 @@
 		<h1>Movies</h1>
 		<div th:if="${not #lists.isEmpty(movie)}">
 			<div th:each="movie : ${movie}">
-				<a th:href="@{/movie/{title}(title=${movie.title})}">
+				<a th:href="@{/movie/{id}(id=${movie.theMovieDbID})}">
 					<div class="container shadow row">
 					<img class="col-md-4"
 					th:src="${movie.poster}"
@@ -43,16 +43,16 @@
 			<div>No movies match this title. Please try again.</div>
 		</div>
 		<h1>Users</h1>
-			<div th:each="user : ${users}">
-				<a th:href="@{/view/{username}(username=${user.username})}">
+			<div th:each="u : ${users}" th:if="${u.active == 1 || (user != null && user.role == 2)}">
+				<a th:href="@{/view/{username}(username=${u.username})}">
 					<div class="container shadow row">
 					<img class="col-md-4"
 					src="http://www.joblo.com/posters/images/full/the-martian-poster.jpg"
 					class="poster">
 					<div class="col-md-4">
 			
-						<div th:text="${user.username}" class="movieTitle"></div>
-						<div th:text="${user.firstName}"></div>
+						<div th:text="${u.username}" class="movieTitle"></div>
+						<div th:text="${u.firstName}"></div>
 					</div>
 					<div class="col-md-2">
 						<div style="margin: 2px;">
@@ -62,6 +62,8 @@
 				</div>
 				</a>
 			</div>
+			
+									
 		<!-- else no users are found  -->
 		<div th:unless="${not #lists.isEmpty(users)}">
 			<div>No users match this title. Please try again.</div>

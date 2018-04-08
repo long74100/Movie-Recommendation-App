@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.util.HashMap;
@@ -13,23 +14,15 @@ import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class OmdbServiceImpl implements IOmdbService{
+public class MovieDBServiceImpl implements IMovieDBService{
 	
-	private static final String apiKey = "a15fa266";
-	private static final String apiURL = "http://www.omdbapi.com/?apikey="+apiKey+"&";
-	private URL url;
+	private static final String apiKey = "005e91dcdf4c4742c228833ea398ff7e";
+	private static final String apiURL = "https://api.themoviedb.org/3/search/movie?api_key=" + apiKey + "&";
 	
-	public OmdbServiceImpl() {
+	public MovieDBServiceImpl() {
 	}
-
-	public JSONObject searchMovieByTitle(String title, String searchParam) 
-			throws IOException, JSONException {
-		Map<String, String> params = new HashMap<>();
-		params.put(searchParam, title);
 	
-		String urlString = addParamsToUrl(apiURL, params);
-		url = new URL(urlString);
-		
+	private JSONObject makeRequest(URL url) throws IOException, JSONException {	
 		HttpURLConnection connection = (HttpURLConnection) url.openConnection();
 		connection.setRequestMethod("GET");
 		
@@ -47,10 +40,33 @@ public class OmdbServiceImpl implements IOmdbService{
 		while((inputLine = in.readLine()) != null) {
 			content.append(inputLine);
 		}
+		//System.out.println(content.toString());
 		in.close();
 		return new JSONObject(content.toString());
 	}
-	
+
+	@Override
+	public JSONObject searchMovieListByTitle(String title) throws IOException, JSONException {
+		Map<String, String> params = new HashMap<>();
+		params.put("query", title);
+		String urlString = addParamsToUrl(apiURL, params);
+		URL url = new URL(urlString);
+		return makeRequest(url);
+	}
+
+	@Override
+	public JSONObject searchMovieCast(int movieID) throws IOException, JSONException {
+		String urlString = "https://api.themoviedb.org/3/movie/"+ movieID +"/credits?api_key=" + apiKey;
+		URL url = new URL(urlString);
+		return makeRequest(url);
+	}
+
+	@Override
+	public JSONObject searchMovieDetails(int movieID) throws IOException, JSONException {
+		String urlString = "https://api.themoviedb.org/3/movie/"+ movieID +"?api_key=" + apiKey;
+		URL url = new URL(urlString);
+		return makeRequest(url);
+	}
 	
 	//Helper method that adds the parameters to the url correctly
 	//Encodes the paramaters for security
