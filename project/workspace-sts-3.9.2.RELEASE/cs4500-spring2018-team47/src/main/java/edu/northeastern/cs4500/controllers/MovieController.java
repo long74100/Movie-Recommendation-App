@@ -204,7 +204,12 @@ public class MovieController {
 				movie.put("genre", genre.toString());
 				movie.put("released", movieJSON.getString("release_date"));
 				movie.put("actors", actors);
-				movie.put("runtime", String.valueOf(movieJSON.getInt("runtime")));
+				Object runtime = movieJSON.get("runtime");
+				if (runtime.toString().equals("null")) {
+					movie.put("runtime", "N/A");
+				} else {
+					movie.put("runtime", movieJSON.getJSONObject("runtime").toString() + " Minutes");
+				}
 				movie.put("country", contry.toString());
 				movie.put("imdbRating", String.valueOf(movieJSON.getInt("vote_average")));
 				movie.put("imdbID", movieJSON.getString("imdb_id"));
