@@ -205,7 +205,7 @@ public class MovieController {
 				if (runtime.toString().equals("null")) {
 					movie.put("runtime", "N/A");
 				} else {
-					movie.put("runtime", movieJSON.getJSONObject("runtime").toString() + " Minutes");
+					movie.put("runtime", runtime.toString() + " Minutes");
 				}
 				movie.put("country", contry.toString());
 				movie.put("imdbRating", String.valueOf(movieJSON.getInt("vote_average")));
