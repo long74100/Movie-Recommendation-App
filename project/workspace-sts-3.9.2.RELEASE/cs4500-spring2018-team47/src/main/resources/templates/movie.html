@@ -133,6 +133,10 @@
 						<div th:text="${review.review}"></div>
 					</div>
 				</div>
+				
+				<div th:if="${user.role == 2 || user.id.toString() == review.user_id}" class="col-md-3">
+					<button class="btn btn-danger">Remove</button>
+				</div>
 			</div>
 		</div>
 		<!-- else no users are found  -->
