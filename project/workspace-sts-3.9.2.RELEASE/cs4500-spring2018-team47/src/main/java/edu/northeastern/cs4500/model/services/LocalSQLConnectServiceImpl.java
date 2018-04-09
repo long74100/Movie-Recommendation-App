@@ -411,18 +411,17 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 
     @Override
     public void addReviewToLocalDB(MovieReview mr) {
+	String sqlcmd = "insert into Review(movie_id, reviewer_id, reviewer_name, review_date, description) values(?, ?, ?, ?, ?)";
+	PreparedStatement pstmt = null;
+
 	try {
-	    int reviewId = mr.getId();
-	    String reviewContent = mr.getReview();
-	    String movieId = mr.getMovie_id();
-	    String reviewer_id = mr.getUser_id();
-	    String date = mr.getDate();
-	    String username = mr.getUsername();
-	    String query = "insert into Review values (" + reviewId + ", \"" + movieId + "\", " + reviewer_id + ", \""
-		    + username + "\", \"" + date + "\", \"" + reviewContent + "\")";
-
-	    connectStatement.executeUpdate(query);
-
+	    pstmt = connector.prepareStatement(sqlcmd);
+	    pstmt.setString(1, mr.getMovie_id());
+	    pstmt.setString(2, mr.getUser_id());
+	    pstmt.setString(3, mr.getUsername());
+	    pstmt.setString(4, mr.getDate());
+	    pstmt.setString(5, mr.getReview());
+	    pstmt.executeUpdate();
 	} catch (SQLException se) {
 	    logger.error(se.getMessage());
 	}
