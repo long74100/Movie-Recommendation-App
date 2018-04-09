@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 2018-04-04 22:37:31.852  INFO DESKTOP-AKNICNU --- [  restartedMain] e.n.c.Cs4500Spring2018Team47Application  : Starting Cs4500Spring2018Team47Application on DESKTOP-AKNICNU with PID 14320 (D:\EdwardWang\team-47-spring18\project\workspace-sts-3.9.2.RELEASE\cs4500-spring2018-team47\target\classes started by Edward Wang in D:\EdwardWang\team-47-spring18\project\workspace-sts-3.9.2.RELEASE\cs4500-spring2018-team47)
 2018-04-04 22:37:31.857 DEBUG DESKTOP-AKNICNU --- [  restartedMain] e.n.c.Cs4500Spring2018Team47Application  : Running with Spring Boot v1.5.9.RELEASE, Spring v4.3.13.RELEASE
 2018-04-04 22:37:31.857  INFO DESKTOP-AKNICNU --- [  restartedMain] e.n.c.Cs4500Spring2018Team47Application  : No active profile set, falling back to default profiles: default
@@ -2250,3 +2251,5 @@ Using default security password: 309c114a-e006-411f-a6d8-5ea803b2b2a4
 [THYMELEAF]     * Prefix: "th"
 [THYMELEAF] TEMPLATE ENGINE CONFIGURED OK
 2018-04-05 14:30:13.174  INFO LAPTOP-J5FL9TGI --- [nio-8080-exec-1] o.t.TemplateEngine                       : [THYMELEAF] TEMPLATE ENGINE INITIALIZED
+=======
+>>>>>>> 8b7f72abccde528d23db1d7cb7943fe5905eafa5
