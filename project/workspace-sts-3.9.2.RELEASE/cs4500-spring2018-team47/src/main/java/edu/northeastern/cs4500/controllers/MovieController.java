@@ -1,6 +1,7 @@
 package edu.northeastern.cs4500.controllers;
 
 import java.io.IOException;
+
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -35,7 +36,6 @@ import edu.northeastern.cs4500.model.services.ILocalSQLConnectService;
 import edu.northeastern.cs4500.model.services.IMovieDBService;
 import edu.northeastern.cs4500.model.services.LocalSQLConnectServiceImpl;
 import edu.northeastern.cs4500.model.services.MovieDBServiceImpl;
-import edu.northeastern.cs4500.model.services.MovieRatingService;
 import edu.northeastern.cs4500.model.services.UserService;
 import edu.northeastern.cs4500.model.user.User;
 
@@ -48,10 +48,7 @@ public class MovieController {
 	private ArrayList<String> movieIDs = new ArrayList<>();
 
 	private static final Logger logger = LogManager.getLogger(MovieController.class);
-
-	@Autowired
-	private MovieRatingService movieRatingService;
-
+	
 	@Autowired
 	private UserService userService;
 
