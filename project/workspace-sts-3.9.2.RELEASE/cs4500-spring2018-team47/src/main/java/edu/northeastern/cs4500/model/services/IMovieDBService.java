@@ -18,7 +18,21 @@ public interface IMovieDBService {
 	 */
 	JSONObject searchMovieListByTitle(String title) throws IOException, JSONException;
 
+	/**
+	 * Searches a cast of a movie
+	 * @param id a movie id within themoviedb
+	 * @return a JSONObject of the movie cast
+	 * @throws IOException
+	 * @throws JSONException
+	 */
 	JSONObject searchMovieCast(int id) throws IOException, JSONException;
 
+	/**
+	 * Do a detailed search of a movie
+	 * @param id a movie id within themoviedb
+	 * @return A JSONObject of the movie details
+	 * @throws IOException
+	 * @throws JSONException
+	 */
 	JSONObject searchMovieDetails(int id) throws IOException, JSONException;
 }
