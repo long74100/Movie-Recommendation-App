@@ -260,10 +260,10 @@ public class MovieController {
 		movieRating.setDate(formatter.format(new Date()));
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		User user = userService.findUserByEmail(auth.getName());
-
+		
 		if (user != null) {
 			movieRating.setUserID(user.getId());
-			movieRatingService.saveMovieRating(movieRating);
+			localDbConnector.insertRating(movieRating);
 		}
 	}
 
