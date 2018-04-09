@@ -1070,19 +1070,20 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 	 */
 	@Override
 	public void sendProdToFriend(int senderId, int receiverId, String senderName, 
-			String receiverName, String movieId, String movieName, String date, String comment) {
-		String sqlcmd = "insert into Prod values (?, ?, ?, ?, ?, ?, ?, ?)";
+			String receiverName, String movieId, String movieName, String date, String comment, String movieDBId) {
+		String sqlcmd = "insert into Prod values (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		PreparedStatement pstmt = null;
 		try {
 			pstmt = connector.prepareStatement(sqlcmd);
 			pstmt.setInt(1, senderId);
-			pstmt.setInt(2, receiverId);
-			pstmt.setString(3, senderName);
+			pstmt.setString(2, senderName);
+			pstmt.setInt(3, receiverId);
 			pstmt.setString(4, receiverName);
 			pstmt.setString(5,  movieId);
 			pstmt.setString(6, movieName);
 			pstmt.setString(7, date);
 			pstmt.setString(8, comment);
+			pstmt.setString(9, movieDBId);
 			pstmt.executeUpdate();
 		}
 		catch (SQLException sq) {

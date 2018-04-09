@@ -12,6 +12,17 @@
 	float: left;
 }
 
+.comment-area {
+	margin-left:30px;
+	width:450px;
+	margin-top: 5px;
+	font-size: 15px;
+	border-radius:5px;
+	border-color: black;
+	overflow: auto;
+	resize: vertical;
+}
+
 .movie-items-except-poster {
 	width: 580px;
 	margin-left: 210px;
@@ -97,32 +108,83 @@
 .prod-to-friend-input-container {
     overflow: auto; 
     resize: vertical; 
-    width:450px; 
-    height:80px; 
-    border-radius: 8px; 
+    width:425px; 
+    height:30px;  
     margin-left: 25px;
     margin-top: 0px;
     border: solid;
     border-width: thin;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-radius: 0px;
 }
 
 .clean-prod-recipient {
     float: right;
     margin-top:  10px;
     margin-right: 10px;
+    background: transparent;
+    border: solid;
+    border-width: thin;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.clean-prod-recipient:hover {
+	background: black;
+	color: white;
 }
 
 .close-prodlist-window {
 	float:  right;
     margin-right: 25px;
     margin-top: 10px;
+   	background: transparent;
+    border: solid;
+    border-width: thin;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.close-prodlist-window:hover {
+	color:white;
+	background:black;
+}
+
+.usersearchbar {
+	float: left;
+    margin-left: 30px;
+    height: 25px;
+    border-radius: 8px;
+    border-style: solid;
+    border-width: thin;
+}
+
+.search-to-send-btn {
+	border-radius: 20px;
+    border: solid;
+    background: white;
+    cursor: pointer;
+    border-width: thin;
+    margin-left: 5px;
+    height: 25px;
+    width: 50px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+
+.search-to-send-btn:hover {
+	background:black;
+	color:white;
 }
 
 .friend-Lists-wait-to-prod {
 	margin-left: 20px; 
 	height:300px; 
 	overflow:auto;
-	margin-top: 40px;
+	margin-top: 10px;
 }
 
 .prod-movie-name {
@@ -133,9 +195,19 @@
 }
 
 .send-out-movie {
-	float:  right;
-    margin-top: 5px;
+	float: right;
+    margin-top: 1px;
     margin-right: 25px;
+    background: transparent;
+    border-width: thin;
+    border-radius: 5px;
+    border-color: black;
+    cursor: pointer;
+}
+
+.send-out-movie:hover {
+	background: black;
+	color: white;
 }
 
 .prod-to-all {

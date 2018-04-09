@@ -45,10 +45,12 @@ function deleteMovie(movieId, thisButton) {
 		150);
 }
 
-function showFriendsToProd(movieName, thisButton) {
+function showFriendsToProd(movieName, movieId, movieDBID, thisButton) {
 	var friendToProd = document.getElementById("friendList-for-prod");
 	var clickPosition = getMenuPosition(event);
 	document.getElementById("prod-movie-name").innerHTML = movieName;
+	document.getElementById("prod-movie-id").innerHTML = movieId;
+	document.getElementById("prod-movie-dbID").innerHTML = movieDBID;
 	friendToProd.style.display = "block";
 }
 
@@ -62,8 +64,8 @@ function addRecipient(userName, userId) {
 	else {
 		var innerHtml = 
 			userContainer.innerHTML + 
-			"<div style=\"width:auto;" + " border: solid; border-radius:8px; border-width:thin; background:black; color:wheat; float: left;\"" +
-					" id=\"" + "prodUserId" + userId + "\"\">" +
+			"<div style=\"width:auto;" + " border: solid; border-radius:4px; border-width:thin; background:black; color:wheat; float: left;\"" +
+					" id=\"" + "prodUserId" + userId + "\" class=\"userBlock\">" +
 				"<span>" +
 					"<p class=\"RecipientUserName\" id=\"RecipientUserName\" style=\"float:left; margin-bottom:0px;\">" 
 					+ userName + 
@@ -79,6 +81,48 @@ function addRecipient(userName, userId) {
 	}
 	
 }
+
+// this functions will send out the movie suggestions to friends
+function sendOutProd() {
+	// also needs movie title and movie id
+	var allUserName = document.getElementsByClassName("RecipientUserName");
+	var allUserId = document.getElementsByClassName("prodRecipientId");
+	var movieImdbId = document.getElementById("prod-movie-id").innerHTML;
+	var movieTitle = document.getElementById("prod-movie-name").innerHTML;
+	var movieDBId = document.getElementById("prod-movie-dbID").innerHTML;
+	var comment = document.querySelector("#comment-area").value;
+	var AllUserNameContainer = [];
+	var AllIdContainer = [];
+	for(var i = 0; i < allUserName.length; i++) {
+		AllUserNameContainer.push(allUserName[i].innerHTML);
+		AllIdContainer.push(allUserId[i].innerHTML);
+	}
+	var allUserNameInString = AllUserNameContainer.join();
+	var allIdsInString = AllIdContainer.join();
+	
+	// start encoding information and send out
+	var encodedMovieName = encodeURI(movieTitle);
+	var encodedMovieImdbID = encodeURI(movieImdbId);
+	var encodedMovieDBId = encodeURI(movieDBId);
+	var encodedAllUserName = encodeURI(allUserNameInString);
+	var encodedAllUserId = encodeURI(allIdsInString);
+	var encodedComment = encodeURI(comment);
+	
+	var url = "/prodToFriends";
+	var param = "movieName=" + encodedMovieName + "&movieId=" + encodedMovieImdbID + 
+				"&movieDBId=" + encodedMovieDBId + "&allUserName=" + encodedAllUserName +
+				"&allUserId=" + encodedAllUserId + "&comment=" + encodedComment;
+	var xhr = new XMLHttpRequest();
+	xhr.open("POST", url, true);
+	xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+	xhr.send(param);
+	setTimeout(function() {
+		location.reload(true);
+		}, 
+		150);
+	alert("Send prod out");
+}
+
 
 function cleanInput() {
 	document.getElementById("prod-to-friend-input-container").innerHTML = "";

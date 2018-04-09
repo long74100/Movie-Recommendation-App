@@ -209,4 +209,43 @@ public class UserprofileController {
 		modelAndView.setViewName("prods");
 		return modelAndView;
 	}
+	
+	@RequestMapping(value="/prodToFriends", method = RequestMethod.POST)
+	@ResponseStatus(value= HttpStatus.OK)
+	public void prodToFriends(HttpServletRequest httpServletRequest) {
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		User user = userService.findUserByEmail(auth.getName());
+    	Integer userId = user.getId();
+    	String userName = user.getUsername();
+		String movieTitle = httpServletRequest.getParameter("movieName");
+		String movieImdbId = httpServletRequest.getParameter("movieId");
+		String movieDBId = httpServletRequest.getParameter("movieDBId");
+		String recipientName = httpServletRequest.getParameter("allUserName");
+		String recipientId = httpServletRequest.getParameter("allUserId");
+		String senderComment = httpServletRequest.getParameter("comment");
+		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+    	String prodSentDate = formatter.format(new Date());
+		System.out.println(movieTitle); 
+		System.out.println(movieImdbId);
+		System.out.println(movieDBId);
+		System.out.println(recipientName);
+		System.out.println(recipientId);
+		System.out.println(senderComment);
+		if(recipientName.contains(",")) {
+			String[] out = recipientName.split(",");
+			String[] ids = recipientId.split(",");
+			/**
+			(int senderId, int receiverId, String senderName, 
+			String receiverName, String movieId, String movieName, String date, String comment, String movieDBId)
+			 */
+			for(int i = 0; i < out.length; i++) {
+				sqlConnector.sendProdToFriend(userId, Integer.parseInt(ids[i]), userName, out[i], 
+						movieImdbId, movieTitle, prodSentDate, senderComment, movieDBId);
+			}
+		}
+		else {
+			sqlConnector.sendProdToFriend(userId, Integer.parseInt(recipientId), userName, recipientName, 
+					movieImdbId, movieTitle, prodSentDate, senderComment, movieDBId);
+		}
+	}
 }

@@ -4,10 +4,53 @@
 <head>
 <noscript th:replace="fragments/quickAddCSSJS :: quickAddCSSJS"></noscript>
 <link rel="stylesheet" href="css/searchResult.css">
+<link rel="stylesheet" href="../css/userMovieListsItem.css">
+<script type="text/javascript" src="../js/movielistItem.js"></script>
 <title>Search Results</title>
 </head>
 <body>
 	<div th:replace="fragments/navBar :: header"></div>
+	
+	<div th:if="${not #lists.isEmpty(friendList)}" id="friendList-for-prod" class="friendList-for-prod"">
+    	<p class="prod-movie-name" id="prod-movie-name"></p>
+    	<p class="prod-movie-id" id="prod-movie-id" style="display: none"></p>
+    	<p class="prod-movie-dbID" id="prod-movie-dbID" style="display: none"></p>
+    	<div style="margin-top: 0px;">
+    		<p style="margin-bottom: 0px; float: left; margin-left: 25px;margin-right: 5px;">To: </p>
+    		<div class="prod-to-friend-input-container" id="prod-to-friend-input-container">
+    		</div>
+    		<div>
+    			<textarea class="comment-area" id="comment-area"></textarea>
+    		</div>
+    		<span>
+    			<span>
+    				<input type="text" class="usersearchbar" id="usersearchbar" placeholder="search user..."/>
+    				<button type="submit" class="search-to-send-btn" id="search-to-send-btn">Find</button>
+    			</span>
+    			<button type="submit" class="send-out-movie" id="prod-to-friend" th:onclick="'sendOutProd('+this+')'">Send</button> 
+    		</span>
+    	</div>
+    	
+    	<div th:if="${not #lists.isEmpty(friendList)}" class="friend-Lists-wait-to-prod">
+			<p class="prod-to-all" id="prod-to-all" th:onclick="'sendToAll()'">Send to All friends...</p>
+    		<div th:each="friend : ${friendList}">
+    			<div id="friend-item-block" class="friend-item-block" 
+    				th:onclick="'addRecipient(\''+${friend.username}+'\', \''+${friend.id}+'\')'">
+    				<img src="https://www.ocf.berkeley.edu/~dblab/blog/wp-content/uploads/2012/01/icon-profile.png"
+								class="user-headportrait" style="width: 30px; float: left;"/>
+    				<p th:text="${friend.username}" style="margin-bottom: 0px;"></p>
+    			</div>
+    		
+    		</div>
+    	</div>
+    	<div>
+    		<button id="close-prodlist-window" class="close-prodlist-window" th:onclick="'closeProdMenu()'">Close</button>
+    		<button id="clean-prod-recipient" class="clean-prod-recipient" th:onclick="'cleanInput()'">Clean</button>
+    	</div>
+    </div>
+    <div th:unless="${not #lists.isEmpty(friendList)}" class="friendList-for-prod" id="friendList-for-prod">
+    		<P>Please Login or Signup</P>
+    </div>
 	<div class="container mt-3 showcase">
 		<!-- If movie title found -->
 		<h1>Movies</h1>
@@ -33,7 +76,8 @@
 						<div style="margin: 2px;">
 							<button class="btn">Add to Watchlist</button>
 						</div>
-						<button class="btn btn-primary">Prod to a Friend</button>
+						<button class="btn btn-primary" 
+						th:onclick="'showFriendsToProd(\''+${movie.title}+'\', \''+${movie.imdbID}+'\', \''+${movie.theMovieDbID}+'\','+this+')'">Prod to a Friend</button>
 					</div>
 				</div>
 				</a>

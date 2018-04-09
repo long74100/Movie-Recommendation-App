@@ -386,9 +386,10 @@ public interface ILocalSQLConnectService {
 	 * @param movieName prod movie name
 	 * @param date sent date
 	 * @param comment sender's comment
+	 * @param movieDBId the movie id in movie db
 	 */
 	void sendProdToFriend(int senderId, int receiverId, String senderName, 
-			String receiverName, String movieId, String movieName, String date, String comment);
+			String receiverName, String movieId, String movieName, String date, String comment, String movieDBId);
 	
 	/**
 	 * To extract all prods from friends

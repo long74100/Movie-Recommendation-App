@@ -97,6 +97,8 @@ public class MovieController {
 			// use logger
 			logger.error(e.getMessage());
 		}
+		
+		
 
 		// get list of users
 		userList = localDbConnector.keywordSearchUser(searchParam);
@@ -104,8 +106,18 @@ public class MovieController {
 		ModelAndView modelAndView = new ModelAndView();
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		User user = userService.findUserByEmail(auth.getName());
+		
+		if(user != null) {
+			// get User's friends:
+			List<User> friendList = localDbConnector.getAllFriends(user.getId());
 
-		modelAndView.addObject("user", user);
+			modelAndView.addObject("user", user);
+			modelAndView.addObject("friendList", friendList);
+		}
+		else {
+			modelAndView.addObject("friendList", new ArrayList<User>());
+		}
+		
 		modelAndView.addObject("movie", movieList);
 		modelAndView.addObject("users", userList);
 		modelAndView.setViewName("searchResult");
@@ -223,11 +235,12 @@ public class MovieController {
 			// to update the browse history
 			Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 			User user = userService.findUserByEmail(auth.getName());
-			Integer userId = user.getId();
-			SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-			localDbConnector.addMovieIntoMovieList(userId, "Browse History", 
-					movie.get("imdbID"), movie.get("title"), formatter.format(new Date()));
-
+			if(user != null) {
+				Integer userId = user.getId();
+				SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+				localDbConnector.addMovieIntoMovieList(userId, "Browse History", 
+						movie.get("imdbID"), movie.get("title"), formatter.format(new Date()));
+			}
 			reviews = localDbConnector.getReviewsForMovie(movieJSON.getString("imdb_id"));
 			
 
@@ -244,6 +257,10 @@ public class MovieController {
 		modelAndView.addObject("movie", movie);
 
 		if (user != null) {
+			// to get user's friend List
+			List<User> friendList = localDbConnector.getAllFriends(user.getId());
+			modelAndView.addObject("friendList", friendList);
+			
 			// To extract user movie list
 			List<String> userMovieList = localDbConnector.getMovieListForUser(user.getId());
 			modelAndView.addObject("userMVlist", userMovieList);

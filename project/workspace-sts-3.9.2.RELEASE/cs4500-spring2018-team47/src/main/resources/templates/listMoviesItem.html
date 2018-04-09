@@ -22,12 +22,26 @@
     
     <div id="friendList-for-prod" class="friendList-for-prod"">
     	<p class="prod-movie-name" id="prod-movie-name"></p>
+    	<p class="prod-movie-id" id="prod-movie-id" style="display: none"></p>
+    	<p class="prod-movie-dbID" id="prod-movie-dbID" style="display: none"></p>
     	<div style="margin-top: 0px;">
-    		<div class="prod-to-friend-input-container" id="prod-to-friend-input-container"></div>
-			<button type="submit" class="send-out-movie" id="prod-to-friend">Send</button>    	
+    		<p style="margin-bottom: 0px; float: left; margin-left: 25px;margin-right: 5px;">To: </p>
+    		<div class="prod-to-friend-input-container" id="prod-to-friend-input-container">
+    		</div>
+    		<div>
+    			<textarea class="comment-area" id="comment-area"></textarea>
+    		</div>
+    		<span>
+    			<span>
+    				<input type="text" class="usersearchbar" id="usersearchbar" placeholder="search user..."/>
+    				<button type="submit" class="search-to-send-btn" id="search-to-send-btn">Find</button>
+    			</span>
+    			<button type="submit" class="send-out-movie" id="prod-to-friend" th:onclick="'sendOutProd('+this+')'">Send</button> 
+    		</span>
     	</div>
+    	
     	<div th:if="${not #lists.isEmpty(friendList)}" class="friend-Lists-wait-to-prod">
-			<p class="prod-to-all" id="prod-to-all">Send to All friends...</p>
+			<p class="prod-to-all" id="prod-to-all" th:onclick="'sendToAll()'">Send to All friends...</p>
     		<div th:each="friend : ${friendList}">
     			<div id="friend-item-block" class="friend-item-block" 
     				th:onclick="'addRecipient(\''+${friend.username}+'\', \''+${friend.id}+'\')'">
@@ -59,7 +73,7 @@
             			<div class="poster-and-btn" id="poster-and-btn" style="height:300px; width:200px; float:left;">
             				<img class="item-poster" th:src="${movie.poster}"/>
             				<button id="prod-movie" class="prod-movie" type="submit" 
-            					th:onclick="'showFriendsToProd(\''+${movie.title}+'\', '+this+')'">Prod</button>
+            					th:onclick="'showFriendsToProd(\''+${movie.title}+'\', \''+${movie.imdbID}+'\', \''+${movie.theMovieDbID}+'\','+this+')'">Prod</button>
             				<button type="submit" th:onclick="'deleteMovie(\''+${movie.imdbID}+'\','+this+')'" 
             					class="delete-movie-btn" id="delete-movie-btn">Delete
             				</button>
