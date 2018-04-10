@@ -268,6 +268,21 @@ public class MovieController {
 			localDbConnector.insertRating(movieRating);
 		}
 	}
+	
+
+	@RequestMapping(value = "/movie/removeReview", method = RequestMethod.POST)
+	@ResponseStatus(value = HttpStatus.OK)
+	public void removeReview(@RequestBody String review, HttpServletRequest httpServletRequest) {
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		User user = userService.findUserByEmail(auth.getName());
+		
+		String userId = httpServletRequest.getParameter("userId");
+		String reviewId = httpServletRequest.getParameter("reviewId");
+		
+		if (user != null && ((Integer.valueOf(userId) == user.getId()) || user.getRole() == 2)) {
+		    localDbConnector.removeReview(Integer.valueOf(reviewId));
+		}
+	}
 
 	@RequestMapping(value = "/writeReview", method = RequestMethod.POST)
 	@ResponseStatus(value = HttpStatus.OK)
