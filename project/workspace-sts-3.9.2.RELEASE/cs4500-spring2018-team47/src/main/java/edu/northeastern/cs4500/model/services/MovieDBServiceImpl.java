@@ -5,7 +5,6 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.util.HashMap;
@@ -65,7 +64,7 @@ public class MovieDBServiceImpl implements IMovieDBService{
 	public JSONObject searchMovieDetails(int movieID) throws IOException, JSONException {
 		String urlString = "https://api.themoviedb.org/3/movie/"+ movieID +"?api_key=" + apiKey;
 		URL url = new URL(urlString);
-		return makeRequest(url);
+		return makeRequest(url); 
 	}
 	
 	//Helper method that adds the parameters to the url correctly
