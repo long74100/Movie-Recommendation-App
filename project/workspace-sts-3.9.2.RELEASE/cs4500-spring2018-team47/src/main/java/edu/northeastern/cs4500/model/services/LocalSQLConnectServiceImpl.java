@@ -799,6 +799,7 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 		Integer reviewId = myResult.getInt("review_id");
 		String reviewDate = myResult.getString("review_date");
 		String description = myResult.getString("description");
+		output.setId(reviewId);
 		output.setDate(reviewDate);
 		output.setMovie_id(movieId);
 		output.setReview(description);
@@ -940,16 +941,13 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
     }
 
     @Override
-    public void removeReview(String movieId, String userId, String desc) {
-	String sqlcmd = "delete from Review where movie_id = ? and reviewer_id = ? and description like \"%\"?\"%\"";
+    public void removeReview(int reviewId) {
+	String sqlcmd = "delete from Review where review_id = ?";
 	PreparedStatement pstmt = null;
 
 	try {
 	    pstmt = connector.prepareStatement(sqlcmd);
-	    System.out.println(pstmt);
-	    pstmt.setString(1, movieId);
-	    pstmt.setString(2, userId);
-	    pstmt.setString(3, desc);
+	    pstmt.setInt(1, reviewId);
 	    pstmt.executeUpdate();
 	} catch (SQLException e) {
 	    logger.error(e.getMessage());

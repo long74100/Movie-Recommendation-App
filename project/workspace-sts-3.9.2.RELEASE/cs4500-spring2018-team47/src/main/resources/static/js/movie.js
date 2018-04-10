@@ -86,13 +86,13 @@ function init() {
 	function removeReview(ev) {
 		let p = ev.target.parentElement;
 		reviewer_id = p.firstElementChild.innerText;
-		review_desc = p.parentElement.children[1].firstElementChild.innerText;
+		review_id = p.children[1].innerText;
+		console.log(review_id);
 		
 		let url = "/movie/removeReview";
 		let encodedUserId = encodeURI(reviewer_id);
-		let encodedMovieId = encodeURI(movieId);
-		let encodedReviewDesc = encodeURI(review_desc);
-		let param = "userId=" + encodedUserId + "&movieId=" + encodedMovieId + "&desc=" + review_desc;
+		let encodedReviewId = encodeURI(review_id);
+		let param = "userId=" + encodedUserId + "&reviewId=" + encodedReviewId;
 		let xhr = new XMLHttpRequest();
 		xhr.open("POST", url, true);
 		xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");

@@ -161,7 +161,7 @@ public interface ILocalSQLConnectService {
 	/**
 	 * Remove a review from the database.
 	 */
-	void removeReview(String movieId, String userId, String desc);
+	void removeReview(int reviewId);
 
 	/**
 	 * To set up initial movie list for the new user.

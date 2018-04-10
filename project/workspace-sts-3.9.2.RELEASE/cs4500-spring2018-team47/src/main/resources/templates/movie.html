@@ -134,8 +134,10 @@
 					</div>
 				</div>
 				
-				<div th:if="${user.role == 2 || user.id.toString() == review.user_id}" class="col-md-3">
+				<div th:if="${user != null && (user.role == 2 || user.id.toString() == review.user_id)}" class="col-md-3">
 					<span th:text="${review.user_id}" class="d-none"></span>
+					<span th:text="${review.id}" class="d-none"></span>
+					
 					<button class="btn btn-danger remove-review">Remove</button>
 				</div>
 			</div>
