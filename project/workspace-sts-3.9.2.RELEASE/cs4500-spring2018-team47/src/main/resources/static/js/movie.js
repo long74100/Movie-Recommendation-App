@@ -87,7 +87,6 @@ function init() {
 		let p = ev.target.parentElement;
 		reviewer_id = p.firstElementChild.innerText;
 		review_id = p.children[1].innerText;
-		console.log(review_id);
 		
 		let url = "/movie/removeReview";
 		let encodedUserId = encodeURI(reviewer_id);
