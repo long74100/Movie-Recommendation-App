@@ -1,6 +1,7 @@
 package edu.northeastern.cs4500.controllers;
 
 import java.io.IOException;
+
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -35,7 +36,6 @@ import edu.northeastern.cs4500.model.services.ILocalSQLConnectService;
 import edu.northeastern.cs4500.model.services.IMovieDBService;
 import edu.northeastern.cs4500.model.services.LocalSQLConnectServiceImpl;
 import edu.northeastern.cs4500.model.services.MovieDBServiceImpl;
-import edu.northeastern.cs4500.model.services.MovieRatingService;
 import edu.northeastern.cs4500.model.services.UserService;
 import edu.northeastern.cs4500.model.user.User;
 
@@ -48,10 +48,7 @@ public class MovieController {
 	private ArrayList<String> movieIDs = new ArrayList<>();
 
 	private static final Logger logger = LogManager.getLogger(MovieController.class);
-
-	@Autowired
-	private MovieRatingService movieRatingService;
-
+	
 	@Autowired
 	private UserService userService;
 
@@ -204,7 +201,12 @@ public class MovieController {
 				movie.put("genre", genre.toString());
 				movie.put("released", movieJSON.getString("release_date"));
 				movie.put("actors", actors);
-				movie.put("runtime", String.valueOf(movieJSON.getInt("runtime")));
+				Object runtime = movieJSON.get("runtime");
+				if (runtime.toString().equals("null")) {
+					movie.put("runtime", "N/A");
+				} else {
+					movie.put("runtime", runtime.toString() + " Minutes");
+				}
 				movie.put("country", contry.toString());
 				movie.put("imdbRating", String.valueOf(movieJSON.getInt("vote_average")));
 				movie.put("imdbID", movieJSON.getString("imdb_id"));
@@ -260,10 +262,10 @@ public class MovieController {
 		movieRating.setDate(formatter.format(new Date()));
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		User user = userService.findUserByEmail(auth.getName());
-
+		
 		if (user != null) {
 			movieRating.setUserID(user.getId());
-			movieRatingService.saveMovieRating(movieRating);
+			localDbConnector.insertRating(movieRating);
 		}
 	}
 
@@ -293,4 +295,6 @@ public class MovieController {
 		String movieName = httpServletRequest.getParameter("movie");
 		localDbConnector.addMovieIntoMovieList(userId, listname, movieId, movieName);
 	}
+
+	
 }

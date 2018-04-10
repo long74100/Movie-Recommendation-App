@@ -8,6 +8,7 @@ import java.util.Map;
 import org.json.JSONObject;
 
 import edu.northeastern.cs4500.model.movie.Movie;
+import edu.northeastern.cs4500.model.movie.MovieRating;
 import edu.northeastern.cs4500.model.movie.MovieReview;
 import edu.northeastern.cs4500.model.user.User;
 
@@ -328,6 +329,13 @@ public interface ILocalSQLConnectService {
 	 *            the movie Id
 	 */
 	int getRating(int userId, String movieId);
+	
+
+	/**
+	 * Insert a rating into movie ratings.
+	 * @param rating the movie rating
+	 */
+	public void insertRating(MovieRating movieRating);
 
 	/**
 	 * To get all the reviews for the movie with given movieId
@@ -345,7 +353,7 @@ public interface ILocalSQLConnectService {
 	 *            the user's id
 	 * @return the list of movie
 	 */
-	List<MovieReview> getReviewForUser(int userId);
+	List<MovieReview> getReviewForUser(String userId);
 
 	/**
 	 * To delete the movie list also delete all the stored movies records
@@ -373,5 +381,20 @@ public interface ILocalSQLConnectService {
 	 * @param movie the movie information.
 	 */
 	void loadMovieIntoLocalDB(Map<String, String> movie);
+	
+	/**
+	 * Update a user's active status.
+	 * @param userId for user to update and status to set
+	 */
+	public void updateUserStatus(int userId, int status);
+	
+	
+	/**
+	 * Returns a list of banned users.
+	 * @return banned users
+	 */
+	List<User> getBannedList();
+
+	
 }
 
