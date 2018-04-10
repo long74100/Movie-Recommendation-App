@@ -277,14 +277,15 @@ public class MovieController {
 		User user = userService.findUserByEmail(auth.getName());
 		
 		String movieId = httpServletRequest.getParameter("movieId");
-		int userId = Integer.valueOf(httpServletRequest.getParameter("userId"));
+		String userId = httpServletRequest.getParameter("userId");
 		String desc = httpServletRequest.getParameter("desc");
 		System.out.println(movieId);
 		System.out.println(userId);
 		System.out.println(desc);
 		
-		if (user != null && ((userId == user.getId()) || user.getRole() == 2)) {
-		    System.out.println("doob");
+		if (user != null && ((Integer.valueOf(userId) == user.getId()) || user.getRole() == 2)) {
+		    localDbConnector.removeReview(movieId, userId, desc);
+		    System.out.println("did it here too");
 		}
 	}
 

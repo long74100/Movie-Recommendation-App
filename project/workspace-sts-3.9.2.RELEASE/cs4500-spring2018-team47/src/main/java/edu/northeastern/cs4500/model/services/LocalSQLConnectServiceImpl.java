@@ -462,6 +462,7 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 
     }
 
+
     @Override
     public HashMap<String, ArrayList<Movie>> getMovieFromMovieList(int userId) {
 	HashMap<String, ArrayList<Movie>> output = new HashMap<>();
@@ -936,6 +937,24 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 	    logger.error(ep.getMessage());
 	}
 	return output;
+    }
+
+    @Override
+    public void removeReview(String movieId, String userId, String desc) {
+	String sqlcmd = "delete from Review where movie_id = ? and reviewer_id = ? and description like \"%\"?\"%\"";
+	PreparedStatement pstmt = null;
+
+	try {
+	    pstmt = connector.prepareStatement(sqlcmd);
+	    System.out.println(pstmt);
+	    pstmt.setString(1, movieId);
+	    pstmt.setString(2, userId);
+	    pstmt.setString(3, desc);
+	    pstmt.executeUpdate();
+	} catch (SQLException e) {
+	    logger.error(e.getMessage());
+	}
+	
     }
 
 }
