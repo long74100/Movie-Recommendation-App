@@ -21,7 +21,7 @@ import org.json.JSONObject;
 public class MovieDBServiceImpl implements IMovieDBService{
 	
 	private static final String apiKey = "005e91dcdf4c4742c228833ea398ff7e";
-	private static final DateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+	private final DateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 	private static final String apiURL = "https://api.themoviedb.org/3/search/movie?api_key=" + apiKey + "&";
 	
 	public MovieDBServiceImpl() {

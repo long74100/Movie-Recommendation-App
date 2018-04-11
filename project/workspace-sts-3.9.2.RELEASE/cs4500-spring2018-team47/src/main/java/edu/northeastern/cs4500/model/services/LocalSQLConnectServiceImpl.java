@@ -70,7 +70,7 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
     }
 
     @Override
-    public boolean containMovie(String movieId) {
+    public boolean containMovie(String movieId) throws SQLException {
 	String sqlcmd = "select * from Movie where movie_id =?";
 	PreparedStatement pstmt = null;
 	try {
@@ -82,6 +82,10 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 	    }
 	} catch (SQLException ep) {
 	    logger.error(ep.getMessage());
+	} finally {
+        if (pstmt != null) {
+        	pstmt.close();
+        }
 	}
 	return false;
     }
@@ -91,8 +95,9 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
      * @param senderId id for the user who might send the friend request
      * @param receiverId id for the user who might receive the friend request
      * @return true if they sent request to each other.
+     * @throws SQLException 
      */
-    private boolean hasMadeRequest(int senderId, int receiverId) {
+    private boolean hasMadeRequest(int senderId, int receiverId) throws SQLException {
 	String sqlcmd = "select * from userRelation where (senderId = ? and receiverId = ?) or (senderId = ? and receiverId = ?)";
 	PreparedStatement pstmt = null;
 	try {
@@ -107,6 +112,10 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 	    }
 	} catch (SQLException ep) {
 	    logger.error(ep.getMessage());
+	} finally {
+        if (pstmt != null) {
+        	pstmt.close();
+        }
 	}
 	return false;
     }
@@ -150,7 +159,11 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 		System.out.println("loading movie finished");
 	    } catch (SQLException sq) {
 		logger.error(sq.getMessage());
-	    }
+	    }finally {
+	        if (pstmt != null) {
+	        	pstmt.close();
+	        }
+		}
 	} catch (Exception ep) {
 	    logger.error(ep.getMessage());
 	}
@@ -158,7 +171,7 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
     }
 
     @Override
-    public void insertData(String data, String tableName) {
+    public void insertData(String data, String tableName) throws SQLException{
 	String sqlcmd = "insert into ? values ?";
 	PreparedStatement pstmt = null;
 	try {
@@ -168,6 +181,10 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 	    myResult = pstmt.executeQuery();
 	} catch (SQLException ep) {
 	    logger.error(ep.getMessage());
+	}finally {
+        if (pstmt != null) {
+        	pstmt.close();
+        }
 	}
     }
 
@@ -176,7 +193,7 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
      */
 
     @Override
-    public void deleteFromMovieTable(String id) {
+    public void deleteFromMovieTable(String id) throws SQLException{
 	String sqlcmd = "delete from Movie where movie_id = ?";
 	PreparedStatement pstmt = null;
 	try {
@@ -185,11 +202,15 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 	    pstmt.executeUpdate();
 	} catch (SQLException ep) {
 	    logger.error(ep.getMessage());
+	}finally {
+        if (pstmt != null) {
+        	pstmt.close();
+        }
 	}
     }
 
     @Override
-    public void clearTable(String tableName) {
+    public void clearTable(String tableName) throws SQLException{
 	String sqlcmd = "delete from ?";
 	PreparedStatement pstmt = null;
 	try {
@@ -198,11 +219,15 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 	    pstmt.executeUpdate();
 	} catch (SQLException ep) {
 	    logger.error(ep.getMessage());
+	}finally {
+        if (pstmt != null) {
+        	pstmt.close();
+        }
 	}
     }
 
     @Override
-    public void searchKeyWordMovieTitle(String input) {
+    public void searchKeyWordMovieTitle(String input) throws SQLException{
 	String sqlcmd = "select from Movie where movie_name like \"%\"?\"%\"";
 	PreparedStatement pstmt = null;
 	try {
@@ -213,11 +238,15 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 	    execute();
 	} catch (SQLException ep) {
 	    logger.error(ep.getMessage());
+	}finally {
+        if (pstmt != null) {
+        	pstmt.close();
+        }
 	}
     }
 
     @Override
-    public void searchKeyWordActorsName(String actorsName) {
+    public void searchKeyWordActorsName(String actorsName) throws SQLException{
 	String sqlcmd = "SELECT * from Movie where actor like \"%\"?\"%\"";
 	PreparedStatement pstmt = null;
 	try {
@@ -227,11 +256,15 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 	    execute();
 	} catch (SQLException ep) {
 	    logger.error(ep.getMessage());
+	}finally {
+        if (pstmt != null) {
+        	pstmt.close();
+        }
 	}
     }
 
     @Override
-    public void searchKeyWordDirectorName(String directorName) {
+    public void searchKeyWordDirectorName(String directorName) throws SQLException{
 	String sqlcmd = "SELECT * from Movie where director like \"%\"?\"%\"";
 	PreparedStatement pstmt = null;
 	try {
@@ -241,11 +274,15 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 	    execute();
 	} catch (SQLException ec) {
 	    logger.error(ec.getMessage());
+	}finally {
+        if (pstmt != null) {
+        	pstmt.close();
+        }
 	}
     }
 
     @Override
-    public void searchKeyWordGenre(String genre) {
+    public void searchKeyWordGenre(String genre) throws SQLException{
 	String sqlcmd = "SELECT * from Movie where genre like \"%\"?\"%\"";
 	PreparedStatement pstmt = null;
 	try {
@@ -255,11 +292,15 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 	    execute();
 	} catch (SQLException ec) {
 	    logger.error(ec.getMessage());
+	}finally {
+        if (pstmt != null) {
+        	pstmt.close();
+        }
 	}
     }
 
     @Override
-    public void searchKeyWordTime(String year) {
+    public void searchKeyWordTime(String year) throws SQLException{
 	String sqlcmd = "SELECT * from Movie where runtime like \"%\"?\"%\"";
 	PreparedStatement pstmt = null;
 	try {
@@ -269,11 +310,15 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 	    execute();
 	} catch (SQLException ec) {
 	    logger.error(ec.getMessage());
+	}finally {
+        if (pstmt != null) {
+        	pstmt.close();
+        }
 	}
     }
 
     @Override
-    public void searchByKeyWordInOne(String keyword) {
+    public void searchByKeyWordInOne(String keyword) throws SQLException{
 	String sqlcmd = "select * from Movie where movie_id like \"%\"?\"%\"" + " or movie_name like \"%\"?\"%\""
 		+ " or runtime like \"%\"?\"%\"" + " or release_date like \"%\"?\"%\"" + " or genre like \"%\"?\"%\""
 		+ " or director like \"%\"?\"%\"" + " or actor like \"%\"?\"%\"" + " or plot like \"%\"?\"%\""
@@ -293,15 +338,14 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 	    pstmt.setString(9, keyword);
 	    pstmt.setString(10, keyword);
 	    pstmt.setString(11, keyword);
-	    pstmt.setString(12, keyword);
-	    pstmt.setString(13, keyword);
-	    pstmt.setString(14, keyword);
-	    pstmt.setString(15, keyword);
-	    pstmt.setString(16, keyword);
 	    myResult = pstmt.executeQuery();
 	    execute();
 	} catch (SQLException ec) {
 	    logger.error(ec.getMessage());
+	}finally {
+        if (pstmt != null) {
+        	pstmt.close();
+        }
 	}
     }
 
@@ -337,7 +381,7 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
     // ----- user interaction in local database-----
 
     @Override
-    public void sendFriendRequest(int senderId, int receiverId) {
+    public void sendFriendRequest(int senderId, int receiverId) throws SQLException {
 	String sqlcmd = "insert into userRelation values (?, ?, \"onHold\", \"0\", \"0\")";
 	PreparedStatement pstmt = null;
 	if (!this.hasMadeRequest(senderId, receiverId)) {
@@ -348,13 +392,17 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 		pstmt.executeUpdate();
 	    } catch (SQLException se) {
 		logger.error(se.getMessage());
-	    }
+	    }finally {
+	        if (pstmt != null) {
+	        	pstmt.close();
+	        }
+		}
 	}
 
     }
 
     @Override
-    public void acceptRequest(int senderId, int receiverId) {
+    public void acceptRequest(int senderId, int receiverId) throws SQLException{
 	String sqlcmd = "update userRelation set relationStatus = \"friend\" where senderId = ? and receiverId = ?";
 	PreparedStatement pstmt = null;
 	try {
@@ -364,11 +412,15 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 	    pstmt.executeUpdate();
 	} catch (SQLException ep) {
 	    logger.error(ep.getMessage());
+	}finally {
+        if (pstmt != null) {
+        	pstmt.close();
+        }
 	}
     }
 
     @Override
-    public void rejectRequest(int senderId, int receiverId) {
+    public void rejectRequest(int senderId, int receiverId) throws SQLException{
 	String sqlcmd = "delete from userRelation where senderId = ? and receiverId = ?";
 	PreparedStatement pstmt = null;
 	try {
@@ -378,11 +430,15 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 	    pstmt.executeUpdate();
 	} catch (SQLException ep) {
 	    logger.error(ep.getMessage());
+	}finally {
+        if (pstmt != null) {
+        	pstmt.close();
+        }
 	}
     }
 
     @Override
-    public void blockSender(int senderId, int receiverId) {
+    public void blockSender(int senderId, int receiverId) throws SQLException{
 	String sqlcmd = "update userRelation set isSenderBlocked = 1 where senderId = ? and receiverId = ?";
 	PreparedStatement pstmt = null;
 	try {
@@ -392,11 +448,15 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 	    pstmt.executeUpdate();
 	} catch (SQLException ep) {
 	    logger.error(ep.getMessage());
+	}finally {
+        if (pstmt != null) {
+        	pstmt.close();
+        }
 	}
     }
 
     @Override
-    public void blockReceiver(int senderId, int receiverId) {
+    public void blockReceiver(int senderId, int receiverId) throws SQLException{
 	String sqlcmd = "update userRelation set isReceiverBlocked = 1 where senderId = ? and receiverId = ?";
 	PreparedStatement pstmt = null;
 	try {
@@ -406,11 +466,15 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 	    pstmt.executeUpdate();
 	} catch (SQLException ep) {
 	    logger.error(ep.getMessage());
+	}finally {
+        if (pstmt != null) {
+        	pstmt.close();
+        }
 	}
     }
 
     @Override
-    public void addReviewToLocalDB(MovieReview mr) {
+    public void addReviewToLocalDB(MovieReview mr) throws SQLException{
 	String sqlcmd = "insert into Review(movie_id, reviewer_id, reviewer_name, review_date, description) values(?, ?, ?, ?, ?)";
 	PreparedStatement pstmt = null;
 
@@ -424,17 +488,25 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 	    pstmt.executeUpdate();
 	} catch (SQLException se) {
 	    logger.error(se.getMessage());
+	}finally {
+        if (pstmt != null) {
+        	pstmt.close();
+        }
 	}
 
     }
 
     @Override
     public void preloadMovieList(int userId) {
-	createMovieList(userId, "Favorites");
+	try {
+		createMovieList(userId, "Favorites");
+	} catch (SQLException e) {
+		logger.error(e.getMessage());
+	}
     }
 
     @Override
-    public List<User> keywordSearchUser(String username) {
+    public List<User> keywordSearchUser(String username) throws SQLException{
 	ArrayList<User> output = new ArrayList<>();
 	String sqlcmd = "select * from user where username like \"%\"?\"%\"";
 	PreparedStatement pstmt = null;
@@ -457,6 +529,10 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 
 	} catch (SQLException ep) {
 	    logger.error(ep.getMessage());
+	}finally {
+        if (pstmt != null) {
+        	pstmt.close();
+        }
 	}
 	return output;
 
@@ -466,21 +542,31 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
     @Override
     public HashMap<String, ArrayList<Movie>> getMovieFromMovieList(int userId) {
 	HashMap<String, ArrayList<Movie>> output = new HashMap<>();
-	List<String> movieListName = this.getMovieListForUser(userId);
+	List<String> movieListName = null;
+	try {
+		movieListName = this.getMovieListForUser(userId);
+	} catch (SQLException e) {
+		logger.error(e.getMessage());
+	}
 	for (int i = 0; i < movieListName.size(); i++) {
 	    String listName = movieListName.get(i);
-	    ArrayList<Movie> movies = this.getMovieFromUserMovieList(userId, listName);
+	    ArrayList<Movie> movies = null;
+		try {
+			movies = this.getMovieFromUserMovieList(userId, listName);
+		} catch (SQLException e) {
+			logger.error(e.getMessage());
+		}
 	    output.put(listName, movies);
 	}
 	return output;
     }
 
     @Override
-    public List<String> getMovieListForUser(int userId) {
+    public List<String> getMovieListForUser(int userId) throws SQLException{
 	ArrayList<String> movieListNames = new ArrayList<>();
+	PreparedStatement pstmt = null;
 	try {
 	    String sqlcmd = "select * from Movielist where user_id = ?";
-	    PreparedStatement pstmt = null;
 	    pstmt = connector.prepareStatement(sqlcmd);
 	    pstmt.setInt(1, userId);
 	    myResult = pstmt.executeQuery();
@@ -490,13 +576,17 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 	    }
 	} catch (SQLException sq) {
 	    logger.error(sq.getMessage());
+	}finally {
+        if (pstmt != null) {
+        	pstmt.close();
+        }
 	}
 
 	return movieListNames;
     }
 
     @Override
-    public ArrayList<Movie> getMovieFromUserMovieList(int userId, String listname) {
+    public ArrayList<Movie> getMovieFromUserMovieList(int userId, String listname) throws SQLException{
 	ArrayList<Movie> result = new ArrayList<>();
 	String sqlcmd = "select Movie.movie_id, Movie.movie_name, Movie.released_date, Movie.plot, Movie.actor, Movie.poster, Movie.movieDBid from Movie join "
 		+ "(select movie_id from UserMovieList where user_id = ? and list_name = ?) as comp on comp.movie_id = Movie.movie_id";
@@ -527,12 +617,16 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 	    }
 	} catch (SQLException sq) {
 	    logger.error(sq.getMessage());
+	}finally {
+        if (pstmt != null) {
+        	pstmt.close();
+        }
 	}
 	return result;
     }
 
     @Override
-    public void createMovieList(int userid, String movieListName) {
+    public void createMovieList(int userid, String movieListName) throws SQLException {
 	String sqlcmd = "select * from Movielist where user_id = ? and list_name = ?";
 	String addListQuery = "insert into Movielist values (?, ?)";
 	PreparedStatement pstmt = null;
@@ -550,11 +644,18 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 	    }
 	} catch (SQLException sq) {
 	    logger.error(sq.getMessage());
+	}finally {
+        if (pstmt != null) {
+        	pstmt.close();
+        }
+        if (pstmt2 != null) {
+        	pstmt2.close();
+        }
 	}
     }
 
     @Override
-    public void deleteMovieFromUserMovieList(int userid, String movieList, String movieId) {
+    public void deleteMovieFromUserMovieList(int userid, String movieList, String movieId) throws SQLException{
 	String sqlcmd = "delete from UserMovieList where user_id = ? and (list_name = ? and movie_id = ?)";
 	PreparedStatement pstmt = null;
 	try {
@@ -565,11 +666,15 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 	    pstmt.executeUpdate();
 	} catch (SQLException sq) {
 	    logger.error(sq.getMessage());
+	}finally {
+        if (pstmt != null) {
+        	pstmt.close();
+        }
 	}
     }
 
     @Override
-    public void addMovieIntoMovieList(int userId, String listName, String movieId, String movieName) {
+    public void addMovieIntoMovieList(int userId, String listName, String movieId, String movieName) throws SQLException{
 	String sqlcmd = "insert into UserMovieList values (?, ?, ?, ?)";
 	PreparedStatement pstmt = null;
 	try {
@@ -582,11 +687,15 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 	    pstmt.executeUpdate();
 	} catch (SQLException sq) {
 	    logger.error(sq.getMessage());
+	}finally {
+        if (pstmt != null) {
+        	pstmt.close();
+        }
 	}
     }
 
     @Override
-    public String getUserRelation(int senderId, int receiverId) {
+    public String getUserRelation(int senderId, int receiverId) throws SQLException{
 	StringBuilder status = new StringBuilder();
 	String sqlcmd = "select * from userRelation where senderId = ? and receiverId = ?";
 	PreparedStatement pstmt = null;
@@ -601,13 +710,17 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 	    }
 	} catch (SQLException sq) {
 	    logger.error(sq.getMessage());
+	}finally {
+        if (pstmt != null) {
+        	pstmt.close();
+        }
 	}
 
 	return status.toString();
     }
 
     @Override
-    public List<User> getAllFriendsAsSender(int userId) {
+    public List<User> getAllFriendsAsSender(int userId) throws SQLException{
 	ArrayList<User> output = new ArrayList<>();
 	String sqlcmd = "select * from user join "
 		+ "(select senderId from userRelation where receiverId = ? and relationStatus = \"friend\") as comp"
@@ -627,12 +740,16 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 	    }
 	} catch (SQLException sq) {
 	    logger.error(sq.getMessage());
+	}finally {
+        if (pstmt != null) {
+        	pstmt.close();
+        }
 	}
 	return output;
     }
 
     @Override
-    public List<User> getAllFriendAsReceiver(int userId) {
+    public List<User> getAllFriendAsReceiver(int userId) throws SQLException{
 	ArrayList<User> output = new ArrayList<>();
 	String sqlcmd = "select * from user join "
 		+ "(select receiverId from userRelation where senderId = ? and relationStatus = \"friend\") as comp "
@@ -653,6 +770,10 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 	    }
 	} catch (SQLException sq) {
 	    logger.error(sq.getMessage());
+	}finally {
+        if (pstmt != null) {
+        	pstmt.close();
+        }
 	}
 	return output;
     }
@@ -660,13 +781,21 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
     @Override
     public List<User> getAllFriends(int userId) {
 	ArrayList<User> output = new ArrayList<>();
-	output.addAll(this.getAllFriendAsReceiver(userId));
-	output.addAll(this.getAllFriendsAsSender(userId));
+	try {
+		output.addAll(this.getAllFriendAsReceiver(userId));
+	} catch (SQLException e) {
+		logger.error(e.getMessage());
+	}
+	try {
+		output.addAll(this.getAllFriendsAsSender(userId));
+	} catch (SQLException e) {
+		logger.error(e.getMessage());
+	}
 	return output;
     }
 
     @Override
-    public List<User> getAllReceivedFriendRequest(int userId) {
+    public List<User> getAllReceivedFriendRequest(int userId) throws SQLException{
 	ArrayList<User> output = new ArrayList<>();
 	String sqlcmd = "select * from user join "
 		+ "(select senderId from userRelation where receiverId = ? and relationStatus = \"onHold\") as comp "
@@ -687,13 +816,17 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 
 	} catch (SQLException sq) {
 	    logger.error(sq.getMessage());
+	}finally {
+        if (pstmt != null) {
+        	pstmt.close();
+        }
 	}
 
 	return output;
     }
 
     @Override
-    public List<User> getAllSentFriendRequest(int userId) {
+    public List<User> getAllSentFriendRequest(int userId) throws SQLException{
 	ArrayList<User> output = new ArrayList<>();
 	String sqlcmd = "select * from user join "
 		+ "(select receiverId from userRelation where senderId = ? and relationStatus = \"onHold\") as comp "
@@ -714,6 +847,10 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 
 	} catch (SQLException sq) {
 	    logger.error(sq.getMessage());
+	}finally {
+        if (pstmt != null) {
+        	pstmt.close();
+        }
 	}
 
 	return output;
@@ -722,13 +859,21 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
     @Override
     public List<User> getAllFriendRequest(int userId) {
 	ArrayList<User> output = new ArrayList<>();
-	output.addAll(this.getAllReceivedFriendRequest(userId));
-	output.addAll(this.getAllSentFriendRequest(userId));
+	try {
+		output.addAll(this.getAllReceivedFriendRequest(userId));
+	} catch (SQLException e) {
+		logger.error(e.getMessage());
+	}
+	try {
+		output.addAll(this.getAllSentFriendRequest(userId));
+	} catch (SQLException e) {
+		logger.error(e.getMessage());
+	}
 	return output;
     }
 
     @Override
-    public int getRating(int userId, String movieId) {
+    public int getRating(int userId, String movieId) throws SQLException{
 	String sqlcmd = "select rating from rating" + " where rating.user_id = ? and rating.movie_id = ?";
 	PreparedStatement pstmt = null;
 	try {
@@ -742,13 +887,17 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 
 	} catch (SQLException e) {
 	    logger.error(e.getMessage());
+	}finally {
+        if (pstmt != null) {
+        	pstmt.close();
+        }
 	}
 
 	return -1;
     }
 
     @Override
-    public void insertRating(MovieRating movieRating) {
+    public void insertRating(MovieRating movieRating) throws SQLException{
 	String sqlcmd1 = "insert into rating(movie_id, rating, user_id, review_date) values (?, ?, ?, ?)";
 	String sqlcmd2 = "update rating set rating = ? where movie_id = ? and user_id = ?";
 	PreparedStatement pstmt = null;
@@ -768,7 +917,11 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 		pstmt.executeUpdate();
 	    } catch (SQLException e) {
 		logger.error(e.getMessage());
-	    }
+	    }finally {
+	        if (pstmt != null) {
+	        	pstmt.close();
+	        }
+		}
 	    
 	} else {
 	    try {
@@ -779,12 +932,16 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 		pstmt.executeUpdate();
 	    } catch (SQLException e) {
 		logger.error(e.getMessage());
-	    }
+	    }finally {
+	        if (pstmt != null) {
+	        	pstmt.close();
+	        }
+		}
 	}
     }
 
     @Override
-    public List<MovieReview> getReviewsForMovie(String movieId) {
+    public List<MovieReview> getReviewsForMovie(String movieId) throws SQLException{
 	ArrayList<MovieReview> result = new ArrayList<>();
 	String sqlcmd = "select * from Review where movie_id = ?";
 	PreparedStatement pstmt = null;
@@ -809,12 +966,16 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 	    }
 	} catch (SQLException ep) {
 	    logger.error(ep.getMessage());
+	}finally {
+        if (pstmt != null) {
+        	pstmt.close();
+        }
 	}
 	return result;
     }
 
     @Override
-    public List<MovieReview> getReviewForUser(String userId) {
+    public List<MovieReview> getReviewForUser(String userId) throws SQLException{
 	ArrayList<MovieReview> output = new ArrayList<>();
 	String sqlcmd = "select * from Review where reviewer_id = ?";
 	PreparedStatement pstmt = null;
@@ -838,13 +999,17 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 	    }
 	} catch (SQLException sq) {
 	    logger.error(sq.getMessage());
+	}finally {
+        if (pstmt != null) {
+        	pstmt.close();
+        }
 	}
 
 	return output;
     }
 
     @Override
-    public void deleteMovieList(int userId, String listName) {
+    public void deleteMovieList(int userId, String listName) throws SQLException{
 	String sqlcmd = "delete from Movielist where user_id = ? and list_name = ?";
 	String sqlcmdfollowing = "delete from UserMovieList where user_id = ? and list_name = ?";
 	PreparedStatement pstmt = null;
@@ -862,11 +1027,18 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 	    }
 	} catch (SQLException sl) {
 	    logger.error(sl.getMessage());
+	}finally {
+        if (pstmt != null) {
+        	pstmt.close();
+        }
+        if (pstmt2 != null) {
+        	pstmt2.close();
+        }
 	}
     }
 
     @Override
-    public void cleanMovieList(int userId, String listName) {
+    public void cleanMovieList(int userId, String listName) throws SQLException{
 	String sqlcmd = "delete from UserMovieList where user_id = ? and list_name = ?";
 	PreparedStatement pstmt = null;
 	try {
@@ -876,6 +1048,10 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 	    pstmt.executeUpdate();
 	} catch (SQLException sq) {
 	    logger.error(sq.getMessage());
+	}finally {
+        if (pstmt != null) {
+        	pstmt.close();
+        }
 	}
     }
 
@@ -898,7 +1074,7 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
     }
 
     @Override
-    public void updateUserStatus(int userId, int status) {
+    public void updateUserStatus(int userId, int status) throws SQLException{
 	String sqlcmd = "update user set active = ? where user_id = ?";
 	PreparedStatement pstmt = null;
 	try {
@@ -908,12 +1084,16 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 	    pstmt.executeUpdate();
 	} catch (SQLException sq) {
 	    logger.error(sq.getMessage());
+	}finally {
+        if (pstmt != null) {
+        	pstmt.close();
+        }
 	}
 
     }
 
     @Override
-    public List<User> getBannedList() {
+    public List<User> getBannedList() throws SQLException{
 	ArrayList<User> output = new ArrayList<>();
 	String sqlcmd = "select * from user where active = 0";
 	PreparedStatement pstmt = null;
@@ -936,12 +1116,16 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 
 	} catch (SQLException ep) {
 	    logger.error(ep.getMessage());
+	}finally {
+        if (pstmt != null) {
+        	pstmt.close();
+        }
 	}
 	return output;
     }
 
     @Override
-    public void removeReview(int reviewId) {
+    public void removeReview(int reviewId) throws SQLException{
 	String sqlcmd = "delete from Review where review_id = ?";
 	PreparedStatement pstmt = null;
 
@@ -951,12 +1135,16 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 	    pstmt.executeUpdate();
 	} catch (SQLException e) {
 	    logger.error(e.getMessage());
+	}finally {
+        if (pstmt != null) {
+        	pstmt.close();
+        }
 	}
 	
     }
 
     @Override
-    public void deleteFriend(int userId, int friendId) {
+    public void deleteFriend(int userId, int friendId) throws SQLException {
 	String sqlcmd = "delete from userRelation where senderId = ? and receiverId = ?";
 	PreparedStatement pstmt = null;
 	
@@ -973,6 +1161,10 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 	    
 	} catch (SQLException e) {
 	    logger.error(e.getMessage());
+	}finally {
+        if (pstmt != null) {
+        	pstmt.close();
+        }
 	}
 	
     }
