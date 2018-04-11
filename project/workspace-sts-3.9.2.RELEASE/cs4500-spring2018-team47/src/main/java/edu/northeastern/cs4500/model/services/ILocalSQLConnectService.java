@@ -15,27 +15,12 @@ import edu.northeastern.cs4500.model.user.User;
 public interface ILocalSQLConnectService {
 
 	/**
-	 * To load the new movie into the local database 1. To check if there is
-	 * existing id, which means the movie is already there. If there is one, don't
-	 * import 2. If there is no current movie id, load into the database.
-	 */
-	void loadMovieToLocalDB(JSONObject movieJSON);
-
-	/**
 	 * To check if the given movie Id already exists in the database.
 	 * 
 	 * @param movieId the movieId of checked movie
 	 * @return true if given movie exists in local database, else return false
 	 */
 	boolean containMovie(String movieId);
-
-	/**
-	 * To add multiple movies into the local database instead letting system load
-	 * one by one Note: (For admin user only) Might be in different class.
-	 * 
-	 * @param movieNames the names for list of movie that would be added to local database.
-	 */
-	void addMultiMovies(ArrayList<String> ids);
 
 	/**
 	 * To insert the data into the given table.
@@ -101,13 +86,6 @@ public interface ILocalSQLConnectService {
 	 * @param keyword only
 	 */
 	void searchByKeyWordInOne(String keyword);
-
-	/**
-	 * To return the search result from local database.
-	 * 
-	 * @return list of movies relevant to the search keyword.
-	 */
-	ArrayList<String> getSearchMovieResult();
 
 	/**
 	 * To send friend request to receiver if there is non shown in relation list.

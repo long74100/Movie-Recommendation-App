@@ -880,24 +880,6 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
     }
 
     @Override
-    public void loadMovieToLocalDB(JSONObject movieJSON) {
-	// TODO Auto-generated method stub
-
-    }
-
-    @Override
-    public void addMultiMovies(ArrayList<String> ids) {
-	// TODO Auto-generated method stub
-
-    }
-
-    @Override
-    public ArrayList<String> getSearchMovieResult() {
-	// TODO Auto-generated method stub
-	return null;
-    }
-
-    @Override
     public void updateUserStatus(int userId, int status) {
 	String sqlcmd = "update user set active = ? where user_id = ?";
 	PreparedStatement pstmt = null;
