@@ -39,7 +39,7 @@
 					<div th:each="movie : ${moviesInTheater}">
 					<div class="row">
 						<div class="col-sm-3 col-md-4 col-lg-3">
-							<img th:src="${movie.poster}" class="poster">
+							<a th:href="@{/movie/{id}(id=${movie.theMovieDbID})}"><img th:src="${movie.poster}" class="poster"></a>
 						</div>
 						<div class="col-sm-3 col-md-4 col-lg-6">
 							<h2>Plot:</h2>
@@ -56,7 +56,7 @@
 				<div class="slider movies-in-theaters-nav movie-nav">
 					<div th:each="movie : ${moviesInTheater}">
 						<div>
-							<a th:href="@{/movie/{id}(id=${movie.theMovieDbID})}"><img class="poster" th:src="${movie.poster}"></a>
+							<img class="poster" th:src="${movie.poster}">
 						</div>
 					</div>
 				</div>
@@ -75,7 +75,7 @@
 					<div th:each="movie : ${popularMovies}">
 					<div class="row">
 						<div class="col-sm-3 col-md-4 col-lg-3">
-							<img th:src="${movie.poster}" class="poster">
+							<a th:href="@{/movie/{id}(id=${movie.theMovieDbID})}"><img th:src="${movie.poster}" class="poster"></a>
 						</div>
 						<div class="col-sm-3 col-md-4 col-lg-6">
 							<h2>Plot:</h2>
@@ -92,7 +92,7 @@
 				<div class="slider movies-popular-nav movie-nav">
 					<div th:each="movie : ${popularMovies}">
 						<div>
-							<a th:href="@{/movie/{id}(id=${movie.theMovieDbID})}"><img class="poster" th:src="${movie.poster}"></a>
+							<img class="poster" th:src="${movie.poster}">
 						</div>
 					</div>
 				</div>
@@ -111,7 +111,7 @@
 					<div th:each="movie : ${moviesComingSoon}">
 					<div class="row">
 						<div class="col-sm-3 col-md-4 col-lg-3">
-							<img th:src="${movie.poster}" class="poster">
+							<a th:href="@{/movie/{id}(id=${movie.theMovieDbID})}"><img th:src="${movie.poster}" class="poster"></a>
 						</div>
 						<div class="col-sm-3 col-md-4 col-lg-6">
 							<h2>Plot:</h2>
@@ -128,7 +128,7 @@
 				<div class="slider movies-coming-soon-nav movie-nav">
 					<div th:each="movie : ${moviesComingSoon}">
 						<div>
-							<a th:href="@{/movie/{id}(id=${movie.theMovieDbID})}"><img class="poster" th:src="${movie.poster}"></a>
+							<img class="poster" th:src="${movie.poster}">
 						</div>
 					</div>
 				</div>
