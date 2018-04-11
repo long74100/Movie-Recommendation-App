@@ -92,7 +92,23 @@ public class MovieDBServiceImpl implements IMovieDBService{
 		Date dateBefore30Days = cal.getTime();
 		String sdate = sdf.format(dateBefore30Days);
 		String edate = sdf.format(date);
-		String urlString = "https://api.themoviedb.org/3/discover/movie?primary_release_date.gte="+ sdate +"&primary_release_date.lte=" + edate + "&api_key=" + apiKey;
+		String urlString = "https://api.themoviedb.org/3/discover/movie?page=1&include_video=false&include_adult=false&sort_by=popularity.desc&language=en-US&primary_release_date.gte="+ sdate +"&primary_release_date.lte=" + edate + "&api_key=" + apiKey;
+		URL url = new URL(urlString);
+		return makeRequest(url);
+	}
+
+	@Override
+	public JSONObject discoverPopularMovies() throws IOException, JSONException {
+		String urlString = "https://api.themoviedb.org/3/discover/movie?page=1&include_video=false&include_adult=false&sort_by=popularity.desc&language=en-US&" + "&api_key=" + apiKey;
+		URL url = new URL(urlString);
+		return makeRequest(url);
+	}
+
+	@Override
+	public JSONObject discoverMoviesComingSoon() throws IOException, JSONException {
+		Date date = new Date();
+		String edate = sdf.format(date);
+		String urlString = "https://api.themoviedb.org/3/discover/movie?language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&primary_release_date.gte=" + edate + "&api_key=" + apiKey;
 		URL url = new URL(urlString);
 		return makeRequest(url);
 	}

@@ -44,8 +44,35 @@ public class PageController {
 	@RequestMapping(value={"/"}, method = RequestMethod.GET)
 	public ModelAndView login(){
 		JSONObject movieJSON = new JSONObject();
-		List<Movie> movieList = new ArrayList<Movie>();
+		List<Movie> popMovieList = new ArrayList<Movie>();
+		List<Movie> theaterMovieList = new ArrayList<Movie>();
+		List<Movie> comingSoonMovieList = new ArrayList<Movie>();
 
+		// get list of movies, only 10
+		try {
+			movieJSON = movieDbService.discoverPopularMovies();
+			JSONArray movieJSONList = movieJSON.getJSONArray("results");
+
+			int x = 0;
+			while (x < 10) {
+				Movie movie = new Movie();
+				movieJSON = movieJSONList.getJSONObject(x);
+				movie.setTitle(movieJSON.getString("title"));
+				movie.setPlot(movieJSON.getString("overview"));
+				movie.setReleased(movieJSON.getString("release_date"));
+				movie.setImdbRating(String.valueOf(movieJSON.getDouble("vote_average")));
+				movie.setTheMovieDbID(String.valueOf(movieJSON.getInt("id")));
+				movie.setPoster("http://image.tmdb.org/t/p/original/" + movieJSON.getString("poster_path"));
+				popMovieList.add(movie);
+				x++;
+			}
+
+
+		} catch (IOException | JSONException e) {
+			// use logger
+			logger.error(e.getMessage());
+		}
+		
 		// get list of movies, only 10
 		try {
 			movieJSON = movieDbService.discoverInTheaterMovies();
@@ -61,20 +88,46 @@ public class PageController {
 				movie.setImdbRating(String.valueOf(movieJSON.getDouble("vote_average")));
 				movie.setTheMovieDbID(String.valueOf(movieJSON.getInt("id")));
 				movie.setPoster("http://image.tmdb.org/t/p/original/" + movieJSON.getString("poster_path"));
-				movieList.add(movie);
+				theaterMovieList.add(movie);
 				x++;
 			}
-
 
 		} catch (IOException | JSONException e) {
 			// use logger
 			logger.error(e.getMessage());
 		}
+
+		// get list of movies, only 10
+		try {
+			movieJSON = movieDbService.discoverMoviesComingSoon();
+			JSONArray movieJSONList = movieJSON.getJSONArray("results");
+
+			int x = 0;
+			while (x < 10) {
+				Movie movie = new Movie();
+				movieJSON = movieJSONList.getJSONObject(x);
+				movie.setTitle(movieJSON.getString("title"));
+				movie.setPlot(movieJSON.getString("overview"));
+				movie.setReleased(movieJSON.getString("release_date"));
+				movie.setImdbRating(String.valueOf(movieJSON.getDouble("vote_average")));
+				movie.setTheMovieDbID(String.valueOf(movieJSON.getInt("id")));
+				movie.setPoster("http://image.tmdb.org/t/p/original/" + movieJSON.getString("poster_path"));
+				comingSoonMovieList.add(movie);
+				x++;
+			}
+
+		} catch (IOException | JSONException e) {
+			// use logger
+			logger.error(e.getMessage());
+		}
+		
 		ModelAndView modelAndView = new ModelAndView();
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		User user = userService.findUserByEmail(auth.getName());
 		modelAndView.addObject("user", user);
-		modelAndView.addObject("movie", movieList);
+		modelAndView.addObject("popularMovies", popMovieList);
+		modelAndView.addObject("moviesInTheater", theaterMovieList);
+		modelAndView.addObject("moviesComingSoon", comingSoonMovieList);
 		modelAndView.setViewName("index");
 		return modelAndView;
 	}
