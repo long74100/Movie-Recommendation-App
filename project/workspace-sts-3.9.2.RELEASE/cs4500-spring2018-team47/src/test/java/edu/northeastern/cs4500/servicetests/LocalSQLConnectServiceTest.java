@@ -26,6 +26,7 @@ public class LocalSQLConnectServiceTest {
 	private static String stub2Email = "teststub2@email.com"; // id 79
 	private static int stub1Id = 78;
 	private static int stub2Id = 79;
+	private static int noSuchId = 832019;
 	
 	@Before
 	public void init() {
@@ -107,7 +108,7 @@ public class LocalSQLConnectServiceTest {
 	@Test
 	public void testGetUser() {
 	    
-	    User noSuchUser = localSQLConnectService.getUser(832019);
+	    User noSuchUser = localSQLConnectService.getUser(noSuchId);
 	    assertNull(noSuchUser);
 	    
 
@@ -128,6 +129,14 @@ public class LocalSQLConnectServiceTest {
 	 */
 	@Test
 	public void testUpdateUserStatus() {
+	    assertEquals(localSQLConnectService.getUser(stub1Id).getActive(), 1);
+	    localSQLConnectService.updateUserStatus(stub1Id, 0);
+	    
+	    assertEquals(localSQLConnectService.getUser(stub1Id).getActive(), 0);
+	    
+	    localSQLConnectService.updateUserStatus(stub1Id, 1);
+	    assertEquals(localSQLConnectService.getUser(stub1Id).getActive(), 1);
+
 	}
 	
 	/**
