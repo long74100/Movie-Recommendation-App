@@ -4839,3 +4839,12 @@ Using default security password: d33310d3-e140-4abd-8692-0c5b494c44f7
 
 2018-04-09 20:45:32.564  INFO LAPTOP-J5FL9TGI --- [           main] e.n.c.s.MovieDBServiceImplTest           : Started MovieDBServiceImplTest in 18.021 seconds (JVM running for 22.262)
 2018-04-09 20:45:33.623  INFO LAPTOP-J5FL9TGI --- [       Thread-6] o.s.w.c.s.GenericWebApplicationContext   : Closing org.springframework.web.context.support.GenericWebApplicationContext@64a00fe0: startup date [Mon Apr 09 20:45:16 EDT 2018]; root of context hierarchy
+2018-04-11 15:54:48.013 ERROR LAPTOP-J5FL9TGI --- [           main] e.n.c.m.s.LocalSQLConnectServiceImpl     : Data truncation: Data too long for column 'imdbRating' at row 1
+2018-04-11 15:54:48.741 ERROR LAPTOP-J5FL9TGI --- [           main] e.n.c.m.s.LocalSQLConnectServiceImpl     : Column count doesn't match value count at row 1
+2018-04-11 15:56:36.669 ERROR LAPTOP-J5FL9TGI --- [           main] e.n.c.m.s.LocalSQLConnectServiceImpl     : Data truncation: Data too long for column 'imdbRating' at row 1
+2018-04-11 15:56:37.425 ERROR LAPTOP-J5FL9TGI --- [           main] e.n.c.m.s.LocalSQLConnectServiceImpl     : Column count doesn't match value count at row 1
+2018-04-11 16:47:38.702 ERROR LAPTOP-J5FL9TGI --- [           main] e.n.c.m.s.LocalSQLConnectServiceImpl     : Column count doesn't match value count at row 1
+2018-04-11 16:50:08.370 ERROR LAPTOP-J5FL9TGI --- [           main] e.n.c.m.s.LocalSQLConnectServiceImpl     : Column count doesn't match value count at row 1
+2018-04-11 16:50:54.664 ERROR LAPTOP-J5FL9TGI --- [           main] e.n.c.m.s.LocalSQLConnectServiceImpl     : Column count doesn't match value count at row 1
+2018-04-11 16:51:12.267 ERROR LAPTOP-J5FL9TGI --- [           main] e.n.c.m.s.LocalSQLConnectServiceImpl     : Column count doesn't match value count at row 1
+2018-04-11 16:51:30.127 ERROR LAPTOP-J5FL9TGI --- [           main] e.n.c.m.s.LocalSQLConnectServiceImpl     : Column count doesn't match value count at row 1
