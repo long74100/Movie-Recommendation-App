@@ -29,5 +29,33 @@ $(document).ready(function(){
 				centerMode: true,
 				focusOnSelect: true
 				});
+			$('.movies-coming-soon-info').slick({
+				  slidesToShow: 1,
+				  slidesToScroll: 1,
+				  arrows: false,
+				  fade: true,
+				  asNavFor: '.movies-coming-soon-nav'
+				});
+			$('.movies-coming-soon-nav').slick({
+				slidesToShow: 3,
+				slidesToScroll: 1,
+				asNavFor: '.movies-coming-soon-info',
+				centerMode: true,
+				focusOnSelect: true
+				});
+			$('.movies-popular-info').slick({
+				  slidesToShow: 1,
+				  slidesToScroll: 1,
+				  arrows: false,
+				  fade: true,
+				  asNavFor: '.movies-popular-nav'
+				});
+			$('.movies-popular-nav').slick({
+				slidesToShow: 3,
+				slidesToScroll: 1,
+				asNavFor: '.movies-popular-info',
+				centerMode: true,
+				focusOnSelect: true
+				});
 			$('#body').show();
 });
