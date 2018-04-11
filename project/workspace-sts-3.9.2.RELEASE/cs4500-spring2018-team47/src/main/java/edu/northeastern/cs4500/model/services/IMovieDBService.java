@@ -29,4 +29,20 @@ public interface IMovieDBService {
 	 * @JSONException thrown if creation of json object fails
 	 */
 	JSONObject discoverInTheaterMovies() throws IOException, JSONException;
+	
+	/**
+	 * Gathers movies that are most popular
+	 * @return A jsonObject of the movies that are most popular
+	 * @IOExceptionthrown thrown if there was an error to connect to the API
+	 * @JSONException thrown if creation of json object fails
+	 */
+	JSONObject discoverPopularMovies() throws IOException, JSONException;
+	
+	/**
+	 * Gathers movies that are coming soon
+	 * @return A jsonObject of the movies that are coming soon
+	 * @IOExceptionthrown thrown if there was an error to connect to the API
+	 * @JSONException thrown if creation of json object fails
+	 */
+	JSONObject discoverMoviesComingSoon() throws IOException, JSONException;
 }

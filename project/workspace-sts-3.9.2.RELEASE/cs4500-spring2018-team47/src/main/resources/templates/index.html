@@ -17,22 +17,31 @@
 	<noscript th:replace="fragments/quickAddCSSJS :: quickAddCSSJS"></noscript>
 	<div th:replace="fragments/navBar :: header"></div>
 	<div id="body" class="body bg-dark" style="display:none;" >
-		<div class="slider movie-banner" th:if="${not #lists.isEmpty(movie)}">
-			<div th:each="movie : ${movie}">
+		<div class="slider movie-banner" th:if="${not #lists.isEmpty(popularMovies)}">
+			<div th:each="movie : ${popularMovies}">
 				<div><a th:href="@{/movie/{id}(id=${movie.theMovieDbID})}"><img class="poster" th:src="${movie.poster}"></a></div>
 			</div>
 		</div>
 		<div class="section-text">
-			<div class="featured-movies" th:if="${not #lists.isEmpty(movie)}">
-				<hr class="bg-danger p-2">
-				<div><h3>Movies In Theaters</h3></div>
+			<div class="featured-movies" th:if="${not #lists.isEmpty(moviesInTheater)}">
+				<div class="row">
+					<div class="col-sm-2 col-md-2 col-lg-2">
+						<hr class="bg-danger p-2">
+					</div>
+					<div class="col-sm-3 col-md-3 col-lg-3">
+						<h3>Movies In Theaters</h3>
+					</div>
+					<div class="col-sm-7 col-md-7 col-lg-7">
+						<hr class="bg-danger p-2">
+					</div>
+				</div>
 				<div class="slider movies-in-theaters-info">
-					<div th:each="movie : ${movie}">
+					<div th:each="movie : ${moviesInTheater}">
 					<div class="row">
 						<div class="col-sm-3 col-md-4 col-lg-3">
 							<img th:src="${movie.poster}" class="poster">
 						</div>
-						<div class="col-sm-3 col-md-4 col-lg-6"">
+						<div class="col-sm-3 col-md-4 col-lg-6">
 							<h2>Plot:</h2>
 							<p th:text="${movie.plot}"></p>
 							<div class="rating mt-1 m-0">
@@ -44,18 +53,85 @@
 					</div>
 					</div>
 				</div>
-				<div class="slider movies-in-theaters-nav">
-					<div th:each="movie : ${movie}">
+				<div class="slider movies-in-theaters-nav movie-nav">
+					<div th:each="movie : ${moviesInTheater}">
 						<div>
 							<a th:href="@{/movie/{id}(id=${movie.theMovieDbID})}"><img class="poster" th:src="${movie.poster}"></a>
 						</div>
 					</div>
 				</div>
-				<hr class="bg-danger p-2">
-				<div><h3>Popular Movies</h3></div>
-				<hr class="bg-danger p-2">
-				<div><h3>Movies Coming Soon</h3></div>
-				
+				<div class="row">
+					<div class="col-sm-2 col-md-2 col-lg-2">
+						<hr class="bg-danger p-2">
+					</div>
+					<div class="col-sm-3 col-md-3 col-lg-3">
+						<h3>Popular Movies</h3>
+					</div>
+					<div class="col-sm-7 col-md-7 col-lg-7">
+						<hr class="bg-danger p-2">
+					</div>
+				</div>
+				<div class="slider movies-popular-info">
+					<div th:each="movie : ${popularMovies}">
+					<div class="row">
+						<div class="col-sm-3 col-md-4 col-lg-3">
+							<img th:src="${movie.poster}" class="poster">
+						</div>
+						<div class="col-sm-3 col-md-4 col-lg-6">
+							<h2>Plot:</h2>
+							<p th:text="${movie.plot}"></p>
+							<div class="rating mt-1 m-0">
+							<p class="m-0">
+								Imdb Rating: <span th:text="${movie.imdbRating}"></span>
+							<p class="m-0">Community Rating:
+							</div>
+						</div>
+					</div>
+					</div>
+				</div>
+				<div class="slider movies-popular-nav movie-nav">
+					<div th:each="movie : ${popularMovies}">
+						<div>
+							<a th:href="@{/movie/{id}(id=${movie.theMovieDbID})}"><img class="poster" th:src="${movie.poster}"></a>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-2 col-md-2 col-lg-2">
+						<hr class="bg-danger p-2">
+					</div>
+					<div class="col-sm-3 col-md-3 col-lg-3">
+						<h3>Movies Coming Soon</h3>
+					</div>
+					<div class="col-sm-7 col-md-7 col-lg-7">
+						<hr class="bg-danger p-2">
+					</div>
+				</div>
+				<div class="slider movies-coming-soon-info">
+					<div th:each="movie : ${moviesComingSoon}">
+					<div class="row">
+						<div class="col-sm-3 col-md-4 col-lg-3">
+							<img th:src="${movie.poster}" class="poster">
+						</div>
+						<div class="col-sm-3 col-md-4 col-lg-6">
+							<h2>Plot:</h2>
+							<p th:text="${movie.plot}"></p>
+							<div class="rating mt-1 m-0">
+							<p class="m-0">
+								Imdb Rating: <span th:text="${movie.imdbRating}"></span>
+							<p class="m-0">Community Rating:
+							</div>
+						</div>
+					</div>
+					</div>
+				</div>
+				<div class="slider movies-coming-soon-nav movie-nav">
+					<div th:each="movie : ${moviesComingSoon}">
+						<div>
+							<a th:href="@{/movie/{id}(id=${movie.theMovieDbID})}"><img class="poster" th:src="${movie.poster}"></a>
+						</div>
+					</div>
+				</div>
 			</div>
 			<div class="credits">
 				<div><h5>Data provided by</h5><a href="https://www.themoviedb.org">https://www.themoviedb.org</a></div>
