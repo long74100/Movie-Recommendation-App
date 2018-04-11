@@ -963,8 +963,14 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 	try {
 	    pstmt = connector.prepareStatement(sqlcmd);
 	    pstmt.setInt(1, userId);
-	    pstmt.setInt(1, friendId);
-	    pstmt.executeUpdate();
+	    pstmt.setInt(2, friendId);
+	    if (pstmt.executeUpdate() == 0) {
+		pstmt.clearParameters();
+		pstmt.setInt(1, friendId);
+		pstmt.setInt(2, userId);
+		pstmt.executeUpdate();
+	    }
+	    
 	} catch (SQLException e) {
 	    logger.error(e.getMessage());
 	}

@@ -160,7 +160,10 @@ public class UserprofileController {
 	public void deleteFriend(HttpServletRequest httpServletRequest) {
 	    Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 	    User user = userService.findUserByEmail(auth.getName());
-	    System.out.println(httpServletRequest.getParameter("friendID"));
+	    int userId = user.getId();
+	    int friendId = Integer.valueOf(httpServletRequest.getParameter("friendID"));
+	    sqlConnector.deleteFriend(userId, friendId);
+	    
 	}
 	
 	@RequestMapping(value= "/createMovieList", method=RequestMethod.POST)
