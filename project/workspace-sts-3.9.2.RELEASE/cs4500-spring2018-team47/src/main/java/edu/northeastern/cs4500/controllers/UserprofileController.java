@@ -148,13 +148,23 @@ public class UserprofileController {
 	}
 	
 	@RequestMapping(value="/acceptRequest", method=RequestMethod.POST)
-    @ResponseStatus(value = HttpStatus.OK)
-    public void acceptFriendRequest(HttpServletRequest httpServletRequest) {
-    	Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-    	User user = userService.findUserByEmail(auth.getName());
-    	sqlConnector.acceptRequest(Integer.valueOf(httpServletRequest.getParameter("senderID")), user.getId());
-    }
+	@ResponseStatus(value = HttpStatus.OK)
+	public void acceptFriendRequest(HttpServletRequest httpServletRequest) {
+	    Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+	    User user = userService.findUserByEmail(auth.getName());
+	    sqlConnector.acceptRequest(Integer.valueOf(httpServletRequest.getParameter("senderID")), user.getId());
+	}
 	
+	@RequestMapping(value="/deleteFriend", method=RequestMethod.POST)
+	@ResponseStatus(value = HttpStatus.OK)
+	public void deleteFriend(HttpServletRequest httpServletRequest) {
+	    Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+	    User user = userService.findUserByEmail(auth.getName());
+	    int userId = user.getId();
+	    int friendId = Integer.valueOf(httpServletRequest.getParameter("friendID"));
+	    sqlConnector.deleteFriend(userId, friendId);
+	    
+	}
 	
 	@RequestMapping(value= "/createMovieList", method=RequestMethod.POST)
 	@ResponseStatus(value = HttpStatus.OK)

@@ -83,7 +83,7 @@ public class MovieController {
 				movie.setImdbRating(String.valueOf(movieJSON.getDouble("vote_average")));
 				movie.setImdbID(movieDetails.getString("imdb_id"));
 				movie.setTheMovieDbID(String.valueOf(movieJSON.getInt("id")));
-				movie.setPoster("http://image.tmdb.org/t/p/w185/" + movieJSON.getString("poster_path"));
+				movie.setPoster("http://image.tmdb.org/t/p/original/" + movieJSON.getString("poster_path"));
 				movieList.add(movie);
 				movieIDs.add(movie.getTheMovieDbID());
 				x++;
@@ -210,7 +210,7 @@ public class MovieController {
 				movie.put("country", contry.toString());
 				movie.put("imdbRating", String.valueOf(movieJSON.getInt("vote_average")));
 				movie.put("imdbID", movieJSON.getString("imdb_id"));
-				movie.put("poster", "http://image.tmdb.org/t/p/w185/" + movieJSON.getString("poster_path"));
+				movie.put("poster", "http://image.tmdb.org/t/p/original/" + movieJSON.getString("poster_path"));
 				movie.put("language", language.toString());
 				movie.put("movieDBid", id);
 			}
@@ -266,6 +266,21 @@ public class MovieController {
 		if (user != null) {
 			movieRating.setUserID(user.getId());
 			localDbConnector.insertRating(movieRating);
+		}
+	}
+	
+
+	@RequestMapping(value = "/movie/removeReview", method = RequestMethod.POST)
+	@ResponseStatus(value = HttpStatus.OK)
+	public void removeReview(@RequestBody String review, HttpServletRequest httpServletRequest) {
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		User user = userService.findUserByEmail(auth.getName());
+		
+		String userId = httpServletRequest.getParameter("userId");
+		String reviewId = httpServletRequest.getParameter("reviewId");
+		
+		if (user != null && ((Integer.valueOf(userId) == user.getId()) || user.getRole() == 2)) {
+		    localDbConnector.removeReview(Integer.valueOf(reviewId));
 		}
 	}
 

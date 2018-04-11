@@ -35,4 +35,12 @@ public interface IMovieDBService {
 	 * @throws JSONException
 	 */
 	JSONObject searchMovieDetails(int id) throws IOException, JSONException;
+	
+	/**
+	 * Gathers movies that are in theaters
+	 * @return A jsonObject of the movies that are in theaters
+	 * @IOExceptionthrown thrown if there was an error to connect to the API
+	 * @JSONException thrown if creation of json object fails
+	 */
+	JSONObject discoverInTheaterMovies() throws IOException, JSONException;
 }

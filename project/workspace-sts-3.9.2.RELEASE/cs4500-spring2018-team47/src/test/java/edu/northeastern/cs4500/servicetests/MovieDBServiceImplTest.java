@@ -15,7 +15,7 @@ import edu.northeastern.cs4500.Cs4500Spring2018Team47ApplicationTests;
 import edu.northeastern.cs4500.model.services.IMovieDBService;
 import edu.northeastern.cs4500.model.services.MovieDBServiceImpl;
 
-public class MovieDBServiceImplTest extends Cs4500Spring2018Team47ApplicationTests {
+public class MovieDBServiceImplTest {
 	
 	private static final Logger logger = LogManager.getLogger(MovieDBServiceImplTest.class);
 	private static IMovieDBService movieDbService;
@@ -28,7 +28,7 @@ public class MovieDBServiceImplTest extends Cs4500Spring2018Team47ApplicationTes
 	
 	
 	@Test
-	public void searchMovieListByTitleTest() throws JSONException, IOException {
+	public void testSearchMovieListByTitle() throws JSONException, IOException {
 		JSONObject batmanJson = movieDbService.searchMovieListByTitle("Batman");
 
 		int actualPage = batmanJson.getInt("page");
@@ -65,7 +65,7 @@ public class MovieDBServiceImplTest extends Cs4500Spring2018Team47ApplicationTes
 	}
 	
 	@Test
-	public void searchMovieCastTest() throws JSONException, IOException {
+	public void testSearchMovieCast() throws JSONException, IOException {
 		JSONObject batmanJson = movieDbService.searchMovieCast(268);
 		int actualId = batmanJson.getInt("id");
 		int actualResultLength = batmanJson.getJSONArray("cast").length();
@@ -76,7 +76,7 @@ public class MovieDBServiceImplTest extends Cs4500Spring2018Team47ApplicationTes
 	}
 	
 	@Test
-	public void searchMovieDetailsTest() throws JSONException, IOException {
+	public void testSearchMovieDetails() throws JSONException, IOException {
 		JSONObject batmanJson = movieDbService.searchMovieDetails(268);
 		String actualTitle = batmanJson.getString("original_title");
 		String actualLanguage = batmanJson.getString("original_language");
