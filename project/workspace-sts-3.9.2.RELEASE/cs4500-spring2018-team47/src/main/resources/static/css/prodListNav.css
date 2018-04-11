@@ -14,7 +14,38 @@
     background: #1b1e21;
 }
 
+.getAllProds {
+	height: 30px;
+	margin-bottom: 3px;
+	margin-left: 0px;
+	cursor: pointer;
+	border-bottom: solid;
+	border-bottom-width: thin;
+	border-color: black;
+	margin-right: 5px;
+	border-radius: 4px;
+	color: wheat;
+}
+
+.getAllProds:hover {
+	background: wheat;
+	color: black;
+}
+
 .friend-info-for-prod {
+	/**height: 30px;
+	margin-bottom: 3px;
+	margin-left: 0px;
+	cursor: pointer;
+	border-bottom: solid;
+	border-bottom-width: thin;
+	border-color: black;
+	margin-right: 5px;
+	border-radius: 4px;
+	color: wheat;*/
+}
+
+.friend-single-for-view-prod-item {
 	height: 30px;
 	margin-bottom: 3px;
 	margin-left: 0px;

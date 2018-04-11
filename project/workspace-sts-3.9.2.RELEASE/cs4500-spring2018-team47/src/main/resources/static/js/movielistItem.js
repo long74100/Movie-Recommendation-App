@@ -168,8 +168,6 @@ function searchUser() {
 	else {
 		$("div.friend-item-block").css("display", "block");
 	}
-	
-	
 }
 
 document.addEventListener("DOMContentLoaded", init);

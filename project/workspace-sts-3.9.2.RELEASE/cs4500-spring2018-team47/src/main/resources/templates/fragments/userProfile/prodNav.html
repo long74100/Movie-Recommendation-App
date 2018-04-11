@@ -7,21 +7,23 @@
 <body>
 	<div th:fragment="prodNavBar">
 		<div th:replace="fragments/userProfile/profileMenu :: userProfileMenu"></div>
-		<!--  <script type="text/javascript" src="../js/movieListMng.js"></script>-->
+		<script type="text/javascript" src="../js/prodNav.js"></script>
 		<div class="prodlist-menu" id="prodlist-menu">
 			<span class="username-search-tool" id="username-search-tool">
 				<input type="text" placeholder="Search friend..." class="friend-search-bar" id="friend-search-bar"/> 
-				<button type="submit" class="search-friend-btn" id="search-friend-btn">Find</button>
+				<button type="submit" class="search-friend-btn" id="search-friend-btn" th:onclick="'findAFriend()'">Find</button>
 			</span>
 			<div th:if="${not #lists.isEmpty(friendList)}" class="friend-list" id="friend-list">
 				<div class="friendList-div" id="friendList-div">
-					<a th:href="@{/prodRepo+all+all}"><p class="friend-info-for-prod" id="getAllProds">All Prods</p></a>
+					<a th:href="@{/prodRepo+all+all}"><p class="getAllProds" id="getAllProds">All Prods</p></a>
 					<div th:each="friend : ${friendList}" class="friend-info-for-prod" id="friend-info-for-prod">
-						<a th:href="@{/prodRepo+all+{friendUsername}(friendUsername=${friend.username})}">
-							<img src="https://www.ocf.berkeley.edu/~dblab/blog/wp-content/uploads/2012/01/icon-profile.png"
-								class="user-headportrait" />
-							<p th:text="${friend.username}" class="friend-username" id="friend-username"></p>
-						</a>
+						<div id="friend-single-for-view-prod-item" class="friend-single-for-view-prod-item">
+							<a th:href="@{/prodRepo+all+{friendUsername}(friendUsername=${friend.username})}">
+								<img src="https://www.ocf.berkeley.edu/~dblab/blog/wp-content/uploads/2012/01/icon-profile.png"
+									class="user-headportrait" />
+								<p th:text="${friend.username}" class="friend-username" id="friend-username"></p>
+							</a>
+						</div>
 					</div>
 				</div>
 			</div>
