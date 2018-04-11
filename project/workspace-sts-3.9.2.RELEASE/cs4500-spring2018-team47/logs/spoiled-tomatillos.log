@@ -5447,3 +5447,433 @@ Using default security password: 2879919e-8b54-466b-8da7-6f6da612096b
 2018-04-09 21:24:27.458  INFO Rus-MacBook-Pro-2.local --- [on(2)-127.0.0.1] ationConfigEmbeddedWebApplicationContext : Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@781aba1e: startup date [Mon Apr 09 20:22:25 EDT 2018]; root of context hierarchy
 2018-04-09 21:24:27.462  INFO Rus-MacBook-Pro-2.local --- [on(2)-127.0.0.1] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans on shutdown
 2018-04-09 21:24:27.464  INFO Rus-MacBook-Pro-2.local --- [on(2)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2018-04-11 13:04:17.459  INFO DESKTOP-MQAQG75 --- [  restartedMain] e.n.c.Cs4500Spring2018Team47Application  : Starting Cs4500Spring2018Team47Application on DESKTOP-MQAQG75 with PID 12620 (started by Ru Smillie in C:\Users\Ru Smillie\Documents\CS4500Project\project\workspace-sts-3.9.2.RELEASE\cs4500-spring2018-team47)
+2018-04-11 13:04:17.464 DEBUG DESKTOP-MQAQG75 --- [  restartedMain] e.n.c.Cs4500Spring2018Team47Application  : Running with Spring Boot v1.5.9.RELEASE, Spring v4.3.13.RELEASE
+2018-04-11 13:04:17.464  INFO DESKTOP-MQAQG75 --- [  restartedMain] e.n.c.Cs4500Spring2018Team47Application  : No active profile set, falling back to default profiles: default
+2018-04-11 13:04:17.652  INFO DESKTOP-MQAQG75 --- [kground-preinit] o.h.v.i.u.Version                        : HV000001: Hibernate Validator 5.3.6.Final
+2018-04-11 13:04:17.688  INFO DESKTOP-MQAQG75 --- [  restartedMain] ationConfigEmbeddedWebApplicationContext : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@1ae3f28: startup date [Wed Apr 11 13:04:17 EDT 2018]; root of context hierarchy
+2018-04-11 13:04:19.531  INFO DESKTOP-MQAQG75 --- [  restartedMain] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat initialized with port(s): 8080 (http)
+2018-04-11 13:04:19.544  INFO DESKTOP-MQAQG75 --- [  restartedMain] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2018-04-11 13:04:19.545  INFO DESKTOP-MQAQG75 --- [  restartedMain] o.a.c.c.StandardEngine                   : Starting Servlet Engine: Apache Tomcat/8.5.23
+2018-04-11 13:04:19.663  INFO DESKTOP-MQAQG75 --- [ost-startStop-1] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2018-04-11 13:04:19.663  INFO DESKTOP-MQAQG75 --- [ost-startStop-1] o.s.w.c.ContextLoader                    : Root WebApplicationContext: initialization completed in 1978 ms
+2018-04-11 13:04:19.869  INFO DESKTOP-MQAQG75 --- [ost-startStop-1] o.s.b.w.s.FilterRegistrationBean         : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-04-11 13:04:19.869  INFO DESKTOP-MQAQG75 --- [ost-startStop-1] o.s.b.w.s.FilterRegistrationBean         : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-04-11 13:04:19.869  INFO DESKTOP-MQAQG75 --- [ost-startStop-1] o.s.b.w.s.FilterRegistrationBean         : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-04-11 13:04:19.869  INFO DESKTOP-MQAQG75 --- [ost-startStop-1] o.s.b.w.s.FilterRegistrationBean         : Mapping filter: 'requestContextFilter' to: [/*]
+2018-04-11 13:04:19.871  INFO DESKTOP-MQAQG75 --- [ost-startStop-1] .s.DelegatingFilterProxyRegistrationBean : Mapping filter: 'springSecurityFilterChain' to: [/*]
+2018-04-11 13:04:19.871  INFO DESKTOP-MQAQG75 --- [ost-startStop-1] o.s.b.w.s.ServletRegistrationBean        : Mapping servlet: 'dispatcherServlet' to [/]
+2018-04-11 13:04:23.119  INFO DESKTOP-MQAQG75 --- [  restartedMain] j.LocalContainerEntityManagerFactoryBean : Building JPA container EntityManagerFactory for persistence unit 'default'
+2018-04-11 13:04:23.138  INFO DESKTOP-MQAQG75 --- [  restartedMain] o.h.j.i.u.LogHelper                      : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-04-11 13:04:23.211  INFO DESKTOP-MQAQG75 --- [  restartedMain] o.h.Version                              : HHH000412: Hibernate Core {5.0.12.Final}
+2018-04-11 13:04:23.212  INFO DESKTOP-MQAQG75 --- [  restartedMain] o.h.c.Environment                        : HHH000206: hibernate.properties not found
+2018-04-11 13:04:23.213  INFO DESKTOP-MQAQG75 --- [  restartedMain] o.h.c.Environment                        : HHH000021: Bytecode provider name : javassist
+2018-04-11 13:04:23.262  INFO DESKTOP-MQAQG75 --- [  restartedMain] o.h.a.c.Version                          : HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2018-04-11 13:04:23.411  INFO DESKTOP-MQAQG75 --- [  restartedMain] o.h.d.Dialect                            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2018-04-11 13:04:23.595  WARN DESKTOP-MQAQG75 --- [  restartedMain] o.h.b.i.SessionFactoryBuilderImpl        : Unrecognized hbm2ddl_auto value : none .  Supported values include create, create-drop, update, and validate.  Ignoring
+2018-04-11 13:04:23.875  INFO DESKTOP-MQAQG75 --- [  restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2018-04-11 13:04:26.122  INFO DESKTOP-MQAQG75 --- [  restartedMain] o.s.s.w.DefaultSecurityFilterChain       : Creating filter chain: Ant [pattern='/resources/**'], []
+2018-04-11 13:04:26.123  INFO DESKTOP-MQAQG75 --- [  restartedMain] o.s.s.w.DefaultSecurityFilterChain       : Creating filter chain: Ant [pattern='/static/**'], []
+2018-04-11 13:04:26.123  INFO DESKTOP-MQAQG75 --- [  restartedMain] o.s.s.w.DefaultSecurityFilterChain       : Creating filter chain: Ant [pattern='/css/**'], []
+2018-04-11 13:04:26.123  INFO DESKTOP-MQAQG75 --- [  restartedMain] o.s.s.w.DefaultSecurityFilterChain       : Creating filter chain: Ant [pattern='/js/**'], []
+2018-04-11 13:04:26.123  INFO DESKTOP-MQAQG75 --- [  restartedMain] o.s.s.w.DefaultSecurityFilterChain       : Creating filter chain: Ant [pattern='/images/**'], []
+2018-04-11 13:04:26.123  INFO DESKTOP-MQAQG75 --- [  restartedMain] o.s.s.w.DefaultSecurityFilterChain       : Creating filter chain: Ant [pattern='/slick/**'], []
+2018-04-11 13:04:26.229  INFO DESKTOP-MQAQG75 --- [  restartedMain] o.s.s.w.DefaultSecurityFilterChain       : Creating filter chain: org.springframework.security.web.util.matcher.AnyRequestMatcher@1, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1116dd0, org.springframework.security.web.context.SecurityContextPersistenceFilter@b77370, org.springframework.security.web.header.HeaderWriterFilter@d42c77, org.springframework.security.web.authentication.logout.LogoutFilter@5ed5ee, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@15d10cf, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1141cd9, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@f77883, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@8cea46, org.springframework.security.web.session.SessionManagementFilter@1552b11, org.springframework.security.web.access.ExceptionTranslationFilter@13aa1ef, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@16aec88]
+2018-04-11 13:04:26.685  INFO DESKTOP-MQAQG75 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@1ae3f28: startup date [Wed Apr 11 13:04:17 EDT 2018]; root of context hierarchy
+2018-04-11 13:04:26.758  INFO DESKTOP-MQAQG75 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/home],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.AdminController.home()
+2018-04-11 13:04:26.760  INFO DESKTOP-MQAQG75 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/ban],methods=[POST]}" onto public void edu.northeastern.cs4500.controllers.AdminController.setRating(java.lang.String,javax.servlet.http.HttpServletRequest)
+2018-04-11 13:04:26.761  INFO DESKTOP-MQAQG75 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/bannedlist],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.AdminController.bannedList()
+2018-04-11 13:04:26.761  INFO DESKTOP-MQAQG75 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/home],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.LoginController.home()
+2018-04-11 13:04:26.762  INFO DESKTOP-MQAQG75 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/registration],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.LoginController.registration()
+2018-04-11 13:04:26.762  INFO DESKTOP-MQAQG75 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/registration],methods=[POST]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.LoginController.createNewUser(edu.northeastern.cs4500.model.user.User,org.springframework.validation.BindingResult)
+2018-04-11 13:04:26.762  INFO DESKTOP-MQAQG75 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/login],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.LoginController.login()
+2018-04-11 13:04:26.763  INFO DESKTOP-MQAQG75 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/movie/rating],methods=[POST]}" onto public void edu.northeastern.cs4500.controllers.MovieController.setRating(java.lang.String,javax.servlet.http.HttpServletRequest)
+2018-04-11 13:04:26.763  INFO DESKTOP-MQAQG75 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/movie/{id}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.MovieController.movieResult(java.lang.String)
+2018-04-11 13:04:26.763  INFO DESKTOP-MQAQG75 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/search],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.MovieController.searchResult(java.lang.String)
+2018-04-11 13:04:26.764  INFO DESKTOP-MQAQG75 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/movie/removeReview],methods=[POST]}" onto public void edu.northeastern.cs4500.controllers.MovieController.removeReview(java.lang.String,javax.servlet.http.HttpServletRequest)
+2018-04-11 13:04:26.764  INFO DESKTOP-MQAQG75 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/writeReview],methods=[POST]}" onto public void edu.northeastern.cs4500.controllers.MovieController.writeReview(java.lang.String,javax.servlet.http.HttpServletRequest)
+2018-04-11 13:04:26.764  INFO DESKTOP-MQAQG75 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/addMovieToList],methods=[POST]}" onto public void edu.northeastern.cs4500.controllers.MovieController.addMovieToList(java.lang.String,javax.servlet.http.HttpServletRequest)
+2018-04-11 13:04:26.764  INFO DESKTOP-MQAQG75 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.PageController.login()
+2018-04-11 13:04:26.767  INFO DESKTOP-MQAQG75 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/view/{username}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.UserprofileController.userProfile(java.lang.String)
+2018-04-11 13:04:26.767  INFO DESKTOP-MQAQG75 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/profile],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.UserprofileController.getProfile()
+2018-04-11 13:04:26.767  INFO DESKTOP-MQAQG75 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/prodRepo],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.UserprofileController.getProdList()
+2018-04-11 13:04:26.768  INFO DESKTOP-MQAQG75 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/view/{username}],methods=[POST]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.UserprofileController.addFriend(java.lang.String)
+2018-04-11 13:04:26.768  INFO DESKTOP-MQAQG75 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/deleteList],methods=[POST]}" onto public void edu.northeastern.cs4500.controllers.UserprofileController.deleteMovieList(java.lang.String,javax.servlet.http.HttpServletRequest)
+2018-04-11 13:04:26.768  INFO DESKTOP-MQAQG75 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/profile+to+movielist+{listName}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.UserprofileController.getMovieItems(java.lang.String)
+2018-04-11 13:04:26.768  INFO DESKTOP-MQAQG75 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/profile+to+movielist],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.UserprofileController.getMovieList()
+2018-04-11 13:04:26.769  INFO DESKTOP-MQAQG75 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/cleanList],methods=[POST]}" onto public void edu.northeastern.cs4500.controllers.UserprofileController.cleanMovieList(java.lang.String,javax.servlet.http.HttpServletRequest)
+2018-04-11 13:04:26.769  INFO DESKTOP-MQAQG75 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/profile+to+friendsAndRequests],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.UserprofileController.friendsAndRequests()
+2018-04-11 13:04:26.769  INFO DESKTOP-MQAQG75 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/createMovieList],methods=[POST]}" onto public void edu.northeastern.cs4500.controllers.UserprofileController.createNewMovieList(java.lang.String,javax.servlet.http.HttpServletRequest)
+2018-04-11 13:04:26.770  INFO DESKTOP-MQAQG75 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/deleteMovie],methods=[POST]}" onto public void edu.northeastern.cs4500.controllers.UserprofileController.deleteMovieFromMovieList(java.lang.String,javax.servlet.http.HttpServletRequest)
+2018-04-11 13:04:26.770  INFO DESKTOP-MQAQG75 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/acceptRequest],methods=[POST]}" onto public void edu.northeastern.cs4500.controllers.UserprofileController.acceptFriendRequest(javax.servlet.http.HttpServletRequest)
+2018-04-11 13:04:26.772  INFO DESKTOP-MQAQG75 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-04-11 13:04:26.773  INFO DESKTOP-MQAQG75 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-04-11 13:04:26.810  INFO DESKTOP-MQAQG75 --- [  restartedMain] o.s.w.s.h.SimpleUrlHandlerMapping        : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-04-11 13:04:26.810  INFO DESKTOP-MQAQG75 --- [  restartedMain] o.s.w.s.h.SimpleUrlHandlerMapping        : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-04-11 13:04:26.858  INFO DESKTOP-MQAQG75 --- [  restartedMain] o.s.w.s.h.SimpleUrlHandlerMapping        : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-04-11 13:04:26.885  INFO DESKTOP-MQAQG75 --- [  restartedMain] oConfiguration$WelcomePageHandlerMapping : Adding welcome page: ServletContext resource [/index.html]
+2018-04-11 13:04:27.011  INFO DESKTOP-MQAQG75 --- [  restartedMain] b.a.s.AuthenticationManagerConfiguration : 
+
+Using default security password: e147ccfb-b8f6-4c14-be87-192d77663065
+
+2018-04-11 13:04:27.376  INFO DESKTOP-MQAQG75 --- [  restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2018-04-11 13:04:27.436  INFO DESKTOP-MQAQG75 --- [  restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2018-04-11 13:04:27.457  INFO DESKTOP-MQAQG75 --- [  restartedMain] o.a.c.h.Http11NioProtocol                : Initializing ProtocolHandler ["http-nio-8080"]
+2018-04-11 13:04:27.472  INFO DESKTOP-MQAQG75 --- [  restartedMain] o.a.c.h.Http11NioProtocol                : Starting ProtocolHandler ["http-nio-8080"]
+2018-04-11 13:04:27.492  INFO DESKTOP-MQAQG75 --- [  restartedMain] o.a.t.u.n.NioSelectorPool                : Using a shared selector for servlet write/read
+2018-04-11 13:04:27.509  INFO DESKTOP-MQAQG75 --- [  restartedMain] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat started on port(s): 8080 (http)
+2018-04-11 13:04:27.514  INFO DESKTOP-MQAQG75 --- [  restartedMain] e.n.c.Cs4500Spring2018Team47Application  : Started Cs4500Spring2018Team47Application in 10.307 seconds (JVM running for 11.41)
+2018-04-11 13:04:27.663  INFO DESKTOP-MQAQG75 --- [nio-8080-exec-2] o.a.c.c.C.[.[.[/]                        : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-04-11 13:04:27.664  INFO DESKTOP-MQAQG75 --- [nio-8080-exec-2] o.s.w.s.DispatcherServlet                : FrameworkServlet 'dispatcherServlet': initialization started
+2018-04-11 13:04:27.692  INFO DESKTOP-MQAQG75 --- [nio-8080-exec-2] o.s.w.s.DispatcherServlet                : FrameworkServlet 'dispatcherServlet': initialization completed in 28 ms
+2018-04-11 13:04:28.318  INFO DESKTOP-MQAQG75 --- [nio-8080-exec-2] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2018-04-11 13:04:28.543  INFO DESKTOP-MQAQG75 --- [nio-8080-exec-2] o.t.TemplateEngine                       : [THYMELEAF] INITIALIZING TEMPLATE ENGINE
+2018-04-11 13:04:28.613  INFO DESKTOP-MQAQG75 --- [nio-8080-exec-2] o.t.t.AbstractTemplateResolver           : [THYMELEAF] INITIALIZING TEMPLATE RESOLVER: org.thymeleaf.spring4.templateresolver.SpringResourceTemplateResolver
+2018-04-11 13:04:28.613  INFO DESKTOP-MQAQG75 --- [nio-8080-exec-2] o.t.t.AbstractTemplateResolver           : [THYMELEAF] TEMPLATE RESOLVER INITIALIZED OK
+2018-04-11 13:04:28.613  INFO DESKTOP-MQAQG75 --- [nio-8080-exec-2] o.t.m.AbstractMessageResolver            : [THYMELEAF] INITIALIZING MESSAGE RESOLVER: org.thymeleaf.spring4.messageresolver.SpringMessageResolver
+2018-04-11 13:04:28.613  INFO DESKTOP-MQAQG75 --- [nio-8080-exec-2] o.t.m.AbstractMessageResolver            : [THYMELEAF] MESSAGE RESOLVER INITIALIZED OK
+2018-04-11 13:04:28.617  INFO DESKTOP-MQAQG75 --- [nio-8080-exec-2] o.t.T.CONFIG                             : [THYMELEAF] TEMPLATE ENGINE CONFIGURATION:
+[THYMELEAF] * Cache Factory implementation: org.thymeleaf.cache.StandardCacheManager
+[THYMELEAF] * Template modes:
+[THYMELEAF]     * VALIDXHTML
+[THYMELEAF]     * LEGACYHTML5
+[THYMELEAF]     * XHTML
+[THYMELEAF]     * VALIDXML
+[THYMELEAF]     * HTML5
+[THYMELEAF]     * XML
+[THYMELEAF] * Template resolvers (in order):
+[THYMELEAF]     * org.thymeleaf.spring4.templateresolver.SpringResourceTemplateResolver
+[THYMELEAF] * Message resolvers (in order):
+[THYMELEAF]     * org.thymeleaf.spring4.messageresolver.SpringMessageResolver
+[THYMELEAF] * Dialect: org.thymeleaf.spring4.dialect.SpringStandardDialect
+[THYMELEAF]     * Prefix: "th"
+[THYMELEAF] TEMPLATE ENGINE CONFIGURED OK
+2018-04-11 13:04:28.617  INFO DESKTOP-MQAQG75 --- [nio-8080-exec-2] o.t.TemplateEngine                       : [THYMELEAF] TEMPLATE ENGINE INITIALIZED
+2018-04-11 13:05:58.909  INFO DESKTOP-MQAQG75 --- [on(2)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2018-04-11 13:05:58.910  INFO DESKTOP-MQAQG75 --- [on(2)-127.0.0.1] ationConfigEmbeddedWebApplicationContext : Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@1ae3f28: startup date [Wed Apr 11 13:04:17 EDT 2018]; root of context hierarchy
+2018-04-11 13:05:58.912  INFO DESKTOP-MQAQG75 --- [on(2)-127.0.0.1] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans on shutdown
+2018-04-11 13:05:58.914  INFO DESKTOP-MQAQG75 --- [on(2)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2018-04-11 13:07:45.004  INFO DESKTOP-MQAQG75 --- [  restartedMain] e.n.c.Cs4500Spring2018Team47Application  : Starting Cs4500Spring2018Team47Application on DESKTOP-MQAQG75 with PID 7068 (started by Ru Smillie in C:\Users\Ru Smillie\Documents\CS4500Project\project\workspace-sts-3.9.2.RELEASE\cs4500-spring2018-team47)
+2018-04-11 13:07:45.008 DEBUG DESKTOP-MQAQG75 --- [  restartedMain] e.n.c.Cs4500Spring2018Team47Application  : Running with Spring Boot v1.5.9.RELEASE, Spring v4.3.13.RELEASE
+2018-04-11 13:07:45.009  INFO DESKTOP-MQAQG75 --- [  restartedMain] e.n.c.Cs4500Spring2018Team47Application  : No active profile set, falling back to default profiles: default
+2018-04-11 13:07:45.162  INFO DESKTOP-MQAQG75 --- [kground-preinit] o.h.v.i.u.Version                        : HV000001: Hibernate Validator 5.3.6.Final
+2018-04-11 13:07:45.205  INFO DESKTOP-MQAQG75 --- [  restartedMain] ationConfigEmbeddedWebApplicationContext : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@169b291: startup date [Wed Apr 11 13:07:45 EDT 2018]; root of context hierarchy
+2018-04-11 13:07:46.952  INFO DESKTOP-MQAQG75 --- [  restartedMain] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat initialized with port(s): 8080 (http)
+2018-04-11 13:07:46.962  INFO DESKTOP-MQAQG75 --- [  restartedMain] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2018-04-11 13:07:46.963  INFO DESKTOP-MQAQG75 --- [  restartedMain] o.a.c.c.StandardEngine                   : Starting Servlet Engine: Apache Tomcat/8.5.23
+2018-04-11 13:07:47.070  INFO DESKTOP-MQAQG75 --- [ost-startStop-1] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2018-04-11 13:07:47.070  INFO DESKTOP-MQAQG75 --- [ost-startStop-1] o.s.w.c.ContextLoader                    : Root WebApplicationContext: initialization completed in 1867 ms
+2018-04-11 13:07:47.254  INFO DESKTOP-MQAQG75 --- [ost-startStop-1] o.s.b.w.s.FilterRegistrationBean         : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-04-11 13:07:47.254  INFO DESKTOP-MQAQG75 --- [ost-startStop-1] o.s.b.w.s.FilterRegistrationBean         : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-04-11 13:07:47.254  INFO DESKTOP-MQAQG75 --- [ost-startStop-1] o.s.b.w.s.FilterRegistrationBean         : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-04-11 13:07:47.254  INFO DESKTOP-MQAQG75 --- [ost-startStop-1] o.s.b.w.s.FilterRegistrationBean         : Mapping filter: 'requestContextFilter' to: [/*]
+2018-04-11 13:07:47.256  INFO DESKTOP-MQAQG75 --- [ost-startStop-1] .s.DelegatingFilterProxyRegistrationBean : Mapping filter: 'springSecurityFilterChain' to: [/*]
+2018-04-11 13:07:47.256  INFO DESKTOP-MQAQG75 --- [ost-startStop-1] o.s.b.w.s.ServletRegistrationBean        : Mapping servlet: 'dispatcherServlet' to [/]
+2018-04-11 13:07:50.420  INFO DESKTOP-MQAQG75 --- [  restartedMain] j.LocalContainerEntityManagerFactoryBean : Building JPA container EntityManagerFactory for persistence unit 'default'
+2018-04-11 13:07:50.438  INFO DESKTOP-MQAQG75 --- [  restartedMain] o.h.j.i.u.LogHelper                      : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-04-11 13:07:50.494  INFO DESKTOP-MQAQG75 --- [  restartedMain] o.h.Version                              : HHH000412: Hibernate Core {5.0.12.Final}
+2018-04-11 13:07:50.495  INFO DESKTOP-MQAQG75 --- [  restartedMain] o.h.c.Environment                        : HHH000206: hibernate.properties not found
+2018-04-11 13:07:50.496  INFO DESKTOP-MQAQG75 --- [  restartedMain] o.h.c.Environment                        : HHH000021: Bytecode provider name : javassist
+2018-04-11 13:07:50.530  INFO DESKTOP-MQAQG75 --- [  restartedMain] o.h.a.c.Version                          : HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2018-04-11 13:07:50.650  INFO DESKTOP-MQAQG75 --- [  restartedMain] o.h.d.Dialect                            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2018-04-11 13:07:50.814  WARN DESKTOP-MQAQG75 --- [  restartedMain] o.h.b.i.SessionFactoryBuilderImpl        : Unrecognized hbm2ddl_auto value : none .  Supported values include create, create-drop, update, and validate.  Ignoring
+2018-04-11 13:07:51.059  INFO DESKTOP-MQAQG75 --- [  restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2018-04-11 13:07:53.164  INFO DESKTOP-MQAQG75 --- [  restartedMain] o.s.s.w.DefaultSecurityFilterChain       : Creating filter chain: Ant [pattern='/resources/**'], []
+2018-04-11 13:07:53.164  INFO DESKTOP-MQAQG75 --- [  restartedMain] o.s.s.w.DefaultSecurityFilterChain       : Creating filter chain: Ant [pattern='/static/**'], []
+2018-04-11 13:07:53.164  INFO DESKTOP-MQAQG75 --- [  restartedMain] o.s.s.w.DefaultSecurityFilterChain       : Creating filter chain: Ant [pattern='/css/**'], []
+2018-04-11 13:07:53.165  INFO DESKTOP-MQAQG75 --- [  restartedMain] o.s.s.w.DefaultSecurityFilterChain       : Creating filter chain: Ant [pattern='/js/**'], []
+2018-04-11 13:07:53.165  INFO DESKTOP-MQAQG75 --- [  restartedMain] o.s.s.w.DefaultSecurityFilterChain       : Creating filter chain: Ant [pattern='/images/**'], []
+2018-04-11 13:07:53.165  INFO DESKTOP-MQAQG75 --- [  restartedMain] o.s.s.w.DefaultSecurityFilterChain       : Creating filter chain: Ant [pattern='/slick/**'], []
+2018-04-11 13:07:53.343  INFO DESKTOP-MQAQG75 --- [  restartedMain] o.s.s.w.DefaultSecurityFilterChain       : Creating filter chain: org.springframework.security.web.util.matcher.AnyRequestMatcher@1, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@dd7c9d, org.springframework.security.web.context.SecurityContextPersistenceFilter@f6af98, org.springframework.security.web.header.HeaderWriterFilter@1790147, org.springframework.security.web.authentication.logout.LogoutFilter@ec3fa8, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@1055f1d, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1f598aa, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@849620, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@37eda1, org.springframework.security.web.session.SessionManagementFilter@5c8476, org.springframework.security.web.access.ExceptionTranslationFilter@34bab7, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@4c7ed5]
+2018-04-11 13:07:53.671  INFO DESKTOP-MQAQG75 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@169b291: startup date [Wed Apr 11 13:07:45 EDT 2018]; root of context hierarchy
+2018-04-11 13:07:53.754  INFO DESKTOP-MQAQG75 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/home],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.AdminController.home()
+2018-04-11 13:07:53.756  INFO DESKTOP-MQAQG75 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/ban],methods=[POST]}" onto public void edu.northeastern.cs4500.controllers.AdminController.setRating(java.lang.String,javax.servlet.http.HttpServletRequest)
+2018-04-11 13:07:53.756  INFO DESKTOP-MQAQG75 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/bannedlist],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.AdminController.bannedList()
+2018-04-11 13:07:53.757  INFO DESKTOP-MQAQG75 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/home],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.LoginController.home()
+2018-04-11 13:07:53.757  INFO DESKTOP-MQAQG75 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/registration],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.LoginController.registration()
+2018-04-11 13:07:53.757  INFO DESKTOP-MQAQG75 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/registration],methods=[POST]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.LoginController.createNewUser(edu.northeastern.cs4500.model.user.User,org.springframework.validation.BindingResult)
+2018-04-11 13:07:53.757  INFO DESKTOP-MQAQG75 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/login],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.LoginController.login()
+2018-04-11 13:07:53.758  INFO DESKTOP-MQAQG75 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/movie/rating],methods=[POST]}" onto public void edu.northeastern.cs4500.controllers.MovieController.setRating(java.lang.String,javax.servlet.http.HttpServletRequest)
+2018-04-11 13:07:53.758  INFO DESKTOP-MQAQG75 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/search],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.MovieController.searchResult(java.lang.String)
+2018-04-11 13:07:53.758  INFO DESKTOP-MQAQG75 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/movie/{id}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.MovieController.movieResult(java.lang.String)
+2018-04-11 13:07:53.759  INFO DESKTOP-MQAQG75 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/movie/removeReview],methods=[POST]}" onto public void edu.northeastern.cs4500.controllers.MovieController.removeReview(java.lang.String,javax.servlet.http.HttpServletRequest)
+2018-04-11 13:07:53.759  INFO DESKTOP-MQAQG75 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/addMovieToList],methods=[POST]}" onto public void edu.northeastern.cs4500.controllers.MovieController.addMovieToList(java.lang.String,javax.servlet.http.HttpServletRequest)
+2018-04-11 13:07:53.759  INFO DESKTOP-MQAQG75 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/writeReview],methods=[POST]}" onto public void edu.northeastern.cs4500.controllers.MovieController.writeReview(java.lang.String,javax.servlet.http.HttpServletRequest)
+2018-04-11 13:07:53.759  INFO DESKTOP-MQAQG75 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.PageController.login()
+2018-04-11 13:07:53.761  INFO DESKTOP-MQAQG75 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/view/{username}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.UserprofileController.userProfile(java.lang.String)
+2018-04-11 13:07:53.761  INFO DESKTOP-MQAQG75 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/prodRepo],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.UserprofileController.getProdList()
+2018-04-11 13:07:53.762  INFO DESKTOP-MQAQG75 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/profile],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.UserprofileController.getProfile()
+2018-04-11 13:07:53.762  INFO DESKTOP-MQAQG75 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/view/{username}],methods=[POST]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.UserprofileController.addFriend(java.lang.String)
+2018-04-11 13:07:53.762  INFO DESKTOP-MQAQG75 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/profile+to+movielist],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.UserprofileController.getMovieList()
+2018-04-11 13:07:53.762  INFO DESKTOP-MQAQG75 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/deleteList],methods=[POST]}" onto public void edu.northeastern.cs4500.controllers.UserprofileController.deleteMovieList(java.lang.String,javax.servlet.http.HttpServletRequest)
+2018-04-11 13:07:53.762  INFO DESKTOP-MQAQG75 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/profile+to+movielist+{listName}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.UserprofileController.getMovieItems(java.lang.String)
+2018-04-11 13:07:53.762  INFO DESKTOP-MQAQG75 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/cleanList],methods=[POST]}" onto public void edu.northeastern.cs4500.controllers.UserprofileController.cleanMovieList(java.lang.String,javax.servlet.http.HttpServletRequest)
+2018-04-11 13:07:53.763  INFO DESKTOP-MQAQG75 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/profile+to+friendsAndRequests],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.UserprofileController.friendsAndRequests()
+2018-04-11 13:07:53.763  INFO DESKTOP-MQAQG75 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/createMovieList],methods=[POST]}" onto public void edu.northeastern.cs4500.controllers.UserprofileController.createNewMovieList(java.lang.String,javax.servlet.http.HttpServletRequest)
+2018-04-11 13:07:53.763  INFO DESKTOP-MQAQG75 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/deleteMovie],methods=[POST]}" onto public void edu.northeastern.cs4500.controllers.UserprofileController.deleteMovieFromMovieList(java.lang.String,javax.servlet.http.HttpServletRequest)
+2018-04-11 13:07:53.764  INFO DESKTOP-MQAQG75 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/acceptRequest],methods=[POST]}" onto public void edu.northeastern.cs4500.controllers.UserprofileController.acceptFriendRequest(javax.servlet.http.HttpServletRequest)
+2018-04-11 13:07:53.766  INFO DESKTOP-MQAQG75 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-04-11 13:07:53.766  INFO DESKTOP-MQAQG75 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-04-11 13:07:53.801  INFO DESKTOP-MQAQG75 --- [  restartedMain] o.s.w.s.h.SimpleUrlHandlerMapping        : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-04-11 13:07:53.801  INFO DESKTOP-MQAQG75 --- [  restartedMain] o.s.w.s.h.SimpleUrlHandlerMapping        : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-04-11 13:07:53.838  INFO DESKTOP-MQAQG75 --- [  restartedMain] o.s.w.s.h.SimpleUrlHandlerMapping        : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-04-11 13:07:53.853  INFO DESKTOP-MQAQG75 --- [  restartedMain] oConfiguration$WelcomePageHandlerMapping : Adding welcome page: ServletContext resource [/index.html]
+2018-04-11 13:07:53.968  INFO DESKTOP-MQAQG75 --- [  restartedMain] b.a.s.AuthenticationManagerConfiguration : 
+
+Using default security password: 0b9b07c4-21a9-4928-82ea-7e3fde524656
+
+2018-04-11 13:07:54.259  INFO DESKTOP-MQAQG75 --- [  restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2018-04-11 13:07:54.335  INFO DESKTOP-MQAQG75 --- [  restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2018-04-11 13:07:54.355  INFO DESKTOP-MQAQG75 --- [  restartedMain] o.a.c.h.Http11NioProtocol                : Initializing ProtocolHandler ["http-nio-8080"]
+2018-04-11 13:07:54.367  INFO DESKTOP-MQAQG75 --- [  restartedMain] o.a.c.h.Http11NioProtocol                : Starting ProtocolHandler ["http-nio-8080"]
+2018-04-11 13:07:54.378  INFO DESKTOP-MQAQG75 --- [  restartedMain] o.a.t.u.n.NioSelectorPool                : Using a shared selector for servlet write/read
+2018-04-11 13:07:54.395  INFO DESKTOP-MQAQG75 --- [  restartedMain] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat started on port(s): 8080 (http)
+2018-04-11 13:07:54.399  INFO DESKTOP-MQAQG75 --- [  restartedMain] e.n.c.Cs4500Spring2018Team47Application  : Started Cs4500Spring2018Team47Application in 9.657 seconds (JVM running for 10.735)
+2018-04-11 13:08:07.021  INFO DESKTOP-MQAQG75 --- [nio-8080-exec-2] o.a.c.c.C.[.[.[/]                        : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-04-11 13:08:07.021  INFO DESKTOP-MQAQG75 --- [nio-8080-exec-2] o.s.w.s.DispatcherServlet                : FrameworkServlet 'dispatcherServlet': initialization started
+2018-04-11 13:08:07.041  INFO DESKTOP-MQAQG75 --- [nio-8080-exec-2] o.s.w.s.DispatcherServlet                : FrameworkServlet 'dispatcherServlet': initialization completed in 20 ms
+2018-04-11 13:08:07.635  INFO DESKTOP-MQAQG75 --- [nio-8080-exec-2] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2018-04-11 13:08:07.833  INFO DESKTOP-MQAQG75 --- [nio-8080-exec-2] o.t.TemplateEngine                       : [THYMELEAF] INITIALIZING TEMPLATE ENGINE
+2018-04-11 13:08:07.898  INFO DESKTOP-MQAQG75 --- [nio-8080-exec-2] o.t.t.AbstractTemplateResolver           : [THYMELEAF] INITIALIZING TEMPLATE RESOLVER: org.thymeleaf.spring4.templateresolver.SpringResourceTemplateResolver
+2018-04-11 13:08:07.898  INFO DESKTOP-MQAQG75 --- [nio-8080-exec-2] o.t.t.AbstractTemplateResolver           : [THYMELEAF] TEMPLATE RESOLVER INITIALIZED OK
+2018-04-11 13:08:07.898  INFO DESKTOP-MQAQG75 --- [nio-8080-exec-2] o.t.m.AbstractMessageResolver            : [THYMELEAF] INITIALIZING MESSAGE RESOLVER: org.thymeleaf.spring4.messageresolver.SpringMessageResolver
+2018-04-11 13:08:07.898  INFO DESKTOP-MQAQG75 --- [nio-8080-exec-2] o.t.m.AbstractMessageResolver            : [THYMELEAF] MESSAGE RESOLVER INITIALIZED OK
+2018-04-11 13:08:07.902  INFO DESKTOP-MQAQG75 --- [nio-8080-exec-2] o.t.T.CONFIG                             : [THYMELEAF] TEMPLATE ENGINE CONFIGURATION:
+[THYMELEAF] * Cache Factory implementation: org.thymeleaf.cache.StandardCacheManager
+[THYMELEAF] * Template modes:
+[THYMELEAF]     * XML
+[THYMELEAF]     * VALIDXHTML
+[THYMELEAF]     * VALIDXML
+[THYMELEAF]     * XHTML
+[THYMELEAF]     * HTML5
+[THYMELEAF]     * LEGACYHTML5
+[THYMELEAF] * Template resolvers (in order):
+[THYMELEAF]     * org.thymeleaf.spring4.templateresolver.SpringResourceTemplateResolver
+[THYMELEAF] * Message resolvers (in order):
+[THYMELEAF]     * org.thymeleaf.spring4.messageresolver.SpringMessageResolver
+[THYMELEAF] * Dialect: org.thymeleaf.spring4.dialect.SpringStandardDialect
+[THYMELEAF]     * Prefix: "th"
+[THYMELEAF] TEMPLATE ENGINE CONFIGURED OK
+2018-04-11 13:08:07.902  INFO DESKTOP-MQAQG75 --- [nio-8080-exec-2] o.t.TemplateEngine                       : [THYMELEAF] TEMPLATE ENGINE INITIALIZED
+2018-04-11 13:51:36.334 ERROR DESKTOP-MQAQG75 --- [nio-8080-exec-1] e.n.c.m.s.LocalSQLConnectServiceImpl     : Duplicate entry 'tt1677720' for key 'PRIMARY'
+2018-04-11 13:52:38.977 ERROR DESKTOP-MQAQG75 --- [nio-8080-exec-1] e.n.c.m.s.LocalSQLConnectServiceImpl     : Duplicate entry 'tt6063050' for key 'PRIMARY'
+2018-04-11 13:58:58.106 ERROR DESKTOP-MQAQG75 --- [nio-8080-exec-9] o.t.TemplateEngine                       : [THYMELEAF][http-nio-8080-exec-9] Exception processing template "index": Exception evaluating SpringEL expression: "movie.poster" (index)
+2018-04-11 13:58:58.109 ERROR DESKTOP-MQAQG75 --- [nio-8080-exec-9] o.a.c.c.C.[.[.[.[dispatcherServlet]      : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.thymeleaf.exceptions.TemplateProcessingException: Exception evaluating SpringEL expression: "movie.poster" (index)] with root cause
+org.springframework.expression.spel.SpelEvaluationException: EL1008E: Property or field 'poster' cannot be found on object of type 'java.util.ArrayList' - maybe not public?
+	at org.springframework.expression.spel.ast.PropertyOrFieldReference.readProperty(PropertyOrFieldReference.java:226)
+	at org.springframework.expression.spel.ast.PropertyOrFieldReference.getValueInternal(PropertyOrFieldReference.java:94)
+	at org.springframework.expression.spel.ast.PropertyOrFieldReference.access$000(PropertyOrFieldReference.java:46)
+	at org.springframework.expression.spel.ast.PropertyOrFieldReference$AccessorLValue.getValue(PropertyOrFieldReference.java:379)
+	at org.springframework.expression.spel.ast.CompoundExpression.getValueInternal(CompoundExpression.java:88)
+	at org.springframework.expression.spel.ast.SpelNodeImpl.getValue(SpelNodeImpl.java:121)
+	at org.springframework.expression.spel.standard.SpelExpression.getValue(SpelExpression.java:324)
+	at org.thymeleaf.spring4.expression.SpelVariableExpressionEvaluator.evaluate(SpelVariableExpressionEvaluator.java:140)
+	at org.thymeleaf.standard.expression.VariableExpression.executeVariable(VariableExpression.java:154)
+	at org.thymeleaf.standard.expression.SimpleExpression.executeSimple(SimpleExpression.java:59)
+	at org.thymeleaf.standard.expression.Expression.execute(Expression.java:103)
+	at org.thymeleaf.standard.expression.Expression.execute(Expression.java:133)
+	at org.thymeleaf.standard.processor.attr.AbstractStandardSingleAttributeModifierAttrProcessor.getTargetAttributeValue(AbstractStandardSingleAttributeModifierAttrProcessor.java:86)
+	at org.thymeleaf.spring4.processor.attr.SpringSrcAttrProcessor.getTargetAttributeValue(SpringSrcAttrProcessor.java:69)
+	at org.thymeleaf.processor.attr.AbstractSingleAttributeModifierAttrProcessor.getModifiedAttributeValues(AbstractSingleAttributeModifierAttrProcessor.java:59)
+	at org.thymeleaf.processor.attr.AbstractAttributeModifierAttrProcessor.processAttribute(AbstractAttributeModifierAttrProcessor.java:62)
+	at org.thymeleaf.processor.attr.AbstractAttrProcessor.doProcess(AbstractAttrProcessor.java:87)
+	at org.thymeleaf.processor.AbstractProcessor.process(AbstractProcessor.java:212)
+	at org.thymeleaf.dom.Node.applyNextProcessor(Node.java:1017)
+	at org.thymeleaf.dom.Node.processNode(Node.java:972)
+	at org.thymeleaf.dom.NestableNode.computeNextChild(NestableNode.java:695)
+	at org.thymeleaf.dom.NestableNode.doAdditionalProcess(NestableNode.java:668)
+	at org.thymeleaf.dom.Node.processNode(Node.java:990)
+	at org.thymeleaf.dom.NestableNode.computeNextChild(NestableNode.java:695)
+	at org.thymeleaf.dom.NestableNode.doAdditionalProcess(NestableNode.java:668)
+	at org.thymeleaf.dom.Node.processNode(Node.java:990)
+	at org.thymeleaf.dom.NestableNode.computeNextChild(NestableNode.java:695)
+	at org.thymeleaf.dom.NestableNode.doAdditionalProcess(NestableNode.java:668)
+	at org.thymeleaf.dom.Node.processNode(Node.java:990)
+	at org.thymeleaf.dom.NestableNode.computeNextChild(NestableNode.java:695)
+	at org.thymeleaf.dom.NestableNode.doAdditionalProcess(NestableNode.java:668)
+	at org.thymeleaf.dom.Node.processNode(Node.java:990)
+	at org.thymeleaf.dom.NestableNode.computeNextChild(NestableNode.java:695)
+	at org.thymeleaf.dom.NestableNode.doAdditionalProcess(NestableNode.java:668)
+	at org.thymeleaf.dom.Node.processNode(Node.java:990)
+	at org.thymeleaf.dom.NestableNode.computeNextChild(NestableNode.java:695)
+	at org.thymeleaf.dom.NestableNode.doAdditionalProcess(NestableNode.java:668)
+	at org.thymeleaf.dom.Node.processNode(Node.java:990)
+	at org.thymeleaf.dom.NestableNode.computeNextChild(NestableNode.java:695)
+	at org.thymeleaf.dom.NestableNode.doAdditionalProcess(NestableNode.java:668)
+	at org.thymeleaf.dom.Node.processNode(Node.java:990)
+	at org.thymeleaf.dom.NestableNode.computeNextChild(NestableNode.java:695)
+	at org.thymeleaf.dom.NestableNode.doAdditionalProcess(NestableNode.java:668)
+	at org.thymeleaf.dom.Node.processNode(Node.java:990)
+	at org.thymeleaf.dom.NestableNode.computeNextChild(NestableNode.java:695)
+	at org.thymeleaf.dom.NestableNode.doAdditionalProcess(NestableNode.java:668)
+	at org.thymeleaf.dom.Node.processNode(Node.java:990)
+	at org.thymeleaf.dom.Document.process(Document.java:93)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1155)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1060)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1011)
+	at org.thymeleaf.spring4.view.ThymeleafView.renderFragment(ThymeleafView.java:335)
+	at org.thymeleaf.spring4.view.ThymeleafView.render(ThymeleafView.java:190)
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1286)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1041)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:984)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:901)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:970)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:861)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:635)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:846)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:742)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:317)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:127)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:91)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:114)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:137)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:111)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:170)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:200)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:64)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:105)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:56)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:214)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:177)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:347)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:263)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HttpPutFormContentFilter.doFilterInternal(HttpPutFormContentFilter.java:108)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:81)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:197)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:478)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:803)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1459)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Unknown Source)
+2018-04-11 13:58:58.129 ERROR DESKTOP-MQAQG75 --- [nio-8080-exec-9] o.t.TemplateEngine                       : [THYMELEAF][http-nio-8080-exec-9] Exception processing template "error": Error resolving template "error", template might not exist or might not be accessible by any of the configured Template Resolvers
+2018-04-11 13:58:58.130 ERROR DESKTOP-MQAQG75 --- [nio-8080-exec-9] o.a.c.c.C.[.[.[.[dispatcherServlet]      : Servlet.service() for servlet [dispatcherServlet] threw exception
+org.thymeleaf.exceptions.TemplateInputException: Error resolving template "error", template might not exist or might not be accessible by any of the configured Template Resolvers
+	at org.thymeleaf.TemplateRepository.getTemplate(TemplateRepository.java:246)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1104)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1060)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1011)
+	at org.thymeleaf.spring4.view.ThymeleafView.renderFragment(ThymeleafView.java:335)
+	at org.thymeleaf.spring4.view.ThymeleafView.render(ThymeleafView.java:190)
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1286)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1041)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:984)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:901)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:970)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:861)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:635)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:846)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:742)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:728)
+	at org.apache.catalina.core.ApplicationDispatcher.processRequest(ApplicationDispatcher.java:469)
+	at org.apache.catalina.core.ApplicationDispatcher.doForward(ApplicationDispatcher.java:392)
+	at org.apache.catalina.core.ApplicationDispatcher.forward(ApplicationDispatcher.java:311)
+	at org.apache.catalina.core.StandardHostValve.custom(StandardHostValve.java:395)
+	at org.apache.catalina.core.StandardHostValve.status(StandardHostValve.java:254)
+	at org.apache.catalina.core.StandardHostValve.throwable(StandardHostValve.java:349)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:175)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:803)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1459)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Unknown Source)
+2018-04-11 13:58:58.131 ERROR DESKTOP-MQAQG75 --- [nio-8080-exec-9] o.a.c.c.C.[.[localhost]                  : Exception Processing ErrorPage[errorCode=0, location=/error]
+org.springframework.web.util.NestedServletException: Request processing failed; nested exception is org.thymeleaf.exceptions.TemplateInputException: Error resolving template "error", template might not exist or might not be accessible by any of the configured Template Resolvers
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:982)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:861)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:635)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:846)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:742)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:728)
+	at org.apache.catalina.core.ApplicationDispatcher.processRequest(ApplicationDispatcher.java:469)
+	at org.apache.catalina.core.ApplicationDispatcher.doForward(ApplicationDispatcher.java:392)
+	at org.apache.catalina.core.ApplicationDispatcher.forward(ApplicationDispatcher.java:311)
+	at org.apache.catalina.core.StandardHostValve.custom(StandardHostValve.java:395)
+	at org.apache.catalina.core.StandardHostValve.status(StandardHostValve.java:254)
+	at org.apache.catalina.core.StandardHostValve.throwable(StandardHostValve.java:349)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:175)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:803)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1459)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: org.thymeleaf.exceptions.TemplateInputException: Error resolving template "error", template might not exist or might not be accessible by any of the configured Template Resolvers
+	at org.thymeleaf.TemplateRepository.getTemplate(TemplateRepository.java:246)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1104)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1060)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1011)
+	at org.thymeleaf.spring4.view.ThymeleafView.renderFragment(ThymeleafView.java:335)
+	at org.thymeleaf.spring4.view.ThymeleafView.render(ThymeleafView.java:190)
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1286)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1041)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:984)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:901)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:970)
+	... 26 more

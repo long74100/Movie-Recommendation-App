@@ -19,11 +19,13 @@
 		display: block;
     	width: 100%;
 	}
+	.movies-in-theaters-nav{
+		width: 40%; 
+	}
 	.featured-movies{
 		margin: auto;
 		background-color: white;
     	width: 90%;
-    	height: 2000px;
     	padding: 10px;
 	}
 	.credits{
