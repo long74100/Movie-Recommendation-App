@@ -87,7 +87,7 @@ function cleanList(listName, thisButton) {
 	setTimeout(function() {
 		location.reload(true);
 		}, 
-		150);
+		3000);
 }
 
 

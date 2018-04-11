@@ -7,25 +7,25 @@
 <body>
 	<div th:fragment="prodNavBar">
 		<div th:replace="fragments/userProfile/profileMenu :: userProfileMenu"></div>
-			<div class="prodlist-menu" id="prodlist-menu">
-				<span class="username-search-tool" id="username-search-tool">
-					<input type="text" placeholder="Search friend..." class="friend-search-bar" id="friend-search-bar"/> 
-					<button type="submit" class="search-friend-btn" id="search-friend-btn">Find</button>
-				</span>
-				<div th:if="${not #lists.isEmpty(friendList)}" class="friend-list" id="friend-list">
-					<div class="friendList-div" id="friendList-div">
-					<p class="friend-info-for-prod" id="getAllProds">All Prods</p>
-						<div th:each="friend : ${friendList}" class="friend-info-for-prod" id="friend-info-for-prod">
+		<!--  <script type="text/javascript" src="../js/movieListMng.js"></script>-->
+		<div class="prodlist-menu" id="prodlist-menu">
+			<span class="username-search-tool" id="username-search-tool">
+				<input type="text" placeholder="Search friend..." class="friend-search-bar" id="friend-search-bar"/> 
+				<button type="submit" class="search-friend-btn" id="search-friend-btn">Find</button>
+			</span>
+			<div th:if="${not #lists.isEmpty(friendList)}" class="friend-list" id="friend-list">
+				<div class="friendList-div" id="friendList-div">
+					<a th:href="@{/prodRepo+all+all}"><p class="friend-info-for-prod" id="getAllProds">All Prods</p></a>
+					<div th:each="friend : ${friendList}" class="friend-info-for-prod" id="friend-info-for-prod">
+						<a th:href="@{/prodRepo+all+{friendUsername}(friendUsername=${friend.username})}">
 							<img src="https://www.ocf.berkeley.edu/~dblab/blog/wp-content/uploads/2012/01/icon-profile.png"
 								class="user-headportrait" />
 							<p th:text="${friend.username}" class="friend-username" id="friend-username"></p>
-						</div>
+						</a>
 					</div>
 				</div>
 			</div>
+		</div>
 	</div>
-
-
-
 </body>
 </html>

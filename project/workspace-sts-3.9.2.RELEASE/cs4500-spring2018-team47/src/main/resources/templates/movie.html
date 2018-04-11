@@ -18,6 +18,7 @@
     	<p class="prod-movie-name" id="prod-movie-name"></p>
     	<p class="prod-movie-id" id="prod-movie-id" style="display: none"></p>
     	<p class="prod-movie-dbID" id="prod-movie-dbID" style="display: none"></p>
+    	<p class="movie-poster-prod" id="movie-poster-prod" style="display:none"></p>
     	<div style="margin-top: 0px;">
     		<p style="margin-bottom: 0px; float: left; margin-left: 25px;margin-right: 5px;">To: </p>
     		<div class="prod-to-friend-input-container" id="prod-to-friend-input-container">
@@ -28,7 +29,7 @@
     		<span>
     			<span>
     				<input type="text" class="usersearchbar" id="usersearchbar" placeholder="search user..."/>
-    				<button type="submit" class="search-to-send-btn" id="search-to-send-btn">Find</button>
+    				<button type="submit" class="search-to-send-btn" id="search-to-send-btn" th:onclick="'searchUser()'">Find</button>
     			</span>
     			<button type="submit" class="send-out-movie" id="prod-to-friend" th:onclick="'sendOutProd('+this+')'">Send</button> 
     		</span>
@@ -116,7 +117,8 @@
 					<span th:switch="${user}"> <span th:case="null"></span> <span
 						th:case="*">
 							<button class="btn btn-secondary"
-							th:onclick="'showFriendsToProd(\''+${movie.title}+'\', \''+${movie.imdbID}+'\', \''+${movie.movieDBid}+'\','+this+')'">Share with a Friend</button> <!-- Get User's movie list and shown as dropdown list -->
+							th:onclick="'showFriendsToProd(\''+${movie.title}+'\', \''+${movie.imdbID}+'\', \''+${movie.movieDBid}+'\', \''+${movie.poster}+'\'
+            					,'+this+')'">Share with a Friend</button> <!-- Get User's movie list and shown as dropdown list -->
 							<div>
 								<select th:if="${not #lists.isEmpty(userMVlist)}" id="listOpt"
 									class="mt-3">
@@ -126,7 +128,7 @@
 									</div>
 								</select>
 								<button id="addToList" class="btn btn-primary">Add</button>
-								<button type="button" class="btn btn-danger">Remove</button>
+								<button type="button" class="btn btn-danger" style="display: none;">Remove</button>
 							</div>
 					</span>
 					</span>

@@ -22,7 +22,7 @@
             			<a th:href="@{/profile+to+movielist+{list}(list=${list})}">
             				<div th:if="${list == 'Browse History' or list == 'Favorites'}">
             					<p class="repo" th:text="${list}"></p>
-            					<button class="clean-movielist" style="margin-left: 174px;" th:onclick="'cleanList(\''+${list}+'\', '+this+')'">clean</button>
+            					<button class="clean-movielist" style="margin-left: 174px;" th:onclick="'cleanList(&quot;' +${list}+ '&quot;, '+this+')'">clean</button>
             				</div>
             				<div th:unless="${list == 'Browse History' or list == 'Favorites'}">
             					<p class="repo" th:text="${list}"></p>

@@ -28,6 +28,7 @@ import edu.northeastern.cs4500.model.services.LocalSQLConnectServiceImpl;
 import edu.northeastern.cs4500.model.services.UserService;
 import edu.northeastern.cs4500.model.user.User;
 import edu.northeastern.cs4500.model.user.UserProfile;
+import edu.northeastern.cs4500.prod.Prod;
 
 @Controller
 public class UserprofileController {
@@ -210,6 +211,96 @@ public class UserprofileController {
 		return modelAndView;
 	}
 	
+	
+	// so needs to create three page also. or see if we can do something like display block and none.
+	@RequestMapping(value={"/prodRepo+all+{repoName}"}, method = RequestMethod.GET)
+	public ModelAndView getProdsItemsInProfileAll(@PathVariable String repoName) {
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		User user = userService.findUserByEmail(auth.getName());
+		List<Prod> allProds = new ArrayList<>();
+		String prodType = "";
+		ModelAndView modelAndView = new ModelAndView();
+		
+		// get all sent out prod: can be all or individual friend
+		
+		if(repoName.equals("all")) {
+			// get all prods in "all" section
+			allProds = sqlConnector.extractAllProds(user.getId());
+			prodType = "all";
+		}
+		else {
+			allProds = sqlConnector.extractAllProdsForARecipient(user.getId(), repoName);
+			prodType = repoName;
+		}
+		List<User> allFriends = sqlConnector.getAllFriends(user.getId());
+		modelAndView.addObject("allProds", allProds);
+		modelAndView.addObject("prodType", prodType);
+		modelAndView.addObject("friendList", allFriends);
+		modelAndView.addObject("user", user);
+		modelAndView.addObject("repo", repoName);
+		modelAndView.setViewName("allProdsSentAndReceived");
+		System.out.println(allProds);
+		return modelAndView;
+	}
+	
+	@RequestMapping(value={"/prodRepo+allSent+{repoName}"}, method = RequestMethod.GET)
+	public ModelAndView getProdsItemsInProfileAllSent(@PathVariable String repoName) {
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		User user = userService.findUserByEmail(auth.getName());
+		List<Prod> allSentProds = new ArrayList<>();
+		String prodType = "";
+		ModelAndView modelAndView = new ModelAndView();
+		
+		if(repoName.equals("all")) {
+			allSentProds = sqlConnector.extractAllSentProds(user.getId());
+			prodType = "all";
+		}
+		else {
+			allSentProds = sqlConnector.extractProdsSentToAFriend(user.getId(), repoName);
+			prodType = repoName;
+		}
+		
+		
+		List<User> allFriends = sqlConnector.getAllFriends(user.getId());
+		modelAndView.addObject("allProds", allSentProds);
+		modelAndView.addObject("prodType", prodType);
+		modelAndView.addObject("friendList", allFriends);
+		modelAndView.addObject("user", user);
+		modelAndView.setViewName("allProdsSentAndReceived");
+		return modelAndView;
+	}
+	
+	@RequestMapping(value={"/prodRepo+allReceived+{repoName}"}, method = RequestMethod.GET)
+	public ModelAndView getProdsItemsInProfileAllReceived(@PathVariable String repoName) {
+		ModelAndView modelAndView = new ModelAndView();
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		User user = userService.findUserByEmail(auth.getName());
+		String prodType = "";
+		List<Prod> allReceivedProds = new ArrayList<>();
+		
+		if(repoName.equals("all")) {
+			allReceivedProds = sqlConnector.extractAllFriendProds(user.getId());
+			prodType = "all";
+		}
+		else {
+			allReceivedProds = sqlConnector.extractProdsReceivedFromAFriend(user.getId(), repoName);
+			prodType = repoName;
+		}
+		modelAndView.addObject("allProds", allReceivedProds);
+		modelAndView.addObject("prodType", prodType);
+		List<User> allFriends = sqlConnector.getAllFriends(user.getId());
+		modelAndView.addObject("friendList", allFriends);
+		modelAndView.addObject("user", user);
+		modelAndView.setViewName("allProdsSentAndReceived");
+		return modelAndView;
+	}
+	
+	
+	
+	/**
+	 * This is to send the movie recommendations
+	 * @param httpServletRequest
+	 */
 	@RequestMapping(value="/prodToFriends", method = RequestMethod.POST)
 	@ResponseStatus(value= HttpStatus.OK)
 	public void prodToFriends(HttpServletRequest httpServletRequest) {
@@ -223,6 +314,7 @@ public class UserprofileController {
 		String recipientName = httpServletRequest.getParameter("allUserName");
 		String recipientId = httpServletRequest.getParameter("allUserId");
 		String senderComment = httpServletRequest.getParameter("comment");
+		String poster = httpServletRequest.getParameter("poster");
 		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
     	String prodSentDate = formatter.format(new Date());
 		System.out.println(movieTitle); 
@@ -234,18 +326,14 @@ public class UserprofileController {
 		if(recipientName.contains(",")) {
 			String[] out = recipientName.split(",");
 			String[] ids = recipientId.split(",");
-			/**
-			(int senderId, int receiverId, String senderName, 
-			String receiverName, String movieId, String movieName, String date, String comment, String movieDBId)
-			 */
 			for(int i = 0; i < out.length; i++) {
 				sqlConnector.sendProdToFriend(userId, Integer.parseInt(ids[i]), userName, out[i], 
-						movieImdbId, movieTitle, prodSentDate, senderComment, movieDBId);
+						movieImdbId, movieTitle, prodSentDate, senderComment, movieDBId, poster);
 			}
 		}
 		else {
 			sqlConnector.sendProdToFriend(userId, Integer.parseInt(recipientId), userName, recipientName, 
-					movieImdbId, movieTitle, prodSentDate, senderComment, movieDBId);
+					movieImdbId, movieTitle, prodSentDate, senderComment, movieDBId, poster);
 		}
 	}
 }

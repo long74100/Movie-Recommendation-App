@@ -387,9 +387,10 @@ public interface ILocalSQLConnectService {
 	 * @param date sent date
 	 * @param comment sender's comment
 	 * @param movieDBId the movie id in movie db
+	 * @param moviePoster the movie's poster
 	 */
 	void sendProdToFriend(int senderId, int receiverId, String senderName, 
-			String receiverName, String movieId, String movieName, String date, String comment, String movieDBId);
+			String receiverName, String movieId, String movieName, String date, String comment, String movieDBId, String moviePoster);
 	
 	/**
 	 * To extract all prods from friends
@@ -409,7 +410,7 @@ public interface ILocalSQLConnectService {
 	 * @param friendId the user who received the prods
 	 * @return list of prods the user sent to receiver user
 	 */
-	List<Prod> extractProdsSentToAFriend(int userId, int friendId);
+	List<Prod> extractProdsSentToAFriend(int userId, String friendName);
 	
 	/**
 	 * To get all the prods received from a user
@@ -417,6 +418,23 @@ public interface ILocalSQLConnectService {
 	 * @param friendId the user who sent the prod
 	 * @return
 	 */
-	List<Prod> extractProdsReceivedFromAFriend(int userId, int friendId);
+	List<Prod> extractProdsReceivedFromAFriend(int userId, String friendName);
+	
+	/**
+	 * To extract all prods for the user with given user id
+	 * @param userId the user that all prods belongs to
+	 * @return list of all prods
+	 */
+	List<Prod> extractAllProds(int userId);
+	
+	/**
+	 * To extract all prods towards a specific friend with given friend Id
+	 * @param userId the prod list own
+	 * @param friendName friend of prod list owner
+	 * @return
+	 */
+	List<Prod> extractAllProdsForARecipient(int userId, String friendName);
+	
+	
 }
 

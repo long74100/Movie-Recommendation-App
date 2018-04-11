@@ -1,5 +1,6 @@
 .prod-list-item-nav {
 	margin-left:427px;
+	position:fixed;
 }
 
 .prod-objective {
@@ -19,18 +20,40 @@
 	margin-top:10px;
 }
 
+.get-all-overall {
+	float:  left;
+    width:  300px;
+    width: 300px;
+    float: left;
+    text-align: center;
+    color: wheat;
+    height: 30px;
+    background: #212529;
+    border-top: currentColor;
+    border-style: solid;
+    border-width: thin;
+    border-left: none;
+    margin-bottom: 0px;
+    cursor: pointer;
+}
+
+.get-all-overall:hover {
+	background: wheat;
+	color: black;
+}
+
 
 .get-All-sentOut {
-    width: 450px;
-    float:  left;
-    text-align:  center;
+    width: 300px;
+    float: left;
+    text-align: center;
     color: wheat;
-    height:  30px;
-    background:  #212529;
-    border-top:  currentColor;
-    border-style:  solid;
-    border-width:  thin;
-    border-left:  none;
+    height: 30px;
+    background: #212529;
+    border-top: currentColor;
+    border-style: solid;
+    border-width: thin;
+    border-left: none;
     margin-bottom: 0px;
     cursor: pointer;
 }
@@ -48,19 +71,147 @@
 
 
 .get-All-received {
-    text-align:  center;
-    width:  450px;
-    margin-left:  450px;
-    color:  wheat;
-    height:  30px;
-    background:  #212529;
-    border-style:  solid;
-    border-width:  thin;
-    border-left:  none;
-	margin-bottom: 0px;
-	cursor:pointer;
+    text-align: center;
+    width: 300px;
+    margin-left: 600px;
+    color: wheat;
+    height: 30px;
+    background: #212529;
+    border-style: solid;
+    border-width: thin;
+    border-left: none;
+    margin-bottom: 0px;
+    cursor: pointer;
 }
 
+.prod-list-item-friend {
+	height: 100px;
+}
+
+.prod-list-item-user {
+	height: 100px;
+}
+
+.owner-sending-movie-info {
+	height: 180px;
+    /*margin-left: 450px;*/
+    /*width: 350px;*/
+    margin-top: 10px;
+    height: 155px;
+    border: solid;
+    border-width: thin;
+    border-radius: 8px;
+    margin-left: 300px;
+    width: 500px;
+}
+
+.send-out-moviePoster {
+    height:  150px;
+    margin-top: 2px;
+    margin-left: 2px;
+    border-radius:  8px;
+    float:  left;			
+}
+.received-basic-information {
+    float: right;
+    width: 78%;
+    height: 60%;
+    border-radius: 10px;
+    border-width: thin;
+    font-style: italic;
+    font-size: 13px;
+    margin-top: 2px;
+
+}
+
+.sent-time-record {
+	margin-bottom: 0px;
+}
+
+.sent-bottom-mark {
+    width:  240px;
+    float: left;
+    font-size: 10px;
+    margin-left:  5px;
+}
+
+.sent-basic-information {
+    float: right;
+    width: 78%;
+    height: 100px;
+    border-radius: 10px;
+    border-width: thin;
+    margin-right: 3px;
+    font-style: italic;
+    font-size: 13px;
+}
+
+.received-time-record {
+	font-size: 11px;
+    text-align: end;
+    margin-bottom: 0px;
+    margin-left: 5px;
+    height: 20px;
+    float: left;
+}
+
+.send-out-movieInfo {
+	text-align: center;
+    /**font-weight: bold;
+    color: black;
+    margin-right: 110px;*/
+    font-weight: bold;
+    color: black;
+}
+
+.received-moviePoster {
+	height: 150px; 
+	margin-left: 2px; 
+	margin-top: 2px; 
+	border-radius: 8px;
+}
+
+.own-profile-info {
+	width: 100px;
+    float: right;
+    margin-top: 50px;
+    border-radius: 15px;
+}
+
+.shared-movie-text-content-received {	
+	text-align: center;
+    font-weight: bold;
+    color: black;
+}
+
+.sender-sending-movie-info {
+	margin-left: 100px; 
+	width: 500px; 
+	margin-top: 10px; 
+	height: 155px; 
+	border: solid; 
+	border-width: thin;
+	border-radius: 8px;
+    						
+}
+
+.current-asSender-name {
+	height: 100px;
+    margin-left: 820px;
+}
+
+.sender-profile-info {
+	width: 100px; 
+	float: left; 
+	margin-top: 50px; 
+	border-radius: 15px;
+}
+
+.prod-list-main-container {
+	margin-left: 427px;
+	margin-top: 90px;
+	width:900px;
+}
 
 .get-All-received:hover {
 	color: black;

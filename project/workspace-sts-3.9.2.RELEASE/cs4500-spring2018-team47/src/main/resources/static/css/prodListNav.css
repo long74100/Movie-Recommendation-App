@@ -18,6 +18,7 @@
 	color: wheat;
 }
 
+
 .friend-info-for-prod:hover {
 	background: wheat;
 	color: black;
@@ -123,4 +124,97 @@
 .proding:hover {
 	background: wheat;
 	color: black;
+}
+
+/**This is th css for prod content navbar */
+
+.prod-list-item-nav {
+	margin-left:427px;
+}
+
+.prod-objective {
+    text-align:  center;
+    width:  900px;
+    height: 50px;
+    border: solid;
+    border-width:  thin;
+    background:  #212529;
+	
+}
+
+.prod-object p {
+	color: wheat;
+	font-weight: bold;
+	font-size:20px;
+	margin-top:10px;
+}
+
+.get-all-overall {
+	float:  left;
+    width:  300px;
+    width: 300px;
+    float: left;
+    text-align: center;
+    color: wheat;
+    height: 30px;
+    background: #212529;
+    border-top: currentColor;
+    border-style: solid;
+    border-width: thin;
+    border-left: none;
+    margin-bottom: 0px;
+    cursor: pointer;
+}
+
+.get-all-overall:hover {
+	background: wheat;
+	color: black;
+}
+
+
+.get-All-sentOut {
+    width: 300px;
+    float: left;
+    text-align: center;
+    color: wheat;
+    height: 30px;
+    background: #212529;
+    border-top: currentColor;
+    border-style: solid;
+    border-width: thin;
+    border-left: none;
+    margin-bottom: 0px;
+    cursor: pointer;
+}
+
+.prod-object-content {
+	color:wheat;
+	font-size: 25px;
+}
+
+
+.get-All-sentOut:hover {
+	color: black;
+	background: wheat;
+}
+
+
+.get-All-received {
+    text-align: center;
+    width: 300px;
+    margin-left: 600px;
+    color: wheat;
+    height: 30px;
+    background: #212529;
+    border-style: solid;
+    border-width: thin;
+    border-left: none;
+    margin-bottom: 0px;
+    cursor: pointer;
+}
+
+
+.get-All-received:hover {
+	color: black;
+	background: wheat;
 }

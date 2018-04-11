@@ -1,11 +1,10 @@
 function init() {
 	var movieDropdown = document.getElementById("movielist-dropdown-menu");
-	
-	window.onclick = hideMenu;
-	
-	function hideMenu() {
-		movieDropdown.style.display = 'none';
+	var searchContent = document.getElementById("usersearchbar").value;
+	if(searchContent == "") {
+		$("div.friend-item-block").css("display", "block");
 	}
+	
 }
 
 // this is to show the dropdown operation list menu: prod to friend, delete or add to another list
@@ -45,13 +44,15 @@ function deleteMovie(movieId, thisButton) {
 		150);
 }
 
-function showFriendsToProd(movieName, movieId, movieDBID, thisButton) {
+function showFriendsToProd(movieName, movieId, movieDBID, moviePoster, thisButton) {
 	var friendToProd = document.getElementById("friendList-for-prod");
 	var clickPosition = getMenuPosition(event);
 	document.getElementById("prod-movie-name").innerHTML = movieName;
 	document.getElementById("prod-movie-id").innerHTML = movieId;
 	document.getElementById("prod-movie-dbID").innerHTML = movieDBID;
+	document.getElementById("movie-poster-prod").innerHTML = moviePoster;
 	friendToProd.style.display = "block";
+	return false;
 }
 
 
@@ -79,7 +80,6 @@ function addRecipient(userName, userId) {
 			"</div>";
 		document.getElementById("prod-to-friend-input-container").innerHTML = innerHtml;
 	}
-	
 }
 
 // this functions will send out the movie suggestions to friends
@@ -90,6 +90,7 @@ function sendOutProd() {
 	var movieImdbId = document.getElementById("prod-movie-id").innerHTML;
 	var movieTitle = document.getElementById("prod-movie-name").innerHTML;
 	var movieDBId = document.getElementById("prod-movie-dbID").innerHTML;
+	var moviePoster = document.getElementById("movie-poster-prod").innerHTML;
 	var comment = document.querySelector("#comment-area").value;
 	var AllUserNameContainer = [];
 	var AllIdContainer = [];
@@ -111,7 +112,7 @@ function sendOutProd() {
 	var url = "/prodToFriends";
 	var param = "movieName=" + encodedMovieName + "&movieId=" + encodedMovieImdbID + 
 				"&movieDBId=" + encodedMovieDBId + "&allUserName=" + encodedAllUserName +
-				"&allUserId=" + encodedAllUserId + "&comment=" + encodedComment;
+				"&allUserId=" + encodedAllUserId + "&comment=" + encodedComment + "&poster=" + moviePoster;
 	var xhr = new XMLHttpRequest();
 	xhr.open("POST", url, true);
 	xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
@@ -120,12 +121,12 @@ function sendOutProd() {
 		location.reload(true);
 		}, 
 		150);
-	alert("Send prod out");
 }
 
 
 function cleanInput() {
 	document.getElementById("prod-to-friend-input-container").innerHTML = "";
+	document.querySelector("#comment-area").value = "";
 }
 
 function deleteRecipient(userId, thisButton) {
@@ -138,7 +139,37 @@ function deleteRecipient(userId, thisButton) {
 function closeProdMenu() {
 	var prodFriendList = document.getElementById("friendList-for-prod");
 	document.getElementById("prod-to-friend-input-container").innerHTML = "";
+	document.querySelector("#comment-area").value = "";
 	prodFriendList.style.display = 'none';
+}
+
+
+function searchUser() {
+	var searchContent = document.getElementById("usersearchbar").value;
+	var hasFriend = false;
+	if(searchContent != "") {
+		// search username
+		var singleUserBlocks = document.getElementsByClassName("friend-item-block");
+		var allUsers = $("div.friend-item-block").find('p');
+		for(var i = 0; i < allUsers.length; i ++) {
+			if(allUsers.get(i).innerHTML == searchContent) {
+				hasFriend = true;
+				singleUserBlocks[i].style["display"] = "block";
+				document.getElementById("usersearchbar").value = "";
+			}
+			else {
+				singleUserBlocks[i].style["display"] = "none";
+			}
+		}
+		if(!hasFriend) {
+			alert("Friend not found!");
+		}
+	}
+	else {
+		$("div.friend-item-block").css("display", "block");
+	}
+	
+	
 }
 
 document.addEventListener("DOMContentLoaded", init);

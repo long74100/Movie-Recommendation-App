@@ -1064,14 +1064,14 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 	/**
 	 * *********************************************************
 	 * 														   *
-	 * 						PROD OPERATOR                      *
+	 * 				   FRIEND PROD OPERATOR                    *
 	 *														   *
 	 * *********************************************************
 	 */
 	@Override
 	public void sendProdToFriend(int senderId, int receiverId, String senderName, 
-			String receiverName, String movieId, String movieName, String date, String comment, String movieDBId) {
-		String sqlcmd = "insert into Prod values (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+			String receiverName, String movieId, String movieName, String date, String comment, String movieDBId, String moviePoster) {
+		String sqlcmd = "insert into Prod values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		PreparedStatement pstmt = null;
 		try {
 			pstmt = connector.prepareStatement(sqlcmd);
@@ -1084,6 +1084,7 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 			pstmt.setString(7, date);
 			pstmt.setString(8, comment);
 			pstmt.setString(9, movieDBId);
+			pstmt.setString(10, moviePoster);
 			pstmt.executeUpdate();
 		}
 		catch (SQLException sq) {
@@ -1093,7 +1094,7 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 	
 	@Override
 	public List<Prod> extractAllFriendProds(int userId) {
-		String sqlcmd = "select * from Prod where receiverId = ?";
+		String sqlcmd = "select * from Prod where receiverId = ? order by sent_date desc";
 		PreparedStatement pstmt = null;
 		ArrayList<Prod> friendsProds = new ArrayList<>();
 		try {
@@ -1110,6 +1111,8 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 				prod.setMovieName(myResult.getString("movieName"));
 				prod.setTime(myResult.getString("sent_date"));
 				prod.setComment(myResult.getString("senderComment"));
+				prod.setMovieDBId(myResult.getString("movieDBId"));
+				prod.setMoviePoster(myResult.getString("moviePoster"));
 				friendsProds.add(prod);
 			}
 			
@@ -1123,16 +1126,17 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 	
 	@Override
 	public List<Prod> extractAllSentProds(int userId) {
-		String sqlcmd = "select * from Prod where senderId = ?";
+		String sqlcmd = "select * from Prod where senderId = ? order by sent_date desc";
 		PreparedStatement pstmt = null;
 		ArrayList<Prod> sentOutProds = new ArrayList<>();
 		try {
 			pstmt = connector.prepareStatement(sqlcmd);
 			pstmt.setInt(1, userId);
 			myResult = pstmt.executeQuery();
+			System.out.println(myResult.toString());
 			while(myResult.next()) {
 				Prod prod = new Prod();
-				prod.setSender(myResult.getInt(userId));
+				prod.setSender(userId);
 				prod.setSenderName(myResult.getString("sender_name"));
 				prod.setReceiver(myResult.getInt("receiverId"));
 				prod.setReceiverName(myResult.getString("receiver_name"));
@@ -1140,6 +1144,8 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 				prod.setMovieName(myResult.getString("movieName"));
 				prod.setTime(myResult.getString("sent_date"));
 				prod.setComment(myResult.getString("senderComment"));
+				prod.setMovieDBId(myResult.getString("movieDBId"));
+				prod.setMoviePoster(myResult.getString("moviePoster"));
 				sentOutProds.add(prod);
 			}
 			
@@ -1147,29 +1153,32 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 		catch(SQLException sq) {
 			logger.error(sq.getMessage());
 		}
+		
 		return sentOutProds;
 	}
 	
 	@Override
-	public List<Prod> extractProdsSentToAFriend(int userId, int friendId) {
-		String sqlcmd = "select * from Prod where senderId = ? and receiverId = ?";
+	public List<Prod> extractProdsSentToAFriend(int userId, String friendName) {
+		String sqlcmd = "select * from Prod where senderId = ? and receiver_name = ? order by sent_date desc";
 		ArrayList<Prod> sentToThisFriend = new ArrayList<>();
 		PreparedStatement pstmt = null;
 		try {
 			pstmt = connector.prepareStatement(sqlcmd);
 			pstmt.setInt(1, userId);
-			pstmt.setInt(2, friendId);
+			pstmt.setString(2, friendName);
 			myResult = pstmt.executeQuery();
 			while(myResult.next()) {
 				Prod prod = new Prod();
 				prod.setSender(userId);
 				prod.setSenderName(myResult.getString("sender_name"));
-				prod.setReceiver(friendId);
-				prod.setReceiverName(myResult.getString("receiver_name"));
+				prod.setReceiver(myResult.getInt("receiverId"));
+				prod.setReceiverName(friendName);
 				prod.setMovieId(myResult.getString("movieId"));
 				prod.setMovieName(myResult.getString("movieName"));
 				prod.setTime(myResult.getString("sent_date"));
 				prod.setComment(myResult.getString("senderComment"));
+				prod.setMovieDBId(myResult.getString("movieDBId"));
+				prod.setMoviePoster(myResult.getString("moviePoster"));
 				sentToThisFriend.add(prod);
 			}
 			
@@ -1182,26 +1191,70 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 	}
 	
 	@Override
-	public List<Prod> extractProdsReceivedFromAFriend(int userId, int friendId) {
-		String sqlcmd = "select * from Prod where senderId = ? and receiverId = ?";
+	public List<Prod> extractProdsReceivedFromAFriend(int userId, String friendName) {
+		String sqlcmd = "select * from Prod where sender_name = ? and receiverId = ? order by sent_date desc";
 		ArrayList<Prod> sentToThisFriend = new ArrayList<>();
 		PreparedStatement pstmt = null;
 		try {
 			pstmt = connector.prepareStatement(sqlcmd);
-			pstmt.setInt(1, friendId);
+			pstmt.setString(1, friendName);
 			pstmt.setInt(2, userId);
 			myResult = pstmt.executeQuery();
 			while(myResult.next()) {
 				Prod prod = new Prod();
-				prod.setSender(friendId);
-				prod.setSenderName(myResult.getString("sender_name"));
+				prod.setSender(myResult.getInt("receiverId"));
+				prod.setSenderName(friendName);
 				prod.setReceiver(userId);
 				prod.setReceiverName(myResult.getString("receiver_name"));
 				prod.setMovieId(myResult.getString("movieId"));
 				prod.setMovieName(myResult.getString("movieName"));
 				prod.setTime(myResult.getString("sent_date"));
 				prod.setComment(myResult.getString("senderComment"));
+				prod.setMovieDBId(myResult.getString("movieDBId"));
+				prod.setMoviePoster(myResult.getString("moviePoster"));
 				sentToThisFriend.add(prod);
+			}
+		}
+		catch(SQLException sq) {
+			logger.error(sq.getMessage());
+		}
+		return sentToThisFriend;
+	}
+	
+	@Override
+	public List<Prod> extractAllProds(int userId) {
+		ArrayList<Prod> output = new ArrayList<Prod>();
+		String sqlcmd = "select * from Prod where senderId = ? or receiverId = ? order by sent_date desc";
+		PreparedStatement pstmt = null;
+		try {
+			pstmt = connector.prepareStatement(sqlcmd);
+			pstmt.setInt(1, userId);
+			pstmt.setInt(2, userId);
+			myResult = pstmt.executeQuery();
+			while(myResult.next()) {
+				Prod prod = new Prod();
+				if(myResult.getInt("senderId") == userId) {
+					prod.setSender(userId);
+					prod.setSenderName(myResult.getString("sender_name"));
+					prod.setReceiver(myResult.getInt("receiverId"));
+					prod.setReceiverName(myResult.getString("receiver_name"));
+				}
+				else {
+					prod.setSender(myResult.getInt("senderId"));
+					prod.setSenderName(myResult.getString("sender_name"));
+					prod.setReceiver(userId);
+					prod.setReceiverName(myResult.getString("receiver_name"));
+				}
+				prod.setMovieId(myResult.getString("movieId"));
+				prod.setMovieName(myResult.getString("movieName"));
+				prod.setTime(myResult.getString("sent_date"));
+				prod.setComment(myResult.getString("senderComment"));
+				prod.setMovieDBId(myResult.getString("movieDBId"));
+				prod.setMoviePoster(myResult.getString("moviePoster"));
+				System.out.println("receiverId = " + prod.getReceiver());
+				System.out.println("prod date = " + prod.getTime());
+				System.out.println("Sender Comment = " + prod.getComment());
+				output.add(prod);
 			}
 			
 		}
@@ -1209,7 +1262,54 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 			logger.error(sq.getMessage());
 		}
 		
-		return sentToThisFriend;
+		return output;
+	}
+	
+	
+	@Override
+	public List<Prod> extractAllProdsForARecipient(int userId, String friendName) {
+		ArrayList<Prod> output = new ArrayList<Prod>();
+		String sqlcmd = "select * from Prod where (senderId = ? and receiver_name = ?) or (receiverId = ? and sender_name = ? ) order by sent_date desc";
+		PreparedStatement pstmt = null;
+		try {
+			pstmt = connector.prepareStatement(sqlcmd);
+			pstmt.setInt(1, userId);
+			pstmt.setString(2, friendName);
+			pstmt.setInt(3, userId);
+			pstmt.setString(4, friendName);
+			myResult = pstmt.executeQuery();
+			while(myResult.next()) {
+				Prod prod = new Prod();
+				if(myResult.getInt("senderId") == userId) {
+					prod.setSender(userId);
+					prod.setSenderName(myResult.getString("sender_name"));
+					prod.setReceiver(myResult.getInt("receiverId"));
+					prod.setReceiverName(friendName);
+				}
+				else {
+					prod.setSender(myResult.getInt("senderId"));
+					prod.setSenderName(friendName);
+					prod.setReceiver(userId);
+					prod.setReceiverName(myResult.getString("receiver_name"));
+				}
+				prod.setMovieId(myResult.getString("movieId"));
+				prod.setMovieName(myResult.getString("movieName"));
+				prod.setTime(myResult.getString("sent_date"));
+				prod.setComment(myResult.getString("senderComment"));
+				prod.setMovieDBId(myResult.getString("movieDBId"));
+				prod.setMoviePoster(myResult.getString("moviePoster"));
+				System.out.println("receiverId = " + prod.getReceiver());
+				System.out.println("prod date = " + prod.getTime());
+				System.out.println("Sender Comment = " + prod.getComment());
+				output.add(prod);
+			}
+			
+		}
+		catch(SQLException sq) {
+			logger.error(sq.getMessage());
+		}
+		
+		return output;
 	}
 
 }

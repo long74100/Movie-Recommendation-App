@@ -21,25 +21,31 @@ public class Prod {
 	private int senderId;
 	
 	// the receiver's id
-	private int receiverId;
+	private int receiverId; 
 	
 	// the sender's name
-	private String senderName;
+	private String senderName; 
 	
 	// the receiver's name
 	private String receiverName;
 	
 	// the movie's id
-	private String movieId;
+	private String movieId; 
 	
 	// the movie's name 
-	private String movieName;
+	private String movieName; 
 	
 	// the time when the prod is sent
-	private String date;
+	private String date; 
 	
 	// the comment that sender has
-	private String senderComment;
+	private String senderComment; 
+	
+	// the moviedbid
+	private String movieDBId; 
+	
+	// the movie poster
+	private String moviePoster; 
 	
 	/**
 	 * Default Constructor
@@ -60,6 +66,14 @@ public class Prod {
 		return this.receiverId;
 	}
 	
+	public String getMovieDBId() {
+		return this.movieDBId;
+	}
+	
+	public String getMoviePoster() {
+		return this.moviePoster;
+	}
+	
 	/**
 	 * To get receiver name
 	 * @return the name of receiver
@@ -72,7 +86,7 @@ public class Prod {
 	 * to get sender id
 	 * @return sender id
 	 */
-	public int getSenderId() {
+	public int getSender() {
 		return this.senderId;
 	}
 	
@@ -182,6 +196,14 @@ public class Prod {
 	 */
 	public void setComment(String message) {
 		this.senderComment = message;
+	}
+	
+	public void setMovieDBId(String id) {
+		this.movieDBId = id;
+	}
+	
+	public void setMoviePoster(String  poster) {
+		this.moviePoster = poster;
 	}
 	
 	

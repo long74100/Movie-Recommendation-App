@@ -24,6 +24,7 @@
     	<p class="prod-movie-name" id="prod-movie-name"></p>
     	<p class="prod-movie-id" id="prod-movie-id" style="display: none"></p>
     	<p class="prod-movie-dbID" id="prod-movie-dbID" style="display: none"></p>
+    	<p class="movie-poster-prod" id="movie-poster-prod" style="display:none"></p>
     	<div style="margin-top: 0px;">
     		<p style="margin-bottom: 0px; float: left; margin-left: 25px;margin-right: 5px;">To: </p>
     		<div class="prod-to-friend-input-container" id="prod-to-friend-input-container">
@@ -34,7 +35,7 @@
     		<span>
     			<span>
     				<input type="text" class="usersearchbar" id="usersearchbar" placeholder="search user..."/>
-    				<button type="submit" class="search-to-send-btn" id="search-to-send-btn">Find</button>
+    				<button type="submit" class="search-to-send-btn" id="search-to-send-btn" th:onclick="'searchUser()'">Find</button>
     			</span>
     			<button type="submit" class="send-out-movie" id="prod-to-friend" th:onclick="'sendOutProd('+this+')'">Send</button> 
     		</span>
@@ -49,7 +50,6 @@
 								class="user-headportrait" style="width: 30px; float: left;"/>
     				<p th:text="${friend.username}" style="margin-bottom: 0px;"></p>
     			</div>
-    		
     		</div>
     	</div>
     	<div>
@@ -73,7 +73,8 @@
             			<div class="poster-and-btn" id="poster-and-btn" style="height:300px; width:200px; float:left;">
             				<img class="item-poster" th:src="${movie.poster}"/>
             				<button id="prod-movie" class="prod-movie" type="submit" 
-            					th:onclick="'showFriendsToProd(\''+${movie.title}+'\', \''+${movie.imdbID}+'\', \''+${movie.theMovieDbID}+'\','+this+')'">Prod</button>
+            					th:onclick="'showFriendsToProd(\''+${movie.title}+'\', \''+${movie.imdbID}+'\', 
+            					\''+${movie.theMovieDbID}+'\', \''+${movie.poster}+'\','+this+')'">Prod</button>
             				<button type="submit" th:onclick="'deleteMovie(\''+${movie.imdbID}+'\','+this+')'" 
             					class="delete-movie-btn" id="delete-movie-btn">Delete
             				</button>
@@ -87,17 +88,16 @@
             				<span>Released: <p class="itemReleased" th:text="${movie.released}"></p></span>
             				<span>Actors: <p class="itemActors" th:text="${movie.actors}"></p></span>
             				<span>Plot: <p class="itemPlot" th:text="${movie.plot}"></p></span>
-            		</div>
+            			</div>
             		</span>
             	</div>
     		</div>
     		<div th:unless="${not #lists.isEmpty(currentMovies)}" class="movieItems">
 				<div class="emptyMessage">
-				Your list is empty. Let's add some movies.
+					Your list is empty. Let's add some movies.
 				</div>
 			</div>
    		</ul>
     </div>
-    
 </body>
 </html>
