@@ -17,6 +17,10 @@ public class systemRecommendationAlgo {
 		buildDiffMatrix();
 	}
 	
+	public Map<Movie, Double> predict(Map<Movie,Double> user) {
+		
+	}
+	
 	public void buildDiffMatrix() {
 		diff = new HashMap<>();
 		freq = new HashMap<>();
@@ -53,5 +57,7 @@ public class systemRecommendationAlgo {
 			}
 		}
 	}
+	
+
 
 }
