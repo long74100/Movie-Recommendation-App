@@ -133,6 +133,7 @@ public interface ILocalSQLConnectService {
 	 */
 	void rejectRequest(int senderId, int receiverId);
 	
+	
 	/**
 	 * Removes a friend relationship.
 	 * @param userId the user id
