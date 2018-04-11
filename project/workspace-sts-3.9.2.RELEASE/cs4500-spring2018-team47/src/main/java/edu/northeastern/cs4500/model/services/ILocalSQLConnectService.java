@@ -132,6 +132,13 @@ public interface ILocalSQLConnectService {
 	 * @param receiverId the user to receive friend request
 	 */
 	void rejectRequest(int senderId, int receiverId);
+	
+	/**
+	 * Removes a friend relationship.
+	 * @param userId the user id
+	 * @param friendId the user's friend's id
+	 */
+	void deleteFriend(int userId, int friendId);
 
 	/**
 	 * receiver to block the sender.
@@ -344,7 +351,7 @@ public interface ILocalSQLConnectService {
 	 * Update a user's active status.
 	 * @param userId for user to update and status to set
 	 */
-	public void updateUserStatus(int userId, int status);
+	 void updateUserStatus(int userId, int status);
 	
 	
 	/**

@@ -955,4 +955,26 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 	
     }
 
+    @Override
+    public void deleteFriend(int userId, int friendId) {
+	String sqlcmd = "delete from userRelation where senderId = ? and receiverId = ?";
+	PreparedStatement pstmt = null;
+	
+	try {
+	    pstmt = connector.prepareStatement(sqlcmd);
+	    pstmt.setInt(1, userId);
+	    pstmt.setInt(2, friendId);
+	    if (pstmt.executeUpdate() == 0) {
+		pstmt.clearParameters();
+		pstmt.setInt(1, friendId);
+		pstmt.setInt(2, userId);
+		pstmt.executeUpdate();
+	    }
+	    
+	} catch (SQLException e) {
+	    logger.error(e.getMessage());
+	}
+	
+    }
+
 }
