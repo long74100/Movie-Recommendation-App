@@ -93,7 +93,7 @@ public class MovieDBServiceImpl implements IMovieDBService{
 		Date dateBefore30Days = cal.getTime();
 		String sdate = sdf.format(dateBefore30Days);
 		String edate = sdf.format(date);
-		String urlString = "https://api.themoviedb.org/3/discover/movie?page=1&include_video=false&include_adult=false&sort_by=popularity.desc&language=en-US&primary_release_date.gte="+ sdate +"&primary_release_date.lte=" + edate + "&api_key=" + apiKey;
+		String urlString = "https://api.themoviedb.org/3/discover/movie?page=1&region=US&include_video=false&include_adult=false&sort_by=popularity.desc&language=en-US&primary_release_date.gte="+ sdate +"&primary_release_date.lte=" + edate + "&api_key=" + apiKey;
 		URL url = new URL(urlString);
 		return makeRequest(url);
 	}

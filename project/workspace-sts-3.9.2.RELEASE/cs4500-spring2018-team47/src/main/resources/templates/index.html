@@ -42,7 +42,10 @@
 							<a th:href="@{/movie/{id}(id=${movie.theMovieDbID})}"><img th:src="${movie.poster}" class="poster"></a>
 						</div>
 						<div class="col-sm-3 col-md-4 col-lg-6">
-							<h2>Plot:</h2>
+							<div class= title-con>
+								<a th:href="@{/movie/{id}(id=${movie.theMovieDbID})}"><b class= movie-title th:text="${movie.title}"></b></a>
+							</div>
+							<h3>Plot:</h3>
 							<p th:text="${movie.plot}"></p>
 							<div class="rating mt-1 m-0">
 							<p class="m-0">
@@ -78,7 +81,10 @@
 							<a th:href="@{/movie/{id}(id=${movie.theMovieDbID})}"><img th:src="${movie.poster}" class="poster"></a>
 						</div>
 						<div class="col-sm-3 col-md-4 col-lg-6">
-							<h2>Plot:</h2>
+							<div class= title-con>
+								<a th:href="@{/movie/{id}(id=${movie.theMovieDbID})}"><b class= movie-title th:text="${movie.title}"></b></a>
+							</div>
+							<h3>Plot:</h3>
 							<p th:text="${movie.plot}"></p>
 							<div class="rating mt-1 m-0">
 							<p class="m-0">
@@ -114,7 +120,10 @@
 							<a th:href="@{/movie/{id}(id=${movie.theMovieDbID})}"><img th:src="${movie.poster}" class="poster"></a>
 						</div>
 						<div class="col-sm-3 col-md-4 col-lg-6">
-							<h2>Plot:</h2>
+							<div class= title-con>
+								<a th:href="@{/movie/{id}(id=${movie.theMovieDbID})}"><b class= movie-title th:text="${movie.title}"></b></a>
+							</div>
+							<h3>Plot:</h3>
 							<p th:text="${movie.plot}"></p>
 							<div class="rating mt-1 m-0">
 							<p class="m-0">
