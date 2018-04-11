@@ -34,8 +34,21 @@ function init() {
 	let deleteFriendBtns = document.querySelectorAll(".delete-friend");
 	console.log(deleteFriendBtns);
 	for (let btn of deleteFriendBtns) {
-		let username = btn.parentElement.parentElement.firstElementChild.innerText;
-		console.log(username);
+		btn.addEventListener("click", deleteFriend);
+	}
+	
+	function deleteFriend(ev) {
+		ev.preventDefault();
+		let topElement = ev.target.parentElement.parentElement;
+		let friendID = topElement.firstElementChild.innerText;
+		let encodedFriendID = encodeURI(username);
+		let url = "/deleteFriend";
+		let param = "friendID=" + encodedFriendID;
+		var xhr = new XMLHttpRequest();
+		xhr.open("POST", url, true);
+		xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+		xhr.send(param);
+		
 	}
 }
 
