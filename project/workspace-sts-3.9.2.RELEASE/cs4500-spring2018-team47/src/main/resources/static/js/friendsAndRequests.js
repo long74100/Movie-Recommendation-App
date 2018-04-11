@@ -29,3 +29,14 @@ function addFriend(value, thisButton) {
 	xhr.send(param);
 	thisButton.innerHTML = "Accepted!";
 }
+
+function init() {
+	let deleteFriendBtns = document.querySelectorAll(".delete-friend");
+	console.log(deleteFriendBtns);
+	for (let btn of deleteFriendBtns) {
+		let username = btn.parentElement.parentElement.firstElementChild.innerText;
+		console.log(username);
+	}
+}
+
+document.addEventListener("DOMContentLoaded", init);
