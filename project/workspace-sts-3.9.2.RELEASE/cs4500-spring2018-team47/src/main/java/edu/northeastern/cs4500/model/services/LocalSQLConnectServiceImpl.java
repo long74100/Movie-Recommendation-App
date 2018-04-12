@@ -281,7 +281,7 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 
 	@Override
 	public void blockSender(int senderId, int receiverId) throws SQLException {
-		String sqlcmd = "update userRelation set isSenderBlocked = 1 where senderId = ? and receiverId = ?";
+		String sqlcmd = "update userRelation set isSenderBlocked = 1, relationStatus = \"senderBlocked\" where senderId = ? and receiverId = ?";
 		PreparedStatement pstmt = null;
 		try {
 			openConToDatabase();
@@ -303,7 +303,7 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 
 	@Override
 	public void blockReceiver(int senderId, int receiverId) throws SQLException {
-		String sqlcmd = "update userRelation set isReceiverBlocked = 1 where senderId = ? and receiverId = ?";
+		String sqlcmd = "update userRelation set isReceiverBlocked = 1, relationStatus = \"receiverBlocked\" where senderId = ? and receiverId = ?";
 		PreparedStatement pstmt = null;
 		try {
 			openConToDatabase();

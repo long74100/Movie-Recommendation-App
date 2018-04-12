@@ -547,12 +547,30 @@ public class LocalSQLConnectServiceTest {
 	
 	@Test
 	public void testBlockSender() throws SQLException {
-	  
+	    initMockUsers();
+	    localSQLConnectService.sendFriendRequest(stub1Id, stub2Id);
+	    
+	    assertEquals("onHold", localSQLConnectService.getUserRelation(stub1Id, stub2Id));
+	    
+	    localSQLConnectService.blockSender(stub1Id, stub2Id);
+	    
+	    assertEquals("senderBlocked", localSQLConnectService.getUserRelation(stub1Id, stub2Id));
+	    
 	    
 	}
 	
+	@Test
 	public void testBlockReceiver() throws SQLException {
 	    initMockUsers();
+	    
+	    localSQLConnectService.sendFriendRequest(stub1Id, stub2Id);
+	    
+	    assertEquals("onHold", localSQLConnectService.getUserRelation(stub1Id, stub2Id));
+	    
+	    localSQLConnectService.blockReceiver(stub1Id, stub2Id);
+	    
+	    assertEquals("receiverBlocked", localSQLConnectService.getUserRelation(stub1Id, stub2Id));
+	    
 
 	}
 
