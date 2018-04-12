@@ -5,86 +5,153 @@
 	<head>
 	<title>Rotten Tomatillos</title>
 	<meta charset="UTF-8">
-	<link rel="stylesheet" type="text/css" href="../slick/slick.css"/>
-	<link rel="stylesheet" type="text/css" href="../slick/slick-theme.css"/>
+	<link rel="stylesheet" type="text/css" href="../slick/slick.css" />
+	<link rel="stylesheet" type="text/css" href="../slick/slick-theme.css" charset="UTF-8"/>
+	<link rel="stylesheet" href="../css/index.css">
 	<style type="text/css">
-	* {
-      box-sizing: border-box;
-    }
-
-    .slider {
-        width: 95%;
-        margin: 5px auto;
-    }
-    .slick-slide {
-    	margin: 0 10px;
-	}
-	/* the parent */
-	.slick-list {
-	    margin: 0 -10px;
-	}
-    .slick-prev:before, .slick-next:before { 
-    	color:grey !important;
-	}
-	.poster {
-		display: block;
-    	width: 100%;
-	}
-	.featured-movies{
-		margin: auto;
-    	width: 80%;
-    	height: 2000px;
-    	border: 3px solid #73AD21;
-    	padding: 10px;
-	}
-	.credits{
-		margin: auto;
-    	width: 80%;
-    	padding: 10px;
-    	background: #696969;
-	}
+	
 	</style>
 	</head>
 	
 	<body>
 	<noscript th:replace="fragments/quickAddCSSJS :: quickAddCSSJS"></noscript>
 	<div th:replace="fragments/navBar :: header"></div>
-	<div class="body">
-		<div class="slider your-class">
-			<div><img class="poster" src="https://image.tmdb.org/t/p/w600_and_h900_bestv2/vwFR5WI1RQ1RCxS0cdTbiSgaXJr.jpg"></div>
-			<div><img class="poster" src="https://image.tmdb.org/t/p/w600_and_h900_bestv2/sM33SANp9z6rXW8Itn7NnG1GOEs.jpg"></div>
-			<div><img class="poster" src="https://image.tmdb.org/t/p/w600_and_h900_bestv2/kOVEVeg59E0wsnXmF9nrh6OmWII.jpg"></div>
-			<div><img class="poster" src="https://image.tmdb.org/t/p/w600_and_h900_bestv2/eKi8dIrr8voobbaGzDpe8w0PVbC.jpg"></div>
-			<div><img class="poster" src="https://image.tmdb.org/t/p/w600_and_h900_bestv2/pU1ULUq8D3iRxl1fdX2lZIzdHuI.jpg"></div>
-			<div><img class="poster" src="https://image.tmdb.org/t/p/w600_and_h900_bestv2/uxzzxijgPIY7slzFvMotPv8wjKA.jpg"></div>
-			<div><img class="poster" src="https://image.tmdb.org/t/p/w600_and_h900_bestv2/fchHLsLjFvzAFSQykiMwdF1051.jpg"></div>
-			<div><img class="poster" src="https://image.tmdb.org/t/p/w600_and_h900_bestv2/ePyN2nX9t8SOl70eRW47Q29zUFO.jpg"></div>
+	<div id="body" class="body bg-dark" style="display:none;" >
+		<div class="slider movie-banner" th:if="${not #lists.isEmpty(popularMovies)}">
+			<div th:each="movie : ${popularMovies}">
+				<div><a th:href="@{/movie/{id}(id=${movie.theMovieDbID})}"><img class="poster" th:src="${movie.poster}"></a></div>
+			</div>
 		</div>
-		<div class="featured-movies">
-			<div><h1>Featured Movies!</h1></div>
+		<div class="section-text">
+			<div class="featured-movies" th:if="${not #lists.isEmpty(moviesInTheater)}">
+				<div class="row">
+					<div class="col-sm-2 col-md-2 col-lg-2">
+						<hr class="bg-danger p-2">
+					</div>
+					<div class="col-sm-3 col-md-3 col-lg-3">
+						<h3>Movies In Theaters</h3>
+					</div>
+					<div class="col-sm-7 col-md-7 col-lg-7">
+						<hr class="bg-danger p-2">
+					</div>
+				</div>
+				<div class="slider movies-in-theaters-info">
+					<div th:each="movie : ${moviesInTheater}">
+					<div class="row">
+						<div class="col-sm-3 col-md-4 col-lg-3">
+							<a th:href="@{/movie/{id}(id=${movie.theMovieDbID})}"><img th:src="${movie.poster}" class="poster"></a>
+						</div>
+						<div class="col-sm-3 col-md-4 col-lg-6">
+							<div class= title-con>
+								<a th:href="@{/movie/{id}(id=${movie.theMovieDbID})}"><b class= movie-title th:text="${movie.title}"></b></a>
+							</div>
+							<h3>Plot:</h3>
+							<p th:text="${movie.plot}"></p>
+							<div class="rating mt-1 m-0">
+							<p class="m-0">
+								Imdb Rating: <span th:text="${movie.imdbRating}"></span>
+							<p class="m-0">Community Rating:
+							</div>
+						</div>
+					</div>
+					</div>
+				</div>
+				<div class="slider movies-in-theaters-nav movie-nav">
+					<div th:each="movie : ${moviesInTheater}">
+						<div>
+							<img class="poster" th:src="${movie.poster}">
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-2 col-md-2 col-lg-2">
+						<hr class="bg-danger p-2">
+					</div>
+					<div class="col-sm-3 col-md-3 col-lg-3">
+						<h3 class="sec-head">Popular Movies</h3>
+					</div>
+					<div class="col-sm-7 col-md-7 col-lg-7">
+						<hr class="bg-danger p-2">
+					</div>
+				</div>
+				<div class="slider movies-popular-info">
+					<div th:each="movie : ${popularMovies}">
+					<div class="row">
+						<div class="col-sm-3 col-md-4 col-lg-3">
+							<a th:href="@{/movie/{id}(id=${movie.theMovieDbID})}"><img th:src="${movie.poster}" class="poster"></a>
+						</div>
+						<div class="col-sm-3 col-md-4 col-lg-6">
+							<div class= title-con>
+								<a th:href="@{/movie/{id}(id=${movie.theMovieDbID})}"><b class= movie-title th:text="${movie.title}"></b></a>
+							</div>
+							<h3>Plot:</h3>
+							<p th:text="${movie.plot}"></p>
+							<div class="rating mt-1 m-0">
+							<p class="m-0">
+								Imdb Rating: <span th:text="${movie.imdbRating}"></span>
+							<p class="m-0">Community Rating:
+							</div>
+						</div>
+					</div>
+					</div>
+				</div>
+				<div class="slider movies-popular-nav movie-nav">
+					<div th:each="movie : ${popularMovies}">
+						<div>
+							<img class="poster" th:src="${movie.poster}">
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-2 col-md-2 col-lg-2">
+						<hr class="bg-danger p-2">
+					</div>
+					<div class="col-sm-3 col-md-3 col-lg-3">
+						<h3>Movies Coming Soon</h3>
+					</div>
+					<div class="col-sm-7 col-md-7 col-lg-7">
+						<hr class="bg-danger p-2">
+					</div>
+				</div>
+				<div class="slider movies-coming-soon-info">
+					<div th:each="movie : ${moviesComingSoon}">
+					<div class="row">
+						<div class="col-sm-3 col-md-4 col-lg-3">
+							<a th:href="@{/movie/{id}(id=${movie.theMovieDbID})}"><img th:src="${movie.poster}" class="poster"></a>
+						</div>
+						<div class="col-sm-3 col-md-4 col-lg-6">
+							<div class= title-con>
+								<a th:href="@{/movie/{id}(id=${movie.theMovieDbID})}"><b class= movie-title th:text="${movie.title}"></b></a>
+							</div>
+							<h3>Plot:</h3>
+							<p th:text="${movie.plot}"></p>
+							<div class="rating mt-1 m-0">
+							<p class="m-0">
+								Imdb Rating: <span th:text="${movie.imdbRating}"></span>
+							<p class="m-0">Community Rating:
+							</div>
+						</div>
+					</div>
+					</div>
+				</div>
+				<div class="slider movies-coming-soon-nav movie-nav">
+					<div th:each="movie : ${moviesComingSoon}">
+						<div>
+							<img class="poster" th:src="${movie.poster}">
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="credits">
+				<div><h5>Data provided by</h5><a href="https://www.themoviedb.org">https://www.themoviedb.org</a></div>
+			</div>
 		</div>
-		<div class="credits">
-			<div><h1>Developed by cool people</h1></div>
-		</div>
-	
 	</div>
 	
 	<script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 	<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-	<script type="text/javascript" src="../slick/slick.js" charset="utf-8"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.0/slick.js"></script>
+	<script type="text/javascript" src="../js/index.js"></script>
 	
-	<script type="text/javascript">
-		$(document).ready(function(){
-			$('.your-class').slick({
-				arrows: true,
-				dots: true,
-				slidesToShow: 5,
-				slidesToScroll: 1,
-				autoplay: true,
-				autoplaySpeed: 2000,
-				
-			});
-		});
-	</script>
 </body>
 </html>

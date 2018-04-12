@@ -1,13 +1,13 @@
 package edu.northeastern.cs4500.controllers;
 
-import java.text.SimpleDateFormat;
+import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.Authentication;
@@ -17,24 +17,24 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.servlet.ModelAndView;
 
 import edu.northeastern.cs4500.model.movie.Movie;
-import edu.northeastern.cs4500.model.movie.MovieReview;
 import edu.northeastern.cs4500.model.services.ILocalSQLConnectService;
-import edu.northeastern.cs4500.model.services.LocalSQLConnectServiceImpl;
 import edu.northeastern.cs4500.model.services.UserService;
 import edu.northeastern.cs4500.model.user.User;
-import edu.northeastern.cs4500.model.user.UserProfile;
 
 @Controller
 public class UserprofileController {
 	
 	@Autowired
     private UserService userService;
-	private ILocalSQLConnectService sqlConnector = new LocalSQLConnectServiceImpl();
+	
+	@Autowired
+	private ILocalSQLConnectService localDbConnector;
+	
+	private static final Logger logger = LogManager.getLogger(UserprofileController.class);
 	
 	/**
 	 * This is to return the profile page
@@ -46,10 +46,14 @@ public class UserprofileController {
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		User user = userService.findUserByEmail(auth.getName());
 		
-		List<Movie> favorites = sqlConnector.getMovieFromUserMovieList(user.getId(), "Favorites");
+		try {
+		List<Movie> favorites = localDbConnector.getMovieFromUserMovieList(user.getId(), "Favorites");
 		modelAndView.addObject("favorites", favorites);
 		modelAndView.addObject("user", user);
 		modelAndView.setViewName("userProfile");
+		} catch (SQLException e) {
+			logger.error(e.getMessage());
+		}
 		return modelAndView;
 	}
 	
@@ -73,7 +77,12 @@ public class UserprofileController {
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		User user = userService.findUserByEmail(auth.getName());
 		modelAndView.addObject("user", user);
-		List<String> movieListNames = sqlConnector.getMovieListForUser(user.getId());
+		List<String> movieListNames = null;
+		try {
+			movieListNames = localDbConnector.getMovieListForUser(user.getId());
+		} catch (SQLException e) {
+			logger.error(e.getMessage());
+		}
 		modelAndView.addObject("usermovielist", movieListNames);
 		modelAndView.addObject("currentMovies", new ArrayList<Movie>());
 		modelAndView.setViewName("movielist");
@@ -89,7 +98,12 @@ public class UserprofileController {
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		User user = userService.findUserByEmail(auth.getName());
 		User profileUser = userService.findUserByUsername(username);
-		List<Movie> favorites = sqlConnector.getMovieFromUserMovieList(profileUser.getId(), "Favorites");
+		List<Movie> favorites = null;
+		try {
+			favorites = localDbConnector.getMovieFromUserMovieList(profileUser.getId(), "Favorites");
+		} catch (SQLException e) {
+			logger.error(e.getMessage());
+		}
 		modelAndView.addObject("favorites", favorites);
 		modelAndView.addObject("profileUser", profileUser);
 		modelAndView.addObject("user", user);
@@ -104,7 +118,11 @@ public class UserprofileController {
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		User user = userService.findUserByEmail(auth.getName());
 		User receiverUser = userService.findUserByUsername(username);
-		sqlConnector.sendFriendRequest(user.getId(), receiverUser.getId());
+		try {
+			localDbConnector.sendFriendRequest(user.getId(), receiverUser.getId());
+		} catch (SQLException e) {
+			logger.error(e.getMessage());
+		}
 		User profileUser = userService.findUserByUsername(username);
 		
 		modelAndView.addObject("user", user);
@@ -120,8 +138,14 @@ public class UserprofileController {
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		User user = userService.findUserByEmail(auth.getName());
 		modelAndView.addObject("user", user);
-		List<String> movieListNames = sqlConnector.getMovieListForUser(user.getId());
-		ArrayList<Movie> movies = sqlConnector.getMovieFromUserMovieList(user.getId(), listName);
+		List<String> movieListNames = null;
+		ArrayList<Movie> movies = null;
+		try {
+		movieListNames = localDbConnector.getMovieListForUser(user.getId());
+		movies = localDbConnector.getMovieFromUserMovieList(user.getId(), listName);
+		} catch (SQLException e) {
+			logger.error(e.getMessage());
+		}
 		modelAndView.addObject("usermovielist", movieListNames);
 		modelAndView.addObject("currentMovielist", listName);
 		modelAndView.addObject("currentMovies", movies);
@@ -137,9 +161,16 @@ public class UserprofileController {
 		ModelAndView modelAndView = new ModelAndView();
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		User user = userService.findUserByEmail(auth.getName());
-		List<User> friends = sqlConnector.getAllFriends(user.getId());
-		List<User> receivedRequest = sqlConnector.getAllReceivedFriendRequest(user.getId());
-		List<User> sentRequest = sqlConnector.getAllSentFriendRequest(user.getId());
+		List<User> friends = null;
+		List<User> receivedRequest = null;
+		List<User> sentRequest = null;
+		try {
+			friends = localDbConnector.getAllFriends(user.getId());
+			sentRequest = localDbConnector.getAllSentFriendRequest(user.getId());
+			receivedRequest = localDbConnector.getAllReceivedFriendRequest(user.getId());
+		} catch (SQLException e) {
+			logger.error(e.getMessage());
+		}
 		modelAndView.addObject("user", user);
 		modelAndView.addObject("friends", friends);
 		modelAndView.addObject("receivedRequest", receivedRequest);
@@ -150,13 +181,33 @@ public class UserprofileController {
 	}
 	
 	@RequestMapping(value="/acceptRequest", method=RequestMethod.POST)
-    @ResponseStatus(value = HttpStatus.OK)
-    public void acceptFriendRequest(HttpServletRequest httpServletRequest) {
-    	Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-    	User user = userService.findUserByEmail(auth.getName());
-    	sqlConnector.acceptRequest(Integer.valueOf(httpServletRequest.getParameter("senderID")), user.getId());
-    }
+	@ResponseStatus(value = HttpStatus.OK)
+	public void acceptFriendRequest(HttpServletRequest httpServletRequest) {
+	    Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+	    User user = userService.findUserByEmail(auth.getName());
+	    try {
+			localDbConnector.acceptRequest(Integer.valueOf(httpServletRequest.getParameter("senderID")), user.getId());
+		} catch (NumberFormatException e) {
+			logger.error(e.getMessage());
+		} catch (SQLException e) {
+			logger.error(e.getMessage());
+		}
+	}
 	
+	@RequestMapping(value="/deleteFriend", method=RequestMethod.POST)
+	@ResponseStatus(value = HttpStatus.OK)
+	public void deleteFriend(HttpServletRequest httpServletRequest) {
+	    Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+	    User user = userService.findUserByEmail(auth.getName());
+	    int userId = user.getId();
+	    int friendId = Integer.valueOf(httpServletRequest.getParameter("friendID"));
+	    try {
+			localDbConnector.deleteFriend(userId, friendId);
+		} catch (SQLException e) {
+			logger.error(e.getMessage());
+		}
+	    
+	}
 	
 	@RequestMapping(value= "/createMovieList", method=RequestMethod.POST)
 	@ResponseStatus(value = HttpStatus.OK)
@@ -165,7 +216,11 @@ public class UserprofileController {
     	User user = userService.findUserByEmail(auth.getName());
     	Integer userId = user.getId();
     	String newListName = httpservletRequest.getParameter("listName");
-    	sqlConnector.createMovieList(userId, newListName);
+    	try {
+			localDbConnector.createMovieList(userId, newListName);
+		} catch (SQLException e) {
+			logger.error(e.getMessage());
+		}
 	}
 	
 	
@@ -177,7 +232,11 @@ public class UserprofileController {
     	Integer userId = user.getId();
     	String movieList = httpserveletRequest.getParameter("listName");
     	String movieId = httpserveletRequest.getParameter("movieId");
-    	sqlConnector.deleteMovieFromUserMovieList(userId, movieList, movieId);
+    	try {
+			localDbConnector.deleteMovieFromUserMovieList(userId, movieList, movieId);
+		} catch (SQLException e) {
+			logger.error(e.getMessage());
+		}
 	}
 	
 
@@ -188,7 +247,11 @@ public class UserprofileController {
     	User user = userService.findUserByEmail(auth.getName());
     	Integer userId = user.getId();
     	String movieListName = httpserveletRequest.getParameter("listName");
-    	sqlConnector.deleteMovieList(userId, movieListName);
+    	try {
+			localDbConnector.deleteMovieList(userId, movieListName);
+		} catch (SQLException e) {
+			logger.error(e.getMessage());
+		}
 	}
 	
 	
@@ -199,6 +262,10 @@ public class UserprofileController {
     	User user = userService.findUserByEmail(auth.getName());
     	Integer userId = user.getId();
     	String movieListName = httpserveletRequest.getParameter("listName");
-    	sqlConnector.cleanMovieList(userId, movieListName);
+    	try {
+			localDbConnector.cleanMovieList(userId, movieListName);
+		} catch (SQLException e) {
+			logger.error(e.getMessage());
+		}
 	}
 }

@@ -1,7 +1,7 @@
 package edu.northeastern.cs4500.controllers;
 
 import java.io.IOException;
-
+import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -34,20 +34,26 @@ import edu.northeastern.cs4500.model.movie.MovieRating;
 import edu.northeastern.cs4500.model.movie.MovieReview;
 import edu.northeastern.cs4500.model.services.ILocalSQLConnectService;
 import edu.northeastern.cs4500.model.services.IMovieDBService;
-import edu.northeastern.cs4500.model.services.LocalSQLConnectServiceImpl;
 import edu.northeastern.cs4500.model.services.MovieDBServiceImpl;
 import edu.northeastern.cs4500.model.services.UserService;
 import edu.northeastern.cs4500.model.user.User;
 
 @Controller
 public class MovieController {
+	
+	@Autowired
+	private ILocalSQLConnectService localDbConnector;
 
 	private IMovieDBService movieDbService = new MovieDBServiceImpl();
-	private ILocalSQLConnectService localDbConnector = new LocalSQLConnectServiceImpl();
+	
 
 	private ArrayList<String> movieIDs = new ArrayList<>();
 
 	private static final Logger logger = LogManager.getLogger(MovieController.class);
+	
+	private static final String TITLE = "title";
+	private static final String IMDBID = "imdb_id";
+	private static final String MOVIE = "movie";
 	
 	@Autowired
 	private UserService userService;
@@ -69,7 +75,7 @@ public class MovieController {
 				movieJSON = movieJSONList.getJSONObject(x);
 				JSONObject movieCast = movieDbService.searchMovieCast(movieJSON.getInt("id"));
 				JSONObject movieDetails = movieDbService.searchMovieDetails(movieJSON.getInt("id"));
-				movie.setTitle(movieJSON.getString("title"));
+				movie.setTitle(movieJSON.getString(TITLE));
 				String actors = "";
 				for (int y = 0; y < 5; y++) {
 					actors += movieCast.getJSONArray("cast").getJSONObject(y).getString("name");
@@ -81,9 +87,9 @@ public class MovieController {
 				movie.setActors(actors);
 				movie.setReleased(movieJSON.getString("release_date"));
 				movie.setImdbRating(String.valueOf(movieJSON.getDouble("vote_average")));
-				movie.setImdbID(movieDetails.getString("imdb_id"));
+				movie.setImdbID(movieDetails.getString(IMDBID));
 				movie.setTheMovieDbID(String.valueOf(movieJSON.getInt("id")));
-				movie.setPoster("http://image.tmdb.org/t/p/w185/" + movieJSON.getString("poster_path"));
+				movie.setPoster("http://image.tmdb.org/t/p/original/" + movieJSON.getString("poster_path"));
 				movieList.add(movie);
 				movieIDs.add(movie.getTheMovieDbID());
 				x++;
@@ -96,14 +102,18 @@ public class MovieController {
 		}
 
 		// get list of users
-		userList = localDbConnector.keywordSearchUser(searchParam);
+		try {
+			userList = localDbConnector.keywordSearchUser(searchParam);
+		} catch (SQLException e) {
+			logger.error(e.getMessage());
+		}
 
 		ModelAndView modelAndView = new ModelAndView();
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		User user = userService.findUserByEmail(auth.getName());
 
 		modelAndView.addObject("user", user);
-		modelAndView.addObject("movie", movieList);
+		modelAndView.addObject(MOVIE, movieList);
 		modelAndView.addObject("users", userList);
 		modelAndView.setViewName("searchResult");
 		return modelAndView;
@@ -196,7 +206,7 @@ public class MovieController {
 			
 			try {
 				movie.put("director", director);
-				movie.put("title", movieJSON.getString("title"));
+				movie.put(TITLE, movieJSON.getString(TITLE));
 				movie.put("plot", movieJSON.getString("overview"));
 				movie.put("genre", genre.toString());
 				movie.put("released", movieJSON.getString("release_date"));
@@ -209,8 +219,8 @@ public class MovieController {
 				}
 				movie.put("country", contry.toString());
 				movie.put("imdbRating", String.valueOf(movieJSON.getInt("vote_average")));
-				movie.put("imdbID", movieJSON.getString("imdb_id"));
-				movie.put("poster", "http://image.tmdb.org/t/p/w185/" + movieJSON.getString("poster_path"));
+				movie.put("imdbID", movieJSON.getString(IMDBID));
+				movie.put("poster", "http://image.tmdb.org/t/p/original/" + movieJSON.getString("poster_path"));
 				movie.put("language", language.toString());
 				movie.put("movieDBid", id);
 			}
@@ -220,9 +230,17 @@ public class MovieController {
 			
 			
 			// load movie into local db when the user clicks into the movie pages.
-			localDbConnector.loadMovieIntoLocalDB(movie);
+			try {
+				localDbConnector.loadMovieIntoLocalDB(movie);
+			} catch (SQLException e) {
+				logger.error(e.getMessage());
+			}
 
-			reviews = localDbConnector.getReviewsForMovie(movieJSON.getString("imdb_id"));
+			try {
+				reviews = localDbConnector.getReviewsForMovie(movieJSON.getString(IMDBID));
+			} catch (SQLException e) {
+				logger.error(e.getMessage());
+			}
 			
 
 		} catch (IOException | JSONException e) {
@@ -235,20 +253,24 @@ public class MovieController {
 
 		modelAndView.addObject("reviews", reviews);
 		modelAndView.addObject("user", user);
-		modelAndView.addObject("movie", movie);
+		modelAndView.addObject(MOVIE, movie);
 
 		if (user != null) {
+			try {
 			// To extract user movie list
 			List<String> userMovieList = localDbConnector.getMovieListForUser(user.getId());
 			modelAndView.addObject("userMVlist", userMovieList);
 			int rating = localDbConnector.getRating(user.getId(), movie.get("imdbID"));
 			modelAndView.addObject("rating", rating);
 			modelAndView.addObject("userId", user.getId());
+			} catch (SQLException e) {
+				logger.error(e.getMessage());
+			}
 		} else {
 			modelAndView.addObject("userMVlist", new ArrayList<String>());
 		}
 
-		modelAndView.setViewName("movie");
+		modelAndView.setViewName(MOVIE);
 		return modelAndView;
 	}
 
@@ -265,7 +287,32 @@ public class MovieController {
 		
 		if (user != null) {
 			movieRating.setUserID(user.getId());
-			localDbConnector.insertRating(movieRating);
+			try {
+				localDbConnector.insertRating(movieRating);
+			} catch (SQLException e) {
+				logger.error(e.getMessage());
+			}
+		}
+	}
+	
+
+	@RequestMapping(value = "/movie/removeReview", method = RequestMethod.POST)
+	@ResponseStatus(value = HttpStatus.OK)
+	public void removeReview(@RequestBody String review, HttpServletRequest httpServletRequest) {
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		User user = userService.findUserByEmail(auth.getName());
+		
+		String userId = httpServletRequest.getParameter("userId");
+		String reviewId = httpServletRequest.getParameter("reviewId");
+		
+		if (user != null && ((Integer.valueOf(userId) == user.getId()) || user.getRole() == 2)) {
+		    try {
+				localDbConnector.removeReview(Integer.valueOf(reviewId));
+			} catch (NumberFormatException e) {
+				logger.error(e.getMessage());
+			} catch (SQLException e) {
+				logger.error(e.getMessage());
+			}
 		}
 	}
 
@@ -281,7 +328,11 @@ public class MovieController {
 		User user = userService.findUserByEmail(auth.getName());
 		movieReview.setUser_id(String.valueOf(user.getId()));
 		movieReview.setUsername(user.getUsername());
-		localDbConnector.addReviewToLocalDB(movieReview);
+		try {
+			localDbConnector.addReviewToLocalDB(movieReview);
+		} catch (SQLException e) {
+			logger.error(e.getMessage());
+		}
 	}
 
 	@RequestMapping(value = "/addMovieToList", method = RequestMethod.POST)
@@ -292,8 +343,12 @@ public class MovieController {
 		Integer userId = user.getId();
 		String listname = httpServletRequest.getParameter("movieList");
 		String movieId = httpServletRequest.getParameter("movieId");
-		String movieName = httpServletRequest.getParameter("movie");
-		localDbConnector.addMovieIntoMovieList(userId, listname, movieId, movieName);
+		String movieName = httpServletRequest.getParameter(MOVIE);
+		try {
+			localDbConnector.addMovieIntoMovieList(userId, listname, movieId, movieName);
+		} catch (SQLException e) {
+			logger.error(e.getMessage());
+		}
 	}
 
 	

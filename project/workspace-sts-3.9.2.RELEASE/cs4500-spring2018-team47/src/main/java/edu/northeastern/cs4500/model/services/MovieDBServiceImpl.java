@@ -5,9 +5,12 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -17,6 +20,7 @@ import org.json.JSONObject;
 public class MovieDBServiceImpl implements IMovieDBService{
 	
 	private static final String apiKey = "005e91dcdf4c4742c228833ea398ff7e";
+	private final DateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 	private static final String apiURL = "https://api.themoviedb.org/3/search/movie?api_key=" + apiKey + "&";
 	
 	public MovieDBServiceImpl() {
@@ -65,7 +69,7 @@ public class MovieDBServiceImpl implements IMovieDBService{
 	public JSONObject searchMovieDetails(int movieID) throws IOException, JSONException {
 		String urlString = "https://api.themoviedb.org/3/movie/"+ movieID +"?api_key=" + apiKey;
 		URL url = new URL(urlString);
-		return makeRequest(url);
+		return makeRequest(url); 
 	}
 	
 	//Helper method that adds the parameters to the url correctly
@@ -77,5 +81,35 @@ public class MovieDBServiceImpl implements IMovieDBService{
 	          url = url + searchType + "=" + searchValue + "&";
 	        }
 		 return url;
+	}
+
+	@Override
+	public JSONObject discoverInTheaterMovies() throws IOException, JSONException {
+		Calendar cal = Calendar.getInstance();
+		Date date = new Date();
+		cal.setTime(date);
+		cal.add(Calendar.DATE, -30);
+		Date dateBefore30Days = cal.getTime();
+		String sdate = sdf.format(dateBefore30Days);
+		String edate = sdf.format(date);
+		String urlString = "https://api.themoviedb.org/3/discover/movie?page=1&region=US&include_video=false&include_adult=false&sort_by=popularity.desc&language=en-US&primary_release_date.gte="+ sdate +"&primary_release_date.lte=" + edate + "&api_key=" + apiKey;
+		URL url = new URL(urlString);
+		return makeRequest(url);
+	}
+
+	@Override
+	public JSONObject discoverPopularMovies() throws IOException, JSONException {
+		String urlString = "https://api.themoviedb.org/3/discover/movie?page=1&include_video=false&include_adult=false&sort_by=popularity.desc&language=en-US&" + "&api_key=" + apiKey;
+		URL url = new URL(urlString);
+		return makeRequest(url);
+	}
+
+	@Override
+	public JSONObject discoverMoviesComingSoon() throws IOException, JSONException {
+		Date date = new Date();
+		String edate = sdf.format(date);
+		String urlString = "https://api.themoviedb.org/3/discover/movie?language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&primary_release_date.gte=" + edate + "&api_key=" + apiKey;
+		URL url = new URL(urlString);
+		return makeRequest(url);
 	}
 }

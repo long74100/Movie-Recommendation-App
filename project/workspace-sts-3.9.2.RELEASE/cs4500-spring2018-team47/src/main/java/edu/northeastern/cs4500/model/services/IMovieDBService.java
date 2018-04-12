@@ -18,7 +18,45 @@ public interface IMovieDBService {
 	 */
 	JSONObject searchMovieListByTitle(String title) throws IOException, JSONException;
 
+	/**
+	 * Searches a cast of a movie
+	 * @param id a movie id within themoviedb
+	 * @return a JSONObject of the movie cast
+	 * @throws IOException
+	 * @throws JSONException
+	 */
 	JSONObject searchMovieCast(int id) throws IOException, JSONException;
 
+	/**
+	 * Do a detailed search of a movie
+	 * @param id a movie id within themoviedb
+	 * @return A JSONObject of the movie details
+	 * @throws IOException
+	 * @throws JSONException
+	 */
 	JSONObject searchMovieDetails(int id) throws IOException, JSONException;
+	
+	/**
+	 * Gathers movies that are in theaters
+	 * @return A jsonObject of the movies that are in theaters
+	 * @IOExceptionthrown thrown if there was an error to connect to the API
+	 * @JSONException thrown if creation of json object fails
+	 */
+	JSONObject discoverInTheaterMovies() throws IOException, JSONException;
+	
+	/**
+	 * Gathers movies that are most popular
+	 * @return A jsonObject of the movies that are most popular
+	 * @IOExceptionthrown thrown if there was an error to connect to the API
+	 * @JSONException thrown if creation of json object fails
+	 */
+	JSONObject discoverPopularMovies() throws IOException, JSONException;
+	
+	/**
+	 * Gathers movies that are coming soon
+	 * @return A jsonObject of the movies that are coming soon
+	 * @IOExceptionthrown thrown if there was an error to connect to the API
+	 * @JSONException thrown if creation of json object fails
+	 */
+	JSONObject discoverMoviesComingSoon() throws IOException, JSONException;
 }

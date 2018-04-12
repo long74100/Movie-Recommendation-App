@@ -106,7 +106,7 @@
 			<hr class="bg-danger p-2">
 		</div>
 	</div>
-	<div class="container mt-3 rec">
+	<div class="container mt-3 rec" id="reviews">
 		<h1>REVIEWS</h1>
 
 		<div th:switch="${user}">
@@ -132,6 +132,13 @@
 					<div style="margin: 2px;">
 						<div th:text="${review.review}"></div>
 					</div>
+				</div>
+				
+				<div th:if="${user != null && (user.role == 2 || user.id.toString() == review.user_id)}" class="col-md-3">
+					<span th:text="${review.user_id}" class="d-none"></span>
+					<span th:text="${review.id}" class="d-none"></span>
+					
+					<button class="btn btn-danger remove-review">Remove</button>
 				</div>
 			</div>
 		</div>
