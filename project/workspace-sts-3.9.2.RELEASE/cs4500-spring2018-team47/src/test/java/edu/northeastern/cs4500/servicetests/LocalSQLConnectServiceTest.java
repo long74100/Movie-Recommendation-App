@@ -260,5 +260,15 @@ public class LocalSQLConnectServiceTest {
 	    
 	}
 	
+	/**
+	 * Test that remove user removes the user from the database.
+	 */
+	@Test
+	public void testRemoveUser() {
+	    assertNotNull(localSQLConnectService.getUser(stub1Id));
+	    localSQLConnectService.removeUser(stub1Id);
+	    assertNull(localSQLConnectService.getUser(stub1Id));
+	}
+	
 	
 }
