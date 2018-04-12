@@ -1,23 +1,20 @@
 package edu.northeastern.cs4500.servicetests;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 
 import java.io.IOException;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.junit.Before;
 import org.junit.Test;
 
-import edu.northeastern.cs4500.Cs4500Spring2018Team47ApplicationTests;
 import edu.northeastern.cs4500.model.services.IMovieDBService;
 import edu.northeastern.cs4500.model.services.MovieDBServiceImpl;
 
 public class MovieDBServiceImplTest {
 	
-	private static final Logger logger = LogManager.getLogger(MovieDBServiceImplTest.class);
 	private static IMovieDBService movieDbService;
 	
 	
@@ -93,4 +90,22 @@ public class MovieDBServiceImplTest {
 		assertEquals(expectedId, actualId);
 		assertEquals(expectedImdbId, actualImdbId);
 	}
+	
+	@Test
+	public void testDiscoverInTheaterMovies() throws JSONException, IOException {
+		JSONObject theaterJson = movieDbService.discoverInTheaterMovies();
+		assertNotEquals(null, theaterJson);
+	}
+	
+	@Test
+	public void testDiscoverPopularMovies() throws JSONException, IOException {
+		JSONObject theaterJson = movieDbService.discoverPopularMovies();
+		assertNotEquals(null, theaterJson);
+	}
+	
+	@Test
+	public void testDiscoverMoviesComingSoon() throws JSONException, IOException {
+		JSONObject theaterJson = movieDbService.discoverMoviesComingSoon();
+		assertNotEquals(null, theaterJson);
+}
 }

@@ -5,7 +5,6 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
@@ -15,7 +14,6 @@ import java.util.HashMap;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
@@ -1475,6 +1473,7 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 		
 		try {
 			openConToDatabase();
+			pstmt = connector.prepareStatement(sqlcmd);
 			myResult = pstmt.executeQuery();
 			while(myResult.next()) {
 				if(myResult.getString("username") == tempUser) {
