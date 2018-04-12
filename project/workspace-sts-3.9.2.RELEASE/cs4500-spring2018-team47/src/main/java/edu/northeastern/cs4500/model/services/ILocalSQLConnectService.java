@@ -30,14 +30,6 @@ public interface ILocalSQLConnectService {
 	 */
 	boolean containMovie(String movieId);
 
-	/**
-	 * To add multiple movies into the local database instead letting system load
-	 * one by one Note: (For admin user only) Might be in different class.
-	 * 
-	 * @param movieNames
-	 *            the names for list of movie that would be added to local database.
-	 */
-	void addMultiMovies(ArrayList<String> ids);
 
 	/**
 	 * To insert the data into the given table
@@ -52,19 +44,10 @@ public interface ILocalSQLConnectService {
 	/**
 	 * To delete the given movie from the local database
 	 * 
-	 * @param id
-	 *            the given movie id
+	 * @param id the given movie id
 	 */
 	void deleteFromMovieTable(String id);
 
-	/**
-	 * Note: this is more for testing only, use it carefully. To clear the table
-	 * with given tableName
-	 * 
-	 * @param tableName
-	 *            the given table that will be cleaned up
-	 */
-	void clearTable(String tableName);
 
 	/**
 	 * To search movie based on given keyword -- first start with the movie title
@@ -434,6 +417,13 @@ public interface ILocalSQLConnectService {
 	 * @return
 	 */
 	List<Prod> extractAllProdsForARecipient(int userId, String friendName);
+	
+	/**
+	 * Get all users with all the movie they already rated
+	 * output format is: Map<UserName, Map<Movie, rating>> 
+	 * @return map containing all users as well as corresponding movie they rated
+	 */
+	HashMap<String, HashMap<Movie, Double>> getSlopeOneDate();
 	
 	
 }

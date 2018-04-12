@@ -65,6 +65,9 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 		
 	}
 	
+	
+	
+	
     
     /**
      * To check if the given movie Id already exists in the database
@@ -1047,12 +1050,6 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 	}
 
 
-	@Override
-	public void addMultiMovies(ArrayList<String> ids) {
-		// TODO Auto-generated method stub
-		
-	}
-
 
 	@Override
 	public ArrayList<String> getSearchMovieResult() {
@@ -1133,7 +1130,6 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 			pstmt = connector.prepareStatement(sqlcmd);
 			pstmt.setInt(1, userId);
 			myResult = pstmt.executeQuery();
-			System.out.println(myResult.toString());
 			while(myResult.next()) {
 				Prod prod = new Prod();
 				prod.setSender(userId);
@@ -1251,9 +1247,6 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 				prod.setComment(myResult.getString("senderComment"));
 				prod.setMovieDBId(myResult.getString("movieDBId"));
 				prod.setMoviePoster(myResult.getString("moviePoster"));
-				System.out.println("receiverId = " + prod.getReceiver());
-				System.out.println("prod date = " + prod.getTime());
-				System.out.println("Sender Comment = " + prod.getComment());
 				output.add(prod);
 			}
 			
@@ -1298,9 +1291,6 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 				prod.setComment(myResult.getString("senderComment"));
 				prod.setMovieDBId(myResult.getString("movieDBId"));
 				prod.setMoviePoster(myResult.getString("moviePoster"));
-				System.out.println("receiverId = " + prod.getReceiver());
-				System.out.println("prod date = " + prod.getTime());
-				System.out.println("Sender Comment = " + prod.getComment());
 				output.add(prod);
 			}
 			
@@ -1309,6 +1299,49 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 			logger.error(sq.getMessage());
 		}
 		
+		return output;
+	}
+	
+	
+	@Override
+	public HashMap<String, HashMap<Movie, Double>> getSlopeOneDate() {
+		HashMap<String, HashMap<Movie, Double>> output = new HashMap<>();
+		String sqlcmd = "select user.username, comp.movie_id, comp.movieDBid, comp.movie_name, comp.poster, comp.rating from user join\r\n" + 
+				"(select rating.user_id, Movie.movie_id, Movie.movieDBid, Movie.movie_name, Movie.poster, rating.rating from Movie join rating where Movie.movie_id = rating.movie_id) as comp\r\n" + 
+				"where user.user_id = comp.user_id order by username";
+		PreparedStatement pstmt = null;
+		String tempUser = "";
+		HashMap<Movie, Double> tempMap = new HashMap<>();
+		
+		try {
+			myResult = pstmt.executeQuery();
+			while(myResult.next()) {
+				if(myResult.getString("username") == tempUser) {
+					Movie movie = new Movie();
+					movie.setImdbID(myResult.getString("movie_id"));
+					movie.setTheMovieDbID(myResult.getString("movieDBid"));
+					movie.setTitle(myResult.getString("movie_name"));
+					movie.setPoster(myResult.getString("poster"));
+					Double rating = myResult.getDouble("rating");
+					tempMap.put(movie, rating);
+				}
+				else {
+					output.put(tempUser, tempMap);
+					tempUser = myResult.getString("username");
+					tempMap = new HashMap<>();
+					Movie movie = new Movie();
+					movie.setImdbID(myResult.getString("movie_id"));
+					movie.setTheMovieDbID(myResult.getString("movieDBid"));
+					movie.setTitle(myResult.getString("movie_name"));
+					movie.setPoster(myResult.getString("poster"));
+					Double rating = myResult.getDouble("rating");
+					tempMap.put(movie, rating);
+				}
+			}
+		}
+		catch(SQLException sq) {
+			logger.error(sq.getMessage());
+		}
 		return output;
 	}
 
