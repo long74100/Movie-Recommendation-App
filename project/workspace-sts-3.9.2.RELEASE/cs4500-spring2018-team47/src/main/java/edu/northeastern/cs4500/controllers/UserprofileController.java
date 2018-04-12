@@ -89,6 +89,9 @@ public class UserprofileController {
 		return modelAndView;
 	}
 	
+	/*
+	 * view another person's profile page
+	 */
 	@RequestMapping(value="/view/{username}", method = RequestMethod.GET)
     public ModelAndView userProfile(@PathVariable String username) {
 		ModelAndView modelAndView = new ModelAndView();
@@ -107,7 +110,6 @@ public class UserprofileController {
 		modelAndView.setViewName("fragments/userProfile/profilePage");
 		return modelAndView;
 	}
-	
 	@RequestMapping(value="/view/{username}", method = RequestMethod.POST)
     public ModelAndView addFriend(@PathVariable String username) {
 		
