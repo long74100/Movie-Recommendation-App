@@ -38,7 +38,6 @@ import edu.northeastern.cs4500.prod.Prod;
 
 @Service("localDbConnector")
 public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
-
 	// the local database URL
 	private static String url = "jdbc:mysql://team-47-dev-db.cllrg7hgpqkh.us-east-2.rds.amazonaws.com/"
 			+ "cs4500_spring2018_team47_dev";
@@ -281,7 +280,7 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 
 	@Override
 	public void blockSender(int senderId, int receiverId) throws SQLException {
-		String sqlcmd = "update userRelation set isSenderBlocked = 1 where senderId = ? and receiverId = ?";
+		String sqlcmd = "update userRelation set isSenderBlocked = 1, relationStatus = \"senderBlocked\" where senderId = ? and receiverId = ?";
 		PreparedStatement pstmt = null;
 		try {
 			openConToDatabase();
@@ -303,7 +302,7 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 
 	@Override
 	public void blockReceiver(int senderId, int receiverId) throws SQLException {
-		String sqlcmd = "update userRelation set isReceiverBlocked = 1 where senderId = ? and receiverId = ?";
+		String sqlcmd = "update userRelation set isReceiverBlocked = 1, relationStatus = \"receiverBlocked\" where senderId = ? and receiverId = ?";
 		PreparedStatement pstmt = null;
 		try {
 			openConToDatabase();
