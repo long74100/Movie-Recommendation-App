@@ -3,7 +3,6 @@ package edu.northeastern.cs4500.model.services;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
-import edu.northeastern.cs4500.model.user.User;
 
 public class SystemRecommendationAlgo {
 	Map<String,Map<String, Double>> data;
@@ -15,15 +14,18 @@ public class SystemRecommendationAlgo {
 		buildDiffMatrix();
 	}
 	
+	/*
+	 * Takes in a user and returns a list of recommended movies based off of slopeOne.
+	 */
 	public Map<String, Double> predict(String user)
     {
 		Map<String, Double> getUserData = data.get(user);
         HashMap<String, Double> predictions = new HashMap<>();
         HashMap<String, Integer> frequencies = new HashMap<>();
-        for (String x : diff.keySet())
+        for (String movieID : diff.keySet())
         {
-            frequencies.put(x, 0);
-            predictions.put(x, 0.0);
+            frequencies.put(movieID, 0);
+            predictions.put(movieID, 0.0);
         }
         for (String movieID : getUserData.keySet())
         {
@@ -48,13 +50,25 @@ public class SystemRecommendationAlgo {
                 cleanpredictions.put(movieID, predictions.get(movieID) / frequencies.get(movieID).intValue());
             }
         }
-        for (String x : getUserData.keySet())
+        
+        for (String movieID : getUserData.keySet())
         {
-            cleanpredictions.put(x, getUserData.get(x));
+        	if (!predictions.containsKey(movieID)) {
+                cleanpredictions.put(movieID, getUserData.get(movieID));
+        	}
+        	else {
+        		cleanpredictions.remove(movieID);
+        	}
         }
         return cleanpredictions;
     }
 	
+	/*
+	 * takes all the data and fills in difference and frequency matrix.
+	 * Both matrices all movie's reviewed by all movies' reviewed.
+	 * Difference matrix shows how different/similar a movie is to each other (same movie being 0)
+	 * Frequency Matrix just shows the number of occurrences for that item
+	 */
 	public void buildDiffMatrix() {
 		diff = new HashMap<>();
 		freq = new HashMap<>();
@@ -82,12 +96,11 @@ public class SystemRecommendationAlgo {
 			}
 			
 		}
-		
-		for (String x : diff.keySet()) {
-			for (String y :diff.get(x).keySet()) {
-				double oldValue = diff.get(x).get(y).doubleValue();
-				int count = freq.get(x).get(y).intValue();
-				diff.get(x).put(y, oldValue / count);
+		for (String username : diff.keySet()) {
+			for (String movieID :diff.get(username).keySet()) {
+				double oldValue = diff.get(username).get(movieID).doubleValue();
+				int count = freq.get(username).get(movieID).intValue();
+				diff.get(username).put(movieID, oldValue / count);
 			}
 		}
 	}
