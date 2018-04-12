@@ -20,7 +20,7 @@ import org.json.JSONObject;
 public class MovieDBServiceImpl implements IMovieDBService{
 	
 	private static final String apiKey = "005e91dcdf4c4742c228833ea398ff7e";
-	private static final DateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+	private final DateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 	private static final String apiURL = "https://api.themoviedb.org/3/search/movie?api_key=" + apiKey + "&";
 	
 	public MovieDBServiceImpl() {
@@ -92,7 +92,7 @@ public class MovieDBServiceImpl implements IMovieDBService{
 		Date dateBefore30Days = cal.getTime();
 		String sdate = sdf.format(dateBefore30Days);
 		String edate = sdf.format(date);
-		String urlString = "https://api.themoviedb.org/3/discover/movie?page=1&include_video=false&include_adult=false&sort_by=popularity.desc&language=en-US&primary_release_date.gte="+ sdate +"&primary_release_date.lte=" + edate + "&api_key=" + apiKey;
+		String urlString = "https://api.themoviedb.org/3/discover/movie?page=1&region=US&include_video=false&include_adult=false&sort_by=popularity.desc&language=en-US&primary_release_date.gte="+ sdate +"&primary_release_date.lte=" + edate + "&api_key=" + apiKey;
 		URL url = new URL(urlString);
 		return makeRequest(url);
 	}

@@ -1,8 +1,12 @@
 package edu.northeastern.cs4500.controllers;
 
+import java.sql.SQLException;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -29,6 +33,7 @@ import edu.northeastern.cs4500.model.user.User;
 @RequestMapping("/admin")
 public class AdminController {
 	private ILocalSQLConnectService localDbConnector = new LocalSQLConnectServiceImpl();
+	private static final Logger logger = LogManager.getLogger(AdminController.class);
 
 	@Autowired
 	private UserService userService;
@@ -41,9 +46,17 @@ public class AdminController {
 		int status = Integer.valueOf(httpServletRequest.getParameter("userStatus"));
 		
 		if (status == 0) {
-		    localDbConnector.updateUserStatus(id, 1);
+		    try {
+				localDbConnector.updateUserStatus(id, 1);
+			} catch (SQLException e) {
+				logger.error(e.getMessage());
+			}
 		} else {
-		    localDbConnector.updateUserStatus(id, 0);
+		    try {
+				localDbConnector.updateUserStatus(id, 0);
+			} catch (SQLException e) {
+				logger.error(e.getMessage());
+			}
 		}
 				
 	}
@@ -64,7 +77,12 @@ public class AdminController {
 	    ModelAndView modelAndView = new ModelAndView();
 	    Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 	    User user = userService.findUserByEmail(auth.getName());
-	    List<User> bannedList = localDbConnector.getBannedList();
+	    List<User> bannedList = null;
+		try {
+			bannedList = localDbConnector.getBannedList();
+		} catch (SQLException e) {
+			logger.error(e.getMessage());
+		}
 	    modelAndView.addObject("banned", bannedList);
 	    modelAndView.setViewName("banned");
 	    return modelAndView;
