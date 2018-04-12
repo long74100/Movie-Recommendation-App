@@ -25,7 +25,7 @@
 	width: 96.4%;
 	height: 140px;
 	margin-bottom: 0px;
-	border: 3px solid #e31b78;
+	border: 3px solid #dc3545;
 }
 
 .leftMenu {
@@ -43,12 +43,12 @@
 	font-size: 15px;
 	/*padding: 0px 0px 0px 0px;*/
 	padding: 7px 10px;
-	color: #e31b78;
+	color: #dc3545;
 	margin-bottom: 5px;
 	cursor: pointer;
 	text-align: center;
 	overflow: hidden;
-	background: linear-gradient(to right, #e31b78 50%, black 50%);
+	background: linear-gradient(to right, #dc3545 50%, black 50%);
 	background-size: 200% 100%;
 	background-position: right bottom;
 	transition: all 0.25s ease;
@@ -74,7 +74,7 @@
 	cursor: pointer;
 	padding-top: 9px;
 	padding-bottom: 9px;
-	color: #e31b78;
+	color: #dc3545;
 	text-align: center;
 	width: 180px;
 }
