@@ -352,6 +352,7 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 	public void preloadMovieList(int userId) {
 		try {
 			createMovieList(userId, "Favorites");
+			createMovieList(userId, "Browse History");
 		} catch (SQLException e) {
 			logger.error(e.getMessage());
 		}
