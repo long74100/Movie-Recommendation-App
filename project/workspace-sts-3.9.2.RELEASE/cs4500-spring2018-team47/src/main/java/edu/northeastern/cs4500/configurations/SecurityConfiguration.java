@@ -4,6 +4,7 @@ import javax.sql.DataSource;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -21,8 +22,12 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
 	@Autowired
 	private DataSource dataSource;
-	private final String userQuery = "select email, password, active from user where email=? and active = 1";
-	private final String roleQuery = "select email, role.role from user join role on user.role = role.role_id  where email=?";
+	
+	@Value("${user.Query}")
+	private String userQuery;
+	
+	@Value("${role.Query}")
+	private String roleQuery;
 	
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth)

@@ -34,16 +34,18 @@ import edu.northeastern.cs4500.model.movie.MovieRating;
 import edu.northeastern.cs4500.model.movie.MovieReview;
 import edu.northeastern.cs4500.model.services.ILocalSQLConnectService;
 import edu.northeastern.cs4500.model.services.IMovieDBService;
-import edu.northeastern.cs4500.model.services.LocalSQLConnectServiceImpl;
 import edu.northeastern.cs4500.model.services.MovieDBServiceImpl;
 import edu.northeastern.cs4500.model.services.UserService;
 import edu.northeastern.cs4500.model.user.User;
 
 @Controller
 public class MovieController {
+	
+	@Autowired
+	private ILocalSQLConnectService localDbConnector;
 
 	private IMovieDBService movieDbService = new MovieDBServiceImpl();
-	private ILocalSQLConnectService localDbConnector = new LocalSQLConnectServiceImpl();
+	
 
 	private ArrayList<String> movieIDs = new ArrayList<>();
 
@@ -111,7 +113,7 @@ public class MovieController {
 		User user = userService.findUserByEmail(auth.getName());
 
 		modelAndView.addObject("user", user);
-		modelAndView.addObject("movie", movieList);
+		modelAndView.addObject(MOVIE, movieList);
 		modelAndView.addObject("users", userList);
 		modelAndView.setViewName("searchResult");
 		return modelAndView;
@@ -251,7 +253,7 @@ public class MovieController {
 
 		modelAndView.addObject("reviews", reviews);
 		modelAndView.addObject("user", user);
-		modelAndView.addObject("movie", movie);
+		modelAndView.addObject(MOVIE, movie);
 
 		if (user != null) {
 			try {
@@ -268,7 +270,7 @@ public class MovieController {
 			modelAndView.addObject("userMVlist", new ArrayList<String>());
 		}
 
-		modelAndView.setViewName("movie");
+		modelAndView.setViewName(MOVIE);
 		return modelAndView;
 	}
 
@@ -341,7 +343,7 @@ public class MovieController {
 		Integer userId = user.getId();
 		String listname = httpServletRequest.getParameter("movieList");
 		String movieId = httpServletRequest.getParameter("movieId");
-		String movieName = httpServletRequest.getParameter("movie");
+		String movieName = httpServletRequest.getParameter(MOVIE);
 		try {
 			localDbConnector.addMovieIntoMovieList(userId, listname, movieId, movieName);
 		} catch (SQLException e) {
