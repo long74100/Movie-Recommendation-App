@@ -25,16 +25,17 @@ import edu.northeastern.cs4500.model.user.User;
 
 @SpringBootTest
 public class LocalSQLConnectServiceTest {
-    
-    	@Value("${spring.datasource.password}")
-    	private static String dbPassword = "TbthaGCmiimWrtayxr4MBEcD3tVB3sY";
-    	
+
+	@Value("${spring.datasource.password}")
+	private static String dbPassword = "TbthaGCmiimWrtayxr4MBEcD3tVB3sY";
+
 	private static ILocalSQLConnectService localSQLConnectService;
-	
+
 	// mock movie
 	private static String movieId = "1";
+
 	private static Map<String, String> movieObject;
-	
+
 	// mock user
 	private static User stub1;
 	private static User stub2;
@@ -53,7 +54,7 @@ public class LocalSQLConnectServiceTest {
 
 	private static User noSuchUser;
 	private static int noSuchId = 983729;
-	
+
 	// mock review
 	private static MovieReview mockReview;
 	private static int mockReviewId = 983730;
@@ -69,10 +70,11 @@ public class LocalSQLConnectServiceTest {
 		cleanMockReview();
 		cleanMockRating();
 	}
-	
+
 	/**
 	 * Initialize mock users for testing.
-	 * @throws SQLException 
+	 * 
+	 * @throws SQLException
 	 */
 	private void initMockUsers() throws SQLException {
 
@@ -102,20 +104,22 @@ public class LocalSQLConnectServiceTest {
 		localSQLConnectService.insertUser(stub2);
 
 	}
-	
+
 	/**
 	 * Clean up mock users.
-	 * @throws SQLException 
+	 * 
+	 * @throws SQLException
 	 */
 	private void cleanMockUsers() throws SQLException {
 		localSQLConnectService.removeUser(stub1Id);
 		localSQLConnectService.removeUser(stub2Id);
 
 	}
-	
+
 	/**
 	 * Initialize mock movie for testing.
-	 * @throws SQLException 
+	 * 
+	 * @throws SQLException
 	 */
 	private void initMockMovie() throws SQLException {
 		movieObject = new HashMap<>();
@@ -134,35 +138,38 @@ public class LocalSQLConnectServiceTest {
 		movieObject.put("movieDBid", "test");
 		localSQLConnectService.loadMovieIntoLocalDB(movieObject);
 	}
-	
+
 	/**
 	 * Clean up mock movie.
-	 * @throws SQLException 
+	 * 
+	 * @throws SQLException
 	 */
 	private void cleanMockMovie() throws SQLException {
 		localSQLConnectService.deleteFromMovieTable(movieId);
 	}
-	
+
 	/**
 	 * Creates a mock review for testing.
-	 * @throws SQLException 
+	 * 
+	 * @throws SQLException
 	 */
 	private void initMockReview() throws SQLException {
-	    initMockMovie();
-	    initMockUsers();
-	    
-	    mockReview = new MovieReview();
-	    mockReview.setId(mockReviewId);
-	    mockReview.setMovie_id(movieId);
-	    mockReview.setUser_id(String.valueOf(stub1Id));
-	    mockReview.setUsername(stub1Username);
-	    mockReview.setDate("2018-04-11 00:00:00");
-	    mockReview.setReview("this review is fake");
-	    localSQLConnectService.addReviewToLocalDB(mockReview);
+		initMockMovie();
+		initMockUsers();
+
+		mockReview = new MovieReview();
+		mockReview.setId(mockReviewId);
+		mockReview.setMovie_id(movieId);
+		mockReview.setUser_id(String.valueOf(stub1Id));
+		mockReview.setUsername(stub1Username);
+		mockReview.setDate("2018-04-11 00:00:00");
+		mockReview.setReview("this review is fake");
+		localSQLConnectService.addReviewToLocalDB(mockReview);
 
 	}
-	
+
 	/**
+
 	 * Clean the mock review.
 	 * @throws SQLException 
 	 */
@@ -200,7 +207,24 @@ public class LocalSQLConnectServiceTest {
 	
 
 	@Test
-	public void testContainMovie() throws SQLException {
+	public void testPreloadMovie() throws SQLException {
+		initMockUsers();
+		List<String> watchLists1 = localSQLConnectService.getMovieListForUser(stub1Id);
+		List<String> watchLists2 = localSQLConnectService.getMovieListForUser(stub2Id);
+		assertEquals(0, watchLists1.size());
+		assertEquals(0, watchLists2.size());
+		localSQLConnectService.preloadMovieList(stub2Id);
+		watchLists1 = localSQLConnectService.getMovieListForUser(stub1Id);
+		watchLists2 = localSQLConnectService.getMovieListForUser(stub2Id);
+		assertEquals(0, watchLists1.size());
+		assertEquals(2, watchLists2.size());
+		assertEquals("Favorites", watchLists2.get(0));
+		assertEquals("Browse History", watchLists2.get(0));
+		cleanMockUsers();
+	}
+
+	@Test
+	public void testContainMovieAndLoadMovie() throws SQLException {
 		// does not contain movie
 		boolean actual = localSQLConnectService.containMovie(movieId);
 		assertFalse(actual);
@@ -217,19 +241,21 @@ public class LocalSQLConnectServiceTest {
 	}
 
 	@Test
-	public void testLoadMovieIntoLocalDB() {
-
+	public void testCreateMovieList() throws SQLException {
+		initMockUsers();
+		List<String> watchLists1 = localSQLConnectService.getMovieListForUser(stub1Id);
+		assertEquals(0, watchLists1.size());
+		localSQLConnectService.createMovieList(stub1Id, "NewTestList");
+		watchLists1 = localSQLConnectService.getMovieListForUser(stub1Id);
+		assertEquals(1, watchLists1.size());
+		assertEquals("NewTestList", watchLists1.get(0));
+		cleanMockUsers();
 	}
-
-	// @Test
-	// public void testCreateMovieList() {
-	// //NEED TO FIGURE OUT HOW TO SAVE USER
-	// localSQLConnectService.createMovieList(32, "NewTestList+A");
-	// }
 
 	/**
 	 * Test that getBannedList returns a list of banned users.
-	 * @throws SQLException 
+	 * 
+	 * @throws SQLException
 	 */
 	@Test
 	public void testGetBannedList() throws SQLException {
@@ -255,12 +281,12 @@ public class LocalSQLConnectServiceTest {
 		// check that banned list contains banned user
 		assertTrue(stub1IsBanned);
 
-
 	}
 
 	/**
 	 * Test that getUser fetches the correct user.
-	 * @throws SQLException 
+	 * 
+	 * @throws SQLException
 	 */
 	@Test
 	public void testGetUser() throws SQLException {
@@ -283,7 +309,8 @@ public class LocalSQLConnectServiceTest {
 
 	/**
 	 * Test that updateUserStatus changes a user's active status.
-	 * @throws SQLException 
+	 * 
+	 * @throws SQLException
 	 */
 	@Test
 	public void testUpdateUserStatus() throws SQLException {
@@ -301,7 +328,8 @@ public class LocalSQLConnectServiceTest {
 
 	/**
 	 * Test that delete friend removes a user relation.
-	 * @throws SQLException 
+	 * 
+	 * @throws SQLException
 	 */
 	@Test
 	public void testDeleteFriend() throws SQLException {
@@ -322,7 +350,8 @@ public class LocalSQLConnectServiceTest {
 
 	/**
 	 * Test that getUserRelation fetches the correct relation.
-	 * @throws SQLException 
+	 * 
+	 * @throws SQLException
 	 */
 	@Test
 	public void testGetUserRelation() throws SQLException {
@@ -350,7 +379,8 @@ public class LocalSQLConnectServiceTest {
 
 	/**
 	 * Test that insertUser inserts a user into the database.
-	 * @throws SQLException 
+	 * 
+	 * @throws SQLException
 	 */
 	@Test
 	public void testInsertUser() throws SQLException {
@@ -379,7 +409,8 @@ public class LocalSQLConnectServiceTest {
 
 	/**
 	 * Test that remove user removes the user from the database.
-	 * @throws SQLException 
+	 * 
+	 * @throws SQLException
 	 */
 	@Test
 	public void testRemoveUser() throws SQLException {
@@ -390,69 +421,70 @@ public class LocalSQLConnectServiceTest {
 		assertNull(localSQLConnectService.getUser(stub1Id));
 
 	}
-	
-	
+
 	/**
 	 * Test that get reviewForUser gets the reviews of the user.
-	 * @throws SQLException 
+	 * 
+	 * @throws SQLException
 	 */
-	@Test 
+	@Test
 	public void testGetReviewForUser() throws SQLException {
-	    initMockReview();
-	    
-	    List<MovieReview> reviews = localSQLConnectService.getReviewForUser(String.valueOf(stub1Id));
-	    
-	    assertEquals(reviews.size(), 1);
-	    assertEquals(reviews.get(0).getReview(), "this review is fake");
-	    
+		initMockReview();
+
+		List<MovieReview> reviews = localSQLConnectService.getReviewForUser(String.valueOf(stub1Id));
+
+		assertEquals(reviews.size(), 1);
+		assertEquals(reviews.get(0).getReview(), "this review is fake");
+
 	}
 
-		
 	/**
 	 * Test that testGetReviewsForMovie gets the reviews for a movie.
+	 * 
 	 * @throws SQLException
 	 */
 	@Test
 	public void testGetReviewsForMovie() throws SQLException {
-	    initMockReview();
-	    
-	    List<MovieReview> reviews = localSQLConnectService.getReviewsForMovie(movieId);
-	    
-	    assertEquals(reviews.size(), 1);
-	    assertEquals(reviews.get(0).getReview(), "this review is fake");
-	    
+		initMockReview();
+
+		List<MovieReview> reviews = localSQLConnectService.getReviewsForMovie(movieId);
+
+		assertEquals(reviews.size(), 1);
+		assertEquals(reviews.get(0).getReview(), "this review is fake");
+
 	}
-	
-	
+
 	/**
 	 * Test that remove review removes a review from the database.
-	 * @throws SQLException 
-	 */
-	@Test
-	public void testRemoveReview() throws SQLException {
-	    initMockReview();
-	    List<MovieReview> reviews = localSQLConnectService.getReviewsForMovie(movieId);
-	    assertEquals(reviews.size(), 1);
-	    
-	    localSQLConnectService.removeReview(reviews.get(0).getId());
-	    	    
-	    reviews = localSQLConnectService.getReviewsForMovie(movieId);
-	    assertEquals(reviews.size(), 0);
-	    
-	}
-	
-	/**
-	 * Test that addReviewToLocalDb adds a review to the database
+	 * 
 	 * @throws SQLException
 	 */
 	@Test
-	public void testAddReviewToLocalDb() throws SQLException{
-	    List<MovieReview> reviews = localSQLConnectService.getReviewsForMovie(movieId);
-	    assertEquals(reviews.size(), 0);
-	    initMockReview();
-	    reviews = localSQLConnectService.getReviewsForMovie(movieId);
-	    assertEquals(reviews.size(), 1);
-	    
+	public void testRemoveReview() throws SQLException {
+		initMockReview();
+		List<MovieReview> reviews = localSQLConnectService.getReviewsForMovie(movieId);
+		assertEquals(reviews.size(), 1);
+
+		localSQLConnectService.removeReview(reviews.get(0).getId());
+
+		reviews = localSQLConnectService.getReviewsForMovie(movieId);
+		assertEquals(reviews.size(), 0);
+
+	}
+
+	/**
+	 * Test that addReviewToLocalDb adds a review to the database
+	 * 
+	 * @throws SQLException
+	 */
+	@Test
+	public void testAddReviewToLocalDb() throws SQLException {
+		List<MovieReview> reviews = localSQLConnectService.getReviewsForMovie(movieId);
+		assertEquals(reviews.size(), 0);
+		initMockReview();
+		reviews = localSQLConnectService.getReviewsForMovie(movieId);
+		assertEquals(reviews.size(), 1);
+
 	}
 	
 	
@@ -507,4 +539,3 @@ public class LocalSQLConnectServiceTest {
 	}
 
 }
-
