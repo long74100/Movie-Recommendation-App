@@ -2,11 +2,8 @@ package edu.northeastern.cs4500.model.services;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import org.json.JSONObject;
 
 import edu.northeastern.cs4500.model.movie.Movie;
 import edu.northeastern.cs4500.model.movie.MovieRating;
@@ -14,13 +11,6 @@ import edu.northeastern.cs4500.model.movie.MovieReview;
 import edu.northeastern.cs4500.model.user.User;
 
 public interface ILocalSQLConnectService {
-
-	/**
-	 * To load the new movie into the local database 1. To check if there is
-	 * existing id, which means the movie is already there. If there is one, don't
-	 * import 2. If there is no current movie id, load into the database.
-	 */
-	void loadMovieToLocalDB(JSONObject movieJSON);
 
 	/**
 	 * To check if the given movie Id already exists in the database.
@@ -32,14 +22,6 @@ public interface ILocalSQLConnectService {
 	boolean containMovie(String movieId) throws SQLException;
 
 	/**
-	 * To add multiple movies into the local database instead letting system load
-	 * one by one Note: (For admin user only) Might be in different class.
-	 * 
-	 * @param movieNames the names for list of movie that would be added to local database.
-	 */
-	void addMultiMovies(ArrayList<String> ids);
-
-	/**
 	 * To insert the data into the given table.
 	 * 
 	 * @param data the data will be inserted
@@ -47,78 +29,6 @@ public interface ILocalSQLConnectService {
 	 * @throws SQLException 
 	 */
 	void insertData(String data, String tableName) throws SQLException;
-
-	/**
-	 * To delete the given movie from the local database
-	 * 
-	 * @param id the given movie id
-	 * @throws SQLException 
-	 */
-	void deleteFromMovieTable(String id) throws SQLException;
-
-	/**
-	 * Note: this is more for testing only, use it carefully. To clear the table
-	 * with given tableName.
-	 * 
-	 * @param tableName the given table that will be cleaned up
-	 * @throws SQLException 
-	 */
-	void clearTable(String tableName) throws SQLException;
-
-	/**
-	 * To search movie based on given keyword -- first start with the movie title.
-	 * 
-	 * @param input the given searched string used for movie title
-	 * @throws SQLException 
-	 */
-	void searchKeyWordMovieTitle(String input) throws SQLException;
-
-	/**
-	 * To search movies which the actor with given name.
-	 * 
-	 * @param actorsName the name of actors
-	 * @throws SQLException 
-	 */
-	void searchKeyWordActorsName(String actorsName) throws SQLException;
-
-	/**
-	 * To search movies which the director with given name director.
-	 * 
-	 * @param directorName the name of director
-	 * @throws SQLException 
-	 */
-	void searchKeyWordDirectorName(String directorName) throws SQLException;
-
-	/**
-	 * To search movies with given genre.
-	 * 
-	 * @param genre the movie genre
-	 * @throws SQLException 
-	 */
-	void searchKeyWordGenre(String genre) throws SQLException;
-
-	/**
-	 * To search movies with given year of publication.
-	 * 
-	 * @param year the publication year period
-	 * @throws SQLException 
-	 */
-	void searchKeyWordTime(String year) throws SQLException;
-
-	/**
-	 * Search movie by keyword
-	 * 
-	 * @param keyword only
-	 * @throws SQLException 
-	 */
-	void searchByKeyWordInOne(String keyword) throws SQLException;
-
-	/**
-	 * To return the search result from local database.
-	 * 
-	 * @return list of movies relevant to the search keyword.
-	 */
-	ArrayList<String> getSearchMovieResult();
 
 	/**
 	 * To send friend request to receiver if there is non shown in relation list.
@@ -144,6 +54,7 @@ public interface ILocalSQLConnectService {
 	 * @param receiverId the user to receive friend request
 	 */
 	void rejectRequest(int senderId, int receiverId) throws SQLException;
+	
 	
 	/**
 	 * Removes a friend relationship.
@@ -197,15 +108,9 @@ public interface ILocalSQLConnectService {
 	 * @param username the user name that will be used as search keyword.
 	 * @return list of users
 	 */
+
 	List<User> keywordSearchUser(String username) throws SQLException;
 
-	/**
-	 * To return all movies stored in user's movie list with the given user id.
-	 * 
-	 * @param userId user who owns the movie list
-	 * @return list of movies
-	 */
-	HashMap<String, ArrayList<Movie>> getMovieFromMovieList(int userId);
 
 	/**
 	 * To get the movie list name for all movie lists belonging to given user.
@@ -261,22 +166,7 @@ public interface ILocalSQLConnectService {
 	String getUserRelation(int senderId, int receiverId) throws SQLException;
 
 	/**
-	 * To get all friend's userId as they are the request sender.
-	 * 
-	 * @param userId current user's id
-	 * @return list of friend id
-	 */
-	List<User> getAllFriendsAsSender(int userId) throws SQLException;
 
-	/**
-	 * To get all friend's userId as they are the request receiver.
-	 * 
-	 * @param userId current user's id
-	 * @return list of friend Id
-	 */
-	List<User> getAllFriendAsReceiver(int userId) throws SQLException;
-
-	/**
 	 * To get all friends.
 	 * 
 	 * @param userId the current user's id
@@ -375,6 +265,31 @@ public interface ILocalSQLConnectService {
 	 * @throws SQLException 
 	 */
 	List<User> getBannedList() throws SQLException;
+
+	/**
+	 * Gets the user with the given user id.
+	 * @param userId the user id
+	 * @return the user with the given id
+	 */
+	User getUser(int userId);
+	
+	/**
+	 * Inserts a user into the database.
+	 */
+	void insertUser(User user);
+	
+	/**
+	 * Removes a user from the database.
+	 * @param userId id of the user to remove
+	 */
+	void removeUser(int userId);
+
+	/**
+	 * Deletes a movie from the database
+	 * @param id the id of the movie to remove
+	 * @throws SQLException
+	 */
+	void deleteFromMovieTable(String id) throws SQLException;
 
 	
 }
