@@ -13,6 +13,7 @@ import edu.northeastern.cs4500.model.movie.MovieRating;
 import edu.northeastern.cs4500.model.movie.MovieReview;
 import edu.northeastern.cs4500.model.user.User;
 
+
 public interface ILocalSQLConnectService {
 
 	/**

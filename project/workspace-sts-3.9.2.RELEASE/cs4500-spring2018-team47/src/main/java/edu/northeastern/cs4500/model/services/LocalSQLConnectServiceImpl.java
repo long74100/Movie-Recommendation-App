@@ -15,6 +15,9 @@ import java.util.Map;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.json.JSONObject;
+import org.springframework.beans.factory.InitializingBean;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Service;
 
 import edu.northeastern.cs4500.model.movie.MovieReview;
 
@@ -32,14 +35,20 @@ import edu.northeastern.cs4500.model.user.User;
  * 
  * @author lgj81
  */
-public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
+@Service("localDbConnector")
+public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService, InitializingBean {
+	
     // the local database URL
     private static String url = "jdbc:mysql://team-47-dev-db.cllrg7hgpqkh.us-east-2.rds.amazonaws.com/"
 	    + "cs4500_spring2018_team47_dev";
+    
     // database username
     private static String username = "RuairiMSmillie";
+    
     // database password
-    private static String password = "TbthaGCmiimWrtayxr4MBEcD3tVB3sY";
+    @Value("${spring.datasource.password}")
+    private String password;
+    
     // this will be used to contain the Query command
     private static String command = "";
 
@@ -1168,5 +1177,11 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 	}
 	
     }
+
+	@Override
+	public void afterPropertiesSet() throws Exception {
+		// TODO Auto-generated method stub
+		logger.debug("property myValue:" + password);
+	}
 
 }
