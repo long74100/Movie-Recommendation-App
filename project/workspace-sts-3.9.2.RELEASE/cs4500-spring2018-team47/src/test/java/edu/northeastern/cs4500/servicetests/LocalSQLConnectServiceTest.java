@@ -1,15 +1,15 @@
 package edu.northeastern.cs4500.servicetests;
 
 import static org.junit.Assert.assertEquals;
-
-import java.util.List;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.junit.Before;
@@ -17,6 +17,7 @@ import org.junit.Test;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import edu.northeastern.cs4500.model.movie.Movie;
 import edu.northeastern.cs4500.model.movie.MovieRating;
 import edu.northeastern.cs4500.model.movie.MovieReview;
 import edu.northeastern.cs4500.model.services.ILocalSQLConnectService;
@@ -204,7 +205,28 @@ public class LocalSQLConnectServiceTest {
 	    }
 	}
 	
-	
+	@Test
+	public void testMovieFromUserMovieList() throws SQLException {
+		initMockUsers();
+		initMockMovie();
+		localSQLConnectService.preloadMovieList(stub1Id);
+		localSQLConnectService.addMovieIntoMovieList(stub1Id, "Favorites", movieId, "test");
+		ArrayList<Movie> movies = localSQLConnectService.getMovieFromUserMovieList(stub1Id, "Favorites");
+		assertEquals(1, movies.size());
+		Movie testMovie = movies.get(0);
+		assertEquals("test", testMovie.getTitle());
+		assertEquals(movieId, testMovie.getImdbID());
+		assertEquals("test", testMovie.getGenre());
+		assertEquals("test", testMovie.getPlot());
+		assertEquals("test", testMovie.getActors());
+		assertEquals("test", testMovie.getDirector());
+		assertEquals("test", testMovie.getReleased());
+		assertEquals("test", testMovie.getRuntime());
+		assertEquals("test", testMovie.getCountry());
+		assertEquals("0", testMovie.getImdbRating());
+		assertEquals("test", testMovie.getPoster());
+		assertEquals("test", testMovie.getTheMovieDbID());
+	}
 
 	@Test
 	public void testPreloadMovie() throws SQLException {
@@ -220,7 +242,6 @@ public class LocalSQLConnectServiceTest {
 		assertEquals(2, watchLists2.size());
 		assertEquals("Favorites", watchLists2.get(0));
 		assertEquals("Browse History", watchLists2.get(0));
-		cleanMockUsers();
 	}
 
 	@Test
@@ -249,7 +270,6 @@ public class LocalSQLConnectServiceTest {
 		watchLists1 = localSQLConnectService.getMovieListForUser(stub1Id);
 		assertEquals(1, watchLists1.size());
 		assertEquals("NewTestList", watchLists1.get(0));
-		cleanMockUsers();
 	}
 
 	/**
