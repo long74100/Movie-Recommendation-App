@@ -296,12 +296,6 @@ public class UserprofileController {
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		User user = userService.findUserByEmail(auth.getName());
 		
-		 // then, I'm going to test it out... 
-        System.out.println("Getting...");
-        
-        System.out.println("Controller:" + slopeOne.predict(user.getUsername()));
-		
-		
 		modelAndView.addObject("user", user);
 		modelAndView.addObject("recommendation", slopeOne.predict(user.getUsername()));
 		modelAndView.setViewName("systemRecommendation");

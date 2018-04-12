@@ -29,6 +29,7 @@ public class SystemRecommendationAlgo {
             frequencies.put(movieID, 0);
             predictions.put(movieID, 0.0);
         }
+        System.out.println("pred before: "+ predictions.values());
         try {
         for (Movie movieID : getUserData.keySet())
         {
@@ -47,8 +48,9 @@ public class SystemRecommendationAlgo {
         }
         }
         catch (Exception e) {
-        	
+        	System.out.println("error 1");
         }
+        System.out.println("predictions after: "+ predictions.values());
         HashMap<Movie, Double> cleanpredictions = new HashMap<>();
         for (Movie movieID : predictions.keySet())
         {
@@ -60,18 +62,18 @@ public class SystemRecommendationAlgo {
         try {
         for (Movie movieID : getUserData.keySet())
         {
-        	if (!predictions.containsKey(movieID)) {
+        	//if (!predictions.containsKey(movieID)) {
                 cleanpredictions.put(movieID, getUserData.get(movieID));
-        	}
-        	else {
-        		cleanpredictions.remove(movieID);
-        	}
+        	//}
+        	//else {
+        		//cleanpredictions.remove(movieID);
+        	//}
         }
         }
         catch (Exception e) {
-        	
+        	System.out.println("error 2");
         }
-        System.out.println("cleanPredict: "+ cleanpredictions);
+        System.out.println("cleanPredict after: "+ cleanpredictions);
         return cleanpredictions;
     }
 	
@@ -115,5 +117,7 @@ public class SystemRecommendationAlgo {
 				diff.get(username).put(movieID, oldValue / count);
 			}
 		}
+		System.out.println("diff table: "+ diff.values());
+		System.out.println("freq table: "+ freq.values());
 	}
 }
