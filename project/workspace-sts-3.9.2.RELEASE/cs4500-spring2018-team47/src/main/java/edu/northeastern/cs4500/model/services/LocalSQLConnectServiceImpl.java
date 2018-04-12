@@ -122,7 +122,6 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 
     @Override
     public void loadMovieIntoLocalDB(Map<String, String> movieObject) {
-	System.out.println("Start loading movie....");
 	try {
 	    String sqlcmd = "insert into Movie values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 	    String movie_id = movieObject.get("imdbID");
@@ -156,7 +155,6 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 		pstmt.setString(12, imdbRating);
 		pstmt.setString(13, movieDBid);
 		pstmt.executeUpdate();
-		System.out.println("loading movie finished");
 	    } catch (SQLException sq) {
 		logger.error(sq.getMessage());
 	    }finally {
@@ -548,15 +546,17 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 	} catch (SQLException e) {
 		logger.error(e.getMessage());
 	}
-	for (int i = 0; i < movieListName.size(); i++) {
-	    String listName = movieListName.get(i);
-	    ArrayList<Movie> movies = null;
-		try {
-			movies = this.getMovieFromUserMovieList(userId, listName);
-		} catch (SQLException e) {
-			logger.error(e.getMessage());
+	if (movieListName != null) {
+		for (int i = 0; i < movieListName.size(); i++) {
+		    String listName = movieListName.get(i);
+		    ArrayList<Movie> movies = null;
+			try {
+				movies = this.getMovieFromUserMovieList(userId, listName);
+			} catch (SQLException e) {
+				logger.error(e.getMessage());
+			}
+		    output.put(listName, movies);
 		}
-	    output.put(listName, movies);
 	}
 	return output;
     }
