@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -25,6 +26,7 @@ import edu.northeastern.cs4500.model.movie.Movie;
 import edu.northeastern.cs4500.model.movie.MovieReview;
 import edu.northeastern.cs4500.model.services.ILocalSQLConnectService;
 import edu.northeastern.cs4500.model.services.LocalSQLConnectServiceImpl;
+import edu.northeastern.cs4500.model.services.SystemRecommendationAlgo;
 import edu.northeastern.cs4500.model.services.UserService;
 import edu.northeastern.cs4500.model.user.User;
 import edu.northeastern.cs4500.model.user.UserProfile;
@@ -199,4 +201,66 @@ public class UserprofileController {
     	String movieListName = httpserveletRequest.getParameter("listName");
     	sqlConnector.cleanMovieList(userId, movieListName);
 	}
+	
+	@RequestMapping(value="/systemRecommendation", method = RequestMethod.GET)
+	public ModelAndView getSystemRecommendation() {
+		
+		
+		 // this is my data base 
+		  Map<String, Map<String, Double>> data = new HashMap<>(); 
+		  // items 
+		  String item_candy = "candy"; 
+		  String item_dog = "dog"; 
+		  String item_cat = "cat"; 
+		  String item_war = "war"; 
+		  String item_food = "strange food"; 
+		 
+		  //I'm going to fill it in 
+		  HashMap<String, Double> user1 = new HashMap<>(); 
+		  HashMap<String, Double> user2 = new HashMap<>(); 
+		  HashMap<String, Double> user3 = new HashMap<>(); 
+		  HashMap<String, Double> user4 = new HashMap<>(); 
+		  user1.put(item_candy, 1.0); 
+		  user1.put(item_dog, 0.5); 
+		  user1.put(item_war, 0.1); 
+		  data.put("Bob", user1); 
+		  user2.put(item_candy, 1.0); 
+		  user2.put(item_cat, 0.5); 
+		  user2.put(item_war, 0.2); 
+		  data.put("Jane", user2); 
+		  user3.put(item_candy, 0.9); 
+		  user3.put(item_dog, 0.4); 
+		  user3.put(item_cat, 0.5); 
+		  user3.put(item_war, 0.1); 
+		  data.put("Jo", user3); 
+		  user4.put(item_candy, 0.1); 
+		  user4.put(item_war, 1.0); 
+		  user4.put(item_food, 0.4); 
+		  data.put("StrangeJo", user4); 
+		 
+		  SystemRecommendationAlgo slopeOne = new SystemRecommendationAlgo(data);
+		  // then, I'm going to test it out... 
+		  HashMap<String, Double> user = new HashMap<>(); 
+		  System.out.println("Ok, now we predict...");
+	        user.put(item_food, 0.4);
+	        System.out.println("Inputting...");
+	        System.out.println(user);
+	        System.out.println("Getting...");
+	        System.out.println(slopeOne.predict(user));
+	        //
+	        user.put(item_war, 0.2);
+	        System.out.println("Inputting...");
+	        System.out.println(user);
+	        System.out.println("Getting...");
+	        System.out.println(slopeOne.predict(user));
+		
+		ModelAndView modelAndView = new ModelAndView();
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		User user10 = userService.findUserByEmail(auth.getName());
+		modelAndView.addObject("user", user2);
+		modelAndView.setViewName("listMoviesItem");
+		return modelAndView;
+	}
+	
+	
 }
