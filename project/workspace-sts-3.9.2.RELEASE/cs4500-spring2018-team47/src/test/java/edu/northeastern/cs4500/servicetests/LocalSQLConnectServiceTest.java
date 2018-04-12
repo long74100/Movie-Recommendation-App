@@ -9,6 +9,8 @@ import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 import java.util.HashMap;
 import java.util.Map;
+
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -22,17 +24,64 @@ public class LocalSQLConnectServiceTest {
 	private static ILocalSQLConnectService localSQLConnectService;
 	//mock movieID
 	private static String movieID = "tt0096895";
+	
+	private static User stub1;
+	private static User stub2;
+	
 	private static String stub1Email = "teststub1@email.com"; // id 78
 	private static String stub2Email = "teststub2@email.com"; // id 79
-	private static int stub1Id = 78;
-	private static int stub2Id = 79;
-	private static int noSuchId = 832019;
+	private static int stub1Id = 983721;
+	private static int stub2Id = 983722;
+	private static String stub1Username = "stub1username";
+	private static String stub2Username = "stub2username";
+	private static String stub1LastName = "stub1lastname";
+	private static String stub2lastName = "stub2lastname";
+	private static String stub1FirstName = "stub1FirstName";
+	private static String stub2FirstName = "stub2FirstName";
+	private static String password = "password";
+
+
+	private static int noSuchId = 983729;
 	
 	@Before
 	public void init() {
 		localSQLConnectService = new LocalSQLConnectServiceImpl();
+		
+		// set up mock user 1
+		stub1 = new User();
+		stub1.setId(stub1Id);
+		stub1.setActive(1);
+		stub1.setEmail(stub1Email);
+		stub1.setUsername(stub1Username);
+		stub1.setLastName(stub1LastName);
+		stub1.setFirstName(stub1FirstName);
+		stub1.setPassword(password);
+		stub1.setRole(1);
+		
+		
+		// set up mock user 2
+		stub2 = new User();
+		stub2.setId(stub2Id);
+		stub2.setActive(1);
+		stub2.setEmail(stub2Email);
+		stub2.setUsername(stub2Username);
+		stub2.setLastName(stub2lastName);
+		stub2.setFirstName(stub2FirstName);
+		stub2.setPassword(password);
+		stub2.setRole(1);
+		
+		localSQLConnectService.insertUser(stub1);
+		localSQLConnectService.insertUser(stub2);
+		
 	}
-//		
+	
+	@After
+	public void clean() {
+	    localSQLConnectService.removeUser(stub1Id);
+	    localSQLConnectService.removeUser(stub2Id);
+
+	}
+
 	// this test is failing
 	@Test
 	public void testContainMovie() {
@@ -117,10 +166,10 @@ public class LocalSQLConnectServiceTest {
 	    
 	    assertEquals(stub1.getActive(), 1);
 	    assertEquals(stub1.getEmail(), stub1Email);
-	    assertEquals(stub1.getFirstName(), "teststub");
-	    assertEquals(stub1.getLastName(), "1");
+	    assertEquals(stub1.getFirstName(), stub1FirstName);
+	    assertEquals(stub1.getLastName(), stub1LastName);
 	    assertEquals(stub1.getRole(), 1);
-	    assertEquals(stub1.getUsername(), "teststub1");
+	    assertEquals(stub1.getUsername(), stub1Username);
 	    
 	}
 	
@@ -165,22 +214,22 @@ public class LocalSQLConnectServiceTest {
 	@Test
 	public void testGetUserRelation() {
 	    // ensure no relation exists
-	    localSQLConnectService.deleteFriend(78, 79);
+	    localSQLConnectService.deleteFriend(stub1Id, stub2Id);
 
 	    // no relation
-	    assertEquals(localSQLConnectService.getUserRelation(78, 79), "");
+	    assertEquals(localSQLConnectService.getUserRelation(stub1Id, stub2Id), "");
 	    
 	    // request on hold
-	    localSQLConnectService.sendFriendRequest(78, 79);
-	    assertEquals(localSQLConnectService.getUserRelation(78, 79), "onHold");
+	    localSQLConnectService.sendFriendRequest(stub1Id, stub2Id);
+	    assertEquals(localSQLConnectService.getUserRelation(stub1Id, stub2Id), "onHold");
 	    
 	    // accepted
-	    localSQLConnectService.acceptRequest(78, 79);
-	    assertEquals(localSQLConnectService.getUserRelation(78, 79), "friend");
+	    localSQLConnectService.acceptRequest(stub1Id, stub2Id);
+	    assertEquals(localSQLConnectService.getUserRelation(stub1Id, stub2Id), "friend");
 	    
 	    // rejected
-	    localSQLConnectService.rejectRequest(78, 79);
-	    assertEquals(localSQLConnectService.getUserRelation(78, 79), "");
+	    localSQLConnectService.rejectRequest(stub1Id, stub2Id);
+	    assertEquals(localSQLConnectService.getUserRelation(stub1Id, stub2Id), "");
 	    
 	    
 	}
