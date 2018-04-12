@@ -127,7 +127,7 @@ public class LocalSQLConnectServiceTest {
 	 */
 
 	@Test
-	public void testContainMovie() throws SQLException {
+	public void testContainMovieAndLoadMovie() throws SQLException {
 		// does not contain movie
 		boolean actual = localSQLConnectService.containMovie("1");
 		assertFalse(actual);
@@ -142,11 +142,6 @@ public class LocalSQLConnectServiceTest {
 		assertFalse(actual);
 
 		cleanMockMovie();
-	}
-
-	@Test
-	public void testLoadMovieIntoLocalDB() {
-
 	}
 
 	// @Test
