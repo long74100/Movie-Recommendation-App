@@ -8,6 +8,7 @@ import java.util.HashMap;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -279,50 +280,44 @@ public class UserprofileController {
 	
 	@RequestMapping(value="/systemRecommendation", method = RequestMethod.GET)
 	public ModelAndView getSystemRecommendation() {
+		ModelAndView modelAndView = new ModelAndView();
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		User user = userService.findUserByEmail(auth.getName());
 		 // this is my data base 
 		  Map<String, Map<Movie, Double>> data = null;
+		  Map<String, Map<String, Double>> convertData = new HashMap<>();
 		try {
-			
 			data = localDbConnector.getSlopeOneData();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		for (String username : data.keySet()) {
+			Map<String, Double> convertDataTemp = new HashMap<>();
+			for (Movie df : data.get(username).keySet()) {
+				convertDataTemp.put(df.getTitle(), data.get(username).get(df).doubleValue());
+			}
+			convertData.put(username, convertDataTemp);
+		}
 		
-		  
-		  SystemRecommendationAlgo slopeOne = new SystemRecommendationAlgo(data);
-		
-		ModelAndView modelAndView = new ModelAndView();
-		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-		User user = userService.findUserByEmail(auth.getName());
+		SystemRecommendationAlgo slopeOne = new SystemRecommendationAlgo(convertData);
+
+		List<String> recommendNames = slopeOne.predict(user.getUsername());
+		List<Movie> recommend = new ArrayList<>();
+		for (int x = 0; x < recommendNames.size(); x++) {
+			try {
+				recommend.add(localDbConnector.findMovieByName(recommendNames.get(x)));
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
 		
 		modelAndView.addObject("user", user);
-		modelAndView.addObject("recommendation", slopeOne.predict(user.getUsername()));
+		modelAndView.addObject("recommend", recommend);
 		modelAndView.setViewName("systemRecommendation");
 		return modelAndView;
-	}
-	/**
-	 * This is to direct to the prod page
-	 * @return prod page
-	 */
-	/*@RequestMapping(value={"/prodRepo"}, method = RequestMethod.GET) 
-	public ModelAndView getProdList() {
-		ModelAndView modelAndView = new ModelAndView();
-		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-		User user = userService.findUserByEmail(auth.getName());
-		List<User> allFriends = new ArrayList<>();
-		try {
-			allFriends = localDbConnector.getAllFriends(user.getId());
-		}
-		catch(SQLException sq) {
-			logger.error(sq.getMessage());
-		}
-		modelAndView.addObject("friendList", allFriends);
-		modelAndView.addObject("user", user);
-		modelAndView.setViewName("prods");
-		return modelAndView;
-	}*/
-	
+	}	
 	
 	// so needs to create three page also. or see if we can do something like display block and none.
 	@RequestMapping(value={"/prodRepo+all+{repoName}"}, method = RequestMethod.GET)

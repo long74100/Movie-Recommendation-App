@@ -1,17 +1,18 @@
 package edu.northeastern.cs4500.model.services;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
-import edu.northeastern.cs4500.model.movie.Movie;
 
 public class SystemRecommendationAlgo {
-	Map<String,Map<Movie, Double>> data;
-	Map<Movie,Map<Movie, Double>> diff;
-	Map<Movie,Map<Movie, Integer>> freq;
+	Map<String,Map<String, Double>> data;
+	Map<String,Map<String, Double>> diff;
+	Map<String,Map<String, Integer>> freq;
 	
-	public SystemRecommendationAlgo(Map<String,Map<Movie,Double>> data) {
+	public SystemRecommendationAlgo(Map<String,Map<String,Double>> data) {
 		this.data = data;
 		buildDiffMatrix();
 	}
@@ -19,21 +20,21 @@ public class SystemRecommendationAlgo {
 	/*
 	 * Takes in a user and returns a list of recommended movies based off of slopeOne.
 	 */
-	public Map<Movie, Double> predict(String user)
+	public List<String> predict(String user)
     {
-		Map<Movie, Double> getUserData = data.get(user);
-        HashMap<Movie, Double> predictions = new HashMap<>();
-        HashMap<Movie, Integer> frequencies = new HashMap<>();
-        for (Movie movieID : diff.keySet())
+		Map<String, Double> getUserData = data.get(user);
+        HashMap<String, Double> predictions = new HashMap<>();
+        HashMap<String, Integer> frequencies = new HashMap<>();
+        for (String movieID : diff.keySet())
         {
             frequencies.put(movieID, 0);
             predictions.put(movieID, 0.0);
         }
         System.out.println("pred before: "+ predictions.values());
         try {
-        for (Movie movieID : getUserData.keySet())
+        for (String movieID : getUserData.keySet())
         {
-            for (Movie username : diff.keySet())
+            for (String username : diff.keySet())
             {
                 try
                 {
@@ -51,30 +52,31 @@ public class SystemRecommendationAlgo {
         	System.out.println("error 1");
         }
         System.out.println("predictions after: "+ predictions.values());
-        HashMap<Movie, Double> cleanpredictions = new HashMap<>();
-        for (Movie movieID : predictions.keySet())
+        List<String> cleanPredictions = new ArrayList<>();
+        for (String movieID : predictions.keySet())
         {
             if (frequencies.get(movieID) > 0)
             {
-                cleanpredictions.put(movieID, predictions.get(movieID) / frequencies.get(movieID).intValue());
+            	cleanPredictions.add(movieID);
             }
         }
         try {
-        for (Movie movieID : getUserData.keySet())
+        for (String movieID : getUserData.keySet())
         {
-        	//if (!predictions.containsKey(movieID)) {
-                cleanpredictions.put(movieID, getUserData.get(movieID));
-        	//}
-        	//else {
-        		//cleanpredictions.remove(movieID);
-        	//}
+        	if (!predictions.containsKey(movieID)) {
+               cleanPredictions.add(movieID);
+        	}
+        	else {
+        		cleanPredictions.remove(movieID);
+        	}
         }
         }
         catch (Exception e) {
         	System.out.println("error 2");
         }
-        System.out.println("cleanPredict after: "+ cleanpredictions);
-        return cleanpredictions;
+        
+        
+        return cleanPredictions;
     }
 	
 	/*
@@ -87,14 +89,14 @@ public class SystemRecommendationAlgo {
 		diff = new HashMap<>();
 		freq = new HashMap<>();
 		
-		for (Map<Movie, Double> user : data.values()) {
+		for (Map<String, Double> user : data.values()) {
 			
-			for (Entry<Movie, Double> e : user.entrySet()) {
+			for (Entry<String, Double> e : user.entrySet()) {
 				if (!diff.containsKey(e.getKey())) {
-					diff.put(e.getKey(), new HashMap<Movie, Double>());
-					freq.put(e.getKey(), new HashMap<Movie, Integer>());
+					diff.put(e.getKey(), new HashMap<String, Double>());
+					freq.put(e.getKey(), new HashMap<String, Integer>());
 				}
-				for (Entry<Movie, Double> e2 : user.entrySet()) {
+				for (Entry<String, Double> e2 : user.entrySet()) {
 					int oldCount = 0;
 					if (freq.get(e.getKey()).containsKey(e2.getKey())) {
 						oldCount = freq.get(e.getKey()).get(e2.getKey()).intValue();
@@ -110,8 +112,8 @@ public class SystemRecommendationAlgo {
 			}
 			
 		}
-		for (Movie username : diff.keySet()) {
-			for (Movie movieID : diff.get(username).keySet()) {
+		for (String username : diff.keySet()) {
+			for (String movieID : diff.get(username).keySet()) {
 				double oldValue = diff.get(username).get(movieID).doubleValue();
 				int count = freq.get(username).get(movieID).intValue();
 				diff.get(username).put(movieID, oldValue / count);
