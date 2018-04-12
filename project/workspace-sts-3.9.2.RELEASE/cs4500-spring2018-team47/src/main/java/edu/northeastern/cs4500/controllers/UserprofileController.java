@@ -311,7 +311,6 @@ public class UserprofileController {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			System.out.println("title: " + recommend.get(x).getTitle());
 		}
 		
 		modelAndView.addObject("user", user);

@@ -49,7 +49,6 @@ public class SystemRecommendationAlgo {
         }
         }
         catch (Exception e) {
-        	System.out.println("error 1");
         }
         System.out.println("predictions after: "+ predictions.values());
         List<String> cleanPredictions = new ArrayList<>();
@@ -72,7 +71,6 @@ public class SystemRecommendationAlgo {
         }
         }
         catch (Exception e) {
-        	System.out.println("error 2");
         }
         
         
@@ -119,7 +117,5 @@ public class SystemRecommendationAlgo {
 				diff.get(username).put(movieID, oldValue / count);
 			}
 		}
-		System.out.println("diff table: "+ diff.values());
-		System.out.println("freq table: "+ freq.values());
 	}
 }
