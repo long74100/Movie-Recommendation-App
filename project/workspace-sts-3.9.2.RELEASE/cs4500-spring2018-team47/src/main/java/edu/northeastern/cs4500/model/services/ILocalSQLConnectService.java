@@ -271,19 +271,22 @@ public interface ILocalSQLConnectService {
 	 * Gets the user with the given user id.
 	 * @param userId the user id
 	 * @return the user with the given id
+	 * @throws SQLException 
 	 */
-	User getUser(int userId);
+	User getUser(int userId) throws SQLException;
 	
 	/**
 	 * Inserts a user into the database.
+	 * @throws SQLException 
 	 */
-	void insertUser(User user);
+	void insertUser(User user) throws SQLException;
 	
 	/**
 	 * Removes a user from the database.
 	 * @param userId id of the user to remove
+	 * @throws SQLException 
 	 */
-	void removeUser(int userId);
+	void removeUser(int userId) throws SQLException;
 
 	/**
 	 * Deletes a movie from the database
