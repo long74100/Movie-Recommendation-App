@@ -14,6 +14,7 @@ import java.util.Map;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import edu.northeastern.cs4500.model.movie.MovieReview;
@@ -23,6 +24,10 @@ import edu.northeastern.cs4500.model.user.User;
 
 @SpringBootTest
 public class LocalSQLConnectServiceTest {
+    
+    	@Value("${spring.datasource.password}")
+    	private static String dbPassword = "TbthaGCmiimWrtayxr4MBEcD3tVB3sY";
+    	
 	private static ILocalSQLConnectService localSQLConnectService;
 	
 	// mock movie
@@ -54,7 +59,7 @@ public class LocalSQLConnectServiceTest {
 
 	@Before
 	public void setUpConnection() throws SQLException {
-		localSQLConnectService = new LocalSQLConnectServiceImpl();
+		localSQLConnectService = new LocalSQLConnectServiceImpl(dbPassword);
 		cleanMockUsers();
 		cleanMockMovie();
 		cleanMockReview();
@@ -62,8 +67,9 @@ public class LocalSQLConnectServiceTest {
 	
 	/**
 	 * Initialize mock users for testing.
+	 * @throws SQLException 
 	 */
-	private void initMockUsers() {
+	private void initMockUsers() throws SQLException {
 
 		// set up mock user 1
 		stub1 = new User();
@@ -73,7 +79,7 @@ public class LocalSQLConnectServiceTest {
 		stub1.setUsername(stub1Username);
 		stub1.setLastName(stub1LastName);
 		stub1.setFirstName(stub1FirstName);
-		stub1.setPassword(password);
+		stub1.setPassword(dbPassword);
 		stub1.setRole(1);
 
 		// set up mock user 2
@@ -84,7 +90,7 @@ public class LocalSQLConnectServiceTest {
 		stub2.setUsername(stub2Username);
 		stub2.setLastName(stub2lastName);
 		stub2.setFirstName(stub2FirstName);
-		stub2.setPassword(password);
+		stub2.setPassword(dbPassword);
 		stub2.setRole(1);
 
 		localSQLConnectService.insertUser(stub1);
@@ -94,8 +100,9 @@ public class LocalSQLConnectServiceTest {
 	
 	/**
 	 * Clean up mock users.
+	 * @throws SQLException 
 	 */
-	private void cleanMockUsers() {
+	private void cleanMockUsers() throws SQLException {
 		localSQLConnectService.removeUser(stub1Id);
 		localSQLConnectService.removeUser(stub2Id);
 
@@ -222,9 +229,10 @@ public class LocalSQLConnectServiceTest {
 
 	/**
 	 * Test that getUser fetches the correct user.
+	 * @throws SQLException 
 	 */
 	@Test
-	public void testGetUser() {
+	public void testGetUser() throws SQLException {
 		initMockUsers();
 
 		noSuchUser = localSQLConnectService.getUser(noSuchId);
@@ -311,9 +319,10 @@ public class LocalSQLConnectServiceTest {
 
 	/**
 	 * Test that insertUser inserts a user into the database.
+	 * @throws SQLException 
 	 */
 	@Test
-	public void testInsertUser() {
+	public void testInsertUser() throws SQLException {
 		initMockUsers();
 
 		noSuchUser = localSQLConnectService.getUser(noSuchId);
@@ -339,9 +348,10 @@ public class LocalSQLConnectServiceTest {
 
 	/**
 	 * Test that remove user removes the user from the database.
+	 * @throws SQLException 
 	 */
 	@Test
-	public void testRemoveUser() {
+	public void testRemoveUser() throws SQLException {
 		initMockUsers();
 
 		assertNotNull(localSQLConnectService.getUser(stub1Id));
