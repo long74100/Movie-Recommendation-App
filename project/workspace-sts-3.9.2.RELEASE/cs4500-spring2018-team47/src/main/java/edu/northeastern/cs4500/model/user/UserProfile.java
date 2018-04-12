@@ -3,6 +3,9 @@ package edu.northeastern.cs4500.model.user;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import edu.northeastern.cs4500.prod.Prod;
 
 public class UserProfile {
@@ -18,6 +21,8 @@ public class UserProfile {
 	private HashMap<String, ArrayList<String>> movieList;
 	// the friend request list
 	private HashMap<Integer, String> friendRequests;
+	
+	private static final Logger logger = LogManager.getLogger(UserProfile.class);
 	
 	
 	/**
@@ -61,7 +66,7 @@ public class UserProfile {
 			con = this.movieList.get(listName);
 		}
 		catch(NullPointerException ep) {
-			ep.printStackTrace();
+			logger.error(ep.getMessage());
 		}
 		return con;
 	}
