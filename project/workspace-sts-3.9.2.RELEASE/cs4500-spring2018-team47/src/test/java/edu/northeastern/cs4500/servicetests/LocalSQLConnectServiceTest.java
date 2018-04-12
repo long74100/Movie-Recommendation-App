@@ -48,7 +48,10 @@ public class LocalSQLConnectServiceTest {
 	public void setUpConnection() {
 		localSQLConnectService = new LocalSQLConnectServiceImpl();
 	}
-
+	
+	/**
+	 * Initialize mock users for testing.
+	 */
 	private void initMockUsers() {
 
 		// set up mock user 1
@@ -77,13 +80,19 @@ public class LocalSQLConnectServiceTest {
 		localSQLConnectService.insertUser(stub2);
 
 	}
-
+	
+	/**
+	 * Clean up mock users.
+	 */
 	private void cleanMockUsers() {
 		localSQLConnectService.removeUser(stub1Id);
 		localSQLConnectService.removeUser(stub2Id);
 
 	}
-
+	
+	/**
+	 * Initialize mock movie for testing.
+	 */
 	private void initMockMovie() {
 		movieObject = new HashMap<>();
 		movieObject.put("imdbID", "1");
@@ -101,7 +110,10 @@ public class LocalSQLConnectServiceTest {
 		movieObject.put("movieDBid", "test");
 		localSQLConnectService.loadMovieIntoLocalDB(movieObject);
 	}
-
+	
+	/**
+	 * clean up mock movie.
+	 */
 	private void cleanMockMovie() {
 		localSQLConnectService.deleteFromMovieTable("1");
 	}
@@ -304,6 +316,8 @@ public class LocalSQLConnectServiceTest {
 	 */
 	@Test
 	public void testRemoveReview() {
+	    initMockMovie();
+	    
 
 	}
 
