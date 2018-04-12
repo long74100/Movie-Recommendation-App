@@ -1,25 +1,21 @@
 package edu.northeastern.cs4500.model.services;
 
 import java.sql.Connection;
-
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.json.JSONObject;
-
-import edu.northeastern.cs4500.model.movie.MovieReview;
 
 import edu.northeastern.cs4500.model.movie.Movie;
 import edu.northeastern.cs4500.model.movie.MovieRating;
+import edu.northeastern.cs4500.model.movie.MovieReview;
 import edu.northeastern.cs4500.model.user.User;
 
 /**
@@ -1040,20 +1036,20 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 	}
 
 	@Override
-	public void deleteFromMovieTable(String id) throws SQLException{
-	String sqlcmd = "delete from Movie where movie_id = ?";
-	PreparedStatement pstmt = null;
-	try {
-	    pstmt = connector.prepareStatement(sqlcmd);
-	    pstmt.setString(1, id);
-	    pstmt.executeUpdate();
-	} catch (SQLException ep) {
-	    logger.error(ep.getMessage());
-	}finally {
-        if (pstmt != null) {
-        	pstmt.close();
-        }
+	public void deleteFromMovieTable(String id) throws SQLException {
+		String sqlcmd = "delete from Movie where movie_id = ?";
+		PreparedStatement pstmt = null;
+		try {
+			pstmt = connector.prepareStatement(sqlcmd);
+			pstmt.setString(1, id);
+			pstmt.executeUpdate();
+		} catch (SQLException ep) {
+			logger.error(ep.getMessage());
+		} finally {
+			if (pstmt != null) {
+				pstmt.close();
+			}
+		}
 	}
-    }
 
 }
