@@ -884,7 +884,7 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
     @Override
     public void removeUser(int userId) {
 	String sqlcmd = "delete from user where user_id = ?";
-	PreparedStatement pstmt = null;
+	PreparedStatement pstmt = null;  
 	
 	try {
 	    pstmt = connector.prepareStatement(sqlcmd);

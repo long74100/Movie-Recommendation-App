@@ -255,6 +255,11 @@ public interface ILocalSQLConnectService {
 	 */
 	List<User> getBannedList();
 
+	/**
+	 * Gets the user with the given user id.
+	 * @param userId the user id
+	 * @return the user with the given id
+	 */
 	User getUser(int userId);
 	
 	/**

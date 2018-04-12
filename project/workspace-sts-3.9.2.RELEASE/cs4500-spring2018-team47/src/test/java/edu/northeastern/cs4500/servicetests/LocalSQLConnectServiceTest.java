@@ -27,6 +27,7 @@ public class LocalSQLConnectServiceTest {
 	private static ILocalSQLConnectService localSQLConnectService;
 	//mock movieID
 	private static String movieID = "tt0096895";
+	private static Map<String, String> movieObject;
 	
 	private static User stub1;
 	private static User stub2;
@@ -84,16 +85,9 @@ public class LocalSQLConnectServiceTest {
 	    localSQLConnectService.removeUser(stub2Id);
 
 	}
-
-	// this test is failing
-	@Test
-	public void testContainMovie() {
-		localSQLConnectService.deleteFromMovieTable("1");
-		//does not contain movie
-		boolean actual = localSQLConnectService.containMovie("1");
-		assertFalse(actual);
-		//contains movie
-		Map<String, String> movieObject = new HashMap<>();
+	
+	private void initMockMovie() {
+	    movieObject = new HashMap<>();
 	    movieObject.put("imdbID", "1");
 	    movieObject.put("title", "test");
 	    movieObject.put("genre", "test");
@@ -107,7 +101,20 @@ public class LocalSQLConnectServiceTest {
 	    movieObject.put("poster", "test");
 	    movieObject.put("language", "test");
 	    movieObject.put("movieDBid", "test");
-	    
+	}
+
+	// this test is failing
+	@Test
+	public void testContainMovie() {
+		localSQLConnectService.deleteFromMovieTable("1");
+		//does not contain movie
+		boolean actual = localSQLConnectService.containMovie("1");
+		assertFalse(actual);
+		//contains movie
+		
+		// initialize mock movie
+		initMockMovie();
+		
 		localSQLConnectService.loadMovieIntoLocalDB(movieObject);
 		actual = localSQLConnectService.containMovie("1");
 		assertTrue(actual);
@@ -276,6 +283,7 @@ public class LocalSQLConnectServiceTest {
 	    localSQLConnectService.removeUser(stub1Id);
 	    assertNull(localSQLConnectService.getUser(stub1Id));
 	}
+	
 
 	
 }
