@@ -363,5 +363,13 @@ public interface ILocalSQLConnectService {
 	 * @return map containing all users as well as corresponding movie they rated
 	 */
 	HashMap<String, HashMap<Movie, Double>> getSlopeOneDate() throws SQLException;
+	
+	/**
+	 * To get all movies based on the given genre
+	 * @param genre movie genre
+	 * @return all movies matching the given genre
+	 * @throws SQLException
+	 */
+	List<Movie> extractMoviesByGenre(String genre) throws SQLException;
 }
 

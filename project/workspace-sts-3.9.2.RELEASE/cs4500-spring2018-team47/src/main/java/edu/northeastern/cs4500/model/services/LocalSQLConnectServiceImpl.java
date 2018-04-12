@@ -234,7 +234,6 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 				}
 			}
 		}
-
 	}
 
 	@Override
@@ -1588,5 +1587,43 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 		}
 	}
     }
+	
+	@Override
+	public List<Movie> extractMoviesByGenre(String genre) throws SQLException {
+		ArrayList<Movie> output = new ArrayList<>();
+		String sqlcmd = "select * from Movie where genre like \"%?%\"";
+		PreparedStatement pstmt = null;
+		try {
+			openConToDatabase();
+			pstmt = connector.prepareStatement(sqlcmd);
+			pstmt.setString(1, genre);
+			myResult = pstmt.executeQuery();
+			while(myResult.next()) {
+				Movie movie = new Movie();
+				String imdbId = myResult.getString("movie_id");
+				String movieName = myResult.getString("movie_name");
+				String movieDBId = myResult.getString("movieDBid");
+				String moviePoster = myResult.getString("poster");
+				movie.setTitle(movieName);
+				movie.setImdbID(imdbId);
+				movie.setPoster(moviePoster);
+				movie.setTheMovieDbID(movieDBId);
+				output.add(movie);
+			}
+			
+		}
+		catch(SQLException ep) {
+			logger.error(ep.getMessage());
+		}finally {
+	        if (pstmt != null) {
+	        	pstmt.close();
+	        }
+	        if (connector != null) {
+				closeConToDatabase();
+			}
+		}
+		
+		return output;
+	}
 
 }
