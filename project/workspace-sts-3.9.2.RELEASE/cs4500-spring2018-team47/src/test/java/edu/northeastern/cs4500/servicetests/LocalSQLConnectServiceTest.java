@@ -7,9 +7,6 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
-
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -48,8 +45,12 @@ public class LocalSQLConnectServiceTest {
 	private static int noSuchId = 983729;
 	
 	@Before
-	public void init() {
-		localSQLConnectService = new LocalSQLConnectServiceImpl();
+	public void setUpConnection() {
+	    localSQLConnectService = new LocalSQLConnectServiceImpl();
+
+	}
+	
+	private void initMockUsers() {
 		
 		// set up mock user 1
 		stub1 = new User();
@@ -79,8 +80,8 @@ public class LocalSQLConnectServiceTest {
 		
 	}
 	
-	@After
-	public void clean() {
+	
+	private void cleanMockUsers() {
 	    localSQLConnectService.removeUser(stub1Id);
 	    localSQLConnectService.removeUser(stub2Id);
 
@@ -102,18 +103,23 @@ public class LocalSQLConnectServiceTest {
 	    movieObject.put("language", "test");
 	    movieObject.put("movieDBid", "test");
 	}
+	
+	private void cleanMockMovie() {
+	    
+	}
+	
+	
 
 	// this test is failing
 	@Test
 	public void testContainMovie() {
+	    	initMockMovie(); 
+	    	
 		localSQLConnectService.deleteFromMovieTable("1");
 		//does not contain movie
 		boolean actual = localSQLConnectService.containMovie("1");
 		assertFalse(actual);
 		//contains movie
-		
-		// initialize mock movie
-		initMockMovie();
 		
 		localSQLConnectService.loadMovieIntoLocalDB(movieObject);
 		actual = localSQLConnectService.containMovie("1");
@@ -122,6 +128,8 @@ public class LocalSQLConnectServiceTest {
 		//Test Sql Exception
 		actual = localSQLConnectService.containMovie("-1");
 		assertFalse(actual);
+		
+		cleanMockMovie();
 	}
 	
 	@Test
@@ -140,6 +148,8 @@ public class LocalSQLConnectServiceTest {
 	 */
 	@Test
 	public void testGetBannedList() {
+	    initMockUsers();
+	    
 	    List<User> preBanList = localSQLConnectService.getBannedList();
 	    localSQLConnectService.updateUserStatus(stub1Id, 0);
 
@@ -161,8 +171,8 @@ public class LocalSQLConnectServiceTest {
 	    // check that banned list contains banned user
 	    assertTrue(stub1IsBanned);
 	    
-	    localSQLConnectService.updateUserStatus(stub1Id, 1);
-	   
+	    cleanMockUsers();
+	    
 	}
 	
 	/**
@@ -170,6 +180,7 @@ public class LocalSQLConnectServiceTest {
 	 */
 	@Test
 	public void testGetUser() {
+	    initMockUsers();
 	    
 	    noSuchUser = localSQLConnectService.getUser(noSuchId);
 	    assertNull(noSuchUser);
@@ -185,6 +196,7 @@ public class LocalSQLConnectServiceTest {
 	    assertEquals(stub1.getRole(), 1);
 	    assertEquals(stub1.getUsername(), stub1Username);
 	    
+	    cleanMockUsers();
 	}
 	
 	/**
@@ -192,6 +204,8 @@ public class LocalSQLConnectServiceTest {
 	 */
 	@Test
 	public void testUpdateUserStatus() {
+	    initMockUsers();
+
 	    assertEquals(localSQLConnectService.getUser(stub1Id).getActive(), 1);
 	    localSQLConnectService.updateUserStatus(stub1Id, 0);
 	    
@@ -199,7 +213,8 @@ public class LocalSQLConnectServiceTest {
 	    
 	    localSQLConnectService.updateUserStatus(stub1Id, 1);
 	    assertEquals(localSQLConnectService.getUser(stub1Id).getActive(), 1);
-
+	    
+	    cleanMockUsers();
 	}
 	
 	/**
@@ -207,6 +222,7 @@ public class LocalSQLConnectServiceTest {
 	 */
 	@Test
 	public void testDeleteFriend() {
+	    initMockUsers();
 	    
 	    localSQLConnectService.sendFriendRequest(stub1Id, stub2Id);
 	    assertEquals(localSQLConnectService.getUserRelation(stub1Id, stub2Id), "onHold");
@@ -219,7 +235,7 @@ public class LocalSQLConnectServiceTest {
 	    localSQLConnectService.deleteFriend(stub1Id, stub2Id);
 	    assertEquals(localSQLConnectService.getUserRelation(stub2Id, stub1Id), "");
 	    
-	    
+	    cleanMockUsers();
 	}
 	
 	/**
@@ -227,6 +243,8 @@ public class LocalSQLConnectServiceTest {
 	 */
 	@Test
 	public void testGetUserRelation() {
+	    initMockUsers();
+
 	    // ensure no relation exists
 	    localSQLConnectService.deleteFriend(stub1Id, stub2Id);
 
@@ -245,6 +263,7 @@ public class LocalSQLConnectServiceTest {
 	    localSQLConnectService.rejectRequest(stub1Id, stub2Id);
 	    assertEquals(localSQLConnectService.getUserRelation(stub1Id, stub2Id), "");
 	    
+	    cleanMockUsers();
 	}
 	
 	/**
@@ -252,6 +271,7 @@ public class LocalSQLConnectServiceTest {
 	 */
 	@Test
 	public void testInsertUser() {
+	    initMockUsers();
 
 	    noSuchUser = localSQLConnectService.getUser(noSuchId);
 	    assertNull(noSuchUser);
@@ -272,6 +292,7 @@ public class LocalSQLConnectServiceTest {
 	    assertNotNull(nowExistingUser);
 	    localSQLConnectService.removeUser(noSuchId);
 	    
+	    cleanMockUsers();
 	}
 	
 	/**
@@ -279,9 +300,22 @@ public class LocalSQLConnectServiceTest {
 	 */
 	@Test
 	public void testRemoveUser() {
+	    initMockUsers();
+
 	    assertNotNull(localSQLConnectService.getUser(stub1Id));
 	    localSQLConnectService.removeUser(stub1Id);
 	    assertNull(localSQLConnectService.getUser(stub1Id));
+	    
+	    cleanMockUsers();
+	}
+	
+	/**
+	 * Test that remove review removes a review from the database.
+	 */
+	@Test
+	public void testRemoveReview() {
+	    
+	    
 	}
 	
 
