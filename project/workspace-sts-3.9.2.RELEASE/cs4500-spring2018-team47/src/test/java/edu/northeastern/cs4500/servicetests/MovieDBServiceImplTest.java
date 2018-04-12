@@ -20,7 +20,7 @@ public class MovieDBServiceImplTest {
 	
 	@Before
 	public void init() {
-	movieDbService = new MovieDBServiceImpl();
+	    movieDbService = new MovieDBServiceImpl();
 	}
 	
 	

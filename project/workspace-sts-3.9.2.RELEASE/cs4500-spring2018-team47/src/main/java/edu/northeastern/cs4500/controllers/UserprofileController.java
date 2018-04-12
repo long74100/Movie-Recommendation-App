@@ -4,8 +4,11 @@ package edu.northeastern.cs4500.controllers;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -25,6 +28,9 @@ import org.springframework.web.servlet.ModelAndView;
 
 import edu.northeastern.cs4500.model.movie.Movie;
 import edu.northeastern.cs4500.model.services.ILocalSQLConnectService;
+import edu.northeastern.cs4500.model.services.LocalSQLConnectServiceImpl;
+import edu.northeastern.cs4500.model.services.SystemRecommendationAlgo;
+
 import edu.northeastern.cs4500.model.services.UserService;
 import edu.northeastern.cs4500.model.user.User;
 import edu.northeastern.cs4500.model.user.UserProfile;
@@ -272,7 +278,46 @@ public class UserprofileController {
 		}
 	}
 	
-	
+	@RequestMapping(value="/systemRecommendation", method = RequestMethod.GET)
+	public ModelAndView getSystemRecommendation() {
+		ModelAndView modelAndView = new ModelAndView();
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		User user = userService.findUserByEmail(auth.getName());
+		 // this is my data base 
+		  Map<String, Map<Movie, Double>> data = null;
+		  Map<String, Map<String, Double>> convertData = new HashMap<>();
+		try {
+			data = localDbConnector.getSlopeOneData();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		for (String username : data.keySet()) {
+			Map<String, Double> convertDataTemp = new HashMap<>();
+			for (Movie df : data.get(username).keySet()) {
+				convertDataTemp.put(df.getTheMovieDbID(), data.get(username).get(df).doubleValue());
+			}
+			convertData.put(username, convertDataTemp);
+		}
+		
+		SystemRecommendationAlgo slopeOne = new SystemRecommendationAlgo(convertData);
+
+		List<String> recommendNames = slopeOne.predict(user.getUsername());
+		List<Movie> recommend = new ArrayList<>();
+		for (int x = 0; x < recommendNames.size(); x++) {
+			try {
+				recommend.add(localDbConnector.findMovieByMovieDBId(recommendNames.get(x)));
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		
+		modelAndView.addObject("user", user);
+		modelAndView.addObject("recommend", recommend);
+		modelAndView.setViewName("systemRecommendation");
+		return modelAndView;
+	}	
 	
 	// so needs to create three page also. or see if we can do something like display block and none.
 	@RequestMapping(value={"/prodRepo+all+{repoName}"}, method = RequestMethod.GET)
@@ -391,8 +436,6 @@ public class UserprofileController {
 		modelAndView.setViewName("allProdsSentAndReceived");
 		return modelAndView;
 	}
-	
-	
 	
 	/**
 	 * This is to send the movie recommendations

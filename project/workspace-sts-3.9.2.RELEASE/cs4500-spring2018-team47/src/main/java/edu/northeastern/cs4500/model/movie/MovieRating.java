@@ -27,6 +27,10 @@ public final class MovieRating {
     private String date;
 
     //getter setters
+    public void setRatingId(int id) {
+	this.id = id;
+    }
+    
     public void setMovieId(String id) {
 	this.movieId = id;
     }

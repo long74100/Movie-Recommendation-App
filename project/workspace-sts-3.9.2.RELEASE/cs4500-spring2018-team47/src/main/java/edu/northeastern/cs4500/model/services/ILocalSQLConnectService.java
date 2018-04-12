@@ -207,13 +207,20 @@ public interface ILocalSQLConnectService {
 	 * @param userId the user Id
 	 * @param movieId the movie Id
 	 */
-	int getRating(int userId, String movieId) throws SQLException;
+	MovieRating getRating(int userId, String movieId) throws SQLException;
 
 	/**
 	 * Insert a rating into movie ratings.
 	 * @param rating the movie rating
 	 */
-	public void insertRating(MovieRating movieRating) throws SQLException;
+	void insertRating(MovieRating movieRating) throws SQLException;
+	
+	/**
+	 * Removes a rating.
+	 * @param ratingId id of the rating
+	 * @throws SQLException
+	 */
+	void removeRating(int ratingId) throws SQLException;
 
 	/**
 	 * To get all the reviews for the movie with given movieId.
@@ -362,8 +369,8 @@ public interface ILocalSQLConnectService {
 	 * output format is: Map<UserName, Map<Movie, rating>> 
 	 * @return map containing all users as well as corresponding movie they rated
 	 */
-	HashMap<String, HashMap<Movie, Double>> getSlopeOneDate() throws SQLException;
-	
+
+	Map<String, Map<Movie, Double>> getSlopeOneData() throws SQLException;
 	/**
 	 * To get all movies based on the given genre
 	 * @param genre movie genre
