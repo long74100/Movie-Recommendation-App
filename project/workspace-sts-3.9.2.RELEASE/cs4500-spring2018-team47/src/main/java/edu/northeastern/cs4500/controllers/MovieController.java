@@ -145,7 +145,6 @@ public class MovieController {
 		List<MovieReview> reviews = null;
 
 		List<Movie> recommend = new ArrayList<>();
-
 		try {
 			movieJSON = movieDbService.searchMovieDetails(Integer.valueOf(id));
 			JSONArray movieCast = movieDbService.searchMovieCast(movieJSON.getInt("id")).getJSONArray("cast");
@@ -313,7 +312,11 @@ public class MovieController {
 			List<String> userMovieList = localDbConnector.getMovieListForUser(user.getId());
 			modelAndView.addObject("userMVlist", userMovieList);
 			MovieRating rating = localDbConnector.getRating(user.getId(), movie.get("imdbID"));
-			modelAndView.addObject("rating", (int) rating.getRating());
+			if (rating != null) {
+			    modelAndView.addObject("rating", (int) rating.getRating());
+			} else {
+			    modelAndView.addObject("rating", -1);
+			}
 		
 			
 			modelAndView.addObject("userId", user.getId());
