@@ -34,10 +34,12 @@
 										<div th:each="user : ${friends}">
 											<a href="#">
 												<div class="d-inline-flex p-2 shadow item">
+													<div th:text="${user.id}"
+														class="d-none"></div>
 													<div th:text="${user.username}"
 														class="movieTitle d-flex justify-content-start"></div>
 													<div class="d-flex justify-content-end">
-														<button class=" btn btn-primary">Delete</button>
+														<button class=" btn btn-primary delete-friend">Delete</button>
 													</div>
 												</div>
 											</a>
