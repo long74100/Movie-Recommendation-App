@@ -37,3 +37,14 @@
 	.section-text {
 		padding-bottom: 25px;
 	}
+	.movie-title{
+		color: black;
+		font-size: 30px;
+	}
+	.movie-title:hover {
+		color: lightgrey;
+	}
+	.title-con {
+		margin-bottom: 10px;
+	}
+	

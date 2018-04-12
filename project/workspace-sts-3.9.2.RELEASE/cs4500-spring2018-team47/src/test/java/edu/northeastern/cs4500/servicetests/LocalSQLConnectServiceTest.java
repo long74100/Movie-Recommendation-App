@@ -7,10 +7,11 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
+
+import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -92,8 +93,9 @@ public class LocalSQLConnectServiceTest {
 	
 	/**
 	 * Initialize mock movie for testing.
+	 * @throws SQLException 
 	 */
-	private void initMockMovie() {
+	private void initMockMovie() throws SQLException {
 		movieObject = new HashMap<>();
 		movieObject.put("imdbID", "1");
 		movieObject.put("title", "test");
@@ -112,14 +114,20 @@ public class LocalSQLConnectServiceTest {
 	}
 	
 	/**
-	 * clean up mock movie.
+	 * Clean up mock movie.
+	 * @throws SQLException 
 	 */
-	private void cleanMockMovie() {
+	private void cleanMockMovie() throws SQLException {
 		localSQLConnectService.deleteFromMovieTable("1");
 	}
+	
+	/**
+	 * clean
+	 * @throws SQLException 
+	 */
 
 	@Test
-	public void testContainMovie() {
+	public void testContainMovie() throws SQLException {
 		// does not contain movie
 		boolean actual = localSQLConnectService.containMovie("1");
 		assertFalse(actual);
@@ -149,9 +157,10 @@ public class LocalSQLConnectServiceTest {
 
 	/**
 	 * Test that getBannedList returns a list of banned users.
+	 * @throws SQLException 
 	 */
 	@Test
-	public void testGetBannedList() {
+	public void testGetBannedList() throws SQLException {
 		initMockUsers();
 
 		List<User> preBanList = localSQLConnectService.getBannedList();
@@ -203,9 +212,10 @@ public class LocalSQLConnectServiceTest {
 
 	/**
 	 * Test that updateUserStatus changes a user's active status.
+	 * @throws SQLException 
 	 */
 	@Test
-	public void testUpdateUserStatus() {
+	public void testUpdateUserStatus() throws SQLException {
 		initMockUsers();
 
 		assertEquals(localSQLConnectService.getUser(stub1Id).getActive(), 1);
@@ -221,9 +231,10 @@ public class LocalSQLConnectServiceTest {
 
 	/**
 	 * Test that delete friend removes a user relation.
+	 * @throws SQLException 
 	 */
 	@Test
-	public void testDeleteFriend() {
+	public void testDeleteFriend() throws SQLException {
 		initMockUsers();
 
 		localSQLConnectService.sendFriendRequest(stub1Id, stub2Id);
@@ -242,9 +253,10 @@ public class LocalSQLConnectServiceTest {
 
 	/**
 	 * Test that getUserRelation fetches the correct relation.
+	 * @throws SQLException 
 	 */
 	@Test
-	public void testGetUserRelation() {
+	public void testGetUserRelation() throws SQLException {
 		initMockUsers();
 
 		// ensure no relation exists
@@ -313,12 +325,14 @@ public class LocalSQLConnectServiceTest {
 
 	/**
 	 * Test that remove review removes a review from the database.
+	 * @throws SQLException 
 	 */
 	@Test
-	public void testRemoveReview() {
+	public void testRemoveReview() throws SQLException {
 	    initMockMovie();
 	    
 
 	}
 
 }
+
