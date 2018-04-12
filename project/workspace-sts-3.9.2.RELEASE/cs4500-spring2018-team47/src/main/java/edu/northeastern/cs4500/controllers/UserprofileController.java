@@ -258,6 +258,7 @@ public class UserprofileController {
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		User user = userService.findUserByEmail(auth.getName());
 		modelAndView.addObject("user", user);
+		modelAndView.addObject("recommendation", slopeOne.predict(user10));
 		modelAndView.setViewName("systemRecommendation");
 		return modelAndView;
 	}
