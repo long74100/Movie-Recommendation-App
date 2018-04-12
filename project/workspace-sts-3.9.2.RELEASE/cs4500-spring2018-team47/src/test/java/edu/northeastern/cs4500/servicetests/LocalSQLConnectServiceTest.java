@@ -40,7 +40,7 @@ public class LocalSQLConnectServiceTest {
 	private static String stub2FirstName = "stub2FirstName";
 	private static String password = "password";
 
-
+	private static User noSuchUser;
 	private static int noSuchId = 983729;
 	
 	@Before
@@ -157,7 +157,7 @@ public class LocalSQLConnectServiceTest {
 	@Test
 	public void testGetUser() {
 	    
-	    User noSuchUser = localSQLConnectService.getUser(noSuchId);
+	    noSuchUser = localSQLConnectService.getUser(noSuchId);
 	    assertNull(noSuchUser);
 	    
 
@@ -231,6 +231,32 @@ public class LocalSQLConnectServiceTest {
 	    localSQLConnectService.rejectRequest(stub1Id, stub2Id);
 	    assertEquals(localSQLConnectService.getUserRelation(stub1Id, stub2Id), "");
 	    
+	}
+	
+	/**
+	 * Test that insertUser inserts a user into the database.
+	 */
+	@Test
+	public void testInsertUser() {
+	    
+	    noSuchUser = localSQLConnectService.getUser(noSuchId);
+	    assertNull(noSuchUser);
+	    noSuchUser = new User();
+	    noSuchUser.setId(noSuchId);
+	    noSuchUser.setEmail("thisemailshouldntexist@fakeemail.com");
+	    noSuchUser.setActive(1);
+	    noSuchUser.setRole(1);
+	    noSuchUser.setUsername("fake username");
+	    noSuchUser.setLastName("fake last Name");
+	    noSuchUser.setFirstName("fake first Name");
+	    noSuchUser.setPassword("fake password");
+	    noSuchUser.setRole(1);
+	    
+	    localSQLConnectService.insertUser(noSuchUser);
+	    
+	    User nowExistingUser = localSQLConnectService.getUser(noSuchId);
+	    assertNotNull(nowExistingUser);
+	    localSQLConnectService.removeUser(noSuchId);
 	    
 	}
 	
