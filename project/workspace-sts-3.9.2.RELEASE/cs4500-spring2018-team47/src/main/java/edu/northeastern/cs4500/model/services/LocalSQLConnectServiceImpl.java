@@ -1620,14 +1620,15 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 	@Override
 	public List<Movie> extractMoviesByGenre(String genre) throws SQLException {
 		ArrayList<Movie> output = new ArrayList<>();
-		String sqlcmd = "select * from Movie where genre like \"%?%\"";
+		String sqlcmd = "select * from Movie where genre like \"%\"?\"%\"";
 		PreparedStatement pstmt = null;
+		int x = 0;
 		try {
 			openConToDatabase();
 			pstmt = connector.prepareStatement(sqlcmd);
 			pstmt.setString(1, genre);
 			myResult = pstmt.executeQuery();
-			while(myResult.next()) {
+			while(myResult.next() && x < 5) {
 				Movie movie = new Movie();
 				String imdbId = myResult.getString("movie_id");
 				String movieName = myResult.getString("movie_name");
@@ -1638,6 +1639,7 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 				movie.setPoster(moviePoster);
 				movie.setTheMovieDbID(movieDBId);
 				output.add(movie);
+				x++;
 			}
 			
 		}

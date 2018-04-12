@@ -144,6 +144,8 @@ public class MovieController {
 		Map<String, String> movie = new HashMap<String, String>();
 		List<MovieReview> reviews = null;
 
+		List<Movie> recommend = new ArrayList<>();
+
 		try {
 			movieJSON = movieDbService.searchMovieDetails(Integer.valueOf(id));
 			JSONArray movieCast = movieDbService.searchMovieCast(movieJSON.getInt("id")).getJSONArray("cast");
@@ -177,6 +179,8 @@ public class MovieController {
 				for(int i = 0; i < genreList.length(); i++) {
 					if(i == genreList.length() - 1) {
 						genre.append(genreList.getJSONObject(i).getString("name"));
+						recommend = localDbConnector.extractMoviesByGenre(genreList.getJSONObject(i).getString("name"));
+						System.out.println("recommend in" + recommend);
 					}
 					else {
 						genre.append(genreList.getJSONObject(i).getString("name") + ", ");
@@ -185,6 +189,9 @@ public class MovieController {
 			}
 			catch(NullPointerException np) {
 				logger.error(np.getMessage());
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
 			}
 			
 			
@@ -283,6 +290,8 @@ public class MovieController {
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		User user = userService.findUserByEmail(auth.getName());
 
+		System.out.println("Recommend: " + recommend);
+		modelAndView.addObject("recommend", recommend);
 		modelAndView.addObject("reviews", reviews);
 		modelAndView.addObject("user", user);
 		modelAndView.addObject(MOVIE, movie);
