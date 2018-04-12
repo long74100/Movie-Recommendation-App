@@ -207,13 +207,20 @@ public interface ILocalSQLConnectService {
 	 * @param userId the user Id
 	 * @param movieId the movie Id
 	 */
-	int getRating(int userId, String movieId) throws SQLException;
+	MovieRating getRating(int userId, String movieId) throws SQLException;
 
 	/**
 	 * Insert a rating into movie ratings.
 	 * @param rating the movie rating
 	 */
-	public void insertRating(MovieRating movieRating) throws SQLException;
+	void insertRating(MovieRating movieRating) throws SQLException;
+	
+	/**
+	 * Removes a rating.
+	 * @param ratingId id of the rating
+	 * @throws SQLException
+	 */
+	void removeRating(int ratingId) throws SQLException;
 
 	/**
 	 * To get all the reviews for the movie with given movieId.
