@@ -30,7 +30,7 @@ public class SystemRecommendationAlgo {
             {
                 try
                 {
-                    Double newval = (diff.get(x).get(x) + user.get(x)) * freq.get(y).get(x).intValue();
+                    Double newval = (diff.get(y).get(x) + user.get(x)) * freq.get(y).get(x).intValue();
                     predictions.put(y, predictions.get(y) + newval);
                     frequencies.put(y, frequencies.get(y) + freq.get(y).get(x).intValue());
                 } catch (NullPointerException e)
