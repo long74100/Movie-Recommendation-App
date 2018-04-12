@@ -348,11 +348,11 @@ public class UserprofileController {
 		try {
 			if(repoName.equals("all")) {
 				// get all prods in "all" section
-				allSentProds = localDbConnector.extractAllProds(user.getId());
+				allSentProds = localDbConnector.extractAllSentProds(user.getId());
 				prodType = "all";
 			}
 			else {
-				allSentProds = localDbConnector.extractAllProdsForARecipient(user.getId(), repoName);
+				allSentProds = localDbConnector.extractProdsSentToAFriend(user.getId(), repoName);
 				prodType = repoName;
 			}
 		}
@@ -387,11 +387,11 @@ public class UserprofileController {
 		try {
 			if(repoName.equals("all")) {
 				// get all prods in "all" section
-				allReceivedProds = localDbConnector.extractAllProds(user.getId());
+				allReceivedProds = localDbConnector.extractAllFriendProds(user.getId());
 				prodType = "all";
 			}
 			else {
-				allReceivedProds = localDbConnector.extractAllProdsForARecipient(user.getId(), repoName);
+				allReceivedProds = localDbConnector.extractProdsReceivedFromAFriend(user.getId(), repoName);
 				prodType = repoName;
 			}
 		}
