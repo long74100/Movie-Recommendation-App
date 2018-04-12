@@ -260,8 +260,10 @@ public class MovieController {
 			// To extract user movie list
 			List<String> userMovieList = localDbConnector.getMovieListForUser(user.getId());
 			modelAndView.addObject("userMVlist", userMovieList);
-			int rating = localDbConnector.getRating(user.getId(), movie.get("imdbID"));
-			modelAndView.addObject("rating", rating);
+			MovieRating rating = localDbConnector.getRating(user.getId(), movie.get("imdbID"));
+			modelAndView.addObject("rating", (int) rating.getRating());
+		
+			
 			modelAndView.addObject("userId", user.getId());
 			} catch (SQLException e) {
 				logger.error(e.getMessage());
