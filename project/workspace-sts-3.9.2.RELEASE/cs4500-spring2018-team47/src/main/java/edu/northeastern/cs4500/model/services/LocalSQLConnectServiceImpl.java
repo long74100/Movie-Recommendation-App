@@ -12,6 +12,7 @@ import java.util.Map;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
@@ -43,12 +44,15 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
     private static String username = "RuairiMSmillie";
     
     // database password
-    @Value("${spring.datasource.password}")
     private String password;
 
     private static Connection connector = null;
     private static ResultSet myResult = null;
     private static final Logger logger = LogManager.getLogger(LocalSQLConnectServiceImpl.class);
+    
+    public LocalSQLConnectServiceImpl(@Value("${spring.datasource.password}") String password) {
+    	this.password = password;
+    }
     
     private void openConToDatabase() {
     	try {
