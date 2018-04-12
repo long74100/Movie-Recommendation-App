@@ -21,19 +21,31 @@ public class Prod {
 	private int senderId;
 	
 	// the receiver's id
-	private int receiverId;
+	private int receiverId; 
+	
+	// the sender's name
+	private String senderName; 
+	
+	// the receiver's name
+	private String receiverName;
 	
 	// the movie's id
-	private String movieId;
+	private String movieId; 
 	
 	// the movie's name 
-	private String movieName;
+	private String movieName; 
 	
 	// the time when the prod is sent
-	private String date;
+	private String date; 
 	
 	// the comment that sender has
-	private String senderComment;
+	private String senderComment; 
+	
+	// the moviedbid
+	private String movieDBId; 
+	
+	// the movie poster
+	private String moviePoster; 
 	
 	/**
 	 * Default Constructor
@@ -54,12 +66,36 @@ public class Prod {
 		return this.receiverId;
 	}
 	
+	public String getMovieDBId() {
+		return this.movieDBId;
+	}
+	
+	public String getMoviePoster() {
+		return this.moviePoster;
+	}
+	
+	/**
+	 * To get receiver name
+	 * @return the name of receiver
+	 */
+	public String getReceiverName() {
+		return this.receiverName;
+	}
+	
 	/**
 	 * to get sender id
 	 * @return sender id
 	 */
-	public int getSenderId() {
+	public int getSender() {
 		return this.senderId;
+	}
+	
+	/**
+	 * To get sender's name
+	 * @return name of sender
+	 */
+	public String getSenderName() {
+		return this.senderName;
 	}
 	
 	/**
@@ -123,6 +159,22 @@ public class Prod {
 	}
 	
 	/**
+	 * To set sender's name
+	 * @param senderName name of sender will be set
+	 */
+	public void setSenderName(String senderName) {
+		this.senderName = senderName;
+	}
+	
+	/**
+	 * To set receiver's name
+	 * @param receiverName name of receiver will be set
+	 */
+	public void setReceiverName(String receiverName) {
+		this.receiverName = receiverName;
+	}
+	
+	/**
 	 * To set the movie name
 	 * @param movieName
 	 */
@@ -144,6 +196,14 @@ public class Prod {
 	 */
 	public void setComment(String message) {
 		this.senderComment = message;
+	}
+	
+	public void setMovieDBId(String id) {
+		this.movieDBId = id;
+	}
+	
+	public void setMoviePoster(String  poster) {
+		this.moviePoster = poster;
 	}
 	
 	

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<noscript th:replace="fragments/quickAddCSSJS :: quickAddCSSJS"></noscript>
+	<link rel="stylesheet" href="../css/profile.css">
+	<link rel="stylesheet" href="../css/prodListNav.css">
+	<link rel="stylesheet" href="../css/prodContent.css">
+	<title>User ProdList</title>
+</head>
+<body> 
+	<div th:replace="fragments/userProfile/prodNav :: prodNavBar"></div>
+	<!-- Here is the prod navigation bar(three options): overall Prods(including sent and received),  all sentout, all received-->
+	<div class="prod-list-item-nav" id="prod-list-item-nav">
+    		<div class="prod-objective" id="prod-objective">
+    			<p class="prod-object-content" id="prod-object-content" th:text="${prodType}">Prod Objective</p>	
+    		</div>
+    		<div class="prod-controller" id="prod-controller">
+    			<span>
+    				<a th:href="@{/prodRepo+all+{prodtype}(prodtype=${prodType})}">
+    					<p class="get-all-overall" id="get-all-overall">All</p>
+    				</a>
+    				<a th:href="@{/prodRepo+allSent+{prodtype}(prodtype=${prodType})}">
+    					<p class="get-All-sentOut" id="get-All-sentOut">Sent Out</p>
+    				</a>
+    				<a th:href="@{/prodRepo+allReceived+{prodtype}(prodtype=${prodType})}">
+    					<p class="get-All-received" id="get-All-received">Received</p>
+    				</a>
+    			</span>
+    		</div>
+    </div>
+    
+    <div class="prod-list-main-container" id="prod-list-main-container">
+    <!-- <div th:if="${not #lists.isEmpty(usermovielist)}" class="movieRepoList" id="movieListsItem"> -->
+    	<div th:if="${not #lists.isEmpty(allProds)}" class="prod-list-main" id="prod-list-main">
+    		<!-- <div th:each="list : ${usermovielist}" class="movielistItem" id="singleList"> -->
+    		<div th:each="prod : ${allProds}">
+    			<div th:if="${prod.senderName != user.username}" class="prod-list-item-friend" id="prod-list-item-friend" style="height:180px;">
+    					<span>
+    						<div class="sender-profile-info" id="sender-profile-info">
+    							<img src="https://www.ocf.berkeley.edu/~dblab/blog/wp-content/uploads/2012/01/icon-profile.png"
+									class="user-headportrait" style="width: 30px; margin-right:800px"/>
+    							<p th:text="${prod.senderName}" class="friend-asSender-name" id="friend-asSender-name"></p>
+    						</div>
+    						<div class="sender-sending-movie-info" id="sender-sending-movie-info">
+    							<span>
+    								<div style="float: left;">
+    									<img th:src="${prod.moviePoster}" class="received-moviePoster" id="received-moviePoster"/>
+    								</div>
+    								<div class="shared-movie-text-content-received" id="shared-movie-text-content-received">
+    									<a th:href="@{/movie/{id}(id=${prod.movieDBId})}">
+    										<p th:text="${prod.movieName}" style="color: black; font-size: 15px;"></p>
+    									</a>
+    								</div>
+    								<div class="received-basic-information" id="received-basic-information">
+    									<p th:text="${prod.getComment()}">comment</p>
+    								</div>
+    								<p class="received-time-record" id="received-time-record" th:text="${prod.getTime()}">time</p>
+    							</span>
+    						</div>
+    					</span>
+    			</div>
+    			<div th:unless="${prod.senderName != user.username}" class="prod-list-item-user" id="prod-list-item-user"
+    				style="height: 180px; margin-top:30px;">
+    				<span>
+    					<div class="own-profile-info" id="own-profile-info">
+    						<img src="https://www.ocf.berkeley.edu/~dblab/blog/wp-content/uploads/2012/01/icon-profile.png"
+								class="user-headportrait" style="width: 30px; margin-left:50px;"/>
+    						<p th:text="${prod.senderName}" class="current-asSender-name" id="current-asSender-name"
+    							style="margin-top: 20px; height: 100px; margin-left:20px;"></p>
+    					</div>
+    					<div class="owner-sending-movie-info" id="owner-sending-movie-info">
+    						<span>
+    							<div>
+    								<img th:src="${prod.moviePoster}" class="send-out-moviePoster" id="send-out-moviePoster"/>
+    							</div>
+    							<div class="send-out-movieInfo" id="send-out-movieInfo">
+    								<a th:href="@{/movie/{id}(id=${prod.movieDBId})}">
+    									<p th:text="${prod.movieName}" style="color: black; margin-bottom:1px;font-size:15px;"></p>
+    								</a>
+    							</div>
+    							<div class="sent-basic-information" id="sent-basic-information">
+    									<p th:text="${prod.getComment()}" style="margin-bottom: 0px;"></p>
+    							</div>
+    							<div class="sent-bottom-mark" class="sent-bottom-mark">
+    								To: <p th:text="${prod.getReceiverName()}" style="float: right; margin-right: 175px; margin-bottom: 0px;">recipient</p>
+    								<p class="sent-time-record" id="sent-time-record" th:text="${prod.getTime()}" >time</p>
+    							</div>
+    								
+    						</span>
+    					</div>
+    				</span>
+    			</div>
+    		</div>
+    	</div>
+    	<div th:unless="${not #lists.isEmpty(allProds)}" class="prod-list-main" id="prod-list-main" style="font-size: 20px;">
+    		<p>You don't have any movie recommendation sent/received yet.</p>
+    	</div>
+    </div>
+		
+</body>
+</html>

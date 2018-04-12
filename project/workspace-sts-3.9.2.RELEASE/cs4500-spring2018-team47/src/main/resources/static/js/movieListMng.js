@@ -67,7 +67,7 @@ function deleteList(listName, thisButton) {
 	setTimeout(function() {
 		location.reload(true);
 		}, 
-		150);
+		4000);
 }
 
 /**
@@ -87,7 +87,7 @@ function cleanList(listName, thisButton) {
 	setTimeout(function() {
 		location.reload(true);
 		}, 
-		150);
+		4000);
 }
 
 
