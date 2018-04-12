@@ -5,26 +5,22 @@ import static org.junit.Assert.assertNotEquals;
 
 import java.io.IOException;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.junit.Before;
 import org.junit.Test;
 
-import edu.northeastern.cs4500.Cs4500Spring2018Team47ApplicationTests;
 import edu.northeastern.cs4500.model.services.IMovieDBService;
 import edu.northeastern.cs4500.model.services.MovieDBServiceImpl;
 
 public class MovieDBServiceImplTest {
 	
-	private static final Logger logger = LogManager.getLogger(MovieDBServiceImplTest.class);
 	private static IMovieDBService movieDbService;
 	
 	
 	@Before
 	public void init() {
-	movieDbService = new MovieDBServiceImpl();
+	    movieDbService = new MovieDBServiceImpl();
 	}
 	
 	

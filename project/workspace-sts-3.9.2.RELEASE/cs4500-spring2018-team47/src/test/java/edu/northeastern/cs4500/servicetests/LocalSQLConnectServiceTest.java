@@ -1,8 +1,5 @@
 package edu.northeastern.cs4500.servicetests;
 
-
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
@@ -69,10 +66,12 @@ public class LocalSQLConnectServiceTest {
 	@Before
 	public void setUpConnection() throws SQLException {
 		localSQLConnectService = new LocalSQLConnectServiceImpl(dbPassword);
-		cleanMockUsers();
-		cleanMockMovie();
+		cleanMockMovieList();
 		cleanMockReview();
 		cleanMockRating();
+		cleanMockUsers();
+		cleanMockMovie();
+
 	}
 
 	/**
@@ -80,7 +79,7 @@ public class LocalSQLConnectServiceTest {
 	 * 
 	 * @throws SQLException
 	 */
-	private void initMockUsers() throws SQLException {
+	public void initMockUsers() throws SQLException {
 
 		// set up mock user 1
 		stub1 = new User();
@@ -114,7 +113,7 @@ public class LocalSQLConnectServiceTest {
 	 * 
 	 * @throws SQLException
 	 */
-	private void cleanMockUsers() throws SQLException {
+	public void cleanMockUsers() throws SQLException {
 		localSQLConnectService.removeUser(stub1Id);
 		localSQLConnectService.removeUser(stub2Id);
 
@@ -220,21 +219,11 @@ public class LocalSQLConnectServiceTest {
 		Movie testMovie = movies.get(0);
 		assertEquals("test", testMovie.getTitle());
 		assertEquals(movieId, testMovie.getImdbID());
-		assertEquals("test", testMovie.getGenre());
-		assertEquals("test", testMovie.getPlot());
-		assertEquals("test", testMovie.getActors());
-		assertEquals("test", testMovie.getDirector());
-		assertEquals("test", testMovie.getReleased());
-		assertEquals("test", testMovie.getRuntime());
-		assertEquals("test", testMovie.getCountry());
-		assertEquals("0", testMovie.getImdbRating());
-		assertEquals("test", testMovie.getPoster());
-		assertEquals("test", testMovie.getTheMovieDbID());
 	}
 
 	//have to clear movie lists
 	@Test
-	public void testPreloadMovie() throws SQLException {
+	public void testPreloadMovieList() throws SQLException {
 		cleanMockUsers();
 		initMockUsers();
 		List<String> watchLists1 = localSQLConnectService.getMovieListForUser(stub1Id);
@@ -246,8 +235,14 @@ public class LocalSQLConnectServiceTest {
 		watchLists2 = localSQLConnectService.getMovieListForUser(stub2Id);
 		assertEquals(0, watchLists1.size());
 		assertEquals(2, watchLists2.size());
-		assertEquals("Favorites", watchLists2.get(0));
+		assertEquals("Favorites", watchLists2.get(1));
 		assertEquals("Browse History", watchLists2.get(0));
+	}
+	private void cleanMockMovieList() throws SQLException {
+	    localSQLConnectService.deleteMovieList(stub1Id, "Favorites");
+	    localSQLConnectService.deleteMovieList(stub1Id, "Browse History");
+	    localSQLConnectService.deleteMovieList(stub2Id, "Favorites");
+	    localSQLConnectService.deleteMovieList(stub2Id, "Browse History");
 	}
 
 	@Test
@@ -548,7 +543,6 @@ public class LocalSQLConnectServiceTest {
 	    
 	
 	}
-	
 
 	@Test
 	public void testInsertRating() throws SQLException {
@@ -575,6 +569,34 @@ public class LocalSQLConnectServiceTest {
 	    
 	    localSQLConnectService.removeRating(rating.getRatingId());
 	    assertNull(localSQLConnectService.getRating(stub1Id, movieId));
+	}
+	
+	@Test
+	public void testBlockSender() throws SQLException {
+	    initMockUsers();
+	    localSQLConnectService.sendFriendRequest(stub1Id, stub2Id);
+	    
+	    assertEquals("onHold", localSQLConnectService.getUserRelation(stub1Id, stub2Id));
+	    
+	    localSQLConnectService.blockSender(stub1Id, stub2Id);
+	    
+	    assertEquals("senderBlocked", localSQLConnectService.getUserRelation(stub1Id, stub2Id));
+	    
+	    
+	}
+	
+	@Test
+	public void testBlockReceiver() throws SQLException {
+	    initMockUsers();
+	    
+	    localSQLConnectService.sendFriendRequest(stub1Id, stub2Id);
+	    
+	    assertEquals("onHold", localSQLConnectService.getUserRelation(stub1Id, stub2Id));
+	    
+	    localSQLConnectService.blockReceiver(stub1Id, stub2Id);
+	    
+	    assertEquals("receiverBlocked", localSQLConnectService.getUserRelation(stub1Id, stub2Id));
+	    
 
 	}
 }

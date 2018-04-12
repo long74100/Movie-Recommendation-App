@@ -5,7 +5,6 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
@@ -15,7 +14,6 @@ import java.util.HashMap;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
@@ -234,7 +232,6 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 				}
 			}
 		}
-
 	}
 
 	@Override
@@ -283,7 +280,7 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 
 	@Override
 	public void blockSender(int senderId, int receiverId) throws SQLException {
-		String sqlcmd = "update userRelation set isSenderBlocked = 1 where senderId = ? and receiverId = ?";
+		String sqlcmd = "update userRelation set isSenderBlocked = 1, relationStatus = \"senderBlocked\" where senderId = ? and receiverId = ?";
 		PreparedStatement pstmt = null;
 		try {
 			openConToDatabase();
@@ -305,7 +302,7 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 
 	@Override
 	public void blockReceiver(int senderId, int receiverId) throws SQLException {
-		String sqlcmd = "update userRelation set isReceiverBlocked = 1 where senderId = ? and receiverId = ?";
+		String sqlcmd = "update userRelation set isReceiverBlocked = 1, relationStatus = \"receiverBlocked\" where senderId = ? and receiverId = ?";
 		PreparedStatement pstmt = null;
 		try {
 			openConToDatabase();
@@ -1494,8 +1491,8 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 	@Override
 	public HashMap<String, HashMap<Movie, Double>> getSlopeOneDate() throws SQLException {
 		HashMap<String, HashMap<Movie, Double>> output = new HashMap<>();
-		String sqlcmd = "select user.username, comp.movie_id, comp.movieDBid, comp.movie_name, comp.poster, comp.rating from user join\r\n" + 
-				"(select rating.user_id, Movie.movie_id, Movie.movieDBid, Movie.movie_name, Movie.poster, rating.rating from Movie join rating where Movie.movie_id = rating.movie_id) as comp\r\n" + 
+		String sqlcmd = "select user.username, comp.movie_id, comp.movieDBid, comp.movie_name, comp.poster, comp.rating from user join " + 
+				"(select rating.user_id, Movie.movie_id, Movie.movieDBid, Movie.movie_name, Movie.poster, rating.rating from Movie join rating where Movie.movie_id = rating.movie_id) as comp " + 
 				"where user.user_id = comp.user_id order by username";
 		PreparedStatement pstmt = null;
 		String tempUser = "";
@@ -1503,6 +1500,7 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 		
 		try {
 			openConToDatabase();
+			pstmt = connector.prepareStatement(sqlcmd);
 			myResult = pstmt.executeQuery();
 			while(myResult.next()) {
 				if(myResult.getString("username") == tempUser) {
@@ -1515,7 +1513,9 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 					tempMap.put(movie, rating);
 				}
 				else {
-					output.put(tempUser, tempMap);
+					if(!tempUser.isEmpty()) {
+						output.put(tempUser, tempMap);
+					}
 					tempUser = myResult.getString("username");
 					tempMap = new HashMap<>();
 					Movie movie = new Movie();
@@ -1530,7 +1530,8 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 		}
 		catch(SQLException sq) {
 			logger.error(sq.getMessage());
-		}finally {
+		}
+		finally {
 			if (pstmt != null) {
 				pstmt.close();
 			}
@@ -1616,4 +1617,111 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 			}
 		}
 	}
+	
+	@Override
+	public List<Movie> extractMoviesByGenre(String genre) throws SQLException {
+		ArrayList<Movie> output = new ArrayList<>();
+		String sqlcmd = "select * from Movie where genre like \"%?%\"";
+		PreparedStatement pstmt = null;
+		try {
+			openConToDatabase();
+			pstmt = connector.prepareStatement(sqlcmd);
+			pstmt.setString(1, genre);
+			myResult = pstmt.executeQuery();
+			while(myResult.next()) {
+				Movie movie = new Movie();
+				String imdbId = myResult.getString("movie_id");
+				String movieName = myResult.getString("movie_name");
+				String movieDBId = myResult.getString("movieDBid");
+				String moviePoster = myResult.getString("poster");
+				movie.setTitle(movieName);
+				movie.setImdbID(imdbId);
+				movie.setPoster(moviePoster);
+				movie.setTheMovieDbID(movieDBId);
+				output.add(movie);
+			}
+			
+		}
+		catch(SQLException ep) {
+			logger.error(ep.getMessage());
+		}finally {
+	        if (pstmt != null) {
+	        	pstmt.close();
+	        }
+	        if (connector != null) {
+				closeConToDatabase();
+			}
+		}
+		
+		return output;
+	}
+	
+	@Override
+	public Movie findMovieByImdbId(String imdbId) throws SQLException {
+		String sqlcmd = "select * from Movie where movie_id = ?";
+		PreparedStatement pstmt = null;
+		Movie movie = new Movie();
+		try {
+			openConToDatabase();
+			pstmt = connector.prepareStatement(sqlcmd);
+			pstmt.setString(1, imdbId);
+			myResult = pstmt.executeQuery();
+			while(myResult.next()) {
+				movie.setImdbID(imdbId);
+				movie.setTheMovieDbID(myResult.getString("movieDBid"));
+				movie.setTitle(myResult.getString("movie_name"));
+				movie.setPoster(myResult.getString("poster"));
+				Double rating = myResult.getDouble("rating");
+				movie.setImdbRating(rating.toString());
+			}
+		}
+		catch(SQLException sq) {
+			logger.error(sq.getMessage());
+		}
+		finally {
+			if (pstmt != null) {
+	        	pstmt.close();
+	        }
+	        if (connector != null) {
+				closeConToDatabase();
+			}
+		}
+		
+		return movie;
+	}
+	
+	
+	@Override
+	public Movie findMovieByMovieDBId(String moviedbId) throws SQLException {
+		String sqlcmd = "select * from Movie where movieDBid = ?";
+		PreparedStatement pstmt = null;
+		Movie movie = new Movie();
+		try {
+			openConToDatabase();
+			pstmt = connector.prepareStatement(sqlcmd);
+			pstmt.setString(1, moviedbId);
+			myResult = pstmt.executeQuery();
+			while(myResult.next()) {
+				movie.setImdbID(moviedbId);
+				movie.setTheMovieDbID(myResult.getString("movieDBid"));
+				movie.setTitle(myResult.getString("movie_name"));
+				movie.setPoster(myResult.getString("poster"));
+				Double rating = myResult.getDouble("rating");
+				movie.setImdbRating(rating.toString());
+			}
+		}
+		catch(SQLException sq) {
+			logger.error(sq.getMessage());
+		}
+		finally {
+			if (pstmt != null) {
+	        	pstmt.close();
+	        }
+	        if (connector != null) {
+				closeConToDatabase();
+			}
+		}
+		return movie;
+	}
+
 }
