@@ -1462,21 +1462,23 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 	
 	
 	@Override
-	public HashMap<String, HashMap<Movie, Double>> getSlopeOneDate() throws SQLException {
-		HashMap<String, HashMap<Movie, Double>> output = new HashMap<>();
+	public Map<String, Map<Movie, Double>> getSlopeOneData() throws SQLException {
+		Map<String, Map<Movie, Double>> output = new HashMap<>();
 		String sqlcmd = "select user.username, comp.movie_id, comp.movieDBid, comp.movie_name, comp.poster, comp.rating from user join\r\n" + 
 				"(select rating.user_id, Movie.movie_id, Movie.movieDBid, Movie.movie_name, Movie.poster, rating.rating from Movie join rating where Movie.movie_id = rating.movie_id) as comp\r\n" + 
 				"where user.user_id = comp.user_id order by username";
 		PreparedStatement pstmt = null;
 		String tempUser = "";
-		HashMap<Movie, Double> tempMap = new HashMap<>();
 		
 		try {
 			openConToDatabase();
 			pstmt = connector.prepareStatement(sqlcmd);
 			myResult = pstmt.executeQuery();
 			while(myResult.next()) {
-				if(myResult.getString("username") == tempUser) {
+				Map<Movie, Double> tempMap = new HashMap<>();
+				tempUser = myResult.getString("username");
+				if (output.containsKey(tempUser)) {
+					tempMap = output.get(tempUser);
 					Movie movie = new Movie();
 					movie.setImdbID(myResult.getString("movie_id"));
 					movie.setTheMovieDbID(myResult.getString("movieDBid"));
@@ -1484,11 +1486,9 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 					movie.setPoster(myResult.getString("poster"));
 					Double rating = myResult.getDouble("rating");
 					tempMap.put(movie, rating);
+					output.put(tempUser, tempMap);	
 				}
 				else {
-					output.put(tempUser, tempMap);
-					tempUser = myResult.getString("username");
-					tempMap = new HashMap<>();
 					Movie movie = new Movie();
 					movie.setImdbID(myResult.getString("movie_id"));
 					movie.setTheMovieDbID(myResult.getString("movieDBid"));
@@ -1496,6 +1496,7 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 					movie.setPoster(myResult.getString("poster"));
 					Double rating = myResult.getDouble("rating");
 					tempMap.put(movie, rating);
+					output.put(tempUser, tempMap);	
 				}
 			}
 		}

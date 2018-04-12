@@ -280,51 +280,30 @@ public class UserprofileController {
 	@RequestMapping(value="/systemRecommendation", method = RequestMethod.GET)
 	public ModelAndView getSystemRecommendation() {
 		 // this is my data base 
-		  Map<String, Map<String, Double>> data = new HashMap<>(); 
-		  // items 
-		  String item_candy = "candy"; 
-		  String item_dog = "dog"; 
-		  String item_cat = "cat"; 
-		  String item_war = "war"; 
-		  String item_food = "strange food"; 
-		 
-		  //I'm going to fill it in 
-		  HashMap<String, Double> user1 = new HashMap<>(); 
-		  HashMap<String, Double> user2 = new HashMap<>(); 
-		  HashMap<String, Double> user3 = new HashMap<>(); 
-		  HashMap<String, Double> user4 = new HashMap<>(); 
-		  user1.put(item_candy, 1.0); 
-		  user1.put(item_dog, 0.5); 
-		  user1.put(item_war, 0.1); 
-		  data.put("Bob", user1); 
-		  user2.put(item_candy, 1.0); 
-		  user2.put(item_cat, 0.5); 
-		  user2.put(item_war, 0.2); 
-		  data.put("Jane", user2); 
-		  user3.put(item_candy, 0.9); 
-		  user3.put(item_dog, 0.4); 
-		  user3.put(item_cat, 0.5); 
-		  user3.put(item_war, 0.1); 
-		  data.put("Jo", user3); 
-		  user4.put(item_candy, 0.1); 
-		  user4.put(item_war, 1.0); 
-		  user4.put(item_food, 0.4); 
-		  data.put("StrangeJo", user4); 
-		  HashMap<String, Double> user10 = new HashMap<>(); 
-		  user10.put(item_food, 0.4);
-	      user10.put(item_war, 0.2);
-	      data.put("ed", user10);
+		  Map<String, Map<Movie, Double>> data = null;
+		try {
+			
+			data = localDbConnector.getSlopeOneData();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		  
 		  SystemRecommendationAlgo slopeOne = new SystemRecommendationAlgo(data);
-		  // then, I'm going to test it out... 
-	        System.out.println("Getting...");
-	        
-	        System.out.println(slopeOne.predict("ed"));
 		
 		ModelAndView modelAndView = new ModelAndView();
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		User user = userService.findUserByEmail(auth.getName());
+		
+		 // then, I'm going to test it out... 
+        System.out.println("Getting...");
+        
+        System.out.println("Controller:" + slopeOne.predict(user.getUsername()));
+		
+		
 		modelAndView.addObject("user", user);
-		modelAndView.addObject("recommendation", slopeOne.predict("ed"));
+		modelAndView.addObject("recommendation", slopeOne.predict(user.getUsername()));
 		modelAndView.setViewName("systemRecommendation");
 		return modelAndView;
 	}
@@ -332,7 +311,7 @@ public class UserprofileController {
 	 * This is to direct to the prod page
 	 * @return prod page
 	 */
-	@RequestMapping(value={"/prodRepo"}, method = RequestMethod.GET) 
+	/*@RequestMapping(value={"/prodRepo"}, method = RequestMethod.GET) 
 	public ModelAndView getProdList() {
 		ModelAndView modelAndView = new ModelAndView();
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
@@ -348,7 +327,7 @@ public class UserprofileController {
 		modelAndView.addObject("user", user);
 		modelAndView.setViewName("prods");
 		return modelAndView;
-	}
+	}*/
 	
 	
 	// so needs to create three page also. or see if we can do something like display block and none.
