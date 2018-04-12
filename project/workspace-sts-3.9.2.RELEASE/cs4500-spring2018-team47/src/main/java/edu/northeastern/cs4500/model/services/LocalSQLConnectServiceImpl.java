@@ -940,6 +940,7 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 		}
 
 	}
+	
 
 	@Override
 	public void deleteFriend(int userId, int friendId) throws SQLException {
