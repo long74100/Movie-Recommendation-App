@@ -295,7 +295,7 @@ public class UserprofileController {
 		for (String username : data.keySet()) {
 			Map<String, Double> convertDataTemp = new HashMap<>();
 			for (Movie df : data.get(username).keySet()) {
-				convertDataTemp.put(df.getTitle(), data.get(username).get(df).doubleValue());
+				convertDataTemp.put(df.getTheMovieDbID(), data.get(username).get(df).doubleValue());
 			}
 			convertData.put(username, convertDataTemp);
 		}
@@ -306,11 +306,12 @@ public class UserprofileController {
 		List<Movie> recommend = new ArrayList<>();
 		for (int x = 0; x < recommendNames.size(); x++) {
 			try {
-				recommend.add(localDbConnector.findMovieByName(recommendNames.get(x)));
+				recommend.add(localDbConnector.findMovieByMovieDBId(recommendNames.get(x)));
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+			System.out.println("title: " + recommend.get(x).getTitle());
 		}
 		
 		modelAndView.addObject("user", user);
@@ -372,11 +373,11 @@ public class UserprofileController {
 		try {
 			if(repoName.equals("all")) {
 				// get all prods in "all" section
-				allSentProds = localDbConnector.extractAllProds(user.getId());
+				allSentProds = localDbConnector.extractAllSentProds(user.getId());
 				prodType = "all";
 			}
 			else {
-				allSentProds = localDbConnector.extractAllProdsForARecipient(user.getId(), repoName);
+				allSentProds = localDbConnector.extractProdsSentToAFriend(user.getId(), repoName);
 				prodType = repoName;
 			}
 		}
@@ -411,11 +412,11 @@ public class UserprofileController {
 		try {
 			if(repoName.equals("all")) {
 				// get all prods in "all" section
-				allReceivedProds = localDbConnector.extractAllProds(user.getId());
+				allReceivedProds = localDbConnector.extractAllFriendProds(user.getId());
 				prodType = "all";
 			}
 			else {
-				allReceivedProds = localDbConnector.extractAllProdsForARecipient(user.getId(), repoName);
+				allReceivedProds = localDbConnector.extractProdsReceivedFromAFriend(user.getId(), repoName);
 				prodType = repoName;
 			}
 		}

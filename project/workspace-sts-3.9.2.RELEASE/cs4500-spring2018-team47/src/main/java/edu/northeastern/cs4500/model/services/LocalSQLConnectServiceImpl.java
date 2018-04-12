@@ -234,7 +234,6 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 				}
 			}
 		}
-
 	}
 
 	@Override
@@ -1502,7 +1501,8 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 		}
 		catch(SQLException sq) {
 			logger.error(sq.getMessage());
-		}finally {
+		}
+		finally {
 			if (pstmt != null) {
 				pstmt.close();
 			}
@@ -1590,7 +1590,110 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 	}
     }
 	
+	@Override
+	public List<Movie> extractMoviesByGenre(String genre) throws SQLException {
+		ArrayList<Movie> output = new ArrayList<>();
+		String sqlcmd = "select * from Movie where genre like \"%?%\"";
+		PreparedStatement pstmt = null;
+		try {
+			openConToDatabase();
+			pstmt = connector.prepareStatement(sqlcmd);
+			pstmt.setString(1, genre);
+			myResult = pstmt.executeQuery();
+			while(myResult.next()) {
+				Movie movie = new Movie();
+				String imdbId = myResult.getString("movie_id");
+				String movieName = myResult.getString("movie_name");
+				String movieDBId = myResult.getString("movieDBid");
+				String moviePoster = myResult.getString("poster");
+				movie.setTitle(movieName);
+				movie.setImdbID(imdbId);
+				movie.setPoster(moviePoster);
+				movie.setTheMovieDbID(movieDBId);
+				output.add(movie);
+			}
+			
+		}
+		catch(SQLException ep) {
+			logger.error(ep.getMessage());
+		}finally {
+	        if (pstmt != null) {
+	        	pstmt.close();
+	        }
+	        if (connector != null) {
+				closeConToDatabase();
+			}
+		}
+		
+		return output;
+	}
 	
-
+	@Override
+	public Movie findMovieByImdbId(String imdbId) throws SQLException {
+		String sqlcmd = "select * from Movie where movie_id = ?";
+		PreparedStatement pstmt = null;
+		Movie movie = new Movie();
+		try {
+			openConToDatabase();
+			pstmt = connector.prepareStatement(sqlcmd);
+			pstmt.setString(1, imdbId);
+			myResult = pstmt.executeQuery();
+			while(myResult.next()) {
+				movie.setImdbID(imdbId);
+				movie.setTheMovieDbID(myResult.getString("movieDBid"));
+				movie.setTitle(myResult.getString("movie_name"));
+				movie.setPoster(myResult.getString("poster"));
+				Double rating = myResult.getDouble("rating");
+				movie.setImdbRating(rating.toString());
+			}
+		}
+		catch(SQLException sq) {
+			logger.error(sq.getMessage());
+		}
+		finally {
+			if (pstmt != null) {
+	        	pstmt.close();
+	        }
+	        if (connector != null) {
+				closeConToDatabase();
+			}
+		}
+		
+		return movie;
+	}
+	
+	
+	@Override
+	public Movie findMovieByMovieDBId(String moviedbId) throws SQLException {
+		String sqlcmd = "select * from Movie where movieDBid = ?";
+		PreparedStatement pstmt = null;
+		Movie movie = new Movie();
+		try {
+			openConToDatabase();
+			pstmt = connector.prepareStatement(sqlcmd);
+			pstmt.setString(1, moviedbId);
+			myResult = pstmt.executeQuery();
+			while(myResult.next()) {
+				movie.setImdbID(moviedbId);
+				movie.setTheMovieDbID(myResult.getString("movieDBid"));
+				movie.setTitle(myResult.getString("movie_name"));
+				movie.setPoster(myResult.getString("poster"));
+				Double rating = myResult.getDouble("rating");
+				movie.setImdbRating(rating.toString());
+			}
+		}
+		catch(SQLException sq) {
+			logger.error(sq.getMessage());
+		}
+		finally {
+			if (pstmt != null) {
+	        	pstmt.close();
+	        }
+	        if (connector != null) {
+				closeConToDatabase();
+			}
+		}
+		return movie;
+	}
 
 }

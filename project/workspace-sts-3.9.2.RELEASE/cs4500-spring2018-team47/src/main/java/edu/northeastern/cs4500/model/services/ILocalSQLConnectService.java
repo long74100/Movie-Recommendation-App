@@ -362,6 +362,30 @@ public interface ILocalSQLConnectService {
 	 * output format is: Map<UserName, Map<Movie, rating>> 
 	 * @return map containing all users as well as corresponding movie they rated
 	 */
+
 	Map<String, Map<Movie, Double>> getSlopeOneData() throws SQLException;
+	/**
+	 * To get all movies based on the given genre
+	 * @param genre movie genre
+	 * @return all movies matching the given genre
+	 * @throws SQLException
+	 */
+	List<Movie> extractMoviesByGenre(String genre) throws SQLException;
+	
+	/**
+	 * Get movie by imdb id
+	 * @param imdbId imdb id for the movie
+	 * @return movie object which has the given imdb id
+	 * @throws SQLException
+	 */
+	Movie findMovieByImdbId(String imdbId) throws SQLException;
+	
+	/**
+	 * Get movie by MovieDBId
+	 * @param moviedbId the moviedbId for the movie
+	 * @return movie object which hsa the given moviedb id
+	 * @throws SQLException
+	 */
+	Movie findMovieByMovieDBId(String moviedbId) throws SQLException;
 }
 
