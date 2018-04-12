@@ -22,7 +22,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
-		<!-- <sonar.coverage.exclusions>src/main/java/**/* </sonar.coverage.exclusions> -->
+		<sonar.coverage.exclusions>src/main/java/edu/northeastern/cs4500/prod/Prod.java, src/main/java/edu/northeastern/cs4500/ServletInitializer.java, src/main/java/edu/northeastern/cs4500/model/user/UserProfile.java, src/main/java/edu/northeastern/cs4500/model/movie/Movie.java, src/main/java/edu/northeastern/cs4500/model/user/Role.java, src/main/java/edu/northeastern/cs4500/Cs4500Spring2018Team47Application.java, src/main/java/edu/northeastern/cs4500/model/movie/MovieReview.java </sonar.coverage.exclusions>
 	</properties>
 
 	<dependencies>
