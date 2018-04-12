@@ -18,9 +18,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import edu.northeastern.cs4500.model.movie.Movie;
-import edu.northeastern.cs4500.model.services.ILocalSQLConnectService;
 import edu.northeastern.cs4500.model.services.IMovieDBService;
-import edu.northeastern.cs4500.model.services.LocalSQLConnectServiceImpl;
 import edu.northeastern.cs4500.model.services.MovieDBServiceImpl;
 import edu.northeastern.cs4500.model.services.UserService;
 import edu.northeastern.cs4500.model.user.User;
@@ -34,7 +32,6 @@ import edu.northeastern.cs4500.model.user.User;
 public class PageController {
 	
 	private IMovieDBService movieDbService = new MovieDBServiceImpl();
-	private ILocalSQLConnectService localDbConnector = new LocalSQLConnectServiceImpl();
 	
 	private static final Logger logger = LogManager.getLogger(PageController.class);
 	
