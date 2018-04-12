@@ -35,7 +35,6 @@ import edu.northeastern.cs4500.model.services.ILocalSQLConnectService;
 import edu.northeastern.cs4500.model.services.IMovieDBService;
 import edu.northeastern.cs4500.model.services.LocalSQLConnectServiceImpl;
 import edu.northeastern.cs4500.model.services.MovieDBServiceImpl;
-import edu.northeastern.cs4500.model.services.MovieRatingService;
 import edu.northeastern.cs4500.model.services.UserService;
 import edu.northeastern.cs4500.model.user.User;
 
@@ -49,8 +48,7 @@ public class MovieController {
 
 	private static final Logger logger = LogManager.getLogger(MovieController.class);
 
-	@Autowired
-	private MovieRatingService movieRatingService;
+	
 
 	@Autowired
 	private UserService userService;
@@ -294,7 +292,6 @@ public class MovieController {
 
 		if (user != null) {
 			movieRating.setUserID(user.getId());
-			movieRatingService.saveMovieRating(movieRating);
 		}
 	}
 
