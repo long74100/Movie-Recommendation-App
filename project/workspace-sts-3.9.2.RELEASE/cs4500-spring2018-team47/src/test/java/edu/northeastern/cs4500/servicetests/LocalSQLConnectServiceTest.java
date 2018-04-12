@@ -479,13 +479,31 @@ public class LocalSQLConnectServiceTest {
 	
 
 	@Test
-	public void testnsertRating() throws SQLException {
+	public void testInsertRating() throws SQLException {
+	    initMockUsers();
+	    initMockMovie();
+	    MovieRating rating = localSQLConnectService.getRating(stub1Id, movieId);
+	    assertNull(rating);
+	    
+	    cleanMockUsers();
+	    cleanMockMovie();
+	    initMockRating();
+	    rating = localSQLConnectService.getRating(stub1Id, movieId);
+	    
+	    assertEquals(5, rating.getRating(), 0.1);
+	    
 	    
 	}
 	
 	@Test
 	public void testRemoveRating() throws SQLException {
+	    initMockRating();
+	    MovieRating rating = localSQLConnectService.getRating(stub1Id, movieId);
+	    assertEquals(5, rating.getRating(), 0.1);
 	    
+	    localSQLConnectService.removeRating(rating.getRatingId());
+	    assertNull(localSQLConnectService.getRating(stub1Id, movieId));
+
 	}
 
 }
