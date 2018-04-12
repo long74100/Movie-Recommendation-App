@@ -1,5 +1,8 @@
 package edu.northeastern.cs4500.servicetests;
 
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import static org.junit.Assert.assertEquals;
 
 import java.util.List;
@@ -52,7 +55,7 @@ public class LocalSQLConnectServiceTest {
 
 	private static User noSuchUser;
 	private static int noSuchId = 983729;
-	
+
 	// mock review
 	private static MovieReview mockReview;
 	private static int mockReviewId = 983730;
@@ -390,6 +393,5 @@ public class LocalSQLConnectServiceTest {
 	    assertEquals(reviews.size(), 1);
 	    
 	}
-
 }
 

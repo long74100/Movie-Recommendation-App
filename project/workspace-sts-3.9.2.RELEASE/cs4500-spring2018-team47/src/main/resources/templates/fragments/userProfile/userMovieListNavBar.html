@@ -20,10 +20,14 @@
             	<div th:if="${not #lists.isEmpty(usermovielist)}" class="movieRepoList" id="movieListsItem">
             		<div th:each="list : ${usermovielist}" class="movielistItem" id="singleList">
             			<a th:href="@{/profile+to+movielist+{list}(list=${list})}">
-            				<div>
+            				<div th:if="${list == 'Browse History' or list == 'Favorites'}">
             					<p class="repo" th:text="${list}"></p>
-            					<button class="clean-movielist" th:onclick="'cleanList(\''+${list}+'\', '+this+')'">clean</button>
-            					<button class="delete-movielist" th:onclick="'deleteList(\''+${list}+'\','+this+')'">delete</button>
+            					<button class="clean-movielist" style="margin-left: 174px;" th:onclick="'cleanList(&quot;' +${list}+ '&quot;, '+this+')'">clean</button>
+            				</div>
+            				<div th:unless="${list == 'Browse History' or list == 'Favorites'}">
+            					<p class="repo" th:text="${list}"></p>
+            					<button class="clean-movielist" th:onclick="'cleanList(&quot;' +${list}+ '&quot;, '+this+')'">clean</button>
+            					<button class="delete-movielist" th:onclick="'deleteList(&quot;' +${list}+ '&quot;,'+this+')'">delete</button>
             				</div>
             			</a>
             		</div>
