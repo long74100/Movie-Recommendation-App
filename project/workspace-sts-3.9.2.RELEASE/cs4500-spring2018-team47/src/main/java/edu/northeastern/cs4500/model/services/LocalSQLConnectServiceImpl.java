@@ -12,6 +12,7 @@ import java.util.Map;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
@@ -43,12 +44,15 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
     private static String username = "RuairiMSmillie";
     
     // database password
-    @Value("${spring.datasource.password}")
     private String password;
 
     private static Connection connector = null;
     private static ResultSet myResult = null;
     private static final Logger logger = LogManager.getLogger(LocalSQLConnectServiceImpl.class);
+    
+    public LocalSQLConnectServiceImpl(@Value("${spring.datasource.password}") String password) {
+    	this.password = password;
+    }
     
     private void openConToDatabase() {
     	try {
@@ -130,53 +134,48 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 	}
 
 	@Override
-	public void loadMovieIntoLocalDB(Map<String, String> movieObject) {
+	public void loadMovieIntoLocalDB(Map<String, String> movieObject) throws SQLException {
+		String sqlcmd = "insert into Movie values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+		PreparedStatement pstmt = null;
+		String movie_id = movieObject.get("imdbID");
+		String movie_name = movieObject.get("title");
+		String genre = movieObject.get("genre");
+		String plot = movieObject.get("plot");
+		String actors = movieObject.get("actors");
+		String directors = movieObject.get("director");
+		String released = movieObject.get("released");
+		String runtime = movieObject.get("runtime");
+		String country = movieObject.get("country");
+		String imdbRating = movieObject.get("imdbRating");
+		String poster = movieObject.get("poster");
+		String language = movieObject.get("language");
+		String movieDBid = movieObject.get("movieDBid");
 		try {
-			String sqlcmd = "insert into Movie values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-			String movie_id = movieObject.get("imdbID");
-			String movie_name = movieObject.get("title");
-			String genre = movieObject.get("genre");
-			String plot = movieObject.get("plot");
-			String actors = movieObject.get("actors");
-			String directors = movieObject.get("director");
-			String released = movieObject.get("released");
-			String runtime = movieObject.get("runtime");
-			String country = movieObject.get("country");
-			String imdbRating = movieObject.get("imdbRating");
-			String poster = movieObject.get("poster");
-			String language = movieObject.get("language");
-			String movieDBid = movieObject.get("movieDBid");
-			PreparedStatement pstmt = null;
-
-			try {
-				openConToDatabase();
-				pstmt = connector.prepareStatement(sqlcmd);
-				pstmt.setString(1, movie_id);
-				pstmt.setString(2, movie_name);
-				pstmt.setString(3, runtime);
-				pstmt.setString(4, released);
-				pstmt.setString(5, genre);
-				pstmt.setString(6, directors);
-				pstmt.setString(7, actors);
-				pstmt.setString(8, plot);
-				pstmt.setString(9, language);
-				pstmt.setString(10, country);
-				pstmt.setString(11, poster);
-				pstmt.setString(12, imdbRating);
-				pstmt.setString(13, movieDBid);
-				pstmt.executeUpdate();
-			} catch (SQLException sq) {
-				logger.error(sq.getMessage());
-			} finally {
-				if (pstmt != null) {
-					pstmt.close();
-				}
-				if (connector != null) {
-					closeConToDatabase();
-				}
+			openConToDatabase();
+			pstmt = connector.prepareStatement(sqlcmd);
+			pstmt.setString(1, movie_id);
+			pstmt.setString(2, movie_name);
+			pstmt.setString(3, runtime);
+			pstmt.setString(4, released);
+			pstmt.setString(5, genre);
+			pstmt.setString(6, directors);
+			pstmt.setString(7, actors);
+			pstmt.setString(8, plot);
+			pstmt.setString(9, language);
+			pstmt.setString(10, country);
+			pstmt.setString(11, poster);
+			pstmt.setString(12, imdbRating);
+			pstmt.setString(13, movieDBid);
+			pstmt.executeUpdate();
+		} catch (SQLException sq) {
+			logger.error(sq.getMessage());
+		} finally {
+			if (pstmt != null) {
+				pstmt.close();
 			}
-		} catch (Exception ep) {
-			logger.error(ep.getMessage());
+			if (connector != null) {
+				closeConToDatabase();
+			}
 		}
 
 	}
@@ -481,19 +480,24 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 			pstmt.setString(2, movieListName);
 			myResult = pstmt.executeQuery();
 			if (!myResult.next()) {
-				pstmt2 = connector.prepareStatement(addListQuery);
-				pstmt2.setInt(1, userid);
-				pstmt2.setString(2, movieListName);
-				pstmt2.executeUpdate();
+				try {
+					pstmt2 = connector.prepareStatement(addListQuery);
+					pstmt2.setInt(1, userid);
+					pstmt2.setString(2, movieListName);
+					pstmt2.executeUpdate();
+				} catch (SQLException sq) {
+					logger.error(sq.getMessage());
+				} finally {
+					if (pstmt2 != null) {
+						pstmt2.close();
+					}
+				}
 			}
 		} catch (SQLException sq) {
 			logger.error(sq.getMessage());
 		} finally {
 			if (pstmt != null) {
 				pstmt.close();
-			}
-			if (pstmt2 != null) {
-				pstmt2.close();
 			}
 			if (connector != null) {
 				closeConToDatabase();
@@ -913,19 +917,24 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 			pstmt.setString(2, listName);
 			int deletedRow = pstmt.executeUpdate();
 			if (deletedRow > 0) {
-				pstmt2 = connector.prepareStatement(sqlcmdfollowing);
-				pstmt2.setInt(1, userId);
-				pstmt2.setString(2, listName);
-				pstmt2.executeUpdate();
+				try {
+					pstmt2 = connector.prepareStatement(sqlcmdfollowing);
+					pstmt2.setInt(1, userId);
+					pstmt2.setString(2, listName);
+					pstmt2.executeUpdate();
+				} catch (SQLException sl) {
+					logger.error(sl.getMessage());
+				} finally {
+					if (pstmt2 != null) {
+						pstmt2.close();
+					}
+				}
 			}
 		} catch (SQLException sl) {
 			logger.error(sl.getMessage());
 		} finally {
 			if (pstmt != null) {
 				pstmt.close();
-			}
-			if (pstmt2 != null) {
-				pstmt2.close();
 			}
 			if (connector != null) {
 				closeConToDatabase();
