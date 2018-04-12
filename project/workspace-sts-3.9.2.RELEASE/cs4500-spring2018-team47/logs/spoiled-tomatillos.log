@@ -755,3 +755,417 @@ Using default security password: e3f67426-a270-40d3-89ea-5bf785e86ac5
 2018-04-12 06:32:30.842 ERROR DESKTOP-AKNICNU --- [nio-8080-exec-8] e.n.c.m.s.LocalSQLConnectServiceImpl     : Column 'rating' not found.
 2018-04-12 06:32:31.277 ERROR DESKTOP-AKNICNU --- [nio-8080-exec-8] e.n.c.m.s.LocalSQLConnectServiceImpl     : Column 'rating' not found.
 2018-04-12 06:32:31.921 ERROR DESKTOP-AKNICNU --- [nio-8080-exec-8] e.n.c.m.s.LocalSQLConnectServiceImpl     : Column 'rating' not found.
+2018-04-12 06:33:49.225  INFO DESKTOP-AKNICNU --- [      Thread-46] ationConfigEmbeddedWebApplicationContext : Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@39011b2d: startup date [Thu Apr 12 06:32:19 EDT 2018]; root of context hierarchy
+2018-04-12 06:33:49.227  INFO DESKTOP-AKNICNU --- [      Thread-46] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans on shutdown
+2018-04-12 06:33:49.228  INFO DESKTOP-AKNICNU --- [      Thread-46] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2018-04-12 06:33:49.738  INFO DESKTOP-AKNICNU --- [  restartedMain] e.n.c.Cs4500Spring2018Team47Application  : Starting Cs4500Spring2018Team47Application on DESKTOP-AKNICNU with PID 10592 (D:\EdwardWang\team-47-spring18\project\workspace-sts-3.9.2.RELEASE\cs4500-spring2018-team47\target\classes started by Edward Wang in D:\EdwardWang\team-47-spring18\project\workspace-sts-3.9.2.RELEASE\cs4500-spring2018-team47)
+2018-04-12 06:33:49.738 DEBUG DESKTOP-AKNICNU --- [  restartedMain] e.n.c.Cs4500Spring2018Team47Application  : Running with Spring Boot v1.5.9.RELEASE, Spring v4.3.13.RELEASE
+2018-04-12 06:33:49.738  INFO DESKTOP-AKNICNU --- [  restartedMain] e.n.c.Cs4500Spring2018Team47Application  : No active profile set, falling back to default profiles: default
+2018-04-12 06:33:49.739  INFO DESKTOP-AKNICNU --- [  restartedMain] ationConfigEmbeddedWebApplicationContext : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@1b1fdd89: startup date [Thu Apr 12 06:33:49 EDT 2018]; root of context hierarchy
+2018-04-12 06:33:50.191  INFO DESKTOP-AKNICNU --- [  restartedMain] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat initialized with port(s): 8080 (http)
+2018-04-12 06:33:50.192  INFO DESKTOP-AKNICNU --- [  restartedMain] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2018-04-12 06:33:50.192  INFO DESKTOP-AKNICNU --- [  restartedMain] o.a.c.c.StandardEngine                   : Starting Servlet Engine: Apache Tomcat/8.5.23
+2018-04-12 06:33:50.208  INFO DESKTOP-AKNICNU --- [ost-startStop-1] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2018-04-12 06:33:50.208  INFO DESKTOP-AKNICNU --- [ost-startStop-1] o.s.w.c.ContextLoader                    : Root WebApplicationContext: initialization completed in 469 ms
+2018-04-12 06:33:50.232  INFO DESKTOP-AKNICNU --- [ost-startStop-1] o.s.b.w.s.FilterRegistrationBean         : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-04-12 06:33:50.232  INFO DESKTOP-AKNICNU --- [ost-startStop-1] o.s.b.w.s.FilterRegistrationBean         : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-04-12 06:33:50.233  INFO DESKTOP-AKNICNU --- [ost-startStop-1] o.s.b.w.s.FilterRegistrationBean         : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-04-12 06:33:50.233  INFO DESKTOP-AKNICNU --- [ost-startStop-1] o.s.b.w.s.FilterRegistrationBean         : Mapping filter: 'requestContextFilter' to: [/*]
+2018-04-12 06:33:50.233  INFO DESKTOP-AKNICNU --- [ost-startStop-1] .s.DelegatingFilterProxyRegistrationBean : Mapping filter: 'springSecurityFilterChain' to: [/*]
+2018-04-12 06:33:50.233  INFO DESKTOP-AKNICNU --- [ost-startStop-1] o.s.b.w.s.ServletRegistrationBean        : Mapping servlet: 'dispatcherServlet' to [/]
+2018-04-12 06:33:54.168  INFO DESKTOP-AKNICNU --- [  restartedMain] j.LocalContainerEntityManagerFactoryBean : Building JPA container EntityManagerFactory for persistence unit 'default'
+2018-04-12 06:33:54.168  INFO DESKTOP-AKNICNU --- [  restartedMain] o.h.j.i.u.LogHelper                      : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-04-12 06:33:54.192  INFO DESKTOP-AKNICNU --- [  restartedMain] o.h.d.Dialect                            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2018-04-12 06:33:54.201  WARN DESKTOP-AKNICNU --- [  restartedMain] o.h.b.i.SessionFactoryBuilderImpl        : Unrecognized hbm2ddl_auto value : none .  Supported values include create, create-drop, update, and validate.  Ignoring
+2018-04-12 06:33:54.223  INFO DESKTOP-AKNICNU --- [  restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2018-04-12 06:33:54.423  INFO DESKTOP-AKNICNU --- [  restartedMain] o.s.s.w.DefaultSecurityFilterChain       : Creating filter chain: Ant [pattern='/resources/**'], []
+2018-04-12 06:33:54.423  INFO DESKTOP-AKNICNU --- [  restartedMain] o.s.s.w.DefaultSecurityFilterChain       : Creating filter chain: Ant [pattern='/static/**'], []
+2018-04-12 06:33:54.423  INFO DESKTOP-AKNICNU --- [  restartedMain] o.s.s.w.DefaultSecurityFilterChain       : Creating filter chain: Ant [pattern='/css/**'], []
+2018-04-12 06:33:54.423  INFO DESKTOP-AKNICNU --- [  restartedMain] o.s.s.w.DefaultSecurityFilterChain       : Creating filter chain: Ant [pattern='/js/**'], []
+2018-04-12 06:33:54.423  INFO DESKTOP-AKNICNU --- [  restartedMain] o.s.s.w.DefaultSecurityFilterChain       : Creating filter chain: Ant [pattern='/images/**'], []
+2018-04-12 06:33:54.423  INFO DESKTOP-AKNICNU --- [  restartedMain] o.s.s.w.DefaultSecurityFilterChain       : Creating filter chain: Ant [pattern='/slick/**'], []
+2018-04-12 06:33:54.428  INFO DESKTOP-AKNICNU --- [  restartedMain] o.s.s.w.DefaultSecurityFilterChain       : Creating filter chain: org.springframework.security.web.util.matcher.AnyRequestMatcher@1, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@c9ecdfc, org.springframework.security.web.context.SecurityContextPersistenceFilter@2fd90d45, org.springframework.security.web.header.HeaderWriterFilter@171db362, org.springframework.security.web.authentication.logout.LogoutFilter@1d2c3339, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@21542be6, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@18f8a356, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@62848588, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@124b4359, org.springframework.security.web.session.SessionManagementFilter@7bf1d1c, org.springframework.security.web.access.ExceptionTranslationFilter@57bc1555, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@1c99f353]
+2018-04-12 06:33:54.471  INFO DESKTOP-AKNICNU --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@1b1fdd89: startup date [Thu Apr 12 06:33:49 EDT 2018]; root of context hierarchy
+2018-04-12 06:33:54.476  INFO DESKTOP-AKNICNU --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/home],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.AdminController.home()
+2018-04-12 06:33:54.476  INFO DESKTOP-AKNICNU --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/ban],methods=[POST]}" onto public void edu.northeastern.cs4500.controllers.AdminController.setRating(java.lang.String,javax.servlet.http.HttpServletRequest)
+2018-04-12 06:33:54.476  INFO DESKTOP-AKNICNU --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/bannedlist],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.AdminController.bannedList()
+2018-04-12 06:33:54.477  INFO DESKTOP-AKNICNU --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/home],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.LoginController.home()
+2018-04-12 06:33:54.477  INFO DESKTOP-AKNICNU --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/registration],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.LoginController.registration()
+2018-04-12 06:33:54.477  INFO DESKTOP-AKNICNU --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/registration],methods=[POST]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.LoginController.createNewUser(edu.northeastern.cs4500.model.user.User,org.springframework.validation.BindingResult)
+2018-04-12 06:33:54.477  INFO DESKTOP-AKNICNU --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/login],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.LoginController.login()
+2018-04-12 06:33:54.477  INFO DESKTOP-AKNICNU --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/writeReview],methods=[POST]}" onto public void edu.northeastern.cs4500.controllers.MovieController.writeReview(java.lang.String,javax.servlet.http.HttpServletRequest)
+2018-04-12 06:33:54.477  INFO DESKTOP-AKNICNU --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/movie/{id}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.MovieController.movieResult(java.lang.String)
+2018-04-12 06:33:54.478  INFO DESKTOP-AKNICNU --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/movie/removeReview],methods=[POST]}" onto public void edu.northeastern.cs4500.controllers.MovieController.removeReview(java.lang.String,javax.servlet.http.HttpServletRequest)
+2018-04-12 06:33:54.478  INFO DESKTOP-AKNICNU --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/addMovieToList],methods=[POST]}" onto public void edu.northeastern.cs4500.controllers.MovieController.addMovieToList(java.lang.String,javax.servlet.http.HttpServletRequest)
+2018-04-12 06:33:54.478  INFO DESKTOP-AKNICNU --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/search],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.MovieController.searchResult(java.lang.String)
+2018-04-12 06:33:54.478  INFO DESKTOP-AKNICNU --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/movie/rating],methods=[POST]}" onto public void edu.northeastern.cs4500.controllers.MovieController.setRating(java.lang.String,javax.servlet.http.HttpServletRequest)
+2018-04-12 06:33:54.478  INFO DESKTOP-AKNICNU --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.PageController.login()
+2018-04-12 06:33:54.478  INFO DESKTOP-AKNICNU --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/prodRepo+allReceived+{repoName}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.UserprofileController.getProdsItemsInProfileAllReceived(java.lang.String)
+2018-04-12 06:33:54.478  INFO DESKTOP-AKNICNU --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/cleanList],methods=[POST]}" onto public void edu.northeastern.cs4500.controllers.UserprofileController.cleanMovieList(java.lang.String,javax.servlet.http.HttpServletRequest)
+2018-04-12 06:33:54.479  INFO DESKTOP-AKNICNU --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/profile+to+movielist+{listName}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.UserprofileController.getMovieItems(java.lang.String)
+2018-04-12 06:33:54.479  INFO DESKTOP-AKNICNU --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/deleteFriend],methods=[POST]}" onto public void edu.northeastern.cs4500.controllers.UserprofileController.deleteFriend(javax.servlet.http.HttpServletRequest)
+2018-04-12 06:33:54.479  INFO DESKTOP-AKNICNU --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/profile+to+movielist],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.UserprofileController.getMovieList()
+2018-04-12 06:33:54.479  INFO DESKTOP-AKNICNU --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/profile],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.UserprofileController.getProfile()
+2018-04-12 06:33:54.479  INFO DESKTOP-AKNICNU --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/view/{username}],methods=[POST]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.UserprofileController.addFriend(java.lang.String)
+2018-04-12 06:33:54.479  INFO DESKTOP-AKNICNU --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/view/{username}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.UserprofileController.userProfile(java.lang.String)
+2018-04-12 06:33:54.479  INFO DESKTOP-AKNICNU --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/deleteList],methods=[POST]}" onto public void edu.northeastern.cs4500.controllers.UserprofileController.deleteMovieList(java.lang.String,javax.servlet.http.HttpServletRequest)
+2018-04-12 06:33:54.479  INFO DESKTOP-AKNICNU --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/prodToFriends],methods=[POST]}" onto public void edu.northeastern.cs4500.controllers.UserprofileController.prodToFriends(javax.servlet.http.HttpServletRequest)
+2018-04-12 06:33:54.479  INFO DESKTOP-AKNICNU --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/prodRepo+allSent+{repoName}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.UserprofileController.getProdsItemsInProfileAllSent(java.lang.String)
+2018-04-12 06:33:54.479  INFO DESKTOP-AKNICNU --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/profile+to+friendsAndRequests],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.UserprofileController.friendsAndRequests()
+2018-04-12 06:33:54.479  INFO DESKTOP-AKNICNU --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/systemRecommendation],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.UserprofileController.getSystemRecommendation()
+2018-04-12 06:33:54.479  INFO DESKTOP-AKNICNU --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/prodRepo+all+{repoName}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.UserprofileController.getProdsItemsInProfileAll(java.lang.String)
+2018-04-12 06:33:54.479  INFO DESKTOP-AKNICNU --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/createMovieList],methods=[POST]}" onto public void edu.northeastern.cs4500.controllers.UserprofileController.createNewMovieList(java.lang.String,javax.servlet.http.HttpServletRequest)
+2018-04-12 06:33:54.479  INFO DESKTOP-AKNICNU --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/deleteMovie],methods=[POST]}" onto public void edu.northeastern.cs4500.controllers.UserprofileController.deleteMovieFromMovieList(java.lang.String,javax.servlet.http.HttpServletRequest)
+2018-04-12 06:33:54.479  INFO DESKTOP-AKNICNU --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/acceptRequest],methods=[POST]}" onto public void edu.northeastern.cs4500.controllers.UserprofileController.acceptFriendRequest(javax.servlet.http.HttpServletRequest)
+2018-04-12 06:33:54.480  INFO DESKTOP-AKNICNU --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-04-12 06:33:54.481  INFO DESKTOP-AKNICNU --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-04-12 06:33:54.485  INFO DESKTOP-AKNICNU --- [  restartedMain] o.s.w.s.h.SimpleUrlHandlerMapping        : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-04-12 06:33:54.485  INFO DESKTOP-AKNICNU --- [  restartedMain] o.s.w.s.h.SimpleUrlHandlerMapping        : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-04-12 06:33:54.494  INFO DESKTOP-AKNICNU --- [  restartedMain] o.s.w.s.h.SimpleUrlHandlerMapping        : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-04-12 06:33:54.496  INFO DESKTOP-AKNICNU --- [  restartedMain] oConfiguration$WelcomePageHandlerMapping : Adding welcome page: ServletContext resource [/index.html]
+2018-04-12 06:33:54.513  INFO DESKTOP-AKNICNU --- [  restartedMain] b.a.s.AuthenticationManagerConfiguration : 
+
+Using default security password: 7f27af16-e985-4d38-8851-283225f5f232
+
+2018-04-12 06:33:54.555  INFO DESKTOP-AKNICNU --- [  restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2018-04-12 06:33:54.582  INFO DESKTOP-AKNICNU --- [  restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2018-04-12 06:33:54.588  INFO DESKTOP-AKNICNU --- [  restartedMain] o.a.c.h.Http11NioProtocol                : Initializing ProtocolHandler ["http-nio-8080"]
+2018-04-12 06:33:54.588  INFO DESKTOP-AKNICNU --- [  restartedMain] o.a.c.h.Http11NioProtocol                : Starting ProtocolHandler ["http-nio-8080"]
+2018-04-12 06:33:54.589  INFO DESKTOP-AKNICNU --- [  restartedMain] o.a.t.u.n.NioSelectorPool                : Using a shared selector for servlet write/read
+2018-04-12 06:33:54.594  INFO DESKTOP-AKNICNU --- [  restartedMain] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat started on port(s): 8080 (http)
+2018-04-12 06:33:54.595  INFO DESKTOP-AKNICNU --- [  restartedMain] e.n.c.Cs4500Spring2018Team47Application  : Started Cs4500Spring2018Team47Application in 4.901 seconds (JVM running for 675.377)
+2018-04-12 06:33:59.159  INFO DESKTOP-AKNICNU --- [      Thread-53] ationConfigEmbeddedWebApplicationContext : Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@1b1fdd89: startup date [Thu Apr 12 06:33:49 EDT 2018]; root of context hierarchy
+2018-04-12 06:33:59.160  INFO DESKTOP-AKNICNU --- [      Thread-53] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans on shutdown
+2018-04-12 06:33:59.162  INFO DESKTOP-AKNICNU --- [      Thread-53] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2018-04-12 06:33:59.694  INFO DESKTOP-AKNICNU --- [  restartedMain] e.n.c.Cs4500Spring2018Team47Application  : Starting Cs4500Spring2018Team47Application on DESKTOP-AKNICNU with PID 10592 (D:\EdwardWang\team-47-spring18\project\workspace-sts-3.9.2.RELEASE\cs4500-spring2018-team47\target\classes started by Edward Wang in D:\EdwardWang\team-47-spring18\project\workspace-sts-3.9.2.RELEASE\cs4500-spring2018-team47)
+2018-04-12 06:33:59.694 DEBUG DESKTOP-AKNICNU --- [  restartedMain] e.n.c.Cs4500Spring2018Team47Application  : Running with Spring Boot v1.5.9.RELEASE, Spring v4.3.13.RELEASE
+2018-04-12 06:33:59.694  INFO DESKTOP-AKNICNU --- [  restartedMain] e.n.c.Cs4500Spring2018Team47Application  : No active profile set, falling back to default profiles: default
+2018-04-12 06:33:59.695  INFO DESKTOP-AKNICNU --- [  restartedMain] ationConfigEmbeddedWebApplicationContext : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@2310b92a: startup date [Thu Apr 12 06:33:59 EDT 2018]; root of context hierarchy
+2018-04-12 06:34:00.171  INFO DESKTOP-AKNICNU --- [  restartedMain] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat initialized with port(s): 8080 (http)
+2018-04-12 06:34:00.171  INFO DESKTOP-AKNICNU --- [  restartedMain] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2018-04-12 06:34:00.172  INFO DESKTOP-AKNICNU --- [  restartedMain] o.a.c.c.StandardEngine                   : Starting Servlet Engine: Apache Tomcat/8.5.23
+2018-04-12 06:34:00.192  INFO DESKTOP-AKNICNU --- [ost-startStop-1] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2018-04-12 06:34:00.192  INFO DESKTOP-AKNICNU --- [ost-startStop-1] o.s.w.c.ContextLoader                    : Root WebApplicationContext: initialization completed in 497 ms
+2018-04-12 06:34:00.217  INFO DESKTOP-AKNICNU --- [ost-startStop-1] o.s.b.w.s.FilterRegistrationBean         : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-04-12 06:34:00.217  INFO DESKTOP-AKNICNU --- [ost-startStop-1] o.s.b.w.s.FilterRegistrationBean         : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-04-12 06:34:00.217  INFO DESKTOP-AKNICNU --- [ost-startStop-1] o.s.b.w.s.FilterRegistrationBean         : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-04-12 06:34:00.217  INFO DESKTOP-AKNICNU --- [ost-startStop-1] o.s.b.w.s.FilterRegistrationBean         : Mapping filter: 'requestContextFilter' to: [/*]
+2018-04-12 06:34:00.217  INFO DESKTOP-AKNICNU --- [ost-startStop-1] .s.DelegatingFilterProxyRegistrationBean : Mapping filter: 'springSecurityFilterChain' to: [/*]
+2018-04-12 06:34:00.217  INFO DESKTOP-AKNICNU --- [ost-startStop-1] o.s.b.w.s.ServletRegistrationBean        : Mapping servlet: 'dispatcherServlet' to [/]
+2018-04-12 06:34:04.139  INFO DESKTOP-AKNICNU --- [  restartedMain] j.LocalContainerEntityManagerFactoryBean : Building JPA container EntityManagerFactory for persistence unit 'default'
+2018-04-12 06:34:04.139  INFO DESKTOP-AKNICNU --- [  restartedMain] o.h.j.i.u.LogHelper                      : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-04-12 06:34:04.167  INFO DESKTOP-AKNICNU --- [  restartedMain] o.h.d.Dialect                            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2018-04-12 06:34:04.179  WARN DESKTOP-AKNICNU --- [  restartedMain] o.h.b.i.SessionFactoryBuilderImpl        : Unrecognized hbm2ddl_auto value : none .  Supported values include create, create-drop, update, and validate.  Ignoring
+2018-04-12 06:34:04.198  INFO DESKTOP-AKNICNU --- [  restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2018-04-12 06:34:04.396  INFO DESKTOP-AKNICNU --- [  restartedMain] o.s.s.w.DefaultSecurityFilterChain       : Creating filter chain: Ant [pattern='/resources/**'], []
+2018-04-12 06:34:04.396  INFO DESKTOP-AKNICNU --- [  restartedMain] o.s.s.w.DefaultSecurityFilterChain       : Creating filter chain: Ant [pattern='/static/**'], []
+2018-04-12 06:34:04.396  INFO DESKTOP-AKNICNU --- [  restartedMain] o.s.s.w.DefaultSecurityFilterChain       : Creating filter chain: Ant [pattern='/css/**'], []
+2018-04-12 06:34:04.396  INFO DESKTOP-AKNICNU --- [  restartedMain] o.s.s.w.DefaultSecurityFilterChain       : Creating filter chain: Ant [pattern='/js/**'], []
+2018-04-12 06:34:04.396  INFO DESKTOP-AKNICNU --- [  restartedMain] o.s.s.w.DefaultSecurityFilterChain       : Creating filter chain: Ant [pattern='/images/**'], []
+2018-04-12 06:34:04.396  INFO DESKTOP-AKNICNU --- [  restartedMain] o.s.s.w.DefaultSecurityFilterChain       : Creating filter chain: Ant [pattern='/slick/**'], []
+2018-04-12 06:34:04.400  INFO DESKTOP-AKNICNU --- [  restartedMain] o.s.s.w.DefaultSecurityFilterChain       : Creating filter chain: org.springframework.security.web.util.matcher.AnyRequestMatcher@1, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7b9d4992, org.springframework.security.web.context.SecurityContextPersistenceFilter@227bb5d5, org.springframework.security.web.header.HeaderWriterFilter@2da300a0, org.springframework.security.web.authentication.logout.LogoutFilter@6a8de730, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@101f0595, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5b6f320b, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6efc9fc6, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6b2ea536, org.springframework.security.web.session.SessionManagementFilter@2b0c8a9, org.springframework.security.web.access.ExceptionTranslationFilter@29da06ef, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@6b53c09f]
+2018-04-12 06:34:04.433  INFO DESKTOP-AKNICNU --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@2310b92a: startup date [Thu Apr 12 06:33:59 EDT 2018]; root of context hierarchy
+2018-04-12 06:34:04.437  INFO DESKTOP-AKNICNU --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/home],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.AdminController.home()
+2018-04-12 06:34:04.437  INFO DESKTOP-AKNICNU --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/ban],methods=[POST]}" onto public void edu.northeastern.cs4500.controllers.AdminController.setRating(java.lang.String,javax.servlet.http.HttpServletRequest)
+2018-04-12 06:34:04.438  INFO DESKTOP-AKNICNU --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/bannedlist],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.AdminController.bannedList()
+2018-04-12 06:34:04.438  INFO DESKTOP-AKNICNU --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/home],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.LoginController.home()
+2018-04-12 06:34:04.438  INFO DESKTOP-AKNICNU --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/registration],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.LoginController.registration()
+2018-04-12 06:34:04.438  INFO DESKTOP-AKNICNU --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/registration],methods=[POST]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.LoginController.createNewUser(edu.northeastern.cs4500.model.user.User,org.springframework.validation.BindingResult)
+2018-04-12 06:34:04.438  INFO DESKTOP-AKNICNU --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/login],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.LoginController.login()
+2018-04-12 06:34:04.438  INFO DESKTOP-AKNICNU --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/writeReview],methods=[POST]}" onto public void edu.northeastern.cs4500.controllers.MovieController.writeReview(java.lang.String,javax.servlet.http.HttpServletRequest)
+2018-04-12 06:34:04.438  INFO DESKTOP-AKNICNU --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/movie/{id}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.MovieController.movieResult(java.lang.String)
+2018-04-12 06:34:04.438  INFO DESKTOP-AKNICNU --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/movie/removeReview],methods=[POST]}" onto public void edu.northeastern.cs4500.controllers.MovieController.removeReview(java.lang.String,javax.servlet.http.HttpServletRequest)
+2018-04-12 06:34:04.438  INFO DESKTOP-AKNICNU --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/addMovieToList],methods=[POST]}" onto public void edu.northeastern.cs4500.controllers.MovieController.addMovieToList(java.lang.String,javax.servlet.http.HttpServletRequest)
+2018-04-12 06:34:04.439  INFO DESKTOP-AKNICNU --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/search],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.MovieController.searchResult(java.lang.String)
+2018-04-12 06:34:04.439  INFO DESKTOP-AKNICNU --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/movie/rating],methods=[POST]}" onto public void edu.northeastern.cs4500.controllers.MovieController.setRating(java.lang.String,javax.servlet.http.HttpServletRequest)
+2018-04-12 06:34:04.439  INFO DESKTOP-AKNICNU --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.PageController.login()
+2018-04-12 06:34:04.439  INFO DESKTOP-AKNICNU --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/prodRepo+allReceived+{repoName}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.UserprofileController.getProdsItemsInProfileAllReceived(java.lang.String)
+2018-04-12 06:34:04.439  INFO DESKTOP-AKNICNU --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/cleanList],methods=[POST]}" onto public void edu.northeastern.cs4500.controllers.UserprofileController.cleanMovieList(java.lang.String,javax.servlet.http.HttpServletRequest)
+2018-04-12 06:34:04.439  INFO DESKTOP-AKNICNU --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/profile+to+movielist+{listName}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.UserprofileController.getMovieItems(java.lang.String)
+2018-04-12 06:34:04.439  INFO DESKTOP-AKNICNU --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/deleteFriend],methods=[POST]}" onto public void edu.northeastern.cs4500.controllers.UserprofileController.deleteFriend(javax.servlet.http.HttpServletRequest)
+2018-04-12 06:34:04.439  INFO DESKTOP-AKNICNU --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/profile+to+movielist],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.UserprofileController.getMovieList()
+2018-04-12 06:34:04.440  INFO DESKTOP-AKNICNU --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/profile],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.UserprofileController.getProfile()
+2018-04-12 06:34:04.440  INFO DESKTOP-AKNICNU --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/view/{username}],methods=[POST]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.UserprofileController.addFriend(java.lang.String)
+2018-04-12 06:34:04.440  INFO DESKTOP-AKNICNU --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/view/{username}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.UserprofileController.userProfile(java.lang.String)
+2018-04-12 06:34:04.440  INFO DESKTOP-AKNICNU --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/deleteList],methods=[POST]}" onto public void edu.northeastern.cs4500.controllers.UserprofileController.deleteMovieList(java.lang.String,javax.servlet.http.HttpServletRequest)
+2018-04-12 06:34:04.440  INFO DESKTOP-AKNICNU --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/prodToFriends],methods=[POST]}" onto public void edu.northeastern.cs4500.controllers.UserprofileController.prodToFriends(javax.servlet.http.HttpServletRequest)
+2018-04-12 06:34:04.440  INFO DESKTOP-AKNICNU --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/prodRepo+allSent+{repoName}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.UserprofileController.getProdsItemsInProfileAllSent(java.lang.String)
+2018-04-12 06:34:04.440  INFO DESKTOP-AKNICNU --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/profile+to+friendsAndRequests],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.UserprofileController.friendsAndRequests()
+2018-04-12 06:34:04.440  INFO DESKTOP-AKNICNU --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/systemRecommendation],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.UserprofileController.getSystemRecommendation()
+2018-04-12 06:34:04.440  INFO DESKTOP-AKNICNU --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/prodRepo+all+{repoName}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.UserprofileController.getProdsItemsInProfileAll(java.lang.String)
+2018-04-12 06:34:04.440  INFO DESKTOP-AKNICNU --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/createMovieList],methods=[POST]}" onto public void edu.northeastern.cs4500.controllers.UserprofileController.createNewMovieList(java.lang.String,javax.servlet.http.HttpServletRequest)
+2018-04-12 06:34:04.440  INFO DESKTOP-AKNICNU --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/deleteMovie],methods=[POST]}" onto public void edu.northeastern.cs4500.controllers.UserprofileController.deleteMovieFromMovieList(java.lang.String,javax.servlet.http.HttpServletRequest)
+2018-04-12 06:34:04.440  INFO DESKTOP-AKNICNU --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/acceptRequest],methods=[POST]}" onto public void edu.northeastern.cs4500.controllers.UserprofileController.acceptFriendRequest(javax.servlet.http.HttpServletRequest)
+2018-04-12 06:34:04.441  INFO DESKTOP-AKNICNU --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-04-12 06:34:04.441  INFO DESKTOP-AKNICNU --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-04-12 06:34:04.445  INFO DESKTOP-AKNICNU --- [  restartedMain] o.s.w.s.h.SimpleUrlHandlerMapping        : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-04-12 06:34:04.445  INFO DESKTOP-AKNICNU --- [  restartedMain] o.s.w.s.h.SimpleUrlHandlerMapping        : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-04-12 06:34:04.452  INFO DESKTOP-AKNICNU --- [  restartedMain] o.s.w.s.h.SimpleUrlHandlerMapping        : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-04-12 06:34:04.454  INFO DESKTOP-AKNICNU --- [  restartedMain] oConfiguration$WelcomePageHandlerMapping : Adding welcome page: ServletContext resource [/index.html]
+2018-04-12 06:34:04.466  INFO DESKTOP-AKNICNU --- [  restartedMain] b.a.s.AuthenticationManagerConfiguration : 
+
+Using default security password: 0931d01a-12eb-4de8-9353-99de62d1ddd3
+
+2018-04-12 06:34:04.496  INFO DESKTOP-AKNICNU --- [  restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2018-04-12 06:34:04.522  INFO DESKTOP-AKNICNU --- [  restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2018-04-12 06:34:04.528  INFO DESKTOP-AKNICNU --- [  restartedMain] o.a.c.h.Http11NioProtocol                : Initializing ProtocolHandler ["http-nio-8080"]
+2018-04-12 06:34:04.528  INFO DESKTOP-AKNICNU --- [  restartedMain] o.a.c.h.Http11NioProtocol                : Starting ProtocolHandler ["http-nio-8080"]
+2018-04-12 06:34:04.529  INFO DESKTOP-AKNICNU --- [  restartedMain] o.a.t.u.n.NioSelectorPool                : Using a shared selector for servlet write/read
+2018-04-12 06:34:04.533  INFO DESKTOP-AKNICNU --- [  restartedMain] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat started on port(s): 8080 (http)
+2018-04-12 06:34:04.535  INFO DESKTOP-AKNICNU --- [  restartedMain] e.n.c.Cs4500Spring2018Team47Application  : Started Cs4500Spring2018Team47Application in 4.881 seconds (JVM running for 685.317)
+2018-04-12 06:34:15.273  INFO DESKTOP-AKNICNU --- [      Thread-60] ationConfigEmbeddedWebApplicationContext : Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@2310b92a: startup date [Thu Apr 12 06:33:59 EDT 2018]; root of context hierarchy
+2018-04-12 06:34:15.275  INFO DESKTOP-AKNICNU --- [      Thread-60] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans on shutdown
+2018-04-12 06:34:15.276  INFO DESKTOP-AKNICNU --- [      Thread-60] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2018-04-12 06:34:15.704  INFO DESKTOP-AKNICNU --- [  restartedMain] e.n.c.Cs4500Spring2018Team47Application  : Starting Cs4500Spring2018Team47Application on DESKTOP-AKNICNU with PID 10592 (D:\EdwardWang\team-47-spring18\project\workspace-sts-3.9.2.RELEASE\cs4500-spring2018-team47\target\classes started by Edward Wang in D:\EdwardWang\team-47-spring18\project\workspace-sts-3.9.2.RELEASE\cs4500-spring2018-team47)
+2018-04-12 06:34:15.705 DEBUG DESKTOP-AKNICNU --- [  restartedMain] e.n.c.Cs4500Spring2018Team47Application  : Running with Spring Boot v1.5.9.RELEASE, Spring v4.3.13.RELEASE
+2018-04-12 06:34:15.705  INFO DESKTOP-AKNICNU --- [  restartedMain] e.n.c.Cs4500Spring2018Team47Application  : No active profile set, falling back to default profiles: default
+2018-04-12 06:34:15.706  INFO DESKTOP-AKNICNU --- [  restartedMain] ationConfigEmbeddedWebApplicationContext : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@2fdcf564: startup date [Thu Apr 12 06:34:15 EDT 2018]; root of context hierarchy
+2018-04-12 06:34:16.107  INFO DESKTOP-AKNICNU --- [  restartedMain] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat initialized with port(s): 8080 (http)
+2018-04-12 06:34:16.107  INFO DESKTOP-AKNICNU --- [  restartedMain] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2018-04-12 06:34:16.107  INFO DESKTOP-AKNICNU --- [  restartedMain] o.a.c.c.StandardEngine                   : Starting Servlet Engine: Apache Tomcat/8.5.23
+2018-04-12 06:34:16.123  INFO DESKTOP-AKNICNU --- [ost-startStop-1] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2018-04-12 06:34:16.123  INFO DESKTOP-AKNICNU --- [ost-startStop-1] o.s.w.c.ContextLoader                    : Root WebApplicationContext: initialization completed in 417 ms
+2018-04-12 06:34:16.154  INFO DESKTOP-AKNICNU --- [ost-startStop-1] o.s.b.w.s.FilterRegistrationBean         : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-04-12 06:34:16.154  INFO DESKTOP-AKNICNU --- [ost-startStop-1] o.s.b.w.s.FilterRegistrationBean         : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-04-12 06:34:16.154  INFO DESKTOP-AKNICNU --- [ost-startStop-1] o.s.b.w.s.FilterRegistrationBean         : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-04-12 06:34:16.154  INFO DESKTOP-AKNICNU --- [ost-startStop-1] o.s.b.w.s.FilterRegistrationBean         : Mapping filter: 'requestContextFilter' to: [/*]
+2018-04-12 06:34:16.154  INFO DESKTOP-AKNICNU --- [ost-startStop-1] .s.DelegatingFilterProxyRegistrationBean : Mapping filter: 'springSecurityFilterChain' to: [/*]
+2018-04-12 06:34:16.154  INFO DESKTOP-AKNICNU --- [ost-startStop-1] o.s.b.w.s.ServletRegistrationBean        : Mapping servlet: 'dispatcherServlet' to [/]
+2018-04-12 06:34:20.772  INFO DESKTOP-AKNICNU --- [  restartedMain] j.LocalContainerEntityManagerFactoryBean : Building JPA container EntityManagerFactory for persistence unit 'default'
+2018-04-12 06:34:20.772  INFO DESKTOP-AKNICNU --- [  restartedMain] o.h.j.i.u.LogHelper                      : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-04-12 06:34:20.798  INFO DESKTOP-AKNICNU --- [  restartedMain] o.h.d.Dialect                            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2018-04-12 06:34:20.816  WARN DESKTOP-AKNICNU --- [  restartedMain] o.h.b.i.SessionFactoryBuilderImpl        : Unrecognized hbm2ddl_auto value : none .  Supported values include create, create-drop, update, and validate.  Ignoring
+2018-04-12 06:34:20.849  INFO DESKTOP-AKNICNU --- [  restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2018-04-12 06:34:21.053  INFO DESKTOP-AKNICNU --- [  restartedMain] o.s.s.w.DefaultSecurityFilterChain       : Creating filter chain: Ant [pattern='/resources/**'], []
+2018-04-12 06:34:21.053  INFO DESKTOP-AKNICNU --- [  restartedMain] o.s.s.w.DefaultSecurityFilterChain       : Creating filter chain: Ant [pattern='/static/**'], []
+2018-04-12 06:34:21.053  INFO DESKTOP-AKNICNU --- [  restartedMain] o.s.s.w.DefaultSecurityFilterChain       : Creating filter chain: Ant [pattern='/css/**'], []
+2018-04-12 06:34:21.053  INFO DESKTOP-AKNICNU --- [  restartedMain] o.s.s.w.DefaultSecurityFilterChain       : Creating filter chain: Ant [pattern='/js/**'], []
+2018-04-12 06:34:21.053  INFO DESKTOP-AKNICNU --- [  restartedMain] o.s.s.w.DefaultSecurityFilterChain       : Creating filter chain: Ant [pattern='/images/**'], []
+2018-04-12 06:34:21.053  INFO DESKTOP-AKNICNU --- [  restartedMain] o.s.s.w.DefaultSecurityFilterChain       : Creating filter chain: Ant [pattern='/slick/**'], []
+2018-04-12 06:34:21.057  INFO DESKTOP-AKNICNU --- [  restartedMain] o.s.s.w.DefaultSecurityFilterChain       : Creating filter chain: org.springframework.security.web.util.matcher.AnyRequestMatcher@1, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@10c6d8d8, org.springframework.security.web.context.SecurityContextPersistenceFilter@164dfde2, org.springframework.security.web.header.HeaderWriterFilter@41bf9079, org.springframework.security.web.authentication.logout.LogoutFilter@42cadf22, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@45a4b077, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6b9e5594, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@561f2cc6, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@57f4fb24, org.springframework.security.web.session.SessionManagementFilter@1ac1c01f, org.springframework.security.web.access.ExceptionTranslationFilter@7cf5c3b, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@1fe8755e]
+2018-04-12 06:34:21.098  INFO DESKTOP-AKNICNU --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@2fdcf564: startup date [Thu Apr 12 06:34:15 EDT 2018]; root of context hierarchy
+2018-04-12 06:34:21.102  INFO DESKTOP-AKNICNU --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/home],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.AdminController.home()
+2018-04-12 06:34:21.102  INFO DESKTOP-AKNICNU --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/ban],methods=[POST]}" onto public void edu.northeastern.cs4500.controllers.AdminController.setRating(java.lang.String,javax.servlet.http.HttpServletRequest)
+2018-04-12 06:34:21.102  INFO DESKTOP-AKNICNU --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/bannedlist],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.AdminController.bannedList()
+2018-04-12 06:34:21.102  INFO DESKTOP-AKNICNU --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/home],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.LoginController.home()
+2018-04-12 06:34:21.103  INFO DESKTOP-AKNICNU --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/registration],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.LoginController.registration()
+2018-04-12 06:34:21.103  INFO DESKTOP-AKNICNU --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/registration],methods=[POST]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.LoginController.createNewUser(edu.northeastern.cs4500.model.user.User,org.springframework.validation.BindingResult)
+2018-04-12 06:34:21.103  INFO DESKTOP-AKNICNU --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/login],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.LoginController.login()
+2018-04-12 06:34:21.103  INFO DESKTOP-AKNICNU --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/writeReview],methods=[POST]}" onto public void edu.northeastern.cs4500.controllers.MovieController.writeReview(java.lang.String,javax.servlet.http.HttpServletRequest)
+2018-04-12 06:34:21.103  INFO DESKTOP-AKNICNU --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/movie/{id}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.MovieController.movieResult(java.lang.String)
+2018-04-12 06:34:21.103  INFO DESKTOP-AKNICNU --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/movie/removeReview],methods=[POST]}" onto public void edu.northeastern.cs4500.controllers.MovieController.removeReview(java.lang.String,javax.servlet.http.HttpServletRequest)
+2018-04-12 06:34:21.103  INFO DESKTOP-AKNICNU --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/addMovieToList],methods=[POST]}" onto public void edu.northeastern.cs4500.controllers.MovieController.addMovieToList(java.lang.String,javax.servlet.http.HttpServletRequest)
+2018-04-12 06:34:21.103  INFO DESKTOP-AKNICNU --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/search],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.MovieController.searchResult(java.lang.String)
+2018-04-12 06:34:21.103  INFO DESKTOP-AKNICNU --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/movie/rating],methods=[POST]}" onto public void edu.northeastern.cs4500.controllers.MovieController.setRating(java.lang.String,javax.servlet.http.HttpServletRequest)
+2018-04-12 06:34:21.103  INFO DESKTOP-AKNICNU --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.PageController.login()
+2018-04-12 06:34:21.104  INFO DESKTOP-AKNICNU --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/prodRepo+allReceived+{repoName}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.UserprofileController.getProdsItemsInProfileAllReceived(java.lang.String)
+2018-04-12 06:34:21.104  INFO DESKTOP-AKNICNU --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/cleanList],methods=[POST]}" onto public void edu.northeastern.cs4500.controllers.UserprofileController.cleanMovieList(java.lang.String,javax.servlet.http.HttpServletRequest)
+2018-04-12 06:34:21.104  INFO DESKTOP-AKNICNU --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/profile+to+movielist+{listName}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.UserprofileController.getMovieItems(java.lang.String)
+2018-04-12 06:34:21.104  INFO DESKTOP-AKNICNU --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/deleteFriend],methods=[POST]}" onto public void edu.northeastern.cs4500.controllers.UserprofileController.deleteFriend(javax.servlet.http.HttpServletRequest)
+2018-04-12 06:34:21.104  INFO DESKTOP-AKNICNU --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/profile+to+movielist],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.UserprofileController.getMovieList()
+2018-04-12 06:34:21.104  INFO DESKTOP-AKNICNU --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/profile],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.UserprofileController.getProfile()
+2018-04-12 06:34:21.104  INFO DESKTOP-AKNICNU --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/view/{username}],methods=[POST]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.UserprofileController.addFriend(java.lang.String)
+2018-04-12 06:34:21.104  INFO DESKTOP-AKNICNU --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/view/{username}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.UserprofileController.userProfile(java.lang.String)
+2018-04-12 06:34:21.104  INFO DESKTOP-AKNICNU --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/deleteList],methods=[POST]}" onto public void edu.northeastern.cs4500.controllers.UserprofileController.deleteMovieList(java.lang.String,javax.servlet.http.HttpServletRequest)
+2018-04-12 06:34:21.104  INFO DESKTOP-AKNICNU --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/prodToFriends],methods=[POST]}" onto public void edu.northeastern.cs4500.controllers.UserprofileController.prodToFriends(javax.servlet.http.HttpServletRequest)
+2018-04-12 06:34:21.104  INFO DESKTOP-AKNICNU --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/prodRepo+allSent+{repoName}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.UserprofileController.getProdsItemsInProfileAllSent(java.lang.String)
+2018-04-12 06:34:21.104  INFO DESKTOP-AKNICNU --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/profile+to+friendsAndRequests],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.UserprofileController.friendsAndRequests()
+2018-04-12 06:34:21.104  INFO DESKTOP-AKNICNU --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/systemRecommendation],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.UserprofileController.getSystemRecommendation()
+2018-04-12 06:34:21.104  INFO DESKTOP-AKNICNU --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/prodRepo+all+{repoName}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.UserprofileController.getProdsItemsInProfileAll(java.lang.String)
+2018-04-12 06:34:21.104  INFO DESKTOP-AKNICNU --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/createMovieList],methods=[POST]}" onto public void edu.northeastern.cs4500.controllers.UserprofileController.createNewMovieList(java.lang.String,javax.servlet.http.HttpServletRequest)
+2018-04-12 06:34:21.104  INFO DESKTOP-AKNICNU --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/deleteMovie],methods=[POST]}" onto public void edu.northeastern.cs4500.controllers.UserprofileController.deleteMovieFromMovieList(java.lang.String,javax.servlet.http.HttpServletRequest)
+2018-04-12 06:34:21.104  INFO DESKTOP-AKNICNU --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/acceptRequest],methods=[POST]}" onto public void edu.northeastern.cs4500.controllers.UserprofileController.acceptFriendRequest(javax.servlet.http.HttpServletRequest)
+2018-04-12 06:34:21.105  INFO DESKTOP-AKNICNU --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-04-12 06:34:21.105  INFO DESKTOP-AKNICNU --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-04-12 06:34:21.111  INFO DESKTOP-AKNICNU --- [  restartedMain] o.s.w.s.h.SimpleUrlHandlerMapping        : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-04-12 06:34:21.111  INFO DESKTOP-AKNICNU --- [  restartedMain] o.s.w.s.h.SimpleUrlHandlerMapping        : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-04-12 06:34:21.120  INFO DESKTOP-AKNICNU --- [  restartedMain] o.s.w.s.h.SimpleUrlHandlerMapping        : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-04-12 06:34:21.122  INFO DESKTOP-AKNICNU --- [  restartedMain] oConfiguration$WelcomePageHandlerMapping : Adding welcome page: ServletContext resource [/index.html]
+2018-04-12 06:34:21.139  INFO DESKTOP-AKNICNU --- [  restartedMain] b.a.s.AuthenticationManagerConfiguration : 
+
+Using default security password: 5188c536-4551-4229-8c3a-165e2a8ae818
+
+2018-04-12 06:34:21.174  INFO DESKTOP-AKNICNU --- [  restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2018-04-12 06:34:21.199  INFO DESKTOP-AKNICNU --- [  restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2018-04-12 06:34:21.205  INFO DESKTOP-AKNICNU --- [  restartedMain] o.a.c.h.Http11NioProtocol                : Initializing ProtocolHandler ["http-nio-8080"]
+2018-04-12 06:34:21.205  INFO DESKTOP-AKNICNU --- [  restartedMain] o.a.c.h.Http11NioProtocol                : Starting ProtocolHandler ["http-nio-8080"]
+2018-04-12 06:34:21.206  INFO DESKTOP-AKNICNU --- [  restartedMain] o.a.t.u.n.NioSelectorPool                : Using a shared selector for servlet write/read
+2018-04-12 06:34:21.211  INFO DESKTOP-AKNICNU --- [  restartedMain] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat started on port(s): 8080 (http)
+2018-04-12 06:34:21.212  INFO DESKTOP-AKNICNU --- [  restartedMain] e.n.c.Cs4500Spring2018Team47Application  : Started Cs4500Spring2018Team47Application in 5.546 seconds (JVM running for 701.994)
+2018-04-12 06:35:02.161  INFO DESKTOP-AKNICNU --- [  restartedMain] e.n.c.Cs4500Spring2018Team47Application  : Starting Cs4500Spring2018Team47Application on DESKTOP-AKNICNU with PID 13224 (D:\EdwardWang\team-47-spring18\project\workspace-sts-3.9.2.RELEASE\cs4500-spring2018-team47\target\classes started by Edward Wang in D:\EdwardWang\team-47-spring18\project\workspace-sts-3.9.2.RELEASE\cs4500-spring2018-team47)
+2018-04-12 06:35:02.167 DEBUG DESKTOP-AKNICNU --- [  restartedMain] e.n.c.Cs4500Spring2018Team47Application  : Running with Spring Boot v1.5.9.RELEASE, Spring v4.3.13.RELEASE
+2018-04-12 06:35:02.167  INFO DESKTOP-AKNICNU --- [  restartedMain] e.n.c.Cs4500Spring2018Team47Application  : No active profile set, falling back to default profiles: default
+2018-04-12 06:35:02.366  INFO DESKTOP-AKNICNU --- [  restartedMain] ationConfigEmbeddedWebApplicationContext : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@35b5dfbe: startup date [Thu Apr 12 06:35:02 EDT 2018]; root of context hierarchy
+2018-04-12 06:35:02.390  INFO DESKTOP-AKNICNU --- [kground-preinit] o.h.v.i.u.Version                        : HV000001: Hibernate Validator 5.3.6.Final
+2018-04-12 06:35:04.863  INFO DESKTOP-AKNICNU --- [  restartedMain] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat initialized with port(s): 8080 (http)
+2018-04-12 06:35:04.882  INFO DESKTOP-AKNICNU --- [  restartedMain] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2018-04-12 06:35:04.884  INFO DESKTOP-AKNICNU --- [  restartedMain] o.a.c.c.StandardEngine                   : Starting Servlet Engine: Apache Tomcat/8.5.23
+2018-04-12 06:35:05.024  INFO DESKTOP-AKNICNU --- [ost-startStop-1] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2018-04-12 06:35:05.025  INFO DESKTOP-AKNICNU --- [ost-startStop-1] o.s.w.c.ContextLoader                    : Root WebApplicationContext: initialization completed in 2662 ms
+2018-04-12 06:35:05.279  INFO DESKTOP-AKNICNU --- [ost-startStop-1] o.s.b.w.s.FilterRegistrationBean         : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-04-12 06:35:05.280  INFO DESKTOP-AKNICNU --- [ost-startStop-1] o.s.b.w.s.FilterRegistrationBean         : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-04-12 06:35:05.281  INFO DESKTOP-AKNICNU --- [ost-startStop-1] o.s.b.w.s.FilterRegistrationBean         : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-04-12 06:35:05.281  INFO DESKTOP-AKNICNU --- [ost-startStop-1] o.s.b.w.s.FilterRegistrationBean         : Mapping filter: 'requestContextFilter' to: [/*]
+2018-04-12 06:35:05.283  INFO DESKTOP-AKNICNU --- [ost-startStop-1] .s.DelegatingFilterProxyRegistrationBean : Mapping filter: 'springSecurityFilterChain' to: [/*]
+2018-04-12 06:35:05.283  INFO DESKTOP-AKNICNU --- [ost-startStop-1] o.s.b.w.s.ServletRegistrationBean        : Mapping servlet: 'dispatcherServlet' to [/]
+2018-04-12 06:35:10.078  INFO DESKTOP-AKNICNU --- [  restartedMain] j.LocalContainerEntityManagerFactoryBean : Building JPA container EntityManagerFactory for persistence unit 'default'
+2018-04-12 06:35:10.095  INFO DESKTOP-AKNICNU --- [  restartedMain] o.h.j.i.u.LogHelper                      : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-04-12 06:35:10.163  INFO DESKTOP-AKNICNU --- [  restartedMain] o.h.Version                              : HHH000412: Hibernate Core {5.0.12.Final}
+2018-04-12 06:35:10.164  INFO DESKTOP-AKNICNU --- [  restartedMain] o.h.c.Environment                        : HHH000206: hibernate.properties not found
+2018-04-12 06:35:10.165  INFO DESKTOP-AKNICNU --- [  restartedMain] o.h.c.Environment                        : HHH000021: Bytecode provider name : javassist
+2018-04-12 06:35:10.207  INFO DESKTOP-AKNICNU --- [  restartedMain] o.h.a.c.Version                          : HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2018-04-12 06:35:10.361  INFO DESKTOP-AKNICNU --- [  restartedMain] o.h.d.Dialect                            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2018-04-12 06:35:10.554  WARN DESKTOP-AKNICNU --- [  restartedMain] o.h.b.i.SessionFactoryBuilderImpl        : Unrecognized hbm2ddl_auto value : none .  Supported values include create, create-drop, update, and validate.  Ignoring
+2018-04-12 06:35:10.832  INFO DESKTOP-AKNICNU --- [  restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2018-04-12 06:35:11.663  INFO DESKTOP-AKNICNU --- [  restartedMain] o.s.s.w.DefaultSecurityFilterChain       : Creating filter chain: Ant [pattern='/resources/**'], []
+2018-04-12 06:35:11.663  INFO DESKTOP-AKNICNU --- [  restartedMain] o.s.s.w.DefaultSecurityFilterChain       : Creating filter chain: Ant [pattern='/static/**'], []
+2018-04-12 06:35:11.663  INFO DESKTOP-AKNICNU --- [  restartedMain] o.s.s.w.DefaultSecurityFilterChain       : Creating filter chain: Ant [pattern='/css/**'], []
+2018-04-12 06:35:11.663  INFO DESKTOP-AKNICNU --- [  restartedMain] o.s.s.w.DefaultSecurityFilterChain       : Creating filter chain: Ant [pattern='/js/**'], []
+2018-04-12 06:35:11.663  INFO DESKTOP-AKNICNU --- [  restartedMain] o.s.s.w.DefaultSecurityFilterChain       : Creating filter chain: Ant [pattern='/images/**'], []
+2018-04-12 06:35:11.663  INFO DESKTOP-AKNICNU --- [  restartedMain] o.s.s.w.DefaultSecurityFilterChain       : Creating filter chain: Ant [pattern='/slick/**'], []
+2018-04-12 06:35:11.761  INFO DESKTOP-AKNICNU --- [  restartedMain] o.s.s.w.DefaultSecurityFilterChain       : Creating filter chain: org.springframework.security.web.util.matcher.AnyRequestMatcher@1, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@72683d9a, org.springframework.security.web.context.SecurityContextPersistenceFilter@48289696, org.springframework.security.web.header.HeaderWriterFilter@424c1580, org.springframework.security.web.authentication.logout.LogoutFilter@461e727d, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@560fc2cf, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@2d1d09cd, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7237a30, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6f50de9b, org.springframework.security.web.session.SessionManagementFilter@1ccf9f09, org.springframework.security.web.access.ExceptionTranslationFilter@1719d3f9, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@729ad3a0]
+2018-04-12 06:35:12.300  INFO DESKTOP-AKNICNU --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@35b5dfbe: startup date [Thu Apr 12 06:35:02 EDT 2018]; root of context hierarchy
+2018-04-12 06:35:12.449  INFO DESKTOP-AKNICNU --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/home],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.AdminController.home()
+2018-04-12 06:35:12.452  INFO DESKTOP-AKNICNU --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/ban],methods=[POST]}" onto public void edu.northeastern.cs4500.controllers.AdminController.setRating(java.lang.String,javax.servlet.http.HttpServletRequest)
+2018-04-12 06:35:12.453  INFO DESKTOP-AKNICNU --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/bannedlist],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.AdminController.bannedList()
+2018-04-12 06:35:12.453  INFO DESKTOP-AKNICNU --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/home],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.LoginController.home()
+2018-04-12 06:35:12.454  INFO DESKTOP-AKNICNU --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/registration],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.LoginController.registration()
+2018-04-12 06:35:12.454  INFO DESKTOP-AKNICNU --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/registration],methods=[POST]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.LoginController.createNewUser(edu.northeastern.cs4500.model.user.User,org.springframework.validation.BindingResult)
+2018-04-12 06:35:12.454  INFO DESKTOP-AKNICNU --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/login],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.LoginController.login()
+2018-04-12 06:35:12.456  INFO DESKTOP-AKNICNU --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/movie/removeReview],methods=[POST]}" onto public void edu.northeastern.cs4500.controllers.MovieController.removeReview(java.lang.String,javax.servlet.http.HttpServletRequest)
+2018-04-12 06:35:12.457  INFO DESKTOP-AKNICNU --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/writeReview],methods=[POST]}" onto public void edu.northeastern.cs4500.controllers.MovieController.writeReview(java.lang.String,javax.servlet.http.HttpServletRequest)
+2018-04-12 06:35:12.458  INFO DESKTOP-AKNICNU --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/addMovieToList],methods=[POST]}" onto public void edu.northeastern.cs4500.controllers.MovieController.addMovieToList(java.lang.String,javax.servlet.http.HttpServletRequest)
+2018-04-12 06:35:12.458  INFO DESKTOP-AKNICNU --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/movie/rating],methods=[POST]}" onto public void edu.northeastern.cs4500.controllers.MovieController.setRating(java.lang.String,javax.servlet.http.HttpServletRequest)
+2018-04-12 06:35:12.459  INFO DESKTOP-AKNICNU --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/search],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.MovieController.searchResult(java.lang.String)
+2018-04-12 06:35:12.460  INFO DESKTOP-AKNICNU --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/movie/{id}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.MovieController.movieResult(java.lang.String)
+2018-04-12 06:35:12.460  INFO DESKTOP-AKNICNU --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.PageController.login()
+2018-04-12 06:35:12.465  INFO DESKTOP-AKNICNU --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/deleteMovie],methods=[POST]}" onto public void edu.northeastern.cs4500.controllers.UserprofileController.deleteMovieFromMovieList(java.lang.String,javax.servlet.http.HttpServletRequest)
+2018-04-12 06:35:12.466  INFO DESKTOP-AKNICNU --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/acceptRequest],methods=[POST]}" onto public void edu.northeastern.cs4500.controllers.UserprofileController.acceptFriendRequest(javax.servlet.http.HttpServletRequest)
+2018-04-12 06:35:12.466  INFO DESKTOP-AKNICNU --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/prodRepo+allSent+{repoName}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.UserprofileController.getProdsItemsInProfileAllSent(java.lang.String)
+2018-04-12 06:35:12.466  INFO DESKTOP-AKNICNU --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/prodRepo+all+{repoName}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.UserprofileController.getProdsItemsInProfileAll(java.lang.String)
+2018-04-12 06:35:12.466  INFO DESKTOP-AKNICNU --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/profile+to+friendsAndRequests],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.UserprofileController.friendsAndRequests()
+2018-04-12 06:35:12.467  INFO DESKTOP-AKNICNU --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/createMovieList],methods=[POST]}" onto public void edu.northeastern.cs4500.controllers.UserprofileController.createNewMovieList(java.lang.String,javax.servlet.http.HttpServletRequest)
+2018-04-12 06:35:12.467  INFO DESKTOP-AKNICNU --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/systemRecommendation],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.UserprofileController.getSystemRecommendation()
+2018-04-12 06:35:12.468  INFO DESKTOP-AKNICNU --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/deleteFriend],methods=[POST]}" onto public void edu.northeastern.cs4500.controllers.UserprofileController.deleteFriend(javax.servlet.http.HttpServletRequest)
+2018-04-12 06:35:12.468  INFO DESKTOP-AKNICNU --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/cleanList],methods=[POST]}" onto public void edu.northeastern.cs4500.controllers.UserprofileController.cleanMovieList(java.lang.String,javax.servlet.http.HttpServletRequest)
+2018-04-12 06:35:12.468  INFO DESKTOP-AKNICNU --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/profile],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.UserprofileController.getProfile()
+2018-04-12 06:35:12.468  INFO DESKTOP-AKNICNU --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/profile+to+movielist],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.UserprofileController.getMovieList()
+2018-04-12 06:35:12.469  INFO DESKTOP-AKNICNU --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/view/{username}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.UserprofileController.userProfile(java.lang.String)
+2018-04-12 06:35:12.469  INFO DESKTOP-AKNICNU --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/profile+to+movielist+{listName}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.UserprofileController.getMovieItems(java.lang.String)
+2018-04-12 06:35:12.469  INFO DESKTOP-AKNICNU --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/deleteList],methods=[POST]}" onto public void edu.northeastern.cs4500.controllers.UserprofileController.deleteMovieList(java.lang.String,javax.servlet.http.HttpServletRequest)
+2018-04-12 06:35:12.469  INFO DESKTOP-AKNICNU --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/view/{username}],methods=[POST]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.UserprofileController.addFriend(java.lang.String)
+2018-04-12 06:35:12.469  INFO DESKTOP-AKNICNU --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/prodToFriends],methods=[POST]}" onto public void edu.northeastern.cs4500.controllers.UserprofileController.prodToFriends(javax.servlet.http.HttpServletRequest)
+2018-04-12 06:35:12.470  INFO DESKTOP-AKNICNU --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/prodRepo+allReceived+{repoName}],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView edu.northeastern.cs4500.controllers.UserprofileController.getProdsItemsInProfileAllReceived(java.lang.String)
+2018-04-12 06:35:12.471  INFO DESKTOP-AKNICNU --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-04-12 06:35:12.472  INFO DESKTOP-AKNICNU --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-04-12 06:35:12.514  INFO DESKTOP-AKNICNU --- [  restartedMain] o.s.w.s.h.SimpleUrlHandlerMapping        : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-04-12 06:35:12.514  INFO DESKTOP-AKNICNU --- [  restartedMain] o.s.w.s.h.SimpleUrlHandlerMapping        : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-04-12 06:35:12.558  INFO DESKTOP-AKNICNU --- [  restartedMain] o.s.w.s.h.SimpleUrlHandlerMapping        : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-04-12 06:35:12.584  INFO DESKTOP-AKNICNU --- [  restartedMain] oConfiguration$WelcomePageHandlerMapping : Adding welcome page: ServletContext resource [/index.html]
+2018-04-12 06:35:12.723  INFO DESKTOP-AKNICNU --- [  restartedMain] b.a.s.AuthenticationManagerConfiguration : 
+
+Using default security password: 5de0fb9a-dc7f-49e4-aa20-6275708e6e88
+
+2018-04-12 06:35:13.320  WARN DESKTOP-AKNICNU --- [  restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : Unable to start LiveReload server
+2018-04-12 06:35:13.384  INFO DESKTOP-AKNICNU --- [  restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2018-04-12 06:35:13.412  INFO DESKTOP-AKNICNU --- [  restartedMain] o.a.c.h.Http11NioProtocol                : Initializing ProtocolHandler ["http-nio-8080"]
+2018-04-12 06:35:13.426  INFO DESKTOP-AKNICNU --- [  restartedMain] o.a.c.h.Http11NioProtocol                : Starting ProtocolHandler ["http-nio-8080"]
+2018-04-12 06:35:13.431 ERROR DESKTOP-AKNICNU --- [  restartedMain] o.a.c.h.Http11NioProtocol                : Failed to start end point associated with ProtocolHandler ["http-nio-8080"]
+java.net.BindException: Address already in use: bind
+	at sun.nio.ch.Net.bind0(Native Method)
+	at sun.nio.ch.Net.bind(Unknown Source)
+	at sun.nio.ch.Net.bind(Unknown Source)
+	at sun.nio.ch.ServerSocketChannelImpl.bind(Unknown Source)
+	at sun.nio.ch.ServerSocketAdaptor.bind(Unknown Source)
+	at org.apache.tomcat.util.net.NioEndpoint.bind(NioEndpoint.java:210)
+	at org.apache.tomcat.util.net.AbstractEndpoint.start(AbstractEndpoint.java:990)
+	at org.apache.coyote.AbstractProtocol.start(AbstractProtocol.java:635)
+	at org.apache.catalina.connector.Connector.startInternal(Connector.java:1022)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:150)
+	at org.apache.catalina.core.StandardService.addConnector(StandardService.java:225)
+	at org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer.addPreviouslyRemovedConnectors(TomcatEmbeddedServletContainer.java:250)
+	at org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer.start(TomcatEmbeddedServletContainer.java:193)
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.startEmbeddedServletContainer(EmbeddedWebApplicationContext.java:297)
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.finishRefresh(EmbeddedWebApplicationContext.java:145)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:546)
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.refresh(EmbeddedWebApplicationContext.java:122)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:693)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:360)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:303)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1118)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1107)
+	at edu.northeastern.cs4500.Cs4500Spring2018Team47Application.main(Cs4500Spring2018Team47Application.java:17)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
+2018-04-12 06:35:13.432 ERROR DESKTOP-AKNICNU --- [  restartedMain] o.a.c.c.StandardService                  : Failed to start connector [Connector[HTTP/1.1-8080]]
+org.apache.catalina.LifecycleException: Failed to start component [Connector[HTTP/1.1-8080]]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:167)
+	at org.apache.catalina.core.StandardService.addConnector(StandardService.java:225)
+	at org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer.addPreviouslyRemovedConnectors(TomcatEmbeddedServletContainer.java:250)
+	at org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer.start(TomcatEmbeddedServletContainer.java:193)
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.startEmbeddedServletContainer(EmbeddedWebApplicationContext.java:297)
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.finishRefresh(EmbeddedWebApplicationContext.java:145)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:546)
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.refresh(EmbeddedWebApplicationContext.java:122)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:693)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:360)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:303)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1118)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1107)
+	at edu.northeastern.cs4500.Cs4500Spring2018Team47Application.main(Cs4500Spring2018Team47Application.java:17)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
+Caused by: org.apache.catalina.LifecycleException: service.getName(): "Tomcat";  Protocol handler start failed
+	at org.apache.catalina.connector.Connector.startInternal(Connector.java:1031)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:150)
+	... 18 more
+Caused by: java.net.BindException: Address already in use: bind
+	at sun.nio.ch.Net.bind0(Native Method)
+	at sun.nio.ch.Net.bind(Unknown Source)
+	at sun.nio.ch.Net.bind(Unknown Source)
+	at sun.nio.ch.ServerSocketChannelImpl.bind(Unknown Source)
+	at sun.nio.ch.ServerSocketAdaptor.bind(Unknown Source)
+	at org.apache.tomcat.util.net.NioEndpoint.bind(NioEndpoint.java:210)
+	at org.apache.tomcat.util.net.AbstractEndpoint.start(AbstractEndpoint.java:990)
+	at org.apache.coyote.AbstractProtocol.start(AbstractProtocol.java:635)
+	at org.apache.catalina.connector.Connector.startInternal(Connector.java:1022)
+	... 19 more
+2018-04-12 06:35:13.444  INFO DESKTOP-AKNICNU --- [  restartedMain] o.a.c.h.Http11NioProtocol                : Pausing ProtocolHandler ["http-nio-8080"]
+2018-04-12 06:35:13.445  INFO DESKTOP-AKNICNU --- [  restartedMain] o.a.c.c.StandardService                  : Stopping service [Tomcat]
+2018-04-12 06:35:13.456  INFO DESKTOP-AKNICNU --- [  restartedMain] o.a.c.u.LifecycleBase                    : The stop() method was called on component [StandardServer[-1]] after stop() had already been called. The second call will be ignored.
+2018-04-12 06:35:13.457  INFO DESKTOP-AKNICNU --- [  restartedMain] o.a.c.h.Http11NioProtocol                : Stopping ProtocolHandler ["http-nio-8080"]
+2018-04-12 06:35:13.457  INFO DESKTOP-AKNICNU --- [  restartedMain] o.a.c.h.Http11NioProtocol                : Destroying ProtocolHandler ["http-nio-8080"]
+2018-04-12 06:35:13.464  INFO DESKTOP-AKNICNU --- [  restartedMain] utoConfigurationReportLoggingInitializer : 
+
+Error starting ApplicationContext. To display the auto-configuration report re-run your application with 'debug' enabled.
+2018-04-12 06:35:13.476 ERROR DESKTOP-AKNICNU --- [  restartedMain] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+The Tomcat connector configured to listen on port 8080 failed to start. The port may already be in use or the connector may be misconfigured.
+
+Action:
+
+Verify the connector's configuration, identify and stop any process that's listening on port 8080, or configure this application to listen on another port.
+
+2018-04-12 06:35:13.477  INFO DESKTOP-AKNICNU --- [  restartedMain] ationConfigEmbeddedWebApplicationContext : Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@35b5dfbe: startup date [Thu Apr 12 06:35:02 EDT 2018]; root of context hierarchy
+2018-04-12 06:35:13.479  INFO DESKTOP-AKNICNU --- [  restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans on shutdown
+2018-04-12 06:35:13.480  INFO DESKTOP-AKNICNU --- [  restartedMain] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
