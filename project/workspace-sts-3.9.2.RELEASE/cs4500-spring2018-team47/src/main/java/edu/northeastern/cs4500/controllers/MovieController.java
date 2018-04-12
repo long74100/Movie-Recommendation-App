@@ -49,6 +49,10 @@ public class MovieController {
 
 	private static final Logger logger = LogManager.getLogger(MovieController.class);
 	
+	private static final String TITLE = "title";
+	private static final String IMDBID = "imdb_id";
+	private static final String MOVIE = "movie";
+	
 	@Autowired
 	private UserService userService;
 
@@ -69,7 +73,7 @@ public class MovieController {
 				movieJSON = movieJSONList.getJSONObject(x);
 				JSONObject movieCast = movieDbService.searchMovieCast(movieJSON.getInt("id"));
 				JSONObject movieDetails = movieDbService.searchMovieDetails(movieJSON.getInt("id"));
-				movie.setTitle(movieJSON.getString("title"));
+				movie.setTitle(movieJSON.getString(TITLE));
 				String actors = "";
 				for (int y = 0; y < 5; y++) {
 					actors += movieCast.getJSONArray("cast").getJSONObject(y).getString("name");
@@ -81,7 +85,7 @@ public class MovieController {
 				movie.setActors(actors);
 				movie.setReleased(movieJSON.getString("release_date"));
 				movie.setImdbRating(String.valueOf(movieJSON.getDouble("vote_average")));
-				movie.setImdbID(movieDetails.getString("imdb_id"));
+				movie.setImdbID(movieDetails.getString(IMDBID));
 				movie.setTheMovieDbID(String.valueOf(movieJSON.getInt("id")));
 				movie.setPoster("http://image.tmdb.org/t/p/original/" + movieJSON.getString("poster_path"));
 				movieList.add(movie);
@@ -200,7 +204,7 @@ public class MovieController {
 			
 			try {
 				movie.put("director", director);
-				movie.put("title", movieJSON.getString("title"));
+				movie.put(TITLE, movieJSON.getString(TITLE));
 				movie.put("plot", movieJSON.getString("overview"));
 				movie.put("genre", genre.toString());
 				movie.put("released", movieJSON.getString("release_date"));
@@ -213,7 +217,7 @@ public class MovieController {
 				}
 				movie.put("country", contry.toString());
 				movie.put("imdbRating", String.valueOf(movieJSON.getInt("vote_average")));
-				movie.put("imdbID", movieJSON.getString("imdb_id"));
+				movie.put("imdbID", movieJSON.getString(IMDBID));
 				movie.put("poster", "http://image.tmdb.org/t/p/original/" + movieJSON.getString("poster_path"));
 				movie.put("language", language.toString());
 				movie.put("movieDBid", id);
@@ -231,7 +235,7 @@ public class MovieController {
 			}
 
 			try {
-				reviews = localDbConnector.getReviewsForMovie(movieJSON.getString("imdb_id"));
+				reviews = localDbConnector.getReviewsForMovie(movieJSON.getString(IMDBID));
 			} catch (SQLException e) {
 				logger.error(e.getMessage());
 			}
