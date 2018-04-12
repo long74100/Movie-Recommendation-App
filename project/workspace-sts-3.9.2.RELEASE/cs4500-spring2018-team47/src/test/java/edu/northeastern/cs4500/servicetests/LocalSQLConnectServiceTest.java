@@ -1,5 +1,8 @@
 package edu.northeastern.cs4500.servicetests;
 
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
@@ -210,7 +213,8 @@ public class LocalSQLConnectServiceTest {
 		initMockUsers();
 		initMockMovie();
 		localSQLConnectService.preloadMovieList(stub1Id);
-		localSQLConnectService.addMovieIntoMovieList(stub1Id, "Favorites", movieId, "test");
+    	String addDate = "0000-00-00 00:00:00";
+		localSQLConnectService.addMovieIntoMovieList(stub1Id, "Favorites", movieId, "test", addDate);
 		ArrayList<Movie> movies = localSQLConnectService.getMovieFromUserMovieList(stub1Id, "Favorites");
 		assertEquals(1, movies.size());
 		Movie testMovie = movies.get(0);
@@ -228,8 +232,10 @@ public class LocalSQLConnectServiceTest {
 		assertEquals("test", testMovie.getTheMovieDbID());
 	}
 
+	//have to clear movie lists
 	@Test
 	public void testPreloadMovie() throws SQLException {
+		cleanMockUsers();
 		initMockUsers();
 		List<String> watchLists1 = localSQLConnectService.getMovieListForUser(stub1Id);
 		List<String> watchLists2 = localSQLConnectService.getMovieListForUser(stub2Id);
@@ -260,13 +266,27 @@ public class LocalSQLConnectServiceTest {
 		assertFalse(actual);
 
 	}
+	
+	@Test
+	public void testDeleteMovieList() throws SQLException {
+		initMockUsers();
+		List<String> watchLists1 = localSQLConnectService.getMovieListForUser(stub1Id);
+		assertEquals(0, watchLists1.size());
+		localSQLConnectService.createMovieList(stub1Id, "test", "0000-00-00 00:00:00");
+		watchLists1 = localSQLConnectService.getMovieListForUser(stub1Id);
+		assertEquals(1, watchLists1.size());
+		localSQLConnectService.deleteMovieList(stub1Id, "test");
+		watchLists1 = localSQLConnectService.getMovieListForUser(stub1Id);
+		assertEquals(0, watchLists1.size());
+	}
 
 	@Test
 	public void testCreateMovieList() throws SQLException {
 		initMockUsers();
 		List<String> watchLists1 = localSQLConnectService.getMovieListForUser(stub1Id);
 		assertEquals(0, watchLists1.size());
-		localSQLConnectService.createMovieList(stub1Id, "NewTestList");
+    	String movieListCreatedDate = "0000-00-00 00:00:00";
+		localSQLConnectService.createMovieList(stub1Id, "NewTestList", movieListCreatedDate);
 		watchLists1 = localSQLConnectService.getMovieListForUser(stub1Id);
 		assertEquals(1, watchLists1.size());
 		assertEquals("NewTestList", watchLists1.get(0));
@@ -453,8 +473,8 @@ public class LocalSQLConnectServiceTest {
 
 		List<MovieReview> reviews = localSQLConnectService.getReviewForUser(String.valueOf(stub1Id));
 
-		assertEquals(reviews.size(), 1);
-		assertEquals(reviews.get(0).getReview(), "this review is fake");
+		assertEquals(1, reviews.size());
+		assertEquals("this review is fake", reviews.get(0).getReview());
 
 	}
 
@@ -557,5 +577,4 @@ public class LocalSQLConnectServiceTest {
 	    assertNull(localSQLConnectService.getRating(stub1Id, movieId));
 
 	}
-
 }

@@ -12,6 +12,17 @@
 	float: left;
 }
 
+.comment-area {
+	margin-left:30px;
+	width:450px;
+	margin-top: 5px;
+	font-size: 15px;
+	border-radius:5px;
+	border-color: black;
+	overflow: auto;
+	resize: vertical;
+}
+
 .movie-items-except-poster {
 	width: 580px;
 	margin-left: 210px;
@@ -60,9 +71,156 @@
   	color: black;
 }
 
+.friend-item-block {
+	cursor: pointer;
+	height:30px;
+	margin-bottom:5px;
+	margin-right:60px;
+	border-radius:8px;
+}
+
+.friend-item-block:hover {
+	background: wheat;
+	text-decoration: underline;
+}
+
 .prod-movie:hover {
 	color: oldlace;
 	background-color: #4dd0e1;
+}
+
+.friendList-for-prod {
+	display: none;
+	position: fixed;
+    margin-left: 600px;
+    width:  500px;
+    margin-top: 100px;
+    border-radius:  10px;
+    border-width:  thin;
+    height: 500px;
+    box-shadow:  0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    z-index:  10;
+    background: white;
+    opacity: 0.95;
+	
+}
+
+.prod-to-friend-input-container {
+    overflow: auto; 
+    resize: vertical; 
+    width:425px; 
+    height:30px;  
+    margin-left: 25px;
+    margin-top: 0px;
+    border: solid;
+    border-width: thin;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-radius: 0px;
+}
+
+.clean-prod-recipient {
+    float: right;
+    margin-top:  10px;
+    margin-right: 10px;
+    background: transparent;
+    border: solid;
+    border-width: thin;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.clean-prod-recipient:hover {
+	background: black;
+	color: white;
+}
+
+.close-prodlist-window {
+	float:  right;
+    margin-right: 25px;
+    margin-top: 10px;
+   	background: transparent;
+    border: solid;
+    border-width: thin;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.close-prodlist-window:hover {
+	color:white;
+	background:black;
+}
+
+.usersearchbar {
+	float: left;
+    margin-left: 30px;
+    height: 25px;
+    border-radius: 8px;
+    border-style: solid;
+    border-width: thin;
+}
+
+.search-to-send-btn {
+	border-radius: 20px;
+    border: solid;
+    background: white;
+    cursor: pointer;
+    border-width: thin;
+    margin-left: 5px;
+    height: 25px;
+    width: 50px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+
+.search-to-send-btn:hover {
+	background:black;
+	color:white;
+}
+
+.friend-Lists-wait-to-prod {
+	margin-left: 20px; 
+	height:300px; 
+	overflow:auto;
+	margin-top: 10px;
+}
+
+.prod-movie-name {
+	margin-bottom: 0px;
+    text-align:  center;
+    font-weight:  bold;
+    font-size:  20px;
+}
+
+.send-out-movie {
+	float: right;
+    margin-top: 1px;
+    margin-right: 25px;
+    background: transparent;
+    border-width: thin;
+    border-radius: 5px;
+    border-color: black;
+    cursor: pointer;
+}
+
+.send-out-movie:hover {
+	background: black;
+	color: white;
+}
+
+.prod-to-all {
+	margin-bottom: 5px;
+	border-radius: 8px; 
+	cursor:pointer;
+	margin-right:60px;
+	height:30px;
+}
+
+.prod-to-all:hover {
+	background:wheat;
+	text-decoration:underline;
 }
 
 .movielist-dropdown-menu {
@@ -110,6 +268,8 @@
     border-radius: 10px;
     color:white;
 }
+
+
 
 .movieItemAttr:hover {
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);

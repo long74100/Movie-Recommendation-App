@@ -1,6 +1,7 @@
 package edu.northeastern.cs4500.servicetests;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 
 import java.io.IOException;
 
@@ -93,4 +94,22 @@ public class MovieDBServiceImplTest {
 		assertEquals(expectedId, actualId);
 		assertEquals(expectedImdbId, actualImdbId);
 	}
+	
+	@Test
+	public void testDiscoverInTheaterMovies() throws JSONException, IOException {
+		JSONObject theaterJson = movieDbService.discoverInTheaterMovies();
+		assertNotEquals(null, theaterJson);
+	}
+	
+	@Test
+	public void testDiscoverPopularMovies() throws JSONException, IOException {
+		JSONObject theaterJson = movieDbService.discoverPopularMovies();
+		assertNotEquals(null, theaterJson);
+	}
+	
+	@Test
+	public void testDiscoverMoviesComingSoon() throws JSONException, IOException {
+		JSONObject theaterJson = movieDbService.discoverMoviesComingSoon();
+		assertNotEquals(null, theaterJson);
+}
 }

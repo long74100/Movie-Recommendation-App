@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<noscript th:replace="fragments/quickAddCSSJS :: quickAddCSSJS"></noscript>
+	<link rel="stylesheet" href="../css/profile.css">
+	<link rel="stylesheet" href="../css/prodListNav.css">
+	<link rel="stylesheet" href="../css/prodContent.css">
+	<title>User ProdList</title>
+</head>
+<body> 
+	<div th:replace="fragments/userProfile/prodNav :: prodNavBar"></div>
+	
+	<!-- Here is the prod navigation bar(three options): overall Prods(including sent and received),  all sentout, all received-->
+	<div class="prod-list-item-nav" id="prod-list-item-nav">
+    		<div class="prod-objective" id="prod-objective">
+    			<p class="prod-object-content" id="prod-object-content" th:text="${prodType}">Prod Objective</p>	
+    		</div>
+    		<div class="prod-controller" id="prod-controller">
+    			<span>
+    				<a th:href="@{/prodRepo+all+{prodtype}(prodtype=${prodType})}">
+    					<p class="get-all-overall" id="get-all-overall">All</p>
+    				</a>
+    				<a th:href="@{/prodRepo+allSent+{prodtype}(prodtype=${prodType})}">
+    					<p class="get-All-sentOut" id="get-All-sentOut">Sent Out</p>
+    				</a>
+    				<a th:href="@{/prodRepo+allReceived+{prodtype}(prodtype=${prodType})}">
+    					<p class="get-All-received" id="get-All-received">Received</p>
+    				</a>
+    			</span>
+    		</div>
+    </div>
+    
+     <div th:if="${prodType == 'all'}">
+    	
+    </div>
+    
+    <div th:unless="${prodType == 'all'}">
+    
+    
+    </div>
+</body>
+</html>

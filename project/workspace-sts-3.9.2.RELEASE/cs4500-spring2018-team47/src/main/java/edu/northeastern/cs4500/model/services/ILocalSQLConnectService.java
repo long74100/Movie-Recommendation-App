@@ -2,6 +2,7 @@ package edu.northeastern.cs4500.model.services;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -9,6 +10,7 @@ import edu.northeastern.cs4500.model.movie.Movie;
 import edu.northeastern.cs4500.model.movie.MovieRating;
 import edu.northeastern.cs4500.model.movie.MovieReview;
 import edu.northeastern.cs4500.model.user.User;
+import edu.northeastern.cs4500.prod.Prod;
 
 
 public interface ILocalSQLConnectService {
@@ -21,6 +23,7 @@ public interface ILocalSQLConnectService {
 	 * @throws SQLException 
 	 */
 	boolean containMovie(String movieId) throws SQLException;
+
 
 	/**
 	 * To insert the data into the given table.
@@ -55,8 +58,7 @@ public interface ILocalSQLConnectService {
 	 * @param receiverId the user to receive friend request
 	 */
 	void rejectRequest(int senderId, int receiverId) throws SQLException;
-	
-	
+
 	/**
 	 * Removes a friend relationship.
 	 * @param userId the user id
@@ -136,7 +138,7 @@ public interface ILocalSQLConnectService {
 	 * @param movieListName the name for the movie list
 	 * @throws SQLException 
 	 */
-	void createMovieList(int userid, String movieListName) throws SQLException;
+	void createMovieList(int userid, String movieListName, String date) throws SQLException;
 
 	/**
 	 * To delete a movie from user's movie list.
@@ -155,7 +157,7 @@ public interface ILocalSQLConnectService {
 	 * @param movieId id for movie that will be added to this list
 	 * @param movieName name for movie that will be added to this list
 	 */
-	void addMovieIntoMovieList(int userId, String listName, String movieId, String movieName) throws SQLException;
+	void addMovieIntoMovieList(int userId, String listName, String movieId, String movieName,String date) throws SQLException;
 
 	/**
 	 * To get the status of the users relationship.
@@ -199,14 +201,13 @@ public interface ILocalSQLConnectService {
 	 */
 	List<User> getAllFriendRequest(int userId) throws SQLException;
 
+	
+	
 	/**
-	 * Get a rating from movie ratings.
-	 * 
 	 * @param userId the user Id
 	 * @param movieId the movie Id
 	 */
 	MovieRating getRating(int userId, String movieId) throws SQLException;
-	
 
 	/**
 	 * Insert a rating into movie ratings.
@@ -303,5 +304,71 @@ public interface ILocalSQLConnectService {
 	void deleteFromMovieTable(String id) throws SQLException;
 
 	
+
+	/**
+	 * To send prod to a friend
+	 * @param senderId the prod sender
+	 * @param receiverId the prod receiver
+	 * @param senderName the name of sender
+	 * @param receiverName name of receiver
+	 * @param movieId prod movie id
+	 * @param movieName prod movie name
+	 * @param date sent date
+	 * @param comment sender's comment
+	 * @param movieDBId the movie id in movie db
+	 * @param moviePoster the movie's poster
+	 */
+	void sendProdToFriend(int senderId, int receiverId, String senderName, 
+			String receiverName, String movieId, String movieName, String date, String comment, String movieDBId, String moviePoster) throws SQLException;
+	
+	/**
+	 * To extract all prods from friends
+	 * @param userId the user who receives the prods 
+	 */
+	List<Prod> extractAllFriendProds(int userId) throws SQLException;
+	
+	/**
+	 * To extract all prods sent to friends
+	 * @param userId the user who sent the prods
+	 */
+	List<Prod> extractAllSentProds(int userId) throws SQLException;
+	
+	/**
+	 * To get all prods sent to a friend
+	 * @param userId the user who sent the prods
+	 * @param friendId the user who received the prods
+	 * @return list of prods the user sent to receiver user
+	 */
+	List<Prod> extractProdsSentToAFriend(int userId, String friendName) throws SQLException;
+	
+	/**
+	 * To get all the prods received from a user
+	 * @param userId the user who received the prod
+	 * @param friendId the user who sent the prod
+	 * @return
+	 */
+	List<Prod> extractProdsReceivedFromAFriend(int userId, String friendName) throws SQLException;
+	
+	/**
+	 * To extract all prods for the user with given user id
+	 * @param userId the user that all prods belongs to
+	 * @return list of all prods
+	 */
+	List<Prod> extractAllProds(int userId) throws SQLException;
+	
+	/**
+	 * To extract all prods towards a specific friend with given friend Id
+	 * @param userId the prod list own
+	 * @param friendName friend of prod list owner
+	 * @return
+	 */
+	List<Prod> extractAllProdsForARecipient(int userId, String friendName) throws SQLException;
+	
+	/**
+	 * Get all users with all the movie they already rated
+	 * output format is: Map<UserName, Map<Movie, rating>> 
+	 * @return map containing all users as well as corresponding movie they rated
+	 */
+	HashMap<String, HashMap<Movie, Double>> getSlopeOneDate() throws SQLException;
 }
 
