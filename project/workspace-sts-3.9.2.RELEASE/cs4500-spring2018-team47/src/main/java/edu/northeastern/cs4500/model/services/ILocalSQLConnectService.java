@@ -256,6 +256,17 @@ public interface ILocalSQLConnectService {
 	List<User> getBannedList();
 
 	User getUser(int userId);
+	
+	/**
+	 * Inserts a user into the database.
+	 */
+	void insertUser(User user);
+	
+	/**
+	 * Removes a user from the database.
+	 * @param userId id of the user to remove
+	 */
+	void removeUser(int userId);
 
 	void deleteFromMovieTable(String id);
 

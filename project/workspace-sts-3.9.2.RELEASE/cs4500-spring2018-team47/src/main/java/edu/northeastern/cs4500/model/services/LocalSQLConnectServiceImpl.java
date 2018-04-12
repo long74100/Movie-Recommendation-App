@@ -854,6 +854,49 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 	
 	return null;
     }
+
+    @Override
+    public void insertUser(User user) {
+	String sqlcmd = "insert into user values(?, ?, ?, ?, ?, ?, ? ,?)";
+	PreparedStatement pstmt = null;
+	
+	try {
+	    pstmt = connector.prepareStatement(sqlcmd);
+	    pstmt.setInt(1, user.getId());
+	    pstmt.setInt(2, user.getActive());
+	    pstmt.setString(3, user.getEmail());
+	    pstmt.setString(4, user.getUsername());
+	    pstmt.setString(5, user.getLastName());
+	    pstmt.setString(6,  user.getFirstName());
+	    pstmt.setString(7, user.getPassword());
+	    pstmt.setInt(8, user.getRole());
+	    
+	    pstmt.executeUpdate();
+	    
+	} catch (SQLException e) {
+	    logger.error(e.getMessage());
+	}
+	
+	
+	
+    }
+
+    @Override
+    public void removeUser(int userId) {
+	String sqlcmd = "delete from user where user_id = ?";
+	PreparedStatement pstmt = null;
+	
+	try {
+	    pstmt = connector.prepareStatement(sqlcmd);
+	    pstmt.setInt(1, userId);
+	    pstmt.executeUpdate();
+	    
+	} catch (SQLException e) {
+	    logger.error(e.getMessage());
+	}
+	
+    }
+
     
     
     
