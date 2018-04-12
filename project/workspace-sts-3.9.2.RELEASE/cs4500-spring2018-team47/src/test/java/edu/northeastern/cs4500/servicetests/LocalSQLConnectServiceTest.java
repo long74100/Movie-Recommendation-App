@@ -16,6 +16,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import edu.northeastern.cs4500.model.movie.MovieReview;
 import edu.northeastern.cs4500.model.services.ILocalSQLConnectService;
 import edu.northeastern.cs4500.model.services.LocalSQLConnectServiceImpl;
 import edu.northeastern.cs4500.model.user.User;
@@ -23,10 +24,12 @@ import edu.northeastern.cs4500.model.user.User;
 @SpringBootTest
 public class LocalSQLConnectServiceTest {
 	private static ILocalSQLConnectService localSQLConnectService;
-	// mock movieID
+	
+	// mock movie
 	private static String movieID = "tt0096895";
 	private static Map<String, String> movieObject;
-
+	
+	// mock user
 	private static User stub1;
 	private static User stub2;
 
@@ -44,10 +47,17 @@ public class LocalSQLConnectServiceTest {
 
 	private static User noSuchUser;
 	private static int noSuchId = 983729;
+	
+	// mock review
+	private static MovieReview mockReview;
+	private static int mockReviewId = 983730;
 
 	@Before
-	public void setUpConnection() {
+	public void setUpConnection() throws SQLException {
 		localSQLConnectService = new LocalSQLConnectServiceImpl();
+		cleanMockUsers();
+		cleanMockMovie();
+		cleanMockReview();
 	}
 	
 	/**
@@ -122,9 +132,34 @@ public class LocalSQLConnectServiceTest {
 	}
 	
 	/**
-	 * clean
+	 * Creates a mock review for testing.
 	 * @throws SQLException 
 	 */
+	private void initMockReview() throws SQLException {
+	    initMockMovie();
+	    initMockUsers();
+	    
+	    mockReview = new MovieReview();
+	    mockReview.setId(mockReviewId);
+	    mockReview.setMovie_id("1");
+	    mockReview.setUser_id(String.valueOf(stub1Id));
+	    mockReview.setUsername(stub1Username);
+	    mockReview.setDate("2018-04-11 00:00:00");
+	    mockReview.setReview("this review is fake");
+	    localSQLConnectService.addReviewToLocalDB(mockReview);
+
+	}
+	
+	/**
+	 * clean the mock review.
+	 * @throws SQLException 
+	 */
+	private void cleanMockReview() throws SQLException {
+	    localSQLConnectService.removeReview(mockReviewId);
+	    cleanMockMovie();
+	    cleanMockUsers();
+	}
+	
 
 	@Test
 	public void testContainMovie() throws SQLException {
@@ -329,9 +364,23 @@ public class LocalSQLConnectServiceTest {
 	 */
 	@Test
 	public void testRemoveReview() throws SQLException {
-	    initMockMovie();
+	    initMockReview();
+	    List<MovieReview> reviews = localSQLConnectService.getReviewsForMovie("1");
+//	    assertEquals(reviews.size(), 1);
+//	    
+//	    localSQLConnectService.removeReview(mockReviewId);
+//	    reviews = localSQLConnectService.getReviewsForMovie("1");
+//	    assertEquals(reviews.size(), 0);
 	    
-
+	}
+	
+	/**
+	 * Test that addReviewToLocalDb adds a review to the database
+	 * @throws SQLException
+	 */
+	@Test
+	public void testAddReviewToLocalDb() throws SQLException{
+	    initMockReview();
 	}
 
 }
