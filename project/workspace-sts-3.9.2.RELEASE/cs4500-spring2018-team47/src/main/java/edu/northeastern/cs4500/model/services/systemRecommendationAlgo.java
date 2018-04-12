@@ -18,7 +18,33 @@ public class systemRecommendationAlgo {
 	}
 	
 	public Map<Movie, Double> predict(Map<Movie,Double> user) {
+		HashMap<Movie, Double> predictions = new HashMap<>();
+		HashMap<Movie, Integer> frequencies = new HashMap<>();
+		HashMap<Movie, Double> cleanPredictions = new HashMap<>();
 		
+		for (Movie x : diff.keySet()) {
+			predictions.put(x, 0.0);
+			frequencies.put(x, 0);
+		}
+		for (Movie x : user.keySet()) {
+			for (Movie y : diff.keySet()) {
+				try {
+					Double newval = (diff.get(y).get(x) + user.get(x)) * freq.get(y).get(x).intValue();
+				}
+				catch (NullPointerException e) {
+					
+				}
+			}
+		}
+		for (Movie x : predictions.keySet()) {
+			if (frequencies.get(x) > 0) {
+				cleanPredictions.put(x, predictions.get(x) / frequencies.get(x).intValue());
+			}
+		}
+		for (Movie x : user.keySet()) {
+			cleanPredictions.put(x, user.get(x));
+		}
+		return cleanPredictions;
 	}
 	
 	public void buildDiffMatrix() {
