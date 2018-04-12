@@ -50,11 +50,11 @@ public class MovieController {
 	private ArrayList<String> movieIDs = new ArrayList<>();
 
 	private static final Logger logger = LogManager.getLogger(MovieController.class);
+
 	
 	private static final String TITLE = "title";
 	private static final String IMDBID = "imdb_id";
 	private static final String MOVIE = "movie";
-	
 	@Autowired
 	private UserService userService;
 
@@ -100,6 +100,8 @@ public class MovieController {
 			// use logger
 			logger.error(e.getMessage());
 		}
+		
+		
 
 		// get list of users
 		try {
@@ -111,7 +113,24 @@ public class MovieController {
 		ModelAndView modelAndView = new ModelAndView();
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		User user = userService.findUserByEmail(auth.getName());
-
+		List<User> firendList = new ArrayList<>();
+		
+		if(user != null) {
+			// get User's friends:
+			try {
+				firendList = localDbConnector.getAllFriends(user.getId());
+			}
+			catch(SQLException sq) {
+				logger.error(sq.getMessage());
+			}
+			modelAndView.addObject("user", user);
+			modelAndView.addObject("friendList", firendList);
+		}
+		else {
+			modelAndView.addObject("friendList", new ArrayList<User>());
+		}
+		
+		modelAndView.addObject("movie", movieList);
 		modelAndView.addObject("user", user);
 		modelAndView.addObject(MOVIE, movieList);
 		modelAndView.addObject("users", userList);
@@ -228,8 +247,21 @@ public class MovieController {
 				logger.error(ep.getMessage());
 			}
 			
-			
-			// load movie into local db when the user clicks into the movie pages.
+			// to update the browse history
+			Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+			User user = userService.findUserByEmail(auth.getName());
+			if(user != null) {
+				Integer userId = user.getId();
+				SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+				try {
+					localDbConnector.addMovieIntoMovieList(userId, "Browse History", 
+							movie.get("imdbID"), movie.get("title"), formatter.format(new Date()));
+				}
+				catch(SQLException sq) {
+					logger.error(sq.getMessage());
+				}
+				
+			}
 			try {
 				localDbConnector.loadMovieIntoLocalDB(movie);
 			} catch (SQLException e) {
@@ -256,6 +288,17 @@ public class MovieController {
 		modelAndView.addObject(MOVIE, movie);
 
 		if (user != null) {
+			// to get user's friend List
+			
+			List<User> friendList = new ArrayList<>();
+			try {
+				friendList = localDbConnector.getAllFriends(user.getId());
+			}
+			catch(SQLException sq) {
+				logger.error(sq.getMessage());
+			}
+			modelAndView.addObject("friendList", friendList);
+
 			try {
 			// To extract user movie list
 			List<String> userMovieList = localDbConnector.getMovieListForUser(user.getId());
@@ -282,7 +325,7 @@ public class MovieController {
 		MovieRating movieRating = new MovieRating();
 		movieRating.setMovieId(httpServletRequest.getParameter("movieId"));
 		movieRating.setRating(Double.valueOf(httpServletRequest.getParameter("rating")));
-		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		movieRating.setDate(formatter.format(new Date()));
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		User user = userService.findUserByEmail(auth.getName());
@@ -324,7 +367,7 @@ public class MovieController {
 		MovieReview movieReview = new MovieReview();
 		movieReview.setMovie_id(httpServletRequest.getParameter("movieId"));
 		movieReview.setReview(httpServletRequest.getParameter("review"));
-		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		movieReview.setDate(formatter.format(new Date()));
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		User user = userService.findUserByEmail(auth.getName());
@@ -345,9 +388,10 @@ public class MovieController {
 		Integer userId = user.getId();
 		String listname = httpServletRequest.getParameter("movieList");
 		String movieId = httpServletRequest.getParameter("movieId");
-		String movieName = httpServletRequest.getParameter(MOVIE);
+		String movieName = httpServletRequest.getParameter("movie");
+		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		try {
-			localDbConnector.addMovieIntoMovieList(userId, listname, movieId, movieName);
+			localDbConnector.addMovieIntoMovieList(userId, listname, movieId, movieName, formatter.format(new Date()));
 		} catch (SQLException e) {
 			logger.error(e.getMessage());
 		}

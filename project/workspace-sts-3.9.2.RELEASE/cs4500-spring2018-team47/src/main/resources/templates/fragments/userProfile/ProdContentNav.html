@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<noscript th:replace="fragments/quickAddCSSJS :: quickAddCSSJS"></noscript>
+	<link rel="stylesheet" href="../css/prodListNav.css">	
+	
+</head>
+<body>
+	<div th:fragment="prodContentNavBar">
+		<div th:replace="fragments/userProfile/prodNav :: prodNavBar"></div>
+		<div class="prod-list-item-nav" id="prod-list-item-nav">
+    		<div class="prod-objective" id="prod-objective">
+    			<p class="prod-object-content" id="prod-object-content">Prod Objective</p>	
+    		</div>
+    		<div class="prod-controller" id="prod-controller">
+    			<span>
+    				<p class="get-all-overall" id="get-all-overall">All</p>
+    				<p class="get-All-sentOut" id="get-All-sentOut">Sent Out</p>
+    				<p class="get-All-received" id="get-All-received">Received</p>
+    			</span>
+    		</div>
+    	</div>
+	</div>
+
+
+
+</body>
+</html>

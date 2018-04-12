@@ -13,7 +13,7 @@
 	<div th:fragment="profilePage">
 		<div style="margin-left: 200px">
 			<div th:switch="${profileUser}">
-				<div th:case="null">Current User!</div>
+				<div th:case="null"></div>
 				<div th:case="*">
 					<h1 th:text="${profileUser.username}" id="profileUserName"></h1>
 					<span th:text="${profileUser.id}" id="profileUserId" class="d-none"></span>

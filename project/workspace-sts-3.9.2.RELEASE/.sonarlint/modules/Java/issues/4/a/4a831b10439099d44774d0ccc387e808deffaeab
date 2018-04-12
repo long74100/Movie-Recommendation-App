@@ -1,0 +1,22 @@
+
+}squid:CommentedOutCodeLine
+"<This block of commented-out lines of code should be removed.(êÚ¨ËøÿÿÿÿHÀ7RMAJORZ
+CODE_SMELL
+e
+squid:S106"9Replace this use of System.out or System.err by a logger.(¾‹®ÏHÁ7RMAJORZ
+CODE_SMELL
+j
+squid:S106"9Replace this use of System.out or System.err by a logger.(ÙÁò×ýÿÿÿÿHÂ7RMAJORZ
+CODE_SMELL
+[squid:S1481")Remove this unused "sqrt" local variable.(ÈªÁÓýÿÿÿÿHÃ7RMINORZ
+CODE_SMELL
+jsquid:S1854"8Remove this useless assignment to local variable "sqrt".(ÈªÁÓýÿÿÿÿHÄ7RMAJORZ
+CODE_SMELL
+osquid:UselessImportCheck"0Remove this unused import 'java.io.IOException'.(ªº»ÚýÿÿÿÿHÅ7RMINORZ
+CODE_SMELL
+msquid:UselessImportCheck"3Remove this unused import 'java.io.BufferedReader'.(€é²ÅHÆ7RMINORZ
+CODE_SMELL
+psquid:UselessImportCheck"6Remove this unused import 'java.io.InputStreamReader'.(ãˆÎÉHÇ7RMINORZ
+CODE_SMELL
+jsquid:UselessImportCheck"0Remove this unused import 'java.io.InputStream'.(¹»ºHÈ7RMINORZ
+CODE_SMELL

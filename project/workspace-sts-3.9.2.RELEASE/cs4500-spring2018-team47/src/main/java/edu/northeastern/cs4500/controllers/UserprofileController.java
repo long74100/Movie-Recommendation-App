@@ -1,7 +1,10 @@
 package edu.northeastern.cs4500.controllers;
 
+
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -24,6 +27,8 @@ import edu.northeastern.cs4500.model.movie.Movie;
 import edu.northeastern.cs4500.model.services.ILocalSQLConnectService;
 import edu.northeastern.cs4500.model.services.UserService;
 import edu.northeastern.cs4500.model.user.User;
+import edu.northeastern.cs4500.model.user.UserProfile;
+import edu.northeastern.cs4500.prod.Prod;
 
 @Controller
 public class UserprofileController {
@@ -57,16 +62,6 @@ public class UserprofileController {
 		return modelAndView;
 	}
 	
-	@RequestMapping(value={"/prodRepo"}, method = RequestMethod.GET) 
-	public ModelAndView getProdList() {
-		ModelAndView modelAndView = new ModelAndView();
-		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-		User user = userService.findUserByEmail(auth.getName());
-		modelAndView.addObject("user", user);
-		modelAndView.setViewName("prods");
-		return modelAndView;
-	}
-	
 	/**
 	 * This is to return the user movie list page besides the profile management navigation bar
 	 * @return the movie list page
@@ -89,6 +84,9 @@ public class UserprofileController {
 		return modelAndView;
 	}
 	
+	/*
+	 * view another person's profile page
+	 */
 	@RequestMapping(value="/view/{username}", method = RequestMethod.GET)
     public ModelAndView userProfile(@PathVariable String username) {
 		ModelAndView modelAndView = new ModelAndView();
@@ -107,7 +105,6 @@ public class UserprofileController {
 		modelAndView.setViewName("fragments/userProfile/profilePage");
 		return modelAndView;
 	}
-	
 	@RequestMapping(value="/view/{username}", method = RequestMethod.POST)
     public ModelAndView addFriend(@PathVariable String username) {
 		
@@ -136,14 +133,20 @@ public class UserprofileController {
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		User user = userService.findUserByEmail(auth.getName());
 		modelAndView.addObject("user", user);
-		List<String> movieListNames = null;
-		ArrayList<Movie> movies = null;
+
+		
+		List<String> movieListNames = new ArrayList<>();
+		List<User> friendList = new ArrayList<>(); 
+		ArrayList<Movie> movies = new ArrayList<>();
+		
 		try {
+		friendList = localDbConnector.getAllFriends(user.getId());
 		movieListNames = localDbConnector.getMovieListForUser(user.getId());
 		movies = localDbConnector.getMovieFromUserMovieList(user.getId(), listName);
 		} catch (SQLException e) {
 			logger.error(e.getMessage());
 		}
+		modelAndView.addObject("friendList", friendList);
 		modelAndView.addObject("usermovielist", movieListNames);
 		modelAndView.addObject("currentMovielist", listName);
 		modelAndView.addObject("currentMovies", movies);
@@ -212,10 +215,12 @@ public class UserprofileController {
 	public void createNewMovieList(@RequestBody String listName, HttpServletRequest httpservletRequest) {
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
     	User user = userService.findUserByEmail(auth.getName());
+    	SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+    	String movieListCreatedDate = formatter.format(new Date());
     	Integer userId = user.getId();
     	String newListName = httpservletRequest.getParameter("listName");
     	try {
-			localDbConnector.createMovieList(userId, newListName);
+    		localDbConnector.createMovieList(userId, newListName, movieListCreatedDate);
 		} catch (SQLException e) {
 			logger.error(e.getMessage());
 		}
@@ -265,5 +270,174 @@ public class UserprofileController {
 		} catch (SQLException e) {
 			logger.error(e.getMessage());
 		}
+	}
+	
+	
+	
+	// so needs to create three page also. or see if we can do something like display block and none.
+	@RequestMapping(value={"/prodRepo+all+{repoName}"}, method = RequestMethod.GET)
+	public ModelAndView getProdsItemsInProfileAll(@PathVariable String repoName) {
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		User user = userService.findUserByEmail(auth.getName());
+		List<Prod> allProds = new ArrayList<>();
+		String prodType = "";
+		ModelAndView modelAndView = new ModelAndView();
+		
+		// get all sent out prod: can be all or individual friend
+		try {
+			if(repoName.equals("all")) {
+				// get all prods in "all" section
+				allProds = localDbConnector.extractAllProds(user.getId());
+				prodType = "all";
+			}
+			else {
+				allProds = localDbConnector.extractAllProdsForARecipient(user.getId(), repoName);
+				prodType = repoName;
+			}
+		}
+		catch(SQLException sq) {
+			logger.error(sq.getMessage());
+		}
+		
+		List<User> allFriends = new ArrayList<>();
+		try {
+			allFriends = localDbConnector.getAllFriends(user.getId());
+		}
+		catch(SQLException sq) {
+			logger.error(sq.getMessage());
+		}
+		modelAndView.addObject("allProds", allProds);
+		modelAndView.addObject("prodType", prodType);
+		modelAndView.addObject("friendList", allFriends);
+		modelAndView.addObject("user", user);
+		modelAndView.addObject("repo", repoName);
+		modelAndView.setViewName("allProdsSentAndReceived");
+		System.out.println(allProds);
+		return modelAndView;
+	}
+	
+	@RequestMapping(value={"/prodRepo+allSent+{repoName}"}, method = RequestMethod.GET)
+	public ModelAndView getProdsItemsInProfileAllSent(@PathVariable String repoName) {
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		User user = userService.findUserByEmail(auth.getName());
+		List<Prod> allSentProds = new ArrayList<>();
+		String prodType = "";
+		ModelAndView modelAndView = new ModelAndView();
+		
+		try {
+			if(repoName.equals("all")) {
+				// get all prods in "all" section
+				allSentProds = localDbConnector.extractAllSentProds(user.getId());
+				prodType = "all";
+			}
+			else {
+				allSentProds = localDbConnector.extractProdsSentToAFriend(user.getId(), repoName);
+				prodType = repoName;
+			}
+		}
+		catch(SQLException sq) {
+			logger.error(sq.getMessage());
+		}
+		
+		
+		List<User> allFriends = new ArrayList<>();
+		try {
+			allFriends = localDbConnector.getAllFriends(user.getId());
+		}
+		catch(SQLException sq) {
+			logger.error(sq.getMessage());
+		}
+		modelAndView.addObject("allProds", allSentProds);
+		modelAndView.addObject("prodType", prodType);
+		modelAndView.addObject("friendList", allFriends);
+		modelAndView.addObject("user", user);
+		modelAndView.setViewName("allProdsSentAndReceived");
+		return modelAndView;
+	}
+	
+	@RequestMapping(value={"/prodRepo+allReceived+{repoName}"}, method = RequestMethod.GET)
+	public ModelAndView getProdsItemsInProfileAllReceived(@PathVariable String repoName) {
+		ModelAndView modelAndView = new ModelAndView();
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		User user = userService.findUserByEmail(auth.getName());
+		String prodType = "";
+		List<Prod> allReceivedProds = new ArrayList<>();
+		
+		try {
+			if(repoName.equals("all")) {
+				// get all prods in "all" section
+				allReceivedProds = localDbConnector.extractAllFriendProds(user.getId());
+				prodType = "all";
+			}
+			else {
+				allReceivedProds = localDbConnector.extractProdsReceivedFromAFriend(user.getId(), repoName);
+				prodType = repoName;
+			}
+		}
+		catch(SQLException sq) {
+			logger.error(sq.getMessage());
+		}
+		modelAndView.addObject("allProds", allReceivedProds);
+		modelAndView.addObject("prodType", prodType);
+		List<User> allFriends = new ArrayList<>();
+		try {
+			allFriends = localDbConnector.getAllFriends(user.getId());
+		}
+		catch(SQLException sq) {
+			logger.error(sq.getMessage());
+		}
+		modelAndView.addObject("friendList", allFriends);
+		modelAndView.addObject("user", user);
+		modelAndView.setViewName("allProdsSentAndReceived");
+		return modelAndView;
+	}
+	
+	
+	
+	/**
+	 * This is to send the movie recommendations
+	 * @param httpServletRequest
+	 */
+	@RequestMapping(value="/prodToFriends", method = RequestMethod.POST)
+	@ResponseStatus(value= HttpStatus.OK)
+	public void prodToFriends(HttpServletRequest httpServletRequest) {
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		User user = userService.findUserByEmail(auth.getName());
+    	Integer userId = user.getId();
+    	String userName = user.getUsername();
+		String movieTitle = httpServletRequest.getParameter("movieName");
+		String movieImdbId = httpServletRequest.getParameter("movieId");
+		String movieDBId = httpServletRequest.getParameter("movieDBId");
+		String recipientName = httpServletRequest.getParameter("allUserName");
+		String recipientId = httpServletRequest.getParameter("allUserId");
+		String senderComment = httpServletRequest.getParameter("comment");
+		String poster = httpServletRequest.getParameter("poster");
+		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+    	String prodSentDate = formatter.format(new Date());
+		System.out.println(movieTitle); 
+		System.out.println(movieImdbId);
+		System.out.println(movieDBId);
+		System.out.println(recipientName);
+		System.out.println(recipientId);
+		System.out.println(senderComment);
+		try {
+			if(recipientName.contains(",")) {
+				
+				String[] out = recipientName.split(",");
+				String[] ids = recipientId.split(",");
+				for(int i = 0; i < out.length; i++) {
+					localDbConnector.sendProdToFriend(userId, Integer.parseInt(ids[i]), userName, out[i], 
+							movieImdbId, movieTitle, prodSentDate, senderComment, movieDBId, poster);
+				}
+			}
+			else {
+				localDbConnector.sendProdToFriend(userId, Integer.parseInt(recipientId), userName, recipientName, 
+						movieImdbId, movieTitle, prodSentDate, senderComment, movieDBId, poster);
+			}
+		}
+		catch(SQLException sq) {
+			logger.error(sq.getMessage());
+		}
+		
 	}
 }

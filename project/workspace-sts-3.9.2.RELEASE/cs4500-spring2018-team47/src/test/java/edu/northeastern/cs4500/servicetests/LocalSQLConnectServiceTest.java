@@ -1,5 +1,8 @@
 package edu.northeastern.cs4500.servicetests;
 
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import static org.junit.Assert.assertEquals;
 
 import java.util.List;
@@ -18,6 +21,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import edu.northeastern.cs4500.model.movie.MovieRating;
+import edu.northeastern.cs4500.model.movie.Movie;
 import edu.northeastern.cs4500.model.movie.MovieReview;
 import edu.northeastern.cs4500.model.services.ILocalSQLConnectService;
 import edu.northeastern.cs4500.model.services.LocalSQLConnectServiceImpl;
@@ -517,7 +521,6 @@ public class LocalSQLConnectServiceTest {
 	    
 	
 	}
-	
 
 	@Test
 	public void testInsertRating() throws SQLException {
@@ -544,7 +547,6 @@ public class LocalSQLConnectServiceTest {
 	    
 	    localSQLConnectService.removeRating(rating.getRatingId());
 	    assertNull(localSQLConnectService.getRating(stub1Id, movieId));
-
 	}
 	
 	@Test
