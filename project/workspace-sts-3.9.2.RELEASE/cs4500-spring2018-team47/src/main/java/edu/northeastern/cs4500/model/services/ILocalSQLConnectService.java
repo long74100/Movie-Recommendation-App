@@ -369,8 +369,8 @@ public interface ILocalSQLConnectService {
 	 * output format is: Map<UserName, Map<Movie, rating>> 
 	 * @return map containing all users as well as corresponding movie they rated
 	 */
-	HashMap<String, HashMap<Movie, Double>> getSlopeOneDate() throws SQLException;
-	
+
+	Map<String, Map<Movie, Double>> getSlopeOneData() throws SQLException;
 	/**
 	 * To get all movies based on the given genre
 	 * @param genre movie genre
