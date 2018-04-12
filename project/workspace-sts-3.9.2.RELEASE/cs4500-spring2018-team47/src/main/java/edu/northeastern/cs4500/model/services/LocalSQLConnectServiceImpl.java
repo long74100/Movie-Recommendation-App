@@ -21,6 +21,7 @@ import edu.northeastern.cs4500.model.movie.MovieReview;
 
 import edu.northeastern.cs4500.model.movie.Movie;
 import edu.northeastern.cs4500.model.movie.MovieRating;
+import edu.northeastern.cs4500.model.movie.MovieReview;
 import edu.northeastern.cs4500.model.user.User;
 import edu.northeastern.cs4500.prod.Prod;
 
@@ -37,41 +38,40 @@ import edu.northeastern.cs4500.prod.Prod;
 
 @Service("localDbConnector")
 public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
-	
 
-	
-    // the local database URL
-    private static String url = "jdbc:mysql://team-47-dev-db.cllrg7hgpqkh.us-east-2.rds.amazonaws.com/"
-	    + "cs4500_spring2018_team47_dev";
-    // database username
-    private static String username = "RuairiMSmillie";
-    
-    // database password
-    private String password;
+	// the local database URL
+	private static String url = "jdbc:mysql://team-47-dev-db.cllrg7hgpqkh.us-east-2.rds.amazonaws.com/"
+			+ "cs4500_spring2018_team47_dev";
 
-    private static Connection connector = null;
-    private static ResultSet myResult = null;
-    private static final Logger logger = LogManager.getLogger(LocalSQLConnectServiceImpl.class);
-    
-    public LocalSQLConnectServiceImpl(@Value("${spring.datasource.password}") String password) {
-    	this.password = password;
-    }
-    
-    private void openConToDatabase() {
-    	try {
-    		connector = DriverManager.getConnection(url, username, password);
-    	} catch (SQLException se) {
-    		logger.error(se.getMessage());
-    	}
-    }
-    
-    private void closeConToDatabase() {
-    	try {
+	// database username
+	private static String username = "RuairiMSmillie";
+
+	// database password
+	private String password;
+
+	private static Connection connector = null;
+	private static ResultSet myResult = null;
+	private static final Logger logger = LogManager.getLogger(LocalSQLConnectServiceImpl.class);
+
+	public LocalSQLConnectServiceImpl(@Value("${spring.datasource.password}") String password) {
+		this.password = password;
+	}
+
+	private void openConToDatabase() {
+		try {
+			connector = DriverManager.getConnection(url, username, password);
+		} catch (SQLException se) {
+			logger.error(se.getMessage());
+		}
+	}
+
+	private void closeConToDatabase() {
+		try {
 			connector.close();
 		} catch (SQLException e) {
 			logger.error(e.getMessage());
 		}
-    }
+	}
 
 	@Override
 	public boolean containMovie(String movieId) throws SQLException {
@@ -208,7 +208,6 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 	/**
 	 * Movie Operators: This section is for user and system to operate on the movies
 	 */
-
 
 	// ----- user interaction in local database-----
 
@@ -787,8 +786,8 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 	}
 
 	@Override
-	public int getRating(int userId, String movieId) throws SQLException {
-		String sqlcmd = "select rating from rating" + " where rating.user_id = ? and rating.movie_id = ?";
+	public MovieRating getRating(int userId, String movieId) throws SQLException {
+		String sqlcmd = "select * from rating" + " where rating.user_id = ? and rating.movie_id = ?";
 		PreparedStatement pstmt = null;
 		try {
 			openConToDatabase();
@@ -797,7 +796,15 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 			pstmt.setString(2, movieId);
 			myResult = pstmt.executeQuery();
 			if (myResult.next()) {
-				return myResult.getInt("rating");
+				MovieRating rating = new MovieRating();
+				rating.setRatingId(myResult.getInt("rating_id"));
+				rating.setMovieId(movieId);
+				rating.setUserID(userId);
+				rating.setRating(myResult.getInt("rating"));
+				rating.setDate(myResult.getString("review_date"));
+				return rating;
+			} else {
+				return null;
 			}
 
 		} catch (SQLException e) {
@@ -811,7 +818,7 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 			}
 		}
 
-		return -1;
+		return null;
 	}
 
 	@Override
@@ -825,7 +832,7 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 		double rating = movieRating.getRating();
 		String date = movieRating.getDate();
 
-		if (getRating(userId, movieId) == -1) {
+		if (getRating(userId, movieId) == null) {
 			try {
 				openConToDatabase();
 				pstmt = connector.prepareStatement(sqlcmd1);
@@ -864,6 +871,29 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 				}
 			}
 		}
+	}
+
+	@Override
+	public void removeRating(int ratingId) throws SQLException {
+		String sqlcmd = "delete from rating where rating_id = ?";
+		PreparedStatement pstmt = null;
+
+		try {
+			openConToDatabase();
+			pstmt = connector.prepareStatement(sqlcmd);
+			pstmt.setInt(1, ratingId);
+			pstmt.executeUpdate();
+		} catch (SQLException e) {
+			logger.error(e.getMessage());
+		} finally {
+			if (pstmt != null) {
+				pstmt.close();
+			}
+			if (connector != null) {
+				closeConToDatabase();
+			}
+		}
+
 	}
 
 	@Override
@@ -1082,7 +1112,6 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 			}
 		}
 	}
-	
 
 	@Override
 	public void deleteFriend(int userId, int friendId) throws SQLException {
@@ -1567,29 +1596,28 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 				closeConToDatabase();
 			}
 		}
-
 	}
 
 	@Override
-	public void deleteFromMovieTable(String id) throws SQLException{
-	String sqlcmd = "delete from Movie where movie_id = ?";
-	PreparedStatement pstmt = null;
-	try {
-		openConToDatabase();
-	    pstmt = connector.prepareStatement(sqlcmd);
-	    pstmt.setString(1, id);
-	    pstmt.executeUpdate();
-	} catch (SQLException ep) {
-	    logger.error(ep.getMessage());
-	}finally {
-        if (pstmt != null) {
-        	pstmt.close();
-        }
-        if (connector != null) {
-			closeConToDatabase();
+	public void deleteFromMovieTable(String id) throws SQLException {
+		String sqlcmd = "delete from Movie where movie_id = ?";
+		PreparedStatement pstmt = null;
+		try {
+			openConToDatabase();
+			pstmt = connector.prepareStatement(sqlcmd);
+			pstmt.setString(1, id);
+			pstmt.executeUpdate();
+		} catch (SQLException ep) {
+			logger.error(ep.getMessage());
+		} finally {
+			if (pstmt != null) {
+				pstmt.close();
+			}
+			if (connector != null) {
+				closeConToDatabase();
+			}
 		}
 	}
-    }
 	
 	@Override
 	public List<Movie> extractMoviesByGenre(String genre) throws SQLException {
