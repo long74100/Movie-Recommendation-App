@@ -240,25 +240,25 @@ public class UserprofileController {
 		 
 		  SystemRecommendationAlgo slopeOne = new SystemRecommendationAlgo(data);
 		  // then, I'm going to test it out... 
-		  HashMap<String, Double> user = new HashMap<>(); 
+		  HashMap<String, Double> user10 = new HashMap<>(); 
 		  System.out.println("Ok, now we predict...");
-	        user.put(item_food, 0.4);
+	        user10.put(item_food, 0.4);
 	        System.out.println("Inputting...");
-	        System.out.println(user);
+	        System.out.println(user10);
 	        System.out.println("Getting...");
-	        System.out.println(slopeOne.predict(user));
+	        System.out.println(slopeOne.predict(user10));
 	        //
-	        user.put(item_war, 0.2);
+	        user10.put(item_war, 0.2);
 	        System.out.println("Inputting...");
-	        System.out.println(user);
+	        System.out.println(user10);
 	        System.out.println("Getting...");
-	        System.out.println(slopeOne.predict(user));
+	        System.out.println(slopeOne.predict(user10));
 		
 		ModelAndView modelAndView = new ModelAndView();
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-		User user10 = userService.findUserByEmail(auth.getName());
-		modelAndView.addObject("user", user2);
-		modelAndView.setViewName("listMoviesItem");
+		User user = userService.findUserByEmail(auth.getName());
+		modelAndView.addObject("user", user);
+		modelAndView.setViewName("systemRecommendation");
 		return modelAndView;
 	}
 	

@@ -34,7 +34,9 @@ public class SystemRecommendationAlgo {
                     predictions.put(y, predictions.get(y) + newval);
                     frequencies.put(y, frequencies.get(y) + freq.get(y).get(x).intValue());
                 } catch (NullPointerException e)
-                {}
+                {
+                	
+                }
             }
         }
         HashMap<String, Double> cleanpredictions = new HashMap<>();
