@@ -20,7 +20,6 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.servlet.ModelAndView;
 
 import edu.northeastern.cs4500.model.services.ILocalSQLConnectService;
-import edu.northeastern.cs4500.model.services.LocalSQLConnectServiceImpl;
 import edu.northeastern.cs4500.model.services.UserService;
 import edu.northeastern.cs4500.model.user.User;
 
@@ -32,7 +31,10 @@ import edu.northeastern.cs4500.model.user.User;
 @Controller
 @RequestMapping("/admin")
 public class AdminController {
-	private ILocalSQLConnectService localDbConnector = new LocalSQLConnectServiceImpl();
+	
+	@Autowired
+	private ILocalSQLConnectService localDbConnector;
+	
 	private static final Logger logger = LogManager.getLogger(AdminController.class);
 
 	@Autowired

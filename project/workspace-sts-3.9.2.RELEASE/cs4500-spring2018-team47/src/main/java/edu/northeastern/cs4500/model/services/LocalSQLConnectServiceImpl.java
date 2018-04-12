@@ -6,15 +6,14 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.json.JSONObject;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Service;
 
 import edu.northeastern.cs4500.model.movie.MovieReview;
 
@@ -32,59 +31,62 @@ import edu.northeastern.cs4500.model.user.User;
  * 
  * @author lgj81
  */
+
+@Service("localDbConnector")
 public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
-	// the local database URL
-	private static String url = "jdbc:mysql://team-47-dev-db.cllrg7hgpqkh.us-east-2.rds.amazonaws.com/"
-			+ "cs4500_spring2018_team47_dev";
-	// database username
-	private static String username = "RuairiMSmillie";
-	// database password
-	private static String password = "TbthaGCmiimWrtayxr4MBEcD3tVB3sY";
-	// this will be used to contain the Query command
-	private static String command = "";
+	
+    // the local database URL
+    private static String url = "jdbc:mysql://team-47-dev-db.cllrg7hgpqkh.us-east-2.rds.amazonaws.com/"
+	    + "cs4500_spring2018_team47_dev";
+    
+    // database username
+    private static String username = "RuairiMSmillie";
+    
+    // database password
+    @Value("${spring.datasource.password}")
+    private String password;
 
-	// this is the operation status on database
-	private enum Status {
-		get, insert, delete, update
-	};
-
-	private static Status status = null;
-	private static Connection connector = null;
-	private static Statement connectStatement = null;
-	private static ResultSet myResult = null;
-	private ArrayList<String> movie = new ArrayList<>();
-	private static final Logger logger = LogManager.getLogger(LocalSQLConnectServiceImpl.class);
-
-	/**
-	 * The constructor The constructor will automatically create connection to local
-	 * database
-	 */
-	public LocalSQLConnectServiceImpl() {
-		try {
-			connector = DriverManager.getConnection(url, username, password);
-			connectStatement = connector.createStatement();
-		} catch (SQLException se) {
-			logger.error(se.getMessage());
+    private static Connection connector = null;
+    private static ResultSet myResult = null;
+    private static final Logger logger = LogManager.getLogger(LocalSQLConnectServiceImpl.class);
+    
+    private void openConToDatabase() {
+    	try {
+    		connector = DriverManager.getConnection(url, username, password);
+    	} catch (SQLException se) {
+    		logger.error(se.getMessage());
+    	}
+    }
+    
+    private void closeConToDatabase() {
+    	try {
+			connector.close();
+		} catch (SQLException e) {
+			logger.error(e.getMessage());
 		}
-
-	}
+    }
 
 	@Override
 	public boolean containMovie(String movieId) throws SQLException {
 		String sqlcmd = "select * from Movie where movie_id =?";
 		PreparedStatement pstmt = null;
 		try {
+			openConToDatabase();
 			pstmt = connector.prepareStatement(sqlcmd);
 			pstmt.setString(1, movieId);
 			myResult = pstmt.executeQuery();
 			if (myResult.next()) {
 				return true;
 			}
+			closeConToDatabase();
 		} catch (SQLException ep) {
 			logger.error(ep.getMessage());
 		} finally {
 			if (pstmt != null) {
 				pstmt.close();
+			}
+			if (connector != null) {
+				closeConToDatabase();
 			}
 		}
 		return false;
@@ -104,6 +106,7 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 		String sqlcmd = "select * from userRelation where (senderId = ? and receiverId = ?) or (senderId = ? and receiverId = ?)";
 		PreparedStatement pstmt = null;
 		try {
+			openConToDatabase();
 			pstmt = connector.prepareStatement(sqlcmd);
 			pstmt.setInt(1, senderId);
 			pstmt.setInt(2, receiverId);
@@ -118,6 +121,9 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 		} finally {
 			if (pstmt != null) {
 				pstmt.close();
+			}
+			if (connector != null) {
+				closeConToDatabase();
 			}
 		}
 		return false;
@@ -143,6 +149,7 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 			PreparedStatement pstmt = null;
 
 			try {
+				openConToDatabase();
 				pstmt = connector.prepareStatement(sqlcmd);
 				pstmt.setString(1, movie_id);
 				pstmt.setString(2, movie_name);
@@ -164,6 +171,9 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 				if (pstmt != null) {
 					pstmt.close();
 				}
+				if (connector != null) {
+					closeConToDatabase();
+				}
 			}
 		} catch (Exception ep) {
 			logger.error(ep.getMessage());
@@ -176,6 +186,7 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 		String sqlcmd = "insert into ? values ?";
 		PreparedStatement pstmt = null;
 		try {
+			openConToDatabase();
 			pstmt = connector.prepareStatement(sqlcmd);
 			pstmt.setString(1, tableName);
 			pstmt.setString(2, data);
@@ -186,6 +197,9 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 			if (pstmt != null) {
 				pstmt.close();
 			}
+			if (connector != null) {
+				closeConToDatabase();
+			}
 		}
 	}
 
@@ -193,34 +207,6 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 	 * Movie Operators: This section is for user and system to operate on the movies
 	 */
 
-	/**
-	 * To execute the get movie from local database command
-	 */
-	private void execute() {
-		try {
-			while (myResult.next()) {
-				String movieId = myResult.getString("movie_id");
-				String movieName = myResult.getString("movie_name");
-				String runtime = myResult.getString("runtime");
-				String genre = myResult.getString("genre");
-				String released_date = myResult.getString("released_date");
-				String director = myResult.getString("director");
-				String actors = myResult.getString("actor");
-				String plot = myResult.getString("plot");
-				String language = myResult.getString("movie_language");
-				String country = myResult.getString("country");
-				String poster = myResult.getString("poster");
-				String imdbRating = myResult.getString("imdbRating");
-				StringBuilder output = new StringBuilder();
-				output.append(movieId + "| " + movieName + "| " + runtime + "| " + genre + "| " + released_date + "| "
-						+ director + "| " + actors + "| " + plot + "| " + language + "| " + country + "| " + poster
-						+ "| " + imdbRating);
-				movie.add(output.toString());
-			}
-		} catch (Exception e) {
-			logger.error(e.getMessage());
-		}
-	}
 
 	// ----- user interaction in local database-----
 
@@ -230,6 +216,7 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 		PreparedStatement pstmt = null;
 		if (!this.hasMadeRequest(senderId, receiverId)) {
 			try {
+				openConToDatabase();
 				pstmt = connector.prepareStatement(sqlcmd);
 				pstmt.setInt(1, senderId);
 				pstmt.setInt(2, receiverId);
@@ -239,6 +226,9 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 			} finally {
 				if (pstmt != null) {
 					pstmt.close();
+				}
+				if (connector != null) {
+					closeConToDatabase();
 				}
 			}
 		}
@@ -250,6 +240,7 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 		String sqlcmd = "update userRelation set relationStatus = \"friend\" where senderId = ? and receiverId = ?";
 		PreparedStatement pstmt = null;
 		try {
+			openConToDatabase();
 			pstmt = connector.prepareStatement(sqlcmd);
 			pstmt.setInt(1, senderId);
 			pstmt.setInt(2, receiverId);
@@ -259,6 +250,9 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 		} finally {
 			if (pstmt != null) {
 				pstmt.close();
+			}
+			if (connector != null) {
+				closeConToDatabase();
 			}
 		}
 	}
@@ -268,6 +262,7 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 		String sqlcmd = "delete from userRelation where senderId = ? and receiverId = ?";
 		PreparedStatement pstmt = null;
 		try {
+			openConToDatabase();
 			pstmt = connector.prepareStatement(sqlcmd);
 			pstmt.setInt(1, senderId);
 			pstmt.setInt(2, receiverId);
@@ -277,6 +272,9 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 		} finally {
 			if (pstmt != null) {
 				pstmt.close();
+			}
+			if (connector != null) {
+				closeConToDatabase();
 			}
 		}
 	}
@@ -286,6 +284,7 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 		String sqlcmd = "update userRelation set isSenderBlocked = 1 where senderId = ? and receiverId = ?";
 		PreparedStatement pstmt = null;
 		try {
+			openConToDatabase();
 			pstmt = connector.prepareStatement(sqlcmd);
 			pstmt.setInt(1, senderId);
 			pstmt.setInt(2, receiverId);
@@ -296,6 +295,9 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 			if (pstmt != null) {
 				pstmt.close();
 			}
+			if (connector != null) {
+				closeConToDatabase();
+			}
 		}
 	}
 
@@ -304,6 +306,7 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 		String sqlcmd = "update userRelation set isReceiverBlocked = 1 where senderId = ? and receiverId = ?";
 		PreparedStatement pstmt = null;
 		try {
+			openConToDatabase();
 			pstmt = connector.prepareStatement(sqlcmd);
 			pstmt.setInt(1, senderId);
 			pstmt.setInt(2, receiverId);
@@ -313,6 +316,9 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 		} finally {
 			if (pstmt != null) {
 				pstmt.close();
+			}
+			if (connector != null) {
+				closeConToDatabase();
 			}
 		}
 	}
@@ -323,6 +329,7 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 		PreparedStatement pstmt = null;
 
 		try {
+			openConToDatabase();
 			pstmt = connector.prepareStatement(sqlcmd);
 			pstmt.setString(1, mr.getMovie_id());
 			pstmt.setString(2, mr.getUser_id());
@@ -335,6 +342,9 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 		} finally {
 			if (pstmt != null) {
 				pstmt.close();
+			}
+			if (connector != null) {
+				closeConToDatabase();
 			}
 		}
 
@@ -355,6 +365,7 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 		String sqlcmd = "select * from user where username like \"%\"?\"%\"";
 		PreparedStatement pstmt = null;
 		try {
+			openConToDatabase();
 			pstmt = connector.prepareStatement(sqlcmd);
 			pstmt.setString(1, username);
 			myResult = pstmt.executeQuery();
@@ -377,6 +388,9 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 			if (pstmt != null) {
 				pstmt.close();
 			}
+			if (connector != null) {
+				closeConToDatabase();
+			}
 		}
 		return output;
 
@@ -387,6 +401,7 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 		ArrayList<String> movieListNames = new ArrayList<>();
 		PreparedStatement pstmt = null;
 		try {
+			openConToDatabase();
 			String sqlcmd = "select * from Movielist where user_id = ?";
 			pstmt = connector.prepareStatement(sqlcmd);
 			pstmt.setInt(1, userId);
@@ -401,6 +416,9 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 			if (pstmt != null) {
 				pstmt.close();
 			}
+			if (connector != null) {
+				closeConToDatabase();
+			}
 		}
 
 		return movieListNames;
@@ -413,6 +431,7 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 				+ "(select movie_id from UserMovieList where user_id = ? and list_name = ?) as comp on comp.movie_id = Movie.movie_id";
 		PreparedStatement pstmt = null;
 		try {
+			openConToDatabase();
 			pstmt = connector.prepareStatement(sqlcmd);
 			pstmt.setInt(1, userId);
 			pstmt.setString(2, listname);
@@ -442,6 +461,9 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 			if (pstmt != null) {
 				pstmt.close();
 			}
+			if (connector != null) {
+				closeConToDatabase();
+			}
 		}
 		return result;
 	}
@@ -453,6 +475,7 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 		PreparedStatement pstmt = null;
 		PreparedStatement pstmt2 = null;
 		try {
+			openConToDatabase();
 			pstmt = connector.prepareStatement(sqlcmd);
 			pstmt.setInt(1, userid);
 			pstmt.setString(2, movieListName);
@@ -472,6 +495,9 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 			if (pstmt2 != null) {
 				pstmt2.close();
 			}
+			if (connector != null) {
+				closeConToDatabase();
+			}
 		}
 	}
 
@@ -480,6 +506,7 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 		String sqlcmd = "delete from UserMovieList where user_id = ? and (list_name = ? and movie_id = ?)";
 		PreparedStatement pstmt = null;
 		try {
+			openConToDatabase();
 			pstmt = connector.prepareStatement(sqlcmd);
 			pstmt.setInt(1, userid);
 			pstmt.setString(2, movieList);
@@ -491,6 +518,9 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 			if (pstmt != null) {
 				pstmt.close();
 			}
+			if (connector != null) {
+				closeConToDatabase();
+			}
 		}
 	}
 
@@ -500,7 +530,7 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 		String sqlcmd = "insert into UserMovieList values (?, ?, ?, ?)";
 		PreparedStatement pstmt = null;
 		try {
-
+			openConToDatabase();
 			pstmt = connector.prepareStatement(sqlcmd);
 			pstmt.setInt(1, userId);
 			pstmt.setString(2, listName);
@@ -513,6 +543,9 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 			if (pstmt != null) {
 				pstmt.close();
 			}
+			if (connector != null) {
+				closeConToDatabase();
+			}
 		}
 	}
 
@@ -522,6 +555,7 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 		String sqlcmd = "select * from userRelation where senderId = ? and receiverId = ?";
 		PreparedStatement pstmt = null;
 		try {
+			openConToDatabase();
 			pstmt = connector.prepareStatement(sqlcmd);
 			pstmt.setInt(1, senderId);
 			pstmt.setInt(2, receiverId);
@@ -536,6 +570,9 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 			if (pstmt != null) {
 				pstmt.close();
 			}
+			if (connector != null) {
+				closeConToDatabase();
+			}
 		}
 
 		return status.toString();
@@ -548,6 +585,7 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 				+ " on user.user_id = comp.senderId";
 		PreparedStatement pstmt = null;
 		try {
+			openConToDatabase();
 			pstmt = connector.prepareStatement(sqlcmd);
 			pstmt.setInt(1, userId);
 			myResult = pstmt.executeQuery();
@@ -565,6 +603,9 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 			if (pstmt != null) {
 				pstmt.close();
 			}
+			if (connector != null) {
+				closeConToDatabase();
+			}
 		}
 		return output;
 	}
@@ -576,6 +617,7 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 				+ "on user.user_id = comp.receiverId";
 		PreparedStatement pstmt = null;
 		try {
+			openConToDatabase();
 			pstmt = connector.prepareStatement(sqlcmd);
 			pstmt.setInt(1, userId);
 			myResult = pstmt.executeQuery();
@@ -593,6 +635,9 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 		} finally {
 			if (pstmt != null) {
 				pstmt.close();
+			}
+			if (connector != null) {
+				closeConToDatabase();
 			}
 		}
 		return output;
@@ -622,6 +667,7 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 				+ "on user.user_id = comp.senderId";
 		PreparedStatement pstmt = null;
 		try {
+			openConToDatabase();
 			pstmt = connector.prepareStatement(sqlcmd);
 			pstmt.setInt(1, userId);
 			myResult = pstmt.executeQuery();
@@ -640,6 +686,9 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 			if (pstmt != null) {
 				pstmt.close();
 			}
+			if (connector != null) {
+				closeConToDatabase();
+			}
 		}
 
 		return output;
@@ -653,6 +702,7 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 				+ "on user.user_id = comp.receiverId";
 		PreparedStatement pstmt = null;
 		try {
+			openConToDatabase();
 			pstmt = connector.prepareStatement(sqlcmd);
 			pstmt.setInt(1, userId);
 			myResult = pstmt.executeQuery();
@@ -670,6 +720,9 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 		} finally {
 			if (pstmt != null) {
 				pstmt.close();
+			}
+			if (connector != null) {
+				closeConToDatabase();
 			}
 		}
 
@@ -697,6 +750,7 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 		String sqlcmd = "select rating from rating" + " where rating.user_id = ? and rating.movie_id = ?";
 		PreparedStatement pstmt = null;
 		try {
+			openConToDatabase();
 			pstmt = connector.prepareStatement(sqlcmd);
 			pstmt.setInt(1, userId);
 			pstmt.setString(2, movieId);
@@ -710,6 +764,9 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 		} finally {
 			if (pstmt != null) {
 				pstmt.close();
+			}
+			if (connector != null) {
+				closeConToDatabase();
 			}
 		}
 
@@ -729,6 +786,7 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 
 		if (getRating(userId, movieId) == -1) {
 			try {
+				openConToDatabase();
 				pstmt = connector.prepareStatement(sqlcmd1);
 				pstmt.setString(1, movieId);
 				pstmt.setDouble(2, rating);
@@ -741,10 +799,14 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 				if (pstmt != null) {
 					pstmt.close();
 				}
+				if (connector != null) {
+					closeConToDatabase();
+				}
 			}
 
 		} else {
 			try {
+				openConToDatabase();
 				pstmt = connector.prepareStatement(sqlcmd2);
 				pstmt.setDouble(1, rating);
 				pstmt.setString(2, movieId);
@@ -756,6 +818,9 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 				if (pstmt != null) {
 					pstmt.close();
 				}
+				if (connector != null) {
+					closeConToDatabase();
+				}
 			}
 		}
 	}
@@ -766,6 +831,7 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 		String sqlcmd = "select * from Review where movie_id = ?";
 		PreparedStatement pstmt = null;
 		try {
+			openConToDatabase();
 			pstmt = connector.prepareStatement(sqlcmd);
 			pstmt.setString(1, movieId);
 			myResult = pstmt.executeQuery();
@@ -790,6 +856,9 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 			if (pstmt != null) {
 				pstmt.close();
 			}
+			if (connector != null) {
+				closeConToDatabase();
+			}
 		}
 		return result;
 	}
@@ -800,6 +869,7 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 		String sqlcmd = "select * from Review where reviewer_id = ?";
 		PreparedStatement pstmt = null;
 		try {
+			openConToDatabase();
 			pstmt = connector.prepareStatement(sqlcmd);
 			pstmt.setString(1, userId);
 			myResult = pstmt.executeQuery();
@@ -807,7 +877,6 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 				MovieReview item = new MovieReview();
 				String username = myResult.getString("reviewer_name");
 				String movieid = myResult.getString("movie_id");
-				Integer reviewId = myResult.getInt("review_id");
 				String reviewDate = myResult.getString("review_date");
 				String description = myResult.getString("description");
 				item.setDate(reviewDate);
@@ -823,6 +892,9 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 			if (pstmt != null) {
 				pstmt.close();
 			}
+			if (connector != null) {
+				closeConToDatabase();
+			}
 		}
 
 		return output;
@@ -835,6 +907,7 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 		PreparedStatement pstmt = null;
 		PreparedStatement pstmt2 = null;
 		try {
+			openConToDatabase();
 			pstmt = connector.prepareStatement(sqlcmd);
 			pstmt.setInt(1, userId);
 			pstmt.setString(2, listName);
@@ -854,6 +927,9 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 			if (pstmt2 != null) {
 				pstmt2.close();
 			}
+			if (connector != null) {
+				closeConToDatabase();
+			}
 		}
 	}
 
@@ -862,6 +938,7 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 		String sqlcmd = "delete from UserMovieList where user_id = ? and list_name = ?";
 		PreparedStatement pstmt = null;
 		try {
+			openConToDatabase();
 			pstmt = connector.prepareStatement(sqlcmd);
 			pstmt.setInt(1, userId);
 			pstmt.setString(2, listName);
@@ -872,6 +949,9 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 			if (pstmt != null) {
 				pstmt.close();
 			}
+			if (connector != null) {
+				closeConToDatabase();
+			}
 		}
 	}
 
@@ -880,6 +960,7 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 		String sqlcmd = "update user set active = ? where user_id = ?";
 		PreparedStatement pstmt = null;
 		try {
+			openConToDatabase();
 			pstmt = connector.prepareStatement(sqlcmd);
 			pstmt.setInt(1, status);
 			pstmt.setInt(2, userId);
@@ -889,6 +970,9 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 		} finally {
 			if (pstmt != null) {
 				pstmt.close();
+			}
+			if (connector != null) {
+				closeConToDatabase();
 			}
 		}
 
@@ -901,6 +985,7 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 		PreparedStatement pstmt = null;
 
 		try {
+			openConToDatabase();
 			pstmt = connector.prepareStatement(sqlcmd);
 			myResult = pstmt.executeQuery();
 			while (myResult.next()) {
@@ -922,6 +1007,9 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 			if (pstmt != null) {
 				pstmt.close();
 			}
+			if (connector != null) {
+				closeConToDatabase();
+			}
 		}
 		return output;
 	}
@@ -932,6 +1020,7 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 		PreparedStatement pstmt = null;
 
 		try {
+			openConToDatabase();
 			pstmt = connector.prepareStatement(sqlcmd);
 			pstmt.setInt(1, reviewId);
 			pstmt.executeUpdate();
@@ -940,6 +1029,9 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 		} finally {
 			if (pstmt != null) {
 				pstmt.close();
+			}
+			if (connector != null) {
+				closeConToDatabase();
 			}
 		}
 
@@ -951,6 +1043,7 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 		PreparedStatement pstmt = null;
 
 		try {
+			openConToDatabase();
 			pstmt = connector.prepareStatement(sqlcmd);
 			pstmt.setInt(1, userId);
 			pstmt.setInt(2, friendId);
@@ -967,16 +1060,20 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 			if (pstmt != null) {
 				pstmt.close();
 			}
+			if (connector != null) {
+				closeConToDatabase();
+			}
 		}
 
 	}
 
 	@Override
-	public User getUser(int userId) {
+	public User getUser(int userId) throws SQLException {
 		String sqlcmd = "select * from user where user_id = ?";
 		PreparedStatement pstmt = null;
 
 		try {
+			openConToDatabase();
 			pstmt = connector.prepareStatement(sqlcmd);
 			pstmt.setInt(1, userId);
 			myResult = pstmt.executeQuery();
@@ -994,17 +1091,25 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 
 		} catch (SQLException e) {
 			logger.error(e.getMessage());
+		} finally {
+			if (pstmt != null) {
+				pstmt.close();
+			}
+			if (connector != null) {
+				closeConToDatabase();
+			}
 		}
 
 		return null;
 	}
 
 	@Override
-	public void insertUser(User user) {
+	public void insertUser(User user) throws SQLException {
 		String sqlcmd = "insert into user values(?, ?, ?, ?, ?, ?, ? ,?)";
 		PreparedStatement pstmt = null;
 
 		try {
+			openConToDatabase();
 			pstmt = connector.prepareStatement(sqlcmd);
 			pstmt.setInt(1, user.getId());
 			pstmt.setInt(2, user.getActive());
@@ -1019,22 +1124,37 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 
 		} catch (SQLException e) {
 			logger.error(e.getMessage());
+		} finally {
+			if (pstmt != null) {
+				pstmt.close();
+			}
+			if (connector != null) {
+				closeConToDatabase();
+			}
 		}
 
 	}
 
 	@Override
-	public void removeUser(int userId) {
+	public void removeUser(int userId) throws SQLException {
 		String sqlcmd = "delete from user where user_id = ?";
 		PreparedStatement pstmt = null;
 
 		try {
+			openConToDatabase();
 			pstmt = connector.prepareStatement(sqlcmd);
 			pstmt.setInt(1, userId);
 			pstmt.executeUpdate();
 
 		} catch (SQLException e) {
 			logger.error(e.getMessage());
+		} finally {
+			if (pstmt != null) {
+				pstmt.close();
+			}
+			if (connector != null) {
+				closeConToDatabase();
+			}
 		}
 
 	}
@@ -1044,6 +1164,7 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 	String sqlcmd = "delete from Movie where movie_id = ?";
 	PreparedStatement pstmt = null;
 	try {
+		openConToDatabase();
 	    pstmt = connector.prepareStatement(sqlcmd);
 	    pstmt.setString(1, id);
 	    pstmt.executeUpdate();
@@ -1053,6 +1174,9 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
         if (pstmt != null) {
         	pstmt.close();
         }
+        if (connector != null) {
+			closeConToDatabase();
+		}
 	}
     }
 
