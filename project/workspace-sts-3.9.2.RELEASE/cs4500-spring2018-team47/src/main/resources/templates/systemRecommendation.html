@@ -14,7 +14,7 @@
 			<div th:each="movie : ${recommend}">
 				<a th:href="@{/movie/{id}(id=${movie.theMovieDbID})}">
 					<div class="col-md-2">
-						<img th:src="${movie.poster}"></img>
+						<img th:src="${movie.poster}" style="height:200px"></img>
 						<div th:text="${movie.title}"></div>
 
 					</div>
