@@ -7,6 +7,25 @@
 </head>
 <body> 
     <div th:replace="fragments/userProfile/profileMenu :: userProfileMenu"></div>
+    <div class="container mt-3 wishList">
+				<h2>Here are movies we recommend you...</h2>
+				<div class="rec row">
+					<div th:each="movie : ${recommend}">
+						<a th:href="@{/movie/{id}(id=${movie.theMovieDbID})}">
+							<div class="col-md-2">
+								<img th:src="${movie.poster}"></img>
+								<div th:text="${movie.title}"> </div>
+								
+							</div>
+						</a>
+					</div>
+					<!-- else no users are found  -->
+					<div th:unless="${not #lists.isEmpty(recommend)}">
+						<div>No favorites have been  added.</div>
+					</div>
+				</div>
+				<hr class="bg-danger p-2">
+			</div>
     <div th:text="${recommendation}" style="margin-left:200px"></div>
 </body>
 </html>
