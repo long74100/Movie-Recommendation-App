@@ -47,6 +47,11 @@ public class MovieReview implements Serializable {
 	public String getMovie_id() {
 		return movie_id;
 	}
+	
+	public void setId(int id) {
+	    this.id = id;
+	}
+	
 	public void setMovie_id(String movie_id) {
 		this.movie_id = movie_id;
 	}

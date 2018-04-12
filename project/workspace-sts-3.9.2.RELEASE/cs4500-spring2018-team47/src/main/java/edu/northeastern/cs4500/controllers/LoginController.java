@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import edu.northeastern.cs4500.model.services.ILocalSQLConnectService;
-import edu.northeastern.cs4500.model.services.LocalSQLConnectServiceImpl;
 import edu.northeastern.cs4500.model.services.UserService;
 import edu.northeastern.cs4500.model.user.User;
 
@@ -27,13 +26,18 @@ public class LoginController {
     @Autowired
     private UserService userService;
     
-    private ILocalSQLConnectService localSQLConnector = new LocalSQLConnectServiceImpl();
+    @Autowired
+    private ILocalSQLConnectService localDbConnector;
+    
+    private static final String REGISTRATION = "registration";
+    private static final String HOME = "home";
+    private static final String LOGIN = "login";
 
 
     @RequestMapping(value = { "/login" }, method = RequestMethod.GET)
     public ModelAndView login() {
 	ModelAndView modelAndView = new ModelAndView();
-	modelAndView.setViewName("login");
+	modelAndView.setViewName(LOGIN);
 	return modelAndView;
     }
 
@@ -42,7 +46,7 @@ public class LoginController {
 	ModelAndView modelAndView = new ModelAndView();
 	User user = new User();
 	modelAndView.addObject("user", user);
-	modelAndView.setViewName("registration");
+	modelAndView.setViewName(REGISTRATION);
 	return modelAndView;
     }
 
@@ -62,13 +66,13 @@ public class LoginController {
 	}
 
 	if (bindingResult.hasErrors()) {
-	    modelAndView.setViewName("registration");
+	    modelAndView.setViewName(REGISTRATION);
 	} else {
 	    userService.saveUser(newUser);
-	    localSQLConnector.preloadMovieList(newUser.getId());
+	    localDbConnector.preloadMovieList(newUser.getId());
 	    modelAndView.addObject("successMessage", "Registration successful!");
 	    modelAndView.addObject("user", new User());
-	    modelAndView.setViewName("registration");
+	    modelAndView.setViewName(REGISTRATION);
 
 	}
 	return modelAndView;
@@ -80,8 +84,9 @@ public class LoginController {
 	Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 	User user = userService.findUserByEmail(auth.getName());
 	modelAndView.addObject("user", user);
-	modelAndView.setViewName("home");
+	modelAndView.setViewName(HOME);
 	return modelAndView;
     }
+    
 
 }

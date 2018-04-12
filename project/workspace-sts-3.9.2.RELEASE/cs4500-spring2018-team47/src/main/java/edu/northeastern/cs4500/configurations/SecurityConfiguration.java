@@ -4,6 +4,7 @@ import javax.sql.DataSource;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -21,8 +22,12 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
 	@Autowired
 	private DataSource dataSource;
-	private final String userQuery = "select email, password, active from user where email=?";
-	private final String roleQuery = "select email, role.role from user join role on user.role = role.role_id  where email=?";
+	
+	@Value("${user.Query}")
+	private String userQuery;
+	
+	@Value("${role.Query}")
+	private String roleQuery;
 	
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth)
@@ -41,9 +46,10 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		
 		http
 			.authorizeRequests()
-				.antMatchers("/", "/login", "/test", "/registration", "/search/**", "/movie/**", "/writeReview/**","/view/**").permitAll()
+				.antMatchers("/", "/login", "/test", "/registration", "/search/**", "/movie/**", "/writeReview/**","/view/**")
+				.permitAll()
 				.antMatchers("/admin/**")
-				.hasAnyRole("ADMIN")
+				.hasAnyAuthority("ADMIN")
 				.anyRequest()
 				.authenticated()
 				.and()
@@ -69,7 +75,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	public void configure(WebSecurity web) throws Exception {
 	    web
 	       .ignoring()
-	       .antMatchers("/resources/**", "/static/**", "/css/**", "/js/**", "/images/**");
+	       .antMatchers("/resources/**", "/static/**", "/css/**", "/js/**", "/images/**", "/slick/**");
 	}
 	
 	

@@ -2,6 +2,8 @@ function init() {
 	const rating = document.querySelector(".rating");
 	const reviewBox = document.querySelector("#review-box");
 	const userId = document.querySelector("#userID").innerText;
+	const reviews = document.querySelector("#reviews");
+	const removeReviewBtns = document.querySelectorAll(".remove-review");
 	
 	if (userId == "") {
 		rating.classList.add("d-none");
@@ -30,8 +32,8 @@ function init() {
 	}
 	
 	var addtolistButton = document.querySelector("#addToList");
-	// to get the list name
-	addtolistButton.onclick = function() {
+		// to get the list name
+		addtolistButton.onclick = function() {
 		var listObject = document.getElementById("listOpt");
 		var selectedList = listObject.options[listObject.selectedIndex].value;
 		var movieId = document.querySelector("#imdbID").innerText;
@@ -75,10 +77,35 @@ function init() {
 			}
 		}
 	}
+	
+	for (let btn of removeReviewBtns) {
+		btn.addEventListener("click", removeReview);
+		btn.addEventListener("click", removeReviewFromPage);
+	}
+	
+	function removeReview(ev) {
+		let p = ev.target.parentElement;
+		reviewer_id = p.firstElementChild.innerText;
+		review_id = p.children[1].innerText;
+		
+		let url = "/movie/removeReview";
+		let encodedUserId = encodeURI(reviewer_id);
+		let encodedReviewId = encodeURI(review_id);
+		let param = "userId=" + encodedUserId + "&reviewId=" + encodedReviewId;
+		let xhr = new XMLHttpRequest();
+		xhr.open("POST", url, true);
+		xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+		xhr.send(param);
+
+	}
+	
+	function removeReviewFromPage(ev) {
+		const evParent = ev.target.parentElement;
+		const reviewDiv = evParent.parentElement.parentElement;
+		reviews.removeChild(reviewDiv);
+	}
+	
 }
-
-
-
 
 
 
