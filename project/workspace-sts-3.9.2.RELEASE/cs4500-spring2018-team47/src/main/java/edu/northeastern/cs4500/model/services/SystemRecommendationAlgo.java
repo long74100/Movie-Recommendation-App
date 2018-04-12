@@ -15,7 +15,47 @@ public class SystemRecommendationAlgo {
 		buildDiffMatrix();
 	}
 	
-	public Map<String, Double> predict(Map<String, Double> user)
+	public Map<String, Double> predict(String user)
+    {
+		Map<String, Double> getUserData = data.get(user);
+        HashMap<String, Double> predictions = new HashMap<>();
+        HashMap<String, Integer> frequencies = new HashMap<>();
+        for (String x : diff.keySet())
+        {
+            frequencies.put(x, 0);
+            predictions.put(x, 0.0);
+        }
+        for (String x : getUserData.keySet())
+        {
+            for (String y : diff.keySet())
+            {
+                try
+                {
+                    Double newval = (diff.get(y).get(x) + getUserData.get(x)) * freq.get(y).get(x).intValue();
+                    predictions.put(y, predictions.get(y) + newval);
+                    frequencies.put(y, frequencies.get(y) + freq.get(y).get(x).intValue());
+                } catch (NullPointerException e)
+                {
+                	
+                }
+            }
+        }
+        HashMap<String, Double> cleanpredictions = new HashMap<>();
+        for (String x : predictions.keySet())
+        {
+            if (frequencies.get(x) > 0)
+            {
+                cleanpredictions.put(x, predictions.get(x) / frequencies.get(x).intValue());
+            }
+        }
+        for (String x : getUserData.keySet())
+        {
+            cleanpredictions.put(x, getUserData.get(x));
+        }
+        return cleanpredictions;
+    }
+	
+	/*public Map<String, Double> predict(Map<String, Double> user)
     {
         HashMap<String, Double> predictions = new HashMap<>();
         HashMap<String, Integer> frequencies = new HashMap<>();
@@ -52,7 +92,7 @@ public class SystemRecommendationAlgo {
             cleanpredictions.put(x, user.get(x));
         }
         return cleanpredictions;
-    }
+    }*/
 	
 	public void buildDiffMatrix() {
 		diff = new HashMap<>();

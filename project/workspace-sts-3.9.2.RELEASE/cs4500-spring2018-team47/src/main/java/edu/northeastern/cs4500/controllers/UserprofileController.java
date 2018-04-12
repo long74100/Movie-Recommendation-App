@@ -274,8 +274,6 @@ public class UserprofileController {
 	
 	@RequestMapping(value="/systemRecommendation", method = RequestMethod.GET)
 	public ModelAndView getSystemRecommendation() {
-		
-		
 		 // this is my data base 
 		  Map<String, Map<String, Double>> data = new HashMap<>(); 
 		  // items 
@@ -307,28 +305,21 @@ public class UserprofileController {
 		  user4.put(item_war, 1.0); 
 		  user4.put(item_food, 0.4); 
 		  data.put("StrangeJo", user4); 
-		 
+		  HashMap<String, Double> user10 = new HashMap<>(); 
+		  user10.put(item_food, 0.4);
+	      user10.put(item_war, 0.2);
+	      data.put("ed", user10);
 		  SystemRecommendationAlgo slopeOne = new SystemRecommendationAlgo(data);
 		  // then, I'm going to test it out... 
-		  HashMap<String, Double> user10 = new HashMap<>(); 
-		  System.out.println("Ok, now we predict...");
-	        user10.put(item_food, 0.4);
-	        System.out.println("Inputting...");
-	        System.out.println(user10);
 	        System.out.println("Getting...");
-	        System.out.println(slopeOne.predict(user10));
-	        //
-	        user10.put(item_war, 0.2);
-	        System.out.println("Inputting...");
-	        System.out.println(user10);
-	        System.out.println("Getting...");
-	        System.out.println(slopeOne.predict(user10));
+	        
+	        System.out.println(slopeOne.predict("ed"));
 		
 		ModelAndView modelAndView = new ModelAndView();
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		User user = userService.findUserByEmail(auth.getName());
 		modelAndView.addObject("user", user);
-		modelAndView.addObject("recommendation", slopeOne.predict(user10));
+		modelAndView.addObject("recommendation", slopeOne.predict("ed"));
 		modelAndView.setViewName("systemRecommendation");
 		return modelAndView;
 	}
