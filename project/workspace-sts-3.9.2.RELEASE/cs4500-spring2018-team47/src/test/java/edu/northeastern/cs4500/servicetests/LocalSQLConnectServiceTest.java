@@ -17,6 +17,7 @@ import org.junit.Test;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import edu.northeastern.cs4500.model.movie.MovieRating;
 import edu.northeastern.cs4500.model.movie.MovieReview;
 import edu.northeastern.cs4500.model.services.ILocalSQLConnectService;
 import edu.northeastern.cs4500.model.services.LocalSQLConnectServiceImpl;
@@ -56,6 +57,9 @@ public class LocalSQLConnectServiceTest {
 	// mock review
 	private static MovieReview mockReview;
 	private static int mockReviewId = 983730;
+	
+	// mock rating
+	private static MovieRating mockRating;
 
 	@Before
 	public void setUpConnection() throws SQLException {
@@ -63,6 +67,7 @@ public class LocalSQLConnectServiceTest {
 		cleanMockUsers();
 		cleanMockMovie();
 		cleanMockReview();
+		cleanMockRating();
 	}
 	
 	/**
@@ -158,14 +163,40 @@ public class LocalSQLConnectServiceTest {
 	}
 	
 	/**
-	 * clean the mock review.
+	 * Clean the mock review.
 	 * @throws SQLException 
 	 */
 	private void cleanMockReview() throws SQLException {
 	    localSQLConnectService.removeReview(mockReviewId);
-	    cleanMockMovie();
-	    cleanMockUsers();
 	}
+	
+	/**
+	 * Initialize mock rating for testing.
+	 * @throws SQLException
+	 */
+	private void initMockRating() throws SQLException {
+	    initMockMovie();
+	    initMockUsers();
+
+	    mockRating = new MovieRating();
+	    mockRating.setDate("2018-04-11 00:00:00");
+	    mockRating.setMovieId(movieId);
+	    mockRating.setRating(5);
+	    mockRating.setUserID(stub1Id);
+	    localSQLConnectService.insertRating(mockRating);
+	}
+	
+	/**
+	 * Cleans the mock rating.
+	 * @throws SQLException 
+	 */
+	private void cleanMockRating() throws SQLException {
+	    mockRating = localSQLConnectService.getRating(stub1Id, movieId);
+	    if (mockRating != null) {
+		    localSQLConnectService.removeRating(mockRating.getRatingId());
+	    }
+	}
+	
 	
 
 	@Test
@@ -421,6 +452,39 @@ public class LocalSQLConnectServiceTest {
 	    initMockReview();
 	    reviews = localSQLConnectService.getReviewsForMovie(movieId);
 	    assertEquals(reviews.size(), 1);
+	    
+	}
+	
+	
+	/**
+	 * Test that get rating gets the rating.
+	 * @throws SQLException
+	 */
+	@Test
+	public void testGetRating() throws SQLException {
+	    initMockRating();
+	    cleanMockRating();
+	    MovieRating rating = localSQLConnectService.getRating(stub1Id, movieId);
+	    assertNull(rating);
+	    
+	    cleanMockUsers();
+	    cleanMockMovie();
+	    	
+	    initMockRating();
+	    rating = localSQLConnectService.getRating(stub1Id, movieId);
+	    assertEquals(rating.getRating(), 5, 0.1);
+	    
+	
+	}
+	
+
+	@Test
+	public void testnsertRating() throws SQLException {
+	    
+	}
+	
+	@Test
+	public void testRemoveRating() throws SQLException {
 	    
 	}
 
