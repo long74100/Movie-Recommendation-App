@@ -68,6 +68,19 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 	}
 
     }
+    
+    @Override
+    public void deleteFromMovieTable(String id) {
+	String sqlcmd = "delete from Movie where movie_id = ?";
+	PreparedStatement pstmt = null;
+	try {
+	    pstmt = connector.prepareStatement(sqlcmd);
+	    pstmt.setString(1, id);
+	    pstmt.executeUpdate();
+	} catch (SQLException ep) {
+	    logger.error(ep.getMessage());
+	}
+    }
 
     @Override
     public boolean containMovie(String movieId) {
@@ -113,7 +126,6 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 
     @Override
     public void loadMovieIntoLocalDB(Map<String, String> movieObject) {
-	System.out.println("Start loading movie....");
 	try {
 	    String sqlcmd = "insert into Movie values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 	    String movie_id = movieObject.get("imdbID");
@@ -147,7 +159,6 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 		pstmt.setString(12, imdbRating);
 		pstmt.setString(13, movieDBid);
 		pstmt.executeUpdate();
-		System.out.println("loading movie finished");
 	    } catch (SQLException sq) {
 		logger.error(sq.getMessage());
 	    }
@@ -175,135 +186,6 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
      * Movie Operators: This section is for user and system to operate on the movies
      */
 
-    @Override
-    public void deleteFromMovieTable(String id) {
-	String sqlcmd = "delete from Movie where movie_id = ?";
-	PreparedStatement pstmt = null;
-	try {
-	    pstmt = connector.prepareStatement(sqlcmd);
-	    pstmt.setString(1, id);
-	    pstmt.executeUpdate();
-	} catch (SQLException ep) {
-	    logger.error(ep.getMessage());
-	}
-    }
-
-    @Override
-    public void clearTable(String tableName) {
-	String sqlcmd = "delete from ?";
-	PreparedStatement pstmt = null;
-	try {
-	    pstmt = connector.prepareStatement(sqlcmd);
-	    pstmt.setString(1, tableName);
-	    pstmt.executeUpdate();
-	} catch (SQLException ep) {
-	    logger.error(ep.getMessage());
-	}
-    }
-
-    @Override
-    public void searchKeyWordMovieTitle(String input) {
-	String sqlcmd = "select from Movie where movie_name like \"%\"?\"%\"";
-	PreparedStatement pstmt = null;
-	try {
-	    pstmt = connector.prepareStatement(sqlcmd);
-	    pstmt.setString(1, input);
-	    connectStatement.executeUpdate(sqlcmd);
-	    myResult = pstmt.executeQuery();
-	    execute();
-	} catch (SQLException ep) {
-	    logger.error(ep.getMessage());
-	}
-    }
-
-    @Override
-    public void searchKeyWordActorsName(String actorsName) {
-	String sqlcmd = "SELECT * from Movie where actor like \"%\"?\"%\"";
-	PreparedStatement pstmt = null;
-	try {
-	    pstmt = connector.prepareStatement(sqlcmd);
-	    pstmt.setString(1, actorsName);
-	    myResult = pstmt.executeQuery();
-	    execute();
-	} catch (SQLException ep) {
-	    logger.error(ep.getMessage());
-	}
-    }
-
-    @Override
-    public void searchKeyWordDirectorName(String directorName) {
-	String sqlcmd = "SELECT * from Movie where director like \"%\"?\"%\"";
-	PreparedStatement pstmt = null;
-	try {
-	    pstmt = connector.prepareStatement(sqlcmd);
-	    pstmt.setString(1, directorName);
-	    myResult = pstmt.executeQuery();
-	    execute();
-	} catch (SQLException ec) {
-	    logger.error(ec.getMessage());
-	}
-    }
-
-    @Override
-    public void searchKeyWordGenre(String genre) {
-	String sqlcmd = "SELECT * from Movie where genre like \"%\"?\"%\"";
-	PreparedStatement pstmt = null;
-	try {
-	    pstmt = connector.prepareStatement(sqlcmd);
-	    pstmt.setString(1, genre);
-	    myResult = pstmt.executeQuery();
-	    execute();
-	} catch (SQLException ec) {
-	    logger.error(ec.getMessage());
-	}
-    }
-
-    @Override
-    public void searchKeyWordTime(String year) {
-	String sqlcmd = "SELECT * from Movie where runtime like \"%\"?\"%\"";
-	PreparedStatement pstmt = null;
-	try {
-	    pstmt = connector.prepareStatement(sqlcmd);
-	    pstmt.setString(1, year);
-	    myResult = pstmt.executeQuery();
-	    execute();
-	} catch (SQLException ec) {
-	    logger.error(ec.getMessage());
-	}
-    }
-
-    @Override
-    public void searchByKeyWordInOne(String keyword) {
-	String sqlcmd = "select * from Movie where movie_id like \"%\"?\"%\"" + " or movie_name like \"%\"?\"%\""
-		+ " or runtime like \"%\"?\"%\"" + " or release_date like \"%\"?\"%\"" + " or genre like \"%\"?\"%\""
-		+ " or director like \"%\"?\"%\"" + " or actor like \"%\"?\"%\"" + " or plot like \"%\"?\"%\""
-		+ " or movie_language like \"%\"?\"%\"" + " or country like \"%\"?\"%\""
-		+ " or imdbRating like \"%\"?\"%\"";
-	PreparedStatement pstmt = null;
-	try {
-	    pstmt = connector.prepareStatement(sqlcmd);
-	    pstmt.setString(1, keyword);
-	    pstmt.setString(2, keyword);
-	    pstmt.setString(3, keyword);
-	    pstmt.setString(4, keyword);
-	    pstmt.setString(5, keyword);
-	    pstmt.setString(6, keyword);
-	    pstmt.setString(7, keyword);
-	    pstmt.setString(8, keyword);
-	    pstmt.setString(9, keyword);
-	    pstmt.setString(10, keyword);
-	    pstmt.setString(11, keyword);
-	    pstmt.setString(12, keyword);
-	    pstmt.setString(13, keyword);
-	    pstmt.setString(14, keyword);
-	    pstmt.setString(15, keyword);
-	    pstmt.setString(16, keyword);
-	    myResult = pstmt.executeQuery();
-	    execute();
-	} catch (SQLException ec) {
-	    logger.error(ec.getMessage());
-	}
-    }
 
     /**
      * To execute the get movie from local database command
@@ -462,19 +344,6 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 
     }
 
-
-    @Override
-    public HashMap<String, ArrayList<Movie>> getMovieFromMovieList(int userId) {
-	HashMap<String, ArrayList<Movie>> output = new HashMap<>();
-	List<String> movieListName = this.getMovieListForUser(userId);
-	for (int i = 0; i < movieListName.size(); i++) {
-	    String listName = movieListName.get(i);
-	    ArrayList<Movie> movies = this.getMovieFromUserMovieList(userId, listName);
-	    output.put(listName, movies);
-	}
-	return output;
-    }
-
     @Override
     public List<String> getMovieListForUser(int userId) {
 	ArrayList<String> movieListNames = new ArrayList<>();
@@ -606,8 +475,7 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 	return status.toString();
     }
 
-    @Override
-    public List<User> getAllFriendsAsSender(int userId) {
+    private List<User> getAllFriendsAsSender(int userId) {
 	ArrayList<User> output = new ArrayList<>();
 	String sqlcmd = "select * from user join "
 		+ "(select senderId from userRelation where receiverId = ? and relationStatus = \"friend\") as comp"
@@ -631,8 +499,7 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 	return output;
     }
 
-    @Override
-    public List<User> getAllFriendAsReceiver(int userId) {
+    private List<User> getAllFriendAsReceiver(int userId) {
 	ArrayList<User> output = new ArrayList<>();
 	String sqlcmd = "select * from user join "
 		+ "(select receiverId from userRelation where senderId = ? and relationStatus = \"friend\") as comp "

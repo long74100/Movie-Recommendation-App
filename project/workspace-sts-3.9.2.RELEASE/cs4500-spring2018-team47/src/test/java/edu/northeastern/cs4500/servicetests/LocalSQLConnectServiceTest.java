@@ -7,6 +7,9 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
+
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
 import org.junit.Before;
@@ -65,10 +68,14 @@ public class LocalSQLConnectServiceTest {
 		assertFalse(actual);
 	}
 	
-	// this method is broken
+	@Test
+	public void testLoadMovieIntoLocalDB() {
+		
+	}
+	
 //	@Test
 //	public void testCreateMovieList() {
-//		this.init();
+//		//NEED TO FIGURE OUT HOW TO SAVE USER
 //		localSQLConnectService.createMovieList(32, "NewTestList+A");
 //	}
 	
@@ -182,8 +189,7 @@ public class LocalSQLConnectServiceTest {
 	    localSQLConnectService.rejectRequest(78, 79);
 	    assertEquals(localSQLConnectService.getUserRelation(78, 79), "");
 	    
-	    
 	}
-	
+
 	
 }
