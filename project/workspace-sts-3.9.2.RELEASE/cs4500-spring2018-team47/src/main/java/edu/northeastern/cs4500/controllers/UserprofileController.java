@@ -272,27 +272,6 @@ public class UserprofileController {
 		}
 	}
 	
-	/**
-	 * This is to direct to the prod page
-	 * @return prod page
-	 */
-	@RequestMapping(value={"/prodRepo"}, method = RequestMethod.GET) 
-	public ModelAndView getProdList() {
-		ModelAndView modelAndView = new ModelAndView();
-		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-		User user = userService.findUserByEmail(auth.getName());
-		List<User> allFriends = new ArrayList<>();
-		try {
-			allFriends = localDbConnector.getAllFriends(user.getId());
-		}
-		catch(SQLException sq) {
-			logger.error(sq.getMessage());
-		}
-		modelAndView.addObject("friendList", allFriends);
-		modelAndView.addObject("user", user);
-		modelAndView.setViewName("prods");
-		return modelAndView;
-	}
 	
 	
 	// so needs to create three page also. or see if we can do something like display block and none.

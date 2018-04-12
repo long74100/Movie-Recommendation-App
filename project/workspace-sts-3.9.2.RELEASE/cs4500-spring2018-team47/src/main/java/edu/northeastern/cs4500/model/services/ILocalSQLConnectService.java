@@ -371,5 +371,21 @@ public interface ILocalSQLConnectService {
 	 * @throws SQLException
 	 */
 	List<Movie> extractMoviesByGenre(String genre) throws SQLException;
+	
+	/**
+	 * Get movie by imdb id
+	 * @param imdbId imdb id for the movie
+	 * @return movie object which has the given imdb id
+	 * @throws SQLException
+	 */
+	Movie findMovieByImdbId(String imdbId) throws SQLException;
+	
+	/**
+	 * Get movie by MovieDBId
+	 * @param moviedbId the moviedbId for the movie
+	 * @return movie object which hsa the given moviedb id
+	 * @throws SQLException
+	 */
+	Movie findMovieByMovieDBId(String moviedbId) throws SQLException;
 }
 
