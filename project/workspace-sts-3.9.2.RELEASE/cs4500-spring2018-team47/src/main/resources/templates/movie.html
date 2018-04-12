@@ -139,20 +139,23 @@
 			<hr class="bg-danger p-2">
 		</div>
 	</div>
-	<div class="container mt-3 rec">
-		<h2>Viewers also liked</h2>
-		<div>
-			<img
-				src="https://i.pinimg.com/736x/fd/5e/66/fd5e662dce1a3a8cd192a5952fa64f02--classic-poster-classic-movies-posters.jpg"
-				style="width: 15%; height: 15%; padding: 5px;"> <img
-				src="http://www.joblo.com/posters/images/full/Spiderman-poster-7-large.jpg"
-				style="width: 15%; height: 15%; padding: 5px;"> <img
-				src="http://img.moviepostershop.com/ghostbusters-movie-poster-2016-1020775586.jpg"
-				style="width: 15%; height: 15%; padding: 5px;"> <img
-				src="https://cdn.trendhunterstatic.com/thumbs/movie-poster-art.jpeg"
-				style="width: 15%; height: 15%; padding: 5px;">
-			<hr class="bg-danger p-2">
+	<div class="container mt-3 wishList">
+		<h2>Movies related to this Genre</h2>
+		<div class="rec row">
+			<div th:each="movie : ${recommend}">
+				<a th:href="@{/movie/{id}(id=${movie.theMovieDbID})}">
+					<div class="col-md-2">
+						<img th:src="${movie.poster}" style="height:200px;width: 150px"></img>
+						<div th:text="${movie.title}"></div>
+
+					</div>
+				</a>
+			</div>
+			<div th:unless="${not #lists.isEmpty(recommend)}">
+				<div>No favorites have been added.</div>
+			</div>
 		</div>
+		<hr class="bg-danger p-2">
 	</div>
 	<div class="container mt-3 rec" id="reviews">
 		<h1>REVIEWS</h1>
