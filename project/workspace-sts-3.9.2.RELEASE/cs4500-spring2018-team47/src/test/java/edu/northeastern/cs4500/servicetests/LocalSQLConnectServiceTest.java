@@ -1,8 +1,5 @@
 package edu.northeastern.cs4500.servicetests;
 
-
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import static org.junit.Assert.assertEquals;
 
 import java.util.List;
@@ -21,7 +18,6 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import edu.northeastern.cs4500.model.movie.MovieRating;
-import edu.northeastern.cs4500.model.movie.Movie;
 import edu.northeastern.cs4500.model.movie.MovieReview;
 import edu.northeastern.cs4500.model.services.ILocalSQLConnectService;
 import edu.northeastern.cs4500.model.services.LocalSQLConnectServiceImpl;
@@ -82,7 +78,7 @@ public class LocalSQLConnectServiceTest {
 	 * 
 	 * @throws SQLException
 	 */
-	private void initMockUsers() throws SQLException {
+	public void initMockUsers() throws SQLException {
 
 		// set up mock user 1
 		stub1 = new User();
@@ -116,7 +112,7 @@ public class LocalSQLConnectServiceTest {
 	 * 
 	 * @throws SQLException
 	 */
-	private void cleanMockUsers() throws SQLException {
+	public void cleanMockUsers() throws SQLException {
 		localSQLConnectService.removeUser(stub1Id);
 		localSQLConnectService.removeUser(stub2Id);
 
