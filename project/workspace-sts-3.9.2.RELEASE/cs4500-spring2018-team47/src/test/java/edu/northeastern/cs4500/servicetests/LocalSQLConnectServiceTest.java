@@ -105,7 +105,7 @@ public class LocalSQLConnectServiceTest {
 	}
 	
 	private void cleanMockMovie() {
-	    
+	    localSQLConnectService.deleteFromMovieTable("1");
 	}
 	
 	
