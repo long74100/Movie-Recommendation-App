@@ -38,7 +38,7 @@
     					<span>
     						<div class="sender-profile-info" id="sender-profile-info">
     							<img src="https://www.ocf.berkeley.edu/~dblab/blog/wp-content/uploads/2012/01/icon-profile.png"
-									class="user-headportrait" style="width: 30px; margin-right:800px"/>
+									class="user-headportrait" style="width: 30px;"/>
     							<p th:text="${prod.senderName}" class="friend-asSender-name" id="friend-asSender-name"></p>
     						</div>
     						<div class="sender-sending-movie-info" id="sender-sending-movie-info">
@@ -82,7 +82,7 @@
     									<p th:text="${prod.getComment()}" style="margin-bottom: 0px;"></p>
     							</div>
     							<div class="sent-bottom-mark" class="sent-bottom-mark">
-    								To: <p th:text="${prod.getReceiverName()}" style="float: right; margin-right: 175px; margin-bottom: 0px;">recipient</p>
+    								To: <p th:text="${prod.getReceiverName()}" style="float: right; margin-right: 170px; margin-bottom: 0px;">recipient</p>
     								<p class="sent-time-record" id="sent-time-record" th:text="${prod.getTime()}" >time</p>
     							</div>
     								

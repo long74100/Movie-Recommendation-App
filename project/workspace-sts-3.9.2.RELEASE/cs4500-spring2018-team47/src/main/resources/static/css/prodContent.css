@@ -1,15 +1,16 @@
 .prod-list-item-nav {
-	margin-left:427px;
+	margin-left:28%;
 	position:fixed;
+	width:72%;
 }
 
 .prod-objective {
-    text-align:  center;
-    width:  900px;
+    text-align: center;
+    width:  100%;
     height: 50px;
     border: solid;
-    border-width:  thin;
-    background:  #212529;
+    border-width: thin;
+    background: #212529;
 	
 }
 
@@ -23,7 +24,7 @@
 .get-all-overall {
 	float:  left;
     width:  300px;
-    width: 300px;
+    width: 33%;
     float: left;
     text-align: center;
     color: wheat;
@@ -44,7 +45,7 @@
 
 
 .get-All-sentOut {
-    width: 300px;
+    width: 33%;
     float: left;
     text-align: center;
     color: wheat;
@@ -72,8 +73,7 @@
 
 .get-All-received {
     text-align: center;
-    width: 300px;
-    margin-left: 600px;
+    width: 34%;
     color: wheat;
     height: 30px;
     background: #212529;
@@ -93,16 +93,13 @@
 }
 
 .owner-sending-movie-info {
-	height: 180px;
-    /*margin-left: 450px;*/
-    /*width: 350px;*/
     margin-top: 10px;
     height: 155px;
     border: solid;
     border-width: thin;
     border-radius: 8px;
-    margin-left: 300px;
     width: 500px;
+    float: right;
 }
 
 .send-out-moviePoster {
@@ -185,7 +182,7 @@
 }
 
 .sender-sending-movie-info {
-	margin-left: 100px; 
+	margin-left: 8%; 
 	width: 500px; 
 	margin-top: 10px; 
 	height: 155px; 
@@ -201,16 +198,17 @@
 }
 
 .sender-profile-info {
-	width: 100px; 
+	width: 7%; 
 	float: left; 
 	margin-top: 50px; 
 	border-radius: 15px;
+	margin-left:5px;
 }
 
 .prod-list-main-container {
-	margin-left: 427px;
-	margin-top: 90px;
-	width:900px;
+	margin-left: 28%;
+    margin-top: 90px;
+    width: 72%;
 }
 
 .get-All-received:hover {
