@@ -6,15 +6,16 @@
 <body>
 	<div th:fragment="userProfileMenu">
 		<script type="text/javascript" src="../js/sideBarFunctions.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 		<div th:replace="fragments/navBar :: header"></div>
 		<div id="container" th:action="@{/userProfile}" method="GET">
-        <div id="leftside" class="menuHolder">
-            <div class="headset">
+        <div id="leftside" class="container menuHolder" style=""> <!--class="menuHolder"  -->
+            <div class="container headset"> <!--class="headset"  -->
                 <img src="https://www.ocf.berkeley.edu/~dblab/blog/wp-content/uploads/2012/01/icon-profile.png" class="headPortrait"/><br>
                <p class="d-flex justify-content-center" th:text="${user.username}" 
                	style="color: wheat; font-size: 20px; margin-bottom: 0px;">loginUser</p>
             </div>
-            <ul class="leftMenu">
+            <ul class="list-group leftMenu"> <!--class="leftMenu"  -->
                 <p></p>
                 <a th:href="@{/profile}">
 					<p class="useful">Profile</p></a>
