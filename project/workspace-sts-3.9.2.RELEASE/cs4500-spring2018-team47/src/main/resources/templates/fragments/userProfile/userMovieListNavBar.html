@@ -8,8 +8,8 @@
 	<div th:fragment="movieListNavBar">
 		<div th:replace="fragments/userProfile/profileMenu :: userProfileMenu"></div>
 		<script type="text/javascript" src="../js/movieListMng.js"></script>
-		<div class="container mt-3 movieManagerMenu" th:action="@{/profile+to+movielist}" method="GET">
-            <div class="rec row listCreator">
+		<div class="movieManagerMenu" th:action="@{/profile+to+movielist}" method="GET">
+            <div class="listCreator">
                 <span><input id="newListName" class="listNameGetter" 
                 type="text" 
                 placeholder="Create movie list here..."/>
