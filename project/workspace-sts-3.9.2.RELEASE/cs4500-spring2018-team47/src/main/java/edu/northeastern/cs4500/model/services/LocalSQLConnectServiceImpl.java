@@ -38,7 +38,6 @@ import edu.northeastern.cs4500.prod.Prod;
 
 @Service("localDbConnector")
 public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
-
 	// the local database URL
 	private static String url = "jdbc:mysql://team-47-dev-db.cllrg7hgpqkh.us-east-2.rds.amazonaws.com/"
 			+ "cs4500_spring2018_team47_dev";
@@ -281,7 +280,7 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 
 	@Override
 	public void blockSender(int senderId, int receiverId) throws SQLException {
-		String sqlcmd = "update userRelation set isSenderBlocked = 1 where senderId = ? and receiverId = ?";
+		String sqlcmd = "update userRelation set isSenderBlocked = 1, relationStatus = \"senderBlocked\" where senderId = ? and receiverId = ?";
 		PreparedStatement pstmt = null;
 		try {
 			openConToDatabase();
@@ -303,7 +302,7 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 
 	@Override
 	public void blockReceiver(int senderId, int receiverId) throws SQLException {
-		String sqlcmd = "update userRelation set isReceiverBlocked = 1 where senderId = ? and receiverId = ?";
+		String sqlcmd = "update userRelation set isReceiverBlocked = 1, relationStatus = \"receiverBlocked\" where senderId = ? and receiverId = ?";
 		PreparedStatement pstmt = null;
 		try {
 			openConToDatabase();
@@ -1490,21 +1489,23 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 	
 	
 	@Override
-	public HashMap<String, HashMap<Movie, Double>> getSlopeOneDate() throws SQLException {
-		HashMap<String, HashMap<Movie, Double>> output = new HashMap<>();
-		String sqlcmd = "select user.username, comp.movie_id, comp.movieDBid, comp.movie_name, comp.poster, comp.rating from user join " + 
-				"(select rating.user_id, Movie.movie_id, Movie.movieDBid, Movie.movie_name, Movie.poster, rating.rating from Movie join rating where Movie.movie_id = rating.movie_id) as comp " + 
+	public Map<String, Map<Movie, Double>> getSlopeOneData() throws SQLException {
+		Map<String, Map<Movie, Double>> output = new HashMap<>();
+		String sqlcmd = "select user.username, comp.movie_id, comp.movieDBid, comp.movie_name, comp.poster, comp.rating from user join\r\n" + 
+				"(select rating.user_id, Movie.movie_id, Movie.movieDBid, Movie.movie_name, Movie.poster, rating.rating from Movie join rating where Movie.movie_id = rating.movie_id) as comp\r\n" + 
 				"where user.user_id = comp.user_id order by username";
 		PreparedStatement pstmt = null;
 		String tempUser = "";
-		HashMap<Movie, Double> tempMap = new HashMap<>();
 		
 		try {
 			openConToDatabase();
 			pstmt = connector.prepareStatement(sqlcmd);
 			myResult = pstmt.executeQuery();
 			while(myResult.next()) {
-				if(myResult.getString("username") == tempUser) {
+				Map<Movie, Double> tempMap = new HashMap<>();
+				tempUser = myResult.getString("username");
+				if (output.containsKey(tempUser)) {
+					tempMap = output.get(tempUser);
 					Movie movie = new Movie();
 					movie.setImdbID(myResult.getString("movie_id"));
 					movie.setTheMovieDbID(myResult.getString("movieDBid"));
@@ -1512,13 +1513,9 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 					movie.setPoster(myResult.getString("poster"));
 					Double rating = myResult.getDouble("rating");
 					tempMap.put(movie, rating);
+					output.put(tempUser, tempMap);	
 				}
 				else {
-					if(!tempUser.isEmpty()) {
-						output.put(tempUser, tempMap);
-					}
-					tempUser = myResult.getString("username");
-					tempMap = new HashMap<>();
 					Movie movie = new Movie();
 					movie.setImdbID(myResult.getString("movie_id"));
 					movie.setTheMovieDbID(myResult.getString("movieDBid"));
@@ -1526,6 +1523,7 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 					movie.setPoster(myResult.getString("poster"));
 					Double rating = myResult.getDouble("rating");
 					tempMap.put(movie, rating);
+					output.put(tempUser, tempMap);	
 				}
 			}
 		}
@@ -1622,14 +1620,15 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 	@Override
 	public List<Movie> extractMoviesByGenre(String genre) throws SQLException {
 		ArrayList<Movie> output = new ArrayList<>();
-		String sqlcmd = "select * from Movie where genre like \"%?%\"";
+		String sqlcmd = "select * from Movie where genre like \"%\"?\"%\"";
 		PreparedStatement pstmt = null;
+		int x = 0;
 		try {
 			openConToDatabase();
 			pstmt = connector.prepareStatement(sqlcmd);
 			pstmt.setString(1, genre);
 			myResult = pstmt.executeQuery();
-			while(myResult.next()) {
+			while(myResult.next() && x < 5) {
 				Movie movie = new Movie();
 				String imdbId = myResult.getString("movie_id");
 				String movieName = myResult.getString("movie_name");
@@ -1640,6 +1639,7 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 				movie.setPoster(moviePoster);
 				movie.setTheMovieDbID(movieDBId);
 				output.add(movie);
+				x++;
 			}
 			
 		}
