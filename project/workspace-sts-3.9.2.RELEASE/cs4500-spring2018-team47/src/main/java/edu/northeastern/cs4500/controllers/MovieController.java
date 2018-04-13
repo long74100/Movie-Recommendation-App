@@ -189,8 +189,7 @@ public class MovieController {
 			catch(NullPointerException np) {
 				logger.error(np.getMessage());
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				logger.error(e.getMessage());
 			}
 			
 			
