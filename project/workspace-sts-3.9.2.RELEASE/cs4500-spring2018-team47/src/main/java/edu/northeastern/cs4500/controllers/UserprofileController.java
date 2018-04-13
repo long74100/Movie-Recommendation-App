@@ -289,15 +289,16 @@ public class UserprofileController {
 		try {
 			data = localDbConnector.getSlopeOneData();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			logger.error(e.getMessage());
 		}
-		for (String username : data.keySet()) {
-			Map<String, Double> convertDataTemp = new HashMap<>();
-			for (Movie df : data.get(username).keySet()) {
-				convertDataTemp.put(df.getTheMovieDbID(), data.get(username).get(df).doubleValue());
+		if (data != null) {
+			for (String username : data.keySet()) {
+				Map<String, Double> convertDataTemp = new HashMap<>();
+				for (Movie df : data.get(username).keySet()) {
+					convertDataTemp.put(df.getTheMovieDbID(), (double) data.get(username).get(df));
+				}
+				convertData.put(username, convertDataTemp);
 			}
-			convertData.put(username, convertDataTemp);
 		}
 		
 		SystemRecommendationAlgo slopeOne = new SystemRecommendationAlgo(convertData);
