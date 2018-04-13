@@ -309,8 +309,7 @@ public class UserprofileController {
 			try {
 				recommend.add(localDbConnector.findMovieByMovieDBId(recommendNames.get(x)));
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				logger.error(e.getMessage());
 			}
 		}
 		
