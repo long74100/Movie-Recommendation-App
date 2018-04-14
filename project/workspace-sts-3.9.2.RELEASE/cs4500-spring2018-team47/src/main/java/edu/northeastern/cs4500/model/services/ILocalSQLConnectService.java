@@ -394,5 +394,36 @@ public interface ILocalSQLConnectService {
 	 * @throws SQLException
 	 */
 	Movie findMovieByMovieDBId(String moviedbId) throws SQLException;
+	
+	/**
+	 * To delete the prod record in user's prod list, but will not the same prod in other user side.
+	 * @param senderId the user who sent out this prod
+	 * @param receiverId the user who received this prod
+	 * @param movieId the movie inside this prod
+	 * @param byWhom who deletes it, can be one of "sender" and "receiver"
+	 * @throws SQLException
+	 */
+	void deleteProdOnOneSide(int senderId, int receiverId, String movieId, String byWhom) throws SQLException;
+	
+	/**
+	 * to delete the prod on both sender side and both receiver side.
+	 * @param senderId the prod sender
+	 * @param receiverId the prod receiver
+	 * @param movieId the prod movie
+	 * @throws SQLException
+	 */
+	void deleteProdOnBothSide(int senderId, int receiverId, String movieId) throws SQLException;
+	
+	
+	/**
+	 * To get the prod delete status 
+	 * @param senderId prod sender
+	 * @param receiverId prod receiver
+	 * @param movieId prod movie
+	 * @param byWhom the user who will be checked on the delete prod status
+	 * @return delete status 0 (No) or 1 (Yes)
+	 * @throws SQLException
+	 */
+	boolean getProdDeleteStatus(int senderId, int receiverId, String movieId, String byWhom) throws SQLException;
 }
 

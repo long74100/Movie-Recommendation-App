@@ -106,6 +106,7 @@
 .send-out-moviePoster {
     height:  150px;
     margin-top: 2px;
+    width:100px;
     margin-left: 2px;
     border-radius:  8px;
     float:  left;			
@@ -113,7 +114,7 @@
 .received-basic-information {
     float: right;
     width: 78%;
-    height: 60%;
+    height: 100px;
     border-radius: 10px;
     border-width: thin;
     font-style: italic;
@@ -180,6 +181,53 @@
 	text-align: center;
     font-weight: bold;
     color: black;
+}
+
+
+
+.recall-prod-sent-to-friend {
+	float: right;
+    margin-right: 3%;
+    border-radius: 8px;
+    background: transparent;
+    border-width: thin;
+    border-color: black;
+    cursor:pointer;
+}
+
+.recall-prod-sent-to-friend:hover {
+	background: black;
+	color:white;
+}
+
+.delete-prod-sent-to-friend {
+	float: right;
+    margin-right: 3%;
+    border-radius: 8px;
+    background: transparent;
+    border-width: thin;
+    border-color: black;
+    cursor: pointer;
+}
+
+.delete-prod-sent-to-friend:hover {
+	background: black;
+	color:white;
+}
+
+.delete-prod-sent-by-friend {
+	float: right;
+    margin-right: 3%;
+    border-radius: 8px;
+    background: transparent;
+    border-width: thin;
+    border-color: black;
+    cursor:pointer;
+}
+
+.delete-prod-sent-by-friend:hover {
+	background: black;
+	color:white;
 }
 
 .sender-sending-movie-info {
