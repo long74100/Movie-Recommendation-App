@@ -1190,7 +1190,7 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 	public void sendProdToFriend(int senderId, int receiverId, String senderName, 
 			String receiverName, String movieId, String movieName, String date, String comment, String movieDBId, String moviePoster) 
 					throws SQLException {
-		String sqlcmd = "insert into Prod values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+		String sqlcmd = "insert into Prod values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		PreparedStatement pstmt = null;
 		try {
 			openConToDatabase();
@@ -1205,6 +1205,8 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 			pstmt.setString(8, comment);
 			pstmt.setString(9, movieDBId);
 			pstmt.setString(10, moviePoster);
+			pstmt.setBoolean(11, false);
+			pstmt.setBoolean(12, false);
 			pstmt.executeUpdate();
 		}
 		catch (SQLException sq) {
@@ -1242,6 +1244,8 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 				prod.setComment(myResult.getString("senderComment"));
 				prod.setMovieDBId(myResult.getString("movieDBId"));
 				prod.setMoviePoster(myResult.getString("moviePoster"));
+				prod.setDeletedStatusFromReceiver(myResult.getBoolean("deletedByReceiver"));
+				prod.setDeletedStatusFromSender(myResult.getBoolean("deletedBySender"));
 				friendsProds.add(prod);
 			}
 			
@@ -1283,6 +1287,8 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 				prod.setComment(myResult.getString("senderComment"));
 				prod.setMovieDBId(myResult.getString("movieDBId"));
 				prod.setMoviePoster(myResult.getString("moviePoster"));
+				prod.setDeletedStatusFromReceiver(myResult.getBoolean("deletedByReceiver"));
+				prod.setDeletedStatusFromSender(myResult.getBoolean("deletedBySender"));
 				sentOutProds.add(prod);
 			}
 			
@@ -1325,6 +1331,8 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 				prod.setComment(myResult.getString("senderComment"));
 				prod.setMovieDBId(myResult.getString("movieDBId"));
 				prod.setMoviePoster(myResult.getString("moviePoster"));
+				prod.setDeletedStatusFromReceiver(myResult.getBoolean("deletedByReceiver"));
+				prod.setDeletedStatusFromSender(myResult.getBoolean("deletedBySender"));
 				sentToThisFriend.add(prod);
 			}
 			
@@ -1367,6 +1375,8 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 				prod.setComment(myResult.getString("senderComment"));
 				prod.setMovieDBId(myResult.getString("movieDBId"));
 				prod.setMoviePoster(myResult.getString("moviePoster"));
+				prod.setDeletedStatusFromReceiver(myResult.getBoolean("deletedByReceiver"));
+				prod.setDeletedStatusFromSender(myResult.getBoolean("deletedBySender"));
 				sentToThisFriend.add(prod);
 			}
 		}
@@ -1415,6 +1425,8 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 				prod.setComment(myResult.getString("senderComment"));
 				prod.setMovieDBId(myResult.getString("movieDBId"));
 				prod.setMoviePoster(myResult.getString("moviePoster"));
+				prod.setDeletedStatusFromReceiver(myResult.getBoolean("deletedByReceiver"));
+				prod.setDeletedStatusFromSender(myResult.getBoolean("deletedBySender"));
 				output.add(prod);
 			}
 			
@@ -1468,6 +1480,8 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 				prod.setComment(myResult.getString("senderComment"));
 				prod.setMovieDBId(myResult.getString("movieDBId"));
 				prod.setMoviePoster(myResult.getString("moviePoster"));
+				prod.setDeletedStatusFromReceiver(myResult.getBoolean("deletedByReceiver"));
+				prod.setDeletedStatusFromSender(myResult.getBoolean("deletedBySender"));
 				output.add(prod);
 			}
 			
@@ -1723,6 +1737,110 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 			}
 		}
 		return movie;
+	}
+	
+	
+	@Override
+	public boolean getProdDeleteStatus(int senderId, int receiverId, String movieId, String byWhom) throws SQLException {
+		String sqlcmd = "select * from Prod where senderId = ? and receiverId = ? and movieId = ?";
+		PreparedStatement pstmt = null;
+		Boolean output = null;
+		try {
+			openConToDatabase();
+			pstmt = connector.prepareStatement(sqlcmd);
+			pstmt.setInt(1, senderId);
+			pstmt.setInt(2, receiverId);
+			pstmt.setString(3, movieId);
+			myResult = pstmt.executeQuery();
+			if(myResult.next()) {
+				if(byWhom.equalsIgnoreCase("Sender")) {
+					output = myResult.getBoolean("deletedBySender");
+				}
+				else if(byWhom.equalsIgnoreCase("Receiver")) {
+					output = myResult.getBoolean("deletedByReceiver");
+				}
+			}
+			System.out.println(output);
+			
+		}
+		catch(SQLException sq) {
+			logger.error(sq.getMessage());
+		}
+		finally {
+			if(pstmt != null) {
+				pstmt.close();
+			}
+			if(connector != null) {
+				connector.close();
+			}
+		}
+		
+		return output;
+	}
+	
+	
+	@Override
+	public void deleteProdOnOneSide(int senderId, int receiverId, String movieId, String byWhom) throws SQLException {
+		String sqlcmd = "";
+		PreparedStatement pstmt = null;
+		try {
+			if((byWhom.equalsIgnoreCase("sender") && this.getProdDeleteStatus(senderId, receiverId, movieId, "receiver"))
+					|| (byWhom.equalsIgnoreCase("receiver") && this.getProdDeleteStatus(senderId, receiverId, movieId, "sender"))) {
+				this.deleteProdOnBothSide(senderId, receiverId, movieId);
+			}
+			else {
+				openConToDatabase();
+				if(byWhom.equalsIgnoreCase("sender")) {
+					sqlcmd = "update Prod set deletedBySender = 1 where senderId = ? and receiverId = ? and movieId = ?";
+				}
+				if(byWhom.equalsIgnoreCase("receiver")) {
+					sqlcmd = "update Prod set deletedByReceiver = 1 where senderId = ? and receiverId = ? and movieId = ?";
+				}
+				pstmt = connector.prepareStatement(sqlcmd);
+				pstmt.setInt(1, senderId);
+				pstmt.setInt(2, receiverId);
+				pstmt.setString(3, movieId);
+				pstmt.executeUpdate();
+			}
+				
+		}
+		catch(SQLException sq) {
+			logger.error(sq.getMessage());
+		}
+		finally {
+			if (pstmt != null) {
+	        	pstmt.close();
+	        }
+	        if (connector != null) {
+				closeConToDatabase();
+			}
+		}
+	}
+	
+	
+	@Override
+	public void deleteProdOnBothSide(int senderId, int receiverId, String movieId) throws SQLException {
+		String sqlcmd = "delete from Prod where senderId = ? and receiverId = ? and movieId = ?";
+		PreparedStatement pstmt = null;
+		try {
+			openConToDatabase();
+			pstmt = connector.prepareStatement(sqlcmd);
+			pstmt.setInt(1, senderId);
+			pstmt.setInt(2, receiverId);
+			pstmt.setString(3, movieId);
+			pstmt.executeUpdate();
+		}
+		catch(SQLException sq) {
+			logger.error(sq.getMessage());
+		}
+		finally {
+			if (pstmt != null) {
+	        	pstmt.close();
+	        }
+	        if (connector != null) {
+				closeConToDatabase();
+			}
+		}
 	}
 
 }

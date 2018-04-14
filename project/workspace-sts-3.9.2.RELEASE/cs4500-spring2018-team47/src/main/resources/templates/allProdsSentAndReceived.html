@@ -5,6 +5,7 @@
 	<link rel="stylesheet" href="../css/profile.css">
 	<link rel="stylesheet" href="../css/prodListNav.css">
 	<link rel="stylesheet" href="../css/prodContent.css">
+	<script type="text/javascript" src="../js/prodContentsMng.js"></script>
 	<title>User ProdList</title>
 </head>
 <body> 
@@ -34,7 +35,7 @@
     	<div th:if="${not #lists.isEmpty(allProds)}" class="prod-list-main" id="prod-list-main">
     		<!-- <div th:each="list : ${usermovielist}" class="movielistItem" id="singleList"> -->
     		<div th:each="prod : ${allProds}">
-    			<div th:if="${prod.senderName != user.username}" class="prod-list-item-friend" id="prod-list-item-friend" style="height:180px;">
+    			<div th:if="${prod.getReceiverName() == user.username and prod.getDeletedStatusFromReceiver() == false}" class="prod-list-item-friend" id="prod-list-item-friend" style="height:180px;">
     					<span>
     						<div class="sender-profile-info" id="sender-profile-info">
     							<img src="https://www.ocf.berkeley.edu/~dblab/blog/wp-content/uploads/2012/01/icon-profile.png"
@@ -48,18 +49,25 @@
     								</div>
     								<div class="shared-movie-text-content-received" id="shared-movie-text-content-received">
     									<a th:href="@{/movie/{id}(id=${prod.movieDBId})}">
-    										<p th:text="${prod.movieName}" style="color: black; font-size: 15px;"></p>
+    										<p th:text="${prod.movieName}" style="color: black; font-size: 15px; margin-bottom: 0px;"></p>
     									</a>
     								</div>
     								<div class="received-basic-information" id="received-basic-information">
     									<p th:text="${prod.getComment()}">comment</p>
     								</div>
-    								<p class="received-time-record" id="received-time-record" th:text="${prod.getTime()}">time</p>
+    								<div class="delete-recall-prods-sender" id="delete-recall-prods-sender">
+    										<p class="received-time-record" id="received-time-record" th:text="${prod.getTime()}">time</p>
+    								</div>
+    								<div class="received-prod-manager" id="received-prod-manager">
+    									<button type="submit" class="delete-prod-sent-by-friend" id="delete-prod-sent-by-friend"
+    									th:onclick="'deleteProd(\''+${prod.getSender()}+'\', \''+${prod.getReceiver()}+'\', \''+${prod.getMovieId()}+'\', 
+    									\''+${prod.getReceiver()}+'\', '+this+')'">Delete</button>
+    								</div>
     							</span>
     						</div>
     					</span>
     			</div>
-    			<div th:unless="${prod.senderName != user.username}" class="prod-list-item-user" id="prod-list-item-user"
+    			<div th:if="${prod.senderName == user.username and prod.getDeletedStatusFromSender() == false}" class="prod-list-item-user" id="prod-list-item-user"
     				style="height: 180px; margin-top:30px;">
     				<span>
     					<div class="own-profile-info" id="own-profile-info">
@@ -84,6 +92,16 @@
     							<div class="sent-bottom-mark" class="sent-bottom-mark">
     								To: <p th:text="${prod.getReceiverName()}" style="float: right; margin-right: 170px; margin-bottom: 0px;">recipient</p>
     								<p class="sent-time-record" id="sent-time-record" th:text="${prod.getTime()}" >time</p>
+    							</div>
+    							<div class="sent-out-prod-manager" id="sent-out-prod-manager">
+    								<span>
+    									<button type="submit" class="recall-prod-sent-to-friend" id="recall-prod-sent-to-friend"
+    									th:onclick="'recallProd(\''+${prod.getSender()}+'\', \''+${prod.getReceiver()}+'\', \''+${prod.getMovieId()}+'\',
+    									 \''+${prod.getTime()}+'\', '+this+')'">Recall</button>
+    									<button type="submit" class="delete-prod-sent-to-friend" id="delete-prod-sent-to-friend"
+    									th:onclick="'deleteProd(\''+${prod.getSender()}+'\', \''+${prod.getReceiver()}+'\', \''+${prod.getMovieId()}+'\', 
+    									\''+${prod.getSender()}+'\', '+this+')'">Delete</button>
+    								</span>
     							</div>
     								
     						</span>

@@ -47,6 +47,12 @@ public class Prod {
 	// the movie poster
 	private String moviePoster; 
 	
+	// delete status from receiver
+	private boolean isDeletedByReceiver;
+	
+	// delete status from sender
+	private boolean isDeletedBySender;
+	
 	/**
 	 * Default Constructor
 	 */
@@ -131,6 +137,22 @@ public class Prod {
 	}
 	
 	/**
+	 * To get the delete status from sender
+	 * @return true if sender has deleted it
+	 */
+	public boolean getDeletedStatusFromSender() {
+		return this.isDeletedBySender;
+	}
+	
+	/**
+	 * To get the delete status from receiver
+	 * @return true if receiver deletes it
+	 */
+	public boolean getDeletedStatusFromReceiver() {
+		return this.isDeletedByReceiver;
+	}
+	
+	/**
 	 * The setter 
 	 */
 	
@@ -205,6 +227,22 @@ public class Prod {
 	public void setMoviePoster(String  poster) {
 		this.moviePoster = poster;
 	}
+	
+	
+	/**
+	 * To set the delete status from sender
+	 */
+	public void setDeletedStatusFromSender(boolean deleteStatus) {
+		 this.isDeletedBySender = deleteStatus;
+	}
+	
+	/**
+	 * To set the delete status from receiver
+	 */
+	public void setDeletedStatusFromReceiver(boolean deleteStatus) {
+		this.isDeletedByReceiver = deleteStatus;
+	}
+	
 	
 	
 	

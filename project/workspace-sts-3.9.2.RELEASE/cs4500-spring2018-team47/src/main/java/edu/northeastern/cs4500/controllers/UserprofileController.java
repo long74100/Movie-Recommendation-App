@@ -481,6 +481,42 @@ public class UserprofileController {
 		catch(SQLException sq) {
 			logger.error(sq.getMessage());
 		}
-		
+	}
+	
+	
+	@RequestMapping(value="/deleteProd", method = RequestMethod.POST)
+	@ResponseStatus(value= HttpStatus.OK)
+	public void deleteProdOnOneSide(HttpServletRequest httpServletRequest) {
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		User user = userService.findUserByEmail(auth.getName());
+    	Integer userId = user.getId();
+    	String senderId = httpServletRequest.getParameter("senderId");
+    	String receiverId = httpServletRequest.getParameter("receiverId");
+    	String movieIMDBid = httpServletRequest.getParameter("prodMovie");
+    	String yourRole = httpServletRequest.getParameter("side");
+    	try {
+    		localDbConnector.deleteProdOnOneSide(Integer.parseInt(senderId), Integer.parseInt(receiverId), movieIMDBid, yourRole);
+    	}
+    	catch(SQLException sq) {
+    		logger.error(sq.getMessage());
+    	}
+	}
+	
+	
+	@RequestMapping(value="/recallProd", method = RequestMethod.POST)
+	@ResponseStatus(value= HttpStatus.OK)
+	public void recallProds(HttpServletRequest httpServletRequest) {
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		User user = userService.findUserByEmail(auth.getName());
+    	Integer userId = user.getId();
+    	String senderId = httpServletRequest.getParameter("senderId");
+    	String receiverId = httpServletRequest.getParameter("receiverId");
+    	String movieIMDBid = httpServletRequest.getParameter("prodMovie");
+    	try {
+    		localDbConnector.deleteProdOnBothSide(Integer.parseInt(senderId), Integer.parseInt(receiverId), movieIMDBid);
+    	}
+    	catch(SQLException sq) {
+    		logger.error(sq.getMessage());
+    	}
 	}
 }
