@@ -179,7 +179,6 @@ public class MovieController {
 					if(i == genreList.length() - 1) {
 						genre.append(genreList.getJSONObject(i).getString("name"));
 						recommend = localDbConnector.extractMoviesByGenre(genreList.getJSONObject(i).getString("name"));
-						System.out.println("recommend in" + recommend);
 					}
 					else {
 						genre.append(genreList.getJSONObject(i).getString("name") + ", ");
@@ -288,7 +287,6 @@ public class MovieController {
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		User user = userService.findUserByEmail(auth.getName());
 
-		System.out.println("Recommend: " + recommend);
 		modelAndView.addObject("recommend", recommend);
 		modelAndView.addObject("reviews", reviews);
 		modelAndView.addObject("user", user);

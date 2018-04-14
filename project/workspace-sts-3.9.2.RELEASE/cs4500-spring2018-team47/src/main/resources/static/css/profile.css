@@ -1,6 +1,6 @@
 .menuHolder {
 	height: 100%;
-	width: 11%;
+	width: 150px;
 	overflow: hidden;
 	float: left;
 	position: fixed;
@@ -8,7 +8,9 @@
 	padding-left:0px;
 	padding-right:0px;
 }
-
+.recommended {
+	margin-left: 150px;
+}
 .headset {
 	background-color: black;
 	padding-left: 0px;

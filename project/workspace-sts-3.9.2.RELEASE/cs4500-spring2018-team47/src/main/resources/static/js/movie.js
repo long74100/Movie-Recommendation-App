@@ -107,6 +107,21 @@ function init() {
 	
 }
 
-
+$(document).ready(function(){
+	  $('.recommended-movie-slider').slick({
+	    arrows: false,
+		dots : false,
+		slidesToShow : 8,
+		slidesToScroll : 1,
+		autoplay : true,
+		autoplaySpeed : 2000,
+		responsive : [ {
+			breakpoint : 2500,
+			settings : {
+				slidesToShow : 5
+			}
+		} ]
+	  });
+	});
 
 document.addEventListener("DOMContentLoaded", init);
