@@ -51,7 +51,7 @@ function recallProd(senderId, receiverId, movieId, prodTime, thisButton) {
 		setTimeout(function() {
 			location.reload(true);
 			}, 
-			150);
+			1000);
 	}
 }
 

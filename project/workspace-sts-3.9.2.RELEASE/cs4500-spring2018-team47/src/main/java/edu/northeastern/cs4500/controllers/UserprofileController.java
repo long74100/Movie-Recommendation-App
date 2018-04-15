@@ -9,6 +9,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.TimeZone;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -46,11 +47,16 @@ public class UserprofileController {
 	private ILocalSQLConnectService localDbConnector;
 	
 	private static final Logger logger = LogManager.getLogger(UserprofileController.class);
+	private TimeZone timezone = TimeZone.getDefault();
 	
 	/**
 	 * This is to return the profile page
 	 * @return the model view of profile page
 	 */
+	
+	public String checkout () {
+		return this.timezone.toString();
+	}
 	@RequestMapping(value={"/profile"}, method = RequestMethod.GET)
 	public ModelAndView getProfile() {
 		ModelAndView modelAndView = new ModelAndView();
@@ -62,6 +68,7 @@ public class UserprofileController {
 		modelAndView.addObject("favorites", favorites);
 		modelAndView.addObject("user", user);
 		modelAndView.setViewName("userProfile");
+		System.out.println(checkout());
 		} catch (SQLException e) {
 			logger.error(e.getMessage());
 		}
@@ -456,7 +463,11 @@ public class UserprofileController {
 		String senderComment = httpServletRequest.getParameter("comment");
 		String poster = httpServletRequest.getParameter("poster");
 		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-    	String prodSentDate = formatter.format(new Date());
+		Date date = new Date();
+    	if(timezone.getID().equals("UTC")) {
+    		date.setHours(new Date().getHours() - 4);
+    	}
+    	String prodSentDate = formatter.format(date);
 		System.out.println(movieTitle); 
 		System.out.println(movieImdbId);
 		System.out.println(movieDBId);

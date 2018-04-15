@@ -8,6 +8,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.TimeZone;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -257,6 +258,7 @@ public class MovieController {
 			if(user != null) {
 				Integer userId = user.getId();
 				SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+				formatter.setTimeZone(TimeZone.getDefault());
 				try {
 					localDbConnector.addMovieIntoMovieList(userId, "Browse History", 
 							movie.get("imdbID"), movie.get("title"), formatter.format(new Date()));
