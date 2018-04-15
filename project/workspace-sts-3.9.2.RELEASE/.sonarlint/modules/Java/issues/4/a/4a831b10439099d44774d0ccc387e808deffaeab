@@ -1,22 +1,22 @@
 
-}squid:CommentedOutCodeLine
-"<This block of commented-out lines of code should be removed.(êÚ¨ËøÿÿÿÿHÀ7RMAJORZ
-CODE_SMELL
-e
-squid:S106"9Replace this use of System.out or System.err by a logger.(¾‹®ÏHÁ7RMAJORZ
+jsquid:UselessImportCheck"0Remove this unused import 'java.io.InputStream'.(¹»ºHŸYRMINORZ
 CODE_SMELL
 j
-squid:S106"9Replace this use of System.out or System.err by a logger.(ÙÁò×ýÿÿÿÿHÂ7RMAJORZ
+squid:S106"9Replace this use of System.out or System.err by a logger.(ÙÁò×ýÿÿÿÿH YRMAJORZ
 CODE_SMELL
-[squid:S1481")Remove this unused "sqrt" local variable.(ÈªÁÓýÿÿÿÿHÃ7RMINORZ
+e
+squid:S106"9Replace this use of System.out or System.err by a logger.(¾‹®ÏH¡YRMAJORZ
 CODE_SMELL
-jsquid:S1854"8Remove this useless assignment to local variable "sqrt".(ÈªÁÓýÿÿÿÿHÄ7RMAJORZ
+[squid:S1481")Remove this unused "sqrt" local variable.(ÈªÁÓýÿÿÿÿH¢YRMINORZ
 CODE_SMELL
-osquid:UselessImportCheck"0Remove this unused import 'java.io.IOException'.(ªº»ÚýÿÿÿÿHÅ7RMINORZ
+psquid:UselessImportCheck"6Remove this unused import 'java.io.InputStreamReader'.(ãˆÎÉH£YRMINORZ
 CODE_SMELL
-msquid:UselessImportCheck"3Remove this unused import 'java.io.BufferedReader'.(€é²ÅHÆ7RMINORZ
+osquid:UselessImportCheck"0Remove this unused import 'java.io.IOException'.(ªº»ÚýÿÿÿÿH¤YRMINORZ
 CODE_SMELL
-psquid:UselessImportCheck"6Remove this unused import 'java.io.InputStreamReader'.(ãˆÎÉHÇ7RMINORZ
+jsquid:S1854"8Remove this useless assignment to local variable "sqrt".(ÈªÁÓýÿÿÿÿH¥YRMAJORZ
 CODE_SMELL
-jsquid:UselessImportCheck"0Remove this unused import 'java.io.InputStream'.(¹»ºHÈ7RMINORZ
+msquid:UselessImportCheck"3Remove this unused import 'java.io.BufferedReader'.(€é²ÅH¦YRMINORZ
+CODE_SMELL
+}squid:CommentedOutCodeLine
+"<This block of commented-out lines of code should be removed.(êÚ¨ËøÿÿÿÿH§YRMAJORZ
 CODE_SMELL

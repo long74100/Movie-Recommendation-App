@@ -1,39 +1,39 @@
 
-Œsquid:S1450"_Remove the "connectStatement" field and declare it as a local variable in the relevant methods.(®‹Ï¬HÔ7RMINORZ
+‡squid:S1450"URemove the "status" field and declare it as a local variable in the relevant methods.(¦àòšùÿÿÿÿH¨YRMINORZ
 CODE_SMELL
-osquid:UnusedPrivateMethodZ"4Remove this unused private "updateOperation" method.(»‘¾àHÍ7RMAJORZ
+msquid:UnusedPrivateMethodB"-Remove this unused private "inserter" method.(ÜğöÆıÿÿÿÿH©YRMAJORZ
 CODE_SMELL
-\squid:EmptyStatementUsageCheck"Remove this empty statement.(¶ñ¾ÕHÎ7RMINORZ
-CODE_SMELL
-‡squid:S1450"URemove the "status" field and declare it as a local variable in the relevant methods.(¦àòšùÿÿÿÿHÒ7RMINORZ
-CODE_SMELL
-ksquid:UnusedPrivateMethod:"+Remove this unused private "getter" method.(œ¿„ÒúÿÿÿÿHÉ7RMAJORZ
-CODE_SMELL
-msquid:UnusedPrivateMethodB"-Remove this unused private "inserter" method.(ÜğöÆıÿÿÿÿHÊ7RMAJORZ
-CODE_SMELL
-\squid:S1068"*Remove this unused "status" private field.(¦àòšùÿÿÿÿHÑ7RMAJORZ
-CODE_SMELL
-‹squid:S00115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(¶ñ¾ÕH×7RCRITICALZ
-CODE_SMELL
+‡squid:S2068	"U'password' detected in this expression, review this potentially hardcoded credential.( •ÑßHªYRBLOCKERZVULNERABILITY
 Xsquid:S1068
-"+Remove this unused "command" private field.(ÔƒğHĞ7RMAJORZ
+"+Remove this unused "command" private field.(ÔƒğH«YRMAJORZ
 CODE_SMELL
-…squid:S1450"XRemove the "connector" field and declare it as a local variable in the relevant methods.(úĞòŸHÓ7RMINORZ
+…squid:S1450"XRemove the "connector" field and declare it as a local variable in the relevant methods.(úĞòŸH¬YRMINORZ
 CODE_SMELL
-‡squid:S2068	"U'password' detected in this expression, review this potentially hardcoded credential.( •ÑßHÏ7RBLOCKERZVULNERABILITY
-lsquid:UnusedPrivateMethodR",Remove this unused private "deleter" method.(ƒìÍ„şÿÿÿÿHÌ7RMAJORZ
+‹squid:S00115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(¶ñ¾ÕH­YRCRITICALZ
 CODE_SMELL
-‹squid:S00115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(¶ñ¾ÕHÚ7RCRITICALZ
+lsquid:UnusedPrivateMethodR",Remove this unused private "deleter" method.(ƒìÍ„şÿÿÿÿH®YRMAJORZ
 CODE_SMELL
-„squid:S1450"WRemove the "myResult" field and declare it as a local variable in the relevant methods.(©øãğHÕ7RMINORZ
+Œsquid:S1450"_Remove the "connectStatement" field and declare it as a local variable in the relevant methods.(®‹Ï¬H¯YRMINORZ
 CODE_SMELL
-Xsquid:S11482"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿHÛ7RMINORZVULNERABILITY
-‹squid:S00115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(¶ñ¾ÕHÙ7RCRITICALZ
+‹squid:S00115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(¶ñ¾ÕH°YRCRITICALZ
 CODE_SMELL
-gsquid:UnusedPrivateMethodJ",Remove this unused private "updater" method.(ºŸí´HË7RMAJORZ
+osquid:UnusedPrivateMethodZ"4Remove this unused private "updateOperation" method.(»‘¾àH±YRMAJORZ
 CODE_SMELL
-‹squid:S00115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(¶ñ¾ÕHØ7RCRITICALZ
+‹squid:S00115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(¶ñ¾ÕH²YRCRITICALZ
+CODE_SMELL
+Xsquid:S11482"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿH³YRMINORZVULNERABILITY
+„squid:S1450"WRemove the "myResult" field and declare it as a local variable in the relevant methods.(©øãğH´YRMINORZ
+CODE_SMELL
+‹squid:S00115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(¶ñ¾ÕHµYRCRITICALZ
 CODE_SMELL
 d
-squid:S106"9Replace this use of System.out or System.err by a logger.(ÅàµjHÖ7RMAJORZ
+squid:S106"9Replace this use of System.out or System.err by a logger.(ÅàµjH¶YRMAJORZ
+CODE_SMELL
+\squid:S1068"*Remove this unused "status" private field.(¦àòšùÿÿÿÿH·YRMAJORZ
+CODE_SMELL
+ksquid:UnusedPrivateMethod:"+Remove this unused private "getter" method.(œ¿„ÒúÿÿÿÿH¸YRMAJORZ
+CODE_SMELL
+\squid:EmptyStatementUsageCheck"Remove this empty statement.(¶ñ¾ÕH¹YRMINORZ
+CODE_SMELL
+gsquid:UnusedPrivateMethodJ",Remove this unused private "updater" method.(ºŸí´HºYRMAJORZ
 CODE_SMELL
