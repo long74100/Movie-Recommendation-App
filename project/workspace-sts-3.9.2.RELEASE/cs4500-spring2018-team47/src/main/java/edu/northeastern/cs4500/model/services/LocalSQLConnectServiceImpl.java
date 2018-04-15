@@ -9,6 +9,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.TimeZone;
 import java.util.Date;
 import java.util.HashMap;
 
@@ -515,7 +516,7 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 	public void preloadMovieList(int userId) {
 		try {
 			SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-	    	createMovieList(userId, "Browse History", formatter.format(new Date()));
+			createMovieList(userId, "Browse History", formatter.format(new Date()));
 	    	createMovieList(userId, "Favorites", formatter.format(new Date()));
 		} catch (SQLException e) {
 			logger.error(e.getMessage());
