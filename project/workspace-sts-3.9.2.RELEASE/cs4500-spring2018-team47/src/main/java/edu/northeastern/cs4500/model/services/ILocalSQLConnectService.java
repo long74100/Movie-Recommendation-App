@@ -425,5 +425,11 @@ public interface ILocalSQLConnectService {
 	 * @throws SQLException
 	 */
 	boolean getProdDeleteStatus(int senderId, int receiverId, String movieId, String byWhom) throws SQLException;
+	
+	/**
+	 * To update the movie community rating for movies
+	 * @param movieId the movie that is rated
+	 */
+	Integer getCommnunityMovieRating(String movieId) throws SQLException;
 }
 
