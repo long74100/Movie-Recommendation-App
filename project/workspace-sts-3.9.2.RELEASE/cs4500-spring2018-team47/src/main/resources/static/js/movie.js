@@ -47,6 +47,7 @@ function init() {
 		xhr.open("POST", url, true);
 		xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 		xhr.send(param);
+		addtolistButton.innerHTML = "Added!";
 	}
 	
 	
