@@ -36,9 +36,9 @@ function recallProd(senderId, receiverId, movieId, prodTime, thisButton) {
 	/** Math.ceil(timeDiff / (1000 * 3600 * 24));*/
 	var differenceInMins = Math.ceil(difference / (1000 * 60));
 	if(differenceInMins > 10) {
-		alert("Sorry, you can't recall after 10 minutes.");
+		//alert("Sorry, you can't recall after 10 minutes.");
 	}
-	else {
+	//else {
 		var encodedSenderId = encodeURI(senderId);
 		var encodedReceiverId = encodeURI(receiverId);
 		var encodedMovieId = encodeURI(movieId);
@@ -52,7 +52,7 @@ function recallProd(senderId, receiverId, movieId, prodTime, thisButton) {
 			location.reload(true);
 			}, 
 			1000);
-	}
+	//}
 }
 
 
