@@ -73,14 +73,6 @@
 						<b>IMDB Rating: </b>
 						<div th:text="${movie.ImdbRating}"></div>
 					</div>
-					<div class="col-md-2">
-						<div style="margin: 2px;">
-							<button class="btn">Add to Watchlist</button>
-						</div>
-						<button class="btn btn-primary" 
-						th:onclick="'showFriendsToProd(\''+${movie.title}+'\', \''+${movie.imdbID}+'\', \''+${movie.theMovieDbID}+'\', \''+${movie.poster}+'\'
-            					,'+this+')'">Prod to a Friend</button>
-					</div>
 				</div>
 				</a>
 			</div>
@@ -99,11 +91,6 @@
 			
 						<div th:text="${u.username}" class="movieTitle"></div>
 						<div th:text="${u.firstName}"></div>
-					</div>
-					<div class="col-md-2">
-						<div style="margin: 2px;">
-							<button class="btn btn-primary">Add Friend</button>
-						</div>
 					</div>
 				</div>
 				</a>
