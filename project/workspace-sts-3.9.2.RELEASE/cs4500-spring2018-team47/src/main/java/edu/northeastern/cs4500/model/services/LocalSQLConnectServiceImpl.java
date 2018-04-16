@@ -1843,5 +1843,32 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 			}
 		}
 	}
+	
+	
+	@Override
+	public Integer getCommnunityMovieRating(String movieId) throws SQLException {
+		String sqlcmd = "select avg(rating) as communityRating from rating where movie_id = ?";
+		int updateRating = 0;
+		PreparedStatement pstmt = null;
+		try {
+			openConToDatabase();
+			pstmt = connector.prepareStatement(sqlcmd);
+			pstmt.setString(1, movieId);
+			myResult = pstmt.executeQuery();
+			if(myResult.next()) {
+				updateRating = myResult.getInt("communityRating");
+			}
+		}
+		catch(SQLException sq) {
+			logger.error(sq.getMessage());
+		}
+		finally {
+			if(pstmt != null) {
+				pstmt.close();
+			}
+		}
+		
+		return updateRating;
+	}
 
 }
