@@ -107,5 +107,7 @@ public class MovieDBServiceImplTest {
 	public void testDiscoverMoviesComingSoon() throws JSONException, IOException {
 		JSONObject theaterJson = movieDbService.discoverMoviesComingSoon();
 		assertNotEquals(null, theaterJson);
-}
+	}
+	
+
 }

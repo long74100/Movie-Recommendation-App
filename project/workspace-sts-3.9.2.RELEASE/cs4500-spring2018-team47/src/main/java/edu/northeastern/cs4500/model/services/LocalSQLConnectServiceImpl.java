@@ -9,7 +9,6 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import java.util.TimeZone;
 import java.util.Date;
 import java.util.HashMap;
 
@@ -22,7 +21,6 @@ import edu.northeastern.cs4500.model.movie.MovieReview;
 
 import edu.northeastern.cs4500.model.movie.Movie;
 import edu.northeastern.cs4500.model.movie.MovieRating;
-import edu.northeastern.cs4500.model.movie.MovieReview;
 import edu.northeastern.cs4500.model.user.User;
 import edu.northeastern.cs4500.prod.Prod;
 
@@ -1846,7 +1844,7 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 	
 	
 	@Override
-	public Integer getCommnunityMovieRating(String movieId) throws SQLException {
+	public int getCommnunityMovieRating(String movieId) throws SQLException {
 		String sqlcmd = "select avg(rating) as communityRating from rating where movie_id = ?";
 		int updateRating = 0;
 		PreparedStatement pstmt = null;

@@ -430,6 +430,6 @@ public interface ILocalSQLConnectService {
 	 * To update the movie community rating for movies
 	 * @param movieId the movie that is rated
 	 */
-	Integer getCommnunityMovieRating(String movieId) throws SQLException;
+	int getCommnunityMovieRating(String movieId) throws SQLException;
 }
 
