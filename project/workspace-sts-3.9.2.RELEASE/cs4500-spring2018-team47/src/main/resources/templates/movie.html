@@ -77,8 +77,8 @@
 					<img th:src="${movie.poster}" class="poster">
 					<div class="rating mt-1 m-0">
 						<p class="m-0">
-							Imdb Rating: <span th:text="${movie.imdbRating}"></span>
-						<p class="m-0">Community Rating:
+							Imdb Rating: <span th:text="${movie.imdbRating}"></span></p>
+						<p class="m-0">Community Rating: <span th:text=${communityRating}></span></p>
 						<div th:switch="${user}">
 							<div th:case="null"></div>
 							<div th:case="*">

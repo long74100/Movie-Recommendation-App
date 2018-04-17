@@ -1846,7 +1846,7 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 	@Override
 	public int getCommnunityMovieRating(String movieId) throws SQLException {
 		String sqlcmd = "select avg(rating) as communityRating from rating where movie_id = ?";
-		int updateRating = 0;
+		int communityRating = 0;
 		PreparedStatement pstmt = null;
 		try {
 			openConToDatabase();
@@ -1854,7 +1854,7 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 			pstmt.setString(1, movieId);
 			myResult = pstmt.executeQuery();
 			if(myResult.next()) {
-				updateRating = myResult.getInt("communityRating");
+			    communityRating = myResult.getInt("communityRating");
 			}
 		}
 		catch(SQLException sq) {
@@ -1866,7 +1866,7 @@ public class LocalSQLConnectServiceImpl implements ILocalSQLConnectService {
 			}
 		}
 		
-		return updateRating;
+		return communityRating;
 	}
 
 }
