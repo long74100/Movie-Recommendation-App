@@ -1,5 +1,5 @@
-# Team 47 - spring18
-Project repository for team 47
+# Rotten Tomatillos - Team 47 - Spring18
+Rotten Tomatillos repository for Team 47
 
 # Team Members
 - Alec Li
