@@ -544,6 +544,10 @@ public class LocalSQLConnectServiceTest {
 	
 	}
 
+	/**
+	 * Test that insert rating inserts the rating.
+	 * @throws SQLException
+	 */
 	@Test
 	public void testInsertRating() throws SQLException {
 	    initMockUsers();
@@ -561,6 +565,10 @@ public class LocalSQLConnectServiceTest {
 	    
 	}
 	
+	/**
+	 * Test that remove rating removes the rating.
+	 * @throws SQLException
+	 */
 	@Test
 	public void testRemoveRating() throws SQLException {
 	    initMockRating();
@@ -571,6 +579,10 @@ public class LocalSQLConnectServiceTest {
 	    assertNull(localSQLConnectService.getRating(stub1Id, movieId));
 	}
 	
+	/**
+	 * Test that block sender blocks the user who sent the request.
+	 * @throws SQLException
+	 */
 	@Test
 	public void testBlockSender() throws SQLException {
 	    initMockUsers();
@@ -585,6 +597,10 @@ public class LocalSQLConnectServiceTest {
 	    
 	}
 	
+	/**
+	 * Test that block receiver blocks the user who received the request.
+	 * @throws SQLException
+	 */
 	@Test
 	public void testBlockReceiver() throws SQLException {
 	    initMockUsers();
@@ -599,4 +615,22 @@ public class LocalSQLConnectServiceTest {
 	    
 
 	}
+	
+	/**
+	 * Test that get community rating returns the average rating.
+	 * @throws SQLException
+	 */
+	@Test
+	public void testGetCommnunityMovieRating() throws SQLException {
+	    initMockRating();
+
+	    mockRating = new MovieRating();
+	    mockRating.setDate("2018-04-11 00:00:00");
+	    mockRating.setMovieId(movieId);
+	    mockRating.setRating(3);
+	    mockRating.setUserID(stub2Id);
+	    localSQLConnectService.insertRating(mockRating);
+	    
+	    assertEquals(4, localSQLConnectService.getCommnunityMovieRating(movieId));
+	}	
 }
