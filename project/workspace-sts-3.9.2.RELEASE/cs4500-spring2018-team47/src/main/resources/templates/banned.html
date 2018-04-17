@@ -3,11 +3,13 @@
 	xmlns:th="http://www.thymeleaf.org">
 <head>
 	<noscript th:replace="fragments/quickAddCSSJS :: quickAddCSSJS"></noscript>
+	<link rel="stylesheet" href="../css/profile.css">
 	<script src="../js/admin.js"></script>
 	<title>Banned Users</title>
 </head>
 <body>
-	<div th:replace="fragments/navBar :: header"></div>
+	<div th:replace="fragments/userProfile/profileMenu :: userProfileMenu"></div>
+
 	<div class="container mt-3 showcase" id="banned">
 		<h1>Banned Users</h1>
 			<div th:each="user : ${banned}" class="border border-danger rounded p-3 row">

@@ -31,6 +31,8 @@
 					<p class="useful">Settings</p></a>
                 <a th:href="@{/profile}">
 					<p class="useful">Contact us</p></a>
+			    <a th:if="${user.role == 2}" th:href="@{/admin/bannedlist}"><p class="useful">Banned Users</p></a>
+			
             </ul>
         </div>
         </div>

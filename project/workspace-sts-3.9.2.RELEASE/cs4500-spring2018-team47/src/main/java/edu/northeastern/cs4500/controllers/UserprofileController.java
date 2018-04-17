@@ -72,6 +72,8 @@ public class UserprofileController {
 		} catch (SQLException e) {
 			logger.error(e.getMessage());
 		}
+		
+		modelAndView.addObject("user", user);
 		return modelAndView;
 	}
 	
