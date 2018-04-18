@@ -19,12 +19,6 @@
 					<span th:text="${profileUser.id}" id="profileUserId" class="d-none"></span>
 					<div th:if="${user != null}">
 					<button class="btn btn-primary" id="addFriendButton" name="addFriend">Add Friend</button>
-						<form
-							th:action="@{/view/{username}(username=${profileUser.username})}"
-							method="POST" class="d-inline">
-							<button class="btn btn-primary" type="submit" name="addFriend"
-								value="Add Friend">Add Friend</button>
-						</form>
 						
 						<form th:if="${user.role == 2 && profileUser.role != 2}" class="d-inline">
 							<button id="ban-button" th:text="${profileUser.active == 1 ? 'Ban User' : 'Unban User'}"></button>
