@@ -52,6 +52,18 @@ function init() {
 
 	}
 	
+	const submitReviewButton = document.querySelector("#addFriendButton");
+	submitReviewButton.onclick = function() {
+		var profileUsername = document.querySelector("#profileUsername").innerText;
+		var encodedProfileUsername = encodeURI(profileUsername);
+		var url = "/addFriend";
+		var param = "username=" + encodedProfileUsername;
+		var xhr = new XMLHttpRequest();
+		xhr.open("POST", url, true);
+		xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+		xhr.send(param);
+		submitReviewButton.innerHTML = "Added!";
+	}
 
 }
 

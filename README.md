@@ -11,6 +11,6 @@ Rotten Tomatillos repository for Team 47
 ## Live Systems
 [Rotten Tomatillos](http://ec2-18-188-179-210.us-east-2.compute.amazonaws.com:8080/)
 
-[Jenkins](http://ec2-18-219-239-177.us-east-2.compute.amazonaws.com:8080/)
+[Jenkins](http://ec2-52-14-201-63.us-east-2.compute.amazonaws.com:8080/)
 
 ## Videos
