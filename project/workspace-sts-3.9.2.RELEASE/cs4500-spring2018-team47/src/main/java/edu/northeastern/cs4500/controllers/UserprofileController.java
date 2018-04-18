@@ -120,33 +120,19 @@ public class UserprofileController {
 		modelAndView.setViewName("fragments/userProfile/profilePage");
 		return modelAndView;
 	}
-	@RequestMapping(value="/view/{username}", method = RequestMethod.POST)
-    public ModelAndView addFriend(@PathVariable String username) {
-		
-		ModelAndView modelAndView = new ModelAndView();
-		
+	@RequestMapping(value="/addFriend", method = RequestMethod.POST)
+	@ResponseStatus(value = HttpStatus.OK)
+    public void addFriend(HttpServletRequest httpServletRequest) {
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		User user = userService.findUserByEmail(auth.getName());
-		User receiverUser = userService.findUserByUsername(username);
+
+		System.out.println("made it:" + httpServletRequest.getParameter("username"));
+		User receiverUser = userService.findUserByUsername(httpServletRequest.getParameter("username"));
 		try {
 			localDbConnector.sendFriendRequest(user.getId(), receiverUser.getId());
 		} catch (SQLException e) {
 			logger.error(e.getMessage());
 		}
-		User profileUser = userService.findUserByUsername(username);
-		
-		List<Movie> favorites = null;
-		try {
-			favorites = localDbConnector.getMovieFromUserMovieList(profileUser.getId(), "Favorites");
-		} catch (SQLException e) {
-			logger.error(e.getMessage());
-		}
-		modelAndView.addObject("favorites", favorites);
-		
-		modelAndView.addObject("user", user);
-		modelAndView.addObject("profileUser", profileUser);
-		modelAndView.setViewName("fragments/userProfile/profilePage");
-		return modelAndView;
 	}
 	
 	
