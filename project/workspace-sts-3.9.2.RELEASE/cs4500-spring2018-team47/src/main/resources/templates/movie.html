@@ -8,6 +8,7 @@
 	<link rel="stylesheet" type="text/css" href="../slick/slick-theme.css" charset="UTF-8" />
 	<link rel="stylesheet" href="../css/movie.css">
 	<link rel="stylesheet" href="../css/userMovieListsItem.css">
+	<script type="text/javascript" src="../js/movieListItem.js"></script>
 	<title th:text="${movie.title}"></title>
 	</head>
 	
@@ -16,8 +17,7 @@
 
 	<div th:replace="fragments/navBar :: header"></div>
 	
-	<div th:if="${not #lists.isEmpty(friendList)}" id="friendList-for-prod"
-		class="friendList-for-prod"">
+	<div id="friendList-for-prod" class="friendList-for-prod"">
 		<p class="prod-movie-name" id="prod-movie-name"></p>
 		<p class="prod-movie-id" id="prod-movie-id" style="display: none"></p>
 		<p class="prod-movie-dbID" id="prod-movie-dbID" style="display: none"></p>
@@ -42,8 +42,8 @@
 			</span>
 		</div>
 
-		<div th:if="${not #lists.isEmpty(friendList)}"
-			class="friend-Lists-wait-to-prod">
+	
+		<div th:if="${not #lists.isEmpty(friendList)}" class="friend-Lists-wait-to-prod">
 			<p class="prod-to-all" id="prod-to-all" th:onclick="'sendToAll()'">Send
 				to All friends...</p>
 			<div th:each="friend : ${friendList}">
@@ -57,12 +57,16 @@
 
 			</div>
 		</div>
+		<div th:unless="${not #lists.isEmpty(friendList)}" class="friend-Lists-wait-to-prod">
+    		<p>You don't have any friend yet.</p>
+    	</div>
 		<div>
 			<button id="close-prodlist-window" class="close-prodlist-window"
 				th:onclick="'closeProdMenu()'">Close</button>
 			<button id="clean-prod-recipient" class="clean-prod-recipient"
 				th:onclick="'cleanInput()'">Clean</button>
 		</div>
+		
 	</div>
 	<div th:unless="${not #lists.isEmpty(friendList)}"
 		class="friendList-for-prod" id="friendList-for-prod">
