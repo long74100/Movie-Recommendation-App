@@ -135,6 +135,14 @@ public class UserprofileController {
 		}
 		User profileUser = userService.findUserByUsername(username);
 		
+		List<Movie> favorites = null;
+		try {
+			favorites = localDbConnector.getMovieFromUserMovieList(profileUser.getId(), "Favorites");
+		} catch (SQLException e) {
+			logger.error(e.getMessage());
+		}
+		modelAndView.addObject("favorites", favorites);
+		
 		modelAndView.addObject("user", user);
 		modelAndView.addObject("profileUser", profileUser);
 		modelAndView.setViewName("fragments/userProfile/profilePage");
