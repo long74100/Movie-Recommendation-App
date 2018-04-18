@@ -25,7 +25,7 @@
 								value="Add Friend">Add Friend</button>
 						</form>
 						
-						<form th:if="${user.role == 2}" class="d-inline">
+						<form th:if="${user.role == 2 && profileUser.role != 2}" class="d-inline">
 							<button id="ban-button" th:text="${profileUser.active == 1 ? 'Ban User' : 'Unban User'}"></button>
 						</form>
 					</div>
@@ -47,14 +47,9 @@
 					</div>
 					<!-- else no users are found  -->
 					<div th:unless="${not #lists.isEmpty(favorites)}">
-						<div>No favorites have been  added.</div>
+						<div>No favorites have been added</div>
 					</div>
 				</div>
-				<hr class="bg-danger p-2">
-			</div>
-			<div class="container mt-3 wishList">
-				<h2>Your Feed</h2>
-				<div>Your reviews and ratings here</div>
 				<hr class="bg-danger p-2">
 			</div>
 		</div>

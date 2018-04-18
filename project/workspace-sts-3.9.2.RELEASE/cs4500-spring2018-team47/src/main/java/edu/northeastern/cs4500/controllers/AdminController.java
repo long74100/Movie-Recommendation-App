@@ -86,6 +86,7 @@ public class AdminController {
 			logger.error(e.getMessage());
 		}
 	    modelAndView.addObject("banned", bannedList);
+	    modelAndView.addObject("user", user);
 	    modelAndView.setViewName("banned");
 	    return modelAndView;
 		
