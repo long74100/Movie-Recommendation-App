@@ -1,5 +1,3 @@
-CREATE DATABASE  IF NOT EXISTS `cs4500_spring2018_team47_dev` /*!40100 DEFAULT CHARACTER SET latin1 */;
-USE `cs4500_spring2018_team47_dev`;
 -- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
 --
 -- Host: team-47-dev-db.cllrg7hgpqkh.us-east-2.rds.amazonaws.com    Database: cs4500_spring2018_team47_dev
@@ -48,7 +46,6 @@ CREATE TABLE `Movie` (
 
 LOCK TABLES `Movie` WRITE;
 /*!40000 ALTER TABLE `Movie` DISABLE KEYS */;
-INSERT INTO `Movie` VALUES ('tt0096895','Batman','126 Minutes','1989-06-23','Fantasy, Action','Tim Burton','Jack Nicholson, Michael Keaton, Kim Basinger, Michael Gough, Billy Dee Williams','The Dark Knight of Gotham City begins his war on crime with his first major enemy being the clownishly homicidal Joker, who has seized control of Gotham\'s underworld.','English, Français','United Kingdom, United States of America','http://image.tmdb.org/t/p/original//kBf3g9crrADGMc2AMAMlLBgSm2h.jpg','7','268'),('tt1825683','Black Panther','134 Minutes','2018-02-13','Action, Adventure, Fantasy, Science Fiction','Ryan Coogler','Chadwick Boseman, Lupita Nyong\'o, Letitia Wright, Michael B. Jordan, Angela Bassett','King T\'Challa returns home from America to the reclusive, technologically advanced African nation of Wakanda to serve as his country\'s new leader. However, T\'Challa soon finds that he is challenged for the throne by factions within his own country as well as without.  Using powers reserved to Wakandan kings, T\'Challa assumes the Black Panther mantel to join with girlfriend Nakia, the queen-mother, his princess-kid sister,  members of the Dora Milaje (the Wakandan \"special forces\"), and an American secret agent, to prevent Wakanda from being dragged into a world war.','English, ???/???, Kiswahili, ','United States of America','http://image.tmdb.org/t/p/original//uxzzxijgPIY7slzFvMotPv8wjKA.jpg','7','284054'),('tt2380307','Coco','105 Minutes','2017-10-27','Adventure, Comedy, Family, Animation','Lee Unkrich','Anthony Gonzalez, Gael García Bernal, Benjamin Bratt, Alanna Ubach, Renée Victor','Despite his family’s baffling generations-old ban on music, Miguel dreams of becoming an accomplished musician like his idol, Ernesto de la Cruz. Desperate to prove his talent, Miguel finds himself in the stunning and colorful Land of the Dead following a mysterious chain of events. Along the way, he meets charming trickster Hector, and together, they set off on an extraordinary journey to unlock the real story behind Miguel\'s family history.','','United States of America','http://image.tmdb.org/t/p/original//eKi8dIrr8voobbaGzDpe8w0PVbC.jpg','7','354912'),('tt4477536','Fifty Shades Freed','106 Minutes','2018-02-07','Drama, Romance','James Foley','Dakota Johnson, Jamie Dornan, Eric Johnson, Arielle Kebbel, Brant Daugherty','Believing they have left behind shadowy figures from their past, newlyweds Christian and Ana fully embrace an inextricable connection and shared life of luxury. But just as she steps into her role as Mrs. Grey and he relaxes into an unfamiliar stability, new threats could jeopardize their happy ending before it even begins.','English, Deutsch, Español','United States of America','http://image.tmdb.org/t/p/original//jjPJ4s3DWZZvI4vw8Xfi4Vqa1Q8.jpg','6','337167');
 /*!40000 ALTER TABLE `Movie` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -74,7 +71,6 @@ CREATE TABLE `Movielist` (
 
 LOCK TABLES `Movielist` WRITE;
 /*!40000 ALTER TABLE `Movielist` DISABLE KEYS */;
-INSERT INTO `Movielist` VALUES (983737,'Browse History','2018-04-17 22:42:13'),(983737,'Favorites','2018-04-17 22:42:13');
 /*!40000 ALTER TABLE `Movielist` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -134,7 +130,7 @@ CREATE TABLE `Review` (
   KEY `movie_reference` (`movie_id`),
   CONSTRAINT `movie_reference` FOREIGN KEY (`movie_id`) REFERENCES `Movie` (`movie_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `reviewer_reference` FOREIGN KEY (`reviewer_id`) REFERENCES `user` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=425 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=541 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -143,7 +139,6 @@ CREATE TABLE `Review` (
 
 LOCK TABLES `Review` WRITE;
 /*!40000 ALTER TABLE `Review` DISABLE KEYS */;
-INSERT INTO `Review` VALUES (424,'tt1825683',983737,'jjAdim','2018-04-17 23:04:41','Great movie');
 /*!40000 ALTER TABLE `Review` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -173,7 +168,6 @@ CREATE TABLE `UserMovieList` (
 
 LOCK TABLES `UserMovieList` WRITE;
 /*!40000 ALTER TABLE `UserMovieList` DISABLE KEYS */;
-INSERT INTO `UserMovieList` VALUES (983737,'Browse History','tt1825683','Black Panther','2018-04-17 23:04:26');
 /*!40000 ALTER TABLE `UserMovieList` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -190,8 +184,10 @@ CREATE TABLE `rating` (
   `rating` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   `review_date` date NOT NULL,
-  PRIMARY KEY (`rating_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=403 DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`rating_id`),
+  KEY `to_movie` (`movie_id`),
+  CONSTRAINT `to_movie` FOREIGN KEY (`movie_id`) REFERENCES `Movie` (`movie_id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -200,7 +196,6 @@ CREATE TABLE `rating` (
 
 LOCK TABLES `rating` WRITE;
 /*!40000 ALTER TABLE `rating` DISABLE KEYS */;
-INSERT INTO `rating` VALUES (400,'1',3,983722,'2018-04-11'),(402,'tt1825683',9,983737,'2018-04-17');
 /*!40000 ALTER TABLE `rating` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -244,8 +239,10 @@ CREATE TABLE `user` (
   `first_name` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   `role` int(11) DEFAULT '1',
-  PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=983738 DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`user_id`),
+  KEY `user_role_idx` (`role`),
+  CONSTRAINT `user_role` FOREIGN KEY (`role`) REFERENCES `role` (`role_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=983746 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -254,7 +251,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (983721,1,'teststub1@email.com','stub1username','stub1lastname','stub1FirstName','TbthaGCmiimWrtayxr4MBEcD3tVB3sY',1),(983722,1,'teststub2@email.com','stub2username','stub2lastname','stub2FirstName','TbthaGCmiimWrtayxr4MBEcD3tVB3sY',1),(983737,1,'jjadmin@gmail.com','jjAdim','Jones','Jimmy','$2a$10$7hbcJ2z1ezrMk2Xy./EGcuiKNHlTGEHkTMJe6LcGXJl9n9JBHhBM.',2);
+INSERT INTO `user` VALUES (983737,1,'jjadmin@gmail.com','jjAdim','Jones','Jimmy','$2a$10$7hbcJ2z1ezrMk2Xy./EGcuiKNHlTGEHkTMJe6LcGXJl9n9JBHhBM.',2);
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -299,4 +296,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-04-17 19:17:57
+-- Dump completed on 2018-04-18 13:10:07
