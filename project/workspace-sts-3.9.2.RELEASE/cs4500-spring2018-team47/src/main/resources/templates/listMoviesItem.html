@@ -41,21 +41,29 @@
     		</span>
     	</div>
     	
-    	<div th:if="${not #lists.isEmpty(friendList)}" class="friend-Lists-wait-to-prod">
-			<p class="prod-to-all" id="prod-to-all" th:onclick="'sendToAll()'">Send to All friends...</p>
-    		<div th:each="friend : ${friendList}">
-    			<div id="friend-item-block" class="friend-item-block" 
-    				th:onclick="'addRecipient(\''+${friend.username}+'\', \''+${friend.id}+'\')'">
-    				<img src="https://www.ocf.berkeley.edu/~dblab/blog/wp-content/uploads/2012/01/icon-profile.png"
-								class="user-headportrait" style="width: 30px; float: left;"/>
-    				<p th:text="${friend.username}" style="margin-bottom: 0px;"></p>
-    			</div>
-    		</div>
+		<div th:if="${not #lists.isEmpty(friendList)}" class="friend-Lists-wait-to-prod">
+			<p class="prod-to-all" id="prod-to-all" th:onclick="'sendToAll()'">Send
+				to All friends...</p>
+			<div th:each="friend : ${friendList}">
+				<div id="friend-item-block" class="friend-item-block"
+					th:onclick="'addRecipient(\''+${friend.username}+'\', \''+${friend.id}+'\')'">
+					<img
+						src="https://www.ocf.berkeley.edu/~dblab/blog/wp-content/uploads/2012/01/icon-profile.png"
+						class="user-headportrait" style="width: 30px; float: left;" />
+					<p th:text="${friend.username}" style="margin-bottom: 0px;"></p>
+				</div>
+
+			</div>
+		</div>
+		<div th:unless="${not #lists.isEmpty(friendList)}" class="friend-Lists-wait-to-prod">
+    		<p>You don't have any friend yet.</p>
     	</div>
-    	<div>
-    		<button id="close-prodlist-window" class="close-prodlist-window" th:onclick="'closeProdMenu()'">Close</button>
-    		<button id="clean-prod-recipient" class="clean-prod-recipient" th:onclick="'cleanInput()'">Clean</button>
-    	</div>
+		<div>
+			<button id="close-prodlist-window" class="close-prodlist-window"
+				th:onclick="'closeProdMenu()'">Close</button>
+			<button id="clean-prod-recipient" class="clean-prod-recipient"
+				th:onclick="'cleanInput()'">Clean</button>
+		</div>
     </div>
     
     <div class="movieListNameTitleBar">
