@@ -21,6 +21,17 @@ function showOpMenu(event) {
 }
 
 
+function sendToAll() {
+	var userContainer = document.getElementById("prod-to-friend-input-container");
+	var userNames = document.getElementsByClassName("wait-for-prod-username");
+	var userIds = document.getElementsByClassName("wait-for-prod-userid");
+	userContainer.innerHTML = "";
+	for(var i = 0; i < userNames.length; i++) {
+		addRecipient(userNames[i].innerHTML, userIds[i].innerHTML);
+	}
+}
+
+
 function getMenuPosition(event) {
 	var positionX = event.pageX;
 	var positionY = event.pageY;
