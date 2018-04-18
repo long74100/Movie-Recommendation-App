@@ -16,8 +16,7 @@
 
 	<div th:replace="fragments/navBar :: header"></div>
 	
-	<div th:if="${not #lists.isEmpty(friendList)}" id="friendList-for-prod"
-		class="friendList-for-prod"">
+	<div id="friendList-for-prod" class="friendList-for-prod"">
 		<p class="prod-movie-name" id="prod-movie-name"></p>
 		<p class="prod-movie-id" id="prod-movie-id" style="display: none"></p>
 		<p class="prod-movie-dbID" id="prod-movie-dbID" style="display: none"></p>
@@ -41,9 +40,8 @@
 					th:onclick="'sendOutProd('+this+')'">Send</button>
 			</span>
 		</div>
-
-		<div th:if="${not #lists.isEmpty(friendList)}"
-			class="friend-Lists-wait-to-prod">
+		
+		<div th:if="${not #lists.isEmpty(friendList)}" class="friend-Lists-wait-to-prod">
 			<p class="prod-to-all" id="prod-to-all" th:onclick="'sendToAll()'">Send
 				to All friends...</p>
 			<div th:each="friend : ${friendList}">
@@ -52,17 +50,21 @@
 					<img
 						src="https://www.ocf.berkeley.edu/~dblab/blog/wp-content/uploads/2012/01/icon-profile.png"
 						class="user-headportrait" style="width: 30px; float: left;" />
-					<p th:text="${friend.username}" style="margin-bottom: 0px;"></p>
+					<p th:text="${friend.username}" style="margin-bottom: 0px;" class="wait-for-prod-username"></p>
+					<p th:text="${friend.id}" style="display: none;" class="wait-for-prod-userid"></p>
 				</div>
-
 			</div>
 		</div>
+		<div th:unless="${not #lists.isEmpty(friendList)}" class="friend-Lists-wait-to-prod">
+    		<p>You don't have any friend yet.</p>
+    	</div>
 		<div>
 			<button id="close-prodlist-window" class="close-prodlist-window"
 				th:onclick="'closeProdMenu()'">Close</button>
 			<button id="clean-prod-recipient" class="clean-prod-recipient"
 				th:onclick="'cleanInput()'">Clean</button>
 		</div>
+		
 	</div>
 	<div th:unless="${not #lists.isEmpty(friendList)}"
 		class="friendList-for-prod" id="friendList-for-prod">
@@ -164,7 +166,7 @@
 				</div>
 			</div>
 			<div th:unless="${not #lists.isEmpty(recommend)}">
-				<div>There are no similar movies to recommend.</div>
+				<div>No favorites have been added.</div>
 			</div>
 		</div>
 		<hr class="bg-danger p-2">
@@ -207,9 +209,9 @@
 				</div>
 			</div>
 		</div>
-		<!-- else no reviews are found  -->
+		<!-- else no users are found  -->
 		<div th:unless="${not #lists.isEmpty(reviews)}">
-			<div>No one has reviewed the movie. Be the first!</div>
+			<div>No users match this title. Please try again.</div>
 		</div>
 	</div>
 	

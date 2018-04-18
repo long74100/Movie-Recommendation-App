@@ -21,6 +21,17 @@ function showOpMenu(event) {
 }
 
 
+function sendToAll() {
+	var userContainer = document.getElementById("prod-to-friend-input-container");
+	var userNames = document.getElementsByClassName("wait-for-prod-username");
+	var userIds = document.getElementsByClassName("wait-for-prod-userid");
+	userContainer.innerHTML = "";
+	for(var i = 0; i < userNames.length; i++) {
+		addRecipient(userNames[i].innerHTML, userIds[i].innerHTML);
+	}
+}
+
+
 function getMenuPosition(event) {
 	var positionX = event.pageX;
 	var positionY = event.pageY;
@@ -84,6 +95,7 @@ function addRecipient(userName, userId) {
 
 // this functions will send out the movie suggestions to friends
 function sendOutProd() {
+	
 	// also needs movie title and movie id
 	var allUserName = document.getElementsByClassName("RecipientUserName");
 	var allUserId = document.getElementsByClassName("prodRecipientId");
@@ -100,27 +112,33 @@ function sendOutProd() {
 	}
 	var allUserNameInString = AllUserNameContainer.join();
 	var allIdsInString = AllIdContainer.join();
+	if (allUserNameInString == "") {
+		alert("You must add at least one recipient.");
+	}
+	else {
+		// start encoding information and send out
+		var encodedMovieName = encodeURI(movieTitle);
+		var encodedMovieImdbID = encodeURI(movieImdbId);
+		var encodedMovieDBId = encodeURI(movieDBId);
+		var encodedAllUserName = encodeURI(allUserNameInString);
+		var encodedAllUserId = encodeURI(allIdsInString);
+		var encodedComment = encodeURI(comment);
+		
+		var url = "/prodToFriends";
+		var param = "movieName=" + encodedMovieName + "&movieId=" + encodedMovieImdbID + 
+					"&movieDBId=" + encodedMovieDBId + "&allUserName=" + encodedAllUserName +
+					"&allUserId=" + encodedAllUserId + "&comment=" + encodedComment + "&poster=" + moviePoster;
+		var xhr = new XMLHttpRequest();
+		xhr.open("POST", url, true);
+		xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+		xhr.send(param);
+		setTimeout(function() {
+			location.reload(true);
+			}, 
+			150);
+	}
 	
-	// start encoding information and send out
-	var encodedMovieName = encodeURI(movieTitle);
-	var encodedMovieImdbID = encodeURI(movieImdbId);
-	var encodedMovieDBId = encodeURI(movieDBId);
-	var encodedAllUserName = encodeURI(allUserNameInString);
-	var encodedAllUserId = encodeURI(allIdsInString);
-	var encodedComment = encodeURI(comment);
 	
-	var url = "/prodToFriends";
-	var param = "movieName=" + encodedMovieName + "&movieId=" + encodedMovieImdbID + 
-				"&movieDBId=" + encodedMovieDBId + "&allUserName=" + encodedAllUserName +
-				"&allUserId=" + encodedAllUserId + "&comment=" + encodedComment + "&poster=" + moviePoster;
-	var xhr = new XMLHttpRequest();
-	xhr.open("POST", url, true);
-	xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-	xhr.send(param);
-	setTimeout(function() {
-		location.reload(true);
-		}, 
-		150);
 }
 
 
