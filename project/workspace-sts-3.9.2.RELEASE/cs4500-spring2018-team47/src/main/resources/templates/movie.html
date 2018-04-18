@@ -168,7 +168,7 @@
 				</div>
 			</div>
 			<div th:unless="${not #lists.isEmpty(recommend)}">
-				<div>There are no similar movies to recommend.</div>
+				<div>No favorites have been added.</div>
 			</div>
 		</div>
 		<hr class="bg-danger p-2">
@@ -211,9 +211,9 @@
 				</div>
 			</div>
 		</div>
-		<!-- else no reviews are found  -->
+		<!-- else no users are found  -->
 		<div th:unless="${not #lists.isEmpty(reviews)}">
-			<div>No one has reviewed the movie. Be the first!</div>
+			<div>No users match this title. Please try again.</div>
 		</div>
 	</div>
 	
