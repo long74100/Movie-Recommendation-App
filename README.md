@@ -15,3 +15,5 @@ Rotten Tomatillos repository for Team 47
 
 ## Videos
 [Demo Video](https://youtu.be/jdka0CY6WtA)
+
+[Setup Video](https://youtu.be/T3lOJZr8cIk)
