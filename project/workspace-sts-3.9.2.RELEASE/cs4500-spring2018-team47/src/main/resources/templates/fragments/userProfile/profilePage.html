@@ -15,9 +15,10 @@
 			<div th:switch="${profileUser}">
 				<div th:case="null"></div>
 				<div th:case="*">
-					<h1 th:text="${profileUser.username}" id="profileUserName"></h1>
+					<h1 id="profileUsername" th:text="${profileUser.username}"></h1>
 					<span th:text="${profileUser.id}" id="profileUserId" class="d-none"></span>
 					<div th:if="${user != null}">
+					<button class="btn btn-primary" id="addFriendButton" name="addFriend">Add Friend</button>
 						<form
 							th:action="@{/view/{username}(username=${profileUser.username})}"
 							method="POST" class="d-inline">
